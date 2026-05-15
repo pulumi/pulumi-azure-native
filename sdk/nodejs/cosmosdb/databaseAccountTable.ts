@@ -85,6 +85,9 @@ export class DatabaseAccountTable extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.tableName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tableName'");
+            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["options"] = args?.options;
             resourceInputs["resource"] = args?.resource;
@@ -132,5 +135,5 @@ export interface DatabaseAccountTableArgs {
     /**
      * Cosmos DB table name.
      */
-    tableName?: pulumi.Input<string | undefined>;
+    tableName: pulumi.Input<string>;
 }

@@ -93,6 +93,9 @@ export class PlanMember extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.memberName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'memberName'");
+            }
             if (args?.planName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'planName'");
             }
@@ -142,7 +145,7 @@ export interface PlanMemberArgs {
     /**
      * The name of a devcenter plan member.
      */
-    memberName?: pulumi.Input<string | undefined>;
+    memberName: pulumi.Input<string>;
     /**
      * The type of the member (user, group)
      */

@@ -141,6 +141,9 @@ export class Budget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.budgetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'budgetName'");
+            }
             if (args?.category === undefined && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
@@ -203,7 +206,7 @@ export interface BudgetArgs {
     /**
      * Budget Name.
      */
-    budgetName?: pulumi.Input<string | undefined>;
+    budgetName: pulumi.Input<string>;
     /**
      * The category of the budget.
      * - 'Cost' defines a Budget.

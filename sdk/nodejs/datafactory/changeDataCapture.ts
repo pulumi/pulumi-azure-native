@@ -95,6 +95,9 @@ export class ChangeDataCapture extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.changeDataCaptureName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'changeDataCaptureName'");
+            }
             if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
@@ -155,7 +158,7 @@ export interface ChangeDataCaptureArgs {
     /**
      * The change data capture name.
      */
-    changeDataCaptureName?: pulumi.Input<string | undefined>;
+    changeDataCaptureName: pulumi.Input<string>;
     /**
      * The description of the change data capture.
      */

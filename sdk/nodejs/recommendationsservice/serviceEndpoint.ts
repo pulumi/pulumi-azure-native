@@ -87,6 +87,9 @@ export class ServiceEndpoint extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.serviceEndpointName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serviceEndpointName'");
+            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
@@ -136,7 +139,7 @@ export interface ServiceEndpointArgs {
     /**
      * The name of the ServiceEndpoint resource.
      */
-    serviceEndpointName?: pulumi.Input<string | undefined>;
+    serviceEndpointName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

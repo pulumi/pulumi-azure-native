@@ -99,6 +99,9 @@ export class CloudConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.cloudConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'cloudConnectionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -144,7 +147,7 @@ export interface CloudConnectionArgs {
     /**
      * The name of the cloud connection resource
      */
-    cloudConnectionName?: pulumi.Input<string | undefined>;
+    cloudConnectionName: pulumi.Input<string>;
     /**
      * The cloud connector which discovered the remote resource.
      */

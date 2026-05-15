@@ -88,6 +88,9 @@ export class IntegrationAccountSession extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.sessionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sessionName'");
+            }
             resourceInputs["content"] = args?.content;
             resourceInputs["integrationAccountName"] = args?.integrationAccountName;
             resourceInputs["location"] = args?.location;
@@ -139,7 +142,7 @@ export interface IntegrationAccountSessionArgs {
     /**
      * The integration account session name.
      */
-    sessionName?: pulumi.Input<string | undefined>;
+    sessionName: pulumi.Input<string>;
     /**
      * The resource tags.
      */

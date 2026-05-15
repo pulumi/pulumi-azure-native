@@ -93,6 +93,9 @@ export class Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.fleetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'fleetName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +137,7 @@ export interface FleetArgs {
     /**
      * The name of the Fleet resource.
      */
-    fleetName?: pulumi.Input<string | undefined>;
+    fleetName: pulumi.Input<string>;
     /**
      * The FleetHubProfile configures the Fleet's hub.
      */

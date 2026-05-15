@@ -115,6 +115,9 @@ export class GroundStation extends pulumi.CustomResource {
             if (args?.globalCommunicationsSite === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalCommunicationsSite'");
             }
+            if (args?.groundStationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'groundStationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -180,7 +183,7 @@ export interface GroundStationArgs {
     /**
      * Ground Station name.
      */
-    groundStationName?: pulumi.Input<string | undefined>;
+    groundStationName: pulumi.Input<string>;
     /**
      * Latitude of the ground station in decimal degrees.
      */

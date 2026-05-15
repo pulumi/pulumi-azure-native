@@ -97,6 +97,9 @@ export class IpPrefix extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.ipPrefixName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ipPrefixName'");
+            }
             if (args?.ipPrefixRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipPrefixRules'");
             }
@@ -147,7 +150,7 @@ export interface IpPrefixArgs {
     /**
      * Name of the IP Prefix.
      */
-    ipPrefixName?: pulumi.Input<string | undefined>;
+    ipPrefixName: pulumi.Input<string>;
     /**
      * The list of IP Prefix Rules.
      */

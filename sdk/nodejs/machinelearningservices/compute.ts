@@ -89,6 +89,9 @@ export class Compute extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.computeName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'computeName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +135,7 @@ export interface ComputeArgs {
     /**
      * Name of the Azure Machine Learning compute.
      */
-    computeName?: pulumi.Input<string | undefined>;
+    computeName: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */

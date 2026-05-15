@@ -79,6 +79,9 @@ export class Springbootserver extends pulumi.CustomResource {
             if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
+            if (args?.springbootserversName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'springbootserversName'");
+            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["siteName"] = args?.siteName;
@@ -120,5 +123,5 @@ export interface SpringbootserverArgs {
     /**
      * The springbootservers name.
      */
-    springbootserversName?: pulumi.Input<string | undefined>;
+    springbootserversName: pulumi.Input<string>;
 }

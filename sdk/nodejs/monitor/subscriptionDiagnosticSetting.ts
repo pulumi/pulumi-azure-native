@@ -91,10 +91,13 @@ export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SubscriptionDiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SubscriptionDiagnosticSettingArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["eventHubAuthorizationRuleId"] = args?.eventHubAuthorizationRuleId;
             resourceInputs["eventHubName"] = args?.eventHubName;
             resourceInputs["logs"] = args?.logs;
@@ -149,7 +152,7 @@ export interface SubscriptionDiagnosticSettingArgs {
     /**
      * The name of the diagnostic setting.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
      */

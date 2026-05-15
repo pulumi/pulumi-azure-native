@@ -81,6 +81,9 @@ export class ProtectionContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.containerName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'containerName'");
+            }
             if (args?.fabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
@@ -124,7 +127,7 @@ export interface ProtectionContainerArgs {
     /**
      * Name of the container to be registered.
      */
-    containerName?: pulumi.Input<string | undefined>;
+    containerName: pulumi.Input<string>;
     /**
      * Optional ETag.
      */

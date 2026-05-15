@@ -88,6 +88,9 @@ export class ElasticBackupPolicy extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.backupPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'backupPolicyName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -130,7 +133,7 @@ export interface ElasticBackupPolicyArgs {
     /**
      * The name of the ElasticBackupPolicy
      */
-    backupPolicyName?: pulumi.Input<string | undefined>;
+    backupPolicyName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

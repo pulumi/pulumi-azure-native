@@ -77,6 +77,9 @@ export class AkriConnectorTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.akriConnectorTemplateName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'akriConnectorTemplateName'");
+            }
             if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
@@ -114,7 +117,7 @@ export interface AkriConnectorTemplateArgs {
     /**
      * Name of AkriConnectorTemplate resource.
      */
-    akriConnectorTemplateName?: pulumi.Input<string | undefined>;
+    akriConnectorTemplateName: pulumi.Input<string>;
     /**
      * Edge location of the resource.
      */

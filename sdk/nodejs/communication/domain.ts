@@ -114,6 +114,9 @@ export class Domain extends pulumi.CustomResource {
             if (args?.domainManagement === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainManagement'");
             }
+            if (args?.domainName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'domainName'");
+            }
             if (args?.emailServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailServiceName'");
             }
@@ -171,7 +174,7 @@ export interface DomainArgs {
     /**
      * The name of the Domains resource.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName: pulumi.Input<string>;
     /**
      * The name of the EmailService resource.
      */

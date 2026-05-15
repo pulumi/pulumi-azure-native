@@ -81,6 +81,9 @@ export class AlertProcessingRuleByName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.alertProcessingRuleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'alertProcessingRuleName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +119,7 @@ export interface AlertProcessingRuleByNameArgs {
     /**
      * The name of the alert processing rule that needs to be fetched.
      */
-    alertProcessingRuleName?: pulumi.Input<string | undefined>;
+    alertProcessingRuleName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

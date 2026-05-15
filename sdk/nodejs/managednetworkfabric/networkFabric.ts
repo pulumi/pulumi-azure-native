@@ -161,6 +161,9 @@ export class NetworkFabric extends pulumi.CustomResource {
             if (args?.networkFabricControllerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricControllerId'");
             }
+            if (args?.networkFabricName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkFabricName'");
+            }
             if (args?.networkFabricSku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricSku'");
             }
@@ -271,7 +274,7 @@ export interface NetworkFabricArgs {
     /**
      * Name of the Network Fabric.
      */
-    networkFabricName?: pulumi.Input<string | undefined>;
+    networkFabricName: pulumi.Input<string>;
     /**
      * Supported Network Fabric SKU.Example: Compute / Aggregate racks. Once the user chooses a particular SKU, only supported racks can be added to the Network Fabric. The SKU determines whether it is a single / multi rack Network Fabric.
      */

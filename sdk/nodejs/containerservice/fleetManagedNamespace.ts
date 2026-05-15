@@ -86,6 +86,9 @@ export class FleetManagedNamespace extends pulumi.CustomResource {
             if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
+            if (args?.managedNamespaceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'managedNamespaceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +135,7 @@ export interface FleetManagedNamespaceArgs {
     /**
      * The name of the fleet managed namespace resource.
      */
-    managedNamespaceName?: pulumi.Input<string | undefined>;
+    managedNamespaceName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

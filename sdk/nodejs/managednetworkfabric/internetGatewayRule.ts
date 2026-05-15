@@ -93,6 +93,9 @@ export class InternetGatewayRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.internetGatewayRuleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'internetGatewayRuleName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -141,7 +144,7 @@ export interface InternetGatewayRuleArgs {
     /**
      * Name of the Internet Gateway rule.
      */
-    internetGatewayRuleName?: pulumi.Input<string | undefined>;
+    internetGatewayRuleName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

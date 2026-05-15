@@ -101,6 +101,9 @@ export class Spacecraft extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.spacecraftName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'spacecraftName'");
+            }
             if (args?.titleLine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'titleLine'");
             }
@@ -166,7 +169,7 @@ export interface SpacecraftArgs {
     /**
      * Spacecraft ID.
      */
-    spacecraftName?: pulumi.Input<string | undefined>;
+    spacecraftName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

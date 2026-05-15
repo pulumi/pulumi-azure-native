@@ -68,6 +68,9 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
             if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
+            if (args?.plaId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'plaId'");
+            }
             resourceInputs["groupId"] = args?.groupId;
             resourceInputs["plaId"] = args?.plaId;
             resourceInputs["properties"] = args?.properties;
@@ -98,7 +101,7 @@ export interface PrivateLinkAssociationArgs {
     /**
      * The ID of the PLA
      */
-    plaId?: pulumi.Input<string | undefined>;
+    plaId: pulumi.Input<string>;
     /**
      * The properties of the PrivateLinkAssociation.
      */

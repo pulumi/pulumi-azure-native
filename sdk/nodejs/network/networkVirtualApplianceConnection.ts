@@ -65,6 +65,9 @@ export class NetworkVirtualApplianceConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.connectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectionName'");
+            }
             if (args?.networkVirtualApplianceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkVirtualApplianceName'");
             }
@@ -97,7 +100,7 @@ export interface NetworkVirtualApplianceConnectionArgs {
     /**
      * The name of the NVA connection.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * Resource ID.
      */

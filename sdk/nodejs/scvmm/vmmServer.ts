@@ -122,6 +122,9 @@ export class VmmServer extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.vmmServerName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'vmmServerName'");
+            }
             resourceInputs["credentials"] = args?.credentials;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["fqdn"] = args?.fqdn;
@@ -198,5 +201,5 @@ export interface VmmServerArgs {
     /**
      * Name of the VMMServer.
      */
-    vmmServerName?: pulumi.Input<string | undefined>;
+    vmmServerName: pulumi.Input<string>;
 }

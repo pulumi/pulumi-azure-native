@@ -138,6 +138,9 @@ export class Profile extends pulumi.CustomResource {
             if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
+            if (args?.profileName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'profileName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -246,7 +249,7 @@ export interface ProfileArgs {
     /**
      * The name of the profile.
      */
-    profileName?: pulumi.Input<string | undefined>;
+    profileName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

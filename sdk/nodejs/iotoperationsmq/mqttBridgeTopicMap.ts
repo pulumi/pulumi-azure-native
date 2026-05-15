@@ -106,6 +106,9 @@ export class MqttBridgeTopicMap extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.topicMapName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'topicMapName'");
+            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
             resourceInputs["mqName"] = args?.mqName;
@@ -178,5 +181,5 @@ export interface MqttBridgeTopicMapArgs {
     /**
      * Name of MQ mqttBridgeTopicMap resource
      */
-    topicMapName?: pulumi.Input<string | undefined>;
+    topicMapName: pulumi.Input<string>;
 }

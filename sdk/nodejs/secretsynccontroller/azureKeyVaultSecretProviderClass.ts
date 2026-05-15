@@ -99,6 +99,9 @@ export class AzureKeyVaultSecretProviderClass extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.azureKeyVaultSecretProviderClassName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'azureKeyVaultSecretProviderClassName'");
+            }
             if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
@@ -153,7 +156,7 @@ export interface AzureKeyVaultSecretProviderClassArgs {
     /**
      * The name of the AzureKeyVaultSecretProviderClass
      */
-    azureKeyVaultSecretProviderClassName?: pulumi.Input<string | undefined>;
+    azureKeyVaultSecretProviderClassName: pulumi.Input<string>;
     /**
      * The user assigned managed identity client ID that should be used to access the Azure Key Vault.
      */

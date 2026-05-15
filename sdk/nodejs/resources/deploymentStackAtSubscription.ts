@@ -151,6 +151,9 @@ export class DeploymentStackAtSubscription extends pulumi.CustomResource {
             if (args?.denySettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'denySettings'");
             }
+            if (args?.deploymentStackName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'deploymentStackName'");
+            }
             resourceInputs["actionOnUnmanage"] = args?.actionOnUnmanage;
             resourceInputs["bypassStackOutOfSyncError"] = args?.bypassStackOutOfSyncError;
             resourceInputs["debugSetting"] = args?.debugSetting;
@@ -237,7 +240,7 @@ export interface DeploymentStackAtSubscriptionArgs {
     /**
      * Name of the deployment stack.
      */
-    deploymentStackName?: pulumi.Input<string | undefined>;
+    deploymentStackName: pulumi.Input<string>;
     /**
      * Deployment stack description. Max length of 4096 characters.
      */

@@ -154,6 +154,9 @@ export class FluxConfiguration extends pulumi.CustomResource {
             if (args?.clusterRp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterRp'");
             }
+            if (args?.fluxConfigurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'fluxConfigurationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -248,7 +251,7 @@ export interface FluxConfigurationArgs {
     /**
      * Name of the Flux Configuration.
      */
-    fluxConfigurationName?: pulumi.Input<string | undefined>;
+    fluxConfigurationName: pulumi.Input<string>;
     /**
      * Parameters to reconcile to the GitRepository source kind type.
      */

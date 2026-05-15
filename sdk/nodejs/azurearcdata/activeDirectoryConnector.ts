@@ -73,6 +73,9 @@ export class ActiveDirectoryConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.activeDirectoryConnectorName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'activeDirectoryConnectorName'");
+            }
             if (args?.dataControllerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataControllerName'");
             }
@@ -111,7 +114,7 @@ export interface ActiveDirectoryConnectorArgs {
     /**
      * The name of the Active Directory connector instance
      */
-    activeDirectoryConnectorName?: pulumi.Input<string | undefined>;
+    activeDirectoryConnectorName: pulumi.Input<string>;
     /**
      * The name of the data controller
      */

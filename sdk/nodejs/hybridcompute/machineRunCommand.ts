@@ -135,6 +135,9 @@ export class MachineRunCommand extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.runCommandName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'runCommandName'");
+            }
             resourceInputs["asyncExecution"] = (args?.asyncExecution) ?? false;
             resourceInputs["errorBlobManagedIdentity"] = args?.errorBlobManagedIdentity;
             resourceInputs["errorBlobUri"] = args?.errorBlobUri;
@@ -240,7 +243,7 @@ export interface MachineRunCommandArgs {
     /**
      * The name of the run command.
      */
-    runCommandName?: pulumi.Input<string | undefined>;
+    runCommandName: pulumi.Input<string>;
     /**
      * The source of the run command script.
      */

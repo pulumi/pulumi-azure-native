@@ -96,6 +96,9 @@ export class CapacityPoolBucket extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.bucketName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'bucketName'");
+            }
             if (args?.poolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
@@ -148,7 +151,7 @@ export interface CapacityPoolBucketArgs {
     /**
      * The name of the bucket
      */
-    bucketName?: pulumi.Input<string | undefined>;
+    bucketName: pulumi.Input<string>;
     /**
      * File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
      */

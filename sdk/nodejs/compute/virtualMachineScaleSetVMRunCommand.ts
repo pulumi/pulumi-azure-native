@@ -139,6 +139,9 @@ export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.runCommandName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'runCommandName'");
+            }
             if (args?.vmScaleSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
@@ -250,7 +253,7 @@ export interface VirtualMachineScaleSetVMRunCommandArgs {
     /**
      * The name of the VirtualMachineRunCommand
      */
-    runCommandName?: pulumi.Input<string | undefined>;
+    runCommandName: pulumi.Input<string>;
     /**
      * The source of the run command script.
      */

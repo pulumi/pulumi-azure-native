@@ -105,6 +105,9 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.sharedPrivateLinkResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sharedPrivateLinkResourceName'");
+            }
             if (args?.watcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watcherName'");
             }
@@ -167,7 +170,7 @@ export interface SharedPrivateLinkResourceArgs {
     /**
      * The Shared Private Link resource name.
      */
-    sharedPrivateLinkResourceName?: pulumi.Input<string | undefined>;
+    sharedPrivateLinkResourceName: pulumi.Input<string>;
     /**
      * The database watcher name.
      */

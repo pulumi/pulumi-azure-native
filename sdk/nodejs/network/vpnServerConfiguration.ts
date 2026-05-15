@@ -84,6 +84,9 @@ export class VpnServerConfiguration extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.vpnServerConfigurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'vpnServerConfigurationName'");
+            }
             resourceInputs["id"] = args?.id;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
@@ -141,5 +144,5 @@ export interface VpnServerConfigurationArgs {
     /**
      * The name of the VpnServerConfiguration being created or updated.
      */
-    vpnServerConfigurationName?: pulumi.Input<string | undefined>;
+    vpnServerConfigurationName: pulumi.Input<string>;
 }

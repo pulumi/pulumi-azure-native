@@ -84,6 +84,9 @@ export class Execution extends pulumi.CustomResource {
             if (args?.contextName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contextName'");
             }
+            if (args?.executionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'executionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +135,7 @@ export interface ExecutionArgs {
     /**
      * The name of the Execution.
      */
-    executionName?: pulumi.Input<string | undefined>;
+    executionName: pulumi.Input<string>;
     /**
      * The complex type of the extended location.
      */

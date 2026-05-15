@@ -120,6 +120,9 @@ export class Relationship extends pulumi.CustomResource {
             if (args?.relatedProfileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedProfileType'");
             }
+            if (args?.relationshipName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'relationshipName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -207,7 +210,7 @@ export interface RelationshipArgs {
     /**
      * The name of the Relationship.
      */
-    relationshipName?: pulumi.Input<string | undefined>;
+    relationshipName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

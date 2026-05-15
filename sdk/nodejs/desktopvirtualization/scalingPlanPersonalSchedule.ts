@@ -179,6 +179,9 @@ export class ScalingPlanPersonalSchedule extends pulumi.CustomResource {
             if (args?.scalingPlanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scalingPlanName'");
             }
+            if (args?.scalingPlanScheduleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scalingPlanScheduleName'");
+            }
             resourceInputs["daysOfWeek"] = args?.daysOfWeek;
             resourceInputs["offPeakActionOnDisconnect"] = args?.offPeakActionOnDisconnect;
             resourceInputs["offPeakActionOnLogoff"] = args?.offPeakActionOnLogoff;
@@ -370,5 +373,5 @@ export interface ScalingPlanPersonalScheduleArgs {
     /**
      * The name of the ScalingPlanSchedule
      */
-    scalingPlanScheduleName?: pulumi.Input<string | undefined>;
+    scalingPlanScheduleName: pulumi.Input<string>;
 }

@@ -104,6 +104,9 @@ export class Organization extends pulumi.CustomResource {
             if (args?.offerDetail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'offerDetail'");
             }
+            if (args?.organizationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'organizationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -165,7 +168,7 @@ export interface OrganizationArgs {
     /**
      * Organization resource name
      */
-    organizationName?: pulumi.Input<string | undefined>;
+    organizationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -141,6 +141,9 @@ export class LicenseProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.licenseProfileName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'licenseProfileName'");
+            }
             if (args?.machineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineName'");
             }
@@ -214,7 +217,7 @@ export interface LicenseProfileArgs {
     /**
      * The name of the license profile.
      */
-    licenseProfileName?: pulumi.Input<string | undefined>;
+    licenseProfileName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

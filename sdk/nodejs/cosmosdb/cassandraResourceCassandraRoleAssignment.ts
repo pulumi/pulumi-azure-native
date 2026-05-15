@@ -91,6 +91,9 @@ export class CassandraResourceCassandraRoleAssignment extends pulumi.CustomResou
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.roleAssignmentId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'roleAssignmentId'");
+            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["principalId"] = args?.principalId;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -138,7 +141,7 @@ export interface CassandraResourceCassandraRoleAssignmentArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId?: pulumi.Input<string | undefined>;
+    roleAssignmentId: pulumi.Input<string>;
     /**
      * The unique identifier for the associated Role Definition.
      */

@@ -107,6 +107,9 @@ export class VolumeGroup extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.volumeGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'volumeGroupName'");
+            }
             resourceInputs["elasticSanName"] = args?.elasticSanName;
             resourceInputs["encryption"] = args?.encryption;
             resourceInputs["encryptionProperties"] = args?.encryptionProperties;
@@ -182,5 +185,5 @@ export interface VolumeGroupArgs {
     /**
      * The name of the VolumeGroup.
      */
-    volumeGroupName?: pulumi.Input<string | undefined>;
+    volumeGroupName: pulumi.Input<string>;
 }

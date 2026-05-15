@@ -99,6 +99,9 @@ export class ForwardingRule extends pulumi.CustomResource {
             if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
+            if (args?.forwardingRuleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'forwardingRuleName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -152,7 +155,7 @@ export interface ForwardingRuleArgs {
     /**
      * The name of the forwarding rule.
      */
-    forwardingRuleName?: pulumi.Input<string | undefined>;
+    forwardingRuleName: pulumi.Input<string>;
     /**
      * The state of forwarding rule.
      */

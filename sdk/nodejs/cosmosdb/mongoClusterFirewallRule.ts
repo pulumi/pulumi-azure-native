@@ -84,6 +84,9 @@ export class MongoClusterFirewallRule extends pulumi.CustomResource {
             if (args?.endIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
+            if (args?.firewallRuleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'firewallRuleName'");
+            }
             if (args?.mongoClusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mongoClusterName'");
             }
@@ -130,7 +133,7 @@ export interface MongoClusterFirewallRuleArgs {
     /**
      * The name of the mongo cluster firewall rule.
      */
-    firewallRuleName?: pulumi.Input<string | undefined>;
+    firewallRuleName: pulumi.Input<string>;
     /**
      * The name of the mongo cluster.
      */

@@ -85,6 +85,9 @@ export class WebPubSubCustomCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.certificateName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'certificateName'");
+            }
             if (args?.keyVaultBaseUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultBaseUri'");
             }
@@ -132,7 +135,7 @@ export interface WebPubSubCustomCertificateArgs {
     /**
      * Custom certificate name
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName: pulumi.Input<string>;
     /**
      * Base uri of the KeyVault that stores certificate.
      */

@@ -73,6 +73,9 @@ export class WorkloadNetworkDhcp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dhcpId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dhcpId'");
+            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -108,7 +111,7 @@ export interface WorkloadNetworkDhcpArgs {
     /**
      * The ID of the DHCP configuration
      */
-    dhcpId?: pulumi.Input<string | undefined>;
+    dhcpId: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

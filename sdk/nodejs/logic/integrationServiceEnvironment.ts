@@ -83,6 +83,9 @@ export class IntegrationServiceEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.integrationServiceEnvironmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'integrationServiceEnvironmentName'");
+            }
             if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
@@ -124,7 +127,7 @@ export interface IntegrationServiceEnvironmentArgs {
     /**
      * The integration service environment name.
      */
-    integrationServiceEnvironmentName?: pulumi.Input<string | undefined>;
+    integrationServiceEnvironmentName: pulumi.Input<string>;
     /**
      * The resource location.
      */

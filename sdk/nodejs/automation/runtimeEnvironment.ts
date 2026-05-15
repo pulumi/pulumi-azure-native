@@ -99,6 +99,9 @@ export class RuntimeEnvironment extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.runtimeEnvironmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'runtimeEnvironmentName'");
+            }
             resourceInputs["automationAccountName"] = args?.automationAccountName;
             resourceInputs["defaultPackages"] = args?.defaultPackages;
             resourceInputs["description"] = args?.description;
@@ -162,7 +165,7 @@ export interface RuntimeEnvironmentArgs {
     /**
      * The name of the Runtime Environment.
      */
-    runtimeEnvironmentName?: pulumi.Input<string | undefined>;
+    runtimeEnvironmentName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -69,10 +69,13 @@ export class TenantConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TenantConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: TenantConfigurationArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.configurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configurationName'");
+            }
             resourceInputs["configurationName"] = args?.configurationName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -100,7 +103,7 @@ export interface TenantConfigurationArgs {
     /**
      * The name of the Configuration
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

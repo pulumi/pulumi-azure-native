@@ -126,6 +126,9 @@ export class Report extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.reportName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'reportName'");
+            }
             if (args?.resources === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resources'");
             }
@@ -192,7 +195,7 @@ export interface ReportArgs {
     /**
      * Report Name.
      */
-    reportName?: pulumi.Input<string | undefined>;
+    reportName: pulumi.Input<string>;
     /**
      * List of resource data.
      */

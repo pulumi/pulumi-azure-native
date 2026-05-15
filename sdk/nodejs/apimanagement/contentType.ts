@@ -74,6 +74,9 @@ export class ContentType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.contentTypeId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'contentTypeId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +115,7 @@ export interface ContentTypeArgs {
     /**
      * Content type identifier.
      */
-    contentTypeId?: pulumi.Input<string | undefined>;
+    contentTypeId: pulumi.Input<string>;
     /**
      * Content type description.
      */

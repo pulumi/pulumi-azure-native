@@ -75,6 +75,9 @@ export class Channel extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.channelName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'channelName'");
+            }
             if (args?.channelType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelType'");
             }
@@ -120,7 +123,7 @@ export interface ChannelArgs {
     /**
      * Channel Name
      */
-    channelName?: pulumi.Input<string | undefined>;
+    channelName: pulumi.Input<string>;
     /**
      * The channel type
      */

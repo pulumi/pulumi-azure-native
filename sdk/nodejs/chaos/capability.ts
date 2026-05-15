@@ -73,6 +73,9 @@ export class Capability extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.capabilityName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'capabilityName'");
+            }
             if (args?.parentProviderNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentProviderNamespace'");
             }
@@ -120,7 +123,7 @@ export interface CapabilityArgs {
     /**
      * String that represents a Capability resource name.
      */
-    capabilityName?: pulumi.Input<string | undefined>;
+    capabilityName: pulumi.Input<string>;
     /**
      * String that represents a resource provider namespace.
      */

@@ -87,6 +87,9 @@ export class SolutionVersion extends pulumi.CustomResource {
             if (args?.solutionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'solutionName'");
             }
+            if (args?.solutionVersionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'solutionVersionName'");
+            }
             if (args?.targetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
@@ -140,7 +143,7 @@ export interface SolutionVersionArgs {
     /**
      * Name of the solution version
      */
-    solutionVersionName?: pulumi.Input<string | undefined>;
+    solutionVersionName: pulumi.Input<string>;
     /**
      * Name of the target
      */

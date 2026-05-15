@@ -117,6 +117,9 @@ export class BlobDataSetMapping extends pulumi.CustomResource {
             if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
+            if (args?.dataSetMappingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataSetMappingName'");
+            }
             if (args?.filePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filePath'");
             }
@@ -198,7 +201,7 @@ export interface BlobDataSetMappingArgs {
     /**
      * The name of the data set mapping to be created.
      */
-    dataSetMappingName?: pulumi.Input<string | undefined>;
+    dataSetMappingName: pulumi.Input<string>;
     /**
      * File path within the source data set
      */

@@ -78,6 +78,9 @@ export class Product extends pulumi.CustomResource {
             if (args?.catalogName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogName'");
             }
+            if (args?.productName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'productName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -120,7 +123,7 @@ export interface ProductArgs {
     /**
      * Name of product.
      */
-    productName?: pulumi.Input<string | undefined>;
+    productName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

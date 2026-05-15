@@ -112,6 +112,9 @@ export class Invitation extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.invitationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'invitationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -174,7 +177,7 @@ export interface InvitationArgs {
     /**
      * The name of the invitation.
      */
-    invitationName?: pulumi.Input<string | undefined>;
+    invitationName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

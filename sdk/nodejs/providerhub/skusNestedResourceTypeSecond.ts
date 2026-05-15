@@ -82,6 +82,9 @@ export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
             if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
+            if (args?.sku === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sku'");
+            }
             resourceInputs["nestedResourceTypeFirst"] = args?.nestedResourceTypeFirst;
             resourceInputs["nestedResourceTypeSecond"] = args?.nestedResourceTypeSecond;
             resourceInputs["properties"] = args?.properties;
@@ -130,5 +133,5 @@ export interface SkusNestedResourceTypeSecondArgs {
     /**
      * The SKU.
      */
-    sku?: pulumi.Input<string | undefined>;
+    sku: pulumi.Input<string>;
 }

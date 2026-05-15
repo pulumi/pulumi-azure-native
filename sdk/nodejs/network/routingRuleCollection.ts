@@ -105,6 +105,9 @@ export class RoutingRuleCollection extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.ruleCollectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ruleCollectionName'");
+            }
             resourceInputs["appliesTo"] = args?.appliesTo;
             resourceInputs["configurationName"] = args?.configurationName;
             resourceInputs["description"] = args?.description;
@@ -169,5 +172,5 @@ export interface RoutingRuleCollectionArgs {
     /**
      * The name of the network manager routing Configuration rule collection.
      */
-    ruleCollectionName?: pulumi.Input<string | undefined>;
+    ruleCollectionName: pulumi.Input<string>;
 }

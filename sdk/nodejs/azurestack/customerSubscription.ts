@@ -70,6 +70,9 @@ export class CustomerSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.customerSubscriptionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'customerSubscriptionName'");
+            }
             if (args?.registrationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registrationName'");
             }
@@ -105,7 +108,7 @@ export interface CustomerSubscriptionArgs {
     /**
      * Name of the product.
      */
-    customerSubscriptionName?: pulumi.Input<string | undefined>;
+    customerSubscriptionName: pulumi.Input<string>;
     /**
      * Name of the Azure Stack registration.
      */

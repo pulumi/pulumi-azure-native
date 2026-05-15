@@ -131,6 +131,9 @@ export class Lab extends pulumi.CustomResource {
             if (args?.connectionProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionProfile'");
             }
+            if (args?.labName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'labName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -206,7 +209,7 @@ export interface LabArgs {
     /**
      * The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
      */
-    labName?: pulumi.Input<string | undefined>;
+    labName: pulumi.Input<string>;
     /**
      * The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
      */

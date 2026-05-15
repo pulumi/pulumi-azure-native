@@ -131,6 +131,9 @@ export class SapVirtualInstance extends pulumi.CustomResource {
             if (args?.sapProduct === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapProduct'");
             }
+            if (args?.sapVirtualInstanceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sapVirtualInstanceName'");
+            }
             resourceInputs["configuration"] = args?.configuration;
             resourceInputs["environment"] = args?.environment;
             resourceInputs["identity"] = args?.identity;
@@ -215,7 +218,7 @@ export interface SapVirtualInstanceArgs {
     /**
      * The name of the Virtual Instances for SAP solutions resource
      */
-    sapVirtualInstanceName?: pulumi.Input<string | undefined>;
+    sapVirtualInstanceName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

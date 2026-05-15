@@ -106,6 +106,9 @@ export class PartnerDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.partnerDestinationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'partnerDestinationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -178,7 +181,7 @@ export interface PartnerDestinationArgs {
     /**
      * Name of the partner destination.
      */
-    partnerDestinationName?: pulumi.Input<string | undefined>;
+    partnerDestinationName: pulumi.Input<string>;
     /**
      * The immutable Id of the corresponding partner registration.
      */

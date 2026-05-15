@@ -89,6 +89,9 @@ export class HubVirtualNetworkConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.connectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -141,7 +144,7 @@ export interface HubVirtualNetworkConnectionArgs {
     /**
      * The name of the HubVirtualNetworkConnection.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * Enable internet security.
      */

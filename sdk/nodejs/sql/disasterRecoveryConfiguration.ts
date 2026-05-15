@@ -92,6 +92,9 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.disasterRecoveryConfigurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'disasterRecoveryConfigurationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -139,7 +142,7 @@ export interface DisasterRecoveryConfigurationArgs {
     /**
      * The name of the disaster recovery configuration to be created/updated.
      */
-    disasterRecoveryConfigurationName?: pulumi.Input<string | undefined>;
+    disasterRecoveryConfigurationName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

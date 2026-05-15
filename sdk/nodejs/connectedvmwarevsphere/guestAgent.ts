@@ -105,6 +105,9 @@ export class GuestAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -163,7 +166,7 @@ export interface GuestAgentArgs {
     /**
      * Name of the guestAgents.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The resource id of the private link scope this machine is assigned to, if any.
      */

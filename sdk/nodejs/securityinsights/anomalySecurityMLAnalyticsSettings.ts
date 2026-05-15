@@ -153,6 +153,9 @@ export class AnomalySecurityMLAnalyticsSettings extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.settingsResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'settingsResourceName'");
+            }
             if (args?.settingsStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'settingsStatus'");
             }
@@ -267,7 +270,7 @@ export interface AnomalySecurityMLAnalyticsSettingsArgs {
     /**
      * Security ML Analytics Settings resource name
      */
-    settingsResourceName?: pulumi.Input<string | undefined>;
+    settingsResourceName: pulumi.Input<string>;
     /**
      * The anomaly SecurityMLAnalyticsSettings status
      */

@@ -73,6 +73,9 @@ export class ContainerRegistry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.containerRegistryName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'containerRegistryName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -108,7 +111,7 @@ export interface ContainerRegistryArgs {
     /**
      * The name of the container registry.
      */
-    containerRegistryName?: pulumi.Input<string | undefined>;
+    containerRegistryName: pulumi.Input<string>;
     /**
      * Properties of the container registry resource payload.
      */

@@ -117,6 +117,9 @@ export class IscsiTarget extends pulumi.CustomResource {
             if (args?.diskPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'diskPoolName'");
             }
+            if (args?.iscsiTargetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'iscsiTargetName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -177,7 +180,7 @@ export interface IscsiTargetArgs {
     /**
      * The name of the iSCSI Target.
      */
-    iscsiTargetName?: pulumi.Input<string | undefined>;
+    iscsiTargetName: pulumi.Input<string>;
     /**
      * List of LUNs to be exposed through iSCSI Target.
      */

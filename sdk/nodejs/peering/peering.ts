@@ -100,6 +100,9 @@ export class Peering extends pulumi.CustomResource {
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
+            if (args?.peeringName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'peeringName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -166,7 +169,7 @@ export interface PeeringArgs {
     /**
      * The name of the peering.
      */
-    peeringName?: pulumi.Input<string | undefined>;
+    peeringName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

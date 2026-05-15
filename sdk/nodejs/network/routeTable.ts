@@ -100,6 +100,9 @@ export class RouteTable extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.routeTableName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'routeTableName'");
+            }
             resourceInputs["disableBgpRoutePropagation"] = args?.disableBgpRoutePropagation;
             resourceInputs["id"] = args?.id;
             resourceInputs["location"] = args?.location;
@@ -157,7 +160,7 @@ export interface RouteTableArgs {
     /**
      * The name of the route table.
      */
-    routeTableName?: pulumi.Input<string | undefined>;
+    routeTableName: pulumi.Input<string>;
     /**
      * Collection of routes contained within a route table.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.

@@ -209,6 +209,9 @@ export class NamespaceAsset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.assetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'assetName'");
+            }
             if (args?.deviceRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceRef'");
             }
@@ -318,7 +321,7 @@ export interface NamespaceAssetArgs {
     /**
      * The name of the asset.
      */
-    assetName?: pulumi.Input<string | undefined>;
+    assetName: pulumi.Input<string>;
     /**
      * URIs or type definition IDs.
      */

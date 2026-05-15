@@ -119,6 +119,9 @@ export class RelationshipLink extends pulumi.CustomResource {
             if (args?.relatedProfilePropertyReferences === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedProfilePropertyReferences'");
             }
+            if (args?.relationshipLinkName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'relationshipLinkName'");
+            }
             if (args?.relationshipName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relationshipName'");
             }
@@ -200,7 +203,7 @@ export interface RelationshipLinkArgs {
     /**
      * The name of the relationship link.
      */
-    relationshipLinkName?: pulumi.Input<string | undefined>;
+    relationshipLinkName: pulumi.Input<string>;
     /**
      * The Relationship associated with the Link.
      */

@@ -93,6 +93,9 @@ export class Builder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.builderName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'builderName'");
+            }
             if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
@@ -137,7 +140,7 @@ export interface BuilderArgs {
     /**
      * The name of the builder.
      */
-    builderName?: pulumi.Input<string | undefined>;
+    builderName: pulumi.Input<string>;
     /**
      * List of mappings of container registries and the managed identity used to connect to it.
      */

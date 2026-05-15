@@ -89,6 +89,9 @@ export class CaCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.caCertificateName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'caCertificateName'");
+            }
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -132,7 +135,7 @@ export interface CaCertificateArgs {
     /**
      * The CA certificate name.
      */
-    caCertificateName?: pulumi.Input<string | undefined>;
+    caCertificateName: pulumi.Input<string>;
     /**
      * Description for the CA Certificate resource.
      */

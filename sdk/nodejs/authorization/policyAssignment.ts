@@ -141,6 +141,9 @@ export class PolicyAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.policyAssignmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'policyAssignmentName'");
+            }
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -253,7 +256,7 @@ export interface PolicyAssignmentArgs {
     /**
      * The name of the policy assignment.
      */
-    policyAssignmentName?: pulumi.Input<string | undefined>;
+    policyAssignmentName: pulumi.Input<string>;
     /**
      * The ID of the policy definition or policy set definition being assigned.
      */

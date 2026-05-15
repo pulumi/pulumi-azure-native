@@ -82,6 +82,9 @@ export class Supercomputer extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.supercomputerName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'supercomputerName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.discovery.supercomputerPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -126,7 +129,7 @@ export interface SupercomputerArgs {
     /**
      * The name of the Supercomputer
      */
-    supercomputerName?: pulumi.Input<string | undefined>;
+    supercomputerName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

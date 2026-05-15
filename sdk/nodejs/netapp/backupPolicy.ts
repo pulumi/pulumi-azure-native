@@ -116,6 +116,9 @@ export class BackupPolicy extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.backupPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'backupPolicyName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -172,7 +175,7 @@ export interface BackupPolicyArgs {
     /**
      * Backup policy Name which uniquely identify backup policy.
      */
-    backupPolicyName?: pulumi.Input<string | undefined>;
+    backupPolicyName: pulumi.Input<string>;
     /**
      * Daily backups count to keep
      */

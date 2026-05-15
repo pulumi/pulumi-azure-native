@@ -109,6 +109,9 @@ export class SavedSearch extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.savedSearchId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'savedSearchId'");
+            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -177,7 +180,7 @@ export interface SavedSearchArgs {
     /**
      * The id of the saved search.
      */
-    savedSearchId?: pulumi.Input<string | undefined>;
+    savedSearchId: pulumi.Input<string>;
     /**
      * The tags attached to the saved search.
      */

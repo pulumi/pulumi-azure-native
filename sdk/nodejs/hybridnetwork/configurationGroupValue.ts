@@ -81,6 +81,9 @@ export class ConfigurationGroupValue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.configurationGroupValueName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configurationGroupValueName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +119,7 @@ export interface ConfigurationGroupValueArgs {
     /**
      * The name of the configuration group value.
      */
-    configurationGroupValueName?: pulumi.Input<string | undefined>;
+    configurationGroupValueName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

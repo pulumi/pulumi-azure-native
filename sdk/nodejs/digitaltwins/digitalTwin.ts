@@ -106,6 +106,9 @@ export class DigitalTwin extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
@@ -171,7 +174,7 @@ export interface DigitalTwinArgs {
     /**
      * The name of the DigitalTwinsInstance.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
     /**
      * The resource tags.
      */

@@ -68,6 +68,9 @@ export class Dra extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.fabricAgentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'fabricAgentName'");
+            }
             if (args?.fabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
@@ -106,7 +109,7 @@ export interface DraArgs {
     /**
      * The fabric agent (Dra) name.
      */
-    fabricAgentName?: pulumi.Input<string | undefined>;
+    fabricAgentName: pulumi.Input<string>;
     /**
      * The fabric name.
      */

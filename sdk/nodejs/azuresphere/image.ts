@@ -106,6 +106,9 @@ export class Image extends pulumi.CustomResource {
             if (args?.catalogName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogName'");
             }
+            if (args?.imageName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'imageName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -165,7 +168,7 @@ export interface ImageArgs {
     /**
      * Image name. Use an image GUID for GA versions of the API.
      */
-    imageName?: pulumi.Input<string | undefined>;
+    imageName: pulumi.Input<string>;
     /**
      * Regional data boundary for an image
      */

@@ -100,6 +100,9 @@ export class Bot extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.botservice.botPropertiesArgsProvideDefaults(v)) : undefined;
@@ -156,7 +159,7 @@ export interface BotArgs {
     /**
      * The name of the Bot resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
     /**
      * Gets or sets the SKU of the resource.
      */

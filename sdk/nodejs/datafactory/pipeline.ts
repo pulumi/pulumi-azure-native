@@ -106,6 +106,9 @@ export class Pipeline extends pulumi.CustomResource {
             if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
+            if (args?.pipelineName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'pipelineName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -182,7 +185,7 @@ export interface PipelineArgs {
     /**
      * The pipeline name.
      */
-    pipelineName?: pulumi.Input<string | undefined>;
+    pipelineName: pulumi.Input<string>;
     /**
      * Pipeline Policy.
      */

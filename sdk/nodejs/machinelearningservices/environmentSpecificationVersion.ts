@@ -80,6 +80,9 @@ export class EnvironmentSpecificationVersion extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.version === undefined && !opts.urn) {
+                throw new Error("Missing required property 'version'");
+            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -124,7 +127,7 @@ export interface EnvironmentSpecificationVersionArgs {
     /**
      * Version of EnvironmentSpecificationVersion.
      */
-    version?: pulumi.Input<string | undefined>;
+    version: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */

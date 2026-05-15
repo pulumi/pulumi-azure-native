@@ -92,6 +92,9 @@ export class WorkspaceNamedValue extends pulumi.CustomResource {
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
+            if (args?.namedValueId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'namedValueId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -147,7 +150,7 @@ export interface WorkspaceNamedValueArgs {
     /**
      * Identifier of the NamedValue.
      */
-    namedValueId?: pulumi.Input<string | undefined>;
+    namedValueId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

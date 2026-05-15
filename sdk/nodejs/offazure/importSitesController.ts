@@ -96,6 +96,9 @@ export class ImportSitesController extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.siteName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'siteName'");
+            }
             resourceInputs["discoverySolutionId"] = args?.discoverySolutionId;
             resourceInputs["location"] = args?.location;
             resourceInputs["provisioningState"] = args?.provisioningState;
@@ -150,7 +153,7 @@ export interface ImportSitesControllerArgs {
     /**
      * Site name
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

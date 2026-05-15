@@ -77,6 +77,9 @@ export class ApiPortal extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.apiPortalName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'apiPortalName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -114,7 +117,7 @@ export interface ApiPortalArgs {
     /**
      * The name of API portal.
      */
-    apiPortalName?: pulumi.Input<string | undefined>;
+    apiPortalName: pulumi.Input<string>;
     /**
      * API portal properties payload
      */

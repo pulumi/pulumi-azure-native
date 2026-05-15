@@ -73,6 +73,9 @@ export class Apm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.apmName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'apmName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -108,7 +111,7 @@ export interface ApmArgs {
     /**
      * The name of the APM
      */
-    apmName?: pulumi.Input<string | undefined>;
+    apmName: pulumi.Input<string>;
     /**
      * Properties of an APM
      */

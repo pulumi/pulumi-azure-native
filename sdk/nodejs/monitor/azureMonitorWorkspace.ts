@@ -105,6 +105,9 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.azureMonitorWorkspaceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'azureMonitorWorkspaceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -152,7 +155,7 @@ export interface AzureMonitorWorkspaceArgs {
     /**
      * The name of the Azure Monitor Workspace. The name is case insensitive
      */
-    azureMonitorWorkspaceName?: pulumi.Input<string | undefined>;
+    azureMonitorWorkspaceName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

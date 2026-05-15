@@ -95,6 +95,9 @@ export class ObjectReplicationPolicy extends pulumi.CustomResource {
             if (args?.destinationAccount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationAccount'");
             }
+            if (args?.objectReplicationPolicyId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'objectReplicationPolicyId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -150,7 +153,7 @@ export interface ObjectReplicationPolicyArgs {
     /**
      * For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
      */
-    objectReplicationPolicyId?: pulumi.Input<string | undefined>;
+    objectReplicationPolicyId: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

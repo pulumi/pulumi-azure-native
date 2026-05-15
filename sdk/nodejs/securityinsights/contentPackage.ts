@@ -177,6 +177,9 @@ export class ContentPackage extends pulumi.CustomResource {
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
+            if (args?.packageId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'packageId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -325,7 +328,7 @@ export interface ContentPackageArgs {
     /**
      * package Id
      */
-    packageId?: pulumi.Input<string | undefined>;
+    packageId: pulumi.Input<string>;
     /**
      * Providers for the package item
      */

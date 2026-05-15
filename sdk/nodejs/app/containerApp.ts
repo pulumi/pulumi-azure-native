@@ -153,6 +153,9 @@ export class ContainerApp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.containerAppName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'containerAppName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -228,7 +231,7 @@ export interface ContainerAppArgs {
     /**
      * Name of the Container App.
      */
-    containerAppName?: pulumi.Input<string | undefined>;
+    containerAppName: pulumi.Input<string>;
     /**
      * Resource ID of environment.
      */

@@ -74,6 +74,9 @@ export class GlobalParameter extends pulumi.CustomResource {
             if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
+            if (args?.globalParameterName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'globalParameterName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -113,7 +116,7 @@ export interface GlobalParameterArgs {
     /**
      * The global parameter name.
      */
-    globalParameterName?: pulumi.Input<string | undefined>;
+    globalParameterName: pulumi.Input<string>;
     /**
      * Properties of the global parameter.
      */

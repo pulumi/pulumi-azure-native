@@ -82,6 +82,9 @@ export class ApplicationSecurityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.applicationSecurityGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'applicationSecurityGroupName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -120,7 +123,7 @@ export interface ApplicationSecurityGroupArgs {
     /**
      * The name of the application security group.
      */
-    applicationSecurityGroupName?: pulumi.Input<string | undefined>;
+    applicationSecurityGroupName: pulumi.Input<string>;
     /**
      * Resource ID.
      */

@@ -97,6 +97,9 @@ export class PlaywrightWorkspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.playwrightWorkspaceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'playwrightWorkspaceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -148,7 +151,7 @@ export interface PlaywrightWorkspaceArgs {
     /**
      * The name of the PlaywrightWorkspace
      */
-    playwrightWorkspaceName?: pulumi.Input<string | undefined>;
+    playwrightWorkspaceName: pulumi.Input<string>;
     /**
      * Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
      */

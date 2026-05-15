@@ -85,6 +85,9 @@ export class FlowProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.flowProfileName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'flowProfileName'");
+            }
             if (args?.pipelineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineName'");
             }
@@ -126,7 +129,7 @@ export interface FlowProfileArgs {
     /**
      * The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
      */
-    flowProfileName?: pulumi.Input<string | undefined>;
+    flowProfileName: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */

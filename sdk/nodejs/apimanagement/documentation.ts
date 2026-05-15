@@ -70,6 +70,9 @@ export class Documentation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.documentationId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'documentationId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -109,7 +112,7 @@ export interface DocumentationArgs {
     /**
      * Documentation identifier. Must be unique in the current API Management service instance.
      */
-    documentationId?: pulumi.Input<string | undefined>;
+    documentationId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -78,6 +78,9 @@ export class Service extends pulumi.CustomResource {
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
+            if (args?.serviceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serviceName'");
+            }
             resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -112,5 +115,5 @@ export interface ServiceArgs {
     /**
      * The name of the the service
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName: pulumi.Input<string>;
 }

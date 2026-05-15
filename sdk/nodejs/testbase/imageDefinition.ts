@@ -83,6 +83,9 @@ export class ImageDefinition extends pulumi.CustomResource {
             if (args?.architecture === undefined && !opts.urn) {
                 throw new Error("Missing required property 'architecture'");
             }
+            if (args?.imageDefinitionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'imageDefinitionName'");
+            }
             if (args?.osState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osState'");
             }
@@ -134,7 +137,7 @@ export interface ImageDefinitionArgs {
     /**
      * The resource name of the test base image definition.
      */
-    imageDefinitionName?: pulumi.Input<string | undefined>;
+    imageDefinitionName: pulumi.Input<string>;
     /**
      * Custom image OS state.
      */

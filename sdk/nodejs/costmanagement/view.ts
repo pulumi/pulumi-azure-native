@@ -135,6 +135,9 @@ export class View extends pulumi.CustomResource {
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            if (args?.viewName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'viewName'");
+            }
             resourceInputs["accumulated"] = args?.accumulated;
             resourceInputs["chart"] = args?.chart;
             resourceInputs["dataSet"] = args?.dataSet;
@@ -250,5 +253,5 @@ export interface ViewArgs {
     /**
      * View name
      */
-    viewName?: pulumi.Input<string | undefined>;
+    viewName: pulumi.Input<string>;
 }

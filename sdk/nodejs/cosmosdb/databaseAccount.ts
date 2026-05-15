@@ -257,6 +257,9 @@ export class DatabaseAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.accountName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'accountName'");
+            }
             if (args?.databaseAccountOfferType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseAccountOfferType'");
             }
@@ -386,7 +389,7 @@ export interface DatabaseAccountArgs {
     /**
      * Cosmos DB database account name.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName: pulumi.Input<string>;
     /**
      * Analytical storage specific properties.
      */

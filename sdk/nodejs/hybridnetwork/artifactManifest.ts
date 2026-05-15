@@ -81,6 +81,9 @@ export class ArtifactManifest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.artifactManifestName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'artifactManifestName'");
+            }
             if (args?.artifactStoreName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'artifactStoreName'");
             }
@@ -124,7 +127,7 @@ export interface ArtifactManifestArgs {
     /**
      * The name of the artifact manifest.
      */
-    artifactManifestName?: pulumi.Input<string | undefined>;
+    artifactManifestName: pulumi.Input<string>;
     /**
      * The name of the artifact store.
      */

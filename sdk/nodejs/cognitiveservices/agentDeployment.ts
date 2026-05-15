@@ -77,6 +77,9 @@ export class AgentDeployment extends pulumi.CustomResource {
             if (args?.appName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appName'");
             }
+            if (args?.deploymentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'deploymentName'");
+            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -125,7 +128,7 @@ export interface AgentDeploymentArgs {
     /**
      * The name of the deployment associated with the Cognitive Services Account
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName: pulumi.Input<string>;
     /**
      * The name of Cognitive Services account's project.
      */

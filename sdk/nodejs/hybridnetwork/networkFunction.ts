@@ -89,6 +89,9 @@ export class NetworkFunction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.networkFunctionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkFunctionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -136,7 +139,7 @@ export interface NetworkFunctionArgs {
     /**
      * Resource name for the network function resource.
      */
-    networkFunctionName?: pulumi.Input<string | undefined>;
+    networkFunctionName: pulumi.Input<string>;
     /**
      * Network function properties.
      */

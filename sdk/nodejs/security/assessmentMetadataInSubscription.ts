@@ -111,6 +111,9 @@ export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.assessmentMetadataName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'assessmentMetadataName'");
+            }
             if (args?.assessmentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assessmentType'");
             }
@@ -175,7 +178,7 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    assessmentMetadataName?: pulumi.Input<string | undefined>;
+    assessmentMetadataName: pulumi.Input<string>;
     /**
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */

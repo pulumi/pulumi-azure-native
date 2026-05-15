@@ -73,6 +73,9 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.configName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configName'");
+            }
             if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
@@ -111,7 +114,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * The name of the maintenance configuration.
      */
-    configName?: pulumi.Input<string | undefined>;
+    configName: pulumi.Input<string>;
     /**
      * The name of the Managed Environment.
      */

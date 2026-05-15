@@ -95,6 +95,9 @@ export class Rule extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.ruleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ruleName'");
+            }
             if (args?.subscriptionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionName'");
             }
@@ -160,7 +163,7 @@ export interface RuleArgs {
     /**
      * The rule name.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName: pulumi.Input<string>;
     /**
      * Properties of sqlFilter
      */

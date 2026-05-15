@@ -84,6 +84,9 @@ export class NetworkFunctionDefinitionVersion extends pulumi.CustomResource {
             if (args?.networkFunctionDefinitionGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFunctionDefinitionGroupName'");
             }
+            if (args?.networkFunctionDefinitionVersionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkFunctionDefinitionVersionName'");
+            }
             if (args?.publisherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
@@ -132,7 +135,7 @@ export interface NetworkFunctionDefinitionVersionArgs {
     /**
      * The name of the network function definition version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
      */
-    networkFunctionDefinitionVersionName?: pulumi.Input<string | undefined>;
+    networkFunctionDefinitionVersionName: pulumi.Input<string>;
     /**
      * Network function definition version properties.
      */

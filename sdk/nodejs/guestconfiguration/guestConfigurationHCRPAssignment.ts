@@ -77,6 +77,9 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.guestConfigurationAssignmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'guestConfigurationAssignmentName'");
+            }
             if (args?.machineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineName'");
             }
@@ -117,7 +120,7 @@ export interface GuestConfigurationHCRPAssignmentArgs {
     /**
      * The guest configuration assignment name.
      */
-    guestConfigurationAssignmentName?: pulumi.Input<string | undefined>;
+    guestConfigurationAssignmentName: pulumi.Input<string>;
     /**
      * Region where the VM is located.
      */

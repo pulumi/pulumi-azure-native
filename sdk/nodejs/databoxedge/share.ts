@@ -118,6 +118,9 @@ export class Share extends pulumi.CustomResource {
             if (args?.monitoringStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -198,7 +201,7 @@ export interface ShareArgs {
     /**
      * The share name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * Details of the refresh job on this share.
      */

@@ -105,6 +105,9 @@ export class MongoCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.mongoClusterName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'mongoClusterName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -171,7 +174,7 @@ export interface MongoClusterArgs {
     /**
      * The name of the mongo cluster.
      */
-    mongoClusterName?: pulumi.Input<string | undefined>;
+    mongoClusterName: pulumi.Input<string>;
     /**
      * The list of node group specs in the cluster.
      */

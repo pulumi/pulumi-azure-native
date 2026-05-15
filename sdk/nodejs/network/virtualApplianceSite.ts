@@ -87,6 +87,9 @@ export class VirtualApplianceSite extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.siteName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'siteName'");
+            }
             resourceInputs["addressPrefix"] = args?.addressPrefix;
             resourceInputs["id"] = args?.id;
             resourceInputs["name"] = args?.name;
@@ -145,5 +148,5 @@ export interface VirtualApplianceSiteArgs {
     /**
      * The name of the site.
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName: pulumi.Input<string>;
 }

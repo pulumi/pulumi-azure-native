@@ -82,6 +82,9 @@ export class AzureServersSetting extends pulumi.CustomResource {
             if (args?.selectedProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'selectedProvider'");
             }
+            if (args?.settingKind === undefined && !opts.urn) {
+                throw new Error("Missing required property 'settingKind'");
+            }
             resourceInputs["kind"] = "AzureServersSetting";
             resourceInputs["selectedProvider"] = args?.selectedProvider;
             resourceInputs["settingKind"] = args?.settingKind;
@@ -120,5 +123,5 @@ export interface AzureServersSettingArgs {
     /**
      * The kind of the server vulnerability assessments setting
      */
-    settingKind?: pulumi.Input<string | undefined>;
+    settingKind: pulumi.Input<string>;
 }

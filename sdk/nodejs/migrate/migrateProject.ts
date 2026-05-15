@@ -79,6 +79,9 @@ export class MigrateProject extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.migrateProjectName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'migrateProjectName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +125,7 @@ export interface MigrateProjectArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    migrateProjectName?: pulumi.Input<string | undefined>;
+    migrateProjectName: pulumi.Input<string>;
     /**
      * Gets or sets the nested properties.
      */

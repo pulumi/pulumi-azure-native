@@ -85,6 +85,9 @@ export class EdgeMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.edgeMachineName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'edgeMachineName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +125,7 @@ export interface EdgeMachineArgs {
     /**
      * Name of Device
      */
-    edgeMachineName?: pulumi.Input<string | undefined>;
+    edgeMachineName: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */

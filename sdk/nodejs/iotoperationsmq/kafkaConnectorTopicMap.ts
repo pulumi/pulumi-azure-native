@@ -129,6 +129,9 @@ export class KafkaConnectorTopicMap extends pulumi.CustomResource {
             if (args?.routes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routes'");
             }
+            if (args?.topicMapName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'topicMapName'");
+            }
             resourceInputs["batching"] = args ? pulumi.output(args.batching).apply(v => v === undefined ? undefined : inputs.iotoperationsmq.kafkaTopicMapBatchingArgsProvideDefaults(v)) : undefined;
             resourceInputs["compression"] = (args?.compression) ?? "none";
             resourceInputs["copyMqttProperties"] = args?.copyMqttProperties;
@@ -231,5 +234,5 @@ export interface KafkaConnectorTopicMapArgs {
     /**
      * Name of MQ kafka/topicMap resource
      */
-    topicMapName?: pulumi.Input<string | undefined>;
+    topicMapName: pulumi.Input<string>;
 }

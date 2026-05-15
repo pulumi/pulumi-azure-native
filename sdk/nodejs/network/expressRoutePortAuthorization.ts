@@ -82,6 +82,9 @@ export class ExpressRoutePortAuthorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.authorizationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'authorizationName'");
+            }
             if (args?.expressRoutePortName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressRoutePortName'");
             }
@@ -124,7 +127,7 @@ export interface ExpressRoutePortAuthorizationArgs {
     /**
      * The name of the authorization.
      */
-    authorizationName?: pulumi.Input<string | undefined>;
+    authorizationName: pulumi.Input<string>;
     /**
      * The name of the express route port.
      */

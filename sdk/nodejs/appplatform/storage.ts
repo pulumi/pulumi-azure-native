@@ -79,6 +79,9 @@ export class Storage extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (args?.storageName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'storageName'");
+            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
@@ -120,5 +123,5 @@ export interface StorageArgs {
     /**
      * The name of the storage resource.
      */
-    storageName?: pulumi.Input<string | undefined>;
+    storageName: pulumi.Input<string>;
 }

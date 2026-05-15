@@ -73,6 +73,9 @@ export class FirewallRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.firewallRuleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'firewallRuleName'");
+            }
             if (args?.mongoClusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mongoClusterName'");
             }
@@ -108,7 +111,7 @@ export interface FirewallRuleArgs {
     /**
      * The name of the mongo cluster firewall rule.
      */
-    firewallRuleName?: pulumi.Input<string | undefined>;
+    firewallRuleName: pulumi.Input<string>;
     /**
      * The name of the mongo cluster.
      */

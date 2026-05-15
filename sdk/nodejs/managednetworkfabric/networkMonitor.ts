@@ -79,6 +79,9 @@ export class NetworkMonitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.networkMonitorName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkMonitorName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -121,7 +124,7 @@ export interface NetworkMonitorArgs {
     /**
      * Name of the Network Monitor.
      */
-    networkMonitorName?: pulumi.Input<string | undefined>;
+    networkMonitorName: pulumi.Input<string>;
     /**
      * The NetworkFabric Properties
      */

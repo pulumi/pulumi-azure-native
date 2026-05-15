@@ -93,6 +93,9 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.connectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectionName'");
+            }
             if (args?.expressRouteCircuitPeering === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteCircuitPeering'");
             }
@@ -149,7 +152,7 @@ export interface ExpressRouteConnectionArgs {
     /**
      * The name of the connection subresource.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * Enable internet security.
      */

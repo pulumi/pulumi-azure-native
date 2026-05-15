@@ -85,6 +85,9 @@ export class CloudService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.cloudServiceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'cloudServiceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +125,7 @@ export interface CloudServiceArgs {
     /**
      * Name of the cloud service.
      */
-    cloudServiceName?: pulumi.Input<string | undefined>;
+    cloudServiceName: pulumi.Input<string>;
     /**
      * Resource location.
      */

@@ -148,6 +148,9 @@ export class BlobContainer extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.containerName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'containerName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -220,7 +223,7 @@ export interface BlobContainerArgs {
     /**
      * The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    containerName?: pulumi.Input<string | undefined>;
+    containerName: pulumi.Input<string>;
     /**
      * Default the container to use specified encryption scope for all writes.
      */

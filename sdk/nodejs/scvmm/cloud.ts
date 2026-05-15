@@ -109,6 +109,9 @@ export class Cloud extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.cloudName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'cloudName'");
+            }
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
@@ -160,7 +163,7 @@ export interface CloudArgs {
     /**
      * Name of the Cloud.
      */
-    cloudName?: pulumi.Input<string | undefined>;
+    cloudName: pulumi.Input<string>;
     /**
      * The extended location.
      */

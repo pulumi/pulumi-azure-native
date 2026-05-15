@@ -189,6 +189,9 @@ export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.blobAuditingPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'blobAuditingPolicyName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -310,7 +313,7 @@ export interface ExtendedServerBlobAuditingPolicyArgs {
     /**
      * The name of the blob auditing policy.
      */
-    blobAuditingPolicyName?: pulumi.Input<string | undefined>;
+    blobAuditingPolicyName: pulumi.Input<string>;
     /**
      * Specifies whether audit events are sent to Azure Monitor. 
      * In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.

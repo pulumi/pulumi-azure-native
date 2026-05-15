@@ -89,6 +89,9 @@ export class ActiveDirectoryConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.activeDirectoryConfigName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'activeDirectoryConfigName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +131,7 @@ export interface ActiveDirectoryConfigArgs {
     /**
      * The name of the ActiveDirectoryConfig
      */
-    activeDirectoryConfigName?: pulumi.Input<string | undefined>;
+    activeDirectoryConfigName: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */

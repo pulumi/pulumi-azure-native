@@ -87,6 +87,9 @@ export class VerifierWorkspace extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.workspaceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'workspaceName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["networkManagerName"] = args?.networkManagerName;
             resourceInputs["properties"] = args?.properties;
@@ -140,5 +143,5 @@ export interface VerifierWorkspaceArgs {
     /**
      * Workspace name.
      */
-    workspaceName?: pulumi.Input<string | undefined>;
+    workspaceName: pulumi.Input<string>;
 }

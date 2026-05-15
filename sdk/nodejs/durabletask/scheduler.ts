@@ -84,6 +84,9 @@ export class Scheduler extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.schedulerName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'schedulerName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -128,7 +131,7 @@ export interface SchedulerArgs {
     /**
      * The name of the Scheduler
      */
-    schedulerName?: pulumi.Input<string | undefined>;
+    schedulerName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

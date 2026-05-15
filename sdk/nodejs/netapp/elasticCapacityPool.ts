@@ -92,6 +92,9 @@ export class ElasticCapacityPool extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.poolName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'poolName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -140,7 +143,7 @@ export interface ElasticCapacityPoolArgs {
     /**
      * The name of the ElasticCapacityPool
      */
-    poolName?: pulumi.Input<string | undefined>;
+    poolName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

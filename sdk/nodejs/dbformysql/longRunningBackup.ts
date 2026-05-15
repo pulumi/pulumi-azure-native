@@ -84,6 +84,9 @@ export class LongRunningBackup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.backupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'backupName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -127,7 +130,7 @@ export interface LongRunningBackupArgs {
     /**
      * The name of the backup.
      */
-    backupName?: pulumi.Input<string | undefined>;
+    backupName: pulumi.Input<string>;
     /**
      * Backup name
      */

@@ -133,6 +133,9 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.sourceControlConfigurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sourceControlConfigurationName'");
+            }
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["clusterResourceName"] = args?.clusterResourceName;
             resourceInputs["clusterRp"] = args?.clusterRp;
@@ -240,7 +243,7 @@ export interface SourceControlConfigurationArgs {
     /**
      * Name of the Source Control Configuration.
      */
-    sourceControlConfigurationName?: pulumi.Input<string | undefined>;
+    sourceControlConfigurationName: pulumi.Input<string>;
     /**
      * Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
      */

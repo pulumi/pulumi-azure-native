@@ -105,6 +105,9 @@ export class ConnectedEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.connectedEnvironmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectedEnvironmentName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -152,7 +155,7 @@ export interface ConnectedEnvironmentArgs {
     /**
      * Name of the connectedEnvironment.
      */
-    connectedEnvironmentName?: pulumi.Input<string | undefined>;
+    connectedEnvironmentName: pulumi.Input<string>;
     /**
      * Custom domain configuration for the environment
      */

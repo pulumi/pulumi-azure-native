@@ -176,6 +176,9 @@ export class Macc extends pulumi.CustomResource {
             if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
+            if (args?.maccName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'maccName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -301,7 +304,7 @@ export interface MaccArgs {
     /**
      * Name of primary MACC.
      */
-    maccName?: pulumi.Input<string | undefined>;
+    maccName: pulumi.Input<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */

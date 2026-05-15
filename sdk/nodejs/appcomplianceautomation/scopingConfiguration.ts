@@ -78,6 +78,9 @@ export class ScopingConfiguration extends pulumi.CustomResource {
             if (args?.reportName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportName'");
             }
+            if (args?.scopingConfigurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scopingConfigurationName'");
+            }
             resourceInputs["answers"] = args?.answers;
             resourceInputs["reportName"] = args?.reportName;
             resourceInputs["scopingConfigurationName"] = args?.scopingConfigurationName;
@@ -116,5 +119,5 @@ export interface ScopingConfigurationArgs {
     /**
      * The scoping configuration of the specific report.
      */
-    scopingConfigurationName?: pulumi.Input<string | undefined>;
+    scopingConfigurationName: pulumi.Input<string>;
 }

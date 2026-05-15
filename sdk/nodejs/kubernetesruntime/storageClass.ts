@@ -118,6 +118,9 @@ export class StorageClass extends pulumi.CustomResource {
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
+            if (args?.storageClassName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'storageClassName'");
+            }
             if (args?.typeProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typeProperties'");
             }
@@ -211,7 +214,7 @@ export interface StorageClassArgs {
     /**
      * The name of the the storage class
      */
-    storageClassName?: pulumi.Input<string | undefined>;
+    storageClassName: pulumi.Input<string>;
     /**
      * Properties of the StorageClass
      */

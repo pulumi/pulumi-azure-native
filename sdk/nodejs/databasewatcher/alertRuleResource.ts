@@ -96,6 +96,9 @@ export class AlertRuleResource extends pulumi.CustomResource {
             if (args?.alertRuleResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertRuleResourceId'");
             }
+            if (args?.alertRuleResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'alertRuleResourceName'");
+            }
             if (args?.alertRuleTemplateId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertRuleTemplateId'");
             }
@@ -157,7 +160,7 @@ export interface AlertRuleResourceArgs {
     /**
      * The alert rule proxy resource name.
      */
-    alertRuleResourceName?: pulumi.Input<string | undefined>;
+    alertRuleResourceName: pulumi.Input<string>;
     /**
      * The template ID associated with alert rule resource.
      */

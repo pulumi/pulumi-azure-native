@@ -85,6 +85,9 @@ export class BusinessCaseOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.businessCaseName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'businessCaseName'");
+            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -126,7 +129,7 @@ export interface BusinessCaseOperationArgs {
     /**
      * Business case ARM name
      */
-    businessCaseName?: pulumi.Input<string | undefined>;
+    businessCaseName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

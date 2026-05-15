@@ -91,6 +91,9 @@ export class CassandraResourceCassandraView extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.viewName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'viewName'");
+            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["keyspaceName"] = args?.keyspaceName;
@@ -159,5 +162,5 @@ export interface CassandraResourceCassandraViewArgs {
     /**
      * Cosmos DB view name.
      */
-    viewName?: pulumi.Input<string | undefined>;
+    viewName: pulumi.Input<string>;
 }

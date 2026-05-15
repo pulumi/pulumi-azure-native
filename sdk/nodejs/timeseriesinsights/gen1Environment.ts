@@ -115,6 +115,9 @@ export class Gen1Environment extends pulumi.CustomResource {
             if (args?.dataRetentionTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataRetentionTime'");
             }
+            if (args?.environmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'environmentName'");
+            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -176,7 +179,7 @@ export interface Gen1EnvironmentArgs {
     /**
      * Name of the environment
      */
-    environmentName?: pulumi.Input<string | undefined>;
+    environmentName: pulumi.Input<string>;
     /**
      * The kind of the environment.
      * Expected value is 'Gen1'.

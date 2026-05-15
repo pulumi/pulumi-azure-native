@@ -76,6 +76,9 @@ export class ClusterJob extends pulumi.CustomResource {
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
+            if (args?.jobsName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'jobsName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +115,7 @@ export interface ClusterJobArgs {
     /**
      * Name of ClusterJob
      */
-    jobsName?: pulumi.Input<string | undefined>;
+    jobsName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

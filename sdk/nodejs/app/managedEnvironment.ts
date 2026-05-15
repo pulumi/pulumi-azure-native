@@ -185,6 +185,9 @@ export class ManagedEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.environmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'environmentName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -300,7 +303,7 @@ export interface ManagedEnvironmentArgs {
     /**
      * Name of the Environment.
      */
-    environmentName?: pulumi.Input<string | undefined>;
+    environmentName: pulumi.Input<string>;
     /**
      * Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
      */

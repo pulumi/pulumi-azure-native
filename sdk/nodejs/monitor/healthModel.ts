@@ -86,6 +86,9 @@ export class HealthModel extends pulumi.CustomResource {
             if (args?.azureMonitorWorkspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureMonitorWorkspaceName'");
             }
+            if (args?.healthModelName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'healthModelName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +131,7 @@ export interface HealthModelArgs {
     /**
      * Name of health model resource
      */
-    healthModelName?: pulumi.Input<string | undefined>;
+    healthModelName: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */

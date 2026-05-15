@@ -127,6 +127,9 @@ export class IacProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.iacProfileName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'iacProfileName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -192,7 +195,7 @@ export interface IacProfileArgs {
     /**
      * The name of the IacProfile.
      */
-    iacProfileName?: pulumi.Input<string | undefined>;
+    iacProfileName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

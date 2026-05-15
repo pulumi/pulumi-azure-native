@@ -74,6 +74,9 @@ export class WorkspaceSetting extends pulumi.CustomResource {
             if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
+            if (args?.workspaceSettingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'workspaceSettingName'");
+            }
             resourceInputs["scope"] = args?.scope;
             resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["workspaceSettingName"] = args?.workspaceSettingName;
@@ -109,5 +112,5 @@ export interface WorkspaceSettingArgs {
     /**
      * Name of the security setting
      */
-    workspaceSettingName?: pulumi.Input<string | undefined>;
+    workspaceSettingName: pulumi.Input<string>;
 }

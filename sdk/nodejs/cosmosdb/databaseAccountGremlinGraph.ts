@@ -111,6 +111,9 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
+            if (args?.graphName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'graphName'");
+            }
             if (args?.options === undefined && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
@@ -176,7 +179,7 @@ export interface DatabaseAccountGremlinGraphArgs {
     /**
      * Cosmos DB graph name.
      */
-    graphName?: pulumi.Input<string | undefined>;
+    graphName: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

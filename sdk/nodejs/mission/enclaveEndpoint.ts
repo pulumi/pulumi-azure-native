@@ -89,6 +89,9 @@ export class EnclaveEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.enclaveEndpointName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'enclaveEndpointName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -135,7 +138,7 @@ export interface EnclaveEndpointArgs {
     /**
      * The name of the Enclave Endpoint Resource
      */
-    enclaveEndpointName?: pulumi.Input<string | undefined>;
+    enclaveEndpointName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

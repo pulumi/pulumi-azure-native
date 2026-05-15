@@ -113,6 +113,9 @@ export class MarketplaceGalleryImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.marketplaceGalleryImageName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'marketplaceGalleryImageName'");
+            }
             if (args?.osType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
@@ -191,7 +194,7 @@ export interface MarketplaceGalleryImageArgs {
     /**
      * Name of the marketplace gallery image
      */
-    marketplaceGalleryImageName?: pulumi.Input<string | undefined>;
+    marketplaceGalleryImageName: pulumi.Input<string>;
     /**
      * Operating system type that the gallery image uses [Windows, Linux]
      */

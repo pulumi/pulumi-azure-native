@@ -91,6 +91,9 @@ export class ScopeConnection extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.scopeConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scopeConnectionName'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["networkManagerName"] = args?.networkManagerName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -142,7 +145,7 @@ export interface ScopeConnectionArgs {
     /**
      * Name for the cross-tenant connection.
      */
-    scopeConnectionName?: pulumi.Input<string | undefined>;
+    scopeConnectionName: pulumi.Input<string>;
     /**
      * Tenant ID.
      */

@@ -73,6 +73,9 @@ export class Policy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.policyId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'policyId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +118,7 @@ export interface PolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId?: pulumi.Input<string | undefined>;
+    policyId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

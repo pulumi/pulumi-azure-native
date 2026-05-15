@@ -74,6 +74,9 @@ export class DashboardDefinition extends pulumi.CustomResource {
             if (args?.dashboardName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dashboardName'");
             }
+            if (args?.definitionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'definitionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -110,7 +113,7 @@ export interface DashboardDefinitionArgs {
     /**
      * The name of the Dashboard Definition.
      */
-    definitionName?: pulumi.Input<string | undefined>;
+    definitionName: pulumi.Input<string>;
     /**
      * Properties specific to the dashboard definition resource.
      */

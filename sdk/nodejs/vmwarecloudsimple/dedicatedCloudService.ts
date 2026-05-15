@@ -84,6 +84,9 @@ export class DedicatedCloudService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dedicatedCloudServiceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dedicatedCloudServiceName'");
+            }
             if (args?.gatewaySubnet === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewaySubnet'");
             }
@@ -126,7 +129,7 @@ export interface DedicatedCloudServiceArgs {
     /**
      * dedicated cloud Service name
      */
-    dedicatedCloudServiceName?: pulumi.Input<string | undefined>;
+    dedicatedCloudServiceName: pulumi.Input<string>;
     /**
      * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
      */

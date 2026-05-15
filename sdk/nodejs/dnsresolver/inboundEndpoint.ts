@@ -96,6 +96,9 @@ export class InboundEndpoint extends pulumi.CustomResource {
             if (args?.dnsResolverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverName'");
             }
+            if (args?.inboundEndpointName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'inboundEndpointName'");
+            }
             if (args?.ipConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipConfigurations'");
             }
@@ -145,7 +148,7 @@ export interface InboundEndpointArgs {
     /**
      * The name of the inbound endpoint for the DNS resolver.
      */
-    inboundEndpointName?: pulumi.Input<string | undefined>;
+    inboundEndpointName: pulumi.Input<string>;
     /**
      * IP configurations for the inbound endpoint.
      */

@@ -157,6 +157,9 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.certificateOrderName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'certificateOrderName'");
+            }
             if (args?.productType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productType'");
             }
@@ -237,7 +240,7 @@ export interface AppServiceCertificateOrderArgs {
     /**
      * Name of the certificate order.
      */
-    certificateOrderName?: pulumi.Input<string | undefined>;
+    certificateOrderName: pulumi.Input<string>;
     /**
      * State of the Key Vault secret.
      */

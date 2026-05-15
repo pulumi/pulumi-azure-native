@@ -105,6 +105,9 @@ export class DedicatedHsm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -162,7 +165,7 @@ export interface DedicatedHsmArgs {
     /**
      * Name of the dedicated Hsm
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * Specifies the network interfaces of the dedicated hsm.
      */

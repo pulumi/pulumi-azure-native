@@ -77,6 +77,9 @@ export class BrokerAuthentication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.authenticationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'authenticationName'");
+            }
             if (args?.brokerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerName'");
             }
@@ -121,7 +124,7 @@ export interface BrokerAuthenticationArgs {
     /**
      * Name of Instance broker authentication resource
      */
-    authenticationName?: pulumi.Input<string | undefined>;
+    authenticationName: pulumi.Input<string>;
     /**
      * Name of broker.
      */

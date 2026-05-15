@@ -83,6 +83,9 @@ export class SynapseWorkspaceSqlPoolTableDataSet extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.dataSetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataSetName'");
+            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -133,7 +136,7 @@ export interface SynapseWorkspaceSqlPoolTableDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string | undefined>;
+    dataSetName: pulumi.Input<string>;
     /**
      * Kind of data set.
      * Expected value is 'SynapseWorkspaceSqlPoolTable'.

@@ -128,6 +128,9 @@ export class ExportConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.exportId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'exportId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -215,7 +218,7 @@ export interface ExportConfigurationArgs {
     /**
      * The Continuous Export configuration ID. This is unique within a Application Insights component.
      */
-    exportId?: pulumi.Input<string | undefined>;
+    exportId: pulumi.Input<string>;
     /**
      * Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
      */

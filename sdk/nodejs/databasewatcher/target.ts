@@ -76,6 +76,9 @@ export class Target extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.targetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'targetName'");
+            }
             if (args?.watcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watcherName'");
             }
@@ -116,7 +119,7 @@ export interface TargetArgs {
     /**
      * The target resource name.
      */
-    targetName?: pulumi.Input<string | undefined>;
+    targetName: pulumi.Input<string>;
     /**
      * The database watcher name.
      */

@@ -92,6 +92,9 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.deviceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'deviceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -143,7 +146,7 @@ export interface ServiceArgs {
     /**
      * The name of the Windows IoT Device Service.
      */
-    deviceName?: pulumi.Input<string | undefined>;
+    deviceName: pulumi.Input<string>;
     /**
      * The Azure Region where the resource lives
      */

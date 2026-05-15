@@ -77,6 +77,9 @@ export class RegisteredAsn extends pulumi.CustomResource {
             if (args?.peeringName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringName'");
             }
+            if (args?.registeredAsnName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'registeredAsnName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -119,7 +122,7 @@ export interface RegisteredAsnArgs {
     /**
      * The name of the ASN.
      */
-    registeredAsnName?: pulumi.Input<string | undefined>;
+    registeredAsnName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

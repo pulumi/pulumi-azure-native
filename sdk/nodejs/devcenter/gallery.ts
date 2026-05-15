@@ -80,6 +80,9 @@ export class Gallery extends pulumi.CustomResource {
             if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
+            if (args?.galleryName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'galleryName'");
+            }
             if (args?.galleryResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryResourceId'");
             }
@@ -121,7 +124,7 @@ export interface GalleryArgs {
     /**
      * The name of the gallery.
      */
-    galleryName?: pulumi.Input<string | undefined>;
+    galleryName: pulumi.Input<string>;
     /**
      * The resource ID of the backing Azure Compute Gallery.
      */

@@ -109,6 +109,9 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.environmentTypeName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'environmentTypeName'");
+            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -174,7 +177,7 @@ export interface ProjectEnvironmentTypeArgs {
     /**
      * The name of the environment type.
      */
-    environmentTypeName?: pulumi.Input<string | undefined>;
+    environmentTypeName: pulumi.Input<string>;
     /**
      * Managed identity properties
      */

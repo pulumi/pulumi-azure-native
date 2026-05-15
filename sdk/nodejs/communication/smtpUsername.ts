@@ -90,6 +90,9 @@ export class SmtpUsername extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.smtpUsername === undefined && !opts.urn) {
+                throw new Error("Missing required property 'smtpUsername'");
+            }
             if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
@@ -141,7 +144,7 @@ export interface SmtpUsernameArgs {
     /**
      * The name of the SmtpUsernameResource.
      */
-    smtpUsername?: pulumi.Input<string | undefined>;
+    smtpUsername: pulumi.Input<string>;
     /**
      * The tenant of the linked Entra Application.
      */

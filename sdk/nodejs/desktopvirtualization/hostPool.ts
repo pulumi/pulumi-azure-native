@@ -188,6 +188,9 @@ export class HostPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.hostPoolName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'hostPoolName'");
+            }
             if (args?.hostPoolType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolType'");
             }
@@ -306,7 +309,7 @@ export interface HostPoolArgs {
     /**
      * The name of the host pool within the specified resource group
      */
-    hostPoolName?: pulumi.Input<string | undefined>;
+    hostPoolName: pulumi.Input<string>;
     /**
      * HostPool type for desktop.
      */

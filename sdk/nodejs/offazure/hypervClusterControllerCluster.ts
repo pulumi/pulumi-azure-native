@@ -105,6 +105,9 @@ export class HypervClusterControllerCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.clusterName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'clusterName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -156,7 +159,7 @@ export interface HypervClusterControllerClusterArgs {
     /**
      *  Cluster ARM name
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName: pulumi.Input<string>;
     /**
      * Gets or sets the FQDN/IPAddress of the Hyper-V cluster.
      */

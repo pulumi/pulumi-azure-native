@@ -196,6 +196,9 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.vmScaleSetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'vmScaleSetName'");
+            }
             resourceInputs["additionalCapabilities"] = args?.additionalCapabilities;
             resourceInputs["automaticRepairsPolicy"] = args?.automaticRepairsPolicy;
             resourceInputs["constrainedMaximumCapacity"] = args?.constrainedMaximumCapacity;
@@ -384,7 +387,7 @@ export interface VirtualMachineScaleSetArgs {
     /**
      * The name of the VM scale set.
      */
-    vmScaleSetName?: pulumi.Input<string | undefined>;
+    vmScaleSetName: pulumi.Input<string>;
     /**
      * Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
      */

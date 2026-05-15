@@ -109,6 +109,9 @@ export class NetworkSecurityPerimeterAccessRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.accessRuleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'accessRuleName'");
+            }
             if (args?.networkSecurityPerimeterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityPerimeterName'");
             }
@@ -167,7 +170,7 @@ export interface NetworkSecurityPerimeterAccessRuleArgs {
     /**
      * The name of the NSP access rule.
      */
-    accessRuleName?: pulumi.Input<string | undefined>;
+    accessRuleName: pulumi.Input<string>;
     /**
      * Inbound address prefixes (IPv4/IPv6)
      */

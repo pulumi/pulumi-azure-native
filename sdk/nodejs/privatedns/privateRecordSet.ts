@@ -127,6 +127,9 @@ export class PrivateRecordSet extends pulumi.CustomResource {
             if (args?.recordType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recordType'");
             }
+            if (args?.relativeRecordSetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'relativeRecordSetName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -216,7 +219,7 @@ export interface PrivateRecordSetArgs {
     /**
      * The name of the record set, relative to the name of the zone.
      */
-    relativeRecordSetName?: pulumi.Input<string | undefined>;
+    relativeRecordSetName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

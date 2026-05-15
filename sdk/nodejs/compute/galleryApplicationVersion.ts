@@ -96,6 +96,9 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
             if (args?.galleryApplicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryApplicationName'");
             }
+            if (args?.galleryApplicationVersionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'galleryApplicationVersionName'");
+            }
             if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
@@ -149,7 +152,7 @@ export interface GalleryApplicationVersionArgs {
     /**
      * The name of the gallery Application Version to be retrieved.
      */
-    galleryApplicationVersionName?: pulumi.Input<string | undefined>;
+    galleryApplicationVersionName: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery.
      */

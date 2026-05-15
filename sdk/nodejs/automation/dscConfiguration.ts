@@ -124,6 +124,9 @@ export class DscConfiguration extends pulumi.CustomResource {
             if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
+            if (args?.configurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configurationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -188,7 +191,7 @@ export interface DscConfigurationArgs {
     /**
      * The create or update parameters for configuration.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
     /**
      * Gets or sets the description of the configuration.
      */

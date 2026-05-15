@@ -75,10 +75,13 @@ export class RaiExternalSafetyProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RaiExternalSafetyProviderArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RaiExternalSafetyProviderArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.safetyProviderName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'safetyProviderName'");
+            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["safetyProviderName"] = args?.safetyProviderName;
             resourceInputs["tags"] = args?.tags;
@@ -114,7 +117,7 @@ export interface RaiExternalSafetyProviderArgs {
     /**
      * The name of the Rai External Safety Provider associated with the Cognitive Services Account
      */
-    safetyProviderName?: pulumi.Input<string | undefined>;
+    safetyProviderName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

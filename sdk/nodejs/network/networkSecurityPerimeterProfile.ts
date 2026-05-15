@@ -81,6 +81,9 @@ export class NetworkSecurityPerimeterProfile extends pulumi.CustomResource {
             if (args?.networkSecurityPerimeterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityPerimeterName'");
             }
+            if (args?.profileName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'profileName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -130,7 +133,7 @@ export interface NetworkSecurityPerimeterProfileArgs {
     /**
      * The name of the NSP profile.
      */
-    profileName?: pulumi.Input<string | undefined>;
+    profileName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

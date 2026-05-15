@@ -101,6 +101,9 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.hostGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'hostGroupName'");
+            }
             if (args?.platformFaultDomainCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platformFaultDomainCount'");
             }
@@ -153,7 +156,7 @@ export interface DedicatedHostGroupArgs {
     /**
      * The name of the dedicated host group.
      */
-    hostGroupName?: pulumi.Input<string | undefined>;
+    hostGroupName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

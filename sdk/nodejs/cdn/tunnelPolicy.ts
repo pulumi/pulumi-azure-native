@@ -93,6 +93,9 @@ export class TunnelPolicy extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.tunnelPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tunnelPolicyName'");
+            }
             resourceInputs["domains"] = args?.domains;
             resourceInputs["profileName"] = args?.profileName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -146,7 +149,7 @@ export interface TunnelPolicyArgs {
     /**
      * Name of the Tunnel Policy under the profile.
      */
-    tunnelPolicyName?: pulumi.Input<string | undefined>;
+    tunnelPolicyName: pulumi.Input<string>;
     /**
      * Protocol this tunnel will use for allowing traffic to backends.
      */

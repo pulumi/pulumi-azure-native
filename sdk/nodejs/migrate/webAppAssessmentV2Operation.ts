@@ -185,6 +185,9 @@ export class WebAppAssessmentV2Operation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.assessmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'assessmentName'");
+            }
             if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
@@ -286,7 +289,7 @@ export interface WebAppAssessmentV2OperationArgs {
     /**
      * Web app Assessment arm name.
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
     /**
      * Assessment type of the assessment.
      */

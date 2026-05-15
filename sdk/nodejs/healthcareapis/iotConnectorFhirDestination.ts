@@ -89,6 +89,9 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.fhirDestinationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'fhirDestinationName'");
+            }
             if (args?.fhirMapping === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fhirMapping'");
             }
@@ -145,7 +148,7 @@ export interface IotConnectorFhirDestinationArgs {
     /**
      * The name of IoT Connector FHIR destination resource.
      */
-    fhirDestinationName?: pulumi.Input<string | undefined>;
+    fhirDestinationName: pulumi.Input<string>;
     /**
      * FHIR Mappings
      */

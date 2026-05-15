@@ -86,6 +86,9 @@ export class EntityAnalytics extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.settingsName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'settingsName'");
+            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -135,7 +138,7 @@ export interface EntityAnalyticsArgs {
     /**
      * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
      */
-    settingsName?: pulumi.Input<string | undefined>;
+    settingsName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

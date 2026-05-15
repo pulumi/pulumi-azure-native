@@ -124,6 +124,9 @@ export class MqttBridgeConnector extends pulumi.CustomResource {
             if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
+            if (args?.mqttBridgeConnectorName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'mqttBridgeConnectorName'");
+            }
             if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
@@ -216,7 +219,7 @@ export interface MqttBridgeConnectorArgs {
     /**
      * Name of MQ mqttBridgeConnector resource
      */
-    mqttBridgeConnectorName?: pulumi.Input<string | undefined>;
+    mqttBridgeConnectorName: pulumi.Input<string>;
     /**
      * The Node Tolerations for the Bridge Connector pods.
      */

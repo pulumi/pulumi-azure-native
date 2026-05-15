@@ -85,6 +85,9 @@ export class RegistryDataVersion extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.version === undefined && !opts.urn) {
+                throw new Error("Missing required property 'version'");
+            }
             resourceInputs["name"] = args?.name;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["registryName"] = args?.registryName;
@@ -130,5 +133,5 @@ export interface RegistryDataVersionArgs {
     /**
      * Version identifier.
      */
-    version?: pulumi.Input<string | undefined>;
+    version: pulumi.Input<string>;
 }

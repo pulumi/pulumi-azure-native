@@ -97,6 +97,9 @@ export class BotConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.connectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -144,7 +147,7 @@ export interface BotConnectionArgs {
     /**
      * The name of the Bot Service Connection Setting resource.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * Required. Gets or sets the Kind of the resource.
      */

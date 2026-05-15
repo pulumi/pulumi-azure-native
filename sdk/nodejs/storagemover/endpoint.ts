@@ -73,6 +73,9 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.endpointName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'endpointName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -111,7 +114,7 @@ export interface EndpointArgs {
     /**
      * The name of the Endpoint resource.
      */
-    endpointName?: pulumi.Input<string | undefined>;
+    endpointName: pulumi.Input<string>;
     /**
      * The resource specific properties for the Storage Mover resource.
      */

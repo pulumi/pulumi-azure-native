@@ -101,6 +101,9 @@ export class SqlPoolWorkloadGroup extends pulumi.CustomResource {
             if (args?.sqlPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
+            if (args?.workloadGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'workloadGroupName'");
+            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -174,7 +177,7 @@ export interface SqlPoolWorkloadGroupArgs {
     /**
      * The name of the workload group.
      */
-    workloadGroupName?: pulumi.Input<string | undefined>;
+    workloadGroupName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

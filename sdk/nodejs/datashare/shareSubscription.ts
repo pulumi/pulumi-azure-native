@@ -136,6 +136,9 @@ export class ShareSubscription extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.shareSubscriptionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'shareSubscriptionName'");
+            }
             if (args?.sourceShareLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceShareLocation'");
             }
@@ -212,7 +215,7 @@ export interface ShareSubscriptionArgs {
     /**
      * The name of the shareSubscription.
      */
-    shareSubscriptionName?: pulumi.Input<string | undefined>;
+    shareSubscriptionName: pulumi.Input<string>;
     /**
      * Source share location.
      */

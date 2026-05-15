@@ -91,6 +91,9 @@ export class TopicSpace extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.topicSpaceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'topicSpaceName'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["namespaceName"] = args?.namespaceName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -136,7 +139,7 @@ export interface TopicSpaceArgs {
     /**
      * The topic space name.
      */
-    topicSpaceName?: pulumi.Input<string | undefined>;
+    topicSpaceName: pulumi.Input<string>;
     /**
      * The topic filters in the topic space.
      * Example: "topicTemplates": [ 

@@ -98,6 +98,9 @@ export class StartStopManagedInstanceSchedule extends pulumi.CustomResource {
             if (args?.scheduleList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleList'");
             }
+            if (args?.startStopScheduleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'startStopScheduleName'");
+            }
             resourceInputs["description"] = (args?.description) ?? "";
             resourceInputs["managedInstanceName"] = args?.managedInstanceName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -151,7 +154,7 @@ export interface StartStopManagedInstanceScheduleArgs {
     /**
      * Name of the managed instance Start/Stop schedule.
      */
-    startStopScheduleName?: pulumi.Input<string | undefined>;
+    startStopScheduleName: pulumi.Input<string>;
     /**
      * The time zone of the schedule.
      */

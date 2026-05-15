@@ -93,6 +93,9 @@ export class SharedCommitmentPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.commitmentPlanName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'commitmentPlanName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +137,7 @@ export interface SharedCommitmentPlanArgs {
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
-    commitmentPlanName?: pulumi.Input<string | undefined>;
+    commitmentPlanName: pulumi.Input<string>;
     /**
      * The Kind of the resource.
      */

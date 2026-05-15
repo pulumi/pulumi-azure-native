@@ -89,6 +89,9 @@ export class PrivateLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.privateLinkName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'privateLinkName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +135,7 @@ export interface PrivateLinkArgs {
     /**
      * The name of the private link resource. Must be unique within the resource group and follow Azure naming conventions.
      */
-    privateLinkName?: pulumi.Input<string | undefined>;
+    privateLinkName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

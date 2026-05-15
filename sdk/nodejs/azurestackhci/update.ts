@@ -151,6 +151,9 @@ export class Update extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.updateName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'updateName'");
+            }
             resourceInputs["additionalProperties"] = args?.additionalProperties;
             resourceInputs["availabilityType"] = args?.availabilityType;
             resourceInputs["clusterName"] = args?.clusterName;
@@ -292,7 +295,7 @@ export interface UpdateArgs {
     /**
      * The name of the Update
      */
-    updateName?: pulumi.Input<string | undefined>;
+    updateName: pulumi.Input<string>;
     /**
      * Version of the update.
      */

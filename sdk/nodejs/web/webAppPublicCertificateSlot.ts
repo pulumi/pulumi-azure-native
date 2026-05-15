@@ -84,6 +84,9 @@ export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            if (args?.publicCertificateName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'publicCertificateName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -139,7 +142,7 @@ export interface WebAppPublicCertificateSlotArgs {
     /**
      * Public certificate name.
      */
-    publicCertificateName?: pulumi.Input<string | undefined>;
+    publicCertificateName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

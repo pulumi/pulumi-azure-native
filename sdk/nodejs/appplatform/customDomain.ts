@@ -76,6 +76,9 @@ export class CustomDomain extends pulumi.CustomResource {
             if (args?.appName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appName'");
             }
+            if (args?.domainName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'domainName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +119,7 @@ export interface CustomDomainArgs {
     /**
      * The name of the custom domain resource.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName: pulumi.Input<string>;
     /**
      * Properties of the custom domain resource.
      */

@@ -102,6 +102,9 @@ export class BusinessProcess extends pulumi.CustomResource {
             if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
+            if (args?.businessProcessName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'businessProcessName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -160,7 +163,7 @@ export interface BusinessProcessArgs {
     /**
      * The name of the business process
      */
-    businessProcessName?: pulumi.Input<string | undefined>;
+    businessProcessName: pulumi.Input<string>;
     /**
      * The business process stages.
      */

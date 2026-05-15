@@ -92,6 +92,9 @@ export class Grafana extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.workspaceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'workspaceName'");
+            }
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.dashboard.managedGrafanaPropertiesArgsProvideDefaults(v)) : undefined;
@@ -152,5 +155,5 @@ export interface GrafanaArgs {
     /**
      * The workspace name of Azure Managed Grafana.
      */
-    workspaceName?: pulumi.Input<string | undefined>;
+    workspaceName: pulumi.Input<string>;
 }

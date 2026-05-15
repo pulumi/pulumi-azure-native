@@ -98,6 +98,9 @@ export class WebAgent extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.webAgentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'webAgentName'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["location"] = args?.location;
             resourceInputs["paths"] = args?.paths;
@@ -162,5 +165,5 @@ export interface WebAgentArgs {
     /**
      * The name of the web agent.
      */
-    webAgentName?: pulumi.Input<string | undefined>;
+    webAgentName: pulumi.Input<string>;
 }

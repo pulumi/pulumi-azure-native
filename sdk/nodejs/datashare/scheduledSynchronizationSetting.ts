@@ -107,6 +107,9 @@ export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
             if (args?.shareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
+            if (args?.synchronizationSettingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'synchronizationSettingName'");
+            }
             if (args?.synchronizationTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synchronizationTime'");
             }
@@ -171,7 +174,7 @@ export interface ScheduledSynchronizationSettingArgs {
     /**
      * The name of the synchronizationSetting.
      */
-    synchronizationSettingName?: pulumi.Input<string | undefined>;
+    synchronizationSettingName: pulumi.Input<string>;
     /**
      * Synchronization time
      */

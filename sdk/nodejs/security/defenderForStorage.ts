@@ -72,6 +72,9 @@ export class DefenderForStorage extends pulumi.CustomResource {
             if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
+            if (args?.settingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'settingName'");
+            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["settingName"] = args?.settingName;
@@ -106,5 +109,5 @@ export interface DefenderForStorageArgs {
     /**
      * Defender for Storage setting name.
      */
-    settingName?: pulumi.Input<string | undefined>;
+    settingName: pulumi.Input<string>;
 }

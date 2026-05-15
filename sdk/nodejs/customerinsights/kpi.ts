@@ -157,6 +157,9 @@ export class Kpi extends pulumi.CustomResource {
             if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
+            if (args?.kpiName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'kpiName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -274,7 +277,7 @@ export interface KpiArgs {
     /**
      * The name of the KPI.
      */
-    kpiName?: pulumi.Input<string | undefined>;
+    kpiName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

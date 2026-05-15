@@ -97,6 +97,9 @@ export class EncryptionProtector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.encryptionProtectorName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'encryptionProtectorName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -151,7 +154,7 @@ export interface EncryptionProtectorArgs {
     /**
      * The name of the encryption protector to be updated.
      */
-    encryptionProtectorName?: pulumi.Input<string | undefined>;
+    encryptionProtectorName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

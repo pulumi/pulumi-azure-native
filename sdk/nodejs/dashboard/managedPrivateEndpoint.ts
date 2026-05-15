@@ -109,6 +109,9 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.managedPrivateEndpointName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'managedPrivateEndpointName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -170,7 +173,7 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * The managed private endpoint name of Azure Managed Grafana.
      */
-    managedPrivateEndpointName?: pulumi.Input<string | undefined>;
+    managedPrivateEndpointName: pulumi.Input<string>;
     /**
      * The ARM resource ID of the resource for which the managed private endpoint is pointing to.
      */

@@ -82,6 +82,9 @@ export class SecretValue extends pulumi.CustomResource {
             if (args?.secretResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretResourceName'");
             }
+            if (args?.secretValueResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'secretValueResourceName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["secretResourceName"] = args?.secretResourceName;
@@ -127,7 +130,7 @@ export interface SecretValueArgs {
     /**
      * The name of the secret resource value which is typically the version identifier for the value.
      */
-    secretValueResourceName?: pulumi.Input<string | undefined>;
+    secretValueResourceName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

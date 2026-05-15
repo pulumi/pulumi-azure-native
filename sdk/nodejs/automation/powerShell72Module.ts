@@ -121,6 +121,9 @@ export class PowerShell72Module extends pulumi.CustomResource {
             if (args?.contentLink === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentLink'");
             }
+            if (args?.moduleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'moduleName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -188,7 +191,7 @@ export interface PowerShell72ModuleArgs {
     /**
      * The name of module.
      */
-    moduleName?: pulumi.Input<string | undefined>;
+    moduleName: pulumi.Input<string>;
     /**
      * Sets name of the resource.
      */

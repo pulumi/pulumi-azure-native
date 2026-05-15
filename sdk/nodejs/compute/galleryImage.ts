@@ -141,6 +141,9 @@ export class GalleryImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.galleryImageName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'galleryImageName'");
+            }
             if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
@@ -247,7 +250,7 @@ export interface GalleryImageArgs {
     /**
      * The name of the gallery image definition to be retrieved.
      */
-    galleryImageName?: pulumi.Input<string | undefined>;
+    galleryImageName: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery.
      */

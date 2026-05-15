@@ -120,6 +120,9 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.entityQueryId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'entityQueryId'");
+            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -198,7 +201,7 @@ export interface ActivityCustomEntityQueryArgs {
     /**
      * entity query ID
      */
-    entityQueryId?: pulumi.Input<string | undefined>;
+    entityQueryId: pulumi.Input<string>;
     /**
      * The type of the query's source entity
      */

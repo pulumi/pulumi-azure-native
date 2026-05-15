@@ -74,6 +74,9 @@ export class ManagedGateway extends pulumi.CustomResource {
             if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
+            if (args?.managedGatewayName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'managedGatewayName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -110,7 +113,7 @@ export interface ManagedGatewayArgs {
     /**
      * The gateway resource name.
      */
-    managedGatewayName?: pulumi.Input<string | undefined>;
+    managedGatewayName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

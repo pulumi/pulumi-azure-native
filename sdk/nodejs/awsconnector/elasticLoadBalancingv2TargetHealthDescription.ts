@@ -79,6 +79,9 @@ export class ElasticLoadBalancingv2TargetHealthDescription extends pulumi.Custom
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -117,7 +120,7 @@ export interface ElasticLoadBalancingv2TargetHealthDescriptionArgs {
     /**
      * Name of ElasticLoadBalancingv2TargetHealthDescription
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

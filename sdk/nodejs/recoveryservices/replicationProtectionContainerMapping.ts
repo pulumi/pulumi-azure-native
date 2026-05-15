@@ -76,6 +76,9 @@ export class ReplicationProtectionContainerMapping extends pulumi.CustomResource
             if (args?.fabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
+            if (args?.mappingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'mappingName'");
+            }
             if (args?.protectionContainerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protectionContainerName'");
             }
@@ -120,7 +123,7 @@ export interface ReplicationProtectionContainerMappingArgs {
     /**
      * Protection container mapping name.
      */
-    mappingName?: pulumi.Input<string | undefined>;
+    mappingName: pulumi.Input<string>;
     /**
      * Configure protection input properties.
      */

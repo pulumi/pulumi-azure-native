@@ -119,6 +119,9 @@ export class Assignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.assignmentId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'assignmentId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -186,7 +189,7 @@ export interface AssignmentArgs {
     /**
      * The security assignment key - unique key for the standard assignment
      */
-    assignmentId?: pulumi.Input<string | undefined>;
+    assignmentId: pulumi.Input<string>;
     /**
      * description of the standardAssignment
      */

@@ -122,6 +122,9 @@ export class BmcKeySet extends pulumi.CustomResource {
             if (args?.azureGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureGroupId'");
             }
+            if (args?.bmcKeySetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'bmcKeySetName'");
+            }
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -197,7 +200,7 @@ export interface BmcKeySetArgs {
     /**
      * The name of the baseboard management controller key set.
      */
-    bmcKeySetName?: pulumi.Input<string | undefined>;
+    bmcKeySetName: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */

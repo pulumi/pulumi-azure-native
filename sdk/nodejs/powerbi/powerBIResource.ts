@@ -81,6 +81,9 @@ export class PowerBIResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.azureResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'azureResourceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +121,7 @@ export interface PowerBIResourceArgs {
     /**
      * The name of the Azure resource.
      */
-    azureResourceName?: pulumi.Input<string | undefined>;
+    azureResourceName: pulumi.Input<string>;
     /**
      * Specifies the location of the resource.
      */

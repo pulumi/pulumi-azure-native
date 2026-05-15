@@ -75,6 +75,9 @@ export class ReplicationProtectionCluster extends pulumi.CustomResource {
             if (args?.protectionContainerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protectionContainerName'");
             }
+            if (args?.replicationProtectionClusterName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'replicationProtectionClusterName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +125,7 @@ export interface ReplicationProtectionClusterArgs {
     /**
      * Replication protection cluster name.
      */
-    replicationProtectionClusterName?: pulumi.Input<string | undefined>;
+    replicationProtectionClusterName: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

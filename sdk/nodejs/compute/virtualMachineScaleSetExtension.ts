@@ -115,6 +115,9 @@ export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
             if (args?.vmScaleSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
+            if (args?.vmssExtensionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'vmssExtensionName'");
+            }
             resourceInputs["autoUpgradeMinorVersion"] = args?.autoUpgradeMinorVersion;
             resourceInputs["enableAutomaticUpgrade"] = args?.enableAutomaticUpgrade;
             resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
@@ -218,5 +221,5 @@ export interface VirtualMachineScaleSetExtensionArgs {
     /**
      * The name of the VM scale set extension.
      */
-    vmssExtensionName?: pulumi.Input<string | undefined>;
+    vmssExtensionName: pulumi.Input<string>;
 }

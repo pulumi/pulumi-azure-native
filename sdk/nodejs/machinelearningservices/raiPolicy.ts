@@ -79,6 +79,9 @@ export class RaiPolicy extends pulumi.CustomResource {
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
+            if (args?.raiPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'raiPolicyName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +131,7 @@ export interface RaiPolicyArgs {
     /**
      * Name of the Rai Policy.
      */
-    raiPolicyName?: pulumi.Input<string | undefined>;
+    raiPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

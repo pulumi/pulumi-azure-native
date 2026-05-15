@@ -86,6 +86,9 @@ export class ClientApplication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.clientApplicationId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'clientApplicationId'");
+            }
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -135,7 +138,7 @@ export interface ClientApplicationArgs {
     /**
      * Client Application identifier. Must be unique in the current API Management service instance.
      */
-    clientApplicationId?: pulumi.Input<string | undefined>;
+    clientApplicationId: pulumi.Input<string>;
     /**
      * Client application description.
      */

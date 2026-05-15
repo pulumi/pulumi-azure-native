@@ -81,10 +81,13 @@ export class ManagementGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagementGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.groupId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'groupId'");
+            }
             resourceInputs["details"] = args?.details;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["groupId"] = args?.groupId;
@@ -126,7 +129,7 @@ export interface ManagementGroupArgs {
     /**
      * Management Group ID.
      */
-    groupId?: pulumi.Input<string | undefined>;
+    groupId: pulumi.Input<string>;
     /**
      * The name of the management group. For example, 00000000-0000-0000-0000-000000000000
      */

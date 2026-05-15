@@ -129,6 +129,9 @@ export class ExpressRoutePort extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.expressRoutePortName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'expressRoutePortName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -201,7 +204,7 @@ export interface ExpressRoutePortArgs {
     /**
      * The name of the ExpressRoutePort resource.
      */
-    expressRoutePortName?: pulumi.Input<string | undefined>;
+    expressRoutePortName: pulumi.Input<string>;
     /**
      * Resource ID.
      */

@@ -103,6 +103,9 @@ export class Schema extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.schemaName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'schemaName'");
+            }
             if (args?.schemaRegistryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaRegistryName'");
             }
@@ -166,7 +169,7 @@ export interface SchemaArgs {
     /**
      * Schema name parameter.
      */
-    schemaName?: pulumi.Input<string | undefined>;
+    schemaName: pulumi.Input<string>;
     /**
      * Schema registry name parameter.
      */

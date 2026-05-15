@@ -79,6 +79,9 @@ export class GatewayRouteConfig extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.routeConfigName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'routeConfigName'");
+            }
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
@@ -124,7 +127,7 @@ export interface GatewayRouteConfigArgs {
     /**
      * The name of the Spring Cloud Gateway route config.
      */
-    routeConfigName?: pulumi.Input<string | undefined>;
+    routeConfigName: pulumi.Input<string>;
     /**
      * The name of the Service resource.
      */

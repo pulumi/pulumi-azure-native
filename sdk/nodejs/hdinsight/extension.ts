@@ -65,6 +65,9 @@ export class Extension extends pulumi.CustomResource {
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
+            if (args?.extensionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'extensionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -98,7 +101,7 @@ export interface ExtensionArgs {
     /**
      * The name of the cluster extension.
      */
-    extensionName?: pulumi.Input<string | undefined>;
+    extensionName: pulumi.Input<string>;
     /**
      * The certificate for the cluster monitoring extensions.
      */

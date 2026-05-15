@@ -99,6 +99,9 @@ export class CertificateObjectGlobalRulestack extends pulumi.CustomResource {
             if (args?.globalRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalRulestackName'");
             }
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["auditComment"] = args?.auditComment;
             resourceInputs["certificateSelfSigned"] = args?.certificateSelfSigned;
             resourceInputs["certificateSignerResourceId"] = args?.certificateSignerResourceId;
@@ -156,5 +159,5 @@ export interface CertificateObjectGlobalRulestackArgs {
     /**
      * certificate name
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
 }

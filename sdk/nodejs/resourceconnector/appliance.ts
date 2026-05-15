@@ -108,6 +108,9 @@ export class Appliance extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             resourceInputs["distro"] = (args?.distro) ?? "AKSEdge";
             resourceInputs["identity"] = args?.identity;
             resourceInputs["infrastructureConfig"] = args?.infrastructureConfig;
@@ -176,7 +179,7 @@ export interface ApplianceArgs {
     /**
      * Appliances name.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

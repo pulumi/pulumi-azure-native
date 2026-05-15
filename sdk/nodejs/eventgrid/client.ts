@@ -95,6 +95,9 @@ export class Client extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.clientName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'clientName'");
+            }
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -154,7 +157,7 @@ export interface ClientArgs {
     /**
      * The client name.
      */
-    clientName?: pulumi.Input<string | undefined>;
+    clientName: pulumi.Input<string>;
     /**
      * Description for the Client resource.
      */

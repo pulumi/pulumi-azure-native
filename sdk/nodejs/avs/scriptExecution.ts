@@ -137,6 +137,9 @@ export class ScriptExecution extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.scriptExecutionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scriptExecutionName'");
+            }
             if (args?.timeout === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeout'");
             }
@@ -235,7 +238,7 @@ export interface ScriptExecutionArgs {
     /**
      * Name of the script cmdlet.
      */
-    scriptExecutionName?: pulumi.Input<string | undefined>;
+    scriptExecutionName: pulumi.Input<string>;
     /**
      * Time limit for execution
      */

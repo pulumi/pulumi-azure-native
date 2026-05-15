@@ -75,6 +75,9 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.applicationId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'applicationId'");
+            }
             if (args?.sourceResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceType'");
             }
@@ -107,7 +110,7 @@ export interface ApplicationArgs {
     /**
      * The security Application key - unique key for the standard application
      */
-    applicationId?: pulumi.Input<string | undefined>;
+    applicationId: pulumi.Input<string>;
     /**
      * description of the application
      */

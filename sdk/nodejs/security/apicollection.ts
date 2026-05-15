@@ -68,6 +68,9 @@ export class APICollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.apiCollectionId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'apiCollectionId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -103,7 +106,7 @@ export interface APICollectionArgs {
     /**
      * A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
      */
-    apiCollectionId?: pulumi.Input<string | undefined>;
+    apiCollectionId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

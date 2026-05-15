@@ -111,6 +111,9 @@ export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
             if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
+            if (args?.sensitivityLabelSource === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sensitivityLabelSource'");
+            }
             if (args?.sqlPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
@@ -195,7 +198,7 @@ export interface SqlPoolSensitivityLabelArgs {
     /**
      * The source of the sensitivity label.
      */
-    sensitivityLabelSource?: pulumi.Input<string | undefined>;
+    sensitivityLabelSource: pulumi.Input<string>;
     /**
      * SQL pool name
      */

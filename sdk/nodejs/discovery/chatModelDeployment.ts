@@ -79,6 +79,9 @@ export class ChatModelDeployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.chatModelDeploymentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'chatModelDeploymentName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +121,7 @@ export interface ChatModelDeploymentArgs {
     /**
      * The name of the ChatModelDeployment
      */
-    chatModelDeploymentName?: pulumi.Input<string | undefined>;
+    chatModelDeploymentName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

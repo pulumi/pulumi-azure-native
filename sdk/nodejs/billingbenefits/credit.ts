@@ -157,6 +157,9 @@ export class Credit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.creditName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'creditName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -242,7 +245,7 @@ export interface CreditArgs {
     /**
      * Name of the credit
      */
-    creditName?: pulumi.Input<string | undefined>;
+    creditName: pulumi.Input<string>;
     /**
      * End DateTime in UTC.
      */

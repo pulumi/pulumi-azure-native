@@ -92,6 +92,9 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
@@ -136,7 +139,7 @@ export interface UserAssignedIdentityArgs {
     /**
      * The name of the identity resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

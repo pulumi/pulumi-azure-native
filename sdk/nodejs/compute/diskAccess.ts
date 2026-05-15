@@ -93,6 +93,9 @@ export class DiskAccess extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.diskAccessName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'diskAccessName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +137,7 @@ export interface DiskAccessArgs {
     /**
      * The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
-    diskAccessName?: pulumi.Input<string | undefined>;
+    diskAccessName: pulumi.Input<string>;
     /**
      * The extended location where the disk access will be created. Extended location cannot be changed.
      */

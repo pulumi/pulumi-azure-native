@@ -79,6 +79,9 @@ export class RulesEngine extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.rulesEngineName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'rulesEngineName'");
+            }
             resourceInputs["frontDoorName"] = args?.frontDoorName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["rules"] = args?.rules;
@@ -120,5 +123,5 @@ export interface RulesEngineArgs {
     /**
      * Name of the Rules Engine which is unique within the Front Door.
      */
-    rulesEngineName?: pulumi.Input<string | undefined>;
+    rulesEngineName: pulumi.Input<string>;
 }

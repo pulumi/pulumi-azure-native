@@ -98,6 +98,9 @@ export class AFDOriginGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.originGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'originGroupName'");
+            }
             if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -158,7 +161,7 @@ export interface AFDOriginGroupArgs {
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    originGroupName?: pulumi.Input<string | undefined>;
+    originGroupName: pulumi.Input<string>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */

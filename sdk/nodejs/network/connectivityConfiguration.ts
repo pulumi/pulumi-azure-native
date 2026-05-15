@@ -108,6 +108,9 @@ export class ConnectivityConfiguration extends pulumi.CustomResource {
             if (args?.appliesToGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appliesToGroups'");
             }
+            if (args?.configurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configurationName'");
+            }
             if (args?.connectivityTopology === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectivityTopology'");
             }
@@ -166,7 +169,7 @@ export interface ConnectivityConfigurationArgs {
     /**
      * The name of the network manager connectivity configuration.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
     /**
      * Connectivity topology type.
      */

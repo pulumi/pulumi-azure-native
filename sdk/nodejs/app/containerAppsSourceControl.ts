@@ -93,6 +93,9 @@ export class ContainerAppsSourceControl extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.sourceControlName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sourceControlName'");
+            }
             resourceInputs["branch"] = args?.branch;
             resourceInputs["containerAppName"] = args?.containerAppName;
             resourceInputs["githubActionConfiguration"] = args?.githubActionConfiguration;
@@ -150,5 +153,5 @@ export interface ContainerAppsSourceControlArgs {
     /**
      * Name of the Container App SourceControl.
      */
-    sourceControlName?: pulumi.Input<string | undefined>;
+    sourceControlName: pulumi.Input<string>;
 }

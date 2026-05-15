@@ -77,6 +77,9 @@ export class AccessPolicyAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.accessPolicyAssignmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'accessPolicyAssignmentName'");
+            }
             if (args?.accessPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessPolicyName'");
             }
@@ -124,7 +127,7 @@ export interface AccessPolicyAssignmentArgs {
     /**
      * The name of the Redis Enterprise database access policy assignment.
      */
-    accessPolicyAssignmentName?: pulumi.Input<string | undefined>;
+    accessPolicyAssignmentName: pulumi.Input<string>;
     /**
      * Name of access policy under specific access policy assignment. Only "default" policy is supported for now.
      */

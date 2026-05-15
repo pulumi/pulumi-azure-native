@@ -83,6 +83,9 @@ export class SchemaVersion extends pulumi.CustomResource {
             if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
+            if (args?.schemaVersionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'schemaVersionName'");
+            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["schemaName"] = args?.schemaName;
@@ -126,5 +129,5 @@ export interface SchemaVersionArgs {
     /**
      * The name of the SchemaVersion
      */
-    schemaVersionName?: pulumi.Input<string | undefined>;
+    schemaVersionName: pulumi.Input<string>;
 }

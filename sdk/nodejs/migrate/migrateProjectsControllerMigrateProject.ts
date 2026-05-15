@@ -81,6 +81,9 @@ export class MigrateProjectsControllerMigrateProject extends pulumi.CustomResour
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.migrateProjectName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'migrateProjectName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -124,7 +127,7 @@ export interface MigrateProjectsControllerMigrateProjectArgs {
     /**
      * Migrate project name.
      */
-    migrateProjectName?: pulumi.Input<string | undefined>;
+    migrateProjectName: pulumi.Input<string>;
     /**
      * Properties of a migrate project.
      */

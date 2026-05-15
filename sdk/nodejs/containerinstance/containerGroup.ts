@@ -164,6 +164,9 @@ export class ContainerGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.containerGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'containerGroupName'");
+            }
             if (args?.containers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containers'");
             }
@@ -246,7 +249,7 @@ export interface ContainerGroupArgs {
     /**
      * The name of the container group.
      */
-    containerGroupName?: pulumi.Input<string | undefined>;
+    containerGroupName: pulumi.Input<string>;
     /**
      * The reference container group profile properties.
      */

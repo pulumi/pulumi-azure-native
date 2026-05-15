@@ -80,6 +80,9 @@ export class RegistryEndpoint extends pulumi.CustomResource {
             if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
+            if (args?.registryEndpointName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'registryEndpointName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +129,7 @@ export interface RegistryEndpointArgs {
     /**
      * Name of RegistryEndpoint resource
      */
-    registryEndpointName?: pulumi.Input<string | undefined>;
+    registryEndpointName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

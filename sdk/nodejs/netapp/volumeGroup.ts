@@ -87,6 +87,9 @@ export class VolumeGroup extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.volumeGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'volumeGroupName'");
+            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["groupMetaData"] = args?.groupMetaData;
             resourceInputs["location"] = args?.location;
@@ -136,7 +139,7 @@ export interface VolumeGroupArgs {
     /**
      * The name of the volumeGroup
      */
-    volumeGroupName?: pulumi.Input<string | undefined>;
+    volumeGroupName: pulumi.Input<string>;
     /**
      * List of volumes from group
      */

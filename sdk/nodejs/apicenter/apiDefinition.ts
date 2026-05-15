@@ -84,6 +84,9 @@ export class ApiDefinition extends pulumi.CustomResource {
             if (args?.apiName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
+            if (args?.definitionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'definitionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -139,7 +142,7 @@ export interface ApiDefinitionArgs {
     /**
      * The name of the API definition.
      */
-    definitionName?: pulumi.Input<string | undefined>;
+    definitionName: pulumi.Input<string>;
     /**
      * API definition description.
      */

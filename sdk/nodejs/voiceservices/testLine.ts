@@ -101,6 +101,9 @@ export class TestLine extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.testLineName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'testLineName'");
+            }
             resourceInputs["communicationsGatewayName"] = args?.communicationsGatewayName;
             resourceInputs["location"] = args?.location;
             resourceInputs["phoneNumber"] = args?.phoneNumber;
@@ -162,5 +165,5 @@ export interface TestLineArgs {
     /**
      * Unique identifier for this test line
      */
-    testLineName?: pulumi.Input<string | undefined>;
+    testLineName: pulumi.Input<string>;
 }

@@ -81,6 +81,9 @@ export class AppAttachPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.appAttachPackageName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'appAttachPackageName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -119,7 +122,7 @@ export interface AppAttachPackageArgs {
     /**
      * The name of the App Attach package
      */
-    appAttachPackageName?: pulumi.Input<string | undefined>;
+    appAttachPackageName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

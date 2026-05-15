@@ -116,6 +116,9 @@ export class ReplicationLink extends pulumi.CustomResource {
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
+            if (args?.linkId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'linkId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -173,7 +176,7 @@ export interface ReplicationLinkArgs {
      * The name of the database.
      */
     databaseName: pulumi.Input<string>;
-    linkId?: pulumi.Input<string | undefined>;
+    linkId: pulumi.Input<string>;
     /**
      * Link type (GEO, NAMED, STANDBY). Update operation does not support NAMED.
      */

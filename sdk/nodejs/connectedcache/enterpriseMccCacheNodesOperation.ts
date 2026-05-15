@@ -81,6 +81,9 @@ export class EnterpriseMccCacheNodesOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.cacheNodeResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'cacheNodeResourceName'");
+            }
             if (args?.customerResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customerResourceName'");
             }
@@ -120,7 +123,7 @@ export interface EnterpriseMccCacheNodesOperationArgs {
     /**
      * Name of the ConnectedCache resource
      */
-    cacheNodeResourceName?: pulumi.Input<string | undefined>;
+    cacheNodeResourceName: pulumi.Input<string>;
     /**
      * Name of the Customer resource
      */

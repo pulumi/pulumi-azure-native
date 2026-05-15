@@ -204,6 +204,9 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (args?.storageProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageProfile'");
             }
+            if (args?.virtualMachineName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'virtualMachineName'");
+            }
             if (args?.vmImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmImage'");
             }
@@ -363,7 +366,7 @@ export interface VirtualMachineArgs {
     /**
      * The name of the virtual machine.
      */
-    virtualMachineName?: pulumi.Input<string | undefined>;
+    virtualMachineName: pulumi.Input<string>;
     /**
      * The type of the device model to use.
      */

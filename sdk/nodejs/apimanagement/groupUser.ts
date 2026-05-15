@@ -106,6 +106,9 @@ export class GroupUser extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (args?.userId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'userId'");
+            }
             resourceInputs["groupId"] = args?.groupId;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
@@ -160,5 +163,5 @@ export interface GroupUserArgs {
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */
-    userId?: pulumi.Input<string | undefined>;
+    userId: pulumi.Input<string>;
 }

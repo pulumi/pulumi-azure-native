@@ -149,6 +149,9 @@ export class LocalRule extends pulumi.CustomResource {
             if (args?.localRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localRulestackName'");
             }
+            if (args?.priority === undefined && !opts.urn) {
+                throw new Error("Missing required property 'priority'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -269,7 +272,7 @@ export interface LocalRuleArgs {
     /**
      * Local Rule priority
      */
-    priority?: pulumi.Input<string | undefined>;
+    priority: pulumi.Input<string>;
     /**
      * any, application-default, TCP:number, UDP:number
      */

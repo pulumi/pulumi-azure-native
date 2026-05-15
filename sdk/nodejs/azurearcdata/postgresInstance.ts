@@ -89,6 +89,9 @@ export class PostgresInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.postgresInstanceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'postgresInstanceName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -139,7 +142,7 @@ export interface PostgresInstanceArgs {
     /**
      * Name of Postgres Instance
      */
-    postgresInstanceName?: pulumi.Input<string | undefined>;
+    postgresInstanceName: pulumi.Input<string>;
     /**
      * null
      */

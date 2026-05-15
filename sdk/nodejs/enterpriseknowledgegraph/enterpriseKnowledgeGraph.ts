@@ -82,6 +82,9 @@ export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -126,7 +129,7 @@ export interface EnterpriseKnowledgeGraphArgs {
     /**
      * The name of the EnterpriseKnowledgeGraph resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
     /**
      * Gets or sets the SKU of the resource.
      */

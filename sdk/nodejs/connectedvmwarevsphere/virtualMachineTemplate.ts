@@ -166,6 +166,9 @@ export class VirtualMachineTemplate extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.virtualMachineTemplateName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'virtualMachineTemplateName'");
+            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["inventoryItemId"] = args?.inventoryItemId;
             resourceInputs["kind"] = args?.kind;
@@ -271,5 +274,5 @@ export interface VirtualMachineTemplateArgs {
     /**
      * Name of the virtual machine template resource.
      */
-    virtualMachineTemplateName?: pulumi.Input<string | undefined>;
+    virtualMachineTemplateName: pulumi.Input<string>;
 }

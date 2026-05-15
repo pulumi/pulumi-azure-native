@@ -75,6 +75,9 @@ export class WorkspaceTag extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (args?.tagId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tagId'");
+            }
             if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
@@ -118,7 +121,7 @@ export interface WorkspaceTagArgs {
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    tagId?: pulumi.Input<string | undefined>;
+    tagId: pulumi.Input<string>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

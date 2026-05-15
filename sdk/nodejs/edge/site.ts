@@ -76,6 +76,9 @@ export class Site extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.siteName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'siteName'");
+            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["siteName"] = args?.siteName;
@@ -112,5 +115,5 @@ export interface SiteArgs {
     /**
      * The name of the Site
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName: pulumi.Input<string>;
 }

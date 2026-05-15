@@ -105,6 +105,9 @@ export class L2IsolationDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.l2IsolationDomainName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'l2IsolationDomainName'");
+            }
             if (args?.networkFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricId'");
             }
@@ -162,7 +165,7 @@ export interface L2IsolationDomainArgs {
     /**
      * Name of the L2 Isolation Domain.
      */
-    l2IsolationDomainName?: pulumi.Input<string | undefined>;
+    l2IsolationDomainName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

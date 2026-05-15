@@ -81,6 +81,9 @@ export class Action extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.actionId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'actionId'");
+            }
             if (args?.logicAppResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'logicAppResourceId'");
             }
@@ -131,7 +134,7 @@ export interface ActionArgs {
     /**
      * Action ID
      */
-    actionId?: pulumi.Input<string | undefined>;
+    actionId: pulumi.Input<string>;
     /**
      * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
      */

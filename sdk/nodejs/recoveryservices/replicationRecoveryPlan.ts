@@ -76,6 +76,9 @@ export class ReplicationRecoveryPlan extends pulumi.CustomResource {
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
+            if (args?.recoveryPlanName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'recoveryPlanName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +118,7 @@ export interface ReplicationRecoveryPlanArgs {
     /**
      * Recovery plan name.
      */
-    recoveryPlanName?: pulumi.Input<string | undefined>;
+    recoveryPlanName: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

@@ -71,6 +71,9 @@ export class SqlAssessmentV3Operation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.assessmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'assessmentName'");
+            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -106,7 +109,7 @@ export interface SqlAssessmentV3OperationArgs {
     /**
      * SQL Assessment arm name.
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

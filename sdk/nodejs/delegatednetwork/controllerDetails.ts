@@ -100,6 +100,9 @@ export class ControllerDetails extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["purpose"] = (args?.purpose) ?? "prod";
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -152,7 +155,7 @@ export interface ControllerDetailsArgs {
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
     /**
      * The resource tags.
      */

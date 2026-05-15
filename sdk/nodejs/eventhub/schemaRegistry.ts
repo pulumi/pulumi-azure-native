@@ -97,6 +97,9 @@ export class SchemaRegistry extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.schemaGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'schemaGroupName'");
+            }
             resourceInputs["groupProperties"] = args?.groupProperties;
             resourceInputs["namespaceName"] = args?.namespaceName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -151,6 +154,6 @@ export interface SchemaRegistryArgs {
     /**
      * The Schema Group name 
      */
-    schemaGroupName?: pulumi.Input<string | undefined>;
+    schemaGroupName: pulumi.Input<string>;
     schemaType?: pulumi.Input<string | enums.eventhub.SchemaType | undefined>;
 }

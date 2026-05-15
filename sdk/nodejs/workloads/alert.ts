@@ -95,6 +95,9 @@ export class Alert extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.alertName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'alertName'");
+            }
             if (args?.monitorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
@@ -142,7 +145,7 @@ export interface AlertArgs {
     /**
      * Name of the SAP monitor alert resource.
      */
-    alertName?: pulumi.Input<string | undefined>;
+    alertName: pulumi.Input<string>;
     /**
      * Describes the properties of an alert.
      */

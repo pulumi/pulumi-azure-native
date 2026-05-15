@@ -105,6 +105,9 @@ export class DeploymentSetting extends pulumi.CustomResource {
             if (args?.deploymentMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deploymentMode'");
             }
+            if (args?.deploymentSettingsName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'deploymentSettingsName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -163,7 +166,7 @@ export interface DeploymentSettingArgs {
     /**
      * Name of Deployment Setting
      */
-    deploymentSettingsName?: pulumi.Input<string | undefined>;
+    deploymentSettingsName: pulumi.Input<string>;
     /**
      * The intended operation for a cluster.
      */

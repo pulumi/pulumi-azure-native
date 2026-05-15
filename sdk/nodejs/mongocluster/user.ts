@@ -79,6 +79,9 @@ export class User extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.userName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'userName'");
+            }
             resourceInputs["mongoClusterName"] = args?.mongoClusterName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -120,5 +123,5 @@ export interface UserArgs {
     /**
      * The name of the mongo cluster user.
      */
-    userName?: pulumi.Input<string | undefined>;
+    userName: pulumi.Input<string>;
 }

@@ -73,6 +73,9 @@ export class PrivateDnsZoneGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.privateDnsZoneGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'privateDnsZoneGroupName'");
+            }
             if (args?.privateEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateEndpointName'");
             }
@@ -121,7 +124,7 @@ export interface PrivateDnsZoneGroupArgs {
     /**
      * The name of the private dns zone group.
      */
-    privateDnsZoneGroupName?: pulumi.Input<string | undefined>;
+    privateDnsZoneGroupName: pulumi.Input<string>;
     /**
      * The name of the private endpoint.
      */

@@ -110,6 +110,9 @@ export class Formula extends pulumi.CustomResource {
             if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -175,7 +178,7 @@ export interface FormulaArgs {
     /**
      * The name of the formula.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The OS type of the formula.
      */

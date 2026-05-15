@@ -89,6 +89,9 @@ export class AzureBareMetalStorageInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.azureBareMetalStorageInstanceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'azureBareMetalStorageInstanceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +131,7 @@ export interface AzureBareMetalStorageInstanceArgs {
     /**
      * Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
      */
-    azureBareMetalStorageInstanceName?: pulumi.Input<string | undefined>;
+    azureBareMetalStorageInstanceName: pulumi.Input<string>;
     /**
      * Specifies the AzureBareMetaStorageInstance unique ID.
      */

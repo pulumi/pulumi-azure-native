@@ -88,6 +88,9 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
             if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
+            if (args?.immutabilityPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'immutabilityPolicyName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -147,7 +150,7 @@ export interface BlobContainerImmutabilityPolicyArgs {
     /**
      * The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
      */
-    immutabilityPolicyName?: pulumi.Input<string | undefined>;
+    immutabilityPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

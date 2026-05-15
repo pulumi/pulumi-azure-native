@@ -120,6 +120,9 @@ export class Database extends pulumi.CustomResource {
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
+            if (args?.databaseName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'databaseName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -190,7 +193,7 @@ export interface DatabaseArgs {
     /**
      * The name of the Redis Enterprise database.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
      */

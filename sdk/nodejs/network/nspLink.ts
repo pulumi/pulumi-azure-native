@@ -106,6 +106,9 @@ export class NspLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.linkName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'linkName'");
+            }
             if (args?.networkSecurityPerimeterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityPerimeterName'");
             }
@@ -167,7 +170,7 @@ export interface NspLinkArgs {
     /**
      * The name of the NSP link.
      */
-    linkName?: pulumi.Input<string | undefined>;
+    linkName: pulumi.Input<string>;
     /**
      * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
      */

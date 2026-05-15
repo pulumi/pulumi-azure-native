@@ -83,6 +83,9 @@ export class LandingZoneAccountOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.landingZoneAccountName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'landingZoneAccountName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -124,7 +127,7 @@ export interface LandingZoneAccountOperationArgs {
     /**
      * The landing zone account.
      */
-    landingZoneAccountName?: pulumi.Input<string | undefined>;
+    landingZoneAccountName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

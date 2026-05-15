@@ -95,6 +95,9 @@ export class ADLSGen1FolderDataSet extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.dataSetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataSetName'");
+            }
             if (args?.folderPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'folderPath'");
             }
@@ -156,7 +159,7 @@ export interface ADLSGen1FolderDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string | undefined>;
+    dataSetName: pulumi.Input<string>;
     /**
      * The folder path within the ADLS account.
      */

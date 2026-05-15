@@ -101,6 +101,9 @@ export class InternetGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.internetGatewayName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'internetGatewayName'");
+            }
             if (args?.networkFabricControllerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricControllerId'");
             }
@@ -156,7 +159,7 @@ export interface InternetGatewayArgs {
     /**
      * Name of the Internet Gateway.
      */
-    internetGatewayName?: pulumi.Input<string | undefined>;
+    internetGatewayName: pulumi.Input<string>;
     /**
      * ARM Resource ID of the Internet Gateway Rule.
      */

@@ -84,6 +84,9 @@ export class Connector extends pulumi.CustomResource {
             if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
+            if (args?.connectorName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectorName'");
+            }
             if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
@@ -136,7 +139,7 @@ export interface ConnectorArgs {
     /**
      * Confluent connector name
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName: pulumi.Input<string>;
     /**
      * Connector Service type info base properties.
      */

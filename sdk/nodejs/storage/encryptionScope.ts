@@ -92,6 +92,9 @@ export class EncryptionScope extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.encryptionScopeName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'encryptionScopeName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -136,7 +139,7 @@ export interface EncryptionScopeArgs {
     /**
      * The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    encryptionScopeName?: pulumi.Input<string | undefined>;
+    encryptionScopeName: pulumi.Input<string>;
     /**
      * The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
      */

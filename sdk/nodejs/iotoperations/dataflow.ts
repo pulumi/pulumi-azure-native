@@ -77,6 +77,9 @@ export class Dataflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dataflowName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataflowName'");
+            }
             if (args?.dataflowProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataflowProfileName'");
             }
@@ -121,7 +124,7 @@ export interface DataflowArgs {
     /**
      * Name of Instance dataflowProfile dataflow resource
      */
-    dataflowName?: pulumi.Input<string | undefined>;
+    dataflowName: pulumi.Input<string>;
     /**
      * Name of Instance dataflowProfile resource
      */

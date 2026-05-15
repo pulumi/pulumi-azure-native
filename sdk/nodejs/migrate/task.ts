@@ -83,6 +83,9 @@ export class Task extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.taskName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'taskName'");
+            }
             resourceInputs["projectName"] = args?.projectName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -126,5 +129,5 @@ export interface TaskArgs {
     /**
      * Task ARM name
      */
-    taskName?: pulumi.Input<string | undefined>;
+    taskName: pulumi.Input<string>;
 }

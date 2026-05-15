@@ -80,6 +80,9 @@ export class ConfigurationProfileHCIAssignment extends pulumi.CustomResource {
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
+            if (args?.configurationProfileAssignmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configurationProfileAssignmentName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +121,7 @@ export interface ConfigurationProfileHCIAssignmentArgs {
     /**
      * Name of the configuration profile assignment. Only default is supported.
      */
-    configurationProfileAssignmentName?: pulumi.Input<string | undefined>;
+    configurationProfileAssignmentName: pulumi.Input<string>;
     /**
      * Properties of the configuration profile assignment.
      */

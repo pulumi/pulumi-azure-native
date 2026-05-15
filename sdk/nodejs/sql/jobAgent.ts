@@ -92,6 +92,9 @@ export class JobAgent extends pulumi.CustomResource {
             if (args?.databaseId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseId'");
             }
+            if (args?.jobAgentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'jobAgentName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -143,7 +146,7 @@ export interface JobAgentArgs {
     /**
      * The name of the job agent to be created or updated.
      */
-    jobAgentName?: pulumi.Input<string | undefined>;
+    jobAgentName: pulumi.Input<string>;
     /**
      * Resource location.
      */

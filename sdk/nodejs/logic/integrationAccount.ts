@@ -85,6 +85,9 @@ export class IntegrationAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'integrationAccountName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +125,7 @@ export interface IntegrationAccountArgs {
     /**
      * The integration account name.
      */
-    integrationAccountName?: pulumi.Input<string | undefined>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The integration service environment.
      */

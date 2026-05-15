@@ -81,6 +81,9 @@ export class MachineExtension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.extensionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'extensionName'");
+            }
             if (args?.machineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineName'");
             }
@@ -120,7 +123,7 @@ export interface MachineExtensionArgs {
     /**
      * The name of the machine extension.
      */
-    extensionName?: pulumi.Input<string | undefined>;
+    extensionName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

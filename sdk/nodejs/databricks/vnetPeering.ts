@@ -105,6 +105,9 @@ export class VNetPeering extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.peeringName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'peeringName'");
+            }
             if (args?.remoteVirtualNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remoteVirtualNetwork'");
             }
@@ -179,7 +182,7 @@ export interface VNetPeeringArgs {
     /**
      * The name of the workspace vNet peering.
      */
-    peeringName?: pulumi.Input<string | undefined>;
+    peeringName: pulumi.Input<string>;
     /**
      * The reference to the remote virtual network address space.
      */

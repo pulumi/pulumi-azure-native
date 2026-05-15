@@ -81,6 +81,9 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.keyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'keyName'");
+            }
             if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
@@ -125,7 +128,7 @@ export interface ManagedInstanceKeyArgs {
     /**
      * The name of the managed instance key to be operated on (updated or created).
      */
-    keyName?: pulumi.Input<string | undefined>;
+    keyName: pulumi.Input<string>;
     /**
      * The name of the managed instance.
      */

@@ -92,6 +92,9 @@ export class Output extends pulumi.CustomResource {
             if (args?.jobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobName'");
             }
+            if (args?.outputName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'outputName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -144,7 +147,7 @@ export interface OutputArgs {
     /**
      * The name of the output.
      */
-    outputName?: pulumi.Input<string | undefined>;
+    outputName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

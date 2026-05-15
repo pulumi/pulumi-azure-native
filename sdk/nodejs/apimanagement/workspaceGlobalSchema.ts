@@ -84,6 +84,9 @@ export class WorkspaceGlobalSchema extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.schemaId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'schemaId'");
+            }
             if (args?.schemaType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaType'");
             }
@@ -135,7 +138,7 @@ export interface WorkspaceGlobalSchemaArgs {
     /**
      * Schema id identifier. Must be unique in the current API Management service instance.
      */
-    schemaId?: pulumi.Input<string | undefined>;
+    schemaId: pulumi.Input<string>;
     /**
      * Schema Type. Immutable.
      */

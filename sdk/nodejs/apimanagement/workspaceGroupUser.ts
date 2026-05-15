@@ -106,6 +106,9 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (args?.userId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'userId'");
+            }
             if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
@@ -164,7 +167,7 @@ export interface WorkspaceGroupUserArgs {
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */
-    userId?: pulumi.Input<string | undefined>;
+    userId: pulumi.Input<string>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

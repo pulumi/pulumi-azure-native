@@ -131,6 +131,9 @@ export class VCenter extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.vcenterName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'vcenterName'");
+            }
             resourceInputs["credentials"] = args?.credentials;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["fqdn"] = args?.fqdn;
@@ -217,5 +220,5 @@ export interface VCenterArgs {
     /**
      * Name of the vCenter.
      */
-    vcenterName?: pulumi.Input<string | undefined>;
+    vcenterName: pulumi.Input<string>;
 }

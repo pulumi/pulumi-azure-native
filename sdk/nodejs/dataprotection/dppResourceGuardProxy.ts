@@ -76,6 +76,9 @@ export class DppResourceGuardProxy extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourceGuardProxyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceGuardProxyName'");
+            }
             if (args?.vaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
@@ -116,7 +119,7 @@ export interface DppResourceGuardProxyArgs {
     /**
      * name of the resource guard proxy
      */
-    resourceGuardProxyName?: pulumi.Input<string | undefined>;
+    resourceGuardProxyName: pulumi.Input<string>;
     /**
      * The name of the backup vault.
      */

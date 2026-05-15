@@ -135,6 +135,9 @@ export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
             if (args?.responderRoleSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'responderRoleSettings'");
             }
+            if (args?.rosettaNetProcessConfigurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'rosettaNetProcessConfigurationName'");
+            }
             resourceInputs["activitySettings"] = args?.activitySettings;
             resourceInputs["description"] = args?.description;
             resourceInputs["initiatorRoleSettings"] = args?.initiatorRoleSettings;
@@ -228,7 +231,7 @@ export interface RosettaNetProcessConfigurationArgs {
     /**
      * The integration account RosettaNet ProcessConfiguration name.
      */
-    rosettaNetProcessConfigurationName?: pulumi.Input<string | undefined>;
+    rosettaNetProcessConfigurationName: pulumi.Input<string>;
     /**
      * The resource tags.
      */

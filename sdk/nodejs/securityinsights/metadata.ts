@@ -152,6 +152,9 @@ export class Metadata extends pulumi.CustomResource {
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
+            if (args?.metadataName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'metadataName'");
+            }
             if (args?.parentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentId'");
             }
@@ -268,7 +271,7 @@ export interface MetadataArgs {
     /**
      * The Metadata name.
      */
-    metadataName?: pulumi.Input<string | undefined>;
+    metadataName: pulumi.Input<string>;
     /**
      * Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
      */

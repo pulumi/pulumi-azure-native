@@ -81,6 +81,9 @@ export class StaticSiteUserProvidedFunctionAppForStaticSiteBuild extends pulumi.
             if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
+            if (args?.functionAppName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'functionAppName'");
+            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -125,7 +128,7 @@ export interface StaticSiteUserProvidedFunctionAppForStaticSiteBuildArgs {
     /**
      * Name of the function app to register with the static site build.
      */
-    functionAppName?: pulumi.Input<string | undefined>;
+    functionAppName: pulumi.Input<string>;
     /**
      * The region of the function app registered with the static site
      */

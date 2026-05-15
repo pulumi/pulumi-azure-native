@@ -107,6 +107,9 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.virtualNetworkLinkName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'virtualNetworkLinkName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["privateZoneName"] = args?.privateZoneName;
             resourceInputs["registrationEnabled"] = args?.registrationEnabled;
@@ -178,5 +181,5 @@ export interface VirtualNetworkLinkArgs {
     /**
      * The name of the virtual network link.
      */
-    virtualNetworkLinkName?: pulumi.Input<string | undefined>;
+    virtualNetworkLinkName: pulumi.Input<string>;
 }

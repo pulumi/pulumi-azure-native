@@ -109,6 +109,9 @@ export class EdgeActionVersion extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.version === undefined && !opts.urn) {
+                throw new Error("Missing required property 'version'");
+            }
             resourceInputs["deploymentType"] = args?.deploymentType;
             resourceInputs["edgeActionName"] = args?.edgeActionName;
             resourceInputs["isDefaultVersion"] = args?.isDefaultVersion;
@@ -174,5 +177,5 @@ export interface EdgeActionVersionArgs {
     /**
      * The name of the Edge Action version
      */
-    version?: pulumi.Input<string | undefined>;
+    version: pulumi.Input<string>;
 }

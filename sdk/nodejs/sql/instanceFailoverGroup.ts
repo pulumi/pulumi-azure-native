@@ -93,6 +93,9 @@ export class InstanceFailoverGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.failoverGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'failoverGroupName'");
+            }
             if (args?.locationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationName'");
             }
@@ -147,7 +150,7 @@ export interface InstanceFailoverGroupArgs {
     /**
      * The name of the failover group.
      */
-    failoverGroupName?: pulumi.Input<string | undefined>;
+    failoverGroupName: pulumi.Input<string>;
     /**
      * The name of the region where the resource is located.
      */

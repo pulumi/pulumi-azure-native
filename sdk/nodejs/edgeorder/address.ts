@@ -97,6 +97,9 @@ export class Address extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.addressName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'addressName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -144,7 +147,7 @@ export interface AddressArgs {
     /**
      * The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
      */
-    addressName?: pulumi.Input<string | undefined>;
+    addressName: pulumi.Input<string>;
     /**
      * Contact details for the address.
      */

@@ -90,6 +90,9 @@ export class CredentialSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.credentialSetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'credentialSetName'");
+            }
             if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -138,7 +141,7 @@ export interface CredentialSetArgs {
     /**
      * The name of the credential set.
      */
-    credentialSetName?: pulumi.Input<string | undefined>;
+    credentialSetName: pulumi.Input<string>;
     /**
      * Identities associated with the resource. This is used to access the KeyVault secrets.
      */

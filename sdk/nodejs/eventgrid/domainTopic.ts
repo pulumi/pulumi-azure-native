@@ -76,6 +76,9 @@ export class DomainTopic extends pulumi.CustomResource {
             if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
+            if (args?.domainTopicName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'domainTopicName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +115,7 @@ export interface DomainTopicArgs {
     /**
      * Name of the domain topic.
      */
-    domainTopicName?: pulumi.Input<string | undefined>;
+    domainTopicName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */

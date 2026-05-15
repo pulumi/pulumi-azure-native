@@ -77,6 +77,9 @@ export class File extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.fileName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'fileName'");
+            }
             if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
@@ -118,7 +121,7 @@ export interface FileArgs {
     /**
      * Name of the File
      */
-    fileName?: pulumi.Input<string | undefined>;
+    fileName: pulumi.Input<string>;
     /**
      * Name of the resource group
      */

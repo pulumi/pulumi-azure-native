@@ -73,6 +73,9 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.id === undefined && !opts.urn) {
+                throw new Error("Missing required property 'id'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -111,7 +114,7 @@ export interface JobArgs {
     /**
      * The name and identifier for the Job. This is case-sensitive.
      */
-    id?: pulumi.Input<string | undefined>;
+    id: pulumi.Input<string>;
     /**
      * [Required] Additional attributes of the entity.
      */

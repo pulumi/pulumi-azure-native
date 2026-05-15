@@ -117,6 +117,9 @@ export class LocalRulestack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.localRulestackName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'localRulestackName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -186,7 +189,7 @@ export interface LocalRulestackArgs {
     /**
      * LocalRulestack resource name
      */
-    localRulestackName?: pulumi.Input<string | undefined>;
+    localRulestackName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

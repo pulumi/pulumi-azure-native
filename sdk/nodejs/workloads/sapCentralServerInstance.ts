@@ -131,6 +131,9 @@ export class SapCentralServerInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.centralInstanceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'centralInstanceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -196,7 +199,7 @@ export interface SapCentralServerInstanceArgs {
     /**
      * Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
      */
-    centralInstanceName?: pulumi.Input<string | undefined>;
+    centralInstanceName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

@@ -108,6 +108,9 @@ export class VirtualWan extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.virtualWANName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'virtualWANName'");
+            }
             resourceInputs["allowBranchToBranchTraffic"] = args?.allowBranchToBranchTraffic;
             resourceInputs["allowVnetToVnetTraffic"] = args?.allowVnetToVnetTraffic;
             resourceInputs["disableVpnEncryption"] = args?.disableVpnEncryption;
@@ -185,5 +188,5 @@ export interface VirtualWanArgs {
     /**
      * The name of the VirtualWAN being created or updated.
      */
-    virtualWANName?: pulumi.Input<string | undefined>;
+    virtualWANName: pulumi.Input<string>;
 }

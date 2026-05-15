@@ -111,6 +111,9 @@ export class MasterSitesController extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.siteName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'siteName'");
+            }
             resourceInputs["allowMultipleSites"] = args?.allowMultipleSites;
             resourceInputs["customerStorageAccountArmId"] = args?.customerStorageAccountArmId;
             resourceInputs["location"] = args?.location;
@@ -176,7 +179,7 @@ export interface MasterSitesControllerArgs {
     /**
      * Site name
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName: pulumi.Input<string>;
     /**
      * Gets or sets the sites that are a part of Master Site.
      *             The key

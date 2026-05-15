@@ -111,6 +111,9 @@ export class Export extends pulumi.CustomResource {
             if (args?.deliveryInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
+            if (args?.exportName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'exportName'");
+            }
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -170,7 +173,7 @@ export interface ExportArgs {
     /**
      * Export Name.
      */
-    exportName?: pulumi.Input<string | undefined>;
+    exportName: pulumi.Input<string>;
     /**
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */

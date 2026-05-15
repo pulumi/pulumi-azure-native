@@ -96,6 +96,9 @@ export class Replication extends pulumi.CustomResource {
             if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
+            if (args?.replicationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'replicationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -150,7 +153,7 @@ export interface ReplicationArgs {
     /**
      * The name of the replication.
      */
-    replicationName?: pulumi.Input<string | undefined>;
+    replicationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

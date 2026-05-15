@@ -95,6 +95,9 @@ export class ServerCollectorsOperation extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.serverCollectorName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serverCollectorName'");
+            }
             resourceInputs["agentProperties"] = args?.agentProperties;
             resourceInputs["discoverySiteId"] = args?.discoverySiteId;
             resourceInputs["projectName"] = args?.projectName;
@@ -152,5 +155,5 @@ export interface ServerCollectorsOperationArgs {
     /**
      * Physical server collector ARM name
      */
-    serverCollectorName?: pulumi.Input<string | undefined>;
+    serverCollectorName: pulumi.Input<string>;
 }

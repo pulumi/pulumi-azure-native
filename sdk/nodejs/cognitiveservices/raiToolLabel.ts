@@ -82,6 +82,9 @@ export class RaiToolLabel extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.raiToolConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'raiToolConnectionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +129,7 @@ export interface RaiToolLabelArgs {
     /**
      * The name of the Rai Tool Label
      */
-    raiToolConnectionName?: pulumi.Input<string | undefined>;
+    raiToolConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

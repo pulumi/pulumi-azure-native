@@ -93,6 +93,9 @@ export class LoadBalancer extends pulumi.CustomResource {
             if (args?.advertiseMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'advertiseMode'");
             }
+            if (args?.loadBalancerName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'loadBalancerName'");
+            }
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
@@ -144,7 +147,7 @@ export interface LoadBalancerArgs {
     /**
      * The name of the LoadBalancer
      */
-    loadBalancerName?: pulumi.Input<string | undefined>;
+    loadBalancerName: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

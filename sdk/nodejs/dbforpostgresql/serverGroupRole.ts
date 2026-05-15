@@ -95,6 +95,9 @@ export class ServerGroupRole extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.roleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'roleName'");
+            }
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["objectId"] = args?.objectId;
             resourceInputs["password"] = args?.password;
@@ -150,7 +153,7 @@ export interface ServerGroupRoleArgs {
     /**
      * The name of the cluster role.
      */
-    roleName?: pulumi.Input<string | undefined>;
+    roleName: pulumi.Input<string>;
     roleType?: pulumi.Input<string | enums.dbforpostgresql.RoleType | undefined>;
     /**
      * A type definition that refers the id to an Azure Resource Manager resource.

@@ -103,6 +103,9 @@ export class Pool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.poolName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'poolName'");
+            }
             if (args?.poolType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolType'");
             }
@@ -161,7 +164,7 @@ export interface PoolArgs {
     /**
      * Pool Object
      */
-    poolName?: pulumi.Input<string | undefined>;
+    poolName: pulumi.Input<string>;
     /**
      * Type of the Pool: ephemeralDisk, azureDisk, or elasticsan.
      */

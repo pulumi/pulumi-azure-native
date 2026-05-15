@@ -74,6 +74,9 @@ export class Entity extends pulumi.CustomResource {
             if (args?.azureMonitorWorkspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureMonitorWorkspaceName'");
             }
+            if (args?.entityName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'entityName'");
+            }
             if (args?.healthModelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'healthModelName'");
             }
@@ -114,7 +117,7 @@ export interface EntityArgs {
     /**
      * Name of the entity. Must be unique within a health model.
      */
-    entityName?: pulumi.Input<string | undefined>;
+    entityName: pulumi.Input<string>;
     /**
      * Name of health model resource
      */

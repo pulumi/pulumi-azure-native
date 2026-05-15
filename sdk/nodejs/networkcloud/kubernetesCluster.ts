@@ -160,6 +160,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             if (args?.initialAgentPoolConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'initialAgentPoolConfigurations'");
             }
+            if (args?.kubernetesClusterName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'kubernetesClusterName'");
+            }
             if (args?.kubernetesVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesVersion'");
             }
@@ -257,7 +260,7 @@ export interface KubernetesClusterArgs {
     /**
      * The name of the Kubernetes cluster.
      */
-    kubernetesClusterName?: pulumi.Input<string | undefined>;
+    kubernetesClusterName: pulumi.Input<string>;
     /**
      * The Kubernetes version for this cluster.
      */

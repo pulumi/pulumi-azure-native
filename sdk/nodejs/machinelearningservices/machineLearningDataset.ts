@@ -83,6 +83,9 @@ export class MachineLearningDataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.datasetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'datasetName'");
+            }
             if (args?.datasetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datasetType'");
             }
@@ -138,7 +141,7 @@ export interface MachineLearningDatasetArgs {
     /**
      * The Dataset name.
      */
-    datasetName?: pulumi.Input<string | undefined>;
+    datasetName: pulumi.Input<string>;
     /**
      * Specifies dataset type.
      */

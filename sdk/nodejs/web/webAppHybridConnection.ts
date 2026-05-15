@@ -105,6 +105,9 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
+            if (args?.relayName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'relayName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -174,7 +177,7 @@ export interface WebAppHybridConnectionArgs {
     /**
      * The name of the Service Bus relay.
      */
-    relayName?: pulumi.Input<string | undefined>;
+    relayName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

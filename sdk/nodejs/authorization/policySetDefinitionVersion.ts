@@ -101,6 +101,9 @@ export class PolicySetDefinitionVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.policyDefinitionVersion === undefined && !opts.urn) {
+                throw new Error("Missing required property 'policyDefinitionVersion'");
+            }
             if (args?.policyDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitions'");
             }
@@ -169,7 +172,7 @@ export interface PolicySetDefinitionVersionArgs {
     /**
      * The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
      */
-    policyDefinitionVersion?: pulumi.Input<string | undefined>;
+    policyDefinitionVersion: pulumi.Input<string>;
     /**
      * An array of policy definition references.
      */

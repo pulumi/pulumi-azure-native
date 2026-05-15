@@ -75,6 +75,9 @@ export class Credential extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.credentialName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'credentialName'");
+            }
             if (args?.credentialType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'credentialType'");
             }
@@ -118,7 +121,7 @@ export interface CredentialArgs {
     /**
      * The credential resource name.
      */
-    credentialName?: pulumi.Input<string | undefined>;
+    credentialName: pulumi.Input<string>;
     /**
      * Credential type.
      */

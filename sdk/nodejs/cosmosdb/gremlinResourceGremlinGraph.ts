@@ -81,6 +81,9 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
+            if (args?.graphName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'graphName'");
+            }
             if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -129,7 +132,7 @@ export interface GremlinResourceGremlinGraphArgs {
     /**
      * Cosmos DB graph name.
      */
-    graphName?: pulumi.Input<string | undefined>;
+    graphName: pulumi.Input<string>;
     /**
      * The location of the resource group to which the resource belongs.
      */

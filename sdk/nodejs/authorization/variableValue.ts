@@ -79,6 +79,9 @@ export class VariableValue extends pulumi.CustomResource {
             if (args?.variableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'variableName'");
             }
+            if (args?.variableValueName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'variableValueName'");
+            }
             resourceInputs["values"] = args?.values;
             resourceInputs["variableName"] = args?.variableName;
             resourceInputs["variableValueName"] = args?.variableValueName;
@@ -115,5 +118,5 @@ export interface VariableValueArgs {
     /**
      * The name of the variable value to operate on.
      */
-    variableValueName?: pulumi.Input<string | undefined>;
+    variableValueName: pulumi.Input<string>;
 }

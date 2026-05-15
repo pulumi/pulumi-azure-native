@@ -116,6 +116,9 @@ export class Zone extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.zoneName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'zoneName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["registrationVirtualNetworks"] = args?.registrationVirtualNetworks;
             resourceInputs["resolutionVirtualNetworks"] = args?.resolutionVirtualNetworks;
@@ -184,7 +187,7 @@ export interface ZoneArgs {
     /**
      * The name of the DNS zone (without a terminating dot).
      */
-    zoneName?: pulumi.Input<string | undefined>;
+    zoneName: pulumi.Input<string>;
     /**
      * The type of this DNS zone (Public or Private).
      */

@@ -79,6 +79,9 @@ export class EnterpriseCustomerOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.customerResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'customerResourceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -114,7 +117,7 @@ export interface EnterpriseCustomerOperationArgs {
     /**
      * Name of the Customer resource
      */
-    customerResourceName?: pulumi.Input<string | undefined>;
+    customerResourceName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

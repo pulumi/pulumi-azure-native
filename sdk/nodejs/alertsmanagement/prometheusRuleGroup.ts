@@ -104,6 +104,9 @@ export class PrometheusRuleGroup extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.ruleGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ruleGroupName'");
+            }
             if (args?.rules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rules'");
             }
@@ -176,7 +179,7 @@ export interface PrometheusRuleGroupArgs {
     /**
      * The name of the rule group.
      */
-    ruleGroupName?: pulumi.Input<string | undefined>;
+    ruleGroupName: pulumi.Input<string>;
     /**
      * Defines the rules in the Prometheus rule group.
      */

@@ -116,6 +116,9 @@ export class ServerInstance extends pulumi.CustomResource {
             if (args?.sapInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapInstanceName'");
             }
+            if (args?.serverInstanceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serverInstanceName'");
+            }
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sapDiscoverySiteName"] = args?.sapDiscoverySiteName;
             resourceInputs["sapInstanceName"] = args?.sapInstanceName;
@@ -176,5 +179,5 @@ export interface ServerInstanceArgs {
     /**
      * The name of the Server instance resource for SAP Migration.
      */
-    serverInstanceName?: pulumi.Input<string | undefined>;
+    serverInstanceName: pulumi.Input<string>;
 }

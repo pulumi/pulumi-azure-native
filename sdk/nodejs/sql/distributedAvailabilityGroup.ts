@@ -109,6 +109,9 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.distributedAvailabilityGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'distributedAvailabilityGroupName'");
+            }
             if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
@@ -165,7 +168,7 @@ export interface DistributedAvailabilityGroupArgs {
     /**
      * The distributed availability group name.
      */
-    distributedAvailabilityGroupName?: pulumi.Input<string | undefined>;
+    distributedAvailabilityGroupName: pulumi.Input<string>;
     /**
      * The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
      */

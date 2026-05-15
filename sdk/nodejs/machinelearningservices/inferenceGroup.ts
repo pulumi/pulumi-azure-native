@@ -91,6 +91,9 @@ export class InferenceGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.groupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'groupName'");
+            }
             if (args?.inferenceGroupProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inferenceGroupProperties'");
             }
@@ -143,7 +146,7 @@ export interface InferenceGroupArgs {
     /**
      * InferenceGroup name.
      */
-    groupName?: pulumi.Input<string | undefined>;
+    groupName: pulumi.Input<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */

@@ -109,6 +109,9 @@ export class IntegrationAccountAgreement extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.agreementName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'agreementName'");
+            }
             if (args?.agreementType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agreementType'");
             }
@@ -180,7 +183,7 @@ export interface IntegrationAccountAgreementArgs {
     /**
      * The integration account agreement name.
      */
-    agreementName?: pulumi.Input<string | undefined>;
+    agreementName: pulumi.Input<string>;
     /**
      * The agreement type.
      */

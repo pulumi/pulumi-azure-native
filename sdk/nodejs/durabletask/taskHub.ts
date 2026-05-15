@@ -79,6 +79,9 @@ export class TaskHub extends pulumi.CustomResource {
             if (args?.schedulerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedulerName'");
             }
+            if (args?.taskHubName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'taskHubName'");
+            }
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["schedulerName"] = args?.schedulerName;
             resourceInputs["taskHubName"] = args?.taskHubName;
@@ -116,5 +119,5 @@ export interface TaskHubArgs {
     /**
      * The name of the TaskHub
      */
-    taskHubName?: pulumi.Input<string | undefined>;
+    taskHubName: pulumi.Input<string>;
 }

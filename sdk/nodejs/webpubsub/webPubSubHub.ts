@@ -73,6 +73,9 @@ export class WebPubSubHub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.hubName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'hubName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -111,7 +114,7 @@ export interface WebPubSubHubArgs {
     /**
      * The hub name.
      */
-    hubName?: pulumi.Input<string | undefined>;
+    hubName: pulumi.Input<string>;
     /**
      * Properties of a hub.
      */

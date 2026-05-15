@@ -69,6 +69,9 @@ export class AdvancedThreatProtection extends pulumi.CustomResource {
             if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
+            if (args?.settingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'settingName'");
+            }
             resourceInputs["isEnabled"] = args?.isEnabled;
             resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["settingName"] = args?.settingName;
@@ -103,5 +106,5 @@ export interface AdvancedThreatProtectionArgs {
     /**
      * Advanced Threat Protection setting name.
      */
-    settingName?: pulumi.Input<string | undefined>;
+    settingName: pulumi.Input<string>;
 }

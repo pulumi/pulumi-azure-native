@@ -110,6 +110,9 @@ export class Policy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.policyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'policyName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -173,7 +176,7 @@ export interface PolicyArgs {
     /**
      * The name of the Web Application Firewall Policy.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName: pulumi.Input<string>;
     /**
      * Describes settings for the policy.
      */

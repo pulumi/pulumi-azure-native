@@ -82,6 +82,9 @@ export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
             if (args?.level === undefined && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
+            if (args?.lockName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'lockName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -121,7 +124,7 @@ export interface ManagementLockAtResourceGroupLevelArgs {
     /**
      * The lock name. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
      */
-    lockName?: pulumi.Input<string | undefined>;
+    lockName: pulumi.Input<string>;
     /**
      * Notes about the lock. Maximum of 512 characters.
      */

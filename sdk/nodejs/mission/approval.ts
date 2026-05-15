@@ -101,6 +101,9 @@ export class Approval extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.approvalName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'approvalName'");
+            }
             if (args?.requestMetadata === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requestMetadata'");
             }
@@ -149,7 +152,7 @@ export interface ApprovalArgs {
     /**
      * The name of the approvals resource.
      */
-    approvalName?: pulumi.Input<string | undefined>;
+    approvalName: pulumi.Input<string>;
     /**
      * List of approvers for the approval request
      */

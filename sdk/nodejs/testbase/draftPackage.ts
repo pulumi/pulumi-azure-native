@@ -175,6 +175,9 @@ export class DraftPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.draftPackageName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'draftPackageName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -274,7 +277,7 @@ export interface DraftPackageArgs {
     /**
      * The resource name of the Test Base Draft Package.
      */
-    draftPackageName?: pulumi.Input<string | undefined>;
+    draftPackageName: pulumi.Input<string>;
     /**
      * Specifies whether this draft package is used to edit a package.
      */

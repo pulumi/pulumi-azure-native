@@ -87,6 +87,9 @@ export class ApiSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.apiSourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'apiSourceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +137,7 @@ export interface ApiSourceArgs {
     /**
      * The name of the API.
      */
-    apiSourceName?: pulumi.Input<string | undefined>;
+    apiSourceName: pulumi.Input<string>;
     /**
      * API source configuration for Azure API Management.
      */

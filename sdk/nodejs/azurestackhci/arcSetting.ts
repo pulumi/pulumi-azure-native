@@ -109,6 +109,9 @@ export class ArcSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.arcSettingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'arcSettingName'");
+            }
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -182,7 +185,7 @@ export interface ArcSettingArgs {
     /**
      * The name of the proxy resource holding details of HCI ArcSetting information.
      */
-    arcSettingName?: pulumi.Input<string | undefined>;
+    arcSettingName: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */

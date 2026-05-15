@@ -85,6 +85,9 @@ export class ApplicationGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.applicationGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'applicationGroupName'");
+            }
             if (args?.clientAppGroupIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientAppGroupIdentifier'");
             }
@@ -129,7 +132,7 @@ export interface ApplicationGroupArgs {
     /**
      * The Application Group name 
      */
-    applicationGroupName?: pulumi.Input<string | undefined>;
+    applicationGroupName: pulumi.Input<string>;
     /**
      * The Unique identifier for application group.Supports SAS(SASKeyName=KeyName) or AAD(AADAppID=Guid)
      */

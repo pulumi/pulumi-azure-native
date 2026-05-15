@@ -73,6 +73,9 @@ export class RegistryCodeContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.codeName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'codeName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -111,7 +114,7 @@ export interface RegistryCodeContainerArgs {
     /**
      * Container name.
      */
-    codeName?: pulumi.Input<string | undefined>;
+    codeName: pulumi.Input<string>;
     /**
      * [Required] Additional attributes of the entity.
      */

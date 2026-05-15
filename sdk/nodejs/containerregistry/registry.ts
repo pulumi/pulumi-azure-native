@@ -145,6 +145,9 @@ export class Registry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.registryName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'registryName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -255,7 +258,7 @@ export interface RegistryArgs {
     /**
      * The name of the container registry.
      */
-    registryName?: pulumi.Input<string | undefined>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

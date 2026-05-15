@@ -175,6 +175,9 @@ export class Workspace extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.workspaceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'workspaceName'");
+            }
             resourceInputs["accessConnector"] = args?.accessConnector;
             resourceInputs["authorizations"] = args?.authorizations;
             resourceInputs["defaultCatalog"] = args ? pulumi.output(args.defaultCatalog).apply(v => v === undefined ? undefined : inputs.databricks.defaultCatalogPropertiesArgsProvideDefaults(v)) : undefined;
@@ -311,5 +314,5 @@ export interface WorkspaceArgs {
     /**
      * The name of the workspace.
      */
-    workspaceName?: pulumi.Input<string | undefined>;
+    workspaceName: pulumi.Input<string>;
 }

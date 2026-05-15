@@ -98,6 +98,9 @@ export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
             if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             resourceInputs["eventHubAuthorizationRuleId"] = args?.eventHubAuthorizationRuleId;
             resourceInputs["eventHubName"] = args?.eventHubName;
             resourceInputs["logs"] = args?.logs;
@@ -157,7 +160,7 @@ export interface ManagementGroupDiagnosticSettingArgs {
     /**
      * The name of the diagnostic setting.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
      */

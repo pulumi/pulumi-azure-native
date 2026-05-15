@@ -120,6 +120,9 @@ export class FusionAlertRule extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.ruleId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ruleId'");
+            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -187,7 +190,7 @@ export interface FusionAlertRuleArgs {
     /**
      * Alert rule ID
      */
-    ruleId?: pulumi.Input<string | undefined>;
+    ruleId: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

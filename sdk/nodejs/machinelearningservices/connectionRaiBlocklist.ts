@@ -77,6 +77,9 @@ export class ConnectionRaiBlocklist extends pulumi.CustomResource {
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
+            if (args?.raiBlocklistName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'raiBlocklistName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +129,7 @@ export interface ConnectionRaiBlocklistArgs {
     /**
      * The name of the RaiBlocklist.
      */
-    raiBlocklistName?: pulumi.Input<string | undefined>;
+    raiBlocklistName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -81,6 +81,9 @@ export class FleetAnalytic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.fleetAnalyticsName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'fleetAnalyticsName'");
+            }
             if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
@@ -120,7 +123,7 @@ export interface FleetAnalyticArgs {
     /**
      * Cosmos DB fleetAnalytics name.
      */
-    fleetAnalyticsName?: pulumi.Input<string | undefined>;
+    fleetAnalyticsName: pulumi.Input<string>;
     /**
      * Cosmos DB fleet name. Needs to be unique under a subscription.
      */

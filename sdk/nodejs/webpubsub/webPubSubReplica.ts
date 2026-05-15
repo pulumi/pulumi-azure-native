@@ -96,6 +96,9 @@ export class WebPubSubReplica extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.replicaName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'replicaName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -150,7 +153,7 @@ export interface WebPubSubReplicaArgs {
     /**
      * The name of the replica.
      */
-    replicaName?: pulumi.Input<string | undefined>;
+    replicaName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

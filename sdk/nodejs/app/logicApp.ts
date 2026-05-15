@@ -72,6 +72,9 @@ export class LogicApp extends pulumi.CustomResource {
             if (args?.containerAppName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppName'");
             }
+            if (args?.logicAppName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'logicAppName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -106,7 +109,7 @@ export interface LogicAppArgs {
     /**
      * Name of the Logic App, the extension resource.
      */
-    logicAppName?: pulumi.Input<string | undefined>;
+    logicAppName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -79,6 +79,9 @@ export class TagRule extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.ruleSetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ruleSetName'");
+            }
             resourceInputs["monitorName"] = args?.monitorName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -120,5 +123,5 @@ export interface TagRuleArgs {
     /**
      * Tag Rule Set resource name
      */
-    ruleSetName?: pulumi.Input<string | undefined>;
+    ruleSetName: pulumi.Input<string>;
 }

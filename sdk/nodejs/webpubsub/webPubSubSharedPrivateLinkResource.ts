@@ -101,6 +101,9 @@ export class WebPubSubSharedPrivateLinkResource extends pulumi.CustomResource {
             if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
+            if (args?.sharedPrivateLinkResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sharedPrivateLinkResourceName'");
+            }
             resourceInputs["groupId"] = args?.groupId;
             resourceInputs["privateLinkResourceId"] = args?.privateLinkResourceId;
             resourceInputs["requestMessage"] = args?.requestMessage;
@@ -158,5 +161,5 @@ export interface WebPubSubSharedPrivateLinkResourceArgs {
     /**
      * The name of the shared private link resource.
      */
-    sharedPrivateLinkResourceName?: pulumi.Input<string | undefined>;
+    sharedPrivateLinkResourceName: pulumi.Input<string>;
 }

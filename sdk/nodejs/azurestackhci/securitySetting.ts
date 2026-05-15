@@ -95,6 +95,9 @@ export class SecuritySetting extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.securitySettingsName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'securitySettingsName'");
+            }
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["securedCoreComplianceAssignment"] = (args?.securedCoreComplianceAssignment) ?? "Audit";
@@ -144,7 +147,7 @@ export interface SecuritySettingArgs {
     /**
      * Name of security setting
      */
-    securitySettingsName?: pulumi.Input<string | undefined>;
+    securitySettingsName: pulumi.Input<string>;
     /**
      * SMB encryption for intra-cluster traffic Compliance Assignment
      */

@@ -73,6 +73,9 @@ export class RegistryComponentContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.componentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'componentName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -111,7 +114,7 @@ export interface RegistryComponentContainerArgs {
     /**
      * Container name.
      */
-    componentName?: pulumi.Input<string | undefined>;
+    componentName: pulumi.Input<string>;
     /**
      * [Required] Additional attributes of the entity.
      */

@@ -79,6 +79,9 @@ export class ServiceRegistry extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (args?.serviceRegistryName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serviceRegistryName'");
+            }
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["serviceRegistryName"] = args?.serviceRegistryName;
@@ -116,5 +119,5 @@ export interface ServiceRegistryArgs {
     /**
      * The name of Service Registry.
      */
-    serviceRegistryName?: pulumi.Input<string | undefined>;
+    serviceRegistryName: pulumi.Input<string>;
 }

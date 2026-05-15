@@ -73,6 +73,9 @@ export class LabelingJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.id === undefined && !opts.urn) {
+                throw new Error("Missing required property 'id'");
+            }
             if (args?.labelingJobProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labelingJobProperties'");
             }
@@ -111,7 +114,7 @@ export interface LabelingJobArgs {
     /**
      * The name and identifier for the LabelingJob.
      */
-    id?: pulumi.Input<string | undefined>;
+    id: pulumi.Input<string>;
     /**
      * [Required] Additional attributes of the entity.
      */

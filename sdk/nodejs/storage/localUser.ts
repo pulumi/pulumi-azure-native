@@ -123,6 +123,9 @@ export class LocalUser extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.username === undefined && !opts.urn) {
+                throw new Error("Missing required property 'username'");
+            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["allowAclAuthorization"] = args?.allowAclAuthorization;
             resourceInputs["extendedGroups"] = args?.extendedGroups;
@@ -222,5 +225,5 @@ export interface LocalUserArgs {
     /**
      * The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
      */
-    username?: pulumi.Input<string | undefined>;
+    username: pulumi.Input<string>;
 }

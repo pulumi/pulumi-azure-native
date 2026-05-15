@@ -57,6 +57,9 @@ export class ImportCollector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.importCollectorName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'importCollectorName'");
+            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -93,7 +96,7 @@ export interface ImportCollectorArgs {
     /**
      * Unique name of a Import collector within a project.
      */
-    importCollectorName?: pulumi.Input<string | undefined>;
+    importCollectorName: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */

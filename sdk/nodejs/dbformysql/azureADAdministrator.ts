@@ -89,6 +89,9 @@ export class AzureADAdministrator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.administratorName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'administratorName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +135,7 @@ export interface AzureADAdministratorArgs {
     /**
      * The name of the Azure AD Administrator.
      */
-    administratorName?: pulumi.Input<string | undefined>;
+    administratorName: pulumi.Input<string>;
     /**
      * Type of the sever administrator.
      */

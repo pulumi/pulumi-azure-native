@@ -69,6 +69,9 @@ export class MonitoredSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.configurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configurationName'");
+            }
             if (args?.monitorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
@@ -102,7 +105,7 @@ export interface MonitoredSubscriptionArgs {
     /**
      * The configuration name. Only 'default' value is supported.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
     /**
      * Monitor resource name
      */

@@ -77,6 +77,9 @@ export class AccessPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.accessPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'accessPolicyName'");
+            }
             if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
@@ -114,7 +117,7 @@ export interface AccessPolicyArgs {
     /**
      * Name of the access policy.
      */
-    accessPolicyName?: pulumi.Input<string | undefined>;
+    accessPolicyName: pulumi.Input<string>;
     /**
      * An description of the access policy.
      */

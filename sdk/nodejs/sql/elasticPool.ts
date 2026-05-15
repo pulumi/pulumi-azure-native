@@ -135,6 +135,9 @@ export class ElasticPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.elasticPoolName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'elasticPoolName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -206,7 +209,7 @@ export interface ElasticPoolArgs {
     /**
      * The name of the elastic pool.
      */
-    elasticPoolName?: pulumi.Input<string | undefined>;
+    elasticPoolName: pulumi.Input<string>;
     /**
      * The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
      */

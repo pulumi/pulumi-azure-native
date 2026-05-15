@@ -93,6 +93,9 @@ export class DnsForwardingRuleset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dnsForwardingRulesetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dnsForwardingRulesetName'");
+            }
             if (args?.dnsResolverOutboundEndpoints === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverOutboundEndpoints'");
             }
@@ -137,7 +140,7 @@ export interface DnsForwardingRulesetArgs {
     /**
      * The name of the DNS forwarding ruleset.
      */
-    dnsForwardingRulesetName?: pulumi.Input<string | undefined>;
+    dnsForwardingRulesetName: pulumi.Input<string>;
     /**
      * The reference to the DNS resolver outbound endpoints that are used to route DNS queries matching the forwarding rules in the ruleset to the target DNS servers.
      */

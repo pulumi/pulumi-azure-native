@@ -70,6 +70,9 @@ export class Key extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.keyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'keyName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -109,7 +112,7 @@ export interface KeyArgs {
     /**
      * The name of the workspace key
      */
-    keyName?: pulumi.Input<string | undefined>;
+    keyName: pulumi.Input<string>;
     /**
      * The Key Vault Url of the workspace key.
      */

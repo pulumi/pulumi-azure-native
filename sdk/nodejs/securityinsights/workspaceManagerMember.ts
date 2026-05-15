@@ -90,6 +90,9 @@ export class WorkspaceManagerMember extends pulumi.CustomResource {
             if (args?.targetWorkspaceTenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetWorkspaceTenantId'");
             }
+            if (args?.workspaceManagerMemberName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'workspaceManagerMemberName'");
+            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -138,7 +141,7 @@ export interface WorkspaceManagerMemberArgs {
     /**
      * The name of the workspace manager member
      */
-    workspaceManagerMemberName?: pulumi.Input<string | undefined>;
+    workspaceManagerMemberName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

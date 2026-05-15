@@ -74,6 +74,9 @@ export class Fleetspace extends pulumi.CustomResource {
             if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
+            if (args?.fleetspaceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'fleetspaceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -110,7 +113,7 @@ export interface FleetspaceArgs {
     /**
      * Name of the fleetspace.
      */
-    fleetspaceName?: pulumi.Input<string | undefined>;
+    fleetspaceName: pulumi.Input<string>;
     /**
      * A Fleetspace properties.
      */

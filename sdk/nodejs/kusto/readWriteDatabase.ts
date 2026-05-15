@@ -103,6 +103,9 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
+            if (args?.databaseName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'databaseName'");
+            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -161,7 +164,7 @@ export interface ReadWriteDatabaseArgs {
     /**
      * The name of the database in the Kusto cluster.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */

@@ -88,6 +88,9 @@ export class Springbootsite extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.springbootsitesName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'springbootsitesName'");
+            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
@@ -138,7 +141,7 @@ export interface SpringbootsiteArgs {
     /**
      * The springbootsites name.
      */
-    springbootsitesName?: pulumi.Input<string | undefined>;
+    springbootsitesName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

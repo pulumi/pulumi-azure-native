@@ -249,6 +249,9 @@ export class AssessmentsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.assessmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'assessmentName'");
+            }
             if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
@@ -370,7 +373,7 @@ export interface AssessmentsOperationArgs {
     /**
      * Machine Assessment ARM name
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
     /**
      * Gets or sets the azure storage type. Premium, Standard etc.
      */

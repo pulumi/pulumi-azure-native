@@ -89,6 +89,9 @@ export class AksAssessmentOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.assessmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'assessmentName'");
+            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -135,7 +138,7 @@ export interface AksAssessmentOperationArgs {
     /**
      * AKS Assessment Name.
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

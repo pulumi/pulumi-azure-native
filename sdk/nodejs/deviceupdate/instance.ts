@@ -98,6 +98,9 @@ export class Instance extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.instanceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'instanceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -153,7 +156,7 @@ export interface InstanceArgs {
     /**
      * Instance name.
      */
-    instanceName?: pulumi.Input<string | undefined>;
+    instanceName: pulumi.Input<string>;
     /**
      * List of IoT Hubs associated with the account.
      */

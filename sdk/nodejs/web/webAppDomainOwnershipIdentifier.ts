@@ -70,6 +70,9 @@ export class WebAppDomainOwnershipIdentifier extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.domainOwnershipIdentifierName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'domainOwnershipIdentifierName'");
+            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -104,7 +107,7 @@ export interface WebAppDomainOwnershipIdentifierArgs {
     /**
      * Name of domain ownership identifier.
      */
-    domainOwnershipIdentifierName?: pulumi.Input<string | undefined>;
+    domainOwnershipIdentifierName: pulumi.Input<string>;
     /**
      * Kind of resource.
      */

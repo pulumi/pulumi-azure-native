@@ -82,6 +82,9 @@ export class ElasticSnapshot extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.snapshotName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'snapshotName'");
+            }
             if (args?.volumeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeName'");
             }
@@ -128,7 +131,7 @@ export interface ElasticSnapshotArgs {
     /**
      * The name of the ElasticSnapshot
      */
-    snapshotName?: pulumi.Input<string | undefined>;
+    snapshotName: pulumi.Input<string>;
     /**
      * The name of the ElasticVolume
      */

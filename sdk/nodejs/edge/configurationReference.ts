@@ -73,6 +73,9 @@ export class ConfigurationReference extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.configurationReferenceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configurationReferenceName'");
+            }
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
@@ -104,7 +107,7 @@ export interface ConfigurationReferenceArgs {
     /**
      * The name of the ConfigurationReference
      */
-    configurationReferenceName?: pulumi.Input<string | undefined>;
+    configurationReferenceName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

@@ -80,6 +80,9 @@ export class DynamicSchemaVersion extends pulumi.CustomResource {
             if (args?.dynamicSchemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dynamicSchemaName'");
             }
+            if (args?.dynamicSchemaVersionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dynamicSchemaVersionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +125,7 @@ export interface DynamicSchemaVersionArgs {
     /**
      * The name of the DynamicSchemaVersion
      */
-    dynamicSchemaVersionName?: pulumi.Input<string | undefined>;
+    dynamicSchemaVersionName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

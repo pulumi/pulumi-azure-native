@@ -135,6 +135,9 @@ export class FreeService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.freeServiceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'freeServiceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -202,7 +205,7 @@ export interface FreeServiceArgs {
     /**
      * Name of the free service
      */
-    freeServiceName?: pulumi.Input<string | undefined>;
+    freeServiceName: pulumi.Input<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */

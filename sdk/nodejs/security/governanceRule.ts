@@ -125,6 +125,9 @@ export class GovernanceRule extends pulumi.CustomResource {
             if (args?.ownerSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ownerSource'");
             }
+            if (args?.ruleId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ruleId'");
+            }
             if (args?.rulePriority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulePriority'");
             }
@@ -225,7 +228,7 @@ export interface GovernanceRuleArgs {
     /**
      * The governance rule key - unique key for the standard governance rule (GUID)
      */
-    ruleId?: pulumi.Input<string | undefined>;
+    ruleId: pulumi.Input<string>;
     /**
      * The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
      */

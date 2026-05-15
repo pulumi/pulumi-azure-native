@@ -78,6 +78,9 @@ export class BillingProfile extends pulumi.CustomResource {
             if (args?.billingAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
+            if (args?.billingProfileName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'billingProfileName'");
+            }
             resourceInputs["billingAccountName"] = args?.billingAccountName;
             resourceInputs["billingProfileName"] = args?.billingProfileName;
             resourceInputs["properties"] = args?.properties;
@@ -112,7 +115,7 @@ export interface BillingProfileArgs {
     /**
      * The ID that uniquely identifies a billing profile.
      */
-    billingProfileName?: pulumi.Input<string | undefined>;
+    billingProfileName: pulumi.Input<string>;
     /**
      * A billing profile.
      */

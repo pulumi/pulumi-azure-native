@@ -109,6 +109,9 @@ export class NamespaceAuthorizationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.authorizationRuleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'authorizationRuleName'");
+            }
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -167,7 +170,7 @@ export interface NamespaceAuthorizationRuleArgs {
     /**
      * Authorization Rule Name
      */
-    authorizationRuleName?: pulumi.Input<string | undefined>;
+    authorizationRuleName: pulumi.Input<string>;
     location?: pulumi.Input<string | undefined>;
     /**
      * Namespace name

@@ -143,6 +143,9 @@ export class RoleAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.assignmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'assignmentName'");
+            }
             if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
@@ -219,7 +222,7 @@ export interface RoleAssignmentArgs {
     /**
      * The assignment name
      */
-    assignmentName?: pulumi.Input<string | undefined>;
+    assignmentName: pulumi.Input<string>;
     /**
      * Widget types set for the assignment.
      */

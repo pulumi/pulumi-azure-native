@@ -97,6 +97,9 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.channelName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'channelName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -144,7 +147,7 @@ export interface ChannelArgs {
     /**
      * The name of the Channel resource.
      */
-    channelName?: pulumi.Input<string | undefined>;
+    channelName: pulumi.Input<string>;
     /**
      * Required. Gets or sets the Kind of the resource.
      */

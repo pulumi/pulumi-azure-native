@@ -81,6 +81,9 @@ export class Context extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.contextName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'contextName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +119,7 @@ export interface ContextArgs {
     /**
      * The name of the Context.
      */
-    contextName?: pulumi.Input<string | undefined>;
+    contextName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

@@ -85,6 +85,9 @@ export class GeoCatalog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.catalogName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'catalogName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +125,7 @@ export interface GeoCatalogArgs {
     /**
      * The name of the catalog
      */
-    catalogName?: pulumi.Input<string | undefined>;
+    catalogName: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */

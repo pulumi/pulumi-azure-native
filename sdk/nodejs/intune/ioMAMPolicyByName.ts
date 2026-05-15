@@ -94,6 +94,9 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
             if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
+            if (args?.policyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'policyName'");
+            }
             resourceInputs["accessRecheckOfflineTimeout"] = args?.accessRecheckOfflineTimeout;
             resourceInputs["accessRecheckOnlineTimeout"] = args?.accessRecheckOnlineTimeout;
             resourceInputs["appSharingFromLevel"] = (args?.appSharingFromLevel) ?? "none";
@@ -186,7 +189,7 @@ export interface IoMAMPolicyByNameArgs {
     /**
      * Unique name for the policy
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName: pulumi.Input<string>;
     /**
      * Resource Tags
      */

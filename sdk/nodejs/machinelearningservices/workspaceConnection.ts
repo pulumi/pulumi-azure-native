@@ -70,6 +70,9 @@ export class WorkspaceConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.connectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectionName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -108,7 +111,7 @@ export interface WorkspaceConnectionArgs {
     /**
      * Friendly name of the workspace connection
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     properties: pulumi.Input<inputs.machinelearningservices.AADAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.AccessKeyAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.AccountKeyAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.ApiKeyAuthWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.CustomKeysWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.ManagedIdentityAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.OAuth2AuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.PATAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.SASAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.ServicePrincipalAuthTypeWorkspaceConnectionPropertiesArgs | inputs.machinelearningservices.UsernamePasswordAuthTypeWorkspaceConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.

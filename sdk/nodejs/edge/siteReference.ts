@@ -79,6 +79,9 @@ export class SiteReference extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.siteReferenceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'siteReferenceName'");
+            }
             resourceInputs["contextName"] = args?.contextName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -120,5 +123,5 @@ export interface SiteReferenceArgs {
     /**
      * The name of the SiteReference
      */
-    siteReferenceName?: pulumi.Input<string | undefined>;
+    siteReferenceName: pulumi.Input<string>;
 }

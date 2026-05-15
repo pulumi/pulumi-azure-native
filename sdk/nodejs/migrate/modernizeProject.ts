@@ -77,6 +77,9 @@ export class ModernizeProject extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.modernizeProjectName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'modernizeProjectName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -120,7 +123,7 @@ export interface ModernizeProjectArgs {
     /**
      * ModernizeProject Name.
      */
-    modernizeProjectName?: pulumi.Input<string | undefined>;
+    modernizeProjectName: pulumi.Input<string>;
     /**
      * ModernizeProject properties.
      */

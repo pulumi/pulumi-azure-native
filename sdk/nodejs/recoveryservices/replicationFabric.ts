@@ -73,6 +73,9 @@ export class ReplicationFabric extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.fabricName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'fabricName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -108,7 +111,7 @@ export interface ReplicationFabricArgs {
     /**
      * Name of the ASR fabric.
      */
-    fabricName?: pulumi.Input<string | undefined>;
+    fabricName: pulumi.Input<string>;
     /**
      * Fabric creation input.
      */

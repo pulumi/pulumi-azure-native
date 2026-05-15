@@ -76,6 +76,9 @@ export class ReplicationMigrationItem extends pulumi.CustomResource {
             if (args?.fabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
+            if (args?.migrationItemName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'migrationItemName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -123,7 +126,7 @@ export interface ReplicationMigrationItemArgs {
     /**
      * Migration item name.
      */
-    migrationItemName?: pulumi.Input<string | undefined>;
+    migrationItemName: pulumi.Input<string>;
     /**
      * Enable migration input properties.
      */

@@ -78,6 +78,9 @@ export class TagByOperation extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (args?.tagId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tagId'");
+            }
             resourceInputs["apiId"] = args?.apiId;
             resourceInputs["operationId"] = args?.operationId;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -123,5 +126,5 @@ export interface TagByOperationArgs {
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    tagId?: pulumi.Input<string | undefined>;
+    tagId: pulumi.Input<string>;
 }

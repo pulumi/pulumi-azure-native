@@ -103,6 +103,9 @@ export class EnterprisePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.enterprisePolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'enterprisePolicyName'");
+            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -157,7 +160,7 @@ export interface EnterprisePolicyArgs {
     /**
      * Name of the EnterprisePolicy.
      */
-    enterprisePolicyName?: pulumi.Input<string | undefined>;
+    enterprisePolicyName: pulumi.Input<string>;
     /**
      * The health status of the resource.
      */

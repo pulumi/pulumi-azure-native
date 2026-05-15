@@ -192,6 +192,9 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.virtualNetworkGatewayName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'virtualNetworkGatewayName'");
+            }
             resourceInputs["activeActive"] = args?.activeActive;
             resourceInputs["adminState"] = args?.adminState;
             resourceInputs["allowRemoteVnetTraffic"] = args?.allowRemoteVnetTraffic;
@@ -380,7 +383,7 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The name of the virtual network gateway.
      */
-    virtualNetworkGatewayName?: pulumi.Input<string | undefined>;
+    virtualNetworkGatewayName: pulumi.Input<string>;
     /**
      * The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
      */

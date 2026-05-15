@@ -95,6 +95,9 @@ export class Blueprint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.blueprintName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'blueprintName'");
+            }
             if (args?.resourceScope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
@@ -141,7 +144,7 @@ export interface BlueprintArgs {
     /**
      * Name of the blueprint definition.
      */
-    blueprintName?: pulumi.Input<string | undefined>;
+    blueprintName: pulumi.Input<string>;
     /**
      * Multi-line explain this resource.
      */

@@ -103,6 +103,9 @@ export class CapacityDetails extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dedicatedCapacityName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dedicatedCapacityName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -157,7 +160,7 @@ export interface CapacityDetailsArgs {
     /**
      * The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    dedicatedCapacityName?: pulumi.Input<string | undefined>;
+    dedicatedCapacityName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

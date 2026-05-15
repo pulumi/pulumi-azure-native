@@ -89,6 +89,9 @@ export class Report extends pulumi.CustomResource {
             if (args?.deliveryInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
+            if (args?.reportName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'reportName'");
+            }
             resourceInputs["definition"] = args?.definition;
             resourceInputs["deliveryInfo"] = args?.deliveryInfo;
             resourceInputs["format"] = args?.format;
@@ -134,7 +137,7 @@ export interface ReportArgs {
     /**
      * Report Name.
      */
-    reportName?: pulumi.Input<string | undefined>;
+    reportName: pulumi.Input<string>;
     /**
      * Has schedule information for the report.
      */

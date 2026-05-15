@@ -101,6 +101,9 @@ export class Service extends pulumi.CustomResource {
             if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
+            if (args?.serviceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serviceName'");
+            }
             resourceInputs["autoStopDelay"] = args?.autoStopDelay;
             resourceInputs["deleteResourcesOnStop"] = args?.deleteResourcesOnStop;
             resourceInputs["groupName"] = args?.groupName;
@@ -170,7 +173,7 @@ export interface ServiceArgs {
     /**
      * Name of the service
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName: pulumi.Input<string>;
     /**
      * Service SKU
      */

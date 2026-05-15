@@ -137,6 +137,9 @@ export class MetricAlert extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.ruleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ruleName'");
+            }
             if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
@@ -232,7 +235,7 @@ export interface MetricAlertArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName: pulumi.Input<string>;
     /**
      * the list of resource id's that this metric alert is scoped to. You cannot change the scope of a metric rule based on logs.
      */

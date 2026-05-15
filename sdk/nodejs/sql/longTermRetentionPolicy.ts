@@ -81,6 +81,9 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
+            if (args?.policyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'policyName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +132,7 @@ export interface LongTermRetentionPolicyArgs {
     /**
      * The policy name. Should always be Default.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

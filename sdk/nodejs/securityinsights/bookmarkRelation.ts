@@ -95,6 +95,9 @@ export class BookmarkRelation extends pulumi.CustomResource {
             if (args?.relatedResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
+            if (args?.relationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'relationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -147,7 +150,7 @@ export interface BookmarkRelationArgs {
     /**
      * Relation Name
      */
-    relationName?: pulumi.Input<string | undefined>;
+    relationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

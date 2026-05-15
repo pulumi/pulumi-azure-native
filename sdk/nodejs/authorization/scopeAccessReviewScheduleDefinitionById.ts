@@ -159,6 +159,9 @@ export class ScopeAccessReviewScheduleDefinitionById extends pulumi.CustomResour
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.scheduleDefinitionId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scheduleDefinitionId'");
+            }
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -331,7 +334,7 @@ export interface ScopeAccessReviewScheduleDefinitionByIdArgs {
     /**
      * The id of the access review schedule definition.
      */
-    scheduleDefinitionId?: pulumi.Input<string | undefined>;
+    scheduleDefinitionId: pulumi.Input<string>;
     /**
      * The scope of the resource.
      */

@@ -101,6 +101,9 @@ export class Device extends pulumi.CustomResource {
             if (args?.deviceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceGroupName'");
             }
+            if (args?.deviceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'deviceName'");
+            }
             if (args?.productName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productName'");
             }
@@ -162,7 +165,7 @@ export interface DeviceArgs {
     /**
      * Device name
      */
-    deviceName?: pulumi.Input<string | undefined>;
+    deviceName: pulumi.Input<string>;
     /**
      * Name of product.
      */

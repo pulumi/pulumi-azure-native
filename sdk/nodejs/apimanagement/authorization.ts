@@ -85,6 +85,9 @@ export class Authorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.authorizationId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'authorizationId'");
+            }
             if (args?.authorizationProviderId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationProviderId'");
             }
@@ -130,7 +133,7 @@ export interface AuthorizationArgs {
     /**
      * Identifier of the authorization.
      */
-    authorizationId?: pulumi.Input<string | undefined>;
+    authorizationId: pulumi.Input<string>;
     /**
      * Identifier of the authorization provider.
      */

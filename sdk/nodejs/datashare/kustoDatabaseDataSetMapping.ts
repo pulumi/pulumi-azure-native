@@ -98,6 +98,9 @@ export class KustoDatabaseDataSetMapping extends pulumi.CustomResource {
             if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
+            if (args?.dataSetMappingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataSetMappingName'");
+            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -158,7 +161,7 @@ export interface KustoDatabaseDataSetMappingArgs {
     /**
      * The name of the data set mapping to be created.
      */
-    dataSetMappingName?: pulumi.Input<string | undefined>;
+    dataSetMappingName: pulumi.Input<string>;
     /**
      * Kind of data set mapping.
      * Expected value is 'KustoDatabase'.

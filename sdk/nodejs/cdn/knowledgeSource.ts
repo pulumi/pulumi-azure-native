@@ -91,6 +91,9 @@ export class KnowledgeSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.knowledgeSourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'knowledgeSourceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -146,7 +149,7 @@ export interface KnowledgeSourceArgs {
     /**
      * The name of the knowledge source.
      */
-    knowledgeSourceName?: pulumi.Input<string | undefined>;
+    knowledgeSourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

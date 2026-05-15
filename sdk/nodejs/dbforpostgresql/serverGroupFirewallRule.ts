@@ -87,6 +87,9 @@ export class ServerGroupFirewallRule extends pulumi.CustomResource {
             if (args?.endIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
+            if (args?.firewallRuleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'firewallRuleName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +137,7 @@ export interface ServerGroupFirewallRuleArgs {
     /**
      * The name of the cluster firewall rule.
      */
-    firewallRuleName?: pulumi.Input<string | undefined>;
+    firewallRuleName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

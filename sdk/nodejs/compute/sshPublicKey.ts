@@ -84,6 +84,9 @@ export class SshPublicKey extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.sshPublicKeyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sshPublicKeyName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["publicKey"] = args?.publicKey;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -128,7 +131,7 @@ export interface SshPublicKeyArgs {
     /**
      * The name of the SSH public key.
      */
-    sshPublicKeyName?: pulumi.Input<string | undefined>;
+    sshPublicKeyName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -82,6 +82,9 @@ export class GalleryScript extends pulumi.CustomResource {
             if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
+            if (args?.galleryScriptName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'galleryScriptName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -122,7 +125,7 @@ export interface GalleryScriptArgs {
     /**
      * The name of the gallery Script Definition to be retrieved.
      */
-    galleryScriptName?: pulumi.Input<string | undefined>;
+    galleryScriptName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

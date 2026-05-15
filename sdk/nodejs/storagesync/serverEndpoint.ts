@@ -156,6 +156,9 @@ export class ServerEndpoint extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.serverEndpointName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serverEndpointName'");
+            }
             if (args?.storageSyncServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
@@ -264,7 +267,7 @@ export interface ServerEndpointArgs {
     /**
      * Name of Server Endpoint object.
      */
-    serverEndpointName?: pulumi.Input<string | undefined>;
+    serverEndpointName: pulumi.Input<string>;
     /**
      * Server Local path.
      */

@@ -86,6 +86,9 @@ export class WorkspaceLogger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.loggerId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'loggerId'");
+            }
             if (args?.loggerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loggerType'");
             }
@@ -147,7 +150,7 @@ export interface WorkspaceLoggerArgs {
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
-    loggerId?: pulumi.Input<string | undefined>;
+    loggerId: pulumi.Input<string>;
     /**
      * Logger type.
      */

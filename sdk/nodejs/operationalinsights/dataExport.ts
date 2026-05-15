@@ -90,6 +90,9 @@ export class DataExport extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dataExportName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataExportName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -149,7 +152,7 @@ export interface DataExportArgs {
     /**
      * The data export rule name.
      */
-    dataExportName?: pulumi.Input<string | undefined>;
+    dataExportName: pulumi.Input<string>;
     /**
      * Active when enabled.
      */

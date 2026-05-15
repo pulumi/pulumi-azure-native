@@ -88,6 +88,9 @@ export class AzureLargeStorageInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.azureLargeStorageInstanceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'azureLargeStorageInstanceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -127,7 +130,7 @@ export interface AzureLargeStorageInstanceArgs {
     /**
      * Name of the AzureLargeStorageInstance.
      */
-    azureLargeStorageInstanceName?: pulumi.Input<string | undefined>;
+    azureLargeStorageInstanceName: pulumi.Input<string>;
     /**
      * Specifies the AzureLargeStorageInstance unique ID.
      */

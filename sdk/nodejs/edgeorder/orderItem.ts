@@ -107,6 +107,9 @@ export class OrderItem extends pulumi.CustomResource {
             if (args?.orderItemDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'orderItemDetails'");
             }
+            if (args?.orderItemName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'orderItemName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -172,7 +175,7 @@ export interface OrderItemArgs {
     /**
      * The name of the order item.
      */
-    orderItemName?: pulumi.Input<string | undefined>;
+    orderItemName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

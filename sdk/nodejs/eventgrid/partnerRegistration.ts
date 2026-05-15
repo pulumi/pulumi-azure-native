@@ -86,6 +86,9 @@ export class PartnerRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.partnerRegistrationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'partnerRegistrationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +135,7 @@ export interface PartnerRegistrationArgs {
     /**
      * Name of the partner registration.
      */
-    partnerRegistrationName?: pulumi.Input<string | undefined>;
+    partnerRegistrationName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */

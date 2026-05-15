@@ -106,6 +106,9 @@ export class ApplicationPackage extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.versionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'versionName'");
+            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["applicationName"] = args?.applicationName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -164,5 +167,5 @@ export interface ApplicationPackageArgs {
     /**
      * The version of the application.
      */
-    versionName?: pulumi.Input<string | undefined>;
+    versionName: pulumi.Input<string>;
 }

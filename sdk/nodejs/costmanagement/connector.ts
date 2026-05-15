@@ -107,6 +107,9 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.connectorName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectorName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -157,7 +160,7 @@ export interface ConnectorArgs {
     /**
      * Connector Name.
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName: pulumi.Input<string>;
     /**
      * Credentials authentication key (eg AWS ARN)
      */

@@ -71,6 +71,9 @@ export class GuestSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.guestSubscriptionId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'guestSubscriptionId'");
+            }
             if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
@@ -102,7 +105,7 @@ export interface GuestSubscriptionArgs {
     /**
      * The name of the GuestSubscription
      */
-    guestSubscriptionId?: pulumi.Input<string | undefined>;
+    guestSubscriptionId: pulumi.Input<string>;
     /**
      * The name of the Azure region.
      */

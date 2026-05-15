@@ -83,6 +83,9 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.tapConfigurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tapConfigurationName'");
+            }
             resourceInputs["id"] = args?.id;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkInterfaceName"] = args?.networkInterfaceName;
@@ -131,7 +134,7 @@ export interface NetworkInterfaceTapConfigurationArgs {
     /**
      * The name of the tap configuration.
      */
-    tapConfigurationName?: pulumi.Input<string | undefined>;
+    tapConfigurationName: pulumi.Input<string>;
     /**
      * The reference to the Virtual Network Tap resource.
      */

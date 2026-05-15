@@ -89,6 +89,9 @@ export class ExportPipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.exportPipelineName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'exportPipelineName'");
+            }
             if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -135,7 +138,7 @@ export interface ExportPipelineArgs {
     /**
      * The name of the export pipeline.
      */
-    exportPipelineName?: pulumi.Input<string | undefined>;
+    exportPipelineName: pulumi.Input<string>;
     /**
      * The identity of the export pipeline.
      */

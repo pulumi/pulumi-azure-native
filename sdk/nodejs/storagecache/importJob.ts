@@ -136,6 +136,9 @@ export class ImportJob extends pulumi.CustomResource {
             if (args?.amlFilesystemName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amlFilesystemName'");
             }
+            if (args?.importJobName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'importJobName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -206,7 +209,7 @@ export interface ImportJobArgs {
     /**
      * Name for the import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    importJobName?: pulumi.Input<string | undefined>;
+    importJobName: pulumi.Input<string>;
     /**
      * An array of blob paths/prefixes that get imported into the cluster namespace. It has '/' as the default value.
      */

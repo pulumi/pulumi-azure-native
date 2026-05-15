@@ -97,6 +97,9 @@ export class PublicCloudConnector extends pulumi.CustomResource {
             if (args?.hostType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostType'");
             }
+            if (args?.publicCloudConnector === undefined && !opts.urn) {
+                throw new Error("Missing required property 'publicCloudConnector'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -150,7 +153,7 @@ export interface PublicCloudConnectorArgs {
     /**
      * Represent public cloud connectors resource.
      */
-    publicCloudConnector?: pulumi.Input<string | undefined>;
+    publicCloudConnector: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

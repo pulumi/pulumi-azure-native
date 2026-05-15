@@ -113,6 +113,9 @@ export class DevBoxDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.devBoxDefinitionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'devBoxDefinitionName'");
+            }
             if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
@@ -174,7 +177,7 @@ export interface DevBoxDefinitionArgs {
     /**
      * The name of the Dev Box definition.
      */
-    devBoxDefinitionName?: pulumi.Input<string | undefined>;
+    devBoxDefinitionName: pulumi.Input<string>;
     /**
      * The name of the devcenter.
      */

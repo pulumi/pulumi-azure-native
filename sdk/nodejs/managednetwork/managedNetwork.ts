@@ -87,6 +87,9 @@ export class ManagedNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.managedNetworkName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'managedNetworkName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -130,7 +133,7 @@ export interface ManagedNetworkArgs {
     /**
      * The name of the Managed Network.
      */
-    managedNetworkName?: pulumi.Input<string | undefined>;
+    managedNetworkName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

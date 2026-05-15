@@ -100,6 +100,9 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
             if (args?.circuitName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'circuitName'");
             }
+            if (args?.connectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectionName'");
+            }
             if (args?.peeringName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringName'");
             }
@@ -161,7 +164,7 @@ export interface ExpressRouteCircuitConnectionArgs {
     /**
      * The name of the express route circuit connection.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
      */

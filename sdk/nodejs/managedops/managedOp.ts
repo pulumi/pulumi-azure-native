@@ -67,10 +67,13 @@ export class ManagedOp extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ManagedOpArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: ManagedOpArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.managedOpsName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'managedOpsName'");
+            }
             resourceInputs["managedOpsName"] = args?.managedOpsName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -98,7 +101,7 @@ export interface ManagedOpArgs {
     /**
      * Name of the resource.
      */
-    managedOpsName?: pulumi.Input<string | undefined>;
+    managedOpsName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

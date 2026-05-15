@@ -85,6 +85,9 @@ export class PipelineGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.pipelineGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'pipelineGroupName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -130,7 +133,7 @@ export interface PipelineGroupArgs {
     /**
      * The name of pipeline group. The name is case insensitive.
      */
-    pipelineGroupName?: pulumi.Input<string | undefined>;
+    pipelineGroupName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

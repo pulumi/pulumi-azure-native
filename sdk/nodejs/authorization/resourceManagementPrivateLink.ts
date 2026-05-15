@@ -69,6 +69,9 @@ export class ResourceManagementPrivateLink extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.rmplName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'rmplName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["rmplName"] = args?.rmplName;
@@ -105,5 +108,5 @@ export interface ResourceManagementPrivateLinkArgs {
     /**
      * The name of the resource management private link.
      */
-    rmplName?: pulumi.Input<string | undefined>;
+    rmplName: pulumi.Input<string>;
 }

@@ -90,6 +90,9 @@ export class GovernanceAssignment extends pulumi.CustomResource {
             if (args?.assessmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assessmentName'");
             }
+            if (args?.assignmentKey === undefined && !opts.urn) {
+                throw new Error("Missing required property 'assignmentKey'");
+            }
             if (args?.remediationDueDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remediationDueDate'");
             }
@@ -141,7 +144,7 @@ export interface GovernanceAssignmentArgs {
     /**
      * The governance assignment key - the assessment key of the required governance assignment
      */
-    assignmentKey?: pulumi.Input<string | undefined>;
+    assignmentKey: pulumi.Input<string>;
     /**
      * The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
      */

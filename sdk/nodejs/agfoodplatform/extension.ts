@@ -98,6 +98,9 @@ export class Extension extends pulumi.CustomResource {
             if (args?.dataManagerForAgricultureResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataManagerForAgricultureResourceName'");
             }
+            if (args?.extensionId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'extensionId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -150,7 +153,7 @@ export interface ExtensionArgs {
     /**
      * Id of extension resource.
      */
-    extensionId?: pulumi.Input<string | undefined>;
+    extensionId: pulumi.Input<string>;
     /**
      * Extension Version.
      */

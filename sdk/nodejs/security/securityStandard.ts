@@ -94,6 +94,9 @@ export class SecurityStandard extends pulumi.CustomResource {
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            if (args?.standardId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'standardId'");
+            }
             resourceInputs["assessments"] = args?.assessments;
             resourceInputs["cloudProviders"] = args?.cloudProviders;
             resourceInputs["description"] = args?.description;
@@ -156,5 +159,5 @@ export interface SecurityStandardArgs {
     /**
      * The Security Standard key - unique key for the standard type
      */
-    standardId?: pulumi.Input<string | undefined>;
+    standardId: pulumi.Input<string>;
 }

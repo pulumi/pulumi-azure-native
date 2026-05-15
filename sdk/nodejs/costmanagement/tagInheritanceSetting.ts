@@ -78,6 +78,9 @@ export class TagInheritanceSetting extends pulumi.CustomResource {
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            if (args?.type === undefined && !opts.urn) {
+                throw new Error("Missing required property 'type'");
+            }
             resourceInputs["kind"] = "taginheritance";
             resourceInputs["properties"] = args?.properties;
             resourceInputs["scope"] = args?.scope;
@@ -118,5 +121,5 @@ export interface TagInheritanceSettingArgs {
     /**
      * Setting type.
      */
-    type?: pulumi.Input<string | undefined>;
+    type: pulumi.Input<string>;
 }

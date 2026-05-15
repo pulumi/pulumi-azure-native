@@ -79,6 +79,9 @@ export class ScopeAssignment extends pulumi.CustomResource {
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            if (args?.scopeAssignmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scopeAssignmentName'");
+            }
             resourceInputs["assignedManagedNetwork"] = args?.assignedManagedNetwork;
             resourceInputs["location"] = args?.location;
             resourceInputs["scope"] = args?.scope;
@@ -123,5 +126,5 @@ export interface ScopeAssignmentArgs {
     /**
      * The name of the scope assignment to create.
      */
-    scopeAssignmentName?: pulumi.Input<string | undefined>;
+    scopeAssignmentName: pulumi.Input<string>;
 }

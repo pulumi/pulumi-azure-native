@@ -178,6 +178,9 @@ export class WebPubSub extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceName'");
+            }
             resourceInputs["disableAadAuth"] = (args?.disableAadAuth) ?? false;
             resourceInputs["disableLocalAuth"] = (args?.disableLocalAuth) ?? false;
             resourceInputs["identity"] = args?.identity;
@@ -304,7 +307,7 @@ export interface WebPubSubArgs {
     /**
      * The name of the resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
     /**
      * Stop or start the resource.  Default to "False".
      * When it's true, the data plane of the resource is shutdown.

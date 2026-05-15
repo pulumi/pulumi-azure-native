@@ -125,6 +125,9 @@ export class Datastore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.datastoreName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'datastoreName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -182,7 +185,7 @@ export interface DatastoreArgs {
     /**
      * Name of the datastore.
      */
-    datastoreName?: pulumi.Input<string | undefined>;
+    datastoreName: pulumi.Input<string>;
     /**
      * Gets or sets the extended location.
      */

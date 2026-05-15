@@ -107,6 +107,9 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
             if (args?.hybridRunbookWorkerGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hybridRunbookWorkerGroupName'");
             }
+            if (args?.hybridRunbookWorkerId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'hybridRunbookWorkerId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -162,7 +165,7 @@ export interface HybridRunbookWorkerArgs {
     /**
      * The hybrid runbook worker id
      */
-    hybridRunbookWorkerId?: pulumi.Input<string | undefined>;
+    hybridRunbookWorkerId: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

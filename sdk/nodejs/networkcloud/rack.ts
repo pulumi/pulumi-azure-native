@@ -124,6 +124,9 @@ export class Rack extends pulumi.CustomResource {
             if (args?.rackLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackLocation'");
             }
+            if (args?.rackName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'rackName'");
+            }
             if (args?.rackSerialNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackSerialNumber'");
             }
@@ -199,7 +202,7 @@ export interface RackArgs {
     /**
      * The name of the rack.
      */
-    rackName?: pulumi.Input<string | undefined>;
+    rackName: pulumi.Input<string>;
     /**
      * The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
      */

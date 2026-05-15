@@ -100,6 +100,9 @@ export class Rule extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.ruleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ruleName'");
+            }
             if (args?.ruleSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
@@ -168,7 +171,7 @@ export interface RuleArgs {
     /**
      * Name of the delivery rule which is unique within the endpoint.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName: pulumi.Input<string>;
     /**
      * Name of the rule set under the profile which is unique globally.
      */

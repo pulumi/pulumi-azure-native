@@ -104,6 +104,9 @@ export class PolicyDefinitionVersion extends pulumi.CustomResource {
             if (args?.policyDefinitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitionName'");
             }
+            if (args?.policyDefinitionVersion === undefined && !opts.urn) {
+                throw new Error("Missing required property 'policyDefinitionVersion'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["metadata"] = args?.metadata;
@@ -170,7 +173,7 @@ export interface PolicyDefinitionVersionArgs {
     /**
      * The policy definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
      */
-    policyDefinitionVersion?: pulumi.Input<string | undefined>;
+    policyDefinitionVersion: pulumi.Input<string>;
     /**
      * The policy rule.
      */

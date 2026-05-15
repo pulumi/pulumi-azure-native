@@ -100,6 +100,9 @@ export class APICollectionByAzureApiManagementService extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.apiId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'apiId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -151,7 +154,7 @@ export interface APICollectionByAzureApiManagementServiceArgs {
     /**
      * API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    apiId?: pulumi.Input<string | undefined>;
+    apiId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

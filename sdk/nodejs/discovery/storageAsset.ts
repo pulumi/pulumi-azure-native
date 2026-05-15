@@ -82,6 +82,9 @@ export class StorageAsset extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.storageAssetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'storageAssetName'");
+            }
             if (args?.storageContainerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageContainerName'");
             }
@@ -130,7 +133,7 @@ export interface StorageAssetArgs {
     /**
      * The name of the StorageAsset
      */
-    storageAssetName?: pulumi.Input<string | undefined>;
+    storageAssetName: pulumi.Input<string>;
     /**
      * The name of the StorageContainer
      */

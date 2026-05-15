@@ -77,6 +77,9 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.projectName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'projectName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +121,7 @@ export interface ProjectArgs {
     /**
      * The name of the Project resource.
      */
-    projectName?: pulumi.Input<string | undefined>;
+    projectName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

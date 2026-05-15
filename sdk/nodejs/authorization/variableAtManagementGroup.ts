@@ -79,6 +79,9 @@ export class VariableAtManagementGroup extends pulumi.CustomResource {
             if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
+            if (args?.variableName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'variableName'");
+            }
             resourceInputs["columns"] = args?.columns;
             resourceInputs["managementGroupId"] = args?.managementGroupId;
             resourceInputs["variableName"] = args?.variableName;
@@ -115,5 +118,5 @@ export interface VariableAtManagementGroupArgs {
     /**
      * The name of the variable to operate on.
      */
-    variableName?: pulumi.Input<string | undefined>;
+    variableName: pulumi.Input<string>;
 }

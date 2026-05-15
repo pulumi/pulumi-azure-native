@@ -98,6 +98,9 @@ export class BlobContainerDataSet extends pulumi.CustomResource {
             if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
+            if (args?.dataSetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataSetName'");
+            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -164,7 +167,7 @@ export interface BlobContainerDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string | undefined>;
+    dataSetName: pulumi.Input<string>;
     /**
      * Kind of data set.
      * Expected value is 'Container'.

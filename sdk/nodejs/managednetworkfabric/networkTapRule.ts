@@ -124,6 +124,9 @@ export class NetworkTapRule extends pulumi.CustomResource {
             if (args?.configurationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationType'");
             }
+            if (args?.networkTapRuleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkTapRuleName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -199,7 +202,7 @@ export interface NetworkTapRuleArgs {
     /**
      * Name of the Network Tap Rule.
      */
-    networkTapRuleName?: pulumi.Input<string | undefined>;
+    networkTapRuleName: pulumi.Input<string>;
     /**
      * Polling interval in seconds.
      */

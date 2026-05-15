@@ -93,6 +93,9 @@ export class InventoryItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.inventoryItemName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'inventoryItemName'");
+            }
             if (args?.inventoryType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inventoryType'");
             }
@@ -140,7 +143,7 @@ export interface InventoryItemArgs {
     /**
      * Name of the inventoryItem.
      */
-    inventoryItemName?: pulumi.Input<string | undefined>;
+    inventoryItemName: pulumi.Input<string>;
     /**
      * They inventory type.
      */

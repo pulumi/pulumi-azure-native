@@ -59,6 +59,9 @@ export class Console extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.consoleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'consoleName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -83,7 +86,7 @@ export interface ConsoleArgs {
     /**
      * The name of the console
      */
-    consoleName?: pulumi.Input<string | undefined>;
+    consoleName: pulumi.Input<string>;
     /**
      * Cloud shell properties for creating a console.
      */

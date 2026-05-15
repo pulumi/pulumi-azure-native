@@ -205,6 +205,9 @@ export class ContentTemplate extends pulumi.CustomResource {
             if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
+            if (args?.templateId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'templateId'");
+            }
             if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
@@ -386,7 +389,7 @@ export interface ContentTemplateArgs {
     /**
      * template Id
      */
-    templateId?: pulumi.Input<string | undefined>;
+    templateId: pulumi.Input<string>;
     /**
      * the tactics the resource covers
      */

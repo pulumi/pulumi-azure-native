@@ -81,6 +81,9 @@ export class JobTargetGroup extends pulumi.CustomResource {
             if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
+            if (args?.targetGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'targetGroupName'");
+            }
             resourceInputs["jobAgentName"] = args?.jobAgentName;
             resourceInputs["members"] = args?.members;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -125,5 +128,5 @@ export interface JobTargetGroupArgs {
     /**
      * The name of the target group.
      */
-    targetGroupName?: pulumi.Input<string | undefined>;
+    targetGroupName: pulumi.Input<string>;
 }

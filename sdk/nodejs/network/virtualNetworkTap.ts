@@ -104,6 +104,9 @@ export class VirtualNetworkTap extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.tapName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tapName'");
+            }
             resourceInputs["destinationLoadBalancerFrontEndIPConfiguration"] = args ? pulumi.output(args.destinationLoadBalancerFrontEndIPConfiguration).apply(v => v === undefined ? undefined : inputs.network.frontendIPConfigurationArgsProvideDefaults(v)) : undefined;
             resourceInputs["destinationNetworkInterfaceIPConfiguration"] = args ? pulumi.output(args.destinationNetworkInterfaceIPConfiguration).apply(v => v === undefined ? undefined : inputs.network.networkInterfaceIPConfigurationArgsProvideDefaults(v)) : undefined;
             resourceInputs["destinationPort"] = args?.destinationPort;
@@ -175,5 +178,5 @@ export interface VirtualNetworkTapArgs {
     /**
      * The name of the virtual network tap.
      */
-    tapName?: pulumi.Input<string | undefined>;
+    tapName: pulumi.Input<string>;
 }

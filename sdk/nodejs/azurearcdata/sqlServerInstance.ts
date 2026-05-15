@@ -84,6 +84,9 @@ export class SqlServerInstance extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.sqlServerInstanceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sqlServerInstanceName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -128,7 +131,7 @@ export interface SqlServerInstanceArgs {
     /**
      * Name of SQL Server Instance
      */
-    sqlServerInstanceName?: pulumi.Input<string | undefined>;
+    sqlServerInstanceName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

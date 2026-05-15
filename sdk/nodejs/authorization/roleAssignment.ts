@@ -116,6 +116,9 @@ export class RoleAssignment extends pulumi.CustomResource {
             if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
+            if (args?.roleAssignmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'roleAssignmentName'");
+            }
             if (args?.roleDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
@@ -193,7 +196,7 @@ export interface RoleAssignmentArgs {
     /**
      * The name of the role assignment. It can be any valid GUID.
      */
-    roleAssignmentName?: pulumi.Input<string | undefined>;
+    roleAssignmentName: pulumi.Input<string>;
     /**
      * The role definition ID.
      */

@@ -64,6 +64,9 @@ export class SubscriptionFeatureRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.featureName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'featureName'");
+            }
             if (args?.providerNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
@@ -93,7 +96,7 @@ export interface SubscriptionFeatureRegistrationArgs {
     /**
      * The feature name.
      */
-    featureName?: pulumi.Input<string | undefined>;
+    featureName: pulumi.Input<string>;
     properties?: pulumi.Input<inputs.features.SubscriptionFeatureRegistrationPropertiesArgs | undefined>;
     /**
      * The provider namespace.

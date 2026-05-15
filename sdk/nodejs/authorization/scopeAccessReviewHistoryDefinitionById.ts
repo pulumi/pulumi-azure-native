@@ -119,6 +119,9 @@ export class ScopeAccessReviewHistoryDefinitionById extends pulumi.CustomResourc
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.historyDefinitionId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'historyDefinitionId'");
+            }
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -182,7 +185,7 @@ export interface ScopeAccessReviewHistoryDefinitionByIdArgs {
     /**
      * The id of the access review history definition.
      */
-    historyDefinitionId?: pulumi.Input<string | undefined>;
+    historyDefinitionId: pulumi.Input<string>;
     /**
      * Set of access review history instances for this history definition.
      */

@@ -75,10 +75,13 @@ export class DeploymentStacksWhatIfResultsAtSubscription extends pulumi.CustomRe
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: DeploymentStacksWhatIfResultsAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: DeploymentStacksWhatIfResultsAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.deploymentStacksWhatIfResultName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'deploymentStacksWhatIfResultName'");
+            }
             resourceInputs["deploymentStacksWhatIfResultName"] = args?.deploymentStacksWhatIfResultName;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
@@ -110,7 +113,7 @@ export interface DeploymentStacksWhatIfResultsAtSubscriptionArgs {
     /**
      * Name of the deployment stack what-if result.
      */
-    deploymentStacksWhatIfResultName?: pulumi.Input<string | undefined>;
+    deploymentStacksWhatIfResultName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
      */

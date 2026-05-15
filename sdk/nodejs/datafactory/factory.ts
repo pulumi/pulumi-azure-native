@@ -111,6 +111,9 @@ export class Factory extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.factoryName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'factoryName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -166,7 +169,7 @@ export interface FactoryArgs {
     /**
      * The factory name.
      */
-    factoryName?: pulumi.Input<string | undefined>;
+    factoryName: pulumi.Input<string>;
     /**
      * List of parameters for factory.
      */

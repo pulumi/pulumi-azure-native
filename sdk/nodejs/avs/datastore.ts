@@ -92,6 +92,9 @@ export class Datastore extends pulumi.CustomResource {
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
+            if (args?.datastoreName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'datastoreName'");
+            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -140,7 +143,7 @@ export interface DatastoreArgs {
     /**
      * Name of the datastore
      */
-    datastoreName?: pulumi.Input<string | undefined>;
+    datastoreName: pulumi.Input<string>;
     /**
      * An iSCSI volume
      */

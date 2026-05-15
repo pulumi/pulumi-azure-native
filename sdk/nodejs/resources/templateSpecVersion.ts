@@ -103,6 +103,9 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
             if (args?.templateSpecName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateSpecName'");
             }
+            if (args?.templateSpecVersion === undefined && !opts.urn) {
+                throw new Error("Missing required property 'templateSpecVersion'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["linkedTemplates"] = args?.linkedTemplates;
             resourceInputs["location"] = args?.location;
@@ -176,7 +179,7 @@ export interface TemplateSpecVersionArgs {
     /**
      * The version of the Template Spec.
      */
-    templateSpecVersion?: pulumi.Input<string | undefined>;
+    templateSpecVersion: pulumi.Input<string>;
     /**
      * The Azure Resource Manager template UI definition content.
      */

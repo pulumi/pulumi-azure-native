@@ -76,6 +76,9 @@ export class BuildServiceBuilder extends pulumi.CustomResource {
             if (args?.buildServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'buildServiceName'");
             }
+            if (args?.builderName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'builderName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +119,7 @@ export interface BuildServiceBuilderArgs {
     /**
      * The name of the builder resource.
      */
-    builderName?: pulumi.Input<string | undefined>;
+    builderName: pulumi.Input<string>;
     /**
      * Property of the Builder resource.
      */

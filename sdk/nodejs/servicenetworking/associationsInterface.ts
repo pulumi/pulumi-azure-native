@@ -89,6 +89,9 @@ export class AssociationsInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.associationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'associationName'");
+            }
             if (args?.associationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'associationType'");
             }
@@ -135,7 +138,7 @@ export interface AssociationsInterfaceArgs {
     /**
      * Name of Association
      */
-    associationName?: pulumi.Input<string | undefined>;
+    associationName: pulumi.Input<string>;
     /**
      * Association Type
      */

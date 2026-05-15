@@ -146,6 +146,9 @@ export class Extension extends pulumi.CustomResource {
             if (args?.clusterRp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterRp'");
             }
+            if (args?.extensionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'extensionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -240,7 +243,7 @@ export interface ExtensionArgs {
     /**
      * Name of the Extension.
      */
-    extensionName?: pulumi.Input<string | undefined>;
+    extensionName: pulumi.Input<string>;
     /**
      * Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
      */

@@ -123,6 +123,9 @@ export class OperatorApiConnection extends pulumi.CustomResource {
             if (args?.gatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayId'");
             }
+            if (args?.operatorApiConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'operatorApiConnectionName'");
+            }
             if (args?.operatorApiPlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operatorApiPlanId'");
             }
@@ -204,7 +207,7 @@ export interface OperatorApiConnectionArgs {
     /**
      * Azure Programmable Connectivity (APC) Operator API Connection Name.
      */
-    operatorApiConnectionName?: pulumi.Input<string | undefined>;
+    operatorApiConnectionName: pulumi.Input<string>;
     /**
      * Reference to the Operator API Plan Resource ID.
      */

@@ -84,6 +84,9 @@ export class NetworkServiceDesignVersion extends pulumi.CustomResource {
             if (args?.networkServiceDesignGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkServiceDesignGroupName'");
             }
+            if (args?.networkServiceDesignVersionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkServiceDesignVersionName'");
+            }
             if (args?.publisherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
@@ -132,7 +135,7 @@ export interface NetworkServiceDesignVersionArgs {
     /**
      * The name of the network service design version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
      */
-    networkServiceDesignVersionName?: pulumi.Input<string | undefined>;
+    networkServiceDesignVersionName: pulumi.Input<string>;
     /**
      * network service design version properties.
      */

@@ -113,6 +113,9 @@ export class L3IsolationDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.l3IsolationDomainName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'l3IsolationDomainName'");
+            }
             if (args?.networkFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricId'");
             }
@@ -179,7 +182,7 @@ export interface L3IsolationDomainArgs {
     /**
      * Name of the L3 Isolation Domain.
      */
-    l3IsolationDomainName?: pulumi.Input<string | undefined>;
+    l3IsolationDomainName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

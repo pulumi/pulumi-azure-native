@@ -77,6 +77,9 @@ export class CustomerEvent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.customerEventName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'customerEventName'");
+            }
             if (args?.eventName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventName'");
             }
@@ -120,7 +123,7 @@ export interface CustomerEventArgs {
     /**
      * The resource name of the Test Base Customer event.
      */
-    customerEventName?: pulumi.Input<string | undefined>;
+    customerEventName: pulumi.Input<string>;
     /**
      * The name of the event subscribed to.
      */

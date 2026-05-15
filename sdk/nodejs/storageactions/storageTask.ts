@@ -118,6 +118,9 @@ export class StorageTask extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.storageTaskName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'storageTaskName'");
+            }
             resourceInputs["action"] = args?.action;
             resourceInputs["description"] = args?.description;
             resourceInputs["enabled"] = args?.enabled;
@@ -186,7 +189,7 @@ export interface StorageTaskArgs {
     /**
      * The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
      */
-    storageTaskName?: pulumi.Input<string | undefined>;
+    storageTaskName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

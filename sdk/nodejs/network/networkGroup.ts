@@ -89,6 +89,9 @@ export class NetworkGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.networkGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkGroupName'");
+            }
             if (args?.networkManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
@@ -140,7 +143,7 @@ export interface NetworkGroupArgs {
     /**
      * The name of the network group.
      */
-    networkGroupName?: pulumi.Input<string | undefined>;
+    networkGroupName: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */

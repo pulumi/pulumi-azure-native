@@ -103,6 +103,9 @@ export class RestorePoint extends pulumi.CustomResource {
             if (args?.restorePointCollectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restorePointCollectionName'");
             }
+            if (args?.restorePointName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'restorePointName'");
+            }
             resourceInputs["consistencyMode"] = args?.consistencyMode;
             resourceInputs["excludeDisks"] = args?.excludeDisks;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -160,7 +163,7 @@ export interface RestorePointArgs {
     /**
      * The name of the restore point.
      */
-    restorePointName?: pulumi.Input<string | undefined>;
+    restorePointName: pulumi.Input<string>;
     /**
      * Gets the details of the VM captured at the time of the restore point creation.
      */

@@ -89,6 +89,9 @@ export class MoveCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.moveCollectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'moveCollectionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -136,7 +139,7 @@ export interface MoveCollectionArgs {
     /**
      * The Move Collection Name.
      */
-    moveCollectionName?: pulumi.Input<string | undefined>;
+    moveCollectionName: pulumi.Input<string>;
     /**
      * Defines the move collection properties.
      */

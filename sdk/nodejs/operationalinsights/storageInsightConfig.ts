@@ -95,6 +95,9 @@ export class StorageInsightConfig extends pulumi.CustomResource {
             if (args?.storageAccount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccount'");
             }
+            if (args?.storageInsightName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'storageInsightName'");
+            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -151,7 +154,7 @@ export interface StorageInsightConfigArgs {
     /**
      * Name of the storageInsightsConfigs resource
      */
-    storageInsightName?: pulumi.Input<string | undefined>;
+    storageInsightName: pulumi.Input<string>;
     /**
      * The names of the Azure tables that the workspace should read
      */

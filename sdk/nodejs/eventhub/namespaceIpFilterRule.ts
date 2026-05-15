@@ -75,6 +75,9 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.ipFilterRuleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ipFilterRuleName'");
+            }
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -120,7 +123,7 @@ export interface NamespaceIpFilterRuleArgs {
     /**
      * The IP Filter Rule name.
      */
-    ipFilterRuleName?: pulumi.Input<string | undefined>;
+    ipFilterRuleName: pulumi.Input<string>;
     /**
      * IP Mask
      */

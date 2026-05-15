@@ -83,6 +83,9 @@ export class BgpPeer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.bgpPeerName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'bgpPeerName'");
+            }
             if (args?.myAsn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'myAsn'");
             }
@@ -129,7 +132,7 @@ export interface BgpPeerArgs {
     /**
      * The name of the BgpPeer
      */
-    bgpPeerName?: pulumi.Input<string | undefined>;
+    bgpPeerName: pulumi.Input<string>;
     /**
      * My ASN
      */

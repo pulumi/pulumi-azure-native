@@ -148,6 +148,9 @@ export class Package extends pulumi.CustomResource {
             if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
+            if (args?.packageName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'packageName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -254,7 +257,7 @@ export interface PackageArgs {
     /**
      * The resource name of the Test Base Package.
      */
-    packageName?: pulumi.Input<string | undefined>;
+    packageName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

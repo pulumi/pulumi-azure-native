@@ -122,6 +122,9 @@ export class Registry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.registryName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'registryName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -218,7 +221,7 @@ export interface RegistryArgs {
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */
-    registryName?: pulumi.Input<string | undefined>;
+    registryName: pulumi.Input<string>;
     /**
      * Private endpoint connections info used for pending connections in private link portal
      */

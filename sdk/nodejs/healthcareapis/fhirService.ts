@@ -137,6 +137,9 @@ export class FhirService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.fhirServiceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'fhirServiceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -224,7 +227,7 @@ export interface FhirServiceArgs {
     /**
      * The name of FHIR Service resource.
      */
-    fhirServiceName?: pulumi.Input<string | undefined>;
+    fhirServiceName: pulumi.Input<string>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */

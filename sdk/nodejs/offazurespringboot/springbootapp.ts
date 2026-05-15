@@ -77,6 +77,9 @@ export class Springbootapp extends pulumi.CustomResource {
             if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
+            if (args?.springbootappsName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'springbootappsName'");
+            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["siteName"] = args?.siteName;
@@ -118,5 +121,5 @@ export interface SpringbootappArgs {
     /**
      * The springbootapps name.
      */
-    springbootappsName?: pulumi.Input<string | undefined>;
+    springbootappsName: pulumi.Input<string>;
 }

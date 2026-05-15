@@ -125,6 +125,9 @@ export class ConfigurationStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.configStoreName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configStoreName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -186,7 +189,7 @@ export interface ConfigurationStoreArgs {
     /**
      * The name of the configuration store.
      */
-    configStoreName?: pulumi.Input<string | undefined>;
+    configStoreName: pulumi.Input<string>;
     /**
      * Indicates whether the configuration store need to be recovered.
      */

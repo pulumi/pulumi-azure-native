@@ -81,6 +81,9 @@ export class Ledger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.ledgerName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ledgerName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +119,7 @@ export interface LedgerArgs {
     /**
      * Name of the Confidential Ledger
      */
-    ledgerName?: pulumi.Input<string | undefined>;
+    ledgerName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

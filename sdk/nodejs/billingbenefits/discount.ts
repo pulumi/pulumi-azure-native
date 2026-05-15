@@ -105,6 +105,9 @@ export class Discount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.discountName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'discountName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -152,7 +155,7 @@ export interface DiscountArgs {
     /**
      * Name of the discount
      */
-    discountName?: pulumi.Input<string | undefined>;
+    discountName: pulumi.Input<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */

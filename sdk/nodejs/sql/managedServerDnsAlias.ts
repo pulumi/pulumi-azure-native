@@ -70,6 +70,9 @@ export class ManagedServerDnsAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dnsAliasName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dnsAliasName'");
+            }
             if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
@@ -107,7 +110,7 @@ export interface ManagedServerDnsAliasArgs {
      * Whether or not DNS record should be created for this alias.
      */
     createDnsRecord?: pulumi.Input<boolean | undefined>;
-    dnsAliasName?: pulumi.Input<string | undefined>;
+    dnsAliasName: pulumi.Input<string>;
     /**
      * The name of the managed instance.
      */

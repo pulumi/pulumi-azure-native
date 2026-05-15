@@ -97,6 +97,9 @@ export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.portMirroringId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'portMirroringId'");
+            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -156,7 +159,7 @@ export interface WorkloadNetworkPortMirroringArgs {
     /**
      * ID of the NSX port mirroring profile.
      */
-    portMirroringId?: pulumi.Input<string | undefined>;
+    portMirroringId: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

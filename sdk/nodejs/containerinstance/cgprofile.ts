@@ -160,6 +160,9 @@ export class CGProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.containerGroupProfileName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'containerGroupProfileName'");
+            }
             if (args?.containers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containers'");
             }
@@ -243,7 +246,7 @@ export interface CGProfileArgs {
     /**
      * ContainerGroupProfile name.
      */
-    containerGroupProfileName?: pulumi.Input<string | undefined>;
+    containerGroupProfileName: pulumi.Input<string>;
     /**
      * The containers within the container group.
      */

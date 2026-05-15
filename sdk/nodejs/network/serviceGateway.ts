@@ -112,6 +112,9 @@ export class ServiceGateway extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.serviceGatewayName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serviceGatewayName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["routeTargetAddress"] = args ? pulumi.output(args.routeTargetAddress).apply(v => v === undefined ? undefined : inputs.network.routeTargetAddressPropertiesFormatArgsProvideDefaults(v)) : undefined;
@@ -174,7 +177,7 @@ export interface ServiceGatewayArgs {
     /**
      * The name of the service gateway.
      */
-    serviceGatewayName?: pulumi.Input<string | undefined>;
+    serviceGatewayName: pulumi.Input<string>;
     /**
      * The service gateway SKU.
      */

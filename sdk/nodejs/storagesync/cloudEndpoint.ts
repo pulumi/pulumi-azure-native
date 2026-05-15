@@ -109,6 +109,9 @@ export class CloudEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.cloudEndpointName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'cloudEndpointName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -170,7 +173,7 @@ export interface CloudEndpointArgs {
     /**
      * Name of Cloud Endpoint object.
      */
-    cloudEndpointName?: pulumi.Input<string | undefined>;
+    cloudEndpointName: pulumi.Input<string>;
     /**
      * Friendly Name
      */

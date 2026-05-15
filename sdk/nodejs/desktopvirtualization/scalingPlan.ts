@@ -127,6 +127,9 @@ export class ScalingPlan extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.scalingPlanName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scalingPlanName'");
+            }
             if (args?.timeZone === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
@@ -226,7 +229,7 @@ export interface ScalingPlanArgs {
     /**
      * The name of the scaling plan.
      */
-    scalingPlanName?: pulumi.Input<string | undefined>;
+    scalingPlanName: pulumi.Input<string>;
     /**
      * List of ScalingPlanPooledSchedule definitions.
      */

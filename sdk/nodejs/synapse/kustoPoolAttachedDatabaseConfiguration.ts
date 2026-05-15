@@ -95,6 +95,9 @@ export class KustoPoolAttachedDatabaseConfiguration extends pulumi.CustomResourc
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.attachedDatabaseConfigurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'attachedDatabaseConfigurationName'");
+            }
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
@@ -155,7 +158,7 @@ export interface KustoPoolAttachedDatabaseConfigurationArgs {
     /**
      * The name of the attached database configuration.
      */
-    attachedDatabaseConfigurationName?: pulumi.Input<string | undefined>;
+    attachedDatabaseConfigurationName: pulumi.Input<string>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */

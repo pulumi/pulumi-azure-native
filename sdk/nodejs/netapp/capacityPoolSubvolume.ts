@@ -94,6 +94,9 @@ export class CapacityPoolSubvolume extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.subvolumeName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'subvolumeName'");
+            }
             if (args?.volumeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeName'");
             }
@@ -158,7 +161,7 @@ export interface CapacityPoolSubvolumeArgs {
     /**
      * The name of the subvolume.
      */
-    subvolumeName?: pulumi.Input<string | undefined>;
+    subvolumeName: pulumi.Input<string>;
     /**
      * The name of the volume
      */

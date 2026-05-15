@@ -92,6 +92,9 @@ export class SiteNetworkService extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.siteNetworkServiceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'siteNetworkServiceName'");
+            }
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
@@ -144,7 +147,7 @@ export interface SiteNetworkServiceArgs {
     /**
      * The name of the site network service.
      */
-    siteNetworkServiceName?: pulumi.Input<string | undefined>;
+    siteNetworkServiceName: pulumi.Input<string>;
     /**
      * Sku of the site network service.
      */

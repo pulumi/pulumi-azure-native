@@ -85,6 +85,9 @@ export class LinkerDryrun extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dryrunName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dryrunName'");
+            }
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
@@ -122,7 +125,7 @@ export interface LinkerDryrunArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName?: pulumi.Input<string | undefined>;
+    dryrunName: pulumi.Input<string>;
     /**
      * The parameters of the dryrun
      */

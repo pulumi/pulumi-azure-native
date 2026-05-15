@@ -92,6 +92,9 @@ export class Service extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.serviceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serviceName'");
+            }
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -144,7 +147,7 @@ export interface ServiceArgs {
     /**
      * The name of Azure API Center service.
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -267,6 +267,9 @@ export class Database extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.databaseName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'databaseName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -432,7 +435,7 @@ export interface DatabaseArgs {
     /**
      * The name of the database.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * The resource identifier of the elastic pool containing this database.
      */

@@ -68,6 +68,9 @@ export class AuthorizedApplication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.applicationId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'applicationId'");
+            }
             if (args?.providerNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
@@ -99,7 +102,7 @@ export interface AuthorizedApplicationArgs {
     /**
      * The application ID.
      */
-    applicationId?: pulumi.Input<string | undefined>;
+    applicationId: pulumi.Input<string>;
     properties?: pulumi.Input<inputs.providerhub.AuthorizedApplicationPropertiesArgs | undefined>;
     /**
      * The name of the resource provider hosted within ProviderHub.

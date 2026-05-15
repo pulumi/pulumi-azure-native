@@ -96,6 +96,9 @@ export class FabricCapacity extends pulumi.CustomResource {
             if (args?.administration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'administration'");
             }
+            if (args?.capacityName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'capacityName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -144,7 +147,7 @@ export interface FabricCapacityArgs {
     /**
      * The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    capacityName?: pulumi.Input<string | undefined>;
+    capacityName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

@@ -80,6 +80,9 @@ export class RoutingIntent extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.routingIntentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'routingIntentName'");
+            }
             if (args?.virtualHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
@@ -127,7 +130,7 @@ export interface RoutingIntentArgs {
     /**
      * The name of the per VirtualHub singleton Routing Intent resource.
      */
-    routingIntentName?: pulumi.Input<string | undefined>;
+    routingIntentName: pulumi.Input<string>;
     /**
      * List of routing policies.
      */

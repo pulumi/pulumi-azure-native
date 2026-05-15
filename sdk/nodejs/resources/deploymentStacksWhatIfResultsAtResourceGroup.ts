@@ -79,6 +79,9 @@ export class DeploymentStacksWhatIfResultsAtResourceGroup extends pulumi.CustomR
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.deploymentStacksWhatIfResultName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'deploymentStacksWhatIfResultName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -114,7 +117,7 @@ export interface DeploymentStacksWhatIfResultsAtResourceGroupArgs {
     /**
      * Name of the deployment stack what-if result.
      */
-    deploymentStacksWhatIfResultName?: pulumi.Input<string | undefined>;
+    deploymentStacksWhatIfResultName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
      */

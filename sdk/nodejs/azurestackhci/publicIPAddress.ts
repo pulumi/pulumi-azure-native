@@ -85,6 +85,9 @@ export class PublicIPAddress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.publicIPAddressName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'publicIPAddressName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +137,7 @@ export interface PublicIPAddressArgs {
     /**
      * Name of the public IP
      */
-    publicIPAddressName?: pulumi.Input<string | undefined>;
+    publicIPAddressName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -174,6 +174,9 @@ export class ResourcePool extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourcePoolName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourcePoolName'");
+            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["inventoryItemId"] = args?.inventoryItemId;
             resourceInputs["kind"] = args?.kind;
@@ -272,7 +275,7 @@ export interface ResourcePoolArgs {
     /**
      * Name of the resourcePool.
      */
-    resourcePoolName?: pulumi.Input<string | undefined>;
+    resourcePoolName: pulumi.Input<string>;
     /**
      * Gets or sets the Resource tags.
      */

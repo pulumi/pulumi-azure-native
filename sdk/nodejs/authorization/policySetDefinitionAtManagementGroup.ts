@@ -111,6 +111,9 @@ export class PolicySetDefinitionAtManagementGroup extends pulumi.CustomResource 
             if (args?.policyDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitions'");
             }
+            if (args?.policySetDefinitionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'policySetDefinitionName'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["managementGroupId"] = args?.managementGroupId;
@@ -183,7 +186,7 @@ export interface PolicySetDefinitionAtManagementGroupArgs {
     /**
      * The name of the policy set definition to create.
      */
-    policySetDefinitionName?: pulumi.Input<string | undefined>;
+    policySetDefinitionName: pulumi.Input<string>;
     /**
      * The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */

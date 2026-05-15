@@ -84,6 +84,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.privateEndpointConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'privateEndpointConnectionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +131,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the Cognitive Services Account
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * Resource properties.
      */

@@ -83,6 +83,9 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.metadataName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'metadataName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -124,7 +127,7 @@ export interface HybridIdentityMetadatumArgs {
     /**
      * Name of the hybridIdentityMetadata.
      */
-    metadataName?: pulumi.Input<string | undefined>;
+    metadataName: pulumi.Input<string>;
     /**
      * The Public Key.
      */

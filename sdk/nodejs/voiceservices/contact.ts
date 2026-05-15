@@ -98,6 +98,9 @@ export class Contact extends pulumi.CustomResource {
             if (args?.communicationsGatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communicationsGatewayName'");
             }
+            if (args?.contactName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'contactName'");
+            }
             if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
@@ -154,7 +157,7 @@ export interface ContactArgs {
     /**
      * Full name of contact
      */
-    contactName?: pulumi.Input<string | undefined>;
+    contactName: pulumi.Input<string>;
     /**
      * Email address of contact
      */

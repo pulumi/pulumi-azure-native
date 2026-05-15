@@ -97,6 +97,9 @@ export class GlobalReachConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.globalReachConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'globalReachConnectionName'");
+            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -152,7 +155,7 @@ export interface GlobalReachConnectionArgs {
     /**
      * Name of the global reach connection
      */
-    globalReachConnectionName?: pulumi.Input<string | undefined>;
+    globalReachConnectionName: pulumi.Input<string>;
     /**
      * Identifier of the ExpressRoute Circuit to peer with in the global reach
      * connection

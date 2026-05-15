@@ -115,6 +115,9 @@ export class SensitivityLabel extends pulumi.CustomResource {
             if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
+            if (args?.sensitivityLabelSource === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sensitivityLabelSource'");
+            }
             if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
@@ -203,7 +206,7 @@ export interface SensitivityLabelArgs {
     /**
      * The source of the sensitivity label.
      */
-    sensitivityLabelSource?: pulumi.Input<string | undefined>;
+    sensitivityLabelSource: pulumi.Input<string>;
     /**
      * The name of the server.
      */

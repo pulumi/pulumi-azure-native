@@ -123,6 +123,9 @@ export class Source extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.sourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sourceName'");
+            }
             resourceInputs["credit"] = args?.credit;
             resourceInputs["creditName"] = args?.creditName;
             resourceInputs["identity"] = args?.identity;
@@ -214,7 +217,7 @@ export interface SourceArgs {
     /**
      * Name of the credit source
      */
-    sourceName?: pulumi.Input<string | undefined>;
+    sourceName: pulumi.Input<string>;
     /**
      * The uri of the resource impacted which lead to the grant of the credit.
      */

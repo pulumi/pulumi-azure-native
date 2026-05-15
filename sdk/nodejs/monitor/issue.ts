@@ -76,6 +76,9 @@ export class Issue extends pulumi.CustomResource {
             if (args?.azureMonitorWorkspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureMonitorWorkspaceName'");
             }
+            if (args?.issueName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'issueName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -114,7 +117,7 @@ export interface IssueArgs {
     /**
      * The name of the IssueResource
      */
-    issueName?: pulumi.Input<string | undefined>;
+    issueName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

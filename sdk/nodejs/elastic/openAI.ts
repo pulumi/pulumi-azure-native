@@ -69,6 +69,9 @@ export class OpenAI extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.integrationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'integrationName'");
+            }
             if (args?.monitorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
@@ -102,7 +105,7 @@ export interface OpenAIArgs {
     /**
      * OpenAI Integration name
      */
-    integrationName?: pulumi.Input<string | undefined>;
+    integrationName: pulumi.Input<string>;
     /**
      * Monitor resource name
      */

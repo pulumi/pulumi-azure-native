@@ -94,6 +94,9 @@ export class SingleServerServerSecurityAlertPolicy extends pulumi.CustomResource
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.securityAlertPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'securityAlertPolicyName'");
+            }
             if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
@@ -159,7 +162,7 @@ export interface SingleServerServerSecurityAlertPolicyArgs {
     /**
      * The name of the threat detection policy.
      */
-    securityAlertPolicyName?: pulumi.Input<string | undefined>;
+    securityAlertPolicyName: pulumi.Input<string>;
     /**
      * The name of the server.
      */

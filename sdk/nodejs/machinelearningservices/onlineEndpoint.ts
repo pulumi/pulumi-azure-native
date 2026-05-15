@@ -93,6 +93,9 @@ export class OnlineEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.endpointName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'endpointName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -141,7 +144,7 @@ export interface OnlineEndpointArgs {
     /**
      * Online Endpoint name.
      */
-    endpointName?: pulumi.Input<string | undefined>;
+    endpointName: pulumi.Input<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */

@@ -95,6 +95,9 @@ export class CustomizableConnectorDefinition extends pulumi.CustomResource {
             if (args?.connectorUiConfig === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorUiConfig'");
             }
+            if (args?.dataConnectorDefinitionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataConnectorDefinitionName'");
+            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -155,7 +158,7 @@ export interface CustomizableConnectorDefinitionArgs {
     /**
      * The data connector definition name.
      */
-    dataConnectorDefinitionName?: pulumi.Input<string | undefined>;
+    dataConnectorDefinitionName: pulumi.Input<string>;
     /**
      * The kind of the data connector definitions
      * Expected value is 'Customizable'.

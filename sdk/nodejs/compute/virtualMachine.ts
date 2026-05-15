@@ -220,6 +220,9 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.vmName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'vmName'");
+            }
             resourceInputs["additionalCapabilities"] = args?.additionalCapabilities;
             resourceInputs["applicationProfile"] = args?.applicationProfile;
             resourceInputs["availabilitySet"] = args?.availabilitySet;
@@ -440,7 +443,7 @@ export interface VirtualMachineArgs {
     /**
      * The name of the virtual machine.
      */
-    vmName?: pulumi.Input<string | undefined>;
+    vmName: pulumi.Input<string>;
     /**
      * The availability zones.
      */

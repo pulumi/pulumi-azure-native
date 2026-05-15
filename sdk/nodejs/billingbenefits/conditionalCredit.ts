@@ -141,6 +141,9 @@ export class ConditionalCredit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.conditionalCreditName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'conditionalCreditName'");
+            }
             if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
@@ -213,7 +216,7 @@ export interface ConditionalCreditArgs {
     /**
      * Name of the conditional credit
      */
-    conditionalCreditName?: pulumi.Input<string | undefined>;
+    conditionalCreditName: pulumi.Input<string>;
     /**
      * Display name for the conditional credit
      */

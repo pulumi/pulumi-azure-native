@@ -110,6 +110,9 @@ export class Gateway extends pulumi.CustomResource {
             if (args?.destinationNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationNetwork'");
             }
+            if (args?.gatewayResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'gatewayResourceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -170,7 +173,7 @@ export interface GatewayArgs {
     /**
      * The identity of the gateway.
      */
-    gatewayResourceName?: pulumi.Input<string | undefined>;
+    gatewayResourceName: pulumi.Input<string>;
     /**
      * Configuration for http connectivity for this gateway.
      */

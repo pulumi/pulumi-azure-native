@@ -126,6 +126,9 @@ export class AssessmentProjectsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.projectName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'projectName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -202,7 +205,7 @@ export interface AssessmentProjectsOperationArgs {
     /**
      * Assessment Project Name
      */
-    projectName?: pulumi.Input<string | undefined>;
+    projectName: pulumi.Input<string>;
     /**
      * Assessment project status.
      */

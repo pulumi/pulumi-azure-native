@@ -113,6 +113,9 @@ export class CloudHsmCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.cloudHsmClusterName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'cloudHsmClusterName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -168,7 +171,7 @@ export interface CloudHsmClusterArgs {
     /**
      * The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
      */
-    cloudHsmClusterName?: pulumi.Input<string | undefined>;
+    cloudHsmClusterName: pulumi.Input<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */

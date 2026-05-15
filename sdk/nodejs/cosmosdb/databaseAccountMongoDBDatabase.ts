@@ -76,6 +76,9 @@ export class DatabaseAccountMongoDBDatabase extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.databaseName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'databaseName'");
+            }
             if (args?.options === undefined && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
@@ -120,7 +123,7 @@ export interface DatabaseAccountMongoDBDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

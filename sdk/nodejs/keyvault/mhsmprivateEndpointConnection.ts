@@ -104,6 +104,9 @@ export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            if (args?.privateEndpointConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'privateEndpointConnectionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -161,7 +164,7 @@ export interface MHSMPrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection associated with the managed hsm pool.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * Approval state of the private link connection.
      */

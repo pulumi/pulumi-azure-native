@@ -73,6 +73,9 @@ export class DevToolPortal extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.devToolPortalName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'devToolPortalName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -108,7 +111,7 @@ export interface DevToolPortalArgs {
     /**
      * The name of Dev Tool Portal.
      */
-    devToolPortalName?: pulumi.Input<string | undefined>;
+    devToolPortalName: pulumi.Input<string>;
     /**
      * Dev Tool Portal properties payload
      */

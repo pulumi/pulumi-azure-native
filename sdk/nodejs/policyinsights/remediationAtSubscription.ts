@@ -117,10 +117,13 @@ export class RemediationAtSubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: RemediationAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: RemediationAtSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.remediationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'remediationName'");
+            }
             resourceInputs["failureThreshold"] = args?.failureThreshold;
             resourceInputs["filters"] = args?.filters;
             resourceInputs["parallelDeployments"] = args?.parallelDeployments;
@@ -192,7 +195,7 @@ export interface RemediationAtSubscriptionArgs {
     /**
      * The name of the remediation.
      */
-    remediationName?: pulumi.Input<string | undefined>;
+    remediationName: pulumi.Input<string>;
     /**
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */

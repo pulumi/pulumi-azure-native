@@ -84,6 +84,9 @@ export class BackupVault extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.backupVaultName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'backupVaultName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -124,7 +127,7 @@ export interface BackupVaultArgs {
     /**
      * The name of the Backup Vault
      */
-    backupVaultName?: pulumi.Input<string | undefined>;
+    backupVaultName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

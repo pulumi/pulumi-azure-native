@@ -97,6 +97,9 @@ export class DnsResolver extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dnsResolverName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dnsResolverName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -143,7 +146,7 @@ export interface DnsResolverArgs {
     /**
      * The name of the DNS resolver.
      */
-    dnsResolverName?: pulumi.Input<string | undefined>;
+    dnsResolverName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

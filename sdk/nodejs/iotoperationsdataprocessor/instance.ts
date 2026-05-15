@@ -90,6 +90,9 @@ export class Instance extends pulumi.CustomResource {
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
+            if (args?.instanceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'instanceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +140,7 @@ export interface InstanceArgs {
     /**
      * Name of instance.
      */
-    instanceName?: pulumi.Input<string | undefined>;
+    instanceName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

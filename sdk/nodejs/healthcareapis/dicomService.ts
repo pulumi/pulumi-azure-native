@@ -125,6 +125,9 @@ export class DicomService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dicomServiceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dicomServiceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -190,7 +193,7 @@ export interface DicomServiceArgs {
     /**
      * The name of DICOM Service resource.
      */
-    dicomServiceName?: pulumi.Input<string | undefined>;
+    dicomServiceName: pulumi.Input<string>;
     /**
      * If data partitions is enabled or not.
      */

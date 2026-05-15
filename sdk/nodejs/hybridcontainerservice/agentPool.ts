@@ -129,6 +129,9 @@ export class AgentPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.agentPoolName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'agentPoolName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -196,7 +199,7 @@ export interface AgentPoolArgs {
     /**
      * Parameter for the name of the agent pool in the provisioned cluster
      */
-    agentPoolName?: pulumi.Input<string | undefined>;
+    agentPoolName: pulumi.Input<string>;
     /**
      * AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
      */

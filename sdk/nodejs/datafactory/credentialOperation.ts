@@ -71,6 +71,9 @@ export class CredentialOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.credentialName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'credentialName'");
+            }
             if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
@@ -109,7 +112,7 @@ export interface CredentialOperationArgs {
     /**
      * Credential name
      */
-    credentialName?: pulumi.Input<string | undefined>;
+    credentialName: pulumi.Input<string>;
     /**
      * The factory name.
      */

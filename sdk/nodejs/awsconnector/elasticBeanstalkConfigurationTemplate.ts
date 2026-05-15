@@ -79,6 +79,9 @@ export class ElasticBeanstalkConfigurationTemplate extends pulumi.CustomResource
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.name === undefined && !opts.urn) {
+                throw new Error("Missing required property 'name'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -117,7 +120,7 @@ export interface ElasticBeanstalkConfigurationTemplateArgs {
     /**
      * Name of ElasticBeanstalkConfigurationTemplate
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

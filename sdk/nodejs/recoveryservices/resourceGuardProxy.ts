@@ -82,6 +82,9 @@ export class ResourceGuardProxy extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourceGuardProxyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceGuardProxyName'");
+            }
             if (args?.vaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
@@ -131,7 +134,7 @@ export interface ResourceGuardProxyArgs {
      * The name of the resource group where the recovery services vault is present.
      */
     resourceGroupName: pulumi.Input<string>;
-    resourceGuardProxyName?: pulumi.Input<string | undefined>;
+    resourceGuardProxyName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

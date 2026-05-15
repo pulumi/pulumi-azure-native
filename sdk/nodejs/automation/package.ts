@@ -111,6 +111,9 @@ export class Package extends pulumi.CustomResource {
             if (args?.contentLink === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentLink'");
             }
+            if (args?.packageName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'packageName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -175,7 +178,7 @@ export interface PackageArgs {
     /**
      * The name of Package.
      */
-    packageName?: pulumi.Input<string | undefined>;
+    packageName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

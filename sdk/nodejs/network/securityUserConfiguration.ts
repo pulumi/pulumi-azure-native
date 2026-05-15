@@ -85,6 +85,9 @@ export class SecurityUserConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.configurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configurationName'");
+            }
             if (args?.networkManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
@@ -126,7 +129,7 @@ export interface SecurityUserConfigurationArgs {
     /**
      * The name of the network manager Security Configuration.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
     /**
      * A description of the security user configuration.
      */

@@ -101,6 +101,9 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.attachedDatabaseConfigurationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'attachedDatabaseConfigurationName'");
+            }
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -159,7 +162,7 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * The name of the attached database configuration.
      */
-    attachedDatabaseConfigurationName?: pulumi.Input<string | undefined>;
+    attachedDatabaseConfigurationName: pulumi.Input<string>;
     /**
      * The name of the Kusto cluster.
      */

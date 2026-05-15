@@ -88,6 +88,9 @@ export class WorkloadNetworkPublicIP extends pulumi.CustomResource {
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
+            if (args?.publicIPId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'publicIPId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -138,7 +141,7 @@ export interface WorkloadNetworkPublicIPArgs {
     /**
      * ID of the DNS zone.
      */
-    publicIPId?: pulumi.Input<string | undefined>;
+    publicIPId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

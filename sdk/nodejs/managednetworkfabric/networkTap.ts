@@ -115,6 +115,9 @@ export class NetworkTap extends pulumi.CustomResource {
             if (args?.networkPacketBrokerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkPacketBrokerId'");
             }
+            if (args?.networkTapName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkTapName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -180,7 +183,7 @@ export interface NetworkTapArgs {
     /**
      * Name of the Network Tap.
      */
-    networkTapName?: pulumi.Input<string | undefined>;
+    networkTapName: pulumi.Input<string>;
     /**
      * Polling type.
      */

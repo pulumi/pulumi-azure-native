@@ -93,6 +93,9 @@ export class IntegrationAccountCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.certificateName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'certificateName'");
+            }
             if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
@@ -138,7 +141,7 @@ export interface IntegrationAccountCertificateArgs {
     /**
      * The integration account certificate name.
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName: pulumi.Input<string>;
     /**
      * The integration account name.
      */

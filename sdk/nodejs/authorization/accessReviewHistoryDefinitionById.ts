@@ -117,10 +117,13 @@ export class AccessReviewHistoryDefinitionById extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: AccessReviewHistoryDefinitionByIdArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.historyDefinitionId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'historyDefinitionId'");
+            }
             resourceInputs["decisions"] = args?.decisions;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["historyDefinitionId"] = args?.historyDefinitionId;
@@ -180,7 +183,7 @@ export interface AccessReviewHistoryDefinitionByIdArgs {
     /**
      * The id of the access review history definition.
      */
-    historyDefinitionId?: pulumi.Input<string | undefined>;
+    historyDefinitionId: pulumi.Input<string>;
     /**
      * Set of access review history instances for this history definition.
      */

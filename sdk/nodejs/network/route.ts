@@ -95,6 +95,9 @@ export class Route extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.routeName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'routeName'");
+            }
             if (args?.routeTableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableName'");
             }
@@ -160,7 +163,7 @@ export interface RouteArgs {
     /**
      * The name of the route.
      */
-    routeName?: pulumi.Input<string | undefined>;
+    routeName: pulumi.Input<string>;
     /**
      * The name of the route table.
      */

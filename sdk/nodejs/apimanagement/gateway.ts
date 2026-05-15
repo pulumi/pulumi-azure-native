@@ -73,6 +73,9 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.gatewayId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'gatewayId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +115,7 @@ export interface GatewayArgs {
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
-    gatewayId?: pulumi.Input<string | undefined>;
+    gatewayId: pulumi.Input<string>;
     /**
      * Gateway location.
      */

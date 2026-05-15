@@ -81,6 +81,9 @@ export class SqlServerDatabase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.databaseName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'databaseName'");
+            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -123,7 +126,7 @@ export interface SqlServerDatabaseArgs {
     /**
      * Name of the database
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

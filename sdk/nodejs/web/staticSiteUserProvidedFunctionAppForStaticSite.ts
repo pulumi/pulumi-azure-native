@@ -78,6 +78,9 @@ export class StaticSiteUserProvidedFunctionAppForStaticSite extends pulumi.Custo
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.functionAppName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'functionAppName'");
+            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -117,7 +120,7 @@ export interface StaticSiteUserProvidedFunctionAppForStaticSiteArgs {
     /**
      * Name of the function app to register with the static site.
      */
-    functionAppName?: pulumi.Input<string | undefined>;
+    functionAppName: pulumi.Input<string>;
     /**
      * The region of the function app registered with the static site
      */

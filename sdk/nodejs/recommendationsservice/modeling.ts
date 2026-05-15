@@ -84,6 +84,9 @@ export class Modeling extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.modelingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'modelingName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +131,7 @@ export interface ModelingArgs {
     /**
      * The name of the Modeling resource.
      */
-    modelingName?: pulumi.Input<string | undefined>;
+    modelingName: pulumi.Input<string>;
     /**
      * Modeling resource properties.
      */

@@ -128,6 +128,9 @@ export class MySQLServer extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.serverName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serverName'");
+            }
             if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
@@ -228,7 +231,7 @@ export interface MySQLServerArgs {
     /**
      * The name of Server
      */
-    serverName?: pulumi.Input<string | undefined>;
+    serverName: pulumi.Input<string>;
     /**
      * The name of Site
      */

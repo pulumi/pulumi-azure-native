@@ -125,6 +125,9 @@ export class DatabaseMigrationsMongoToCosmosDbRUMongo extends pulumi.CustomResou
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
+            if (args?.migrationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'migrationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -193,7 +196,7 @@ export interface DatabaseMigrationsMongoToCosmosDbRUMongoArgs {
     /**
      * Name of the migration.
      */
-    migrationName?: pulumi.Input<string | undefined>;
+    migrationName: pulumi.Input<string>;
     /**
      * ID for current migration operation.
      */

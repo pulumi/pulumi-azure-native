@@ -73,6 +73,9 @@ export class GatewayCustomDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.domainName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'domainName'");
+            }
             if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
@@ -112,7 +115,7 @@ export interface GatewayCustomDomainArgs {
     /**
      * The name of the Spring Cloud Gateway custom domain.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName: pulumi.Input<string>;
     /**
      * The name of Spring Cloud Gateway.
      */

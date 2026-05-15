@@ -84,6 +84,9 @@ export class EnvironmentType extends pulumi.CustomResource {
             if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
+            if (args?.environmentTypeName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'environmentTypeName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +131,7 @@ export interface EnvironmentTypeArgs {
     /**
      * The name of the environment type.
      */
-    environmentTypeName?: pulumi.Input<string | undefined>;
+    environmentTypeName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

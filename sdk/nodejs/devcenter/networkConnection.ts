@@ -116,6 +116,9 @@ export class NetworkConnection extends pulumi.CustomResource {
             if (args?.domainJoinType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainJoinType'");
             }
+            if (args?.networkConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkConnectionName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -190,7 +193,7 @@ export interface NetworkConnectionArgs {
     /**
      * Name of the Network Connection that can be applied to a Pool.
      */
-    networkConnectionName?: pulumi.Input<string | undefined>;
+    networkConnectionName: pulumi.Input<string>;
     /**
      * The name for resource group where NICs will be placed.
      */

@@ -85,6 +85,9 @@ export class MigrationService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.migrationServiceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'migrationServiceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +129,7 @@ export interface MigrationServiceArgs {
     /**
      * Name of the Migration Service.
      */
-    migrationServiceName?: pulumi.Input<string | undefined>;
+    migrationServiceName: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

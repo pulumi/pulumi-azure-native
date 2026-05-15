@@ -86,6 +86,9 @@ export class FluidRelayPrivateEndpointConnection extends pulumi.CustomResource {
             if (args?.fluidRelayServerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fluidRelayServerName'");
             }
+            if (args?.privateEndpointConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'privateEndpointConnectionName'");
+            }
             if (args?.privateLinkServiceConnectionState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
             }
@@ -131,7 +134,7 @@ export interface FluidRelayPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

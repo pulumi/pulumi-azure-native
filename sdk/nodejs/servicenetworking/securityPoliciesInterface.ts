@@ -92,6 +92,9 @@ export class SecurityPoliciesInterface extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.securityPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'securityPolicyName'");
+            }
             if (args?.trafficControllerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficControllerName'");
             }
@@ -140,7 +143,7 @@ export interface SecurityPoliciesInterfaceArgs {
     /**
      * SecurityPolicy
      */
-    securityPolicyName?: pulumi.Input<string | undefined>;
+    securityPolicyName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

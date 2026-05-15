@@ -129,6 +129,9 @@ export class AutomationAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'automationAccountName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -188,7 +191,7 @@ export interface AutomationAccountArgs {
     /**
      * The name of the automation account.
      */
-    automationAccountName?: pulumi.Input<string | undefined>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Indicates whether requests using non-AAD authentication are blocked
      */

@@ -81,6 +81,9 @@ export class TransparentDataEncryption extends pulumi.CustomResource {
             if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
+            if (args?.tdeName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tdeName'");
+            }
             resourceInputs["databaseName"] = args?.databaseName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serverName"] = args?.serverName;
@@ -125,5 +128,5 @@ export interface TransparentDataEncryptionArgs {
     /**
      * The name of the transparent data encryption configuration.
      */
-    tdeName?: pulumi.Input<string | undefined>;
+    tdeName: pulumi.Input<string>;
 }

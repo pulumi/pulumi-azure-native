@@ -137,6 +137,9 @@ export class Broker extends pulumi.CustomResource {
             if (args?.brokerImage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerImage'");
             }
+            if (args?.brokerName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'brokerName'");
+            }
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
@@ -219,7 +222,7 @@ export interface BrokerArgs {
     /**
      * Name of MQ broker resource
      */
-    brokerName?: pulumi.Input<string | undefined>;
+    brokerName: pulumi.Input<string>;
     /**
      * The details of Node Tolerations for Broker Pods.
      */

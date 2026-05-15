@@ -78,6 +78,9 @@ export class WorkloadDeployment extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.workloadDeploymentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'workloadDeploymentName'");
+            }
             resourceInputs["modernizeProjectName"] = args?.modernizeProjectName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -130,5 +133,5 @@ export interface WorkloadDeploymentArgs {
     /**
      * Workload deployment name.
      */
-    workloadDeploymentName?: pulumi.Input<string | undefined>;
+    workloadDeploymentName: pulumi.Input<string>;
 }

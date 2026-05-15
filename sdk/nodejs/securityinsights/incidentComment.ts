@@ -89,6 +89,9 @@ export class IncidentComment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.incidentCommentId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'incidentCommentId'");
+            }
             if (args?.incidentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'incidentId'");
             }
@@ -139,7 +142,7 @@ export interface IncidentCommentArgs {
     /**
      * Incident comment ID
      */
-    incidentCommentId?: pulumi.Input<string | undefined>;
+    incidentCommentId: pulumi.Input<string>;
     /**
      * Incident ID
      */

@@ -81,6 +81,9 @@ export class ConfigurationGroupSchema extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.configurationGroupSchemaName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configurationGroupSchemaName'");
+            }
             if (args?.publisherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
@@ -120,7 +123,7 @@ export interface ConfigurationGroupSchemaArgs {
     /**
      * The name of the configuration group schema.
      */
-    configurationGroupSchemaName?: pulumi.Input<string | undefined>;
+    configurationGroupSchemaName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

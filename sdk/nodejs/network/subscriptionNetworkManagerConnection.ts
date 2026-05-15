@@ -77,10 +77,13 @@ export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SubscriptionNetworkManagerConnectionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SubscriptionNetworkManagerConnectionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.networkManagerConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkManagerConnectionName'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["networkManagerConnectionName"] = args?.networkManagerConnectionName;
             resourceInputs["networkManagerId"] = args?.networkManagerId;
@@ -116,7 +119,7 @@ export interface SubscriptionNetworkManagerConnectionArgs {
     /**
      * Name for the network manager connection.
      */
-    networkManagerConnectionName?: pulumi.Input<string | undefined>;
+    networkManagerConnectionName: pulumi.Input<string>;
     /**
      * Network Manager Id.
      */

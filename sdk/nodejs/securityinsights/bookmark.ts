@@ -125,6 +125,9 @@ export class Bookmark extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.bookmarkId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'bookmarkId'");
+            }
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -192,7 +195,7 @@ export interface BookmarkArgs {
     /**
      * Bookmark ID
      */
-    bookmarkId?: pulumi.Input<string | undefined>;
+    bookmarkId: pulumi.Input<string>;
     /**
      * The time the bookmark was created
      */

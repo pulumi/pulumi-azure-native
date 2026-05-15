@@ -106,6 +106,9 @@ export class Backend extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.backendId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'backendId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -159,7 +162,7 @@ export interface BackendArgs {
     /**
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
-    backendId?: pulumi.Input<string | undefined>;
+    backendId: pulumi.Input<string>;
     /**
      * Backend Circuit Breaker Configuration
      */

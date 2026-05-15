@@ -103,6 +103,9 @@ export class Schedule extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.scheduleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scheduleName'");
+            }
             if (args?.stopAt === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stopAt'");
             }
@@ -166,7 +169,7 @@ export interface ScheduleArgs {
     /**
      * The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
      */
-    scheduleName?: pulumi.Input<string | undefined>;
+    scheduleName: pulumi.Input<string>;
     /**
      * When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
      */

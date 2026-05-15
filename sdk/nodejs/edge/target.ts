@@ -92,6 +92,9 @@ export class Target extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.targetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'targetName'");
+            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
@@ -148,5 +151,5 @@ export interface TargetArgs {
     /**
      * Name of the target
      */
-    targetName?: pulumi.Input<string | undefined>;
+    targetName: pulumi.Input<string>;
 }

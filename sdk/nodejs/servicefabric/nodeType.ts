@@ -279,6 +279,9 @@ export class NodeType extends pulumi.CustomResource {
             if (args?.isPrimary === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isPrimary'");
             }
+            if (args?.nodeTypeName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'nodeTypeName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -518,7 +521,7 @@ export interface NodeTypeArgs {
     /**
      * The name of the node type.
      */
-    nodeTypeName?: pulumi.Input<string | undefined>;
+    nodeTypeName: pulumi.Input<string>;
     /**
      * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
      */

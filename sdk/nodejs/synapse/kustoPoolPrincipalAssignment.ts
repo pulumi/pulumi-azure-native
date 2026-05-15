@@ -104,6 +104,9 @@ export class KustoPoolPrincipalAssignment extends pulumi.CustomResource {
             if (args?.kustoPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoPoolName'");
             }
+            if (args?.principalAssignmentName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'principalAssignmentName'");
+            }
             if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
@@ -167,7 +170,7 @@ export interface KustoPoolPrincipalAssignmentArgs {
     /**
      * The name of the Kusto principalAssignment.
      */
-    principalAssignmentName?: pulumi.Input<string | undefined>;
+    principalAssignmentName: pulumi.Input<string>;
     /**
      * The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
      */

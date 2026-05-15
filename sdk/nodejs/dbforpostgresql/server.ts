@@ -164,6 +164,9 @@ export class Server extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.serverName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'serverName'");
+            }
             resourceInputs["administratorLogin"] = args?.administratorLogin;
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
             resourceInputs["authConfig"] = args ? pulumi.output(args.authConfig).apply(v => v === undefined ? undefined : inputs.dbforpostgresql.authConfigArgsProvideDefaults(v)) : undefined;
@@ -307,7 +310,7 @@ export interface ServerArgs {
     /**
      * The name of the server.
      */
-    serverName?: pulumi.Input<string | undefined>;
+    serverName: pulumi.Input<string>;
     /**
      * Compute tier and size of a server.
      */

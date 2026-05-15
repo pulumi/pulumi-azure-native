@@ -95,6 +95,9 @@ export class ADLSGen2FileSystemDataSet extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.dataSetName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataSetName'");
+            }
             if (args?.fileSystem === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystem'");
             }
@@ -160,7 +163,7 @@ export interface ADLSGen2FileSystemDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string | undefined>;
+    dataSetName: pulumi.Input<string>;
     /**
      * The file system name.
      */

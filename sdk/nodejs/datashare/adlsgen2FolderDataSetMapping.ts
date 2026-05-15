@@ -110,6 +110,9 @@ export class ADLSGen2FolderDataSetMapping extends pulumi.CustomResource {
             if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
+            if (args?.dataSetMappingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataSetMappingName'");
+            }
             if (args?.fileSystem === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystem'");
             }
@@ -188,7 +191,7 @@ export interface ADLSGen2FolderDataSetMappingArgs {
     /**
      * The name of the data set mapping to be created.
      */
-    dataSetMappingName?: pulumi.Input<string | undefined>;
+    dataSetMappingName: pulumi.Input<string>;
     /**
      * File system to which the folder belongs.
      */

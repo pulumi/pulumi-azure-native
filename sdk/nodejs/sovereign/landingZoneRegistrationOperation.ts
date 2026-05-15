@@ -74,6 +74,9 @@ export class LandingZoneRegistrationOperation extends pulumi.CustomResource {
             if (args?.landingZoneAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'landingZoneAccountName'");
             }
+            if (args?.landingZoneRegistrationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'landingZoneRegistrationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -110,7 +113,7 @@ export interface LandingZoneRegistrationOperationArgs {
     /**
      * The name of the landing zone registration resource.
      */
-    landingZoneRegistrationName?: pulumi.Input<string | undefined>;
+    landingZoneRegistrationName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

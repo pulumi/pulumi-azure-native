@@ -112,6 +112,9 @@ export class User extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
+            if (args?.userId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'userId'");
+            }
             resourceInputs["appType"] = args?.appType;
             resourceInputs["confirmation"] = args?.confirmation;
             resourceInputs["email"] = args?.email;
@@ -205,5 +208,5 @@ export interface UserArgs {
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */
-    userId?: pulumi.Input<string | undefined>;
+    userId: pulumi.Input<string>;
 }

@@ -75,10 +75,13 @@ export class SubscriptionRaiPolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SubscriptionRaiPolicyArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args: SubscriptionRaiPolicyArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.raiPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'raiPolicyName'");
+            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["raiPolicyName"] = args?.raiPolicyName;
             resourceInputs["tags"] = args?.tags;
@@ -114,7 +117,7 @@ export interface SubscriptionRaiPolicyArgs {
     /**
      * The name of the RaiPolicy associated with the Cognitive Services Account
      */
-    raiPolicyName?: pulumi.Input<string | undefined>;
+    raiPolicyName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -117,6 +117,9 @@ export class ExternalNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.externalNetworkName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'externalNetworkName'");
+            }
             if (args?.l3IsolationDomainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'l3IsolationDomainName'");
             }
@@ -189,7 +192,7 @@ export interface ExternalNetworkArgs {
     /**
      * Name of the External Network.
      */
-    externalNetworkName?: pulumi.Input<string | undefined>;
+    externalNetworkName: pulumi.Input<string>;
     /**
      * Import Route Policy either IPv4 or IPv6.
      */

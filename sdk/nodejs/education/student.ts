@@ -138,6 +138,9 @@ export class Student extends pulumi.CustomResource {
             if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
+            if (args?.studentAlias === undefined && !opts.urn) {
+                throw new Error("Missing required property 'studentAlias'");
+            }
             resourceInputs["billingAccountName"] = args?.billingAccountName;
             resourceInputs["billingProfileName"] = args?.billingProfileName;
             resourceInputs["budget"] = args?.budget;
@@ -224,7 +227,7 @@ export interface StudentArgs {
     /**
      * Student alias.
      */
-    studentAlias?: pulumi.Input<string | undefined>;
+    studentAlias: pulumi.Input<string>;
     /**
      * Subscription alias
      */

@@ -94,6 +94,9 @@ export class SuppressionList extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.suppressionListName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'suppressionListName'");
+            }
             resourceInputs["domainName"] = args?.domainName;
             resourceInputs["emailServiceName"] = args?.emailServiceName;
             resourceInputs["listName"] = args?.listName;
@@ -146,5 +149,5 @@ export interface SuppressionListArgs {
     /**
      * The name of the suppression list.
      */
-    suppressionListName?: pulumi.Input<string | undefined>;
+    suppressionListName: pulumi.Input<string>;
 }

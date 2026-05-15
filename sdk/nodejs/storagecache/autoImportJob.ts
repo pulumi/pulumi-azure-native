@@ -184,6 +184,9 @@ export class AutoImportJob extends pulumi.CustomResource {
             if (args?.amlFilesystemName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amlFilesystemName'");
             }
+            if (args?.autoImportJobName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'autoImportJobName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -278,7 +281,7 @@ export interface AutoImportJobArgs {
     /**
      * Name for the auto import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    autoImportJobName?: pulumi.Input<string | undefined>;
+    autoImportJobName: pulumi.Input<string>;
     /**
      * An array of blob paths/prefixes that get auto imported to the cluster namespace. It has '/' as the default value. Number of maximum allowed paths is 100.
      */

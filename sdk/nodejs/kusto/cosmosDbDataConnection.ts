@@ -117,6 +117,9 @@ export class CosmosDbDataConnection extends pulumi.CustomResource {
             if (args?.cosmosDbDatabase === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosDbDatabase'");
             }
+            if (args?.dataConnectionName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataConnectionName'");
+            }
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
@@ -196,7 +199,7 @@ export interface CosmosDbDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName?: pulumi.Input<string | undefined>;
+    dataConnectionName: pulumi.Input<string>;
     /**
      * The name of the database in the Kusto cluster.
      */

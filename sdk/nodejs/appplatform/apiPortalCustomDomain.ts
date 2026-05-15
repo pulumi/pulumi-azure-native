@@ -76,6 +76,9 @@ export class ApiPortalCustomDomain extends pulumi.CustomResource {
             if (args?.apiPortalName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiPortalName'");
             }
+            if (args?.domainName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'domainName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +119,7 @@ export interface ApiPortalCustomDomainArgs {
     /**
      * The name of the API portal custom domain.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName: pulumi.Input<string>;
     /**
      * The properties of custom domain for API portal
      */

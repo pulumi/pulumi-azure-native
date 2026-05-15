@@ -92,6 +92,9 @@ export class Project extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.projectName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'projectName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -144,7 +147,7 @@ export interface ProjectArgs {
     /**
      * The name of Cognitive Services account's project.
      */
-    projectName?: pulumi.Input<string | undefined>;
+    projectName: pulumi.Input<string>;
     /**
      * Properties of Cognitive Services project.
      */

@@ -139,6 +139,9 @@ export class DefaultAdminRule extends pulumi.CustomResource {
             if (args?.ruleCollectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollectionName'");
             }
+            if (args?.ruleName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ruleName'");
+            }
             resourceInputs["configurationName"] = args?.configurationName;
             resourceInputs["flag"] = args?.flag;
             resourceInputs["kind"] = "Default";
@@ -221,5 +224,5 @@ export interface DefaultAdminRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName: pulumi.Input<string>;
 }

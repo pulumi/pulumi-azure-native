@@ -91,6 +91,9 @@ export class AzureTrafficCollector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.azureTrafficCollectorName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'azureTrafficCollectorName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +135,7 @@ export interface AzureTrafficCollectorArgs {
     /**
      * Azure Traffic Collector name
      */
-    azureTrafficCollectorName?: pulumi.Input<string | undefined>;
+    azureTrafficCollectorName: pulumi.Input<string>;
     /**
      * Resource location.
      */

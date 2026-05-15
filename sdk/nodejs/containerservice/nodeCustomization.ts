@@ -85,6 +85,9 @@ export class NodeCustomization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.nodeCustomizationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'nodeCustomizationName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +129,7 @@ export interface NodeCustomizationArgs {
     /**
      * The name of the Node Customization resource.
      */
-    nodeCustomizationName?: pulumi.Input<string | undefined>;
+    nodeCustomizationName: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */

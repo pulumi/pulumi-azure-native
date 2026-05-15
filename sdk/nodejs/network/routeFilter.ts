@@ -96,6 +96,9 @@ export class RouteFilter extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.routeFilterName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'routeFilterName'");
+            }
             resourceInputs["id"] = args?.id;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -147,7 +150,7 @@ export interface RouteFilterArgs {
     /**
      * The name of the route filter.
      */
-    routeFilterName?: pulumi.Input<string | undefined>;
+    routeFilterName: pulumi.Input<string>;
     /**
      * Collection of RouteFilterRules contained within a route filter.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.

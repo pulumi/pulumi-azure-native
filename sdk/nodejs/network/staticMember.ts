@@ -94,6 +94,9 @@ export class StaticMember extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.staticMemberName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'staticMemberName'");
+            }
             resourceInputs["networkGroupName"] = args?.networkGroupName;
             resourceInputs["networkManagerName"] = args?.networkManagerName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -146,5 +149,5 @@ export interface StaticMemberArgs {
     /**
      * The name of the static member.
      */
-    staticMemberName?: pulumi.Input<string | undefined>;
+    staticMemberName: pulumi.Input<string>;
 }

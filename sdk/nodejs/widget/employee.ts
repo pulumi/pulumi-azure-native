@@ -81,6 +81,9 @@ export class Employee extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.employeeName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'employeeName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -116,7 +119,7 @@ export interface EmployeeArgs {
     /**
      * The name of the Employee
      */
-    employeeName?: pulumi.Input<string | undefined>;
+    employeeName: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */

@@ -163,6 +163,9 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.virtualMachineName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'virtualMachineName'");
+            }
             resourceInputs["availabilitySets"] = args?.availabilitySets;
             resourceInputs["checkpointType"] = args?.checkpointType;
             resourceInputs["checkpoints"] = args?.checkpoints;
@@ -305,7 +308,7 @@ export interface VirtualMachineArgs {
     /**
      * Name of the VirtualMachine.
      */
-    virtualMachineName?: pulumi.Input<string | undefined>;
+    virtualMachineName: pulumi.Input<string>;
     /**
      * VMName is the name of VM on the SCVMM server.
      */

@@ -91,6 +91,9 @@ export class ElasticSnapshotPolicy extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.snapshotPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'snapshotPolicyName'");
+            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
@@ -142,7 +145,7 @@ export interface ElasticSnapshotPolicyArgs {
     /**
      * The name of the ElasticSnapshotPolicy
      */
-    snapshotPolicyName?: pulumi.Input<string | undefined>;
+    snapshotPolicyName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

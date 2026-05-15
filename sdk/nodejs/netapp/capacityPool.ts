@@ -120,6 +120,9 @@ export class CapacityPool extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
+            if (args?.poolName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'poolName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -196,7 +199,7 @@ export interface CapacityPoolArgs {
     /**
      * The name of the capacity pool
      */
-    poolName?: pulumi.Input<string | undefined>;
+    poolName: pulumi.Input<string>;
     /**
      * The qos type of the pool
      */

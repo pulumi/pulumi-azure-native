@@ -85,6 +85,9 @@ export class AFDTargetGroup extends pulumi.CustomResource {
             if (args?.targetEndpoints === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetEndpoints'");
             }
+            if (args?.targetGroupName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'targetGroupName'");
+            }
             resourceInputs["profileName"] = args?.profileName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["targetEndpoints"] = args?.targetEndpoints;
@@ -130,5 +133,5 @@ export interface AFDTargetGroupArgs {
     /**
      * Name of the Target Group under the profile.
      */
-    targetGroupName?: pulumi.Input<string | undefined>;
+    targetGroupName: pulumi.Input<string>;
 }

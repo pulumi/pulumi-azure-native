@@ -86,6 +86,9 @@ export class ResourceGuard extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.resourceGuardsName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'resourceGuardsName'");
+            }
             resourceInputs["eTag"] = args?.eTag;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
@@ -136,7 +139,7 @@ export interface ResourceGuardArgs {
     /**
      * The name of ResourceGuard
      */
-    resourceGuardsName?: pulumi.Input<string | undefined>;
+    resourceGuardsName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -111,6 +111,9 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.applicationResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'applicationResourceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -162,7 +165,7 @@ export interface ApplicationArgs {
     /**
      * The identity of the application.
      */
-    applicationResourceName?: pulumi.Input<string | undefined>;
+    applicationResourceName: pulumi.Input<string>;
     /**
      * Internal - used by Visual Studio to setup the debugging session on the local development environment.
      */

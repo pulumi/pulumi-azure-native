@@ -92,6 +92,9 @@ export class PremiumMicrosoftDefenderForThreatIntelligence extends pulumi.Custom
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.dataConnectorId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'dataConnectorId'");
+            }
             if (args?.dataTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataTypes'");
             }
@@ -149,7 +152,7 @@ export interface PremiumMicrosoftDefenderForThreatIntelligenceArgs {
     /**
      * Connector ID
      */
-    dataConnectorId?: pulumi.Input<string | undefined>;
+    dataConnectorId: pulumi.Input<string>;
     /**
      * The available data types for the connector.
      */

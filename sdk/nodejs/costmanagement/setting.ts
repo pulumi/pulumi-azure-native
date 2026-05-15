@@ -82,6 +82,9 @@ export class Setting extends pulumi.CustomResource {
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
+            if (args?.settingName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'settingName'");
+            }
             resourceInputs["cache"] = args?.cache;
             resourceInputs["scope"] = args?.scope;
             resourceInputs["settingName"] = args?.settingName;
@@ -121,7 +124,7 @@ export interface SettingArgs {
     /**
      * Name of the setting. Allowed values: myscope
      */
-    settingName?: pulumi.Input<string | undefined>;
+    settingName: pulumi.Input<string>;
     /**
      * Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
      */

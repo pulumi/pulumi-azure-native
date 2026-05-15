@@ -96,6 +96,9 @@ export class Product extends pulumi.CustomResource {
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
+            if (args?.productId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'productId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -153,7 +156,7 @@ export interface ProductArgs {
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
-    productId?: pulumi.Input<string | undefined>;
+    productId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

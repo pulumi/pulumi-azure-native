@@ -77,6 +77,9 @@ export class AuthorizationProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.authorizationProviderId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'authorizationProviderId'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -114,7 +117,7 @@ export interface AuthorizationProviderArgs {
     /**
      * Identifier of the authorization provider.
      */
-    authorizationProviderId?: pulumi.Input<string | undefined>;
+    authorizationProviderId: pulumi.Input<string>;
     /**
      * Authorization Provider name. Must be 1 to 300 characters long.
      */

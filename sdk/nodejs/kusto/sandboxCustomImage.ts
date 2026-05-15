@@ -94,6 +94,9 @@ export class SandboxCustomImage extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.sandboxCustomImageName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sandboxCustomImageName'");
+            }
             resourceInputs["baseImageName"] = args?.baseImageName;
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["language"] = args?.language;
@@ -153,5 +156,5 @@ export interface SandboxCustomImageArgs {
     /**
      * The name of the sandbox custom image.
      */
-    sandboxCustomImageName?: pulumi.Input<string | undefined>;
+    sandboxCustomImageName: pulumi.Input<string>;
 }

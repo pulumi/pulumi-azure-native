@@ -87,6 +87,9 @@ export class SqlServerEsuLicense extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            if (args?.sqlServerEsuLicenseName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sqlServerEsuLicenseName'");
+            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -131,7 +134,7 @@ export interface SqlServerEsuLicenseArgs {
     /**
      * Name of SQL Server ESU License
      */
-    sqlServerEsuLicenseName?: pulumi.Input<string | undefined>;
+    sqlServerEsuLicenseName: pulumi.Input<string>;
     /**
      * Resource tags.
      */

@@ -84,6 +84,9 @@ export class ProjectPolicy extends pulumi.CustomResource {
             if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
+            if (args?.projectPolicyName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'projectPolicyName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -124,7 +127,7 @@ export interface ProjectPolicyArgs {
     /**
      * The name of the project policy.
      */
-    projectPolicyName?: pulumi.Input<string | undefined>;
+    projectPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

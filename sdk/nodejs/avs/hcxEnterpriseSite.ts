@@ -81,6 +81,9 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.hcxEnterpriseSiteName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'hcxEnterpriseSiteName'");
+            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -120,7 +123,7 @@ export interface HcxEnterpriseSiteArgs {
     /**
      * Name of the HCX Enterprise Site
      */
-    hcxEnterpriseSiteName?: pulumi.Input<string | undefined>;
+    hcxEnterpriseSiteName: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

@@ -94,6 +94,9 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.channelName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'channelName'");
+            }
             if (args?.partnerNamespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerNamespaceName'");
             }
@@ -139,7 +142,7 @@ export interface ChannelArgs {
     /**
      * Name of the channel.
      */
-    channelName?: pulumi.Input<string | undefined>;
+    channelName: pulumi.Input<string>;
     /**
      * The type of the event channel which represents the direction flow of events.
      */

@@ -66,6 +66,9 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.authenticationName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'authenticationName'");
+            }
             if (args?.azureADOnlyAuthentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureADOnlyAuthentication'");
             }
@@ -102,7 +105,7 @@ export interface ManagedInstanceAzureADOnlyAuthenticationArgs {
     /**
      * The name of server azure active directory only authentication.
      */
-    authenticationName?: pulumi.Input<string | undefined>;
+    authenticationName: pulumi.Input<string>;
     /**
      * Azure Active Directory only Authentication enabled.
      */

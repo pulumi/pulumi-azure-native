@@ -70,6 +70,9 @@ export class MachinePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            if (args?.childResourceName === undefined && !opts.urn) {
+                throw new Error("Missing required property 'childResourceName'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -105,7 +108,7 @@ export interface MachinePoolArgs {
     /**
      * The name of the MachinePool resource.
      */
-    childResourceName?: pulumi.Input<string | undefined>;
+    childResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
