@@ -242,8 +242,13 @@ func TestList_ContinuationTokenFollowsNextLink(t *testing.T) {
 	assert.Empty(t, stream2.continuationToken(), "last page has no nextLink")
 
 	// Second call must have used the nextLink URL, not the original path.
+	// The skip token travels in the query params map (not in the id) because
+	// initRequest overwrites RawQuery from queryParams, so we split path and query.
 	require.Len(t, client.GetIds, 2)
-	assert.Contains(t, client.GetIds[1], "skipToken=page2", "second Get must follow the nextLink")
+	assert.Equal(t, "/subscriptions/sub-123/providers/Microsoft.Test/widgets", client.GetIds[1],
+		"second Get must use the nextLink path")
+	assert.Equal(t, "page2", client.GetQueryParams[1]["skipToken"],
+		"second Get must carry the skip token from the nextLink query")
 }
 
 func TestList_LimitStopsStreaming(t *testing.T) {

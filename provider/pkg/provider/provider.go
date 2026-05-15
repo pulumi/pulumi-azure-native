@@ -663,9 +663,15 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 			return fmt.Errorf("parsing nextLink URL for token %s: %w", token, err)
 		}
 
-		// no need to pass an API version or query parameters when following the nextLink,
-		// as it is a fully formed URL provided by Azure
-		response, err = k.azureClient.Get(k.context, nextLinkURL.RequestURI(), "", nil)
+		// nextLink is a fully formed URL; pass its query params explicitly so that
+		// initRequest does not overwrite RawQuery and drop skip tokens.
+		nextLinkQuery := map[string]any{}
+		for param, v := range nextLinkURL.Query() {
+			if len(v) > 0 {
+				nextLinkQuery[param] = v[0]
+			}
+		}
+		response, err = k.azureClient.Get(k.context, nextLinkURL.EscapedPath(), "", nextLinkQuery)
 		if err != nil {
 			return fmt.Errorf("requesting list operation for token %s: %w", token, err)
 		}
@@ -675,7 +681,14 @@ func (k *azureNativeProvider) List(req *rpc.ListRequest, stream grpc.ServerStrea
 			return fmt.Errorf("requesting list operation for token %s: %w", token, err)
 		}
 	} else if resourceAPI.ListMetadata.Method == "POST" {
-		responseValue, err := k.azureClient.Post(k.context, id, inputs.Mappable(), query)
+		body, err := crud.PrepareAzureRESTBody(id, resourceAPI.ListMetadata.Parameters, nil, inputs.Mappable(), nil, k.converter)
+		if err != nil {
+			return fmt.Errorf("preparing body for list operation for token %s: %w", token, err)
+		}
+		if body == nil {
+			body = map[string]interface{}{}
+		}
+		responseValue, err := k.azureClient.Post(k.context, id, body, query)
 		if err != nil {
 			return fmt.Errorf("requesting list operation for token %s: %w", token, err)
 		}
