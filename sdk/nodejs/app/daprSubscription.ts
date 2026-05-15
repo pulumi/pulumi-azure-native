@@ -100,9 +100,6 @@ export class DaprSubscription extends pulumi.CustomResource {
             if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -162,7 +159,7 @@ export interface DaprSubscriptionArgs {
     /**
      * Name of the Dapr subscription.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Dapr PubSub component name
      */

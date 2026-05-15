@@ -124,9 +124,6 @@ export class App extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
@@ -206,7 +203,7 @@ export interface AppArgs {
     /**
      * The ARM resource name of the IoT Central application.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * A valid instance SKU.
      */

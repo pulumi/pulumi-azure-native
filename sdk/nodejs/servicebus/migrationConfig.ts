@@ -93,9 +93,6 @@ export class MigrationConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.configName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'configName'");
-            }
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -147,7 +144,7 @@ export interface MigrationConfigArgs {
     /**
      * The configuration name. Should always be "$default".
      */
-    configName: pulumi.Input<string>;
+    configName?: pulumi.Input<string | undefined>;
     /**
      * The namespace name
      */

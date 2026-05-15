@@ -151,9 +151,6 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.domainName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'domainName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -245,7 +242,7 @@ export interface DomainArgs {
     /**
      * Name of the domain.
      */
-    domainName: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Event Type Information for the domain. This information is provided by the publisher and can be used by the 
      * subscriber to view different types of events that are published.

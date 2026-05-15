@@ -27,7 +27,7 @@ export interface GetActiveDirectoryConnectorArgs {
     /**
      * The name of the Active Directory connector instance
      */
-    activeDirectoryConnectorName?: string;
+    activeDirectoryConnectorName: string;
     /**
      * The name of the data controller
      */
@@ -87,7 +87,7 @@ export interface GetActiveDirectoryConnectorOutputArgs {
     /**
      * The name of the Active Directory connector instance
      */
-    activeDirectoryConnectorName?: pulumi.Input<string | undefined>;
+    activeDirectoryConnectorName: pulumi.Input<string>;
     /**
      * The name of the data controller
      */

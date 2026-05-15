@@ -136,9 +136,6 @@ export class TrunkedNetwork extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.trunkedNetworkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'trunkedNetworkName'");
-            }
             if (args?.vlans === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vlans'");
             }
@@ -226,7 +223,7 @@ export interface TrunkedNetworkArgs {
     /**
      * The name of the trunked network.
      */
-    trunkedNetworkName: pulumi.Input<string>;
+    trunkedNetworkName?: pulumi.Input<string | undefined>;
     /**
      * The list of vlans that are selected from the isolation domains for trunking.
      */

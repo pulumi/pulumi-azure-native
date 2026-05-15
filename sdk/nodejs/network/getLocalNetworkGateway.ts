@@ -26,7 +26,7 @@ export interface GetLocalNetworkGatewayArgs {
     /**
      * The name of the local network gateway.
      */
-    localNetworkGatewayName?: string;
+    localNetworkGatewayName: string;
     /**
      * The name of the resource group.
      */
@@ -109,7 +109,7 @@ export interface GetLocalNetworkGatewayOutputArgs {
     /**
      * The name of the local network gateway.
      */
-    localNetworkGatewayName?: pulumi.Input<string | undefined>;
+    localNetworkGatewayName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

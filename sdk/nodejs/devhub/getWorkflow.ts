@@ -30,7 +30,7 @@ export interface GetWorkflowArgs {
     /**
      * The name of the workflow resource.
      */
-    workflowName?: string;
+    workflowName: string;
 }
 
 /**
@@ -145,5 +145,5 @@ export interface GetWorkflowOutputArgs {
     /**
      * The name of the workflow resource.
      */
-    workflowName?: pulumi.Input<string | undefined>;
+    workflowName: pulumi.Input<string>;
 }

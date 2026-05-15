@@ -31,7 +31,7 @@ export interface GetLocalRuleArgs {
     /**
      * Local Rule priority
      */
-    priority?: string;
+    priority: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -164,7 +164,7 @@ export interface GetLocalRuleOutputArgs {
     /**
      * Local Rule priority
      */
-    priority?: pulumi.Input<string | undefined>;
+    priority: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

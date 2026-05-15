@@ -27,7 +27,7 @@ export interface GetPatchScheduleArgs {
     /**
      * The name of the RedisPatchSchedule
      */
-    default?: string;
+    default: string;
     /**
      * The name of the redis cache.
      */
@@ -91,7 +91,7 @@ export interface GetPatchScheduleOutputArgs {
     /**
      * The name of the RedisPatchSchedule
      */
-    default?: pulumi.Input<string | undefined>;
+    default: pulumi.Input<string>;
     /**
      * The name of the redis cache.
      */

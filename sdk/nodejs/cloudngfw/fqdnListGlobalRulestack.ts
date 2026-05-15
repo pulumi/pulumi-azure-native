@@ -95,9 +95,6 @@ export class FqdnListGlobalRulestack extends pulumi.CustomResource {
             if (args?.globalRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalRulestackName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["auditComment"] = args?.auditComment;
             resourceInputs["description"] = args?.description;
             resourceInputs["fqdnList"] = args?.fqdnList;
@@ -149,5 +146,5 @@ export interface FqdnListGlobalRulestackArgs {
     /**
      * fqdn list name
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

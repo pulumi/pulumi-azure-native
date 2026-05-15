@@ -80,9 +80,6 @@ export class CustomizedAccelerator extends pulumi.CustomResource {
             if (args?.applicationAcceleratorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationAcceleratorName'");
             }
-            if (args?.customizedAcceleratorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'customizedAcceleratorName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -125,7 +122,7 @@ export interface CustomizedAcceleratorArgs {
     /**
      * The name of the customized accelerator.
      */
-    customizedAcceleratorName: pulumi.Input<string>;
+    customizedAcceleratorName?: pulumi.Input<string | undefined>;
     /**
      * Customized accelerator properties payload
      */

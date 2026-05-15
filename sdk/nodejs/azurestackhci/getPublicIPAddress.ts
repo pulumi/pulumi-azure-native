@@ -26,7 +26,7 @@ export interface GetPublicIPAddressArgs {
     /**
      * Name of the public IP
      */
-    publicIPAddressName?: string;
+    publicIPAddressName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetPublicIPAddressOutputArgs {
     /**
      * Name of the public IP
      */
-    publicIPAddressName?: pulumi.Input<string | undefined>;
+    publicIPAddressName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

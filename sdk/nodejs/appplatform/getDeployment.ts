@@ -32,7 +32,7 @@ export interface GetDeploymentArgs {
     /**
      * The name of the Deployment resource.
      */
-    deploymentName?: string;
+    deploymentName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -101,7 +101,7 @@ export interface GetDeploymentOutputArgs {
     /**
      * The name of the Deployment resource.
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

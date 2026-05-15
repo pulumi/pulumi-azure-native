@@ -73,9 +73,6 @@ export class RegistryModelContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.modelName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'modelName'");
-            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -114,7 +111,7 @@ export interface RegistryModelContainerArgs {
     /**
      * Container name. This is case-sensitive.
      */
-    modelName: pulumi.Input<string>;
+    modelName?: pulumi.Input<string | undefined>;
     /**
      * [Required] Additional attributes of the entity.
      */

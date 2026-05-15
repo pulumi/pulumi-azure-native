@@ -90,9 +90,6 @@ export class PureStoragePolicy extends pulumi.CustomResource {
             if (args?.storagePolicyDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storagePolicyDefinition'");
             }
-            if (args?.storagePolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storagePolicyName'");
-            }
             if (args?.storagePoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storagePoolId'");
             }
@@ -141,7 +138,7 @@ export interface PureStoragePolicyArgs {
     /**
      * Name of the storage policy.
      */
-    storagePolicyName: pulumi.Input<string>;
+    storagePolicyName?: pulumi.Input<string | undefined>;
     /**
      * Azure resource ID of the Pure Storage Pool associated with the storage policy
      */

@@ -26,7 +26,7 @@ export interface GetPartnerNamespaceArgs {
     /**
      * Name of the partner namespace.
      */
-    partnerNamespaceName?: string;
+    partnerNamespaceName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -124,7 +124,7 @@ export interface GetPartnerNamespaceOutputArgs {
     /**
      * Name of the partner namespace.
      */
-    partnerNamespaceName?: pulumi.Input<string | undefined>;
+    partnerNamespaceName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */

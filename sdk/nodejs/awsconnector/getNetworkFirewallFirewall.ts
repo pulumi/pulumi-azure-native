@@ -24,7 +24,7 @@ export interface GetNetworkFirewallFirewallArgs {
     /**
      * Name of NetworkFirewallFirewall
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetNetworkFirewallFirewallOutputArgs {
     /**
      * Name of NetworkFirewallFirewall
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

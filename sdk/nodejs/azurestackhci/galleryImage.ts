@@ -121,9 +121,6 @@ export class GalleryImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.galleryImageName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'galleryImageName'");
-            }
             if (args?.osType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
@@ -194,7 +191,7 @@ export interface GalleryImageArgs {
     /**
      * Name of the gallery image
      */
-    galleryImageName: pulumi.Input<string>;
+    galleryImageName?: pulumi.Input<string | undefined>;
     /**
      * The hypervisor generation of the Virtual Machine [V1, V2]
      */

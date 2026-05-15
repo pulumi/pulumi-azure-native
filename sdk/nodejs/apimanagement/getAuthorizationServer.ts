@@ -27,7 +27,7 @@ export interface GetAuthorizationServerArgs {
     /**
      * Identifier of the authorization server.
      */
-    authsid?: string;
+    authsid: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -151,7 +151,7 @@ export interface GetAuthorizationServerOutputArgs {
     /**
      * Identifier of the authorization server.
      */
-    authsid?: pulumi.Input<string | undefined>;
+    authsid: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

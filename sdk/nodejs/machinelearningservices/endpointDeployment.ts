@@ -68,9 +68,6 @@ export class EndpointDeployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.deploymentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deploymentName'");
-            }
             if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
@@ -113,7 +110,7 @@ export interface EndpointDeploymentArgs {
     /**
      * Name of the deployment resource
      */
-    deploymentName: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * Name of the endpoint resource.
      */

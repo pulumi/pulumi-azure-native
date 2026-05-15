@@ -26,7 +26,7 @@ export interface GetDomainArgs {
     /**
      * Name of the domain.
      */
-    domainName?: string;
+    domainName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -159,7 +159,7 @@ export interface GetDomainOutputArgs {
     /**
      * Name of the domain.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */

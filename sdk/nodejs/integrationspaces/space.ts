@@ -86,9 +86,6 @@ export class Space extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.spaceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'spaceName'");
-            }
             resourceInputs["description"] = args?.description;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -135,7 +132,7 @@ export interface SpaceArgs {
     /**
      * The name of the space
      */
-    spaceName: pulumi.Input<string>;
+    spaceName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

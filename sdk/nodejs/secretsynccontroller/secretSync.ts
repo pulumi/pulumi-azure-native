@@ -119,9 +119,6 @@ export class SecretSync extends pulumi.CustomResource {
             if (args?.secretProviderClassName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'secretProviderClassName'");
             }
-            if (args?.secretSyncName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'secretSyncName'");
-            }
             if (args?.serviceAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceAccountName'");
             }
@@ -199,7 +196,7 @@ export interface SecretSyncArgs {
     /**
      * The name of the SecretSync
      */
-    secretSyncName: pulumi.Input<string>;
+    secretSyncName?: pulumi.Input<string | undefined>;
     /**
      * ServiceAccountName specifies the name of the service account used to access the cloud provider secret store. The audience field in the service account token must be passed as parameter in the controller configuration. The audience is used when requesting a token from the API server for the service account; the supported audiences are defined by each provider.
      */

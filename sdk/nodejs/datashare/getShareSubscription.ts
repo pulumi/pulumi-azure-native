@@ -33,7 +33,7 @@ export interface GetShareSubscriptionArgs {
     /**
      * The name of the shareSubscription.
      */
-    shareSubscriptionName?: string;
+    shareSubscriptionName: string;
 }
 
 /**
@@ -147,5 +147,5 @@ export interface GetShareSubscriptionOutputArgs {
     /**
      * The name of the shareSubscription.
      */
-    shareSubscriptionName?: pulumi.Input<string | undefined>;
+    shareSubscriptionName: pulumi.Input<string>;
 }

@@ -24,7 +24,7 @@ export interface GetManagedDatabaseArgs {
     /**
      * The name of the database.
      */
-    databaseName?: string;
+    databaseName: string;
     /**
      * The name of the managed instance.
      */
@@ -116,7 +116,7 @@ export interface GetManagedDatabaseOutputArgs {
     /**
      * The name of the database.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * The name of the managed instance.
      */

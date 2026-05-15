@@ -72,9 +72,6 @@ export class MigrateAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.agentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'agentName'");
-            }
             if (args?.modernizeProjectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modernizeProjectName'");
             }
@@ -113,7 +110,7 @@ export interface MigrateAgentArgs {
     /**
      * MigrateAgent name.
      */
-    agentName: pulumi.Input<string>;
+    agentName?: pulumi.Input<string | undefined>;
     /**
      * ModernizeProject name.
      */

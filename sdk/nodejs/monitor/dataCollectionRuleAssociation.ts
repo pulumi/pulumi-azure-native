@@ -93,9 +93,6 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.associationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'associationName'");
-            }
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
@@ -137,7 +134,7 @@ export interface DataCollectionRuleAssociationArgs {
     /**
      * The name of the association. The name is case insensitive.
      */
-    associationName: pulumi.Input<string>;
+    associationName?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the data collection endpoint that is to be associated.
      */

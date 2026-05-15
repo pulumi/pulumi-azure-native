@@ -112,9 +112,6 @@ export class ScheduledAction extends pulumi.CustomResource {
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.notification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notification'");
             }
@@ -183,7 +180,7 @@ export interface ScheduledActionArgs {
     /**
      * Scheduled action name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Notification properties based on scheduled action kind.
      */

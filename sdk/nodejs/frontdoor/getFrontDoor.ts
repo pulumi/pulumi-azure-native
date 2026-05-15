@@ -26,7 +26,7 @@ export interface GetFrontDoorArgs {
     /**
      * Name of the Front Door which is globally unique.
      */
-    frontDoorName?: string;
+    frontDoorName: string;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -137,7 +137,7 @@ export interface GetFrontDoorOutputArgs {
     /**
      * Name of the Front Door which is globally unique.
      */
-    frontDoorName?: pulumi.Input<string | undefined>;
+    frontDoorName: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

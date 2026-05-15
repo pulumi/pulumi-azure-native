@@ -24,7 +24,7 @@ export interface GetDiagnosticSettingArgs {
     /**
      * The name of the diagnostic setting.
      */
-    name?: string;
+    name: string;
     /**
      * The identifier of the resource.
      */
@@ -109,7 +109,7 @@ export interface GetDiagnosticSettingOutputArgs {
     /**
      * The name of the diagnostic setting.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */

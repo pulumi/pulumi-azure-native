@@ -27,7 +27,7 @@ export interface GetFileShareSnapshotArgs {
     /**
      * The name of the FileShareSnapshot
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetFileShareSnapshotOutputArgs {
     /**
      * The name of the FileShareSnapshot
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

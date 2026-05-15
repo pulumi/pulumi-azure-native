@@ -121,9 +121,6 @@ export class WebAppSiteContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.containerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'containerName'");
-            }
             if (args?.image === undefined && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
@@ -192,7 +189,7 @@ export interface WebAppSiteContainerArgs {
     /**
      * Site Container Name
      */
-    containerName: pulumi.Input<string>;
+    containerName?: pulumi.Input<string | undefined>;
     /**
      * List of environment variables
      */

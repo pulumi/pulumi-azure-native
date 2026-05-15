@@ -31,7 +31,7 @@ export interface GetSchemaArgs {
     /**
      * Schema name parameter.
      */
-    schemaName?: string;
+    schemaName: string;
     /**
      * Schema registry name parameter.
      */
@@ -115,7 +115,7 @@ export interface GetSchemaOutputArgs {
     /**
      * Schema name parameter.
      */
-    schemaName?: pulumi.Input<string | undefined>;
+    schemaName: pulumi.Input<string>;
     /**
      * Schema registry name parameter.
      */

@@ -27,7 +27,7 @@ export interface GetMachineExtensionArgs {
     /**
      * The name of the machine extension.
      */
-    extensionName?: string;
+    extensionName: string;
     /**
      * The name of the machine containing the extension.
      */
@@ -95,7 +95,7 @@ export interface GetMachineExtensionOutputArgs {
     /**
      * The name of the machine extension.
      */
-    extensionName?: pulumi.Input<string | undefined>;
+    extensionName: pulumi.Input<string>;
     /**
      * The name of the machine containing the extension.
      */

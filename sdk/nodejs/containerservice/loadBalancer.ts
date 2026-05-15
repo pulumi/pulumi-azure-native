@@ -93,9 +93,6 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.loadBalancerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'loadBalancerName'");
-            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -151,7 +148,7 @@ export interface LoadBalancerArgs {
     /**
      * The name of the load balancer.
      */
-    loadBalancerName: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string | undefined>;
     /**
      * Name of the public load balancer. There will be an internal load balancer created if needed, and the name will be `<name>-internal`. The internal lb shares the same configurations as the external one. The internal lbs are not needed to be included in LoadBalancer list. There must be a name of kubernetes in the list.
      */

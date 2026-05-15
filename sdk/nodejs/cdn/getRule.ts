@@ -36,7 +36,7 @@ export interface GetRuleArgs {
     /**
      * Name of the delivery rule which is unique within the endpoint.
      */
-    ruleName?: string;
+    ruleName: string;
     /**
      * Name of the rule set under the profile which is unique globally.
      */
@@ -122,7 +122,7 @@ export interface GetRuleOutputArgs {
     /**
      * Name of the delivery rule which is unique within the endpoint.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName: pulumi.Input<string>;
     /**
      * Name of the rule set under the profile which is unique globally.
      */

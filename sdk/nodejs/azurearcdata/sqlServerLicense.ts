@@ -87,9 +87,6 @@ export class SqlServerLicense extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.sqlServerLicenseName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sqlServerLicenseName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -134,7 +131,7 @@ export interface SqlServerLicenseArgs {
     /**
      * Name of SQL Server License
      */
-    sqlServerLicenseName: pulumi.Input<string>;
+    sqlServerLicenseName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

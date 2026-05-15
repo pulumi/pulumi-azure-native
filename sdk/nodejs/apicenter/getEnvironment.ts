@@ -28,7 +28,7 @@ export interface GetEnvironmentArgs {
     /**
      * The name of the environment.
      */
-    environmentName?: string;
+    environmentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetEnvironmentOutputArgs {
     /**
      * The name of the environment.
      */
-    environmentName?: pulumi.Input<string | undefined>;
+    environmentName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

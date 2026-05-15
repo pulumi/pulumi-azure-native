@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionsCompArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -91,7 +91,7 @@ export interface GetPrivateEndpointConnectionsCompOutputArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the service instance.
      */

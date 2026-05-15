@@ -26,7 +26,7 @@ export interface GetWebApplicationFirewallPolicyArgs {
     /**
      * The name of the policy.
      */
-    policyName?: string;
+    policyName: string;
     /**
      * The name of the resource group.
      */
@@ -121,7 +121,7 @@ export interface GetWebApplicationFirewallPolicyOutputArgs {
     /**
      * The name of the policy.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

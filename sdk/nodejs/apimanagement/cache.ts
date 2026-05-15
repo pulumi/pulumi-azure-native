@@ -78,9 +78,6 @@ export class Cache extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.cacheId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cacheId'");
-            }
             if (args?.connectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionString'");
             }
@@ -126,7 +123,7 @@ export interface CacheArgs {
     /**
      * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
      */
-    cacheId: pulumi.Input<string>;
+    cacheId?: pulumi.Input<string | undefined>;
     /**
      * Runtime connection string to cache
      */

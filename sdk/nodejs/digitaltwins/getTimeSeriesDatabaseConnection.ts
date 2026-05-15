@@ -33,7 +33,7 @@ export interface GetTimeSeriesDatabaseConnectionArgs {
     /**
      * Name of time series database connection.
      */
-    timeSeriesDatabaseConnectionName?: string;
+    timeSeriesDatabaseConnectionName: string;
 }
 
 /**
@@ -91,5 +91,5 @@ export interface GetTimeSeriesDatabaseConnectionOutputArgs {
     /**
      * Name of time series database connection.
      */
-    timeSeriesDatabaseConnectionName?: pulumi.Input<string | undefined>;
+    timeSeriesDatabaseConnectionName: pulumi.Input<string>;
 }

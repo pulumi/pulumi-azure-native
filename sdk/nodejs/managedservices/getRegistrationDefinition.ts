@@ -24,7 +24,7 @@ export interface GetRegistrationDefinitionArgs {
     /**
      * The GUID of the registration definition.
      */
-    registrationDefinitionId?: string;
+    registrationDefinitionId: string;
     /**
      * The scope of the resource.
      */
@@ -81,7 +81,7 @@ export interface GetRegistrationDefinitionOutputArgs {
     /**
      * The GUID of the registration definition.
      */
-    registrationDefinitionId?: pulumi.Input<string | undefined>;
+    registrationDefinitionId: pulumi.Input<string>;
     /**
      * The scope of the resource.
      */

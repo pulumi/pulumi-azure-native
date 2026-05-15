@@ -27,7 +27,7 @@ export interface GetMetadataArgs {
     /**
      * The Metadata name.
      */
-    metadataName?: string;
+    metadataName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -163,7 +163,7 @@ export interface GetMetadataOutputArgs {
     /**
      * The Metadata name.
      */
-    metadataName?: pulumi.Input<string | undefined>;
+    metadataName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

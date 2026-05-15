@@ -83,9 +83,6 @@ export class Wave extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.waveName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'waveName'");
-            }
             resourceInputs["projectName"] = args?.projectName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -129,5 +126,5 @@ export interface WaveArgs {
     /**
      * Migration Wave Resource
      */
-    waveName: pulumi.Input<string>;
+    waveName?: pulumi.Input<string | undefined>;
 }

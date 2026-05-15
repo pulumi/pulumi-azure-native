@@ -65,9 +65,6 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if (args?.userSettingsName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'userSettingsName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["userSettingsName"] = args?.userSettingsName;
@@ -98,5 +95,5 @@ export interface UserSettingsWithLocationArgs {
     /**
      * The name of the user settings
      */
-    userSettingsName: pulumi.Input<string>;
+    userSettingsName?: pulumi.Input<string | undefined>;
 }

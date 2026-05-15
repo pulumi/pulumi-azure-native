@@ -24,7 +24,7 @@ export interface GetDocumentationArgs {
     /**
      * Documentation identifier. Must be unique in the current API Management service instance.
      */
-    documentationId?: string;
+    documentationId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,7 +84,7 @@ export interface GetDocumentationOutputArgs {
     /**
      * Documentation identifier. Must be unique in the current API Management service instance.
      */
-    documentationId?: pulumi.Input<string | undefined>;
+    documentationId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

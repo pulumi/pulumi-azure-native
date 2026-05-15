@@ -40,7 +40,7 @@ export interface GetCassandraResourceCassandraViewArgs {
     /**
      * Cosmos DB view name.
      */
-    viewName?: string;
+    viewName: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetCassandraResourceCassandraViewOutputArgs {
     /**
      * Cosmos DB view name.
      */
-    viewName?: pulumi.Input<string | undefined>;
+    viewName: pulumi.Input<string>;
 }

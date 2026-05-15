@@ -24,7 +24,7 @@ export interface GetAccessAnalyzerAnalyzerArgs {
     /**
      * Name of AccessAnalyzerAnalyzer
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetAccessAnalyzerAnalyzerOutputArgs {
     /**
      * Name of AccessAnalyzerAnalyzer
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -79,9 +79,6 @@ export class SignalDefinition extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.signalDefinitionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'signalDefinitionName'");
-            }
             resourceInputs["healthModelName"] = args?.healthModelName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -123,5 +120,5 @@ export interface SignalDefinitionArgs {
     /**
      * Name of the signal definition. Must be unique within a health model.
      */
-    signalDefinitionName: pulumi.Input<string>;
+    signalDefinitionName?: pulumi.Input<string | undefined>;
 }

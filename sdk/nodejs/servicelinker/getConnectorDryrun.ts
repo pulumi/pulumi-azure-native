@@ -28,7 +28,7 @@ export interface GetConnectorDryrunArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName?: string;
+    dryrunName: string;
     /**
      * The name of Azure region.
      */
@@ -105,7 +105,7 @@ export interface GetConnectorDryrunOutputArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName?: pulumi.Input<string | undefined>;
+    dryrunName: pulumi.Input<string>;
     /**
      * The name of Azure region.
      */

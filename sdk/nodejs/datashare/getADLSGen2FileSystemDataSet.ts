@@ -30,7 +30,7 @@ export interface GetADLSGen2FileSystemDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: string;
+    dataSetName: string;
     /**
      * The resource group name.
      */
@@ -114,7 +114,7 @@ export interface GetADLSGen2FileSystemDataSetOutputArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string | undefined>;
+    dataSetName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

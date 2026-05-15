@@ -31,7 +31,7 @@ export interface GetCertificateProfileArgs {
     /**
      * Certificate profile name.
      */
-    profileName?: string;
+    profileName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -127,7 +127,7 @@ export interface GetCertificateProfileOutputArgs {
     /**
      * Certificate profile name.
      */
-    profileName?: pulumi.Input<string | undefined>;
+    profileName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -26,7 +26,7 @@ export interface GetNetworkFabricControllerArgs {
     /**
      * Name of the Network Fabric Controller.
      */
-    networkFabricControllerName?: string;
+    networkFabricControllerName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -141,7 +141,7 @@ export interface GetNetworkFabricControllerOutputArgs {
     /**
      * Name of the Network Fabric Controller.
      */
-    networkFabricControllerName?: pulumi.Input<string | undefined>;
+    networkFabricControllerName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

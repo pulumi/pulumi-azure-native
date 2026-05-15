@@ -119,9 +119,6 @@ export class CustomImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.customImageName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'customImageName'");
-            }
             if (args?.definitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definitionName'");
             }
@@ -190,7 +187,7 @@ export interface CustomImageArgs {
     /**
      * The resource name of the test base custom image.
      */
-    customImageName: pulumi.Input<string>;
+    customImageName?: pulumi.Input<string | undefined>;
     /**
      * Image definition name.
      */

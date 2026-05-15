@@ -81,9 +81,6 @@ export class OutboundRule extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.ruleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ruleName'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["managedNetworkName"] = args?.managedNetworkName;
             resourceInputs["properties"] = args?.properties;
@@ -130,5 +127,5 @@ export interface OutboundRuleArgs {
     /**
      * Name of the cognitive services account managed network outbound rule
      */
-    ruleName: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
 }

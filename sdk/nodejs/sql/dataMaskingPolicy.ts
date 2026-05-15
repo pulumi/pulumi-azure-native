@@ -89,9 +89,6 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dataMaskingPolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataMaskingPolicyName'");
-            }
             if (args?.dataMaskingState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataMaskingState'");
             }
@@ -142,7 +139,7 @@ export interface DataMaskingPolicyArgs {
     /**
      * The name of the database for which the data masking policy applies.
      */
-    dataMaskingPolicyName: pulumi.Input<string>;
+    dataMaskingPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The state of the data masking policy.
      */

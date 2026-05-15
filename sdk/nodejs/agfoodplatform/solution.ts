@@ -81,9 +81,6 @@ export class Solution extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.solutionId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'solutionId'");
-            }
             resourceInputs["dataManagerForAgricultureResourceName"] = args?.dataManagerForAgricultureResourceName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -127,5 +124,5 @@ export interface SolutionArgs {
     /**
      * SolutionId for Data Manager For Agriculture Resource.
      */
-    solutionId: pulumi.Input<string>;
+    solutionId?: pulumi.Input<string | undefined>;
 }

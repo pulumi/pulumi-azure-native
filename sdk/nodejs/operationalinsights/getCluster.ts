@@ -26,7 +26,7 @@ export interface GetClusterArgs {
     /**
      * Name of the Log Analytics Cluster.
      */
-    clusterName?: string;
+    clusterName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,7 +129,7 @@ export interface GetClusterOutputArgs {
     /**
      * Name of the Log Analytics Cluster.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

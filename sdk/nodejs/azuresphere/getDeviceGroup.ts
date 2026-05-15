@@ -30,7 +30,7 @@ export interface GetDeviceGroupArgs {
     /**
      * Name of device group.
      */
-    deviceGroupName?: string;
+    deviceGroupName: string;
     /**
      * Name of product.
      */
@@ -117,7 +117,7 @@ export interface GetDeviceGroupOutputArgs {
     /**
      * Name of device group.
      */
-    deviceGroupName?: pulumi.Input<string | undefined>;
+    deviceGroupName: pulumi.Input<string>;
     /**
      * Name of product.
      */

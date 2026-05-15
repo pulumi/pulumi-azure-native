@@ -83,9 +83,6 @@ export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.roleDefinitionId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'roleDefinitionId'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["assignableScopes"] = args?.assignableScopes;
             resourceInputs["permissions"] = args?.permissions;
@@ -133,7 +130,7 @@ export interface SqlResourceSqlRoleDefinitionArgs {
     /**
      * The GUID for the Role Definition.
      */
-    roleDefinitionId: pulumi.Input<string>;
+    roleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * A user-friendly name for the Role Definition. Must be unique for the database account.
      */

@@ -105,9 +105,6 @@ export class ManagedDatabase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.databaseName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'databaseName'");
-            }
             if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
@@ -201,7 +198,7 @@ export interface ManagedDatabaseArgs {
     /**
      * The name of the database.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
      */

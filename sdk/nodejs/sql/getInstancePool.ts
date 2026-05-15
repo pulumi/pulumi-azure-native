@@ -26,7 +26,7 @@ export interface GetInstancePoolArgs {
     /**
      * The name of the instance pool to be retrieved.
      */
-    instancePoolName?: string;
+    instancePoolName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -105,7 +105,7 @@ export interface GetInstancePoolOutputArgs {
     /**
      * The name of the instance pool to be retrieved.
      */
-    instancePoolName?: pulumi.Input<string | undefined>;
+    instancePoolName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -27,7 +27,7 @@ export interface GetWorkloadNetworkDhcpArgs {
     /**
      * The ID of the DHCP configuration
      */
-    dhcpId?: string;
+    dhcpId: string;
     /**
      * Name of the private cloud
      */
@@ -87,7 +87,7 @@ export interface GetWorkloadNetworkDhcpOutputArgs {
     /**
      * The ID of the DHCP configuration
      */
-    dhcpId?: pulumi.Input<string | undefined>;
+    dhcpId: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

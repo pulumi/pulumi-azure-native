@@ -151,9 +151,6 @@ export class DeploymentStackAtResourceGroup extends pulumi.CustomResource {
             if (args?.denySettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'denySettings'");
             }
-            if (args?.deploymentStackName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deploymentStackName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -244,7 +241,7 @@ export interface DeploymentStackAtResourceGroupArgs {
     /**
      * Name of the deployment stack.
      */
-    deploymentStackName: pulumi.Input<string>;
+    deploymentStackName?: pulumi.Input<string | undefined>;
     /**
      * Deployment stack description. Max length of 4096 characters.
      */

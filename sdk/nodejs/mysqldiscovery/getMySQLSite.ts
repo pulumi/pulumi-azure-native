@@ -28,7 +28,7 @@ export interface GetMySQLSiteArgs {
     /**
      * The name of Site
      */
-    siteName?: string;
+    siteName: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetMySQLSiteOutputArgs {
     /**
      * The name of Site
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName: pulumi.Input<string>;
 }

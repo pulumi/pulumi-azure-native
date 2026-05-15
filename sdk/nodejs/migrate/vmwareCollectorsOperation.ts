@@ -95,9 +95,6 @@ export class VmwareCollectorsOperation extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.vmWareCollectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'vmWareCollectorName'");
-            }
             resourceInputs["agentProperties"] = args?.agentProperties;
             resourceInputs["discoverySiteId"] = args?.discoverySiteId;
             resourceInputs["projectName"] = args?.projectName;
@@ -155,5 +152,5 @@ export interface VmwareCollectorsOperationArgs {
     /**
      * VMware collector ARM name
      */
-    vmWareCollectorName: pulumi.Input<string>;
+    vmWareCollectorName?: pulumi.Input<string | undefined>;
 }

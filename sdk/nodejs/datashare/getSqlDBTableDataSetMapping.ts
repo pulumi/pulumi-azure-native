@@ -30,7 +30,7 @@ export interface GetSqlDBTableDataSetMappingArgs {
     /**
      * The name of the dataSetMapping.
      */
-    dataSetMappingName?: string;
+    dataSetMappingName: string;
     /**
      * The resource group name.
      */
@@ -122,7 +122,7 @@ export interface GetSqlDBTableDataSetMappingOutputArgs {
     /**
      * The name of the dataSetMapping.
      */
-    dataSetMappingName?: pulumi.Input<string | undefined>;
+    dataSetMappingName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

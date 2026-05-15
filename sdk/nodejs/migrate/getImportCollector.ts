@@ -25,7 +25,7 @@ export interface GetImportCollectorArgs {
     /**
      * Unique name of a Import collector within a project.
      */
-    importCollectorName?: string;
+    importCollectorName: string;
     /**
      * Name of the Azure Migrate project.
      */
@@ -65,7 +65,7 @@ export interface GetImportCollectorOutputArgs {
     /**
      * Unique name of a Import collector within a project.
      */
-    importCollectorName?: pulumi.Input<string | undefined>;
+    importCollectorName: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */

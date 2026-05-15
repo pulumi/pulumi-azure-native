@@ -24,7 +24,7 @@ export interface GetEc2KeyPairArgs {
     /**
      * Name of Ec2KeyPair
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetEc2KeyPairOutputArgs {
     /**
      * Name of Ec2KeyPair
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

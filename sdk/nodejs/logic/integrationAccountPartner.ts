@@ -99,9 +99,6 @@ export class IntegrationAccountPartner extends pulumi.CustomResource {
             if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (args?.partnerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'partnerName'");
-            }
             if (args?.partnerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerType'");
             }
@@ -163,7 +160,7 @@ export interface IntegrationAccountPartnerArgs {
     /**
      * The integration account partner name.
      */
-    partnerName: pulumi.Input<string>;
+    partnerName?: pulumi.Input<string | undefined>;
     /**
      * The partner type.
      */

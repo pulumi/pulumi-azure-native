@@ -36,7 +36,7 @@ export interface GetPrivateRecordSetArgs {
     /**
      * The name of the record set, relative to the name of the zone.
      */
-    relativeRecordSetName?: string;
+    relativeRecordSetName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -149,7 +149,7 @@ export interface GetPrivateRecordSetOutputArgs {
     /**
      * The name of the record set, relative to the name of the zone.
      */
-    relativeRecordSetName?: pulumi.Input<string | undefined>;
+    relativeRecordSetName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

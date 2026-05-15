@@ -26,7 +26,7 @@ export interface GetDeviceSecurityGroupArgs {
     /**
      * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
-    deviceSecurityGroupName?: string;
+    deviceSecurityGroupName: string;
     /**
      * The identifier of the resource.
      */
@@ -89,7 +89,7 @@ export interface GetDeviceSecurityGroupOutputArgs {
     /**
      * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
-    deviceSecurityGroupName?: pulumi.Input<string | undefined>;
+    deviceSecurityGroupName: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */

@@ -24,7 +24,7 @@ export interface GetHubArgs {
     /**
      * The name of the hub.
      */
-    hubName?: string;
+    hubName: string;
     /**
      * The name of the resource group.
      */
@@ -97,7 +97,7 @@ export interface GetHubOutputArgs {
     /**
      * The name of the hub.
      */
-    hubName?: pulumi.Input<string | undefined>;
+    hubName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -35,7 +35,7 @@ export interface GetSchemaRegistryArgs {
     /**
      * The Schema Group name 
      */
-    schemaGroupName?: string;
+    schemaGroupName: string;
 }
 
 /**
@@ -113,5 +113,5 @@ export interface GetSchemaRegistryOutputArgs {
     /**
      * The Schema Group name 
      */
-    schemaGroupName?: pulumi.Input<string | undefined>;
+    schemaGroupName: pulumi.Input<string>;
 }

@@ -92,9 +92,6 @@ export class PrefixListGlobalRulestack extends pulumi.CustomResource {
             if (args?.globalRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalRulestackName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.prefixList === undefined && !opts.urn) {
                 throw new Error("Missing required property 'prefixList'");
             }
@@ -145,7 +142,7 @@ export interface PrefixListGlobalRulestackArgs {
     /**
      * Local Rule priority
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * prefix list
      */

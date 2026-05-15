@@ -27,7 +27,7 @@ export interface GetIspCacheNodesOperationArgs {
     /**
      * Name of the ConnectedCache resource
      */
-    cacheNodeResourceName?: string;
+    cacheNodeResourceName: string;
     /**
      * Name of the Customer resource
      */
@@ -95,7 +95,7 @@ export interface GetIspCacheNodesOperationOutputArgs {
     /**
      * Name of the ConnectedCache resource
      */
-    cacheNodeResourceName?: pulumi.Input<string | undefined>;
+    cacheNodeResourceName: pulumi.Input<string>;
     /**
      * Name of the Customer resource
      */

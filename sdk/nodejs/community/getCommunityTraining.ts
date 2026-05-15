@@ -24,7 +24,7 @@ export interface GetCommunityTrainingArgs {
     /**
      * The name of the Community Training Resource
      */
-    communityTrainingName?: string;
+    communityTrainingName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -117,7 +117,7 @@ export interface GetCommunityTrainingOutputArgs {
     /**
      * The name of the Community Training Resource
      */
-    communityTrainingName?: pulumi.Input<string | undefined>;
+    communityTrainingName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

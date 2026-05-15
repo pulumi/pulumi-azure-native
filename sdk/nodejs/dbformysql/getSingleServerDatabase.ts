@@ -22,7 +22,7 @@ export interface GetSingleServerDatabaseArgs {
     /**
      * The name of the database.
      */
-    databaseName?: string;
+    databaseName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -80,7 +80,7 @@ export interface GetSingleServerDatabaseOutputArgs {
     /**
      * The name of the database.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

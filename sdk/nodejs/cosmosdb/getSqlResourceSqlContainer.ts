@@ -32,7 +32,7 @@ export interface GetSqlResourceSqlContainerArgs {
     /**
      * Cosmos DB container name.
      */
-    containerName?: string;
+    containerName: string;
     /**
      * Cosmos DB database name.
      */
@@ -99,7 +99,7 @@ export interface GetSqlResourceSqlContainerOutputArgs {
     /**
      * Cosmos DB container name.
      */
-    containerName?: pulumi.Input<string | undefined>;
+    containerName: pulumi.Input<string>;
     /**
      * Cosmos DB database name.
      */

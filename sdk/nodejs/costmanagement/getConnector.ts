@@ -24,7 +24,7 @@ export interface GetConnectorArgs {
     /**
      * Connector Name.
      */
-    connectorName?: string;
+    connectorName: string;
     /**
      * Azure Resource Group Name.
      */
@@ -113,7 +113,7 @@ export interface GetConnectorOutputArgs {
     /**
      * Connector Name.
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName: pulumi.Input<string>;
     /**
      * Azure Resource Group Name.
      */

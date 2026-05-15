@@ -78,9 +78,6 @@ export class KeyGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.keyGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'keyGroupName'");
-            }
             if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -120,7 +117,7 @@ export interface KeyGroupArgs {
     /**
      * Name of the KeyGroup under the profile.
      */
-    keyGroupName: pulumi.Input<string>;
+    keyGroupName?: pulumi.Input<string | undefined>;
     /**
      * Names of UrlSigningKey type secret objects
      */

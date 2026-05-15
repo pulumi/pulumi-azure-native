@@ -81,9 +81,6 @@ export class CurationProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.curationProfileName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'curationProfileName'");
-            }
             if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
@@ -123,7 +120,7 @@ export interface CurationProfileArgs {
     /**
      * The name of the curation profile.
      */
-    curationProfileName: pulumi.Input<string>;
+    curationProfileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the devcenter.
      */

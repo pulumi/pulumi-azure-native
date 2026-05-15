@@ -24,7 +24,7 @@ export interface GetWebAppRelayServiceConnectionArgs {
     /**
      * Name of the hybrid connection.
      */
-    entityName?: string;
+    entityName: string;
     /**
      * Name of the app.
      */
@@ -87,7 +87,7 @@ export interface GetWebAppRelayServiceConnectionOutputArgs {
     /**
      * Name of the hybrid connection.
      */
-    entityName?: pulumi.Input<string | undefined>;
+    entityName: pulumi.Input<string>;
     /**
      * Name of the app.
      */

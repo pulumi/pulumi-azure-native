@@ -28,7 +28,7 @@ export interface GetSqlServerRegistrationArgs {
     /**
      * Name of the SQL Server registration.
      */
-    sqlServerRegistrationName?: string;
+    sqlServerRegistrationName: string;
 }
 
 /**
@@ -97,5 +97,5 @@ export interface GetSqlServerRegistrationOutputArgs {
     /**
      * Name of the SQL Server registration.
      */
-    sqlServerRegistrationName?: pulumi.Input<string | undefined>;
+    sqlServerRegistrationName: pulumi.Input<string>;
 }

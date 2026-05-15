@@ -77,9 +77,6 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.gatewayName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'gatewayName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -117,7 +114,7 @@ export interface GatewayArgs {
     /**
      * The name of Spring Cloud Gateway.
      */
-    gatewayName: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * Spring Cloud Gateway properties payload
      */

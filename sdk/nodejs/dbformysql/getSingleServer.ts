@@ -28,7 +28,7 @@ export interface GetSingleServerArgs {
     /**
      * The name of the server.
      */
-    serverName?: string;
+    serverName: string;
 }
 
 /**
@@ -149,5 +149,5 @@ export interface GetSingleServerOutputArgs {
     /**
      * The name of the server.
      */
-    serverName?: pulumi.Input<string | undefined>;
+    serverName: pulumi.Input<string>;
 }

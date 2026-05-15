@@ -31,7 +31,7 @@ export interface GetDnsResolverPolicyVirtualNetworkLinkArgs {
     /**
      * The name of the DNS resolver policy virtual network link for the DNS resolver policy.
      */
-    dnsResolverPolicyVirtualNetworkLinkName?: string;
+    dnsResolverPolicyVirtualNetworkLinkName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetDnsResolverPolicyVirtualNetworkLinkOutputArgs {
     /**
      * The name of the DNS resolver policy virtual network link for the DNS resolver policy.
      */
-    dnsResolverPolicyVirtualNetworkLinkName?: pulumi.Input<string | undefined>;
+    dnsResolverPolicyVirtualNetworkLinkName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

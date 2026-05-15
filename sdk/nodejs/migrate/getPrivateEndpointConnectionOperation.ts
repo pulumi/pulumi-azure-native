@@ -27,7 +27,7 @@ export interface GetPrivateEndpointConnectionOperationArgs {
     /**
      * Private endpoint connection ARM name
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * Assessment Project Name
      */
@@ -99,7 +99,7 @@ export interface GetPrivateEndpointConnectionOperationOutputArgs {
     /**
      * Private endpoint connection ARM name
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

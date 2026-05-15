@@ -117,9 +117,6 @@ export class KafkaConnector extends pulumi.CustomResource {
             if (args?.kafkaConnection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaConnection'");
             }
-            if (args?.kafkaConnectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'kafkaConnectorName'");
-            }
             if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
@@ -195,7 +192,7 @@ export interface KafkaConnectorArgs {
     /**
      * Name of MQ kafkaConnector resource
      */
-    kafkaConnectorName: pulumi.Input<string>;
+    kafkaConnectorName?: pulumi.Input<string | undefined>;
     /**
      * The details for connecting with Local Broker.
      */

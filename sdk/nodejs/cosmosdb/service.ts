@@ -75,9 +75,6 @@ export class Service extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.serviceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -117,5 +114,5 @@ export interface ServiceArgs {
     /**
      * Cosmos DB service name.
      */
-    serviceName: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
 }

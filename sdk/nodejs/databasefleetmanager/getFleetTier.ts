@@ -33,7 +33,7 @@ export interface GetFleetTierArgs {
     /**
      * Name of the tier.
      */
-    tierName?: string;
+    tierName: string;
 }
 
 /**
@@ -91,5 +91,5 @@ export interface GetFleetTierOutputArgs {
     /**
      * Name of the tier.
      */
-    tierName?: pulumi.Input<string | undefined>;
+    tierName: pulumi.Input<string>;
 }

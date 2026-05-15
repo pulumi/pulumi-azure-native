@@ -31,7 +31,7 @@ export interface GetElasticBackupPolicyArgs {
     /**
      * The name of the ElasticBackupPolicy
      */
-    backupPolicyName?: string;
+    backupPolicyName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetElasticBackupPolicyOutputArgs {
     /**
      * The name of the ElasticBackupPolicy
      */
-    backupPolicyName?: pulumi.Input<string | undefined>;
+    backupPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

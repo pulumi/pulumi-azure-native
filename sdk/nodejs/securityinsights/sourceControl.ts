@@ -120,9 +120,6 @@ export class SourceControl extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.sourceControlId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sourceControlId'");
-            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -208,7 +205,7 @@ export interface SourceControlArgs {
     /**
      * Source control Id
      */
-    sourceControlId: pulumi.Input<string>;
+    sourceControlId?: pulumi.Input<string | undefined>;
     /**
      * The version number associated with the source control
      */

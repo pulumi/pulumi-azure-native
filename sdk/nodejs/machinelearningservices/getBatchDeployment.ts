@@ -28,7 +28,7 @@ export interface GetBatchDeploymentArgs {
     /**
      * The identifier for the Batch deployments.
      */
-    deploymentName?: string;
+    deploymentName: string;
     /**
      * Name for the Batch Endpoint.
      */
@@ -113,7 +113,7 @@ export interface GetBatchDeploymentOutputArgs {
     /**
      * The identifier for the Batch deployments.
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName: pulumi.Input<string>;
     /**
      * Name for the Batch Endpoint.
      */

@@ -90,9 +90,6 @@ export class CacheRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.cacheRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cacheRuleName'");
-            }
             if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
@@ -136,7 +133,7 @@ export interface CacheRuleArgs {
     /**
      * The name of the cache rule.
      */
-    cacheRuleName: pulumi.Input<string>;
+    cacheRuleName?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the credential store which is associated with the cache rule.
      */

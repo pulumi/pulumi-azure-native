@@ -211,9 +211,6 @@ export class Cluster extends pulumi.CustomResource {
             if (args?.aggregatorOrSingleRackDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aggregatorOrSingleRackDefinition'");
             }
-            if (args?.clusterName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if (args?.clusterType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterType'");
             }
@@ -341,7 +338,7 @@ export interface ClusterArgs {
     /**
      * The name of the cluster.
      */
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * The service principal to be used by the cluster during Arc Appliance installation.
      */

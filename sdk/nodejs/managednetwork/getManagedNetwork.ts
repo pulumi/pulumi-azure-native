@@ -24,7 +24,7 @@ export interface GetManagedNetworkArgs {
     /**
      * The name of the Managed Network.
      */
-    managedNetworkName?: string;
+    managedNetworkName: string;
     /**
      * The name of the resource group.
      */
@@ -93,7 +93,7 @@ export interface GetManagedNetworkOutputArgs {
     /**
      * The name of the Managed Network.
      */
-    managedNetworkName?: pulumi.Input<string | undefined>;
+    managedNetworkName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -27,7 +27,7 @@ export interface GetCertificateArgs {
     /**
      * The name of the certificate
      */
-    certificateName?: string;
+    certificateName: string;
     /**
      * The name of the resource group that contains the IoT hub.
      */
@@ -87,7 +87,7 @@ export interface GetCertificateOutputArgs {
     /**
      * The name of the certificate
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the IoT hub.
      */

@@ -130,9 +130,6 @@ export class BareMetalMachineKeySet extends pulumi.CustomResource {
             if (args?.azureGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureGroupId'");
             }
-            if (args?.bareMetalMachineKeySetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'bareMetalMachineKeySetName'");
-            }
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -215,7 +212,7 @@ export interface BareMetalMachineKeySetArgs {
     /**
      * The name of the bare metal machine key set.
      */
-    bareMetalMachineKeySetName: pulumi.Input<string>;
+    bareMetalMachineKeySetName?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster.
      */

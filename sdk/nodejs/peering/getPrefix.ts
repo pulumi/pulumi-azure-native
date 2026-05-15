@@ -36,7 +36,7 @@ export interface GetPrefixArgs {
     /**
      * The name of the prefix.
      */
-    prefixName?: string;
+    prefixName: string;
     /**
      * The name of the resource group.
      */
@@ -121,7 +121,7 @@ export interface GetPrefixOutputArgs {
     /**
      * The name of the prefix.
      */
-    prefixName?: pulumi.Input<string | undefined>;
+    prefixName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

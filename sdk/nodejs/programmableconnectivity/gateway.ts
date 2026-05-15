@@ -89,9 +89,6 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.gatewayName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'gatewayName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +128,7 @@ export interface GatewayArgs {
     /**
      * Azure Programmable Connectivity Gateway Name.
      */
-    gatewayName: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

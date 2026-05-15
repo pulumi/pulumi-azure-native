@@ -95,9 +95,6 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if (args?.managedPrivateEndpointName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'managedPrivateEndpointName'");
-            }
             if (args?.privateLinkResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkResourceId'");
             }
@@ -149,7 +146,7 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * The name of the managed private endpoint.
      */
-    managedPrivateEndpointName: pulumi.Input<string>;
+    managedPrivateEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the resource for which the managed private endpoint is created.
      */

@@ -117,9 +117,6 @@ export class AccessControlList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.accessControlListName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'accessControlListName'");
-            }
             if (args?.configurationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationType'");
             }
@@ -176,7 +173,7 @@ export interface AccessControlListArgs {
     /**
      * Name of the Access Control List.
      */
-    accessControlListName: pulumi.Input<string>;
+    accessControlListName?: pulumi.Input<string | undefined>;
     /**
      * Access Control List file URL.
      */

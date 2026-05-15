@@ -40,7 +40,7 @@ export interface GetStaticMemberArgs {
     /**
      * The name of the static member.
      */
-    staticMemberName?: string;
+    staticMemberName: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetStaticMemberOutputArgs {
     /**
      * The name of the static member.
      */
-    staticMemberName?: pulumi.Input<string | undefined>;
+    staticMemberName: pulumi.Input<string>;
 }

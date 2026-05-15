@@ -122,9 +122,6 @@ export class VirtualMachine extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.virtualMachineName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualMachineName'");
-            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["hardwareProfile"] = args ? pulumi.output(args.hardwareProfile).apply(v => v === undefined ? undefined : inputs.azurestackhci.virtualMachinePropertiesHardwareProfileArgsProvideDefaults(v)) : undefined;
             resourceInputs["identity"] = args?.identity;
@@ -217,5 +214,5 @@ export interface VirtualMachineArgs {
     /**
      * Name of the virtual machine
      */
-    virtualMachineName: pulumi.Input<string>;
+    virtualMachineName?: pulumi.Input<string | undefined>;
 }

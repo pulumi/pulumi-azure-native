@@ -82,9 +82,6 @@ export class ManagementLockByScope extends pulumi.CustomResource {
             if (args?.level === undefined && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
-            if (args?.lockName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'lockName'");
-            }
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -124,7 +121,7 @@ export interface ManagementLockByScopeArgs {
     /**
      * The name of lock.
      */
-    lockName: pulumi.Input<string>;
+    lockName?: pulumi.Input<string | undefined>;
     /**
      * Notes about the lock. Maximum of 512 characters.
      */

@@ -24,7 +24,7 @@ export interface GetLoadBalancerArgs {
     /**
      * The name of the LoadBalancer
      */
-    loadBalancerName?: string;
+    loadBalancerName: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -93,7 +93,7 @@ export interface GetLoadBalancerOutputArgs {
     /**
      * The name of the LoadBalancer
      */
-    loadBalancerName?: pulumi.Input<string | undefined>;
+    loadBalancerName: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

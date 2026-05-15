@@ -125,9 +125,6 @@ export class KustoPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.kustoPoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'kustoPoolName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -200,7 +197,7 @@ export interface KustoPoolArgs {
     /**
      * The name of the Kusto pool.
      */
-    kustoPoolName: pulumi.Input<string>;
+    kustoPoolName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

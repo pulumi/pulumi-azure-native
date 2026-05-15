@@ -27,7 +27,7 @@ export interface GetConfigurationPolicyGroupArgs {
     /**
      * The name of the ConfigurationPolicyGroup being retrieved.
      */
-    configurationPolicyGroupName?: string;
+    configurationPolicyGroupName: string;
     /**
      * The resource group name of the VpnServerConfiguration.
      */
@@ -103,7 +103,7 @@ export interface GetConfigurationPolicyGroupOutputArgs {
     /**
      * The name of the ConfigurationPolicyGroup being retrieved.
      */
-    configurationPolicyGroupName?: pulumi.Input<string | undefined>;
+    configurationPolicyGroupName: pulumi.Input<string>;
     /**
      * The resource group name of the VpnServerConfiguration.
      */

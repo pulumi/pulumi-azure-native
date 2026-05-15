@@ -26,7 +26,7 @@ export interface GetDashboardArgs {
     /**
      * The name of the dashboard.
      */
-    dashboardName?: string;
+    dashboardName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetDashboardOutputArgs {
     /**
      * The name of the dashboard.
      */
-    dashboardName?: pulumi.Input<string | undefined>;
+    dashboardName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

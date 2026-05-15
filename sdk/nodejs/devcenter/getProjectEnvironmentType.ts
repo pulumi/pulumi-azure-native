@@ -27,7 +27,7 @@ export interface GetProjectEnvironmentTypeArgs {
     /**
      * The name of the environment type.
      */
-    environmentTypeName?: string;
+    environmentTypeName: string;
     /**
      * The name of the project.
      */
@@ -123,7 +123,7 @@ export interface GetProjectEnvironmentTypeOutputArgs {
     /**
      * The name of the environment type.
      */
-    environmentTypeName?: pulumi.Input<string | undefined>;
+    environmentTypeName: pulumi.Input<string>;
     /**
      * The name of the project.
      */

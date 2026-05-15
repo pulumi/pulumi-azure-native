@@ -90,9 +90,6 @@ export class BulkAction extends pulumi.CustomResource {
             if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -140,7 +137,7 @@ export interface BulkActionArgs {
     /**
      * The name of the LaunchBulkInstancesOperation.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Details of the resource plan.
      */

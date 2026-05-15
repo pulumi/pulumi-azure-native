@@ -108,9 +108,6 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
             if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if (args?.mapName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'mapName'");
-            }
             if (args?.mapType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mapType'");
             }
@@ -178,7 +175,7 @@ export interface IntegrationAccountMapArgs {
     /**
      * The integration account map name.
      */
-    mapName: pulumi.Input<string>;
+    mapName?: pulumi.Input<string | undefined>;
     /**
      * The map type.
      */

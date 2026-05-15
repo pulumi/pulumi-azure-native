@@ -29,7 +29,7 @@ export interface GetPrivateEndpointConnectionProxyArgs {
     /**
      * The ID of the private endpoint connection proxy object.
      */
-    privateEndpointConnectionProxyId?: string;
+    privateEndpointConnectionProxyId: string;
     /**
      * The resource group name.
      */
@@ -99,7 +99,7 @@ export interface GetPrivateEndpointConnectionProxyOutputArgs {
     /**
      * The ID of the private endpoint connection proxy object.
      */
-    privateEndpointConnectionProxyId?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionProxyId: pulumi.Input<string>;
     /**
      * The resource group name.
      */

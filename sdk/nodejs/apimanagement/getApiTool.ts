@@ -38,7 +38,7 @@ export interface GetApiToolArgs {
     /**
      * Tool identifier within an API. Must be unique in the current API Management service instance.
      */
-    toolId?: string;
+    toolId: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetApiToolOutputArgs {
     /**
      * Tool identifier within an API. Must be unique in the current API Management service instance.
      */
-    toolId?: pulumi.Input<string | undefined>;
+    toolId: pulumi.Input<string>;
 }

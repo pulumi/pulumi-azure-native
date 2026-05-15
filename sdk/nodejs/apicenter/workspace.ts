@@ -86,9 +86,6 @@ export class Workspace extends pulumi.CustomResource {
             if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if (args?.workspaceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'workspaceName'");
-            }
             resourceInputs["description"] = args?.description;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
@@ -136,5 +133,5 @@ export interface WorkspaceArgs {
     /**
      * The name of the workspace.
      */
-    workspaceName: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

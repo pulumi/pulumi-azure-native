@@ -12,8 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2018-10-01.
  */
-export function getUserSettings(args?: GetUserSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSettingsResult> {
-    args = args || {};
+export function getUserSettings(args: GetUserSettingsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal:getUserSettings", {
         "userSettingsName": args.userSettingsName,
@@ -24,7 +23,7 @@ export interface GetUserSettingsArgs {
     /**
      * The name of the user settings
      */
-    userSettingsName?: string;
+    userSettingsName: string;
 }
 
 /**
@@ -45,8 +44,7 @@ export interface GetUserSettingsResult {
  *
  * Uses Azure REST API version 2018-10-01.
  */
-export function getUserSettingsOutput(args?: GetUserSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserSettingsResult> {
-    args = args || {};
+export function getUserSettingsOutput(args: GetUserSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portal:getUserSettings", {
         "userSettingsName": args.userSettingsName,
@@ -57,5 +55,5 @@ export interface GetUserSettingsOutputArgs {
     /**
      * The name of the user settings
      */
-    userSettingsName?: pulumi.Input<string | undefined>;
+    userSettingsName: pulumi.Input<string>;
 }

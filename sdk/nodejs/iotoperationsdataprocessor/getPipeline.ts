@@ -29,7 +29,7 @@ export interface GetPipelineArgs {
     /**
      * Name of pipeline
      */
-    pipelineName?: string;
+    pipelineName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -115,7 +115,7 @@ export interface GetPipelineOutputArgs {
     /**
      * Name of pipeline
      */
-    pipelineName?: pulumi.Input<string | undefined>;
+    pipelineName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

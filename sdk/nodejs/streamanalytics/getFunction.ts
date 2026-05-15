@@ -27,7 +27,7 @@ export interface GetFunctionArgs {
     /**
      * The name of the function.
      */
-    functionName?: string;
+    functionName: string;
     /**
      * The name of the streaming job.
      */
@@ -83,7 +83,7 @@ export interface GetFunctionOutputArgs {
     /**
      * The name of the function.
      */
-    functionName?: pulumi.Input<string | undefined>;
+    functionName: pulumi.Input<string>;
     /**
      * The name of the streaming job.
      */

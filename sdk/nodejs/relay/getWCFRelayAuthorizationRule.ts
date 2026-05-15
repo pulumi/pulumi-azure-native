@@ -28,7 +28,7 @@ export interface GetWCFRelayAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    authorizationRuleName?: string;
+    authorizationRuleName: string;
     /**
      * The namespace name
      */
@@ -97,7 +97,7 @@ export interface GetWCFRelayAuthorizationRuleOutputArgs {
     /**
      * The authorization rule name.
      */
-    authorizationRuleName?: pulumi.Input<string | undefined>;
+    authorizationRuleName: pulumi.Input<string>;
     /**
      * The namespace name
      */

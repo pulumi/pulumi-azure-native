@@ -35,7 +35,7 @@ export interface GetVirtualEndpointArgs {
     /**
      * Base name of the virtual endpoints.
      */
-    virtualEndpointName?: string;
+    virtualEndpointName: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetVirtualEndpointOutputArgs {
     /**
      * Base name of the virtual endpoints.
      */
-    virtualEndpointName?: pulumi.Input<string | undefined>;
+    virtualEndpointName: pulumi.Input<string>;
 }

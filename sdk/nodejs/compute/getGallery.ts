@@ -32,7 +32,7 @@ export interface GetGalleryArgs {
     /**
      * The name of the Shared Image Gallery.
      */
-    galleryName?: string;
+    galleryName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,7 +129,7 @@ export interface GetGalleryOutputArgs {
     /**
      * The name of the Shared Image Gallery.
      */
-    galleryName?: pulumi.Input<string | undefined>;
+    galleryName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

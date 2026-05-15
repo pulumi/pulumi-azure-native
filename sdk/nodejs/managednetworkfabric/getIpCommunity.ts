@@ -26,7 +26,7 @@ export interface GetIpCommunityArgs {
     /**
      * Name of the IP Community.
      */
-    ipCommunityName?: string;
+    ipCommunityName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetIpCommunityOutputArgs {
     /**
      * Name of the IP Community.
      */
-    ipCommunityName?: pulumi.Input<string | undefined>;
+    ipCommunityName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

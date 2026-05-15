@@ -211,9 +211,6 @@ export class BareMetalMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.bareMetalMachineName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'bareMetalMachineName'");
-            }
             if (args?.bmcConnectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bmcConnectionString'");
             }
@@ -348,7 +345,7 @@ export interface BareMetalMachineArgs {
     /**
      * The name of the bare metal machine.
      */
-    bareMetalMachineName: pulumi.Input<string>;
+    bareMetalMachineName?: pulumi.Input<string | undefined>;
     /**
      * The connection string for the baseboard management controller including IP address and protocol.
      */

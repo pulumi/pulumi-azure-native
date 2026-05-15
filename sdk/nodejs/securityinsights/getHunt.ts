@@ -27,7 +27,7 @@ export interface GetHuntArgs {
     /**
      * The hunt id (GUID)
      */
-    huntId?: string;
+    huntId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,7 +119,7 @@ export interface GetHuntOutputArgs {
     /**
      * The hunt id (GUID)
      */
-    huntId?: pulumi.Input<string | undefined>;
+    huntId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

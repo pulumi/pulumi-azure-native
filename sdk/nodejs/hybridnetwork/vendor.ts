@@ -71,13 +71,10 @@ export class Vendor extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VendorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: VendorArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.vendorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'vendorName'");
-            }
             resourceInputs["vendorName"] = args?.vendorName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -107,5 +104,5 @@ export interface VendorArgs {
     /**
      * The name of the vendor.
      */
-    vendorName: pulumi.Input<string>;
+    vendorName?: pulumi.Input<string | undefined>;
 }

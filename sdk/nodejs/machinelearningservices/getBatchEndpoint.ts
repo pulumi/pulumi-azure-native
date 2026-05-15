@@ -27,7 +27,7 @@ export interface GetBatchEndpointArgs {
     /**
      * Name for the Batch Endpoint.
      */
-    endpointName?: string;
+    endpointName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetBatchEndpointOutputArgs {
     /**
      * Name for the Batch Endpoint.
      */
-    endpointName?: pulumi.Input<string | undefined>;
+    endpointName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

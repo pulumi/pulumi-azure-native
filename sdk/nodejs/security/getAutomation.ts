@@ -26,7 +26,7 @@ export interface GetAutomationArgs {
     /**
      * The security automation name.
      */
-    automationName?: string;
+    automationName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetAutomationOutputArgs {
     /**
      * The security automation name.
      */
-    automationName?: pulumi.Input<string | undefined>;
+    automationName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

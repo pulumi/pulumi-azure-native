@@ -87,9 +87,6 @@ export class CassandraResourceCassandraTable extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.tableName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'tableName'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["keyspaceName"] = args?.keyspaceName;
             resourceInputs["location"] = args?.location;
@@ -148,7 +145,7 @@ export interface CassandraResourceCassandraTableArgs {
     /**
      * Cosmos DB table name.
      */
-    tableName: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */

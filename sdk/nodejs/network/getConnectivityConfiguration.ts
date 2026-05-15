@@ -27,7 +27,7 @@ export interface GetConnectivityConfigurationArgs {
     /**
      * The name of the network manager connectivity configuration.
      */
-    configurationName?: string;
+    configurationName: string;
     /**
      * The name of the network manager.
      */
@@ -119,7 +119,7 @@ export interface GetConnectivityConfigurationOutputArgs {
     /**
      * The name of the network manager connectivity configuration.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */

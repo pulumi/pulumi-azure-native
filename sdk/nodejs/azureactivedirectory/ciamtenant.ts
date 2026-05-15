@@ -106,9 +106,6 @@ export class CIAMTenant extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
@@ -168,7 +165,7 @@ export interface CIAMTenantArgs {
     /**
      * The initial sub domain of the tenant.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
      */

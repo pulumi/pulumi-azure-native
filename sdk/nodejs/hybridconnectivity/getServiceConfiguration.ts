@@ -35,7 +35,7 @@ export interface GetServiceConfigurationArgs {
     /**
      * The service name.
      */
-    serviceConfigurationName?: string;
+    serviceConfigurationName: string;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface GetServiceConfigurationOutputArgs {
     /**
      * The service name.
      */
-    serviceConfigurationName?: pulumi.Input<string | undefined>;
+    serviceConfigurationName: pulumi.Input<string>;
 }

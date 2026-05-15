@@ -35,7 +35,7 @@ export interface GetWebAppSitesControllerArgs {
     /**
      * Web app site name.
      */
-    webAppSiteName?: string;
+    webAppSiteName: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetWebAppSitesControllerOutputArgs {
     /**
      * Web app site name.
      */
-    webAppSiteName?: pulumi.Input<string | undefined>;
+    webAppSiteName: pulumi.Input<string>;
 }

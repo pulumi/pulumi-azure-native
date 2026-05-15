@@ -27,7 +27,7 @@ export interface GetNamespaceDiscoveredAssetArgs {
     /**
      * The name of the discovered asset.
      */
-    discoveredAssetName?: string;
+    discoveredAssetName: string;
     /**
      * The name of the namespace.
      */
@@ -195,7 +195,7 @@ export interface GetNamespaceDiscoveredAssetOutputArgs {
     /**
      * The name of the discovered asset.
      */
-    discoveredAssetName?: pulumi.Input<string | undefined>;
+    discoveredAssetName: pulumi.Input<string>;
     /**
      * The name of the namespace.
      */

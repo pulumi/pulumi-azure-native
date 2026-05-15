@@ -88,9 +88,6 @@ export class FleetMember extends pulumi.CustomResource {
             if (args?.clusterResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceId'");
             }
-            if (args?.fleetMemberName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'fleetMemberName'");
-            }
             if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
@@ -136,7 +133,7 @@ export interface FleetMemberArgs {
     /**
      * The name of the Fleet member resource.
      */
-    fleetMemberName: pulumi.Input<string>;
+    fleetMemberName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Fleet resource.
      */

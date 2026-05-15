@@ -120,9 +120,6 @@ export class Table extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.tableName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'tableName'");
-            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -201,7 +198,7 @@ export interface TableArgs {
     /**
      * The name of the table.
      */
-    tableName: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
     /**
      * The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
      */

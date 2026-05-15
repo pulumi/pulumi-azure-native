@@ -31,7 +31,7 @@ export interface GetFleetspaceArgs {
     /**
      * Cosmos DB fleetspace name. Needs to be unique under a fleet.
      */
-    fleetspaceName?: string;
+    fleetspaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetFleetspaceOutputArgs {
     /**
      * Cosmos DB fleetspace name. Needs to be unique under a fleet.
      */
-    fleetspaceName?: pulumi.Input<string | undefined>;
+    fleetspaceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

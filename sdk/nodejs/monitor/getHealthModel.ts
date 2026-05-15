@@ -29,7 +29,7 @@ export interface GetHealthModelArgs {
     /**
      * Name of health model resource
      */
-    healthModelName?: string;
+    healthModelName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetHealthModelOutputArgs {
     /**
      * Name of health model resource
      */
-    healthModelName?: pulumi.Input<string | undefined>;
+    healthModelName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

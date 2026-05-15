@@ -181,9 +181,6 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.ruleId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ruleId'");
-            }
             if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
@@ -332,7 +329,7 @@ export interface ScheduledAlertRuleArgs {
     /**
      * Alert rule ID
      */
-    ruleId: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string | undefined>;
     /**
      * The severity for alerts created by this alert rule.
      */

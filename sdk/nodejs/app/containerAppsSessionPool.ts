@@ -132,9 +132,6 @@ export class ContainerAppsSessionPool extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.sessionPoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sessionPoolName'");
-            }
             resourceInputs["containerType"] = args?.containerType;
             resourceInputs["customContainerTemplate"] = args?.customContainerTemplate;
             resourceInputs["dynamicPoolConfiguration"] = args?.dynamicPoolConfiguration;
@@ -239,7 +236,7 @@ export interface ContainerAppsSessionPoolArgs {
     /**
      * Name of the session pool.
      */
-    sessionPoolName: pulumi.Input<string>;
+    sessionPoolName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

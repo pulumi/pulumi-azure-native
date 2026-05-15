@@ -33,7 +33,7 @@ export interface GetWebAppSiteExtensionSlotArgs {
     /**
      * Site extension name.
      */
-    siteExtensionId?: string;
+    siteExtensionId: string;
     /**
      * Name of the deployment slot. If a slot is not specified, the API uses the production slot.
      */
@@ -171,7 +171,7 @@ export interface GetWebAppSiteExtensionSlotOutputArgs {
     /**
      * Site extension name.
      */
-    siteExtensionId?: pulumi.Input<string | undefined>;
+    siteExtensionId: pulumi.Input<string>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API uses the production slot.
      */

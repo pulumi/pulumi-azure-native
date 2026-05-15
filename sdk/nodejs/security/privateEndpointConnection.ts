@@ -85,9 +85,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.privateEndpointConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if (args?.privateLinkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkName'");
             }
@@ -132,7 +129,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource.
      */
-    privateEndpointConnectionName: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the private link resource. Must be unique within the resource group and follow Azure naming conventions.
      */

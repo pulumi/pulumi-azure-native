@@ -89,9 +89,6 @@ export class EdgeAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.edgeActionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'edgeActionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +131,7 @@ export interface EdgeActionArgs {
     /**
      * The name of the Edge Action
      */
-    edgeActionName: pulumi.Input<string>;
+    edgeActionName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

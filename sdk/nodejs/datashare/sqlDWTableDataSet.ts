@@ -95,9 +95,6 @@ export class SqlDWTableDataSet extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.dataSetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataSetName'");
-            }
             if (args?.dataWarehouseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataWarehouseName'");
             }
@@ -163,7 +160,7 @@ export interface SqlDWTableDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string | undefined>;
     /**
      * DataWarehouse name of the source data set
      */

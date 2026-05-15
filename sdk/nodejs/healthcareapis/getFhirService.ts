@@ -27,7 +27,7 @@ export interface GetFhirServiceArgs {
     /**
      * The name of FHIR Service resource.
      */
-    fhirServiceName?: string;
+    fhirServiceName: string;
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -151,7 +151,7 @@ export interface GetFhirServiceOutputArgs {
     /**
      * The name of FHIR Service resource.
      */
-    fhirServiceName?: pulumi.Input<string | undefined>;
+    fhirServiceName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the service instance.
      */

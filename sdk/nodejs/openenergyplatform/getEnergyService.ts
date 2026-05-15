@@ -28,7 +28,7 @@ export interface GetEnergyServiceArgs {
     /**
      * The resource name.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 export interface GetEnergyServiceResult {
@@ -83,5 +83,5 @@ export interface GetEnergyServiceOutputArgs {
     /**
      * The resource name.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

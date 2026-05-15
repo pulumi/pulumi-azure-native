@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAccessReviewScheduleDefinitionById(args?: GetAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewScheduleDefinitionByIdResult> {
-    args = args || {};
+export function getAccessReviewScheduleDefinitionById(args: GetAccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessReviewScheduleDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getAccessReviewScheduleDefinitionById", {
         "scheduleDefinitionId": args.scheduleDefinitionId,
@@ -26,7 +25,7 @@ export interface GetAccessReviewScheduleDefinitionByIdArgs {
     /**
      * The id of the access review schedule definition.
      */
-    scheduleDefinitionId?: string;
+    scheduleDefinitionId: string;
 }
 
 /**
@@ -153,8 +152,7 @@ export interface GetAccessReviewScheduleDefinitionByIdResult {
  *
  * Other available API versions: 2021-03-01-preview, 2021-07-01-preview, 2021-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAccessReviewScheduleDefinitionByIdOutput(args?: GetAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessReviewScheduleDefinitionByIdResult> {
-    args = args || {};
+export function getAccessReviewScheduleDefinitionByIdOutput(args: GetAccessReviewScheduleDefinitionByIdOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessReviewScheduleDefinitionByIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getAccessReviewScheduleDefinitionById", {
         "scheduleDefinitionId": args.scheduleDefinitionId,
@@ -165,5 +163,5 @@ export interface GetAccessReviewScheduleDefinitionByIdOutputArgs {
     /**
      * The id of the access review schedule definition.
      */
-    scheduleDefinitionId?: pulumi.Input<string | undefined>;
+    scheduleDefinitionId: pulumi.Input<string>;
 }

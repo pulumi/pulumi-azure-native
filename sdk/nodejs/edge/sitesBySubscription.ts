@@ -69,13 +69,10 @@ export class SitesBySubscription extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: SitesBySubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: SitesBySubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.siteName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'siteName'");
-            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["siteName"] = args?.siteName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -107,5 +104,5 @@ export interface SitesBySubscriptionArgs {
     /**
      * The name of the Site
      */
-    siteName: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
 }

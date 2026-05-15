@@ -81,9 +81,6 @@ export class CloudLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.cloudLinkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cloudLinkName'");
-            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -123,7 +120,7 @@ export interface CloudLinkArgs {
     /**
      * Name of the cloud link.
      */
-    cloudLinkName: pulumi.Input<string>;
+    cloudLinkName?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the other private cloud participating in the link.
      */

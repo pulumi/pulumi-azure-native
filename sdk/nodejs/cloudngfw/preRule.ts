@@ -149,9 +149,6 @@ export class PreRule extends pulumi.CustomResource {
             if (args?.globalRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalRulestackName'");
             }
-            if (args?.priority === undefined && !opts.urn) {
-                throw new Error("Missing required property 'priority'");
-            }
             if (args?.ruleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
@@ -268,7 +265,7 @@ export interface PreRuleArgs {
     /**
      * Pre Rule priority
      */
-    priority: pulumi.Input<string>;
+    priority?: pulumi.Input<string | undefined>;
     /**
      * any, application-default, TCP:number, UDP:number
      */

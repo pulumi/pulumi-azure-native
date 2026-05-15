@@ -89,9 +89,6 @@ export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomRe
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.peConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'peConnectionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -144,7 +141,7 @@ export interface PrivateLinkServicePrivateEndpointConnectionArgs {
     /**
      * The name of the private end point connection.
      */
-    peConnectionName: pulumi.Input<string>;
+    peConnectionName?: pulumi.Input<string | undefined>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

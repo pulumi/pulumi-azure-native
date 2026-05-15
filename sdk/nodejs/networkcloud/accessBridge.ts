@@ -117,9 +117,6 @@ export class AccessBridge extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.accessBridgeName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'accessBridgeName'");
-            }
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
@@ -181,7 +178,7 @@ export interface AccessBridgeArgs {
     /**
      * The name of the access bridge.
      */
-    accessBridgeName: pulumi.Input<string>;
+    accessBridgeName?: pulumi.Input<string | undefined>;
     /**
      * The extended location of the cluster associated with the resource.
      */

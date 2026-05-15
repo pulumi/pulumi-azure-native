@@ -32,7 +32,7 @@ export interface GetOriginArgs {
     /**
      * Name of the origin which is unique within the endpoint.
      */
-    originName?: string;
+    originName: string;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -149,7 +149,7 @@ export interface GetOriginOutputArgs {
     /**
      * Name of the origin which is unique within the endpoint.
      */
-    originName?: pulumi.Input<string | undefined>;
+    originName: pulumi.Input<string>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */

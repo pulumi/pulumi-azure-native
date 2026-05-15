@@ -27,7 +27,7 @@ export interface GetVpnConnectionArgs {
     /**
      * The name of the vpn connection.
      */
-    connectionName?: string;
+    connectionName: string;
     /**
      * The name of the gateway.
      */
@@ -155,7 +155,7 @@ export interface GetVpnConnectionOutputArgs {
     /**
      * The name of the vpn connection.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * The name of the gateway.
      */

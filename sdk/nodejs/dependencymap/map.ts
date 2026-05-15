@@ -81,9 +81,6 @@ export class Map extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.mapName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'mapName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface MapArgs {
     /**
      * Maps resource name
      */
-    mapName: pulumi.Input<string>;
+    mapName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

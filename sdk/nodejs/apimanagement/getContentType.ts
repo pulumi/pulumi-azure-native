@@ -24,7 +24,7 @@ export interface GetContentTypeArgs {
     /**
      * Content type identifier.
      */
-    contentTypeId?: string;
+    contentTypeId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -88,7 +88,7 @@ export interface GetContentTypeOutputArgs {
     /**
      * Content type identifier.
      */
-    contentTypeId?: pulumi.Input<string | undefined>;
+    contentTypeId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -26,7 +26,7 @@ export interface GetP2sVpnGatewayArgs {
     /**
      * The name of the gateway.
      */
-    gatewayName?: string;
+    gatewayName: string;
     /**
      * The resource group name of the P2SVpnGateway.
      */
@@ -117,7 +117,7 @@ export interface GetP2sVpnGatewayOutputArgs {
     /**
      * The name of the gateway.
      */
-    gatewayName?: pulumi.Input<string | undefined>;
+    gatewayName: pulumi.Input<string>;
     /**
      * The resource group name of the P2SVpnGateway.
      */

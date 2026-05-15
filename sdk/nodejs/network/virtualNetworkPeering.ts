@@ -155,9 +155,6 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
             if (args?.virtualNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            if (args?.virtualNetworkPeeringName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualNetworkPeeringName'");
-            }
             resourceInputs["allowForwardedTraffic"] = args?.allowForwardedTraffic;
             resourceInputs["allowGatewayTransit"] = args?.allowGatewayTransit;
             resourceInputs["allowVirtualNetworkAccess"] = args?.allowVirtualNetworkAccess;
@@ -319,5 +316,5 @@ export interface VirtualNetworkPeeringArgs {
     /**
      * The name of the peering.
      */
-    virtualNetworkPeeringName: pulumi.Input<string>;
+    virtualNetworkPeeringName?: pulumi.Input<string | undefined>;
 }

@@ -26,7 +26,7 @@ export interface GetRoleManagementPolicyAssignmentArgs {
     /**
      * The name of format {guid_guid} the role management policy assignment to get.
      */
-    roleManagementPolicyAssignmentName?: string;
+    roleManagementPolicyAssignmentName: string;
     /**
      * The scope of the role management policy.
      */
@@ -93,7 +93,7 @@ export interface GetRoleManagementPolicyAssignmentOutputArgs {
     /**
      * The name of format {guid_guid} the role management policy assignment to get.
      */
-    roleManagementPolicyAssignmentName?: pulumi.Input<string | undefined>;
+    roleManagementPolicyAssignmentName: pulumi.Input<string>;
     /**
      * The scope of the role management policy.
      */

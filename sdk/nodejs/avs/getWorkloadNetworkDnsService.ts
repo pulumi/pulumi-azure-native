@@ -27,7 +27,7 @@ export interface GetWorkloadNetworkDnsServiceArgs {
     /**
      * ID of the DNS service.
      */
-    dnsServiceId?: string;
+    dnsServiceId: string;
     /**
      * Name of the private cloud
      */
@@ -115,7 +115,7 @@ export interface GetWorkloadNetworkDnsServiceOutputArgs {
     /**
      * ID of the DNS service.
      */
-    dnsServiceId?: pulumi.Input<string | undefined>;
+    dnsServiceId: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

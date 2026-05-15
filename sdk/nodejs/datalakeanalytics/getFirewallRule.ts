@@ -26,7 +26,7 @@ export interface GetFirewallRuleArgs {
     /**
      * The name of the firewall rule to retrieve.
      */
-    firewallRuleName?: string;
+    firewallRuleName: string;
     /**
      * The name of the Azure resource group.
      */
@@ -84,7 +84,7 @@ export interface GetFirewallRuleOutputArgs {
     /**
      * The name of the firewall rule to retrieve.
      */
-    firewallRuleName?: pulumi.Input<string | undefined>;
+    firewallRuleName: pulumi.Input<string>;
     /**
      * The name of the Azure resource group.
      */

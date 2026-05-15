@@ -87,9 +87,6 @@ export class ACSSBackupConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.backupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'backupName'");
-            }
             if (args?.connectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorName'");
             }
@@ -137,7 +134,7 @@ export interface ACSSBackupConnectionArgs {
     /**
      * The name of the backup connection resource of virtual instance for SAP.
      */
-    backupName: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the connector resource
      */

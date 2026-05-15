@@ -106,9 +106,6 @@ export class AutomationRule extends pulumi.CustomResource {
             if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if (args?.automationRuleId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'automationRuleId'");
-            }
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -173,7 +170,7 @@ export interface AutomationRuleArgs {
     /**
      * Automation rule ID
      */
-    automationRuleId: pulumi.Input<string>;
+    automationRuleId?: pulumi.Input<string | undefined>;
     /**
      * The display name of the automation rule.
      */

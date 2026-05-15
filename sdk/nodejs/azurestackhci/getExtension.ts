@@ -36,7 +36,7 @@ export interface GetExtensionArgs {
     /**
      * The name of the machine extension.
      */
-    extensionName?: string;
+    extensionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -141,7 +141,7 @@ export interface GetExtensionOutputArgs {
     /**
      * The name of the machine extension.
      */
-    extensionName?: pulumi.Input<string | undefined>;
+    extensionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

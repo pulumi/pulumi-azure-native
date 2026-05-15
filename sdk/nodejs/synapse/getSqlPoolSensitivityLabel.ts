@@ -40,7 +40,7 @@ export interface GetSqlPoolSensitivityLabelArgs {
     /**
      * The source of the sensitivity label.
      */
-    sensitivityLabelSource?: string;
+    sensitivityLabelSource: string;
     /**
      * SQL pool name
      */
@@ -149,7 +149,7 @@ export interface GetSqlPoolSensitivityLabelOutputArgs {
     /**
      * The source of the sensitivity label.
      */
-    sensitivityLabelSource?: pulumi.Input<string | undefined>;
+    sensitivityLabelSource: pulumi.Input<string>;
     /**
      * SQL pool name
      */

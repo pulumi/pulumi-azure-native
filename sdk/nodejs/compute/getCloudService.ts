@@ -26,7 +26,7 @@ export interface GetCloudServiceArgs {
     /**
      * Name of the cloud service.
      */
-    cloudServiceName?: string;
+    cloudServiceName: string;
     /**
      * Name of the resource group.
      */
@@ -93,7 +93,7 @@ export interface GetCloudServiceOutputArgs {
     /**
      * Name of the cloud service.
      */
-    cloudServiceName?: pulumi.Input<string | undefined>;
+    cloudServiceName: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */

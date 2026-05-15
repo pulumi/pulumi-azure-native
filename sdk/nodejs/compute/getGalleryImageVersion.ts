@@ -37,7 +37,7 @@ export interface GetGalleryImageVersionArgs {
     /**
      * The name of the gallery image version to be retrieved.
      */
-    galleryImageVersionName?: string;
+    galleryImageVersionName: string;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -143,7 +143,7 @@ export interface GetGalleryImageVersionOutputArgs {
     /**
      * The name of the gallery image version to be retrieved.
      */
-    galleryImageVersionName?: pulumi.Input<string | undefined>;
+    galleryImageVersionName: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery.
      */

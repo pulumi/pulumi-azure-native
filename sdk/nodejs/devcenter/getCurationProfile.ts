@@ -27,7 +27,7 @@ export interface GetCurationProfileArgs {
     /**
      * The name of the curation profile.
      */
-    curationProfileName?: string;
+    curationProfileName: string;
     /**
      * The name of the devcenter.
      */
@@ -95,7 +95,7 @@ export interface GetCurationProfileOutputArgs {
     /**
      * The name of the curation profile.
      */
-    curationProfileName?: pulumi.Input<string | undefined>;
+    curationProfileName: pulumi.Input<string>;
     /**
      * The name of the devcenter.
      */

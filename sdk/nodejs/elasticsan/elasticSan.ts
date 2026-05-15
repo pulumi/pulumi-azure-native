@@ -128,9 +128,6 @@ export class ElasticSan extends pulumi.CustomResource {
             if (args?.baseSizeTiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseSizeTiB'");
             }
-            if (args?.elasticSanName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'elasticSanName'");
-            }
             if (args?.extendedCapacitySizeTiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedCapacitySizeTiB'");
             }
@@ -202,7 +199,7 @@ export interface ElasticSanArgs {
     /**
      * The name of the ElasticSan.
      */
-    elasticSanName: pulumi.Input<string>;
+    elasticSanName?: pulumi.Input<string | undefined>;
     /**
      * Extended size of the Elastic San appliance in TiB.
      */

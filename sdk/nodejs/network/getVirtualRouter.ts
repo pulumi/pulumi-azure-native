@@ -35,7 +35,7 @@ export interface GetVirtualRouterArgs {
     /**
      * The name of the Virtual Router.
      */
-    virtualRouterName?: string;
+    virtualRouterName: string;
 }
 
 /**
@@ -123,5 +123,5 @@ export interface GetVirtualRouterOutputArgs {
     /**
      * The name of the Virtual Router.
      */
-    virtualRouterName?: pulumi.Input<string | undefined>;
+    virtualRouterName: pulumi.Input<string>;
 }

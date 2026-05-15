@@ -28,7 +28,7 @@ export interface GetProtectionPolicyArgs {
     /**
      * Backup policy information to be fetched.
      */
-    policyName?: string;
+    policyName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -97,7 +97,7 @@ export interface GetProtectionPolicyOutputArgs {
     /**
      * Backup policy information to be fetched.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

@@ -29,7 +29,7 @@ export interface GetDatabaseArgs {
     /**
      * The name of the database.
      */
-    databaseName?: string;
+    databaseName: string;
     /**
      * The child resources to include in the response.
      */
@@ -293,7 +293,7 @@ export interface GetDatabaseOutputArgs {
     /**
      * The name of the database.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * The child resources to include in the response.
      */

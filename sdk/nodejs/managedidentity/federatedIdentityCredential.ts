@@ -84,9 +84,6 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
             if (args?.audiences === undefined && !opts.urn) {
                 throw new Error("Missing required property 'audiences'");
             }
-            if (args?.federatedIdentityCredentialResourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'federatedIdentityCredentialResourceName'");
-            }
             if (args?.issuer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
@@ -136,7 +133,7 @@ export interface FederatedIdentityCredentialArgs {
     /**
      * The name of the federated identity credential resource.
      */
-    federatedIdentityCredentialResourceName: pulumi.Input<string>;
+    federatedIdentityCredentialResourceName?: pulumi.Input<string | undefined>;
     /**
      * The URL of the issuer to be trusted.
      */

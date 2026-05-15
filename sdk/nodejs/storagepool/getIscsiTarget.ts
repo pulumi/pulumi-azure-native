@@ -29,7 +29,7 @@ export interface GetIscsiTargetArgs {
     /**
      * The name of the iSCSI Target.
      */
-    iscsiTargetName?: string;
+    iscsiTargetName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -127,7 +127,7 @@ export interface GetIscsiTargetOutputArgs {
     /**
      * The name of the iSCSI Target.
      */
-    iscsiTargetName?: pulumi.Input<string | undefined>;
+    iscsiTargetName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

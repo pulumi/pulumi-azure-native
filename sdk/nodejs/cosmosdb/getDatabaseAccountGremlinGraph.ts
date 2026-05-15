@@ -36,7 +36,7 @@ export interface GetDatabaseAccountGremlinGraphArgs {
     /**
      * Cosmos DB graph name.
      */
-    graphName?: string;
+    graphName: string;
     /**
      * Name of an Azure resource group.
      */
@@ -133,7 +133,7 @@ export interface GetDatabaseAccountGremlinGraphOutputArgs {
     /**
      * Cosmos DB graph name.
      */
-    graphName?: pulumi.Input<string | undefined>;
+    graphName: pulumi.Input<string>;
     /**
      * Name of an Azure resource group.
      */

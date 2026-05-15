@@ -79,9 +79,6 @@ export class NodePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.nodePoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'nodePoolName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -125,7 +122,7 @@ export interface NodePoolArgs {
     /**
      * The name of the NodePool
      */
-    nodePoolName: pulumi.Input<string>;
+    nodePoolName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

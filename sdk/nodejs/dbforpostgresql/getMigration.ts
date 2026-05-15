@@ -27,7 +27,7 @@ export interface GetMigrationArgs {
     /**
      * Name of migration.
      */
-    migrationName?: string;
+    migrationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -187,7 +187,7 @@ export interface GetMigrationOutputArgs {
     /**
      * Name of migration.
      */
-    migrationName?: pulumi.Input<string | undefined>;
+    migrationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

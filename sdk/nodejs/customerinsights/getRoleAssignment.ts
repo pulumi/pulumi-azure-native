@@ -25,7 +25,7 @@ export interface GetRoleAssignmentArgs {
     /**
      * The name of the role assignment.
      */
-    assignmentName?: string;
+    assignmentName: string;
     /**
      * The name of the hub.
      */
@@ -155,7 +155,7 @@ export interface GetRoleAssignmentOutputArgs {
     /**
      * The name of the role assignment.
      */
-    assignmentName?: pulumi.Input<string | undefined>;
+    assignmentName: pulumi.Input<string>;
     /**
      * The name of the hub.
      */

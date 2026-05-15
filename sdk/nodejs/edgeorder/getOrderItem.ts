@@ -31,7 +31,7 @@ export interface GetOrderItemArgs {
     /**
      * The name of the order item.
      */
-    orderItemName?: string;
+    orderItemName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,7 +119,7 @@ export interface GetOrderItemOutputArgs {
     /**
      * The name of the order item.
      */
-    orderItemName?: pulumi.Input<string | undefined>;
+    orderItemName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

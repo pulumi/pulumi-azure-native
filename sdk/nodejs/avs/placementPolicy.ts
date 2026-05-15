@@ -76,9 +76,6 @@ export class PlacementPolicy extends pulumi.CustomResource {
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (args?.placementPolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'placementPolicyName'");
-            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -119,7 +116,7 @@ export interface PlacementPolicyArgs {
     /**
      * Name of the placement policy.
      */
-    placementPolicyName: pulumi.Input<string>;
+    placementPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Name of the private cloud
      */

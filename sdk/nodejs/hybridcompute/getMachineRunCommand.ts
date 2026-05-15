@@ -35,7 +35,7 @@ export interface GetMachineRunCommandArgs {
     /**
      * The name of the run command.
      */
-    runCommandName?: string;
+    runCommandName: string;
 }
 
 /**
@@ -151,5 +151,5 @@ export interface GetMachineRunCommandOutputArgs {
     /**
      * The name of the run command.
      */
-    runCommandName?: pulumi.Input<string | undefined>;
+    runCommandName: pulumi.Input<string>;
 }

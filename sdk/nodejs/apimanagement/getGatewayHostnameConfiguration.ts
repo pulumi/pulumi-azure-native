@@ -29,7 +29,7 @@ export interface GetGatewayHostnameConfigurationArgs {
     /**
      * Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
      */
-    hcId?: string;
+    hcId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -110,7 +110,7 @@ export interface GetGatewayHostnameConfigurationOutputArgs {
     /**
      * Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
      */
-    hcId?: pulumi.Input<string | undefined>;
+    hcId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

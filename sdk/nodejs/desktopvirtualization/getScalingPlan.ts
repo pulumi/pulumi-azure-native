@@ -30,7 +30,7 @@ export interface GetScalingPlanArgs {
     /**
      * The name of the scaling plan.
      */
-    scalingPlanName?: string;
+    scalingPlanName: string;
 }
 
 /**
@@ -136,5 +136,5 @@ export interface GetScalingPlanOutputArgs {
     /**
      * The name of the scaling plan.
      */
-    scalingPlanName?: pulumi.Input<string | undefined>;
+    scalingPlanName: pulumi.Input<string>;
 }

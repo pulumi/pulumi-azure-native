@@ -25,7 +25,7 @@ export interface GetDatabaseBlobAuditingPolicyArgs {
     /**
      * The name of the blob auditing policy.
      */
-    blobAuditingPolicyName?: string;
+    blobAuditingPolicyName: string;
     /**
      * The name of the database.
      */
@@ -193,7 +193,7 @@ export interface GetDatabaseBlobAuditingPolicyOutputArgs {
     /**
      * The name of the blob auditing policy.
      */
-    blobAuditingPolicyName?: pulumi.Input<string | undefined>;
+    blobAuditingPolicyName: pulumi.Input<string>;
     /**
      * The name of the database.
      */

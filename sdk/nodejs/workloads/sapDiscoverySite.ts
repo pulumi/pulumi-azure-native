@@ -98,9 +98,6 @@ export class SapDiscoverySite extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.sapDiscoverySiteName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sapDiscoverySiteName'");
-            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
             resourceInputs["masterSiteId"] = args?.masterSiteId;
@@ -161,7 +158,7 @@ export interface SapDiscoverySiteArgs {
     /**
      * The name of the discovery site resource for SAP Migration.
      */
-    sapDiscoverySiteName: pulumi.Input<string>;
+    sapDiscoverySiteName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

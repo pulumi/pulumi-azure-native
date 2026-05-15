@@ -35,7 +35,7 @@ export interface GetViewArgs {
     /**
      * The name of the view.
      */
-    viewName?: string;
+    viewName: string;
 }
 
 /**
@@ -118,5 +118,5 @@ export interface GetViewOutputArgs {
     /**
      * The name of the view.
      */
-    viewName?: pulumi.Input<string | undefined>;
+    viewName: pulumi.Input<string>;
 }

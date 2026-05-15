@@ -27,7 +27,7 @@ export interface GetDynamicSchemaArgs {
     /**
      * The name of the DynamicSchema
      */
-    dynamicSchemaName?: string;
+    dynamicSchemaName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetDynamicSchemaOutputArgs {
     /**
      * The name of the DynamicSchema
      */
-    dynamicSchemaName?: pulumi.Input<string | undefined>;
+    dynamicSchemaName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

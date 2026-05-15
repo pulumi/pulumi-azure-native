@@ -31,7 +31,7 @@ export interface GetDaprSubscriptionArgs {
     /**
      * Name of the Dapr subscription.
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -115,7 +115,7 @@ export interface GetDaprSubscriptionOutputArgs {
     /**
      * Name of the Dapr subscription.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

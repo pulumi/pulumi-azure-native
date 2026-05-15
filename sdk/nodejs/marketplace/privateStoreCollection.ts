@@ -109,9 +109,6 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.collectionId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'collectionId'");
-            }
             if (args?.privateStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
@@ -168,7 +165,7 @@ export interface PrivateStoreCollectionArgs {
     /**
      * The collection ID
      */
-    collectionId: pulumi.Input<string>;
+    collectionId?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets collection name.
      */

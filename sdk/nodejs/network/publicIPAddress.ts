@@ -153,9 +153,6 @@ export class PublicIPAddress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.publicIpAddressName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'publicIpAddressName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -288,7 +285,7 @@ export interface PublicIPAddressArgs {
     /**
      * The name of the public IP address.
      */
-    publicIpAddressName: pulumi.Input<string>;
+    publicIpAddressName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

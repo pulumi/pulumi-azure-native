@@ -30,7 +30,7 @@ export interface GetVirtualNetworkTapArgs {
     /**
      * The name of virtual network tap.
      */
-    tapName?: string;
+    tapName: string;
 }
 
 /**
@@ -113,5 +113,5 @@ export interface GetVirtualNetworkTapOutputArgs {
     /**
      * The name of virtual network tap.
      */
-    tapName?: pulumi.Input<string | undefined>;
+    tapName: pulumi.Input<string>;
 }

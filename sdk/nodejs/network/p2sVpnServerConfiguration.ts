@@ -69,9 +69,6 @@ export class P2sVpnServerConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.p2SVpnServerConfigurationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'p2SVpnServerConfigurationName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -114,7 +111,7 @@ export interface P2sVpnServerConfigurationArgs {
     /**
      * The name of the P2SVpnServerConfiguration.
      */
-    p2SVpnServerConfigurationName: pulumi.Input<string>;
+    p2SVpnServerConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * Properties of the P2SVpnServer configuration.
      */

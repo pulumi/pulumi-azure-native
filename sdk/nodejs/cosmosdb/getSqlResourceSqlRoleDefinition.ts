@@ -35,7 +35,7 @@ export interface GetSqlResourceSqlRoleDefinitionArgs {
     /**
      * The GUID for the Role Definition.
      */
-    roleDefinitionId?: string;
+    roleDefinitionId: string;
 }
 
 /**
@@ -99,5 +99,5 @@ export interface GetSqlResourceSqlRoleDefinitionOutputArgs {
     /**
      * The GUID for the Role Definition.
      */
-    roleDefinitionId?: pulumi.Input<string | undefined>;
+    roleDefinitionId: pulumi.Input<string>;
 }

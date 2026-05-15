@@ -27,7 +27,7 @@ export interface GetInventoryItemArgs {
     /**
      * Name of the inventoryItem.
      */
-    inventoryItemName?: string;
+    inventoryItemName: string;
     /**
      * The Resource Group Name.
      */
@@ -107,7 +107,7 @@ export interface GetInventoryItemOutputArgs {
     /**
      * Name of the inventoryItem.
      */
-    inventoryItemName?: pulumi.Input<string | undefined>;
+    inventoryItemName: pulumi.Input<string>;
     /**
      * The Resource Group Name.
      */

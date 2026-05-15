@@ -94,9 +94,6 @@ export class VolumeSnapshot extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.snapshotName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'snapshotName'");
-            }
             if (args?.volumeGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeGroupName'");
             }
@@ -148,7 +145,7 @@ export interface VolumeSnapshotArgs {
     /**
      * The name of the volume snapshot within the given volume group.
      */
-    snapshotName: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string | undefined>;
     /**
      * The name of the VolumeGroup.
      */

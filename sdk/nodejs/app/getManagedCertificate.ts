@@ -31,7 +31,7 @@ export interface GetManagedCertificateArgs {
     /**
      * Name of the Managed Certificate.
      */
-    managedCertificateName?: string;
+    managedCertificateName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetManagedCertificateOutputArgs {
     /**
      * Name of the Managed Certificate.
      */
-    managedCertificateName?: pulumi.Input<string | undefined>;
+    managedCertificateName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

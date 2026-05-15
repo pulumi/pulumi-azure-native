@@ -74,9 +74,6 @@ export class ServerTrustCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.certificateName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'certificateName'");
-            }
             if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
@@ -113,7 +110,7 @@ export interface ServerTrustCertificateArgs {
     /**
      * Name of of the certificate to upload.
      */
-    certificateName: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed instance.
      */

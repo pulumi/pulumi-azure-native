@@ -27,7 +27,7 @@ export interface GetIotConnectorArgs {
     /**
      * The name of IoT Connector resource.
      */
-    iotConnectorName?: string;
+    iotConnectorName: string;
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -111,7 +111,7 @@ export interface GetIotConnectorOutputArgs {
     /**
      * The name of IoT Connector resource.
      */
-    iotConnectorName?: pulumi.Input<string | undefined>;
+    iotConnectorName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the service instance.
      */

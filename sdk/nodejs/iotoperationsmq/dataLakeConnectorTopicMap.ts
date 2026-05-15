@@ -109,9 +109,6 @@ export class DataLakeConnectorTopicMap extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.topicMapName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'topicMapName'");
-            }
             resourceInputs["dataLakeConnectorName"] = args?.dataLakeConnectorName;
             resourceInputs["dataLakeConnectorRef"] = args?.dataLakeConnectorRef;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
@@ -184,5 +181,5 @@ export interface DataLakeConnectorTopicMapArgs {
     /**
      * Name of MQ dataLakeConnector/topicMap resource
      */
-    topicMapName: pulumi.Input<string>;
+    topicMapName?: pulumi.Input<string | undefined>;
 }

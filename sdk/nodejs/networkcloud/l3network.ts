@@ -151,9 +151,6 @@ export class L3Network extends pulumi.CustomResource {
             if (args?.l3IsolationDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'l3IsolationDomainId'");
             }
-            if (args?.l3NetworkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'l3NetworkName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -258,7 +255,7 @@ export interface L3NetworkArgs {
     /**
      * The name of the L3 network.
      */
-    l3NetworkName: pulumi.Input<string>;
+    l3NetworkName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

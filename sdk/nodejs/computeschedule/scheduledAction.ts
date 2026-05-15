@@ -84,9 +84,6 @@ export class ScheduledAction extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.scheduledActionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'scheduledActionName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.computeschedule.scheduledActionPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -131,7 +128,7 @@ export interface ScheduledActionArgs {
     /**
      * The name of the ScheduledAction
      */
-    scheduledActionName: pulumi.Input<string>;
+    scheduledActionName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

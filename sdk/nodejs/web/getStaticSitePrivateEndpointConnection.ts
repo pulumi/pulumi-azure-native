@@ -31,7 +31,7 @@ export interface GetStaticSitePrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -100,7 +100,7 @@ export interface GetStaticSitePrivateEndpointConnectionOutputArgs {
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

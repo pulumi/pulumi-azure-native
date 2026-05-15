@@ -91,9 +91,6 @@ export class BandwidthSchedule extends pulumi.CustomResource {
             if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.rateInMbps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rateInMbps'");
             }
@@ -148,7 +145,7 @@ export interface BandwidthScheduleArgs {
     /**
      * The bandwidth schedule name which needs to be added/updated.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The bandwidth rate in Mbps.
      */

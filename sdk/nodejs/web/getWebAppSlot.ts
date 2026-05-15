@@ -35,7 +35,7 @@ export interface GetWebAppSlotArgs {
     /**
      * Name of the deployment slot. By default, this API returns the production slot.
      */
-    slot?: string;
+    slot: string;
 }
 
 /**
@@ -331,5 +331,5 @@ export interface GetWebAppSlotOutputArgs {
     /**
      * Name of the deployment slot. By default, this API returns the production slot.
      */
-    slot?: pulumi.Input<string | undefined>;
+    slot: pulumi.Input<string>;
 }

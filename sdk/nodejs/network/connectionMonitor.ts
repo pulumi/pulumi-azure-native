@@ -129,9 +129,6 @@ export class ConnectionMonitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.connectionMonitorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectionMonitorName'");
-            }
             if (args?.networkWatcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
@@ -200,7 +197,7 @@ export interface ConnectionMonitorArgs {
     /**
      * The name of the connection monitor.
      */
-    connectionMonitorName: pulumi.Input<string>;
+    connectionMonitorName?: pulumi.Input<string | undefined>;
     /**
      * Describes the destination of connection monitor.
      */

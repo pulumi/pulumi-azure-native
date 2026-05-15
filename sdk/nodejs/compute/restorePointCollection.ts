@@ -96,9 +96,6 @@ export class RestorePointCollection extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.restorePointCollectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'restorePointCollectionName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["restorePointCollectionName"] = args?.restorePointCollectionName;
@@ -145,7 +142,7 @@ export interface RestorePointCollectionArgs {
     /**
      * The name of the restore point collection.
      */
-    restorePointCollectionName: pulumi.Input<string>;
+    restorePointCollectionName?: pulumi.Input<string | undefined>;
     /**
      * The properties of the source resource that this restore point collection is created from.
      */

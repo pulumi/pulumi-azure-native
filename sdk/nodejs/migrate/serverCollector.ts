@@ -63,9 +63,6 @@ export class ServerCollector extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.serverCollectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'serverCollectorName'");
-            }
             resourceInputs["eTag"] = args?.eTag;
             resourceInputs["projectName"] = args?.projectName;
             resourceInputs["properties"] = args?.properties;
@@ -105,5 +102,5 @@ export interface ServerCollectorArgs {
     /**
      * Unique name of a Server collector within a project.
      */
-    serverCollectorName: pulumi.Input<string>;
+    serverCollectorName?: pulumi.Input<string | undefined>;
 }

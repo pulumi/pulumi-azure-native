@@ -81,9 +81,6 @@ export class OrganizationEnvironmentById extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.environmentId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'environmentId'");
-            }
             if (args?.organizationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'organizationName'");
             }
@@ -123,7 +120,7 @@ export interface OrganizationEnvironmentByIdArgs {
     /**
      * Confluent environment id
      */
-    environmentId: pulumi.Input<string>;
+    environmentId?: pulumi.Input<string | undefined>;
     /**
      * Type of environment
      */

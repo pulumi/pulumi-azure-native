@@ -27,7 +27,7 @@ export interface GetAkriConnectorTemplateArgs {
     /**
      * Name of AkriConnectorTemplate resource.
      */
-    akriConnectorTemplateName?: string;
+    akriConnectorTemplateName: string;
     /**
      * Name of instance.
      */
@@ -91,7 +91,7 @@ export interface GetAkriConnectorTemplateOutputArgs {
     /**
      * Name of AkriConnectorTemplate resource.
      */
-    akriConnectorTemplateName?: pulumi.Input<string | undefined>;
+    akriConnectorTemplateName: pulumi.Input<string>;
     /**
      * Name of instance.
      */

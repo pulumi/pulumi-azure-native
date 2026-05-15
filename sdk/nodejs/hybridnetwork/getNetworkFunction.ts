@@ -26,7 +26,7 @@ export interface GetNetworkFunctionArgs {
     /**
      * The name of the network function resource.
      */
-    networkFunctionName?: string;
+    networkFunctionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetNetworkFunctionOutputArgs {
     /**
      * The name of the network function resource.
      */
-    networkFunctionName?: pulumi.Input<string | undefined>;
+    networkFunctionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

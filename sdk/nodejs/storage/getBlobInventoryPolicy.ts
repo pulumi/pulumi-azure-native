@@ -31,7 +31,7 @@ export interface GetBlobInventoryPolicyArgs {
     /**
      * The name of the storage account blob inventory policy. It should always be 'default'
      */
-    blobInventoryPolicyName?: string;
+    blobInventoryPolicyName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetBlobInventoryPolicyOutputArgs {
     /**
      * The name of the storage account blob inventory policy. It should always be 'default'
      */
-    blobInventoryPolicyName?: pulumi.Input<string | undefined>;
+    blobInventoryPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

@@ -28,7 +28,7 @@ export interface GetDomainOwnershipIdentifierArgs {
     /**
      * Name of identifier.
      */
-    name?: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -88,7 +88,7 @@ export interface GetDomainOwnershipIdentifierOutputArgs {
     /**
      * Name of identifier.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

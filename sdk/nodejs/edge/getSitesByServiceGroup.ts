@@ -30,7 +30,7 @@ export interface GetSitesByServiceGroupArgs {
     /**
      * The name of the Site
      */
-    siteName?: string;
+    siteName: string;
 }
 
 /**
@@ -85,5 +85,5 @@ export interface GetSitesByServiceGroupOutputArgs {
     /**
      * The name of the Site
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName: pulumi.Input<string>;
 }

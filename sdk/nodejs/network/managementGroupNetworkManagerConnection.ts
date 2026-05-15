@@ -84,9 +84,6 @@ export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResour
             if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if (args?.networkManagerConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkManagerConnectionName'");
-            }
             resourceInputs["description"] = args?.description;
             resourceInputs["managementGroupId"] = args?.managementGroupId;
             resourceInputs["networkManagerConnectionName"] = args?.networkManagerConnectionName;
@@ -127,7 +124,7 @@ export interface ManagementGroupNetworkManagerConnectionArgs {
     /**
      * Name for the network manager connection.
      */
-    networkManagerConnectionName: pulumi.Input<string>;
+    networkManagerConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Network Manager Id.
      */

@@ -77,9 +77,6 @@ export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.batchConfigurationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'batchConfigurationName'");
-            }
             if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
@@ -120,7 +117,7 @@ export interface IntegrationAccountBatchConfigurationArgs {
     /**
      * The batch configuration name.
      */
-    batchConfigurationName: pulumi.Input<string>;
+    batchConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The integration account name.
      */

@@ -115,9 +115,6 @@ export class RoutePolicy extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.routePolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'routePolicyName'");
-            }
             if (args?.statements === undefined && !opts.urn) {
                 throw new Error("Missing required property 'statements'");
             }
@@ -191,7 +188,7 @@ export interface RoutePolicyArgs {
     /**
      * Name of the Route Policy.
      */
-    routePolicyName: pulumi.Input<string>;
+    routePolicyName?: pulumi.Input<string | undefined>;
     /**
      * Route Policy statements.
      */

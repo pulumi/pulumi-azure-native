@@ -77,9 +77,6 @@ export class BackupInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.backupInstanceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'backupInstanceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -117,7 +114,7 @@ export interface BackupInstanceArgs {
     /**
      * The name of the backup instance.
      */
-    backupInstanceName: pulumi.Input<string>;
+    backupInstanceName?: pulumi.Input<string | undefined>;
     /**
      * BackupInstanceResource properties
      */

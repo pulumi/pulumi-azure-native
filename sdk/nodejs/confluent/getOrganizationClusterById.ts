@@ -28,7 +28,7 @@ export interface GetOrganizationClusterByIdArgs {
     /**
      * Confluent kafka or schema registry cluster id
      */
-    clusterId?: string;
+    clusterId: string;
     /**
      * Confluent environment id
      */
@@ -105,7 +105,7 @@ export interface GetOrganizationClusterByIdOutputArgs {
     /**
      * Confluent kafka or schema registry cluster id
      */
-    clusterId?: pulumi.Input<string | undefined>;
+    clusterId: pulumi.Input<string>;
     /**
      * Confluent environment id
      */

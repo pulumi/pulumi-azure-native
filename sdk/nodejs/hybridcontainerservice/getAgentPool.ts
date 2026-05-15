@@ -25,7 +25,7 @@ export interface GetAgentPoolArgs {
     /**
      * Parameter for the name of the agent pool in the provisioned cluster
      */
-    agentPoolName?: string;
+    agentPoolName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -141,7 +141,7 @@ export interface GetAgentPoolOutputArgs {
     /**
      * Parameter for the name of the agent pool in the provisioned cluster
      */
-    agentPoolName?: pulumi.Input<string | undefined>;
+    agentPoolName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

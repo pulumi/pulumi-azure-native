@@ -57,9 +57,6 @@ export class HyperVCollector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.hyperVCollectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'hyperVCollectorName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -96,7 +93,7 @@ export interface HyperVCollectorArgs {
     /**
      * Unique name of a Hyper-V collector within a project.
      */
-    hyperVCollectorName: pulumi.Input<string>;
+    hyperVCollectorName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Migrate project.
      */

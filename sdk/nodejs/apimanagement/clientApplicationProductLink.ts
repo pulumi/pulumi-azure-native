@@ -69,9 +69,6 @@ export class ClientApplicationProductLink extends pulumi.CustomResource {
             if (args?.clientApplicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientApplicationId'");
             }
-            if (args?.clientApplicationProductLinkId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'clientApplicationProductLinkId'");
-            }
             if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
@@ -113,7 +110,7 @@ export interface ClientApplicationProductLinkArgs {
     /**
      * Client Application Product Link identifier. Must be unique in the current API Management service instance.
      */
-    clientApplicationProductLinkId: pulumi.Input<string>;
+    clientApplicationProductLinkId?: pulumi.Input<string | undefined>;
     /**
      * The unique resource identifier of the Product.
      */

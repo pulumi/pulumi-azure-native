@@ -30,7 +30,7 @@ export interface GetConnectionDeploymentArgs {
     /**
      * Name of the deployment resource
      */
-    deploymentName?: string;
+    deploymentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetConnectionDeploymentOutputArgs {
     /**
      * Name of the deployment resource
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

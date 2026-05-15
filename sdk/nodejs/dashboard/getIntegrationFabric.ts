@@ -27,7 +27,7 @@ export interface GetIntegrationFabricArgs {
     /**
      * The integration fabric name of Azure Managed Grafana.
      */
-    integrationFabricName?: string;
+    integrationFabricName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -92,7 +92,7 @@ export interface GetIntegrationFabricOutputArgs {
     /**
      * The integration fabric name of Azure Managed Grafana.
      */
-    integrationFabricName?: pulumi.Input<string | undefined>;
+    integrationFabricName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

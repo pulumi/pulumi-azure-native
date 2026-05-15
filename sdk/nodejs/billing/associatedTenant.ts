@@ -75,9 +75,6 @@ export class AssociatedTenant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.associatedTenantName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'associatedTenantName'");
-            }
             if (args?.billingAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
@@ -111,7 +108,7 @@ export interface AssociatedTenantArgs {
     /**
      * The ID that uniquely identifies a tenant.
      */
-    associatedTenantName: pulumi.Input<string>;
+    associatedTenantName?: pulumi.Input<string | undefined>;
     /**
      * The ID that uniquely identifies a billing account.
      */

@@ -35,7 +35,7 @@ export interface GetSignalRSharedPrivateLinkResourceArgs {
     /**
      * The name of the shared private link resource.
      */
-    sharedPrivateLinkResourceName?: string;
+    sharedPrivateLinkResourceName: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetSignalRSharedPrivateLinkResourceOutputArgs {
     /**
      * The name of the shared private link resource.
      */
-    sharedPrivateLinkResourceName?: pulumi.Input<string | undefined>;
+    sharedPrivateLinkResourceName: pulumi.Input<string>;
 }

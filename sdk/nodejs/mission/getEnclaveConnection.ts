@@ -26,7 +26,7 @@ export interface GetEnclaveConnectionArgs {
     /**
      * The name of the Enclave Connection Resource
      */
-    enclaveConnectionName?: string;
+    enclaveConnectionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetEnclaveConnectionOutputArgs {
     /**
      * The name of the Enclave Connection Resource
      */
-    enclaveConnectionName?: pulumi.Input<string | undefined>;
+    enclaveConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

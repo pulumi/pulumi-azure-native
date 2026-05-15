@@ -26,7 +26,7 @@ export interface GetNGroupArgs {
     /**
      * The NGroups name.
      */
-    ngroupsName?: string;
+    ngroupsName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetNGroupOutputArgs {
     /**
      * The NGroups name.
      */
-    ngroupsName?: pulumi.Input<string | undefined>;
+    ngroupsName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

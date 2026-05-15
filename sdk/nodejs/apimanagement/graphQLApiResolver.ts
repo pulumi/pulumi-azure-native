@@ -77,9 +77,6 @@ export class GraphQLApiResolver extends pulumi.CustomResource {
             if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.resolverId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resolverId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +131,7 @@ export interface GraphQLApiResolverArgs {
     /**
      * Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
      */
-    resolverId: pulumi.Input<string>;
+    resolverId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

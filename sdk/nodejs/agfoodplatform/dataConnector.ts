@@ -75,9 +75,6 @@ export class DataConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dataConnectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataConnectorName'");
-            }
             if (args?.dataManagerForAgricultureResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataManagerForAgricultureResourceName'");
             }
@@ -118,7 +115,7 @@ export interface DataConnectorArgs {
     /**
      * Connector name.
      */
-    dataConnectorName: pulumi.Input<string>;
+    dataConnectorName?: pulumi.Input<string | undefined>;
     /**
      * DataManagerForAgriculture resource name.
      */

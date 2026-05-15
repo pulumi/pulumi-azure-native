@@ -24,7 +24,7 @@ export interface GetManagementLockAtResourceGroupLevelArgs {
     /**
      * The name of the lock to get.
      */
-    lockName?: string;
+    lockName: string;
     /**
      * The name of the locked resource group.
      */
@@ -85,7 +85,7 @@ export interface GetManagementLockAtResourceGroupLevelOutputArgs {
     /**
      * The name of the lock to get.
      */
-    lockName?: pulumi.Input<string | undefined>;
+    lockName: pulumi.Input<string>;
     /**
      * The name of the locked resource group.
      */

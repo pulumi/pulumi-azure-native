@@ -101,9 +101,6 @@ export class AdminRuleCollection extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.ruleCollectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ruleCollectionName'");
-            }
             resourceInputs["appliesToGroups"] = args?.appliesToGroups;
             resourceInputs["configurationName"] = args?.configurationName;
             resourceInputs["description"] = args?.description;
@@ -162,5 +159,5 @@ export interface AdminRuleCollectionArgs {
     /**
      * The name of the network manager security Configuration rule collection.
      */
-    ruleCollectionName: pulumi.Input<string>;
+    ruleCollectionName?: pulumi.Input<string | undefined>;
 }

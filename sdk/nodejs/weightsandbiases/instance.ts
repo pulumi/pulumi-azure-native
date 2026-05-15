@@ -85,9 +85,6 @@ export class Instance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.instancename === undefined && !opts.urn) {
-                throw new Error("Missing required property 'instancename'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +126,7 @@ export interface InstanceArgs {
     /**
      * Name of the Instance resource
      */
-    instancename: pulumi.Input<string>;
+    instancename?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

@@ -194,9 +194,6 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
             if (args?.virtualNetworkGateway1 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGateway1'");
             }
-            if (args?.virtualNetworkGatewayConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualNetworkGatewayConnectionName'");
-            }
             resourceInputs["authorizationKey"] = args?.authorizationKey;
             resourceInputs["connectionMode"] = args?.connectionMode;
             resourceInputs["connectionProtocol"] = args?.connectionProtocol;
@@ -382,5 +379,5 @@ export interface VirtualNetworkGatewayConnectionArgs {
     /**
      * The name of the virtual network gateway connection.
      */
-    virtualNetworkGatewayConnectionName: pulumi.Input<string>;
+    virtualNetworkGatewayConnectionName?: pulumi.Input<string | undefined>;
 }

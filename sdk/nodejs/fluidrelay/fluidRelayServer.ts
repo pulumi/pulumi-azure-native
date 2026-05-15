@@ -101,9 +101,6 @@ export class FluidRelayServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.fluidRelayServerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'fluidRelayServerName'");
-            }
             if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
@@ -153,7 +150,7 @@ export interface FluidRelayServerArgs {
     /**
      * The Fluid Relay server resource name.
      */
-    fluidRelayServerName: pulumi.Input<string>;
+    fluidRelayServerName?: pulumi.Input<string | undefined>;
     /**
      * The type of identity used for the resource.
      */

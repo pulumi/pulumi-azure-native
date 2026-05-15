@@ -150,9 +150,6 @@ export class Domain extends pulumi.CustomResource {
             if (args?.contactTech === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactTech'");
             }
-            if (args?.domainName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'domainName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -254,7 +251,7 @@ export interface DomainArgs {
     /**
      * Name of the domain.
      */
-    domainName: pulumi.Input<string>;
+    domainName?: pulumi.Input<string | undefined>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */

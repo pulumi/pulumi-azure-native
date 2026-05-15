@@ -31,7 +31,7 @@ export interface GetConnectionTypeArgs {
     /**
      * The name of connection type.
      */
-    connectionTypeName?: string;
+    connectionTypeName: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -103,7 +103,7 @@ export interface GetConnectionTypeOutputArgs {
     /**
      * The name of connection type.
      */
-    connectionTypeName?: pulumi.Input<string | undefined>;
+    connectionTypeName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

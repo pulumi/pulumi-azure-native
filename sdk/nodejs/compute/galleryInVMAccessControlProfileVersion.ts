@@ -118,9 +118,6 @@ export class GalleryInVMAccessControlProfileVersion extends pulumi.CustomResourc
             if (args?.inVMAccessControlProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inVMAccessControlProfileName'");
             }
-            if (args?.inVMAccessControlProfileVersionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'inVMAccessControlProfileVersionName'");
-            }
             if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
@@ -191,7 +188,7 @@ export interface GalleryInVMAccessControlProfileVersionArgs {
     /**
      * The name of the gallery inVMAccessControlProfile version to be retrieved.
      */
-    inVMAccessControlProfileVersionName: pulumi.Input<string>;
+    inVMAccessControlProfileVersionName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

@@ -31,7 +31,7 @@ export interface GetSecurityPoliciesInterfaceArgs {
     /**
      * SecurityPolicy
      */
-    securityPolicyName?: string;
+    securityPolicyName: string;
     /**
      * traffic controller name for path
      */
@@ -107,7 +107,7 @@ export interface GetSecurityPoliciesInterfaceOutputArgs {
     /**
      * SecurityPolicy
      */
-    securityPolicyName?: pulumi.Input<string | undefined>;
+    securityPolicyName: pulumi.Input<string>;
     /**
      * traffic controller name for path
      */

@@ -83,9 +83,6 @@ export class DaprComponentResiliencyPolicy extends pulumi.CustomResource {
             if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +129,7 @@ export interface DaprComponentResiliencyPolicyArgs {
     /**
      * Name of the Dapr Component Resiliency Policy.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The optional outbound component resiliency policy configuration
      */

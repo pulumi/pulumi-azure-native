@@ -34,7 +34,7 @@ export interface GetConnectorMappingArgs {
     /**
      * The name of the connector mapping.
      */
-    mappingName?: string;
+    mappingName: string;
     /**
      * The name of the resource group.
      */
@@ -149,7 +149,7 @@ export interface GetConnectorMappingOutputArgs {
     /**
      * The name of the connector mapping.
      */
-    mappingName?: pulumi.Input<string | undefined>;
+    mappingName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

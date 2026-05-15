@@ -27,7 +27,7 @@ export interface GetConfigurationArgs {
     /**
      * Name of the configuration (also known as server parameter).
      */
-    configurationName?: string;
+    configurationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -127,7 +127,7 @@ export interface GetConfigurationOutputArgs {
     /**
      * Name of the configuration (also known as server parameter).
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

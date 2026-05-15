@@ -34,7 +34,7 @@ export interface GetUserArgs {
     /**
      * The name of the user profile.
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,7 +121,7 @@ export interface GetUserOutputArgs {
     /**
      * The name of the user profile.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

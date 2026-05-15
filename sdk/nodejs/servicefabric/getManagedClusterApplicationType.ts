@@ -27,7 +27,7 @@ export interface GetManagedClusterApplicationTypeArgs {
     /**
      * The name of the application type name resource.
      */
-    applicationTypeName?: string;
+    applicationTypeName: string;
     /**
      * The name of the cluster resource.
      */
@@ -95,7 +95,7 @@ export interface GetManagedClusterApplicationTypeOutputArgs {
     /**
      * The name of the application type name resource.
      */
-    applicationTypeName?: pulumi.Input<string | undefined>;
+    applicationTypeName: pulumi.Input<string>;
     /**
      * The name of the cluster resource.
      */

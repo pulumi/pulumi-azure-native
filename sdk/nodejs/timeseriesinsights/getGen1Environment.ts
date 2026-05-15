@@ -25,7 +25,7 @@ export interface GetGen1EnvironmentArgs {
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    environmentName?: string;
+    environmentName: string;
     /**
      * Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
      */
@@ -124,7 +124,7 @@ export interface GetGen1EnvironmentOutputArgs {
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
-    environmentName?: pulumi.Input<string | undefined>;
+    environmentName: pulumi.Input<string>;
     /**
      * Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
      */

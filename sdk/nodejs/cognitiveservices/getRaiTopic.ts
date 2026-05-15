@@ -31,7 +31,7 @@ export interface GetRaiTopicArgs {
     /**
      * The name of the Rai Topic associated with the Cognitive Services Account
      */
-    raiTopicName?: string;
+    raiTopicName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetRaiTopicOutputArgs {
     /**
      * The name of the Rai Topic associated with the Cognitive Services Account
      */
-    raiTopicName?: pulumi.Input<string | undefined>;
+    raiTopicName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

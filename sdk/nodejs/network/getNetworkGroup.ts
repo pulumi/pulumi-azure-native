@@ -27,7 +27,7 @@ export interface GetNetworkGroupArgs {
     /**
      * The name of the network group.
      */
-    networkGroupName?: string;
+    networkGroupName: string;
     /**
      * The name of the network manager.
      */
@@ -103,7 +103,7 @@ export interface GetNetworkGroupOutputArgs {
     /**
      * The name of the network group.
      */
-    networkGroupName?: pulumi.Input<string | undefined>;
+    networkGroupName: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */

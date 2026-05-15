@@ -31,7 +31,7 @@ export interface GetWCFRelayArgs {
     /**
      * The relay name.
      */
-    relayName?: string;
+    relayName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -123,7 +123,7 @@ export interface GetWCFRelayOutputArgs {
     /**
      * The relay name.
      */
-    relayName?: pulumi.Input<string | undefined>;
+    relayName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

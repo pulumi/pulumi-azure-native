@@ -25,7 +25,7 @@ export interface GetVirtualClusterArgs {
     /**
      * The name of the virtual cluster.
      */
-    virtualClusterName?: string;
+    virtualClusterName: string;
 }
 
 /**
@@ -90,5 +90,5 @@ export interface GetVirtualClusterOutputArgs {
     /**
      * The name of the virtual cluster.
      */
-    virtualClusterName?: pulumi.Input<string | undefined>;
+    virtualClusterName: pulumi.Input<string>;
 }

@@ -77,9 +77,6 @@ export class IpFirewallRule extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.ruleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ruleName'");
-            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -122,7 +119,7 @@ export interface IpFirewallRuleArgs {
     /**
      * The IP firewall rule name
      */
-    ruleName: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * The start IP address of the firewall rule. Must be IPv4 format
      */

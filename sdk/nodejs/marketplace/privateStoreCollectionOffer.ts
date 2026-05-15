@@ -116,9 +116,6 @@ export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
             if (args?.collectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collectionId'");
             }
-            if (args?.offerId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'offerId'");
-            }
             if (args?.privateStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
@@ -182,7 +179,7 @@ export interface PrivateStoreCollectionOfferArgs {
     /**
      * The offer ID to update or delete
      */
-    offerId: pulumi.Input<string>;
+    offerId?: pulumi.Input<string | undefined>;
     /**
      * Offer plans
      */

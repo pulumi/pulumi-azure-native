@@ -27,7 +27,7 @@ export interface GetPrivateDnsZoneGroupArgs {
     /**
      * The name of the private dns zone group.
      */
-    privateDnsZoneGroupName?: string;
+    privateDnsZoneGroupName: string;
     /**
      * The name of the private endpoint.
      */
@@ -87,7 +87,7 @@ export interface GetPrivateDnsZoneGroupOutputArgs {
     /**
      * The name of the private dns zone group.
      */
-    privateDnsZoneGroupName?: pulumi.Input<string | undefined>;
+    privateDnsZoneGroupName: pulumi.Input<string>;
     /**
      * The name of the private endpoint.
      */

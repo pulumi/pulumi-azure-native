@@ -86,9 +86,6 @@ export class MachineLearningDatastore extends pulumi.CustomResource {
             if (args?.dataStoreType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataStoreType'");
             }
-            if (args?.datastoreName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'datastoreName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -200,7 +197,7 @@ export interface MachineLearningDatastoreArgs {
     /**
      * The Datastore name.
      */
-    datastoreName: pulumi.Input<string>;
+    datastoreName?: pulumi.Input<string | undefined>;
     /**
      * The description of the datastore.
      */

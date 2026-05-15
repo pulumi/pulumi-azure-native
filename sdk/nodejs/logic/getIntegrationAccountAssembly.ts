@@ -27,7 +27,7 @@ export interface GetIntegrationAccountAssemblyArgs {
     /**
      * The assembly artifact name.
      */
-    assemblyArtifactName?: string;
+    assemblyArtifactName: string;
     /**
      * The integration account name.
      */
@@ -91,7 +91,7 @@ export interface GetIntegrationAccountAssemblyOutputArgs {
     /**
      * The assembly artifact name.
      */
-    assemblyArtifactName?: pulumi.Input<string | undefined>;
+    assemblyArtifactName: pulumi.Input<string>;
     /**
      * The integration account name.
      */

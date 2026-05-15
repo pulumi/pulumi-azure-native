@@ -32,7 +32,7 @@ export interface GetRaiBlocklistItemArgs {
     /**
      * The name of the RaiBlocklist Item associated with the custom blocklist
      */
-    raiBlocklistItemName?: string;
+    raiBlocklistItemName: string;
     /**
      * The name of the RaiBlocklist associated with the Cognitive Services Account
      */
@@ -105,7 +105,7 @@ export interface GetRaiBlocklistItemOutputArgs {
     /**
      * The name of the RaiBlocklist Item associated with the custom blocklist
      */
-    raiBlocklistItemName?: pulumi.Input<string | undefined>;
+    raiBlocklistItemName: pulumi.Input<string>;
     /**
      * The name of the RaiBlocklist associated with the Cognitive Services Account
      */

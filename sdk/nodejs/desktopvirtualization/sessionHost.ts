@@ -161,9 +161,6 @@ export class SessionHost extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.sessionHostName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sessionHostName'");
-            }
             resourceInputs["allowNewSession"] = args?.allowNewSession;
             resourceInputs["assignedUser"] = args?.assignedUser;
             resourceInputs["friendlyName"] = args?.friendlyName;
@@ -255,5 +252,5 @@ export interface SessionHostArgs {
     /**
      * The name of the session host within the specified host pool
      */
-    sessionHostName: pulumi.Input<string>;
+    sessionHostName?: pulumi.Input<string | undefined>;
 }

@@ -109,9 +109,6 @@ export class Api extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.apiName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'apiName'");
-            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -175,7 +172,7 @@ export interface ApiArgs {
     /**
      * The name of the API.
      */
-    apiName: pulumi.Input<string>;
+    apiName?: pulumi.Input<string | undefined>;
     /**
      * The set of contacts
      */

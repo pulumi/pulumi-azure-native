@@ -30,7 +30,7 @@ export interface GetB2CTenantArgs {
     /**
      * The initial domain name of the Azure AD B2C tenant.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 export interface GetB2CTenantResult {
@@ -102,5 +102,5 @@ export interface GetB2CTenantOutputArgs {
     /**
      * The initial domain name of the Azure AD B2C tenant.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

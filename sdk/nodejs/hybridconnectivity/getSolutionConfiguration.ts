@@ -28,7 +28,7 @@ export interface GetSolutionConfigurationArgs {
     /**
      * Represent Solution Configuration Resource.
      */
-    solutionConfiguration?: string;
+    solutionConfiguration: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetSolutionConfigurationOutputArgs {
     /**
      * Represent Solution Configuration Resource.
      */
-    solutionConfiguration?: pulumi.Input<string | undefined>;
+    solutionConfiguration: pulumi.Input<string>;
 }

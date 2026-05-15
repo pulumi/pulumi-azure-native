@@ -105,9 +105,6 @@ export class Linker extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.linkerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'linkerName'");
-            }
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
@@ -167,7 +164,7 @@ export interface LinkerArgs {
     /**
      * The name Linker resource.
      */
-    linkerName: pulumi.Input<string>;
+    linkerName?: pulumi.Input<string | undefined>;
     /**
      * The network solution.
      */

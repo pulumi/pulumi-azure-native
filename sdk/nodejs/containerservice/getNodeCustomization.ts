@@ -26,7 +26,7 @@ export interface GetNodeCustomizationArgs {
     /**
      * The name of the Node Customization resource.
      */
-    nodeCustomizationName?: string;
+    nodeCustomizationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetNodeCustomizationOutputArgs {
     /**
      * The name of the Node Customization resource.
      */
-    nodeCustomizationName?: pulumi.Input<string | undefined>;
+    nodeCustomizationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

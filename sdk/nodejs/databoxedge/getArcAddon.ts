@@ -26,7 +26,7 @@ export interface GetArcAddonArgs {
     /**
      * The addon name.
      */
-    addonName?: string;
+    addonName: string;
     /**
      * The device name.
      */
@@ -122,7 +122,7 @@ export interface GetArcAddonOutputArgs {
     /**
      * The addon name.
      */
-    addonName?: pulumi.Input<string | undefined>;
+    addonName: pulumi.Input<string>;
     /**
      * The device name.
      */

@@ -30,7 +30,7 @@ export interface GetNamespaceVirtualNetworkRuleArgs {
     /**
      * The Virtual Network Rule name.
      */
-    virtualNetworkRuleName?: string;
+    virtualNetworkRuleName: string;
 }
 
 /**
@@ -84,5 +84,5 @@ export interface GetNamespaceVirtualNetworkRuleOutputArgs {
     /**
      * The Virtual Network Rule name.
      */
-    virtualNetworkRuleName?: pulumi.Input<string | undefined>;
+    virtualNetworkRuleName: pulumi.Input<string>;
 }

@@ -38,7 +38,7 @@ export interface GetMqttBridgeTopicMapArgs {
     /**
      * Name of MQ mqttBridgeTopicMap resource
      */
-    topicMapName?: string;
+    topicMapName: string;
 }
 
 /**
@@ -121,5 +121,5 @@ export interface GetMqttBridgeTopicMapOutputArgs {
     /**
      * Name of MQ mqttBridgeTopicMap resource
      */
-    topicMapName?: pulumi.Input<string | undefined>;
+    topicMapName: pulumi.Input<string>;
 }

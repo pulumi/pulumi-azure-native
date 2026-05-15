@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The private endpoint connection name.
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group that contains the IoT Central application.
      */
@@ -95,7 +95,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
     /**
      * The private endpoint connection name.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the IoT Central application.
      */

@@ -35,7 +35,7 @@ export interface GetServerCollectorsOperationArgs {
     /**
      * Physical server collector ARM name
      */
-    serverCollectorName?: string;
+    serverCollectorName: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetServerCollectorsOperationOutputArgs {
     /**
      * Physical server collector ARM name
      */
-    serverCollectorName?: pulumi.Input<string | undefined>;
+    serverCollectorName: pulumi.Input<string>;
 }

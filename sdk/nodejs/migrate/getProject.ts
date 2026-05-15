@@ -24,7 +24,7 @@ export interface GetProjectArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    projectName?: string;
+    projectName: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
@@ -85,7 +85,7 @@ export interface GetProjectOutputArgs {
     /**
      * Name of the Azure Migrate project.
      */
-    projectName?: pulumi.Input<string | undefined>;
+    projectName: pulumi.Input<string>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

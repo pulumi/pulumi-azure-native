@@ -26,7 +26,7 @@ export interface GetApplicationGatewayArgs {
     /**
      * The name of the application gateway.
      */
-    applicationGatewayName?: string;
+    applicationGatewayName: string;
     /**
      * The name of the resource group.
      */
@@ -237,7 +237,7 @@ export interface GetApplicationGatewayOutputArgs {
     /**
      * The name of the application gateway.
      */
-    applicationGatewayName?: pulumi.Input<string | undefined>;
+    applicationGatewayName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

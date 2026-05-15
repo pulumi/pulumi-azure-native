@@ -111,9 +111,6 @@ export class Hunt extends pulumi.CustomResource {
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if (args?.huntId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'huntId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -181,7 +178,7 @@ export interface HuntArgs {
     /**
      * The hunt id (GUID)
      */
-    huntId: pulumi.Input<string>;
+    huntId?: pulumi.Input<string | undefined>;
     /**
      * The hypothesis status of the hunt.
      */

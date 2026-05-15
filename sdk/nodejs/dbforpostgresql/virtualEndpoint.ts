@@ -87,9 +87,6 @@ export class VirtualEndpoint extends pulumi.CustomResource {
             if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (args?.virtualEndpointName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualEndpointName'");
-            }
             resourceInputs["endpointType"] = args?.endpointType;
             resourceInputs["members"] = args?.members;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -139,5 +136,5 @@ export interface VirtualEndpointArgs {
     /**
      * Base name of the virtual endpoints.
      */
-    virtualEndpointName: pulumi.Input<string>;
+    virtualEndpointName?: pulumi.Input<string | undefined>;
 }

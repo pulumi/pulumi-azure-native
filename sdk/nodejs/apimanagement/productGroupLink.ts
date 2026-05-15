@@ -69,9 +69,6 @@ export class ProductGroupLink extends pulumi.CustomResource {
             if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if (args?.groupLinkId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'groupLinkId'");
-            }
             if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
@@ -113,7 +110,7 @@ export interface ProductGroupLinkArgs {
     /**
      * Product-Group link identifier. Must be unique in the current API Management service instance.
      */
-    groupLinkId: pulumi.Input<string>;
+    groupLinkId?: pulumi.Input<string | undefined>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

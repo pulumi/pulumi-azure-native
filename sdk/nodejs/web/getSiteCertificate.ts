@@ -27,7 +27,7 @@ export interface GetSiteCertificateArgs {
     /**
      * Name of the certificate.
      */
-    certificateName?: string;
+    certificateName: string;
     /**
      * Name of the site.
      */
@@ -175,7 +175,7 @@ export interface GetSiteCertificateOutputArgs {
     /**
      * Name of the certificate.
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName: pulumi.Input<string>;
     /**
      * Name of the site.
      */

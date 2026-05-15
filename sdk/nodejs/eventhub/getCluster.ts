@@ -26,7 +26,7 @@ export interface GetClusterArgs {
     /**
      * The name of the Event Hubs Cluster.
      */
-    clusterName?: string;
+    clusterName: string;
     /**
      * Name of the resource group within the azure subscription.
      */
@@ -113,7 +113,7 @@ export interface GetClusterOutputArgs {
     /**
      * The name of the Event Hubs Cluster.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */

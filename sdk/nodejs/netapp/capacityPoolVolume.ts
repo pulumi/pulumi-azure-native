@@ -327,9 +327,6 @@ export class CapacityPoolVolume extends pulumi.CustomResource {
             if (args?.usageThreshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'usageThreshold'");
             }
-            if (args?.volumeName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'volumeName'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["avsDataStore"] = (args?.avsDataStore) ?? "Disabled";
             resourceInputs["backupId"] = args?.backupId;
@@ -646,7 +643,7 @@ export interface CapacityPoolVolumeArgs {
     /**
      * The name of the volume
      */
-    volumeName: pulumi.Input<string>;
+    volumeName?: pulumi.Input<string | undefined>;
     /**
      * Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
      */

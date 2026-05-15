@@ -26,7 +26,7 @@ export interface GetCreditArgs {
     /**
      * Name of the credit
      */
-    creditName?: string;
+    creditName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -165,7 +165,7 @@ export interface GetCreditOutputArgs {
     /**
      * Name of the credit
      */
-    creditName?: pulumi.Input<string | undefined>;
+    creditName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

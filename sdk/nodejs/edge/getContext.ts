@@ -26,7 +26,7 @@ export interface GetContextArgs {
     /**
      * The name of the Context.
      */
-    contextName?: string;
+    contextName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetContextOutputArgs {
     /**
      * The name of the Context.
      */
-    contextName?: pulumi.Input<string | undefined>;
+    contextName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

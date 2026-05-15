@@ -106,9 +106,6 @@ export class WorkspaceApiOperation extends pulumi.CustomResource {
             if (args?.method === undefined && !opts.urn) {
                 throw new Error("Missing required property 'method'");
             }
-            if (args?.operationId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'operationId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -180,7 +177,7 @@ export interface WorkspaceApiOperationArgs {
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
-    operationId: pulumi.Input<string>;
+    operationId?: pulumi.Input<string | undefined>;
     /**
      * Operation Policies
      */

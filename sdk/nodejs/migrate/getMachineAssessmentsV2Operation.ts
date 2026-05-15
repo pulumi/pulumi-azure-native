@@ -25,7 +25,7 @@ export interface GetMachineAssessmentsV2OperationArgs {
     /**
      * Machine Assessment V2 ARM name
      */
-    assessmentName?: string;
+    assessmentName: string;
     /**
      * Assessment Project Name
      */
@@ -83,7 +83,7 @@ export interface GetMachineAssessmentsV2OperationOutputArgs {
     /**
      * Machine Assessment V2 ARM name
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

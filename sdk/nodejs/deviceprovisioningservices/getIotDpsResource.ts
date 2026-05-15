@@ -26,7 +26,7 @@ export interface GetIotDpsResourceArgs {
     /**
      * Name of the provisioning service to retrieve.
      */
-    provisioningServiceName?: string;
+    provisioningServiceName: string;
     /**
      * Resource group name.
      */
@@ -109,7 +109,7 @@ export interface GetIotDpsResourceOutputArgs {
     /**
      * Name of the provisioning service to retrieve.
      */
-    provisioningServiceName?: pulumi.Input<string | undefined>;
+    provisioningServiceName: pulumi.Input<string>;
     /**
      * Resource group name.
      */

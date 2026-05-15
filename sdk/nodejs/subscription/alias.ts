@@ -69,13 +69,10 @@ export class Alias extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AliasArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AliasArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.aliasName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'aliasName'");
-            }
             resourceInputs["aliasName"] = args?.aliasName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -103,7 +100,7 @@ export interface AliasArgs {
     /**
      * AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
      */
-    aliasName: pulumi.Input<string>;
+    aliasName?: pulumi.Input<string | undefined>;
     /**
      * Put alias request properties.
      */

@@ -67,13 +67,10 @@ export class Connector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConnectorArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.connectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectorName'");
-            }
             resourceInputs["connectorName"] = args?.connectorName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -101,7 +98,7 @@ export interface ConnectorArgs {
     /**
      * The name of the connector
      */
-    connectorName: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

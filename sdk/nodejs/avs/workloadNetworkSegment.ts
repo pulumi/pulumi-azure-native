@@ -103,9 +103,6 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.segmentId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'segmentId'");
-            }
             resourceInputs["connectedGateway"] = args?.connectedGateway;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["privateCloudName"] = args?.privateCloudName;
@@ -167,7 +164,7 @@ export interface WorkloadNetworkSegmentArgs {
     /**
      * The ID of the NSX Segment
      */
-    segmentId: pulumi.Input<string>;
+    segmentId?: pulumi.Input<string | undefined>;
     /**
      * Subnet which to connect segment to.
      */

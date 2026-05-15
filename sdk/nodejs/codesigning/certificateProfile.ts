@@ -115,9 +115,6 @@ export class CertificateProfile extends pulumi.CustomResource {
             if (args?.identityValidationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityValidationId'");
             }
-            if (args?.profileName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'profileName'");
-            }
             if (args?.profileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileType'");
             }
@@ -199,7 +196,7 @@ export interface CertificateProfileArgs {
     /**
      * Certificate profile name.
      */
-    profileName: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * Profile type of the certificate.
      */

@@ -26,7 +26,7 @@ export interface GetIntegrationAccountArgs {
     /**
      * The integration account name.
      */
-    integrationAccountName?: string;
+    integrationAccountName: string;
     /**
      * The resource group name.
      */
@@ -93,7 +93,7 @@ export interface GetIntegrationAccountOutputArgs {
     /**
      * The integration account name.
      */
-    integrationAccountName?: pulumi.Input<string | undefined>;
+    integrationAccountName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

@@ -21,7 +21,7 @@ export interface GetAssociationArgs {
     /**
      * The name of the association.
      */
-    associationName?: string;
+    associationName: string;
     /**
      * The scope of the association.
      */
@@ -74,7 +74,7 @@ export interface GetAssociationOutputArgs {
     /**
      * The name of the association.
      */
-    associationName?: pulumi.Input<string | undefined>;
+    associationName: pulumi.Input<string>;
     /**
      * The scope of the association.
      */

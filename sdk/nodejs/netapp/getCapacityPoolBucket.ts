@@ -33,7 +33,7 @@ export interface GetCapacityPoolBucketArgs {
     /**
      * The name of the bucket
      */
-    bucketName?: string;
+    bucketName: string;
     /**
      * The name of the capacity pool
      */
@@ -123,7 +123,7 @@ export interface GetCapacityPoolBucketOutputArgs {
     /**
      * The name of the bucket
      */
-    bucketName?: pulumi.Input<string | undefined>;
+    bucketName: pulumi.Input<string>;
     /**
      * The name of the capacity pool
      */

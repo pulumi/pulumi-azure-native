@@ -76,9 +76,6 @@ export class EdgeMachineJob extends pulumi.CustomResource {
             if (args?.edgeMachineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edgeMachineName'");
             }
-            if (args?.jobsName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'jobsName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +112,7 @@ export interface EdgeMachineJobArgs {
     /**
      * Name of EdgeMachineJob
      */
-    jobsName: pulumi.Input<string>;
+    jobsName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

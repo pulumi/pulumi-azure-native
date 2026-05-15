@@ -87,9 +87,6 @@ export class AgriService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.agriServiceResourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'agriServiceResourceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +126,7 @@ export interface AgriServiceArgs {
     /**
      * The name of the AgriService resource.
      */
-    agriServiceResourceName: pulumi.Input<string>;
+    agriServiceResourceName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */

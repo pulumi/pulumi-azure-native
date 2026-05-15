@@ -24,7 +24,7 @@ export interface GetWebAppFunctionArgs {
     /**
      * Function name.
      */
-    functionName?: string;
+    functionName: string;
     /**
      * Site name.
      */
@@ -132,7 +132,7 @@ export interface GetWebAppFunctionOutputArgs {
     /**
      * Function name.
      */
-    functionName?: pulumi.Input<string | undefined>;
+    functionName: pulumi.Input<string>;
     /**
      * Site name.
      */

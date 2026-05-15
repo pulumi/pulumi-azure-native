@@ -24,7 +24,7 @@ export interface GetDeidServiceArgs {
     /**
      * The name of the deid service
      */
-    deidServiceName?: string;
+    deidServiceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetDeidServiceOutputArgs {
     /**
      * The name of the deid service
      */
-    deidServiceName?: pulumi.Input<string | undefined>;
+    deidServiceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

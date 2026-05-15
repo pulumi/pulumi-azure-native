@@ -72,9 +72,6 @@ export class AccountConnection extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.connectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -112,7 +109,7 @@ export interface AccountConnectionArgs {
     /**
      * Friendly name of the connection
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * Connection property base schema.
      */

@@ -27,7 +27,7 @@ export interface GetFirmwareArgs {
     /**
      * The id of the firmware.
      */
-    firmwareId?: string;
+    firmwareId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,7 +119,7 @@ export interface GetFirmwareOutputArgs {
     /**
      * The id of the firmware.
      */
-    firmwareId?: pulumi.Input<string | undefined>;
+    firmwareId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

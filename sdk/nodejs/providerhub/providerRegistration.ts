@@ -70,13 +70,10 @@ export class ProviderRegistration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ProviderRegistrationArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.providerNamespace === undefined && !opts.urn) {
-                throw new Error("Missing required property 'providerNamespace'");
-            }
             resourceInputs["kind"] = (args?.kind) ?? "Managed";
             resourceInputs["properties"] = args?.properties;
             resourceInputs["providerNamespace"] = args?.providerNamespace;
@@ -111,5 +108,5 @@ export interface ProviderRegistrationArgs {
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
-    providerNamespace: pulumi.Input<string>;
+    providerNamespace?: pulumi.Input<string | undefined>;
 }

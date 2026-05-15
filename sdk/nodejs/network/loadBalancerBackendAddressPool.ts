@@ -117,9 +117,6 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.backendAddressPoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'backendAddressPoolName'");
-            }
             if (args?.loadBalancerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
@@ -178,7 +175,7 @@ export interface LoadBalancerBackendAddressPoolArgs {
     /**
      * The name of the backend address pool.
      */
-    backendAddressPoolName: pulumi.Input<string>;
+    backendAddressPoolName?: pulumi.Input<string | undefined>;
     /**
      * Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
      */

@@ -78,9 +78,6 @@ export class ProductGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.groupId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'groupId'");
-            }
             if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
@@ -124,7 +121,7 @@ export interface ProductGroupArgs {
     /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
-    groupId: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

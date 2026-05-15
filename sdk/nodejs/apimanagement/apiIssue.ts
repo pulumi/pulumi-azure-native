@@ -95,9 +95,6 @@ export class ApiIssue extends pulumi.CustomResource {
             if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if (args?.issueId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'issueId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -159,7 +156,7 @@ export interface ApiIssueArgs {
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */
-    issueId: pulumi.Input<string>;
+    issueId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

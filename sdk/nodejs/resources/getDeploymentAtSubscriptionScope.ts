@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getDeploymentAtSubscriptionScope(args?: GetDeploymentAtSubscriptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtSubscriptionScopeResult> {
-    args = args || {};
+export function getDeploymentAtSubscriptionScope(args: GetDeploymentAtSubscriptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentAtSubscriptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources:getDeploymentAtSubscriptionScope", {
         "deploymentName": args.deploymentName,
@@ -26,7 +25,7 @@ export interface GetDeploymentAtSubscriptionScopeArgs {
     /**
      * The name of the deployment.
      */
-    deploymentName?: string;
+    deploymentName: string;
 }
 
 /**
@@ -69,8 +68,7 @@ export interface GetDeploymentAtSubscriptionScopeResult {
  *
  * Other available API versions: 2020-10-01, 2021-01-01, 2021-04-01, 2022-09-01, 2023-07-01, 2024-07-01, 2024-11-01, 2025-03-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getDeploymentAtSubscriptionScopeOutput(args?: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {
-    args = args || {};
+export function getDeploymentAtSubscriptionScopeOutput(args: GetDeploymentAtSubscriptionScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentAtSubscriptionScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getDeploymentAtSubscriptionScope", {
         "deploymentName": args.deploymentName,
@@ -81,5 +79,5 @@ export interface GetDeploymentAtSubscriptionScopeOutputArgs {
     /**
      * The name of the deployment.
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName: pulumi.Input<string>;
 }

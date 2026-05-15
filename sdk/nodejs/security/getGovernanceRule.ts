@@ -24,7 +24,7 @@ export interface GetGovernanceRuleArgs {
     /**
      * The governance rule key - unique key for the standard governance rule (GUID)
      */
-    ruleId?: string;
+    ruleId: string;
     /**
      * The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
      */
@@ -125,7 +125,7 @@ export interface GetGovernanceRuleOutputArgs {
     /**
      * The governance rule key - unique key for the standard governance rule (GUID)
      */
-    ruleId?: pulumi.Input<string | undefined>;
+    ruleId: pulumi.Input<string>;
     /**
      * The scope of the Governance rules. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
      */

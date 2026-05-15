@@ -157,9 +157,6 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.endpointName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'endpointName'");
-            }
             if (args?.origins === undefined && !opts.urn) {
                 throw new Error("Missing required property 'origins'");
             }
@@ -252,7 +249,7 @@ export interface EndpointArgs {
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
-    endpointName: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
      */

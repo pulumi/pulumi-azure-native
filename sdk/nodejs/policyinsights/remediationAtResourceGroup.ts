@@ -121,9 +121,6 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.remediationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'remediationName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -199,7 +196,7 @@ export interface RemediationAtResourceGroupArgs {
     /**
      * The name of the remediation.
      */
-    remediationName: pulumi.Input<string>;
+    remediationName?: pulumi.Input<string | undefined>;
     /**
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */

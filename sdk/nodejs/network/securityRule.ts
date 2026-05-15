@@ -151,9 +151,6 @@ export class SecurityRule extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.securityRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'securityRuleName'");
-            }
             resourceInputs["access"] = args?.access;
             resourceInputs["description"] = args?.description;
             resourceInputs["destinationAddressPrefix"] = args?.destinationAddressPrefix;
@@ -270,7 +267,7 @@ export interface SecurityRuleArgs {
     /**
      * The name of the security rule.
      */
-    securityRuleName: pulumi.Input<string>;
+    securityRuleName?: pulumi.Input<string | undefined>;
     /**
      * The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from.
      */

@@ -125,9 +125,6 @@ export class Monitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.monitorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'monitorName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -209,7 +206,7 @@ export interface MonitorArgs {
     /**
      * Name of the SAP monitor resource.
      */
-    monitorName: pulumi.Input<string>;
+    monitorName?: pulumi.Input<string | undefined>;
     /**
      * The subnet which the SAP monitor will be deployed in
      */

@@ -24,7 +24,7 @@ export interface GetJobArgs {
     /**
      * The name of the import/export job.
      */
-    jobName?: string;
+    jobName: string;
     /**
      * The resource group name uniquely identifies the resource group within the user subscription.
      */
@@ -89,7 +89,7 @@ export interface GetJobOutputArgs {
     /**
      * The name of the import/export job.
      */
-    jobName?: pulumi.Input<string | undefined>;
+    jobName: pulumi.Input<string>;
     /**
      * The resource group name uniquely identifies the resource group within the user subscription.
      */

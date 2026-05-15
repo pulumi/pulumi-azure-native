@@ -109,9 +109,6 @@ export class ProjectCatalog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.catalogName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'catalogName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -169,7 +166,7 @@ export interface ProjectCatalogArgs {
     /**
      * The name of the Catalog.
      */
-    catalogName: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string | undefined>;
     /**
      * Properties for a GitHub catalog type.
      */

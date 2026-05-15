@@ -119,9 +119,6 @@ export class Extension extends pulumi.CustomResource {
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (args?.extensionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'extensionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -191,7 +188,7 @@ export interface ExtensionArgs {
     /**
      * The name of the machine extension.
      */
-    extensionName: pulumi.Input<string>;
+    extensionName?: pulumi.Input<string | undefined>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */

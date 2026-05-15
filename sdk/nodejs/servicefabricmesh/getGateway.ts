@@ -24,7 +24,7 @@ export interface GetGatewayArgs {
     /**
      * The identity of the gateway.
      */
-    gatewayResourceName?: string;
+    gatewayResourceName: string;
     /**
      * Azure resource group name
      */
@@ -113,7 +113,7 @@ export interface GetGatewayOutputArgs {
     /**
      * The identity of the gateway.
      */
-    gatewayResourceName?: pulumi.Input<string | undefined>;
+    gatewayResourceName: pulumi.Input<string>;
     /**
      * Azure resource group name
      */

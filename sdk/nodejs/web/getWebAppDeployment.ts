@@ -24,7 +24,7 @@ export interface GetWebAppDeploymentArgs {
     /**
      * Deployment ID.
      */
-    id?: string;
+    id: string;
     /**
      * Name of the app.
      */
@@ -116,7 +116,7 @@ export interface GetWebAppDeploymentOutputArgs {
     /**
      * Deployment ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id: pulumi.Input<string>;
     /**
      * Name of the app.
      */

@@ -101,9 +101,6 @@ export class NetworkManager extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.networkManagerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkManagerName'");
-            }
             if (args?.networkManagerScopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerScopes'");
             }
@@ -165,7 +162,7 @@ export interface NetworkManagerArgs {
     /**
      * The name of the network manager.
      */
-    networkManagerName: pulumi.Input<string>;
+    networkManagerName?: pulumi.Input<string | undefined>;
     /**
      * Scope Access.
      */

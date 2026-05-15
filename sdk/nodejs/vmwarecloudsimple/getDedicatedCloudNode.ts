@@ -24,7 +24,7 @@ export interface GetDedicatedCloudNodeArgs {
     /**
      * dedicated cloud node name
      */
-    dedicatedCloudNodeName?: string;
+    dedicatedCloudNodeName: string;
     /**
      * The name of the resource group
      */
@@ -85,7 +85,7 @@ export interface GetDedicatedCloudNodeOutputArgs {
     /**
      * dedicated cloud node name
      */
-    dedicatedCloudNodeName?: pulumi.Input<string | undefined>;
+    dedicatedCloudNodeName: pulumi.Input<string>;
     /**
      * The name of the resource group
      */

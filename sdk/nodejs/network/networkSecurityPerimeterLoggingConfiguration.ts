@@ -73,9 +73,6 @@ export class NetworkSecurityPerimeterLoggingConfiguration extends pulumi.CustomR
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.loggingConfigurationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'loggingConfigurationName'");
-            }
             if (args?.networkSecurityPerimeterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityPerimeterName'");
             }
@@ -111,7 +108,7 @@ export interface NetworkSecurityPerimeterLoggingConfigurationArgs {
     /**
      * The name of the NSP logging configuration. Accepts 'instance' as name.
      */
-    loggingConfigurationName: pulumi.Input<string>;
+    loggingConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the network security perimeter.
      */

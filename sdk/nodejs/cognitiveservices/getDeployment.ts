@@ -31,7 +31,7 @@ export interface GetDeploymentArgs {
     /**
      * The name of the deployment associated with the Cognitive Services Account
      */
-    deploymentName?: string;
+    deploymentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetDeploymentOutputArgs {
     /**
      * The name of the deployment associated with the Cognitive Services Account
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -31,7 +31,7 @@ export interface GetQueueServicePropertiesArgs {
     /**
      * The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
      */
-    queueServiceName?: string;
+    queueServiceName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetQueueServicePropertiesOutputArgs {
     /**
      * The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
      */
-    queueServiceName?: pulumi.Input<string | undefined>;
+    queueServiceName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

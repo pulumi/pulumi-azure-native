@@ -96,9 +96,6 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.databaseName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'databaseName'");
-            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -153,7 +150,7 @@ export interface ReadWriteDatabaseArgs {
     /**
      * The name of the database in the Kusto pool.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */

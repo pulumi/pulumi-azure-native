@@ -111,9 +111,6 @@ export class IdentityProvider extends pulumi.CustomResource {
             if (args?.clientSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if (args?.identityProviderName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'identityProviderName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -185,7 +182,7 @@ export interface IdentityProviderArgs {
     /**
      * Identity Provider Type identifier.
      */
-    identityProviderName: pulumi.Input<string>;
+    identityProviderName?: pulumi.Input<string | undefined>;
     /**
      * Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
      */

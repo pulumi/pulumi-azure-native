@@ -26,7 +26,7 @@ export interface GetVirtualMachineImageTemplateArgs {
     /**
      * The name of the image Template
      */
-    imageTemplateName?: string;
+    imageTemplateName: string;
     /**
      * The name of the resource group.
      */
@@ -149,7 +149,7 @@ export interface GetVirtualMachineImageTemplateOutputArgs {
     /**
      * The name of the image Template
      */
-    imageTemplateName?: pulumi.Input<string | undefined>;
+    imageTemplateName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

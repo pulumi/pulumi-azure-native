@@ -22,7 +22,7 @@ export function getActionRequest(args: GetActionRequestArgs, opts?: pulumi.Invok
 }
 
 export interface GetActionRequestArgs {
-    actionRequestName?: string;
+    actionRequestName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -78,7 +78,7 @@ export function getActionRequestOutput(args: GetActionRequestOutputArgs, opts?: 
 }
 
 export interface GetActionRequestOutputArgs {
-    actionRequestName?: pulumi.Input<string | undefined>;
+    actionRequestName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

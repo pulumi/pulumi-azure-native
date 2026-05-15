@@ -27,7 +27,7 @@ export interface GetProtectedItemArgs {
     /**
      * The protected item name.
      */
-    protectedItemName?: string;
+    protectedItemName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,7 +84,7 @@ export interface GetProtectedItemOutputArgs {
     /**
      * The protected item name.
      */
-    protectedItemName?: pulumi.Input<string | undefined>;
+    protectedItemName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

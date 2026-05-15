@@ -81,9 +81,6 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.deviceSecurityGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deviceSecurityGroupName'");
-            }
             if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
@@ -127,7 +124,7 @@ export interface DeviceSecurityGroupArgs {
     /**
      * The name of the device security group. Note that the name of the device security group is case insensitive.
      */
-    deviceSecurityGroupName: pulumi.Input<string>;
+    deviceSecurityGroupName?: pulumi.Input<string | undefined>;
     /**
      * The identifier of the resource.
      */

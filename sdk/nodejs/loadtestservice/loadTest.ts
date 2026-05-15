@@ -97,9 +97,6 @@ export class LoadTest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.loadTestName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'loadTestName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -155,7 +152,7 @@ export interface LoadTestArgs {
     /**
      * Load Test name
      */
-    loadTestName: pulumi.Input<string>;
+    loadTestName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

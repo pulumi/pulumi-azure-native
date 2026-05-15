@@ -83,9 +83,6 @@ export class Catalog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.catalogName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'catalogName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface CatalogArgs {
     /**
      * Name of catalog
      */
-    catalogName: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

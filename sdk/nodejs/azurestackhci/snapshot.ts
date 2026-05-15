@@ -86,9 +86,6 @@ export class Snapshot extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.snapshotName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'snapshotName'");
-            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
@@ -139,7 +136,7 @@ export interface SnapshotArgs {
     /**
      * Name of the snapshot
      */
-    snapshotName: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

@@ -92,9 +92,6 @@ export class CloudHsmClusterPrivateEndpointConnection extends pulumi.CustomResou
             if (args?.cloudHsmClusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cloudHsmClusterName'");
             }
-            if (args?.peConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'peConnectionName'");
-            }
             if (args?.privateLinkServiceConnectionState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkServiceConnectionState'");
             }
@@ -142,7 +139,7 @@ export interface CloudHsmClusterPrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection associated with the Cloud HSM Cluster.
      */
-    peConnectionName: pulumi.Input<string>;
+    peConnectionName?: pulumi.Input<string | undefined>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

@@ -28,7 +28,7 @@ export interface GetReportByDepartmentArgs {
     /**
      * Report Name.
      */
-    reportName?: string;
+    reportName: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetReportByDepartmentOutputArgs {
     /**
      * Report Name.
      */
-    reportName?: pulumi.Input<string | undefined>;
+    reportName: pulumi.Input<string>;
 }

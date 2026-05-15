@@ -114,9 +114,6 @@ export class Policy extends pulumi.CustomResource {
             if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.policySetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policySetName'");
             }
@@ -196,7 +193,7 @@ export interface PolicyArgs {
     /**
      * The name of the Policy
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * policysets
      */

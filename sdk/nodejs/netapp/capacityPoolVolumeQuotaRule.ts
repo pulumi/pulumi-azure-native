@@ -105,9 +105,6 @@ export class CapacityPoolVolumeQuotaRule extends pulumi.CustomResource {
             if (args?.volumeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeName'");
             }
-            if (args?.volumeQuotaRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'volumeQuotaRuleName'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["location"] = args?.location;
             resourceInputs["poolName"] = args?.poolName;
@@ -185,5 +182,5 @@ export interface CapacityPoolVolumeQuotaRuleArgs {
     /**
      * The name of volume quota rule
      */
-    volumeQuotaRuleName: pulumi.Input<string>;
+    volumeQuotaRuleName?: pulumi.Input<string | undefined>;
 }

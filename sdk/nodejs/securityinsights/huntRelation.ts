@@ -96,9 +96,6 @@ export class HuntRelation extends pulumi.CustomResource {
             if (args?.huntId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'huntId'");
             }
-            if (args?.huntRelationId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'huntRelationId'");
-            }
             if (args?.relatedResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
@@ -152,7 +149,7 @@ export interface HuntRelationArgs {
     /**
      * The hunt relation id (GUID)
      */
-    huntRelationId: pulumi.Input<string>;
+    huntRelationId?: pulumi.Input<string | undefined>;
     /**
      * List of labels relevant to this hunt
      */

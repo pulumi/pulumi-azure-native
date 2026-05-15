@@ -29,7 +29,7 @@ export interface GetStorageAssetArgs {
     /**
      * The name of the StorageAsset
      */
-    storageAssetName?: string;
+    storageAssetName: string;
     /**
      * The name of the StorageContainer
      */
@@ -95,7 +95,7 @@ export interface GetStorageAssetOutputArgs {
     /**
      * The name of the StorageAsset
      */
-    storageAssetName?: pulumi.Input<string | undefined>;
+    storageAssetName: pulumi.Input<string>;
     /**
      * The name of the StorageContainer
      */

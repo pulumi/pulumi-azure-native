@@ -30,7 +30,7 @@ export interface GetConnectionRaiBlocklistArgs {
     /**
      * The name of the RaiBlocklist.
      */
-    raiBlocklistName?: string;
+    raiBlocklistName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -90,7 +90,7 @@ export interface GetConnectionRaiBlocklistOutputArgs {
     /**
      * The name of the RaiBlocklist.
      */
-    raiBlocklistName?: pulumi.Input<string | undefined>;
+    raiBlocklistName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

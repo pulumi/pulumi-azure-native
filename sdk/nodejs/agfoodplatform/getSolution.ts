@@ -33,7 +33,7 @@ export interface GetSolutionArgs {
     /**
      * SolutionId for Data Manager For Agriculture Resource.
      */
-    solutionId?: string;
+    solutionId: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetSolutionOutputArgs {
     /**
      * SolutionId for Data Manager For Agriculture Resource.
      */
-    solutionId?: pulumi.Input<string | undefined>;
+    solutionId: pulumi.Input<string>;
 }

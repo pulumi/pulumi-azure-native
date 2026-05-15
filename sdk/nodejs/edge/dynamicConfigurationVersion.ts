@@ -79,9 +79,6 @@ export class DynamicConfigurationVersion extends pulumi.CustomResource {
             if (args?.dynamicConfigurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dynamicConfigurationName'");
             }
-            if (args?.dynamicConfigurationVersionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dynamicConfigurationVersionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface DynamicConfigurationVersionArgs {
     /**
      * The name of the DynamicConfigurationVersion
      */
-    dynamicConfigurationVersionName: pulumi.Input<string>;
+    dynamicConfigurationVersionName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

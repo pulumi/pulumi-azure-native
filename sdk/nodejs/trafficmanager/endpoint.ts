@@ -121,9 +121,6 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.endpointName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'endpointName'");
-            }
             if (args?.endpointType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
@@ -204,7 +201,7 @@ export interface EndpointArgs {
     /**
      * The name of the Traffic Manager endpoint.
      */
-    endpointName: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */

@@ -73,9 +73,6 @@ export class SqlMigrationService extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.sqlMigrationServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sqlMigrationServiceName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sqlMigrationServiceName"] = args?.sqlMigrationServiceName;
@@ -115,6 +112,6 @@ export interface SqlMigrationServiceArgs {
     /**
      * Name of the SQL Migration Service.
      */
-    sqlMigrationServiceName: pulumi.Input<string>;
+    sqlMigrationServiceName?: pulumi.Input<string | undefined>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

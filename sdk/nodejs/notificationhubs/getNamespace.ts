@@ -26,7 +26,7 @@ export interface GetNamespaceArgs {
     /**
      * Namespace name
      */
-    namespaceName?: string;
+    namespaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -167,7 +167,7 @@ export interface GetNamespaceOutputArgs {
     /**
      * Namespace name
      */
-    namespaceName?: pulumi.Input<string | undefined>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

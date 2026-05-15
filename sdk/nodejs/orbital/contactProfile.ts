@@ -103,9 +103,6 @@ export class ContactProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.contactProfileName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'contactProfileName'");
-            }
             if (args?.links === undefined && !opts.urn) {
                 throw new Error("Missing required property 'links'");
             }
@@ -163,7 +160,7 @@ export interface ContactProfileArgs {
     /**
      * Contact Profile name.
      */
-    contactProfileName: pulumi.Input<string>;
+    contactProfileName?: pulumi.Input<string | undefined>;
     /**
      * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */

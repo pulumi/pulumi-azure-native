@@ -27,7 +27,7 @@ export interface GetBmcKeySetArgs {
     /**
      * The name of the baseboard management controller key set.
      */
-    bmcKeySetName?: string;
+    bmcKeySetName: string;
     /**
      * The name of the cluster.
      */
@@ -132,7 +132,7 @@ export interface GetBmcKeySetOutputArgs {
     /**
      * The name of the baseboard management controller key set.
      */
-    bmcKeySetName?: pulumi.Input<string | undefined>;
+    bmcKeySetName: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */

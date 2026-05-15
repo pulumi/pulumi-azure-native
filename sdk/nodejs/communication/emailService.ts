@@ -88,9 +88,6 @@ export class EmailService extends pulumi.CustomResource {
             if (args?.dataLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLocation'");
             }
-            if (args?.emailServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'emailServiceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -132,7 +129,7 @@ export interface EmailServiceArgs {
     /**
      * The name of the EmailService resource.
      */
-    emailServiceName: pulumi.Input<string>;
+    emailServiceName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

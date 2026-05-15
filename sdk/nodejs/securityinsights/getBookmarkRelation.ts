@@ -32,7 +32,7 @@ export interface GetBookmarkRelationArgs {
     /**
      * Relation Name
      */
-    relationName?: string;
+    relationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetBookmarkRelationOutputArgs {
     /**
      * Relation Name
      */
-    relationName?: pulumi.Input<string | undefined>;
+    relationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

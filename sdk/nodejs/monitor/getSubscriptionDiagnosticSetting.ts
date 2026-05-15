@@ -12,8 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2021-05-01-preview.
  */
-export function getSubscriptionDiagnosticSetting(args?: GetSubscriptionDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDiagnosticSettingResult> {
-    args = args || {};
+export function getSubscriptionDiagnosticSetting(args: GetSubscriptionDiagnosticSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionDiagnosticSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:monitor:getSubscriptionDiagnosticSetting", {
         "name": args.name,
@@ -24,7 +23,7 @@ export interface GetSubscriptionDiagnosticSettingArgs {
     /**
      * The name of the diagnostic setting.
      */
-    name?: string;
+    name: string;
 }
 
 /**
@@ -85,8 +84,7 @@ export interface GetSubscriptionDiagnosticSettingResult {
  *
  * Uses Azure REST API version 2021-05-01-preview.
  */
-export function getSubscriptionDiagnosticSettingOutput(args?: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {
-    args = args || {};
+export function getSubscriptionDiagnosticSettingOutput(args: GetSubscriptionDiagnosticSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSubscriptionDiagnosticSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:monitor:getSubscriptionDiagnosticSetting", {
         "name": args.name,
@@ -97,5 +95,5 @@ export interface GetSubscriptionDiagnosticSettingOutputArgs {
     /**
      * The name of the diagnostic setting.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
 }

@@ -30,7 +30,7 @@ export interface GetVirtualNetworkGatewayConnectionArgs {
     /**
      * The name of the virtual network gateway connection.
      */
-    virtualNetworkGatewayConnectionName?: string;
+    virtualNetworkGatewayConnectionName: string;
 }
 
 /**
@@ -197,5 +197,5 @@ export interface GetVirtualNetworkGatewayConnectionOutputArgs {
     /**
      * The name of the virtual network gateway connection.
      */
-    virtualNetworkGatewayConnectionName?: pulumi.Input<string | undefined>;
+    virtualNetworkGatewayConnectionName: pulumi.Input<string>;
 }

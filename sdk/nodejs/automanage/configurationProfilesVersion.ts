@@ -87,9 +87,6 @@ export class ConfigurationProfilesVersion extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.versionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'versionName'");
-            }
             resourceInputs["configurationProfileName"] = args?.configurationProfileName;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
@@ -143,5 +140,5 @@ export interface ConfigurationProfilesVersionArgs {
     /**
      * The configuration profile version name.
      */
-    versionName: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
 }

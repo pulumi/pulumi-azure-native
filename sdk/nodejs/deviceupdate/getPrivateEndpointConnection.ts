@@ -29,7 +29,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * The resource group name.
      */
@@ -99,7 +99,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

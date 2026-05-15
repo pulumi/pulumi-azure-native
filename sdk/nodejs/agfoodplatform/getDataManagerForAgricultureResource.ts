@@ -24,7 +24,7 @@ export interface GetDataManagerForAgricultureResourceArgs {
     /**
      * DataManagerForAgriculture resource name.
      */
-    dataManagerForAgricultureResourceName?: string;
+    dataManagerForAgricultureResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetDataManagerForAgricultureResourceOutputArgs {
     /**
      * DataManagerForAgriculture resource name.
      */
-    dataManagerForAgricultureResourceName?: pulumi.Input<string | undefined>;
+    dataManagerForAgricultureResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

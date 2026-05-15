@@ -31,7 +31,7 @@ export interface GetPublicIPPrefixArgs {
     /**
      * The name of the public IP prefix.
      */
-    publicIpPrefixName?: string;
+    publicIpPrefixName: string;
     /**
      * The name of the resource group.
      */
@@ -147,7 +147,7 @@ export interface GetPublicIPPrefixOutputArgs {
     /**
      * The name of the public IP prefix.
      */
-    publicIpPrefixName?: pulumi.Input<string | undefined>;
+    publicIpPrefixName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

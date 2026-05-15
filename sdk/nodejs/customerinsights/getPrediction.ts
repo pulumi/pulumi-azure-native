@@ -29,7 +29,7 @@ export interface GetPredictionArgs {
     /**
      * The name of the Prediction.
      */
-    predictionName?: string;
+    predictionName: string;
     /**
      * The name of the resource group.
      */
@@ -147,7 +147,7 @@ export interface GetPredictionOutputArgs {
     /**
      * The name of the Prediction.
      */
-    predictionName?: pulumi.Input<string | undefined>;
+    predictionName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

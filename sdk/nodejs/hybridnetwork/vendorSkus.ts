@@ -99,9 +99,6 @@ export class VendorSkus extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.skuName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'skuName'");
-            }
             if (args?.vendorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vendorName'");
             }
@@ -171,7 +168,7 @@ export interface VendorSkusArgs {
     /**
      * The name of the sku.
      */
-    skuName: pulumi.Input<string>;
+    skuName?: pulumi.Input<string | undefined>;
     /**
      * The sku type.
      */

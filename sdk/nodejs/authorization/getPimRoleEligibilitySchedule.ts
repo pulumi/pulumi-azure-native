@@ -24,7 +24,7 @@ export interface GetPimRoleEligibilityScheduleArgs {
     /**
      * The name (guid) of the role eligibility schedule request to get.
      */
-    roleEligibilityScheduleRequestName?: string;
+    roleEligibilityScheduleRequestName: string;
     /**
      * The scope of the role eligibility schedule request.
      */
@@ -137,7 +137,7 @@ export interface GetPimRoleEligibilityScheduleOutputArgs {
     /**
      * The name (guid) of the role eligibility schedule request to get.
      */
-    roleEligibilityScheduleRequestName?: pulumi.Input<string | undefined>;
+    roleEligibilityScheduleRequestName: pulumi.Input<string>;
     /**
      * The scope of the role eligibility schedule request.
      */

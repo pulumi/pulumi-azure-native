@@ -79,9 +79,6 @@ export class ReachabilityAnalysisRun extends pulumi.CustomResource {
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if (args?.reachabilityAnalysisRunName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'reachabilityAnalysisRunName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +123,7 @@ export interface ReachabilityAnalysisRunArgs {
     /**
      * Reachability Analysis Run name.
      */
-    reachabilityAnalysisRunName: pulumi.Input<string>;
+    reachabilityAnalysisRunName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

@@ -77,9 +77,6 @@ export class IntegrationAccountAssembly extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.assemblyArtifactName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'assemblyArtifactName'");
-            }
             if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
@@ -120,7 +117,7 @@ export interface IntegrationAccountAssemblyArgs {
     /**
      * The assembly artifact name.
      */
-    assemblyArtifactName: pulumi.Input<string>;
+    assemblyArtifactName?: pulumi.Input<string | undefined>;
     /**
      * The integration account name.
      */

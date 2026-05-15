@@ -26,7 +26,7 @@ export interface GetPrivateLinkHubArgs {
     /**
      * Name of the privateLinkHub
      */
-    privateLinkHubName?: string;
+    privateLinkHubName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetPrivateLinkHubOutputArgs {
     /**
      * Name of the privateLinkHub
      */
-    privateLinkHubName?: pulumi.Input<string | undefined>;
+    privateLinkHubName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -29,7 +29,7 @@ export interface GetMonitoredResourceArgs {
     /**
      * The monitored resource name.
      */
-    monitoredResourceName?: string;
+    monitoredResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetMonitoredResourceOutputArgs {
     /**
      * The monitored resource name.
      */
-    monitoredResourceName?: pulumi.Input<string | undefined>;
+    monitoredResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

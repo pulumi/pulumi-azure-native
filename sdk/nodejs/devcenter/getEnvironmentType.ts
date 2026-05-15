@@ -31,7 +31,7 @@ export interface GetEnvironmentTypeArgs {
     /**
      * The name of the environment type.
      */
-    environmentTypeName?: string;
+    environmentTypeName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetEnvironmentTypeOutputArgs {
     /**
      * The name of the environment type.
      */
-    environmentTypeName?: pulumi.Input<string | undefined>;
+    environmentTypeName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

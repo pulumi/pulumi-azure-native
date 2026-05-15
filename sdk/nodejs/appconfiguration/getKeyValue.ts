@@ -28,7 +28,7 @@ export interface GetKeyValueArgs {
     /**
      * Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
      */
-    keyValueName?: string;
+    keyValueName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
@@ -116,7 +116,7 @@ export interface GetKeyValueOutputArgs {
     /**
      * Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
      */
-    keyValueName?: pulumi.Input<string | undefined>;
+    keyValueName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

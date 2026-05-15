@@ -32,7 +32,7 @@ export interface GetSqlResourceSqlRoleAssignmentArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId?: string;
+    roleAssignmentId: string;
 }
 
 /**
@@ -96,5 +96,5 @@ export interface GetSqlResourceSqlRoleAssignmentOutputArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId?: pulumi.Input<string | undefined>;
+    roleAssignmentId: pulumi.Input<string>;
 }

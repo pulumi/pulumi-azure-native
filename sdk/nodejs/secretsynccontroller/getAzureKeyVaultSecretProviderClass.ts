@@ -24,7 +24,7 @@ export interface GetAzureKeyVaultSecretProviderClassArgs {
     /**
      * The name of the AzureKeyVaultSecretProviderClass
      */
-    azureKeyVaultSecretProviderClassName?: string;
+    azureKeyVaultSecretProviderClassName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetAzureKeyVaultSecretProviderClassOutputArgs {
     /**
      * The name of the AzureKeyVaultSecretProviderClass
      */
-    azureKeyVaultSecretProviderClassName?: pulumi.Input<string | undefined>;
+    azureKeyVaultSecretProviderClassName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

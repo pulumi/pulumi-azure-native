@@ -30,7 +30,7 @@ export interface GetOrchestratorInstanceServiceDetailsArgs {
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -125,5 +125,5 @@ export interface GetOrchestratorInstanceServiceDetailsOutputArgs {
     /**
      * The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

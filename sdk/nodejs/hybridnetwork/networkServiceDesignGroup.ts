@@ -81,9 +81,6 @@ export class NetworkServiceDesignGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.networkServiceDesignGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkServiceDesignGroupName'");
-            }
             if (args?.publisherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
@@ -127,7 +124,7 @@ export interface NetworkServiceDesignGroupArgs {
     /**
      * The name of the network service design group.
      */
-    networkServiceDesignGroupName: pulumi.Input<string>;
+    networkServiceDesignGroupName?: pulumi.Input<string | undefined>;
     /**
      * network service design group properties.
      */

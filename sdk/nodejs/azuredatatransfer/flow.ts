@@ -92,9 +92,6 @@ export class Flow extends pulumi.CustomResource {
             if (args?.connectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionName'");
             }
-            if (args?.flowName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'flowName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -139,7 +136,7 @@ export interface FlowArgs {
     /**
      * The name for the flow that is to be onboarded.
      */
-    flowName: pulumi.Input<string>;
+    flowName?: pulumi.Input<string | undefined>;
     /**
      * The managed identity of the flow resource, if configured.
      */

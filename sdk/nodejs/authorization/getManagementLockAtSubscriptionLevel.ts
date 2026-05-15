@@ -12,8 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2020-05-01.
  */
-export function getManagementLockAtSubscriptionLevel(args?: GetManagementLockAtSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtSubscriptionLevelResult> {
-    args = args || {};
+export function getManagementLockAtSubscriptionLevel(args: GetManagementLockAtSubscriptionLevelArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementLockAtSubscriptionLevelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getManagementLockAtSubscriptionLevel", {
         "lockName": args.lockName,
@@ -24,7 +23,7 @@ export interface GetManagementLockAtSubscriptionLevelArgs {
     /**
      * The name of the lock to get.
      */
-    lockName?: string;
+    lockName: string;
 }
 
 /**
@@ -69,8 +68,7 @@ export interface GetManagementLockAtSubscriptionLevelResult {
  *
  * Uses Azure REST API version 2020-05-01.
  */
-export function getManagementLockAtSubscriptionLevelOutput(args?: GetManagementLockAtSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementLockAtSubscriptionLevelResult> {
-    args = args || {};
+export function getManagementLockAtSubscriptionLevelOutput(args: GetManagementLockAtSubscriptionLevelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementLockAtSubscriptionLevelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getManagementLockAtSubscriptionLevel", {
         "lockName": args.lockName,
@@ -81,5 +79,5 @@ export interface GetManagementLockAtSubscriptionLevelOutputArgs {
     /**
      * The name of the lock to get.
      */
-    lockName?: pulumi.Input<string | undefined>;
+    lockName: pulumi.Input<string>;
 }

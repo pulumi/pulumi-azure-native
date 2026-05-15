@@ -40,7 +40,7 @@ export interface GetRegistryDataVersionArgs {
     /**
      * Version identifier.
      */
-    version?: string;
+    version: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetRegistryDataVersionOutputArgs {
     /**
      * Version identifier.
      */
-    version?: pulumi.Input<string | undefined>;
+    version: pulumi.Input<string>;
 }

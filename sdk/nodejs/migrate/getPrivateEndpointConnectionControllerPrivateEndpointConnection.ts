@@ -31,7 +31,7 @@ export interface GetPrivateEndpointConnectionControllerPrivateEndpointConnection
     /**
      * Private endpoint connection name.
      */
-    peConnectionName?: string;
+    peConnectionName: string;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
@@ -95,7 +95,7 @@ export interface GetPrivateEndpointConnectionControllerPrivateEndpointConnection
     /**
      * Private endpoint connection name.
      */
-    peConnectionName?: pulumi.Input<string | undefined>;
+    peConnectionName: pulumi.Input<string>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

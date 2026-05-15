@@ -27,7 +27,7 @@ export interface GetCloudLinkArgs {
     /**
      * Name of the cloud link.
      */
-    cloudLinkName?: string;
+    cloudLinkName: string;
     /**
      * Name of the private cloud
      */
@@ -95,7 +95,7 @@ export interface GetCloudLinkOutputArgs {
     /**
      * Name of the cloud link.
      */
-    cloudLinkName?: pulumi.Input<string | undefined>;
+    cloudLinkName: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

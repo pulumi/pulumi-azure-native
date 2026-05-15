@@ -101,9 +101,6 @@ export class PeeringService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.peeringServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'peeringServiceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -157,7 +154,7 @@ export interface PeeringServiceArgs {
     /**
      * The name of the peering service.
      */
-    peeringServiceName: pulumi.Input<string>;
+    peeringServiceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the service provider.
      */

@@ -27,7 +27,7 @@ export interface GetConnectionArgs {
     /**
      * Connection name
      */
-    connectionName?: string;
+    connectionName: string;
     /**
      * The resource group
      */
@@ -92,7 +92,7 @@ export interface GetConnectionOutputArgs {
     /**
      * Connection name
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * The resource group
      */

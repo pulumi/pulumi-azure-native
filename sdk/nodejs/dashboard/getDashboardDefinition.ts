@@ -29,7 +29,7 @@ export interface GetDashboardDefinitionArgs {
     /**
      * The name of the Dashboard Definition.
      */
-    definitionName?: string;
+    definitionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetDashboardDefinitionOutputArgs {
     /**
      * The name of the Dashboard Definition.
      */
-    definitionName?: pulumi.Input<string | undefined>;
+    definitionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

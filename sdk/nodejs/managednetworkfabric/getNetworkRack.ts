@@ -26,7 +26,7 @@ export interface GetNetworkRackArgs {
     /**
      * Name of the Network Rack.
      */
-    networkRackName?: string;
+    networkRackName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetNetworkRackOutputArgs {
     /**
      * Name of the Network Rack.
      */
-    networkRackName?: pulumi.Input<string | undefined>;
+    networkRackName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

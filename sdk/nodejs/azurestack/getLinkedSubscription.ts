@@ -24,7 +24,7 @@ export interface GetLinkedSubscriptionArgs {
     /**
      * Name of the Linked Subscription resource.
      */
-    linkedSubscriptionName?: string;
+    linkedSubscriptionName: string;
     /**
      * Name of the resource group.
      */
@@ -117,7 +117,7 @@ export interface GetLinkedSubscriptionOutputArgs {
     /**
      * Name of the Linked Subscription resource.
      */
-    linkedSubscriptionName?: pulumi.Input<string | undefined>;
+    linkedSubscriptionName: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */

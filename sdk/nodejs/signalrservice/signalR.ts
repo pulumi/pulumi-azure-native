@@ -195,9 +195,6 @@ export class SignalR extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             resourceInputs["cors"] = args?.cors;
             resourceInputs["disableAadAuth"] = (args?.disableAadAuth) ?? false;
             resourceInputs["disableLocalAuth"] = (args?.disableLocalAuth) ?? false;
@@ -343,7 +340,7 @@ export interface SignalRArgs {
     /**
      * The name of the resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Stop or start the resource.  Default to "False".
      * When it's true, the data plane of the resource is shutdown.

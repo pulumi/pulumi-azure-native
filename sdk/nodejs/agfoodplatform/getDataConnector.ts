@@ -25,7 +25,7 @@ export interface GetDataConnectorArgs {
     /**
      * Connector name.
      */
-    dataConnectorName?: string;
+    dataConnectorName: string;
     /**
      * DataManagerForAgriculture resource name.
      */
@@ -87,7 +87,7 @@ export interface GetDataConnectorOutputArgs {
     /**
      * Connector name.
      */
-    dataConnectorName?: pulumi.Input<string | undefined>;
+    dataConnectorName: pulumi.Input<string>;
     /**
      * DataManagerForAgriculture resource name.
      */

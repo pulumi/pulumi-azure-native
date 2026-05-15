@@ -31,7 +31,7 @@ export interface GetEdgeActionExecutionFilterArgs {
     /**
      * The name of the execution filter
      */
-    executionFilter?: string;
+    executionFilter: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -115,7 +115,7 @@ export interface GetEdgeActionExecutionFilterOutputArgs {
     /**
      * The name of the execution filter
      */
-    executionFilter?: pulumi.Input<string | undefined>;
+    executionFilter: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -91,9 +91,6 @@ export class GremlinResourceGremlinRoleAssignment extends pulumi.CustomResource 
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.roleAssignmentId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'roleAssignmentId'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["principalId"] = args?.principalId;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -141,7 +138,7 @@ export interface GremlinResourceGremlinRoleAssignmentArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId: pulumi.Input<string>;
+    roleAssignmentId?: pulumi.Input<string | undefined>;
     /**
      * The unique identifier for the associated Role Definition.
      */

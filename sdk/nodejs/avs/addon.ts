@@ -73,9 +73,6 @@ export class Addon extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.addonName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'addonName'");
-            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -111,7 +108,7 @@ export interface AddonArgs {
     /**
      * Name of the addon.
      */
-    addonName: pulumi.Input<string>;
+    addonName?: pulumi.Input<string | undefined>;
     /**
      * Name of the private cloud
      */

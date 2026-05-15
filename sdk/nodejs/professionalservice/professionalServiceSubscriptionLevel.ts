@@ -74,9 +74,6 @@ export class ProfessionalServiceSubscriptionLevel extends pulumi.CustomResource 
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["properties"] = args?.properties;
@@ -123,7 +120,7 @@ export interface ProfessionalServiceSubscriptionLevelArgs {
     /**
      * The name of the resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
      */

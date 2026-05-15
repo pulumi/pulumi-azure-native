@@ -87,9 +87,6 @@ export class ManufacturingDataService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.mdsResourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'mdsResourceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +134,7 @@ export interface ManufacturingDataServiceArgs {
     /**
      * Name.
      */
-    mdsResourceName: pulumi.Input<string>;
+    mdsResourceName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

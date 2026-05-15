@@ -30,7 +30,7 @@ export interface GetWebPubSubArgs {
     /**
      * The name of the resource.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -187,5 +187,5 @@ export interface GetWebPubSubOutputArgs {
     /**
      * The name of the resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

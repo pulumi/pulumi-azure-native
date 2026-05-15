@@ -29,7 +29,7 @@ export interface GetIoTHubEventSourceArgs {
     /**
      * The name of the Time Series Insights event source associated with the specified environment.
      */
-    eventSourceName?: string;
+    eventSourceName: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -128,7 +128,7 @@ export interface GetIoTHubEventSourceOutputArgs {
     /**
      * The name of the Time Series Insights event source associated with the specified environment.
      */
-    eventSourceName?: pulumi.Input<string | undefined>;
+    eventSourceName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

@@ -30,7 +30,7 @@ export interface GetIotSecuritySolutionArgs {
     /**
      * The name of the IoT Security solution.
      */
-    solutionName?: string;
+    solutionName: string;
 }
 
 /**
@@ -133,5 +133,5 @@ export interface GetIotSecuritySolutionOutputArgs {
     /**
      * The name of the IoT Security solution.
      */
-    solutionName?: pulumi.Input<string | undefined>;
+    solutionName: pulumi.Input<string>;
 }

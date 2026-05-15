@@ -97,9 +97,6 @@ export class AvailabilityGroupListener extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.availabilityGroupListenerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'availabilityGroupListenerName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -151,7 +148,7 @@ export interface AvailabilityGroupListenerArgs {
     /**
      * Name of the availability group listener.
      */
-    availabilityGroupListenerName: pulumi.Input<string>;
+    availabilityGroupListenerName?: pulumi.Input<string | undefined>;
     /**
      * Name of the availability group.
      */

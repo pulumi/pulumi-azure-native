@@ -92,9 +92,6 @@ export class DnsResolverPolicyVirtualNetworkLink extends pulumi.CustomResource {
             if (args?.dnsResolverPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverPolicyName'");
             }
-            if (args?.dnsResolverPolicyVirtualNetworkLinkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dnsResolverPolicyVirtualNetworkLinkName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -142,7 +139,7 @@ export interface DnsResolverPolicyVirtualNetworkLinkArgs {
     /**
      * The name of the DNS resolver policy virtual network link for the DNS resolver policy.
      */
-    dnsResolverPolicyVirtualNetworkLinkName: pulumi.Input<string>;
+    dnsResolverPolicyVirtualNetworkLinkName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

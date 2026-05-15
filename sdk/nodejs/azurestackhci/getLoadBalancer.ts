@@ -26,7 +26,7 @@ export interface GetLoadBalancerArgs {
     /**
      * Name of the load balancer
      */
-    loadBalancerName?: string;
+    loadBalancerName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetLoadBalancerOutputArgs {
     /**
      * Name of the load balancer
      */
-    loadBalancerName?: pulumi.Input<string | undefined>;
+    loadBalancerName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

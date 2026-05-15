@@ -92,9 +92,6 @@ export class MongoDBResourceMongoUserDefinition extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.mongoUserDefinitionId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'mongoUserDefinitionId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -151,7 +148,7 @@ export interface MongoDBResourceMongoUserDefinitionArgs {
     /**
      * The ID for the User Definition {dbName.userName}.
      */
-    mongoUserDefinitionId: pulumi.Input<string>;
+    mongoUserDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The password for User Definition. Response does not contain user password.
      */

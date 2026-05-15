@@ -105,9 +105,6 @@ export class Firmware extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.firmwareId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'firmwareId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -171,7 +168,7 @@ export interface FirmwareArgs {
     /**
      * The id of the firmware.
      */
-    firmwareId: pulumi.Input<string>;
+    firmwareId?: pulumi.Input<string | undefined>;
     /**
      * Firmware model.
      */

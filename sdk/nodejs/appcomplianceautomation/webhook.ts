@@ -122,9 +122,6 @@ export class Webhook extends pulumi.CustomResource {
             if (args?.reportName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportName'");
             }
-            if (args?.webhookName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'webhookName'");
-            }
             resourceInputs["contentType"] = args?.contentType;
             resourceInputs["enableSslVerification"] = args?.enableSslVerification;
             resourceInputs["events"] = args?.events;
@@ -213,5 +210,5 @@ export interface WebhookArgs {
     /**
      * Webhook Name.
      */
-    webhookName: pulumi.Input<string>;
+    webhookName?: pulumi.Input<string | undefined>;
 }

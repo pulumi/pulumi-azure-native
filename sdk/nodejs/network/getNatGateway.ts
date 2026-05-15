@@ -31,7 +31,7 @@ export interface GetNatGatewayArgs {
     /**
      * The name of the nat gateway.
      */
-    natGatewayName?: string;
+    natGatewayName: string;
     /**
      * The name of the resource group.
      */
@@ -127,7 +127,7 @@ export interface GetNatGatewayOutputArgs {
     /**
      * The name of the nat gateway.
      */
-    natGatewayName?: pulumi.Input<string | undefined>;
+    natGatewayName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

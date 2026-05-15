@@ -33,7 +33,7 @@ export interface GetExecutionArgs {
     /**
      * The name of the Execution.
      */
-    executionName?: string;
+    executionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetExecutionOutputArgs {
     /**
      * The name of the Execution.
      */
-    executionName?: pulumi.Input<string | undefined>;
+    executionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

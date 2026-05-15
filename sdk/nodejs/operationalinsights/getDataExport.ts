@@ -24,7 +24,7 @@ export interface GetDataExportArgs {
     /**
      * The data export rule name.
      */
-    dataExportName?: string;
+    dataExportName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -104,7 +104,7 @@ export interface GetDataExportOutputArgs {
     /**
      * The data export rule name.
      */
-    dataExportName?: pulumi.Input<string | undefined>;
+    dataExportName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

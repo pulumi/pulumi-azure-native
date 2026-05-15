@@ -89,9 +89,6 @@ export class PrivateAccess extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.privateAccessName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'privateAccessName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -135,7 +132,7 @@ export interface PrivateAccessArgs {
     /**
      * The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
-    privateAccessName: pulumi.Input<string>;
+    privateAccessName?: pulumi.Input<string | undefined>;
     /**
      * Public Network Access Control for PrivateAccess resource.
      */

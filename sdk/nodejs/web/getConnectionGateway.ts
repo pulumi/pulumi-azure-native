@@ -25,7 +25,7 @@ export interface GetConnectionGatewayArgs {
     /**
      * The connection gateway name
      */
-    connectionGatewayName?: string;
+    connectionGatewayName: string;
     /**
      * The resource group
      */
@@ -88,7 +88,7 @@ export interface GetConnectionGatewayOutputArgs {
     /**
      * The connection gateway name
      */
-    connectionGatewayName?: pulumi.Input<string | undefined>;
+    connectionGatewayName: pulumi.Input<string>;
     /**
      * The resource group
      */

@@ -27,7 +27,7 @@ export interface GetAutomationRuleArgs {
     /**
      * Automation rule ID
      */
-    automationRuleId?: string;
+    automationRuleId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -116,7 +116,7 @@ export interface GetAutomationRuleOutputArgs {
     /**
      * Automation rule ID
      */
-    automationRuleId?: pulumi.Input<string | undefined>;
+    automationRuleId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

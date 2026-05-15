@@ -92,9 +92,6 @@ export class Connection extends pulumi.CustomResource {
             if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if (args?.connectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if (args?.connectionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionType'");
             }
@@ -145,7 +142,7 @@ export interface ConnectionArgs {
     /**
      * The parameters supplied to the create or update connection operation.
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the connectionType of the connection.
      */

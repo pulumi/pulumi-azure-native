@@ -36,7 +36,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection connection.
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -106,7 +106,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
     /**
      * The name of the private endpoint connection connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */

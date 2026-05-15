@@ -28,7 +28,7 @@ export interface GetNamespaceTopicEventSubscriptionArgs {
     /**
      * Name of the event subscription to be found.
      */
-    eventSubscriptionName?: string;
+    eventSubscriptionName: string;
     /**
      * Name of the namespace.
      */
@@ -109,7 +109,7 @@ export interface GetNamespaceTopicEventSubscriptionOutputArgs {
     /**
      * Name of the event subscription to be found.
      */
-    eventSubscriptionName?: pulumi.Input<string | undefined>;
+    eventSubscriptionName: pulumi.Input<string>;
     /**
      * Name of the namespace.
      */

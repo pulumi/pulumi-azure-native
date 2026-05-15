@@ -79,9 +79,6 @@ export class Workspace extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (args?.workspaceId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'workspaceId'");
-            }
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -127,5 +124,5 @@ export interface WorkspaceArgs {
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */
-    workspaceId: pulumi.Input<string>;
+    workspaceId?: pulumi.Input<string | undefined>;
 }

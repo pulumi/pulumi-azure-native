@@ -27,7 +27,7 @@ export interface GetPlanMemberArgs {
     /**
      * The name of a devcenter plan member.
      */
-    memberName?: string;
+    memberName: string;
     /**
      * The name of the devcenter plan.
      */
@@ -107,7 +107,7 @@ export interface GetPlanMemberOutputArgs {
     /**
      * The name of a devcenter plan member.
      */
-    memberName?: pulumi.Input<string | undefined>;
+    memberName: pulumi.Input<string>;
     /**
      * The name of the devcenter plan.
      */

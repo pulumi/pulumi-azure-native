@@ -97,9 +97,6 @@ export class AutoScaleVCore extends pulumi.CustomResource {
             if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if (args?.vcoreName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'vcoreName'");
-            }
             resourceInputs["capacityLimit"] = args?.capacityLimit;
             resourceInputs["capacityObjectId"] = args?.capacityObjectId;
             resourceInputs["location"] = args?.location;
@@ -162,5 +159,5 @@ export interface AutoScaleVCoreArgs {
     /**
      * The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    vcoreName: pulumi.Input<string>;
+    vcoreName?: pulumi.Input<string | undefined>;
 }

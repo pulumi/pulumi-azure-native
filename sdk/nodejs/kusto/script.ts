@@ -102,9 +102,6 @@ export class Script extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.scriptName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'scriptName'");
-            }
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["continueOnErrors"] = (args?.continueOnErrors) ?? false;
             resourceInputs["databaseName"] = args?.databaseName;
@@ -179,7 +176,7 @@ export interface ScriptArgs {
     /**
      * The name of the Kusto database script.
      */
-    scriptName: pulumi.Input<string>;
+    scriptName?: pulumi.Input<string | undefined>;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property
      */

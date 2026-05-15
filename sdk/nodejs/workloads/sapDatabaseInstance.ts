@@ -111,9 +111,6 @@ export class SapDatabaseInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.databaseInstanceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'databaseInstanceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -169,7 +166,7 @@ export interface SapDatabaseInstanceArgs {
     /**
      * Database resource name string modeled as parameter for auto generation to work correctly.
      */
-    databaseInstanceName: pulumi.Input<string>;
+    databaseInstanceName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

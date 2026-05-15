@@ -21,7 +21,7 @@ export function getOutboundFirewallRule(args: GetOutboundFirewallRuleArgs, opts?
 }
 
 export interface GetOutboundFirewallRuleArgs {
-    outboundRuleFqdn?: string;
+    outboundRuleFqdn: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -74,7 +74,7 @@ export function getOutboundFirewallRuleOutput(args: GetOutboundFirewallRuleOutpu
 }
 
 export interface GetOutboundFirewallRuleOutputArgs {
-    outboundRuleFqdn?: pulumi.Input<string | undefined>;
+    outboundRuleFqdn: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -69,9 +69,6 @@ export class WorkspaceProductApiLink extends pulumi.CustomResource {
             if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.apiLinkId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'apiLinkId'");
-            }
             if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
@@ -117,7 +114,7 @@ export interface WorkspaceProductApiLinkArgs {
     /**
      * Product-API link identifier. Must be unique in the current API Management service instance.
      */
-    apiLinkId: pulumi.Input<string>;
+    apiLinkId?: pulumi.Input<string | undefined>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

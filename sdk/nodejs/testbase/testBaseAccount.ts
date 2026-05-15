@@ -99,9 +99,6 @@ export class TestBaseAccount extends pulumi.CustomResource {
             if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if (args?.testBaseAccountName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'testBaseAccountName'");
-            }
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -165,5 +162,5 @@ export interface TestBaseAccountArgs {
     /**
      * The resource name of the Test Base Account.
      */
-    testBaseAccountName: pulumi.Input<string>;
+    testBaseAccountName?: pulumi.Input<string | undefined>;
 }

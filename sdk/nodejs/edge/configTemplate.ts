@@ -85,9 +85,6 @@ export class ConfigTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.configTemplateName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'configTemplateName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -125,7 +122,7 @@ export interface ConfigTemplateArgs {
     /**
      * The name of the ConfigTemplate
      */
-    configTemplateName: pulumi.Input<string>;
+    configTemplateName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

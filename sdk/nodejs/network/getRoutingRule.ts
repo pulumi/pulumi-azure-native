@@ -45,7 +45,7 @@ export interface GetRoutingRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: string;
+    ruleName: string;
 }
 
 /**
@@ -135,5 +135,5 @@ export interface GetRoutingRuleOutputArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName: pulumi.Input<string>;
 }

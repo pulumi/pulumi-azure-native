@@ -31,7 +31,7 @@ export interface GetClusterJobArgs {
     /**
      * Name of ClusterJob
      */
-    jobsName?: string;
+    jobsName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetClusterJobOutputArgs {
     /**
      * Name of ClusterJob
      */
-    jobsName?: pulumi.Input<string | undefined>;
+    jobsName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

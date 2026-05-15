@@ -26,7 +26,7 @@ export interface GetFirewallRuleArgs {
     /**
      * Name of the firewall rule.
      */
-    firewallRuleName?: string;
+    firewallRuleName: string;
     /**
      * Name of the database fleet.
      */
@@ -89,7 +89,7 @@ export interface GetFirewallRuleOutputArgs {
     /**
      * Name of the firewall rule.
      */
-    firewallRuleName?: pulumi.Input<string | undefined>;
+    firewallRuleName: pulumi.Input<string>;
     /**
      * Name of the database fleet.
      */

@@ -26,7 +26,7 @@ export interface GetIoTAddonArgs {
     /**
      * The addon name.
      */
-    addonName?: string;
+    addonName: string;
     /**
      * The device name.
      */
@@ -114,7 +114,7 @@ export interface GetIoTAddonOutputArgs {
     /**
      * The addon name.
      */
-    addonName?: pulumi.Input<string | undefined>;
+    addonName: pulumi.Input<string>;
     /**
      * The device name.
      */

@@ -26,7 +26,7 @@ export interface GetConfigurationGroupValueArgs {
     /**
      * The name of the configuration group value.
      */
-    configurationGroupValueName?: string;
+    configurationGroupValueName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetConfigurationGroupValueOutputArgs {
     /**
      * The name of the configuration group value.
      */
-    configurationGroupValueName?: pulumi.Input<string | undefined>;
+    configurationGroupValueName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -26,7 +26,7 @@ export interface GetCassandraClusterArgs {
     /**
      * Managed Cassandra cluster name.
      */
-    clusterName?: string;
+    clusterName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetCassandraClusterOutputArgs {
     /**
      * Managed Cassandra cluster name.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

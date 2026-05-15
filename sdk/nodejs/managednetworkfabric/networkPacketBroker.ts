@@ -104,9 +104,6 @@ export class NetworkPacketBroker extends pulumi.CustomResource {
             if (args?.networkFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricId'");
             }
-            if (args?.networkPacketBrokerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkPacketBrokerName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -160,7 +157,7 @@ export interface NetworkPacketBrokerArgs {
     /**
      * Name of the Network Packet Broker.
      */
-    networkPacketBrokerName: pulumi.Input<string>;
+    networkPacketBrokerName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

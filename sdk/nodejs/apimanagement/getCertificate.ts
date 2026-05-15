@@ -27,7 +27,7 @@ export interface GetCertificateArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    certificateId?: string;
+    certificateId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetCertificateOutputArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    certificateId?: pulumi.Input<string | undefined>;
+    certificateId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

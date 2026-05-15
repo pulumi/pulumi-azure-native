@@ -71,9 +71,6 @@ export class DataFlow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dataFlowName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataFlowName'");
-            }
             if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
@@ -112,7 +109,7 @@ export interface DataFlowArgs {
     /**
      * The data flow name.
      */
-    dataFlowName: pulumi.Input<string>;
+    dataFlowName?: pulumi.Input<string | undefined>;
     /**
      * The factory name.
      */

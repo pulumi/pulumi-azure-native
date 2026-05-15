@@ -79,9 +79,6 @@ export class ReachabilityAnalysisIntent extends pulumi.CustomResource {
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if (args?.reachabilityAnalysisIntentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'reachabilityAnalysisIntentName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -126,7 +123,7 @@ export interface ReachabilityAnalysisIntentArgs {
     /**
      * Reachability Analysis Intent name.
      */
-    reachabilityAnalysisIntentName: pulumi.Input<string>;
+    reachabilityAnalysisIntentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

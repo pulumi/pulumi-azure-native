@@ -30,7 +30,7 @@ export interface GetScheduledQueryRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: string;
+    ruleName: string;
 }
 
 /**
@@ -177,5 +177,5 @@ export interface GetScheduledQueryRuleOutputArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName: pulumi.Input<string>;
 }

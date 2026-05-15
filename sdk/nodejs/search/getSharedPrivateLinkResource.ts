@@ -35,7 +35,7 @@ export interface GetSharedPrivateLinkResourceArgs {
     /**
      * The name of the shared private link resource managed by the Azure AI Search service within the specified resource group.
      */
-    sharedPrivateLinkResourceName?: string;
+    sharedPrivateLinkResourceName: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetSharedPrivateLinkResourceOutputArgs {
     /**
      * The name of the shared private link resource managed by the Azure AI Search service within the specified resource group.
      */
-    sharedPrivateLinkResourceName?: pulumi.Input<string | undefined>;
+    sharedPrivateLinkResourceName: pulumi.Input<string>;
 }

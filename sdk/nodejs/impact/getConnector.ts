@@ -12,8 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01-preview.
  */
-export function getConnector(args?: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
-    args = args || {};
+export function getConnector(args: GetConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:impact:getConnector", {
         "connectorName": args.connectorName,
@@ -24,7 +23,7 @@ export interface GetConnectorArgs {
     /**
      * The name of the connector
      */
-    connectorName?: string;
+    connectorName: string;
 }
 
 /**
@@ -61,8 +60,7 @@ export interface GetConnectorResult {
  *
  * Uses Azure REST API version 2024-05-01-preview.
  */
-export function getConnectorOutput(args?: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
-    args = args || {};
+export function getConnectorOutput(args: GetConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:impact:getConnector", {
         "connectorName": args.connectorName,
@@ -73,5 +71,5 @@ export interface GetConnectorOutputArgs {
     /**
      * The name of the connector
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName: pulumi.Input<string>;
 }

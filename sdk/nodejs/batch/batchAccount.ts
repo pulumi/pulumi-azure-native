@@ -149,9 +149,6 @@ export class BatchAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.accountName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -221,7 +218,7 @@ export interface BatchAccountArgs {
     /**
      * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
      */
-    accountName: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
      */

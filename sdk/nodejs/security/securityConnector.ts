@@ -108,9 +108,6 @@ export class SecurityConnector extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.securityConnectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'securityConnectorName'");
-            }
             resourceInputs["environmentData"] = args?.environmentData;
             resourceInputs["environmentName"] = args?.environmentName;
             resourceInputs["hierarchyIdentifier"] = args?.hierarchyIdentifier;
@@ -183,7 +180,7 @@ export interface SecurityConnectorArgs {
     /**
      * The security connector name.
      */
-    securityConnectorName: pulumi.Input<string>;
+    securityConnectorName?: pulumi.Input<string | undefined>;
     /**
      * A list of key value pairs that describe the resource.
      */

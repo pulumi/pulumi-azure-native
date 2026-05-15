@@ -81,9 +81,6 @@ export class ArtifactStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.artifactStoreName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'artifactStoreName'");
-            }
             if (args?.publisherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
@@ -123,7 +120,7 @@ export interface ArtifactStoreArgs {
     /**
      * The name of the artifact store.
      */
-    artifactStoreName: pulumi.Input<string>;
+    artifactStoreName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

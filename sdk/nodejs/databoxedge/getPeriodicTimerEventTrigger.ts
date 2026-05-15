@@ -29,7 +29,7 @@ export interface GetPeriodicTimerEventTriggerArgs {
     /**
      * The trigger name.
      */
-    name?: string;
+    name: string;
     /**
      * The resource group name.
      */
@@ -100,7 +100,7 @@ export interface GetPeriodicTimerEventTriggerOutputArgs {
     /**
      * The trigger name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The resource group name.
      */

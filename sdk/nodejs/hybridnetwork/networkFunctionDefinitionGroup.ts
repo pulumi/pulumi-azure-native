@@ -81,9 +81,6 @@ export class NetworkFunctionDefinitionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.networkFunctionDefinitionGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkFunctionDefinitionGroupName'");
-            }
             if (args?.publisherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
@@ -127,7 +124,7 @@ export interface NetworkFunctionDefinitionGroupArgs {
     /**
      * The name of the network function definition group.
      */
-    networkFunctionDefinitionGroupName: pulumi.Input<string>;
+    networkFunctionDefinitionGroupName?: pulumi.Input<string | undefined>;
     /**
      * Network function definition group properties.
      */

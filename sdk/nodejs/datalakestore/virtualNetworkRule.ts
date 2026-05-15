@@ -73,9 +73,6 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if (args?.virtualNetworkRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualNetworkRuleName'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["subnetId"] = args?.subnetId;
@@ -115,5 +112,5 @@ export interface VirtualNetworkRuleArgs {
     /**
      * The name of the virtual network rule to create or update.
      */
-    virtualNetworkRuleName: pulumi.Input<string>;
+    virtualNetworkRuleName?: pulumi.Input<string | undefined>;
 }

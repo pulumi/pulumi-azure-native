@@ -27,7 +27,7 @@ export interface GetBackendArgs {
     /**
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
-    backendId?: string;
+    backendId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,7 +120,7 @@ export interface GetBackendOutputArgs {
     /**
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
-    backendId?: pulumi.Input<string | undefined>;
+    backendId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

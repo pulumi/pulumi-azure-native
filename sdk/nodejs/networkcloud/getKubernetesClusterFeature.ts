@@ -27,7 +27,7 @@ export interface GetKubernetesClusterFeatureArgs {
     /**
      * The name of the feature.
      */
-    featureName?: string;
+    featureName: string;
     /**
      * The name of the Kubernetes cluster.
      */
@@ -120,7 +120,7 @@ export interface GetKubernetesClusterFeatureOutputArgs {
     /**
      * The name of the feature.
      */
-    featureName?: pulumi.Input<string | undefined>;
+    featureName: pulumi.Input<string>;
     /**
      * The name of the Kubernetes cluster.
      */

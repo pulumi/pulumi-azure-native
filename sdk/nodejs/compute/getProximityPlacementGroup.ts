@@ -31,7 +31,7 @@ export interface GetProximityPlacementGroupArgs {
     /**
      * The name of the proximity placement group.
      */
-    proximityPlacementGroupName?: string;
+    proximityPlacementGroupName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -123,7 +123,7 @@ export interface GetProximityPlacementGroupOutputArgs {
     /**
      * The name of the proximity placement group.
      */
-    proximityPlacementGroupName?: pulumi.Input<string | undefined>;
+    proximityPlacementGroupName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

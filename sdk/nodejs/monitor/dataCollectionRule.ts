@@ -126,9 +126,6 @@ export class DataCollectionRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dataCollectionRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataCollectionRuleName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -190,7 +187,7 @@ export interface DataCollectionRuleArgs {
     /**
      * The name of the data collection rule. The name is case insensitive.
      */
-    dataCollectionRuleName: pulumi.Input<string>;
+    dataCollectionRuleName?: pulumi.Input<string | undefined>;
     /**
      * The specification of data flows.
      */

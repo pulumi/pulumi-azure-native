@@ -26,7 +26,7 @@ export interface GetDataCollectionRuleArgs {
     /**
      * The name of the data collection rule. The name is case insensitive.
      */
-    dataCollectionRuleName?: string;
+    dataCollectionRuleName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -134,7 +134,7 @@ export interface GetDataCollectionRuleOutputArgs {
     /**
      * The name of the data collection rule. The name is case insensitive.
      */
-    dataCollectionRuleName?: pulumi.Input<string | undefined>;
+    dataCollectionRuleName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

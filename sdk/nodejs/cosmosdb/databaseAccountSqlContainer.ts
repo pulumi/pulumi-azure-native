@@ -108,9 +108,6 @@ export class DatabaseAccountSqlContainer extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.containerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'containerName'");
-            }
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
@@ -175,7 +172,7 @@ export interface DatabaseAccountSqlContainerArgs {
     /**
      * Cosmos DB container name.
      */
-    containerName: pulumi.Input<string>;
+    containerName?: pulumi.Input<string | undefined>;
     /**
      * Cosmos DB database name.
      */

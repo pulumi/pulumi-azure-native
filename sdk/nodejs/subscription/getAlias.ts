@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2021-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAlias(args?: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
-    args = args || {};
+export function getAlias(args: GetAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:subscription:getAlias", {
         "aliasName": args.aliasName,
@@ -26,7 +25,7 @@ export interface GetAliasArgs {
     /**
      * AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
      */
-    aliasName?: string;
+    aliasName: string;
 }
 
 /**
@@ -65,8 +64,7 @@ export interface GetAliasResult {
  *
  * Other available API versions: 2021-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAliasOutput(args?: GetAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAliasResult> {
-    args = args || {};
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:subscription:getAlias", {
         "aliasName": args.aliasName,
@@ -77,5 +75,5 @@ export interface GetAliasOutputArgs {
     /**
      * AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
      */
-    aliasName?: pulumi.Input<string | undefined>;
+    aliasName: pulumi.Input<string>;
 }

@@ -30,7 +30,7 @@ export interface GetMyWorkbookArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -133,5 +133,5 @@ export interface GetMyWorkbookOutputArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

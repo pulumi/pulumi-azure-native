@@ -26,7 +26,7 @@ export interface GetPolicyArgs {
     /**
      * The name of the CdnWebApplicationFirewallPolicy.
      */
-    policyName?: string;
+    policyName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetPolicyOutputArgs {
     /**
      * The name of the CdnWebApplicationFirewallPolicy.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

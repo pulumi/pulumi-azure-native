@@ -28,7 +28,7 @@ export interface GetCustomRolloutArgs {
     /**
      * The rollout name.
      */
-    rolloutName?: string;
+    rolloutName: string;
 }
 
 /**
@@ -81,5 +81,5 @@ export interface GetCustomRolloutOutputArgs {
     /**
      * The rollout name.
      */
-    rolloutName?: pulumi.Input<string | undefined>;
+    rolloutName: pulumi.Input<string>;
 }

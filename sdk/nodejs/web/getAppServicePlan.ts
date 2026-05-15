@@ -26,7 +26,7 @@ export interface GetAppServicePlanArgs {
     /**
      * Name of the App Service plan.
      */
-    name?: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -192,7 +192,7 @@ export interface GetAppServicePlanOutputArgs {
     /**
      * Name of the App Service plan.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

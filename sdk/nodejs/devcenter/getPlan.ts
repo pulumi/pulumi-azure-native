@@ -26,7 +26,7 @@ export interface GetPlanArgs {
     /**
      * The name of the devcenter plan.
      */
-    planName?: string;
+    planName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetPlanOutputArgs {
     /**
      * The name of the devcenter plan.
      */
-    planName?: pulumi.Input<string | undefined>;
+    planName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -95,9 +95,6 @@ export class ReferenceDataSet extends pulumi.CustomResource {
             if (args?.keyProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyProperties'");
             }
-            if (args?.referenceDataSetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'referenceDataSetName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -154,7 +151,7 @@ export interface ReferenceDataSetArgs {
     /**
      * Name of the reference data set.
      */
-    referenceDataSetName: pulumi.Input<string>;
+    referenceDataSetName?: pulumi.Input<string | undefined>;
     /**
      * Name of an Azure Resource group.
      */

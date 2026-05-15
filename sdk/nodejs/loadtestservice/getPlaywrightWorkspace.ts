@@ -26,7 +26,7 @@ export interface GetPlaywrightWorkspaceArgs {
     /**
      * The name of the PlaywrightWorkspace
      */
-    playwrightWorkspaceName?: string;
+    playwrightWorkspaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetPlaywrightWorkspaceOutputArgs {
     /**
      * The name of the PlaywrightWorkspace
      */
-    playwrightWorkspaceName?: pulumi.Input<string | undefined>;
+    playwrightWorkspaceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -31,7 +31,7 @@ export interface GetIntegrationAccountPartnerArgs {
     /**
      * The integration account partner name.
      */
-    partnerName?: string;
+    partnerName: string;
     /**
      * The resource group name.
      */
@@ -111,7 +111,7 @@ export interface GetIntegrationAccountPartnerOutputArgs {
     /**
      * The integration account partner name.
      */
-    partnerName?: pulumi.Input<string | undefined>;
+    partnerName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

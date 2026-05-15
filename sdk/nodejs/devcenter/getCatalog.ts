@@ -27,7 +27,7 @@ export interface GetCatalogArgs {
     /**
      * The name of the Catalog.
      */
-    catalogName?: string;
+    catalogName: string;
     /**
      * The name of the devcenter.
      */
@@ -123,7 +123,7 @@ export interface GetCatalogOutputArgs {
     /**
      * The name of the Catalog.
      */
-    catalogName?: pulumi.Input<string | undefined>;
+    catalogName: pulumi.Input<string>;
     /**
      * The name of the devcenter.
      */

@@ -27,7 +27,7 @@ export interface GetCacheRuleArgs {
     /**
      * The name of the cache rule.
      */
-    cacheRuleName?: string;
+    cacheRuleName: string;
     /**
      * The name of the container registry.
      */
@@ -104,7 +104,7 @@ export interface GetCacheRuleOutputArgs {
     /**
      * The name of the cache rule.
      */
-    cacheRuleName?: pulumi.Input<string | undefined>;
+    cacheRuleName: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */

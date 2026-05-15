@@ -74,9 +74,6 @@ export class AuthorizationAccessPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.authorizationAccessPolicyId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'authorizationAccessPolicyId'");
-            }
             if (args?.authorizationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationId'");
             }
@@ -126,7 +123,7 @@ export interface AuthorizationAccessPolicyArgs {
     /**
      * Identifier of the authorization access policy.
      */
-    authorizationAccessPolicyId: pulumi.Input<string>;
+    authorizationAccessPolicyId?: pulumi.Input<string | undefined>;
     /**
      * Identifier of the authorization.
      */

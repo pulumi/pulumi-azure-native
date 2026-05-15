@@ -88,9 +88,6 @@ export class ProviderInstance extends pulumi.CustomResource {
             if (args?.monitorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
-            if (args?.providerInstanceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'providerInstanceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface ProviderInstanceArgs {
     /**
      * Name of the provider instance.
      */
-    providerInstanceName: pulumi.Input<string>;
+    providerInstanceName?: pulumi.Input<string | undefined>;
     /**
      * Defines the provider specific properties.
      */

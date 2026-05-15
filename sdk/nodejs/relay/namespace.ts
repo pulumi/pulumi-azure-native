@@ -113,9 +113,6 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.namespaceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -171,7 +168,7 @@ export interface NamespaceArgs {
     /**
      * The namespace name
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * List of private endpoint connections.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.

@@ -77,9 +77,6 @@ export class ApplicationAccelerator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.applicationAcceleratorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'applicationAcceleratorName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -117,7 +114,7 @@ export interface ApplicationAcceleratorArgs {
     /**
      * The name of the application accelerator.
      */
-    applicationAcceleratorName: pulumi.Input<string>;
+    applicationAcceleratorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

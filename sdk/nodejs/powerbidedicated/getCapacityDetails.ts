@@ -24,7 +24,7 @@ export interface GetCapacityDetailsArgs {
     /**
      * The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    dedicatedCapacityName?: string;
+    dedicatedCapacityName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetCapacityDetailsOutputArgs {
     /**
      * The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    dedicatedCapacityName?: pulumi.Input<string | undefined>;
+    dedicatedCapacityName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

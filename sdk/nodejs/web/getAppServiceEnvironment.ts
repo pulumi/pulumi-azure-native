@@ -26,7 +26,7 @@ export interface GetAppServiceEnvironmentArgs {
     /**
      * Name of the App Service Environment.
      */
-    name?: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -166,7 +166,7 @@ export interface GetAppServiceEnvironmentOutputArgs {
     /**
      * Name of the App Service Environment.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

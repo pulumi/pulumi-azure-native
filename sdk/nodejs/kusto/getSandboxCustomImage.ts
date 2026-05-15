@@ -32,7 +32,7 @@ export interface GetSandboxCustomImageArgs {
     /**
      * The name of the sandbox custom image.
      */
-    sandboxCustomImageName?: string;
+    sandboxCustomImageName: string;
 }
 
 /**
@@ -104,5 +104,5 @@ export interface GetSandboxCustomImageOutputArgs {
     /**
      * The name of the sandbox custom image.
      */
-    sandboxCustomImageName?: pulumi.Input<string | undefined>;
+    sandboxCustomImageName: pulumi.Input<string>;
 }

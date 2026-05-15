@@ -25,7 +25,7 @@ export interface GetAvsAssessmentsV2OperationArgs {
     /**
      * AVS Assessment ARM name
      */
-    assessmentName?: string;
+    assessmentName: string;
     /**
      * Assessment Project Name
      */
@@ -83,7 +83,7 @@ export interface GetAvsAssessmentsV2OperationOutputArgs {
     /**
      * AVS Assessment ARM name
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

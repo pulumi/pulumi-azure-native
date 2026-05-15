@@ -91,9 +91,6 @@ export class ApiSchema extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.schemaId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'schemaId'");
-            }
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
@@ -153,7 +150,7 @@ export interface ApiSchemaArgs {
     /**
      * Schema id identifier. Must be unique in the current API Management service instance.
      */
-    schemaId: pulumi.Input<string>;
+    schemaId?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management service.
      */

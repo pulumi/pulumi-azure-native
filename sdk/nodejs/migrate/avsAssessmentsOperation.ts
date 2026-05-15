@@ -279,9 +279,6 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.assessmentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'assessmentName'");
-            }
             if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
@@ -421,7 +418,7 @@ export interface AvsAssessmentsOperationArgs {
     /**
      * AVS Assessment ARM name
      */
-    assessmentName: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string | undefined>;
     /**
      * AVS Assessment Scenario.
      */

@@ -30,7 +30,7 @@ export interface GetVirtualWanArgs {
     /**
      * The name of the VirtualWAN being retrieved.
      */
-    virtualWANName?: string;
+    virtualWANName: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetVirtualWanOutputArgs {
     /**
      * The name of the VirtualWAN being retrieved.
      */
-    virtualWANName?: pulumi.Input<string | undefined>;
+    virtualWANName: pulumi.Input<string>;
 }

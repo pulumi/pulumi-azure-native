@@ -35,7 +35,7 @@ export interface GetWatcherArgs {
     /**
      * The watcher name.
      */
-    watcherName?: string;
+    watcherName: string;
 }
 
 /**
@@ -139,5 +139,5 @@ export interface GetWatcherOutputArgs {
     /**
      * The watcher name.
      */
-    watcherName?: pulumi.Input<string | undefined>;
+    watcherName: pulumi.Input<string>;
 }

@@ -26,7 +26,7 @@ export interface GetLinkerArgs {
     /**
      * The name Linker resource.
      */
-    linkerName?: string;
+    linkerName: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */
@@ -113,7 +113,7 @@ export interface GetLinkerOutputArgs {
     /**
      * The name Linker resource.
      */
-    linkerName?: pulumi.Input<string | undefined>;
+    linkerName: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource to be connected.
      */

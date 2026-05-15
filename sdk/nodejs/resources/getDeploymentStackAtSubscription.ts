@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getDeploymentStackAtSubscription(args?: GetDeploymentStackAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStackAtSubscriptionResult> {
-    args = args || {};
+export function getDeploymentStackAtSubscription(args: GetDeploymentStackAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStackAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources:getDeploymentStackAtSubscription", {
         "deploymentStackName": args.deploymentStackName,
@@ -26,7 +25,7 @@ export interface GetDeploymentStackAtSubscriptionArgs {
     /**
      * Name of the deployment stack.
      */
-    deploymentStackName?: string;
+    deploymentStackName: string;
 }
 
 /**
@@ -137,8 +136,7 @@ export interface GetDeploymentStackAtSubscriptionResult {
  *
  * Other available API versions: 2022-08-01-preview, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resources [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getDeploymentStackAtSubscriptionOutput(args?: GetDeploymentStackAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentStackAtSubscriptionResult> {
-    args = args || {};
+export function getDeploymentStackAtSubscriptionOutput(args: GetDeploymentStackAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentStackAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getDeploymentStackAtSubscription", {
         "deploymentStackName": args.deploymentStackName,
@@ -149,5 +147,5 @@ export interface GetDeploymentStackAtSubscriptionOutputArgs {
     /**
      * Name of the deployment stack.
      */
-    deploymentStackName?: pulumi.Input<string | undefined>;
+    deploymentStackName: pulumi.Input<string>;
 }

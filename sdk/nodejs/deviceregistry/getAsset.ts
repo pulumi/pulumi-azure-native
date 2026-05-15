@@ -26,7 +26,7 @@ export interface GetAssetArgs {
     /**
      * Asset name parameter.
      */
-    assetName?: string;
+    assetName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -185,7 +185,7 @@ export interface GetAssetOutputArgs {
     /**
      * Asset name parameter.
      */
-    assetName?: pulumi.Input<string | undefined>;
+    assetName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -29,7 +29,7 @@ export interface GetRegistrationAssignmentArgs {
     /**
      * The GUID of the registration assignment.
      */
-    registrationAssignmentId?: string;
+    registrationAssignmentId: string;
     /**
      * The scope of the resource.
      */
@@ -87,7 +87,7 @@ export interface GetRegistrationAssignmentOutputArgs {
     /**
      * The GUID of the registration assignment.
      */
-    registrationAssignmentId?: pulumi.Input<string | undefined>;
+    registrationAssignmentId: pulumi.Input<string>;
     /**
      * The scope of the resource.
      */

@@ -12,8 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2025-07-01.
  */
-export function getDeploymentStacksWhatIfResultsAtSubscription(args?: GetDeploymentStacksWhatIfResultsAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStacksWhatIfResultsAtSubscriptionResult> {
-    args = args || {};
+export function getDeploymentStacksWhatIfResultsAtSubscription(args: GetDeploymentStacksWhatIfResultsAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetDeploymentStacksWhatIfResultsAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:resources:getDeploymentStacksWhatIfResultsAtSubscription", {
         "deploymentStacksWhatIfResultName": args.deploymentStacksWhatIfResultName,
@@ -24,7 +23,7 @@ export interface GetDeploymentStacksWhatIfResultsAtSubscriptionArgs {
     /**
      * Name of the deployment stack what-if result.
      */
-    deploymentStacksWhatIfResultName?: string;
+    deploymentStacksWhatIfResultName: string;
 }
 
 /**
@@ -69,8 +68,7 @@ export interface GetDeploymentStacksWhatIfResultsAtSubscriptionResult {
  *
  * Uses Azure REST API version 2025-07-01.
  */
-export function getDeploymentStacksWhatIfResultsAtSubscriptionOutput(args?: GetDeploymentStacksWhatIfResultsAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentStacksWhatIfResultsAtSubscriptionResult> {
-    args = args || {};
+export function getDeploymentStacksWhatIfResultsAtSubscriptionOutput(args: GetDeploymentStacksWhatIfResultsAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentStacksWhatIfResultsAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:resources:getDeploymentStacksWhatIfResultsAtSubscription", {
         "deploymentStacksWhatIfResultName": args.deploymentStacksWhatIfResultName,
@@ -81,5 +79,5 @@ export interface GetDeploymentStacksWhatIfResultsAtSubscriptionOutputArgs {
     /**
      * Name of the deployment stack what-if result.
      */
-    deploymentStacksWhatIfResultName?: pulumi.Input<string | undefined>;
+    deploymentStacksWhatIfResultName: pulumi.Input<string>;
 }

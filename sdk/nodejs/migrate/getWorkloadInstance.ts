@@ -38,7 +38,7 @@ export interface GetWorkloadInstanceArgs {
     /**
      * Workload instance name.
      */
-    workloadInstanceName?: string;
+    workloadInstanceName: string;
 }
 
 /**
@@ -102,5 +102,5 @@ export interface GetWorkloadInstanceOutputArgs {
     /**
      * Workload instance name.
      */
-    workloadInstanceName?: pulumi.Input<string | undefined>;
+    workloadInstanceName: pulumi.Input<string>;
 }

@@ -79,9 +79,6 @@ export class InfrastructureResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.infrastructureResourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'infrastructureResourceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -127,7 +124,7 @@ export interface InfrastructureResourceArgs {
     /**
      * The name of the infrastructure resource in the space.
      */
-    infrastructureResourceName: pulumi.Input<string>;
+    infrastructureResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

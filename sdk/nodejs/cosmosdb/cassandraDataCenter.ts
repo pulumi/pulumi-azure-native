@@ -72,9 +72,6 @@ export class CassandraDataCenter extends pulumi.CustomResource {
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if (args?.dataCenterName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataCenterName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -109,7 +106,7 @@ export interface CassandraDataCenterArgs {
     /**
      * Data center name in a managed Cassandra cluster.
      */
-    dataCenterName: pulumi.Input<string>;
+    dataCenterName?: pulumi.Input<string | undefined>;
     /**
      * Properties of a managed Cassandra data center.
      */

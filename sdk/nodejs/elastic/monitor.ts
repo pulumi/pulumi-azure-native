@@ -89,9 +89,6 @@ export class Monitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.monitorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'monitorName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -139,7 +136,7 @@ export interface MonitorArgs {
     /**
      * Monitor resource name
      */
-    monitorName: pulumi.Input<string>;
+    monitorName?: pulumi.Input<string | undefined>;
     /**
      * Properties of the monitor resource.
      */

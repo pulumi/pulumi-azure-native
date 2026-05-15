@@ -30,7 +30,7 @@ export interface GetComponentLinkedStorageAccountArgs {
     /**
      * The type of the Application Insights component data source for the linked storage account.
      */
-    storageType?: string;
+    storageType: string;
 }
 
 /**
@@ -84,5 +84,5 @@ export interface GetComponentLinkedStorageAccountOutputArgs {
     /**
      * The type of the Application Insights component data source for the linked storage account.
      */
-    storageType?: pulumi.Input<string | undefined>;
+    storageType: pulumi.Input<string>;
 }

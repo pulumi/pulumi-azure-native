@@ -138,9 +138,6 @@ export class BastionHost extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.bastionHostName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'bastionHostName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -207,7 +204,7 @@ export interface BastionHostArgs {
     /**
      * The name of the Bastion Host.
      */
-    bastionHostName: pulumi.Input<string>;
+    bastionHostName?: pulumi.Input<string | undefined>;
     /**
      * Enable/Disable Copy/Paste feature of the Bastion Host resource.
      */

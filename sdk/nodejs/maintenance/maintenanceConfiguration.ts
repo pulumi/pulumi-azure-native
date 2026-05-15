@@ -120,9 +120,6 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             resourceInputs["duration"] = args?.duration;
             resourceInputs["expirationDateTime"] = args?.expirationDateTime;
             resourceInputs["extensionProperties"] = args?.extensionProperties;
@@ -209,7 +206,7 @@ export interface MaintenanceConfigurationArgs {
     /**
      * The name of the MaintenanceConfiguration
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
      */

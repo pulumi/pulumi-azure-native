@@ -82,9 +82,6 @@ export class DedicatedCloudNode extends pulumi.CustomResource {
             if (args?.availabilityZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'availabilityZoneId'");
             }
-            if (args?.dedicatedCloudNodeName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dedicatedCloudNodeName'");
-            }
             if (args?.id === undefined && !opts.urn) {
                 throw new Error("Missing required property 'id'");
             }
@@ -144,7 +141,7 @@ export interface DedicatedCloudNodeArgs {
     /**
      * dedicated cloud node name
      */
-    dedicatedCloudNodeName: pulumi.Input<string>;
+    dedicatedCloudNodeName?: pulumi.Input<string | undefined>;
     /**
      * SKU's id
      */

@@ -32,7 +32,7 @@ export interface GetApiVersionSetArgs {
     /**
      * Api Version Set identifier. Must be unique in the current API Management service instance.
      */
-    versionSetId?: string;
+    versionSetId: string;
 }
 
 /**
@@ -104,5 +104,5 @@ export interface GetApiVersionSetOutputArgs {
     /**
      * Api Version Set identifier. Must be unique in the current API Management service instance.
      */
-    versionSetId?: pulumi.Input<string | undefined>;
+    versionSetId: pulumi.Input<string>;
 }

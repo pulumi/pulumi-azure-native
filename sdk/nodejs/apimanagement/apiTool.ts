@@ -88,9 +88,6 @@ export class ApiTool extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (args?.toolId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'toolId'");
-            }
             resourceInputs["apiId"] = args?.apiId;
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
@@ -149,5 +146,5 @@ export interface ApiToolArgs {
     /**
      * Tool identifier within an API. Must be unique in the current API Management service instance.
      */
-    toolId: pulumi.Input<string>;
+    toolId?: pulumi.Input<string | undefined>;
 }

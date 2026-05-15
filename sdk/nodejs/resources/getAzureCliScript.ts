@@ -28,7 +28,7 @@ export interface GetAzureCliScriptArgs {
     /**
      * Name of the deployment script.
      */
-    scriptName?: string;
+    scriptName: string;
 }
 
 /**
@@ -154,5 +154,5 @@ export interface GetAzureCliScriptOutputArgs {
     /**
      * Name of the deployment script.
      */
-    scriptName?: pulumi.Input<string | undefined>;
+    scriptName: pulumi.Input<string>;
 }

@@ -26,7 +26,7 @@ export interface GetBastionHostArgs {
     /**
      * The name of the Bastion Host.
      */
-    bastionHostName?: string;
+    bastionHostName: string;
     /**
      * The name of the resource group.
      */
@@ -146,7 +146,7 @@ export interface GetBastionHostOutputArgs {
     /**
      * The name of the Bastion Host.
      */
-    bastionHostName?: pulumi.Input<string | undefined>;
+    bastionHostName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

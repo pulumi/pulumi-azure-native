@@ -30,7 +30,7 @@ export interface GetSnapshotArgs {
     /**
      * The name of the managed cluster resource.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -121,5 +121,5 @@ export interface GetSnapshotOutputArgs {
     /**
      * The name of the managed cluster resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

@@ -40,7 +40,7 @@ export interface GetServiceTaskArgs {
     /**
      * Name of the Task
      */
-    taskName?: string;
+    taskName: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetServiceTaskOutputArgs {
     /**
      * Name of the Task
      */
-    taskName?: pulumi.Input<string | undefined>;
+    taskName: pulumi.Input<string>;
 }

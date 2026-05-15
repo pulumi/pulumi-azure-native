@@ -71,9 +71,6 @@ export class Group extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.groupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'groupName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -116,7 +113,7 @@ export interface GroupArgs {
     /**
      * Unique name of a group within a project.
      */
-    groupName: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Migrate project.
      */

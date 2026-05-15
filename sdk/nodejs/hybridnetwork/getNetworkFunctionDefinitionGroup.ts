@@ -27,7 +27,7 @@ export interface GetNetworkFunctionDefinitionGroupArgs {
     /**
      * The name of the network function definition group.
      */
-    networkFunctionDefinitionGroupName?: string;
+    networkFunctionDefinitionGroupName: string;
     /**
      * The name of the publisher.
      */
@@ -95,7 +95,7 @@ export interface GetNetworkFunctionDefinitionGroupOutputArgs {
     /**
      * The name of the network function definition group.
      */
-    networkFunctionDefinitionGroupName?: pulumi.Input<string | undefined>;
+    networkFunctionDefinitionGroupName: pulumi.Input<string>;
     /**
      * The name of the publisher.
      */

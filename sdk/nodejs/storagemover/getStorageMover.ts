@@ -30,7 +30,7 @@ export interface GetStorageMoverArgs {
     /**
      * The name of the Storage Mover resource.
      */
-    storageMoverName?: string;
+    storageMoverName: string;
 }
 
 /**
@@ -97,5 +97,5 @@ export interface GetStorageMoverOutputArgs {
     /**
      * The name of the Storage Mover resource.
      */
-    storageMoverName?: pulumi.Input<string | undefined>;
+    storageMoverName: pulumi.Input<string>;
 }

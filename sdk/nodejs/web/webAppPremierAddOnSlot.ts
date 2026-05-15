@@ -97,9 +97,6 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if (args?.premierAddOnName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'premierAddOnName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -167,7 +164,7 @@ export interface WebAppPremierAddOnSlotArgs {
     /**
      * Add-on name.
      */
-    premierAddOnName: pulumi.Input<string>;
+    premierAddOnName?: pulumi.Input<string | undefined>;
     /**
      * Premier add on Product.
      */

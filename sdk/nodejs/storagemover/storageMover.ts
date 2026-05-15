@@ -88,9 +88,6 @@ export class StorageMover extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.storageMoverName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageMoverName'");
-            }
             resourceInputs["description"] = args?.description;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -137,7 +134,7 @@ export interface StorageMoverArgs {
     /**
      * The name of the Storage Mover resource.
      */
-    storageMoverName: pulumi.Input<string>;
+    storageMoverName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

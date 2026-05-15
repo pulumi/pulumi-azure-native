@@ -27,7 +27,7 @@ export interface GetNamespaceDiscoveredDeviceArgs {
     /**
      * The name of the discovered device.
      */
-    discoveredDeviceName?: string;
+    discoveredDeviceName: string;
     /**
      * The name of the namespace.
      */
@@ -135,7 +135,7 @@ export interface GetNamespaceDiscoveredDeviceOutputArgs {
     /**
      * The name of the discovered device.
      */
-    discoveredDeviceName?: pulumi.Input<string | undefined>;
+    discoveredDeviceName: pulumi.Input<string>;
     /**
      * The name of the namespace.
      */

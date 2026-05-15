@@ -35,7 +35,7 @@ export interface GetServerGroupRoleArgs {
     /**
      * The name of the cluster role.
      */
-    roleName?: string;
+    roleName: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetServerGroupRoleOutputArgs {
     /**
      * The name of the cluster role.
      */
-    roleName?: pulumi.Input<string | undefined>;
+    roleName: pulumi.Input<string>;
 }

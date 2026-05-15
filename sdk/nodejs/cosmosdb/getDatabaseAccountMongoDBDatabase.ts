@@ -28,7 +28,7 @@ export interface GetDatabaseAccountMongoDBDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName?: string;
+    databaseName: string;
     /**
      * Name of an Azure resource group.
      */
@@ -88,7 +88,7 @@ export interface GetDatabaseAccountMongoDBDatabaseOutputArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * Name of an Azure resource group.
      */

@@ -35,7 +35,7 @@ export interface GetSecurityRuleArgs {
     /**
      * Name of the security rule.
      */
-    securityRuleName?: string;
+    securityRuleName: string;
 }
 
 /**
@@ -135,5 +135,5 @@ export interface GetSecurityRuleOutputArgs {
     /**
      * Name of the security rule.
      */
-    securityRuleName?: pulumi.Input<string | undefined>;
+    securityRuleName: pulumi.Input<string>;
 }

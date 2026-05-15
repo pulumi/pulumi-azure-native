@@ -27,7 +27,7 @@ export interface GetProactiveDetectionConfigurationArgs {
     /**
      * The ProactiveDetection configuration ID. This is unique within a Application Insights component.
      */
-    configurationId?: string;
+    configurationId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetProactiveDetectionConfigurationOutputArgs {
     /**
      * The ProactiveDetection configuration ID. This is unique within a Application Insights component.
      */
-    configurationId?: pulumi.Input<string | undefined>;
+    configurationId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

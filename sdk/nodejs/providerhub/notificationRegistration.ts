@@ -70,9 +70,6 @@ export class NotificationRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.notificationRegistrationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'notificationRegistrationName'");
-            }
             if (args?.providerNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
@@ -104,7 +101,7 @@ export interface NotificationRegistrationArgs {
     /**
      * The notification registration.
      */
-    notificationRegistrationName: pulumi.Input<string>;
+    notificationRegistrationName?: pulumi.Input<string | undefined>;
     properties?: pulumi.Input<inputs.providerhub.NotificationRegistrationPropertiesArgs | undefined>;
     /**
      * The name of the resource provider hosted within ProviderHub.

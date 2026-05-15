@@ -34,7 +34,7 @@ export interface GetContentTemplateArgs {
     /**
      * template Id
      */
-    templateId?: string;
+    templateId: string;
     /**
      * The name of the workspace.
      */
@@ -205,7 +205,7 @@ export interface GetContentTemplateOutputArgs {
     /**
      * template Id
      */
-    templateId?: pulumi.Input<string | undefined>;
+    templateId: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

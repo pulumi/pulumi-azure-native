@@ -89,9 +89,6 @@ export class ConfigurationPolicyGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.configurationPolicyGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'configurationPolicyGroupName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -136,7 +133,7 @@ export interface ConfigurationPolicyGroupArgs {
     /**
      * The name of the ConfigurationPolicyGroup.
      */
-    configurationPolicyGroupName: pulumi.Input<string>;
+    configurationPolicyGroupName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */

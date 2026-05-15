@@ -25,7 +25,7 @@ export interface GetCustomizableConnectorDefinitionArgs {
     /**
      * The data connector definition name.
      */
-    dataConnectorDefinitionName?: string;
+    dataConnectorDefinitionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -104,7 +104,7 @@ export interface GetCustomizableConnectorDefinitionOutputArgs {
     /**
      * The data connector definition name.
      */
-    dataConnectorDefinitionName?: pulumi.Input<string | undefined>;
+    dataConnectorDefinitionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

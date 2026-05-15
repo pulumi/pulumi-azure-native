@@ -26,7 +26,7 @@ export interface GetBudgetArgs {
     /**
      * Budget Name.
      */
-    budgetName?: string;
+    budgetName: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -113,7 +113,7 @@ export interface GetBudgetOutputArgs {
     /**
      * Budget Name.
      */
-    budgetName?: pulumi.Input<string | undefined>;
+    budgetName: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

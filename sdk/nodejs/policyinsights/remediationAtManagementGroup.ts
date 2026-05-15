@@ -127,9 +127,6 @@ export class RemediationAtManagementGroup extends pulumi.CustomResource {
             if (args?.managementGroupsNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupsNamespace'");
             }
-            if (args?.remediationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'remediationName'");
-            }
             resourceInputs["failureThreshold"] = args?.failureThreshold;
             resourceInputs["filters"] = args?.filters;
             resourceInputs["managementGroupId"] = args?.managementGroupId;
@@ -211,7 +208,7 @@ export interface RemediationAtManagementGroupArgs {
     /**
      * The name of the remediation.
      */
-    remediationName: pulumi.Input<string>;
+    remediationName?: pulumi.Input<string | undefined>;
     /**
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */

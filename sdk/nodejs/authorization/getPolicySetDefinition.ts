@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getPolicySetDefinition(args?: GetPolicySetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionResult> {
-    args = args || {};
+export function getPolicySetDefinition(args: GetPolicySetDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicySetDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getPolicySetDefinition", {
         "expand": args.expand,
@@ -31,7 +30,7 @@ export interface GetPolicySetDefinitionArgs {
     /**
      * The name of the policy set definition to get.
      */
-    policySetDefinitionName?: string;
+    policySetDefinitionName: string;
 }
 
 /**
@@ -102,8 +101,7 @@ export interface GetPolicySetDefinitionResult {
  *
  * Other available API versions: 2020-09-01, 2021-06-01, 2023-04-01, 2024-05-01, 2025-03-01, 2025-11-01, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getPolicySetDefinitionOutput(args?: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicySetDefinitionResult> {
-    args = args || {};
+export function getPolicySetDefinitionOutput(args: GetPolicySetDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicySetDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getPolicySetDefinition", {
         "expand": args.expand,
@@ -119,5 +117,5 @@ export interface GetPolicySetDefinitionOutputArgs {
     /**
      * The name of the policy set definition to get.
      */
-    policySetDefinitionName?: pulumi.Input<string | undefined>;
+    policySetDefinitionName: pulumi.Input<string>;
 }

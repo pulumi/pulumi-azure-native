@@ -81,9 +81,6 @@ export class JitNetworkAccessPolicy extends pulumi.CustomResource {
             if (args?.ascLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ascLocation'");
             }
-            if (args?.jitNetworkAccessPolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'jitNetworkAccessPolicyName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +126,7 @@ export interface JitNetworkAccessPolicyArgs {
     /**
      * Name of a Just-in-Time access configuration policy.
      */
-    jitNetworkAccessPolicyName: pulumi.Input<string>;
+    jitNetworkAccessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Kind of the resource
      */

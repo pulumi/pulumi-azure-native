@@ -31,7 +31,7 @@ export interface GetCertificateArgs {
     /**
      * The name of certificate.
      */
-    certificateName?: string;
+    certificateName: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -111,7 +111,7 @@ export interface GetCertificateOutputArgs {
     /**
      * The name of certificate.
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

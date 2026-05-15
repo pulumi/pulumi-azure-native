@@ -138,9 +138,6 @@ export class Workbook extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             if (args?.serializedData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serializedData'");
             }
@@ -228,7 +225,7 @@ export interface WorkbookArgs {
     /**
      * The name of the workbook resource. The value must be an UUID.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */

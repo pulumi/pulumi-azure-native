@@ -130,9 +130,6 @@ export class MyWorkbook extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             if (args?.serializedData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serializedData'");
             }
@@ -221,7 +218,7 @@ export interface MyWorkbookArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Configuration of this particular private workbook. Configuration data is a string containing valid JSON
      */

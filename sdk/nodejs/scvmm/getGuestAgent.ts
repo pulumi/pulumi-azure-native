@@ -27,7 +27,7 @@ export interface GetGuestAgentArgs {
     /**
      * Name of the GuestAgent.
      */
-    guestAgentName?: string;
+    guestAgentName: string;
     /**
      * The name of the resource group.
      */
@@ -111,7 +111,7 @@ export interface GetGuestAgentOutputArgs {
     /**
      * Name of the GuestAgent.
      */
-    guestAgentName?: pulumi.Input<string | undefined>;
+    guestAgentName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -113,9 +113,6 @@ export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.componentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'componentName'");
-            }
             if (args?.connectedEnvironmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectedEnvironmentName'");
             }
@@ -171,7 +168,7 @@ export interface ConnectedEnvironmentsDaprComponentArgs {
     /**
      * Name of the Dapr Component.
      */
-    componentName: pulumi.Input<string>;
+    componentName?: pulumi.Input<string | undefined>;
     /**
      * Component type
      */

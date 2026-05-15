@@ -84,9 +84,6 @@ export class Solution extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.solutionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'solutionName'");
-            }
             if (args?.targetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
@@ -131,7 +128,7 @@ export interface SolutionArgs {
     /**
      * Name of the solution
      */
-    solutionName: pulumi.Input<string>;
+    solutionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the target
      */

@@ -85,9 +85,6 @@ export class ConfigurationAssignmentParent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.configurationAssignmentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'configurationAssignmentName'");
-            }
             if (args?.providerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
@@ -145,7 +142,7 @@ export interface ConfigurationAssignmentParentArgs {
     /**
      * The name of the ConfigurationAssignment
      */
-    configurationAssignmentName: pulumi.Input<string>;
+    configurationAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * Properties of the configuration assignment
      */

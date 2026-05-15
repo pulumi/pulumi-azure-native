@@ -27,7 +27,7 @@ export interface GetAgentPoolArgs {
     /**
      * The name of the Kubernetes cluster agent pool.
      */
-    agentPoolName?: string;
+    agentPoolName: string;
     /**
      * The name of the Kubernetes cluster.
      */
@@ -152,7 +152,7 @@ export interface GetAgentPoolOutputArgs {
     /**
      * The name of the Kubernetes cluster agent pool.
      */
-    agentPoolName?: pulumi.Input<string | undefined>;
+    agentPoolName: pulumi.Input<string>;
     /**
      * The name of the Kubernetes cluster.
      */

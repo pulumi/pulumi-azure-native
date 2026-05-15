@@ -96,9 +96,6 @@ export class StandbyVirtualMachinePool extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.standbyVirtualMachinePoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'standbyVirtualMachinePoolName'");
-            }
             if (args?.virtualMachineState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineState'");
             }
@@ -156,7 +153,7 @@ export interface StandbyVirtualMachinePoolArgs {
     /**
      * Name of the standby virtual machine pool
      */
-    standbyVirtualMachinePoolName: pulumi.Input<string>;
+    standbyVirtualMachinePoolName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

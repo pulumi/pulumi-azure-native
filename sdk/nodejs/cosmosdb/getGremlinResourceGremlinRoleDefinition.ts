@@ -35,7 +35,7 @@ export interface GetGremlinResourceGremlinRoleDefinitionArgs {
     /**
      * The GUID for the Role Definition.
      */
-    roleDefinitionId?: string;
+    roleDefinitionId: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetGremlinResourceGremlinRoleDefinitionOutputArgs {
     /**
      * The GUID for the Role Definition.
      */
-    roleDefinitionId?: pulumi.Input<string | undefined>;
+    roleDefinitionId: pulumi.Input<string>;
 }

@@ -119,13 +119,10 @@ export class CloudConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: CloudConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: CloudConnectorArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.connectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectorName'");
-            }
             resourceInputs["billingModel"] = args?.billingModel;
             resourceInputs["connectorName"] = args?.connectorName;
             resourceInputs["credentialsKey"] = args?.credentialsKey;
@@ -184,7 +181,7 @@ export interface CloudConnectorArgs {
     /**
      * Connector Name.
      */
-    connectorName: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * Credentials authentication key (eg AWS ARN)
      */

@@ -31,7 +31,7 @@ export interface GetDotNetComponentArgs {
     /**
      * Name of the .NET Component.
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetDotNetComponentOutputArgs {
     /**
      * Name of the .NET Component.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

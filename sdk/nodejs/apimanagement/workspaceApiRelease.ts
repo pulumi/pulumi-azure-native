@@ -81,9 +81,6 @@ export class WorkspaceApiRelease extends pulumi.CustomResource {
             if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.releaseId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'releaseId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -135,7 +132,7 @@ export interface WorkspaceApiReleaseArgs {
     /**
      * Release identifier within an API. Must be unique in the current API Management service instance.
      */
-    releaseId: pulumi.Input<string>;
+    releaseId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

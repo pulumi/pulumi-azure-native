@@ -111,9 +111,6 @@ export class EnclaveConnection extends pulumi.CustomResource {
             if (args?.destinationEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationEndpointId'");
             }
-            if (args?.enclaveConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'enclaveConnectionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -172,7 +169,7 @@ export interface EnclaveConnectionArgs {
     /**
      * The name of the Enclave Connection Resource
      */
-    enclaveConnectionName: pulumi.Input<string>;
+    enclaveConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

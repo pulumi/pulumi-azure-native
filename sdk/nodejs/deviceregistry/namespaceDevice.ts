@@ -141,9 +141,6 @@ export class NamespaceDevice extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.deviceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deviceName'");
-            }
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -217,7 +214,7 @@ export interface NamespaceDeviceArgs {
     /**
      * The name of the device.
      */
-    deviceName: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string | undefined>;
     /**
      * Reference to a device. Populated only if the device had been created from discovery flow. Discovered device name must be provided.
      */

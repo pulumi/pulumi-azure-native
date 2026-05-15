@@ -27,7 +27,7 @@ export interface GetHypervClusterControllerClusterArgs {
     /**
      *  Cluster ARM name
      */
-    clusterName?: string;
+    clusterName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,7 +119,7 @@ export interface GetHypervClusterControllerClusterOutputArgs {
     /**
      *  Cluster ARM name
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

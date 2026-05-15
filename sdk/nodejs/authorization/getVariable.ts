@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2024-12-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getVariable(args?: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
-    args = args || {};
+export function getVariable(args: GetVariableArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:authorization:getVariable", {
         "variableName": args.variableName,
@@ -26,7 +25,7 @@ export interface GetVariableArgs {
     /**
      * The name of the variable to operate on.
      */
-    variableName?: string;
+    variableName: string;
 }
 
 /**
@@ -65,8 +64,7 @@ export interface GetVariableResult {
  *
  * Other available API versions: 2024-12-01-preview, 2025-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native authorization [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getVariableOutput(args?: GetVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableResult> {
-    args = args || {};
+export function getVariableOutput(args: GetVariableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:authorization:getVariable", {
         "variableName": args.variableName,
@@ -77,5 +75,5 @@ export interface GetVariableOutputArgs {
     /**
      * The name of the variable to operate on.
      */
-    variableName?: pulumi.Input<string | undefined>;
+    variableName: pulumi.Input<string>;
 }

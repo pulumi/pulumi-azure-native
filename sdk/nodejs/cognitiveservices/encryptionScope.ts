@@ -84,9 +84,6 @@ export class EncryptionScope extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.encryptionScopeName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'encryptionScopeName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -127,7 +124,7 @@ export interface EncryptionScopeArgs {
     /**
      * The name of the encryptionScope associated with the Cognitive Services Account
      */
-    encryptionScopeName: pulumi.Input<string>;
+    encryptionScopeName?: pulumi.Input<string | undefined>;
     /**
      * Properties of Cognitive Services EncryptionScope.
      */

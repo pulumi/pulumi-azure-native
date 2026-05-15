@@ -119,9 +119,6 @@ export class VcenterController extends pulumi.CustomResource {
             if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
-            if (args?.vcenterName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'vcenterName'");
-            }
             resourceInputs["fqdn"] = args?.fqdn;
             resourceInputs["friendlyName"] = args?.friendlyName;
             resourceInputs["port"] = args?.port;
@@ -199,5 +196,5 @@ export interface VcenterControllerArgs {
     /**
      *  VCenters name
      */
-    vcenterName: pulumi.Input<string>;
+    vcenterName?: pulumi.Input<string | undefined>;
 }

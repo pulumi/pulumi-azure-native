@@ -29,7 +29,7 @@ export interface GetSummaryLogArgs {
     /**
      * The name of the summary logs. Must not contain '/'.
      */
-    summaryLogsName?: string;
+    summaryLogsName: string;
     /**
      * The name of the workspace.
      */
@@ -111,7 +111,7 @@ export interface GetSummaryLogOutputArgs {
     /**
      * The name of the summary logs. Must not contain '/'.
      */
-    summaryLogsName?: pulumi.Input<string | undefined>;
+    summaryLogsName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

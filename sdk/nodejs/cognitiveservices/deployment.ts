@@ -88,9 +88,6 @@ export class Deployment extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.deploymentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deploymentName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface DeploymentArgs {
     /**
      * The name of the deployment associated with the Cognitive Services Account
      */
-    deploymentName: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * Properties of Cognitive Services account deployment.
      */

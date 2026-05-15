@@ -99,9 +99,6 @@ export class WorkbookTemplate extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             if (args?.templateData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateData'");
             }
@@ -167,7 +164,7 @@ export interface WorkbookTemplateArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags
      */

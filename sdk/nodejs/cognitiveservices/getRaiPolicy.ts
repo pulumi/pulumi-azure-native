@@ -31,7 +31,7 @@ export interface GetRaiPolicyArgs {
     /**
      * The name of the RaiPolicy associated with the Cognitive Services Account
      */
-    raiPolicyName?: string;
+    raiPolicyName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetRaiPolicyOutputArgs {
     /**
      * The name of the RaiPolicy associated with the Cognitive Services Account
      */
-    raiPolicyName?: pulumi.Input<string | undefined>;
+    raiPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

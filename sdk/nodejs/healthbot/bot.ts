@@ -89,9 +89,6 @@ export class Bot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.botName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'botName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +131,7 @@ export interface BotArgs {
     /**
      * The name of the Bot resource.
      */
-    botName: pulumi.Input<string>;
+    botName?: pulumi.Input<string | undefined>;
     /**
      * The identity of the Azure Health Bot.
      */

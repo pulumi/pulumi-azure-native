@@ -100,9 +100,6 @@ export class SystemTopic extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.systemTopicName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'systemTopicName'");
-            }
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -159,7 +156,7 @@ export interface SystemTopicArgs {
     /**
      * Name of the system topic.
      */
-    systemTopicName: pulumi.Input<string>;
+    systemTopicName?: pulumi.Input<string | undefined>;
     /**
      * Tags of the resource.
      */

@@ -26,7 +26,7 @@ export interface GetFluidRelayServerArgs {
     /**
      * The Fluid Relay server resource name.
      */
-    fluidRelayServerName?: string;
+    fluidRelayServerName: string;
     /**
      * The resource group containing the resource.
      */
@@ -109,7 +109,7 @@ export interface GetFluidRelayServerOutputArgs {
     /**
      * The Fluid Relay server resource name.
      */
-    fluidRelayServerName?: pulumi.Input<string | undefined>;
+    fluidRelayServerName: pulumi.Input<string>;
     /**
      * The resource group containing the resource.
      */

@@ -27,7 +27,7 @@ export interface GetDevToolPortalArgs {
     /**
      * The name of Dev Tool Portal.
      */
-    devToolPortalName?: string;
+    devToolPortalName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -87,7 +87,7 @@ export interface GetDevToolPortalOutputArgs {
     /**
      * The name of Dev Tool Portal.
      */
-    devToolPortalName?: pulumi.Input<string | undefined>;
+    devToolPortalName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

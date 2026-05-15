@@ -26,7 +26,7 @@ export interface GetMonitorArgs {
     /**
      * Monitor resource name
      */
-    monitorName?: string;
+    monitorName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetMonitorOutputArgs {
     /**
      * Monitor resource name
      */
-    monitorName?: pulumi.Input<string | undefined>;
+    monitorName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -28,7 +28,7 @@ export interface GetApiArgs {
     /**
      * The name of the API.
      */
-    apiName?: string;
+    apiName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,7 +129,7 @@ export interface GetApiOutputArgs {
     /**
      * The name of the API.
      */
-    apiName?: pulumi.Input<string | undefined>;
+    apiName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

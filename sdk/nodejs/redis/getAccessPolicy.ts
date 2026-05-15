@@ -27,7 +27,7 @@ export interface GetAccessPolicyArgs {
     /**
      * The name of the access policy that is being added to the Redis cache.
      */
-    accessPolicyName?: string;
+    accessPolicyName: string;
     /**
      * The name of the Redis cache.
      */
@@ -91,7 +91,7 @@ export interface GetAccessPolicyOutputArgs {
     /**
      * The name of the access policy that is being added to the Redis cache.
      */
-    accessPolicyName?: pulumi.Input<string | undefined>;
+    accessPolicyName: pulumi.Input<string>;
     /**
      * The name of the Redis cache.
      */

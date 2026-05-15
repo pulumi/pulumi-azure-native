@@ -32,7 +32,7 @@ export interface GetHuntRelationArgs {
     /**
      * The hunt relation id (GUID)
      */
-    huntRelationId?: string;
+    huntRelationId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -117,7 +117,7 @@ export interface GetHuntRelationOutputArgs {
     /**
      * The hunt relation id (GUID)
      */
-    huntRelationId?: pulumi.Input<string | undefined>;
+    huntRelationId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

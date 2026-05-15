@@ -89,9 +89,6 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.natRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'natRuleName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -160,7 +157,7 @@ export interface VirtualNetworkGatewayNatRuleArgs {
     /**
      * The name of the nat rule.
      */
-    natRuleName: pulumi.Input<string>;
+    natRuleName?: pulumi.Input<string | undefined>;
     /**
      * The resource group name of the Virtual Network Gateway.
      */

@@ -27,7 +27,7 @@ export interface GetArtifactStoreArgs {
     /**
      * The name of the artifact store.
      */
-    artifactStoreName?: string;
+    artifactStoreName: string;
     /**
      * The name of the publisher.
      */
@@ -95,7 +95,7 @@ export interface GetArtifactStoreOutputArgs {
     /**
      * The name of the artifact store.
      */
-    artifactStoreName?: pulumi.Input<string | undefined>;
+    artifactStoreName: pulumi.Input<string>;
     /**
      * The name of the publisher.
      */

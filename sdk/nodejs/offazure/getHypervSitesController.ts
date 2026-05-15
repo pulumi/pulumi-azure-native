@@ -30,7 +30,7 @@ export interface GetHypervSitesControllerArgs {
     /**
      * Site name
      */
-    siteName?: string;
+    siteName: string;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface GetHypervSitesControllerOutputArgs {
     /**
      * Site name
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName: pulumi.Input<string>;
 }

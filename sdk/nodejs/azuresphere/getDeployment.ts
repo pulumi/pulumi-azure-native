@@ -31,7 +31,7 @@ export interface GetDeploymentArgs {
     /**
      * Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
      */
-    deploymentName?: string;
+    deploymentName: string;
     /**
      * Name of device group.
      */
@@ -111,7 +111,7 @@ export interface GetDeploymentOutputArgs {
     /**
      * Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName: pulumi.Input<string>;
     /**
      * Name of device group.
      */

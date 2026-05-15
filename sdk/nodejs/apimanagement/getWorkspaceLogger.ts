@@ -25,7 +25,7 @@ export interface GetWorkspaceLoggerArgs {
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
-    loggerId?: string;
+    loggerId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetWorkspaceLoggerOutputArgs {
     /**
      * Logger identifier. Must be unique in the API Management service instance.
      */
-    loggerId?: pulumi.Input<string | undefined>;
+    loggerId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

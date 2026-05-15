@@ -71,9 +71,6 @@ export class ManagementConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.managementConfigurationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'managementConfigurationName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -109,7 +106,7 @@ export interface ManagementConfigurationArgs {
     /**
      * User Management Configuration Name.
      */
-    managementConfigurationName: pulumi.Input<string>;
+    managementConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
      */

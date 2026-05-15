@@ -91,9 +91,6 @@ export class BrokerAuthorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.authorizationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'authorizationName'");
-            }
             if (args?.authorizationPolicies === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationPolicies'");
             }
@@ -152,7 +149,7 @@ export interface BrokerAuthorizationArgs {
     /**
      * Name of MQ broker/authorization resource
      */
-    authorizationName: pulumi.Input<string>;
+    authorizationName?: pulumi.Input<string | undefined>;
     /**
      * The list of authorization policies supported by the Authorization Resource.
      */

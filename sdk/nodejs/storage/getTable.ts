@@ -35,7 +35,7 @@ export interface GetTableArgs {
     /**
      * A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
      */
-    tableName?: string;
+    tableName: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetTableOutputArgs {
     /**
      * A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
      */
-    tableName?: pulumi.Input<string | undefined>;
+    tableName: pulumi.Input<string>;
 }

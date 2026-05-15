@@ -40,7 +40,7 @@ export interface GetSerialPortArgs {
     /**
      * The name of the serial port to connect to.
      */
-    serialPort?: string;
+    serialPort: string;
 }
 
 /**
@@ -104,5 +104,5 @@ export interface GetSerialPortOutputArgs {
     /**
      * The name of the serial port to connect to.
      */
-    serialPort?: pulumi.Input<string | undefined>;
+    serialPort: pulumi.Input<string>;
 }

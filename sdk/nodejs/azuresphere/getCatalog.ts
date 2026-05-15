@@ -24,7 +24,7 @@ export interface GetCatalogArgs {
     /**
      * Name of catalog
      */
-    catalogName?: string;
+    catalogName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetCatalogOutputArgs {
     /**
      * Name of catalog
      */
-    catalogName?: pulumi.Input<string | undefined>;
+    catalogName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

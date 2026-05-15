@@ -109,9 +109,6 @@ export class NetworkInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.networkInterfaceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkInterfaceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -185,7 +182,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Name of the network interface
      */
-    networkInterfaceName: pulumi.Input<string>;
+    networkInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * NetworkSecurityGroup - Network Security Group attached to the network interface.
      */

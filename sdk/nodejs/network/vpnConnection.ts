@@ -141,9 +141,6 @@ export class VpnConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.connectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
@@ -218,7 +215,7 @@ export interface VpnConnectionArgs {
     /**
      * The name of the connection.
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * DPD timeout in seconds for vpn connection.
      */

@@ -108,9 +108,6 @@ export class TenantActionGroup extends pulumi.CustomResource {
             if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if (args?.tenantActionGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'tenantActionGroupName'");
-            }
             resourceInputs["azureAppPushReceivers"] = args?.azureAppPushReceivers;
             resourceInputs["emailReceivers"] = args?.emailReceivers;
             resourceInputs["enabled"] = (args?.enabled) ?? true;
@@ -185,7 +182,7 @@ export interface TenantActionGroupArgs {
     /**
      * The name of the action group.
      */
-    tenantActionGroupName: pulumi.Input<string>;
+    tenantActionGroupName?: pulumi.Input<string | undefined>;
     /**
      * The list of voice receivers that are part of this tenant action group.
      */

@@ -33,7 +33,7 @@ export interface GetRosettaNetProcessConfigurationArgs {
     /**
      * The integration account RosettaNetProcessConfiguration name.
      */
-    rosettaNetProcessConfigurationName?: string;
+    rosettaNetProcessConfigurationName: string;
 }
 
 /**
@@ -131,5 +131,5 @@ export interface GetRosettaNetProcessConfigurationOutputArgs {
     /**
      * The integration account RosettaNetProcessConfiguration name.
      */
-    rosettaNetProcessConfigurationName?: pulumi.Input<string | undefined>;
+    rosettaNetProcessConfigurationName: pulumi.Input<string>;
 }

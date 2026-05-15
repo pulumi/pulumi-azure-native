@@ -24,7 +24,7 @@ export interface GetDevicePoolArgs {
     /**
      * The name of the DevicePool
      */
-    devicePoolName?: string;
+    devicePoolName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetDevicePoolOutputArgs {
     /**
      * The name of the DevicePool
      */
-    devicePoolName?: pulumi.Input<string | undefined>;
+    devicePoolName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

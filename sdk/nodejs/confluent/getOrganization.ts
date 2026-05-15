@@ -26,7 +26,7 @@ export interface GetOrganizationArgs {
     /**
      * Organization resource name
      */
-    organizationName?: string;
+    organizationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetOrganizationOutputArgs {
     /**
      * Organization resource name
      */
-    organizationName?: pulumi.Input<string | undefined>;
+    organizationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

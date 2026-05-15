@@ -28,7 +28,7 @@ export interface GetPrivateLinkServicesForM365ComplianceCenterArgs {
     /**
      * The name of the service instance.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetPrivateLinkServicesForM365ComplianceCenterOutputArgs {
     /**
      * The name of the service instance.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

@@ -97,9 +97,6 @@ export class ServerAdvisor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.advisorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'advisorName'");
-            }
             if (args?.autoExecuteStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoExecuteStatus'");
             }
@@ -150,7 +147,7 @@ export interface ServerAdvisorArgs {
     /**
      * The name of the Server Advisor.
      */
-    advisorName: pulumi.Input<string>;
+    advisorName?: pulumi.Input<string | undefined>;
     /**
      * Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
      */

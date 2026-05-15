@@ -72,9 +72,6 @@ export class ProjectCapabilityHost extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.capabilityHostName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'capabilityHostName'");
-            }
             if (args?.projectCapabilityHostProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectCapabilityHostProperties'");
             }
@@ -116,7 +113,7 @@ export interface ProjectCapabilityHostArgs {
     /**
      * The name of the capability host associated with the Cognitive Services Resource
      */
-    capabilityHostName: pulumi.Input<string>;
+    capabilityHostName?: pulumi.Input<string | undefined>;
     /**
      * [Required] Additional attributes of the entity.
      */

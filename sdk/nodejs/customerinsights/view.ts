@@ -97,9 +97,6 @@ export class View extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.viewName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'viewName'");
-            }
             resourceInputs["definition"] = args?.definition;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["hubName"] = args?.hubName;
@@ -158,5 +155,5 @@ export interface ViewArgs {
     /**
      * The name of the view.
      */
-    viewName: pulumi.Input<string>;
+    viewName?: pulumi.Input<string | undefined>;
 }

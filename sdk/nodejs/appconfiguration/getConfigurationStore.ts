@@ -26,7 +26,7 @@ export interface GetConfigurationStoreArgs {
     /**
      * The name of the configuration store.
      */
-    configStoreName?: string;
+    configStoreName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
@@ -133,7 +133,7 @@ export interface GetConfigurationStoreOutputArgs {
     /**
      * The name of the configuration store.
      */
-    configStoreName?: pulumi.Input<string | undefined>;
+    configStoreName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

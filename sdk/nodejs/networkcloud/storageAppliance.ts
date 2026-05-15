@@ -173,9 +173,6 @@ export class StorageAppliance extends pulumi.CustomResource {
             if (args?.serialNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serialNumber'");
             }
-            if (args?.storageApplianceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageApplianceName'");
-            }
             if (args?.storageApplianceSkuId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageApplianceSkuId'");
             }
@@ -277,7 +274,7 @@ export interface StorageApplianceArgs {
     /**
      * The name of the storage appliance.
      */
-    storageApplianceName: pulumi.Input<string>;
+    storageApplianceName?: pulumi.Input<string | undefined>;
     /**
      * The SKU for the storage appliance.
      */

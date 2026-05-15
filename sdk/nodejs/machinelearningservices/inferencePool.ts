@@ -91,9 +91,6 @@ export class InferencePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.inferencePoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'inferencePoolName'");
-            }
             if (args?.inferencePoolProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inferencePoolProperties'");
             }
@@ -146,7 +143,7 @@ export interface InferencePoolArgs {
     /**
      * Name of InferencePool
      */
-    inferencePoolName: pulumi.Input<string>;
+    inferencePoolName?: pulumi.Input<string | undefined>;
     /**
      * [Required] Additional attributes of the entity.
      */

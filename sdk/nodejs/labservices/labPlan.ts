@@ -117,9 +117,6 @@ export class LabPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.labPlanName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'labPlanName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -193,7 +190,7 @@ export interface LabPlanArgs {
     /**
      * The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
      */
-    labPlanName: pulumi.Input<string>;
+    labPlanName?: pulumi.Input<string | undefined>;
     /**
      * Base Url of the lms instance this lab plan can link lab rosters against.
      */

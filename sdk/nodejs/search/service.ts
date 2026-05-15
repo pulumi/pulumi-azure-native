@@ -168,9 +168,6 @@ export class Service extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.searchServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'searchServiceName'");
-            }
             resourceInputs["authOptions"] = args?.authOptions;
             resourceInputs["computeType"] = args?.computeType;
             resourceInputs["dataExfiltrationProtections"] = args?.dataExfiltrationProtections;
@@ -301,7 +298,7 @@ export interface ServiceArgs {
     /**
      * The name of the Azure AI Search service associated with the specified resource group.
      */
-    searchServiceName: pulumi.Input<string>;
+    searchServiceName?: pulumi.Input<string | undefined>;
     /**
      * Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
      */

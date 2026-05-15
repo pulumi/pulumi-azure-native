@@ -81,9 +81,6 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.administratorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'administratorName'");
-            }
             if (args?.administratorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'administratorType'");
             }
@@ -129,7 +126,7 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
  * The set of arguments for constructing a ManagedInstanceAdministrator resource.
  */
 export interface ManagedInstanceAdministratorArgs {
-    administratorName: pulumi.Input<string>;
+    administratorName?: pulumi.Input<string | undefined>;
     /**
      * Type of the managed instance administrator.
      */

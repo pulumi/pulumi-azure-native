@@ -26,7 +26,7 @@ export interface GetAutomationAccountArgs {
     /**
      * The name of the automation account.
      */
-    automationAccountName?: string;
+    automationAccountName: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -137,7 +137,7 @@ export interface GetAutomationAccountOutputArgs {
     /**
      * The name of the automation account.
      */
-    automationAccountName?: pulumi.Input<string | undefined>;
+    automationAccountName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

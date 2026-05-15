@@ -24,7 +24,7 @@ export interface GetVirtualRouterPeeringArgs {
     /**
      * The name of the Virtual Router Peering.
      */
-    peeringName?: string;
+    peeringName: string;
     /**
      * The name of the resource group.
      */
@@ -92,7 +92,7 @@ export interface GetVirtualRouterPeeringOutputArgs {
     /**
      * The name of the Virtual Router Peering.
      */
-    peeringName?: pulumi.Input<string | undefined>;
+    peeringName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

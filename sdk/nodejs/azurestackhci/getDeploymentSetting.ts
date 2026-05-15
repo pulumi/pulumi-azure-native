@@ -31,7 +31,7 @@ export interface GetDeploymentSettingArgs {
     /**
      * Name of Deployment Setting
      */
-    deploymentSettingsName?: string;
+    deploymentSettingsName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetDeploymentSettingOutputArgs {
     /**
      * Name of Deployment Setting
      */
-    deploymentSettingsName?: pulumi.Input<string | undefined>;
+    deploymentSettingsName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

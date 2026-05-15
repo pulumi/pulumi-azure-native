@@ -77,9 +77,6 @@ export class FleetTier extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.tierName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'tierName'");
-            }
             resourceInputs["fleetName"] = args?.fleetName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -121,5 +118,5 @@ export interface FleetTierArgs {
     /**
      * Name of the tier.
      */
-    tierName: pulumi.Input<string>;
+    tierName?: pulumi.Input<string | undefined>;
 }

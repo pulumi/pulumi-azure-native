@@ -27,7 +27,7 @@ export interface GetImportPipelineArgs {
     /**
      * The name of the import pipeline.
      */
-    importPipelineName?: string;
+    importPipelineName: string;
     /**
      * The name of the container registry.
      */
@@ -107,7 +107,7 @@ export interface GetImportPipelineOutputArgs {
     /**
      * The name of the import pipeline.
      */
-    importPipelineName?: pulumi.Input<string | undefined>;
+    importPipelineName: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */

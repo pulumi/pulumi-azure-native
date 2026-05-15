@@ -26,7 +26,7 @@ export interface GetClusterManagerArgs {
     /**
      * The name of the cluster manager.
      */
-    clusterManagerName?: string;
+    clusterManagerName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,7 +130,7 @@ export interface GetClusterManagerOutputArgs {
     /**
      * The name of the cluster manager.
      */
-    clusterManagerName?: pulumi.Input<string | undefined>;
+    clusterManagerName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,7 +24,7 @@ export interface GetEc2SubnetArgs {
     /**
      * Name of Ec2Subnet
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetEc2SubnetOutputArgs {
     /**
      * Name of Ec2Subnet
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

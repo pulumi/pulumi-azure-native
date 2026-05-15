@@ -109,13 +109,10 @@ export class GlobalRulestack extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: GlobalRulestackArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: GlobalRulestackArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.globalRulestackName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'globalRulestackName'");
-            }
             resourceInputs["associatedSubscriptions"] = args?.associatedSubscriptions;
             resourceInputs["defaultMode"] = args?.defaultMode;
             resourceInputs["description"] = args?.description;
@@ -175,7 +172,7 @@ export interface GlobalRulestackArgs {
     /**
      * GlobalRulestack resource name
      */
-    globalRulestackName: pulumi.Input<string>;
+    globalRulestackName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */

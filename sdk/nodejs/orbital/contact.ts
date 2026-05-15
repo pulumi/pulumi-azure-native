@@ -131,9 +131,6 @@ export class Contact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.contactName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'contactName'");
-            }
             if (args?.contactProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactProfile'");
             }
@@ -211,7 +208,7 @@ export interface ContactArgs {
     /**
      * Contact name.
      */
-    contactName: pulumi.Input<string>;
+    contactName?: pulumi.Input<string | undefined>;
     /**
      * The reference to the contact profile resource.
      */

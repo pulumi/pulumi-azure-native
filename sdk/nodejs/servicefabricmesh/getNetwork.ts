@@ -24,7 +24,7 @@ export interface GetNetworkArgs {
     /**
      * The identity of the network.
      */
-    networkResourceName?: string;
+    networkResourceName: string;
     /**
      * Azure resource group name
      */
@@ -81,7 +81,7 @@ export interface GetNetworkOutputArgs {
     /**
      * The identity of the network.
      */
-    networkResourceName?: pulumi.Input<string | undefined>;
+    networkResourceName: pulumi.Input<string>;
     /**
      * Azure resource group name
      */

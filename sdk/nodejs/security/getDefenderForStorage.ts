@@ -30,7 +30,7 @@ export interface GetDefenderForStorageArgs {
     /**
      * Defender for Storage setting name.
      */
-    settingName?: string;
+    settingName: string;
 }
 
 /**
@@ -81,5 +81,5 @@ export interface GetDefenderForStorageOutputArgs {
     /**
      * Defender for Storage setting name.
      */
-    settingName?: pulumi.Input<string | undefined>;
+    settingName: pulumi.Input<string>;
 }

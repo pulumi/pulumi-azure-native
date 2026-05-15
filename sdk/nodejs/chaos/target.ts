@@ -92,9 +92,6 @@ export class Target extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.targetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'targetName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["parentProviderNamespace"] = args?.parentProviderNamespace;
             resourceInputs["parentResourceName"] = args?.parentResourceName;
@@ -152,5 +149,5 @@ export interface TargetArgs {
     /**
      * String that represents a Target resource name.
      */
-    targetName: pulumi.Input<string>;
+    targetName?: pulumi.Input<string | undefined>;
 }

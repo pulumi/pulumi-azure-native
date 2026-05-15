@@ -25,7 +25,7 @@ export interface GetDigitalTwinsEndpointArgs {
     /**
      * Name of Endpoint Resource.
      */
-    endpointName?: string;
+    endpointName: string;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */
@@ -83,7 +83,7 @@ export interface GetDigitalTwinsEndpointOutputArgs {
     /**
      * Name of Endpoint Resource.
      */
-    endpointName?: pulumi.Input<string | undefined>;
+    endpointName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */

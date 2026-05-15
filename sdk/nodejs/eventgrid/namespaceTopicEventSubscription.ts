@@ -89,9 +89,6 @@ export class NamespaceTopicEventSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.eventSubscriptionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'eventSubscriptionName'");
-            }
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -147,7 +144,7 @@ export interface NamespaceTopicEventSubscriptionArgs {
     /**
      * Name of the event subscription to be created. Event subscription names must be between 3 and 50 characters in length and use alphanumeric letters only.
      */
-    eventSubscriptionName: pulumi.Input<string>;
+    eventSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * Expiration time of the event subscription.
      */

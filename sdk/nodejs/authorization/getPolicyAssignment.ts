@@ -31,7 +31,7 @@ export interface GetPolicyAssignmentArgs {
     /**
      * The name of the policy assignment to get.
      */
-    policyAssignmentName?: string;
+    policyAssignmentName: string;
     /**
      * The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
@@ -159,7 +159,7 @@ export interface GetPolicyAssignmentOutputArgs {
     /**
      * The name of the policy assignment to get.
      */
-    policyAssignmentName?: pulumi.Input<string | undefined>;
+    policyAssignmentName: pulumi.Input<string>;
     /**
      * The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

@@ -136,9 +136,6 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.runCommandName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'runCommandName'");
-            }
             if (args?.vmName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmName'");
             }
@@ -245,7 +242,7 @@ export interface VirtualMachineRunCommandByVirtualMachineArgs {
     /**
      * The name of the VirtualMachineRunCommand
      */
-    runCommandName: pulumi.Input<string>;
+    runCommandName?: pulumi.Input<string | undefined>;
     /**
      * The source of the run command script.
      */

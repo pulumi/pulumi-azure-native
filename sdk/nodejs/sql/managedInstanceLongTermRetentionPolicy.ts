@@ -91,9 +91,6 @@ export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResourc
             if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if (args?.policyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -149,7 +146,7 @@ export interface ManagedInstanceLongTermRetentionPolicyArgs {
     /**
      * The policy name. Should always be Default.
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

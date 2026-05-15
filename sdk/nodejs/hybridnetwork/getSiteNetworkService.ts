@@ -30,7 +30,7 @@ export interface GetSiteNetworkServiceArgs {
     /**
      * The name of the site network service.
      */
-    siteNetworkServiceName?: string;
+    siteNetworkServiceName: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetSiteNetworkServiceOutputArgs {
     /**
      * The name of the site network service.
      */
-    siteNetworkServiceName?: pulumi.Input<string | undefined>;
+    siteNetworkServiceName: pulumi.Input<string>;
 }

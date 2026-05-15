@@ -31,7 +31,7 @@ export interface GetJobArgs {
     /**
      * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    jobName?: string;
+    jobName: string;
     /**
      * The Resource Group Name
      */
@@ -171,7 +171,7 @@ export interface GetJobOutputArgs {
     /**
      * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    jobName?: pulumi.Input<string | undefined>;
+    jobName: pulumi.Input<string>;
     /**
      * The Resource Group Name
      */

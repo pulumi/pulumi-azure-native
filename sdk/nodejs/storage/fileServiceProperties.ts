@@ -84,9 +84,6 @@ export class FileServiceProperties extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.fileServicesName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'fileServicesName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +128,7 @@ export interface FileServicePropertiesArgs {
     /**
      * The name of the file Service within the specified storage account. File Service Name must be "default"
      */
-    fileServicesName: pulumi.Input<string>;
+    fileServicesName?: pulumi.Input<string | undefined>;
     /**
      * Protocol settings for file service
      */

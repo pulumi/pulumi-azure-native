@@ -70,9 +70,6 @@ export class ComponentLinkedStorageAccount extends pulumi.CustomResource {
             if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if (args?.storageType === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageType'");
-            }
             resourceInputs["linkedStorageAccount"] = args?.linkedStorageAccount;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
@@ -112,5 +109,5 @@ export interface ComponentLinkedStorageAccountArgs {
     /**
      * The type of the Application Insights component data source for the linked storage account.
      */
-    storageType: pulumi.Input<string>;
+    storageType?: pulumi.Input<string | undefined>;
 }

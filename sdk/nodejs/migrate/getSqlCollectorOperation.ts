@@ -27,7 +27,7 @@ export interface GetSqlCollectorOperationArgs {
     /**
      * Sql collector ARM name.
      */
-    collectorName?: string;
+    collectorName: string;
     /**
      * Assessment Project Name
      */
@@ -103,7 +103,7 @@ export interface GetSqlCollectorOperationOutputArgs {
     /**
      * Sql collector ARM name.
      */
-    collectorName?: pulumi.Input<string | undefined>;
+    collectorName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

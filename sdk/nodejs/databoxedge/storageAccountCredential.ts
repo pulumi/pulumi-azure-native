@@ -110,9 +110,6 @@ export class StorageAccountCredential extends pulumi.CustomResource {
             if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -185,7 +182,7 @@ export interface StorageAccountCredentialArgs {
     /**
      * The storage account credential name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

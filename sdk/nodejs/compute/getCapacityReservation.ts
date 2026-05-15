@@ -32,7 +32,7 @@ export interface GetCapacityReservationArgs {
     /**
      * The name of the capacity reservation.
      */
-    capacityReservationName?: string;
+    capacityReservationName: string;
     /**
      * The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
      */
@@ -137,7 +137,7 @@ export interface GetCapacityReservationOutputArgs {
     /**
      * The name of the capacity reservation.
      */
-    capacityReservationName?: pulumi.Input<string | undefined>;
+    capacityReservationName: pulumi.Input<string>;
     /**
      * The expand expression to apply on the operation. 'InstanceView' retrieves a snapshot of the runtime properties of the capacity reservation that is managed by the platform and can change outside of control plane operations.
      */

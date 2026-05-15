@@ -32,7 +32,7 @@ export interface GetPackageArgs {
     /**
      * The Package name.
      */
-    packageName?: string;
+    packageName: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -129,7 +129,7 @@ export interface GetPackageOutputArgs {
     /**
      * The Package name.
      */
-    packageName?: pulumi.Input<string | undefined>;
+    packageName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

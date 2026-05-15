@@ -27,7 +27,7 @@ export interface GetContainerRegistryArgs {
     /**
      * The name of the container registry.
      */
-    containerRegistryName?: string;
+    containerRegistryName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -87,7 +87,7 @@ export interface GetContainerRegistryOutputArgs {
     /**
      * The name of the container registry.
      */
-    containerRegistryName?: pulumi.Input<string | undefined>;
+    containerRegistryName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

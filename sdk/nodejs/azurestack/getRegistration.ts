@@ -23,7 +23,7 @@ export interface GetRegistrationArgs {
     /**
      * Name of the Azure Stack registration.
      */
-    registrationName?: string;
+    registrationName: string;
     /**
      * Name of the resource group.
      */
@@ -94,7 +94,7 @@ export interface GetRegistrationOutputArgs {
     /**
      * Name of the Azure Stack registration.
      */
-    registrationName?: pulumi.Input<string | undefined>;
+    registrationName: pulumi.Input<string>;
     /**
      * Name of the resource group.
      */

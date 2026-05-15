@@ -26,7 +26,7 @@ export interface GetRoleDefinitionArgs {
     /**
      * The ID of the role definition.
      */
-    roleDefinitionId?: string;
+    roleDefinitionId: string;
     /**
      * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */
@@ -109,7 +109,7 @@ export interface GetRoleDefinitionOutputArgs {
     /**
      * The ID of the role definition.
      */
-    roleDefinitionId?: pulumi.Input<string | undefined>;
+    roleDefinitionId: pulumi.Input<string>;
     /**
      * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

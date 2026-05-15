@@ -122,9 +122,6 @@ export class WatchlistItem extends pulumi.CustomResource {
             if (args?.watchlistAlias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watchlistAlias'");
             }
-            if (args?.watchlistItemId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'watchlistItemId'");
-            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -217,7 +214,7 @@ export interface WatchlistItemArgs {
     /**
      * The id (a Guid) of the watchlist item
      */
-    watchlistItemId: pulumi.Input<string>;
+    watchlistItemId?: pulumi.Input<string | undefined>;
     /**
      * The type of the watchlist item
      */

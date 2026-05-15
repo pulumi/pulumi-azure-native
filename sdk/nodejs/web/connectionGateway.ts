@@ -76,9 +76,6 @@ export class ConnectionGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.connectionGatewayName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectionGatewayName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +112,7 @@ export interface ConnectionGatewayArgs {
     /**
      * The connection gateway name
      */
-    connectionGatewayName: pulumi.Input<string>;
+    connectionGatewayName?: pulumi.Input<string | undefined>;
     /**
      * Resource location
      */

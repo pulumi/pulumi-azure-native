@@ -28,7 +28,7 @@ export interface GetNotebookWorkspaceArgs {
     /**
      * The name of the notebook workspace resource.
      */
-    notebookWorkspaceName?: string;
+    notebookWorkspaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -88,7 +88,7 @@ export interface GetNotebookWorkspaceOutputArgs {
     /**
      * The name of the notebook workspace resource.
      */
-    notebookWorkspaceName?: pulumi.Input<string | undefined>;
+    notebookWorkspaceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

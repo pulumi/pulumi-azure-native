@@ -157,9 +157,6 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.accountName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'accountName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -233,7 +230,7 @@ export interface AccountArgs {
     /**
      * The name of the account.
      */
-    accountName: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * The Managed Identity of the resource
      */

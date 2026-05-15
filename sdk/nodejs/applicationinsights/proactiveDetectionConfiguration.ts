@@ -73,9 +73,6 @@ export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.configurationId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'configurationId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +112,7 @@ export interface ProactiveDetectionConfigurationArgs {
     /**
      * The ProactiveDetection configuration ID. This is unique within a Application Insights component.
      */
-    configurationId: pulumi.Input<string>;
+    configurationId?: pulumi.Input<string | undefined>;
     /**
      * Custom email addresses for this rule notifications
      */

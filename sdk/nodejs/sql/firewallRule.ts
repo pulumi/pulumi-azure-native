@@ -70,9 +70,6 @@ export class FirewallRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.firewallRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'firewallRuleName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +109,7 @@ export interface FirewallRuleArgs {
     /**
      * The name of the firewall rule.
      */
-    firewallRuleName: pulumi.Input<string>;
+    firewallRuleName?: pulumi.Input<string | undefined>;
     /**
      * Resource name.
      */

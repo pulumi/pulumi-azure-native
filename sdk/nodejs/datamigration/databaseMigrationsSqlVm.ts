@@ -79,9 +79,6 @@ export class DatabaseMigrationsSqlVm extends pulumi.CustomResource {
             if (args?.sqlVirtualMachineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlVirtualMachineName'");
             }
-            if (args?.targetDbName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'targetDbName'");
-            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sqlVirtualMachineName"] = args?.sqlVirtualMachineName;
@@ -120,5 +117,5 @@ export interface DatabaseMigrationsSqlVmArgs {
     /**
      * The name of the target database.
      */
-    targetDbName: pulumi.Input<string>;
+    targetDbName?: pulumi.Input<string | undefined>;
 }

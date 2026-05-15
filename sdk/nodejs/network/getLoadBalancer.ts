@@ -31,7 +31,7 @@ export interface GetLoadBalancerArgs {
     /**
      * The name of the load balancer.
      */
-    loadBalancerName?: string;
+    loadBalancerName: string;
     /**
      * The name of the resource group.
      */
@@ -139,7 +139,7 @@ export interface GetLoadBalancerOutputArgs {
     /**
      * The name of the load balancer.
      */
-    loadBalancerName?: pulumi.Input<string | undefined>;
+    loadBalancerName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

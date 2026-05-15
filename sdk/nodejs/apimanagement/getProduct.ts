@@ -24,7 +24,7 @@ export interface GetProductArgs {
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
-    productId?: string;
+    productId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -104,7 +104,7 @@ export interface GetProductOutputArgs {
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
-    productId?: pulumi.Input<string | undefined>;
+    productId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

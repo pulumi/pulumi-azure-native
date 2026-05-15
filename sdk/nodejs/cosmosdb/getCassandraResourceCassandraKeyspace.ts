@@ -31,7 +31,7 @@ export interface GetCassandraResourceCassandraKeyspaceArgs {
     /**
      * Cosmos DB keyspace name.
      */
-    keyspaceName?: string;
+    keyspaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetCassandraResourceCassandraKeyspaceOutputArgs {
     /**
      * Cosmos DB keyspace name.
      */
-    keyspaceName?: pulumi.Input<string | undefined>;
+    keyspaceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

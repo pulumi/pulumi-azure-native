@@ -24,7 +24,7 @@ export interface GetJobCollectionArgs {
     /**
      * The job collection name.
      */
-    jobCollectionName?: string;
+    jobCollectionName: string;
     /**
      * The resource group name.
      */
@@ -78,7 +78,7 @@ export interface GetJobCollectionOutputArgs {
     /**
      * The job collection name.
      */
-    jobCollectionName?: pulumi.Input<string | undefined>;
+    jobCollectionName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

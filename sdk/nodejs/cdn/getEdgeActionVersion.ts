@@ -35,7 +35,7 @@ export interface GetEdgeActionVersionArgs {
     /**
      * The name of the Edge Action version
      */
-    version?: string;
+    version: string;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface GetEdgeActionVersionOutputArgs {
     /**
      * The name of the Edge Action version
      */
-    version?: pulumi.Input<string | undefined>;
+    version: pulumi.Input<string>;
 }

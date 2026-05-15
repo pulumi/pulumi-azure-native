@@ -79,9 +79,6 @@ export class HciEdgeDeviceJob extends pulumi.CustomResource {
             if (args?.edgeDeviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edgeDeviceName'");
             }
-            if (args?.jobsName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'jobsName'");
-            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -126,7 +123,7 @@ export interface HciEdgeDeviceJobArgs {
     /**
      * Name of EdgeDevice Job
      */
-    jobsName: pulumi.Input<string>;
+    jobsName?: pulumi.Input<string | undefined>;
     /**
      * Edge device kind.
      * Expected value is 'HCI'.

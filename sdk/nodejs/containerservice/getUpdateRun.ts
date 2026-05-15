@@ -35,7 +35,7 @@ export interface GetUpdateRunArgs {
     /**
      * The name of the UpdateRun resource.
      */
-    updateRunName?: string;
+    updateRunName: string;
 }
 
 /**
@@ -128,5 +128,5 @@ export interface GetUpdateRunOutputArgs {
     /**
      * The name of the UpdateRun resource.
      */
-    updateRunName?: pulumi.Input<string | undefined>;
+    updateRunName: pulumi.Input<string>;
 }

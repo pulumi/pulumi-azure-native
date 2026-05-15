@@ -186,9 +186,6 @@ export class Component extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             resourceInputs["applicationType"] = (args?.applicationType) ?? "web";
             resourceInputs["disableIpMasking"] = args?.disableIpMasking;
             resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
@@ -325,7 +322,7 @@ export interface ComponentArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Retention period in days.
      */

@@ -124,9 +124,6 @@ export class FileImport extends pulumi.CustomResource {
             if (args?.contentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if (args?.fileImportId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'fileImportId'");
-            }
             if (args?.importFile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'importFile'");
             }
@@ -199,7 +196,7 @@ export interface FileImportArgs {
     /**
      * File import ID
      */
-    fileImportId: pulumi.Input<string>;
+    fileImportId?: pulumi.Input<string | undefined>;
     /**
      * Represents the imported file.
      */

@@ -35,7 +35,7 @@ export interface GetTemplateSpecArgs {
     /**
      * Name of the Template Spec.
      */
-    templateSpecName?: string;
+    templateSpecName: string;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface GetTemplateSpecOutputArgs {
     /**
      * Name of the Template Spec.
      */
-    templateSpecName?: pulumi.Input<string | undefined>;
+    templateSpecName: pulumi.Input<string>;
 }

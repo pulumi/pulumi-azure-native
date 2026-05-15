@@ -79,9 +79,6 @@ export class Table extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.tableName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'tableName'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["signedIdentifiers"] = args?.signedIdentifiers;
@@ -122,5 +119,5 @@ export interface TableArgs {
     /**
      * A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
      */
-    tableName: pulumi.Input<string>;
+    tableName?: pulumi.Input<string | undefined>;
 }

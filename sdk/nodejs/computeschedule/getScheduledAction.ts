@@ -30,7 +30,7 @@ export interface GetScheduledActionArgs {
     /**
      * The name of the ScheduledAction
      */
-    scheduledActionName?: string;
+    scheduledActionName: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetScheduledActionOutputArgs {
     /**
      * The name of the ScheduledAction
      */
-    scheduledActionName?: pulumi.Input<string | undefined>;
+    scheduledActionName: pulumi.Input<string>;
 }

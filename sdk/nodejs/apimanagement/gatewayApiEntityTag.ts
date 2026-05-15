@@ -153,9 +153,6 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.apiId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'apiId'");
-            }
             if (args?.gatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayId'");
             }
@@ -235,7 +232,7 @@ export interface GatewayApiEntityTagArgs {
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
-    apiId: pulumi.Input<string>;
+    apiId?: pulumi.Input<string | undefined>;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */

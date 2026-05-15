@@ -35,7 +35,7 @@ export interface GetVirtualNetworkPeeringArgs {
     /**
      * The name of the virtual network peering.
      */
-    virtualNetworkPeeringName?: string;
+    virtualNetworkPeeringName: string;
 }
 
 /**
@@ -171,5 +171,5 @@ export interface GetVirtualNetworkPeeringOutputArgs {
     /**
      * The name of the virtual network peering.
      */
-    virtualNetworkPeeringName?: pulumi.Input<string | undefined>;
+    virtualNetworkPeeringName: pulumi.Input<string>;
 }

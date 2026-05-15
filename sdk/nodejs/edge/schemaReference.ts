@@ -80,9 +80,6 @@ export class SchemaReference extends pulumi.CustomResource {
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            if (args?.schemaReferenceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'schemaReferenceName'");
-            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["schemaReferenceName"] = args?.schemaReferenceName;
@@ -121,5 +118,5 @@ export interface SchemaReferenceArgs {
     /**
      * The name of the SchemaReference
      */
-    schemaReferenceName: pulumi.Input<string>;
+    schemaReferenceName?: pulumi.Input<string | undefined>;
 }

@@ -24,7 +24,7 @@ export interface GetServerKeyArgs {
     /**
      * The name of the server key to be retrieved.
      */
-    keyName?: string;
+    keyName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -100,7 +100,7 @@ export interface GetServerKeyOutputArgs {
     /**
      * The name of the server key to be retrieved.
      */
-    keyName?: pulumi.Input<string | undefined>;
+    keyName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

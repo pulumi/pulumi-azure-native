@@ -84,9 +84,6 @@ export class MongoDBResourceMongoRoleDefinition extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.mongoRoleDefinitionId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'mongoRoleDefinitionId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +128,7 @@ export interface MongoDBResourceMongoRoleDefinitionArgs {
     /**
      * The ID for the Role Definition {dbName.roleName}.
      */
-    mongoRoleDefinitionId: pulumi.Input<string>;
+    mongoRoleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.
      */

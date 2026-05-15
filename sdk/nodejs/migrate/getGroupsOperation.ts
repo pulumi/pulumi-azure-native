@@ -27,7 +27,7 @@ export interface GetGroupsOperationArgs {
     /**
      * Group ARM name
      */
-    groupName?: string;
+    groupName: string;
     /**
      * Assessment Project Name
      */
@@ -119,7 +119,7 @@ export interface GetGroupsOperationOutputArgs {
     /**
      * Group ARM name
      */
-    groupName?: pulumi.Input<string | undefined>;
+    groupName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

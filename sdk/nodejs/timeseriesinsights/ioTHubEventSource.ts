@@ -118,9 +118,6 @@ export class IoTHubEventSource extends pulumi.CustomResource {
             if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if (args?.eventSourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'eventSourceName'");
-            }
             if (args?.eventSourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventSourceResourceId'");
             }
@@ -197,7 +194,7 @@ export interface IoTHubEventSourceArgs {
     /**
      * Name of the event source.
      */
-    eventSourceName: pulumi.Input<string>;
+    eventSourceName?: pulumi.Input<string | undefined>;
     /**
      * The resource id of the event source in Azure Resource Manager.
      */

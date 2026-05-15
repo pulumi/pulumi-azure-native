@@ -30,7 +30,7 @@ export interface GetSecurityConnectorArgs {
     /**
      * The security connector name.
      */
-    securityConnectorName?: string;
+    securityConnectorName: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetSecurityConnectorOutputArgs {
     /**
      * The security connector name.
      */
-    securityConnectorName?: pulumi.Input<string | undefined>;
+    securityConnectorName: pulumi.Input<string>;
 }

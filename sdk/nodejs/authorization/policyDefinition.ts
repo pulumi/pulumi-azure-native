@@ -101,13 +101,10 @@ export class PolicyDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.policyDefinitionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'policyDefinitionName'");
-            }
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["metadata"] = args?.metadata;
@@ -171,7 +168,7 @@ export interface PolicyDefinitionArgs {
     /**
      * The name of the policy definition to create.
      */
-    policyDefinitionName: pulumi.Input<string>;
+    policyDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * The policy rule.
      */

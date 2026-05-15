@@ -93,9 +93,6 @@ export class NspAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.associationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'associationName'");
-            }
             if (args?.networkSecurityPerimeterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityPerimeterName'");
             }
@@ -146,7 +143,7 @@ export interface NspAssociationArgs {
     /**
      * The name of the NSP association.
      */
-    associationName: pulumi.Input<string>;
+    associationName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */

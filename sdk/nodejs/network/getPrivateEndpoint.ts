@@ -31,7 +31,7 @@ export interface GetPrivateEndpointArgs {
     /**
      * The name of the private endpoint.
      */
-    privateEndpointName?: string;
+    privateEndpointName: string;
     /**
      * The name of the resource group.
      */
@@ -135,7 +135,7 @@ export interface GetPrivateEndpointOutputArgs {
     /**
      * The name of the private endpoint.
      */
-    privateEndpointName?: pulumi.Input<string | undefined>;
+    privateEndpointName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

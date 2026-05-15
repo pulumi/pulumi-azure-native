@@ -24,7 +24,7 @@ export interface GetEvidenceArgs {
     /**
      * The evidence name.
      */
-    evidenceName?: string;
+    evidenceName: string;
     /**
      * Report Name.
      */
@@ -97,7 +97,7 @@ export interface GetEvidenceOutputArgs {
     /**
      * The evidence name.
      */
-    evidenceName?: pulumi.Input<string | undefined>;
+    evidenceName: pulumi.Input<string>;
     /**
      * Report Name.
      */

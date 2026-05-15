@@ -115,9 +115,6 @@ export class PartnerTopic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.partnerTopicName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'partnerTopicName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -203,7 +200,7 @@ export interface PartnerTopicArgs {
     /**
      * Name of the partner topic.
      */
-    partnerTopicName: pulumi.Input<string>;
+    partnerTopicName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */

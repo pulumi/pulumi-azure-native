@@ -94,9 +94,6 @@ export class CollectorPolicy extends pulumi.CustomResource {
             if (args?.azureTrafficCollectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureTrafficCollectorName'");
             }
-            if (args?.collectorPolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'collectorPolicyName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -143,7 +140,7 @@ export interface CollectorPolicyArgs {
     /**
      * Collector Policy Name
      */
-    collectorPolicyName: pulumi.Input<string>;
+    collectorPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Emission policies.
      */

@@ -35,7 +35,7 @@ export interface GetWorkloadNetworkSegmentArgs {
     /**
      * The ID of the NSX Segment
      */
-    segmentId?: string;
+    segmentId: string;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface GetWorkloadNetworkSegmentOutputArgs {
     /**
      * The ID of the NSX Segment
      */
-    segmentId?: pulumi.Input<string | undefined>;
+    segmentId: pulumi.Input<string>;
 }

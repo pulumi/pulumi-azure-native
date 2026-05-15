@@ -36,7 +36,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineArgs {
     /**
      * The name of the VirtualMachineRunCommand
      */
-    runCommandName?: string;
+    runCommandName: string;
     /**
      * The name of the VirtualMachine
      */
@@ -161,7 +161,7 @@ export interface GetVirtualMachineRunCommandByVirtualMachineOutputArgs {
     /**
      * The name of the VirtualMachineRunCommand
      */
-    runCommandName?: pulumi.Input<string | undefined>;
+    runCommandName: pulumi.Input<string>;
     /**
      * The name of the VirtualMachine
      */

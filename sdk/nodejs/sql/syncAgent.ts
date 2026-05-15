@@ -92,9 +92,6 @@ export class SyncAgent extends pulumi.CustomResource {
             if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (args?.syncAgentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'syncAgentName'");
-            }
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serverName"] = args?.serverName;
             resourceInputs["syncAgentName"] = args?.syncAgentName;
@@ -140,7 +137,7 @@ export interface SyncAgentArgs {
     /**
      * The name of the sync agent.
      */
-    syncAgentName: pulumi.Input<string>;
+    syncAgentName?: pulumi.Input<string | undefined>;
     /**
      * ARM resource id of the sync database in the sync agent.
      */

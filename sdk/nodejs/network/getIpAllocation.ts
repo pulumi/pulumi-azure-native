@@ -31,7 +31,7 @@ export interface GetIpAllocationArgs {
     /**
      * The name of the IpAllocation.
      */
-    ipAllocationName?: string;
+    ipAllocationName: string;
     /**
      * The name of the resource group.
      */
@@ -123,7 +123,7 @@ export interface GetIpAllocationOutputArgs {
     /**
      * The name of the IpAllocation.
      */
-    ipAllocationName?: pulumi.Input<string | undefined>;
+    ipAllocationName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

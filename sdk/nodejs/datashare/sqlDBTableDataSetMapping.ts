@@ -106,9 +106,6 @@ export class SqlDBTableDataSetMapping extends pulumi.CustomResource {
             if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
-            if (args?.dataSetMappingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataSetMappingName'");
-            }
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
@@ -182,7 +179,7 @@ export interface SqlDBTableDataSetMappingArgs {
     /**
      * The name of the data set mapping to be created.
      */
-    dataSetMappingName: pulumi.Input<string>;
+    dataSetMappingName?: pulumi.Input<string | undefined>;
     /**
      * DatabaseName name of the sink data set
      */

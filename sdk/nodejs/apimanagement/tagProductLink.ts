@@ -69,9 +69,6 @@ export class TagProductLink extends pulumi.CustomResource {
             if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if (args?.productLinkId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'productLinkId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -113,7 +110,7 @@ export interface TagProductLinkArgs {
     /**
      * Tag-product link identifier. Must be unique in the current API Management service instance.
      */
-    productLinkId: pulumi.Input<string>;
+    productLinkId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

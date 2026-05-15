@@ -34,7 +34,7 @@ export interface GetNotificationChannelArgs {
     /**
      * The name of the notification channel.
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -133,7 +133,7 @@ export interface GetNotificationChannelOutputArgs {
     /**
      * The name of the notification channel.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -29,7 +29,7 @@ export interface GetManagedNetworkPeeringPolicyArgs {
     /**
      * The name of the Managed Network Peering Policy.
      */
-    managedNetworkPeeringPolicyName?: string;
+    managedNetworkPeeringPolicyName: string;
     /**
      * The name of the resource group.
      */
@@ -87,7 +87,7 @@ export interface GetManagedNetworkPeeringPolicyOutputArgs {
     /**
      * The name of the Managed Network Peering Policy.
      */
-    managedNetworkPeeringPolicyName?: pulumi.Input<string | undefined>;
+    managedNetworkPeeringPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

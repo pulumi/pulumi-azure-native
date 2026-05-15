@@ -76,9 +76,6 @@ export class JavaComponent extends pulumi.CustomResource {
             if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -114,7 +111,7 @@ export interface JavaComponentArgs {
     /**
      * Name of the Java Component.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Java Component resource specific properties
      */

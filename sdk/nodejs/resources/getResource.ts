@@ -42,7 +42,7 @@ export interface GetResourceArgs {
     /**
      * The name of the resource to get.
      */
-    resourceName?: string;
+    resourceName: string;
     /**
      * The namespace of the resource provider.
      */
@@ -145,7 +145,7 @@ export interface GetResourceOutputArgs {
     /**
      * The name of the resource to get.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
     /**
      * The namespace of the resource provider.
      */

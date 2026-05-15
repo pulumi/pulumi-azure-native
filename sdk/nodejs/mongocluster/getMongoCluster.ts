@@ -26,7 +26,7 @@ export interface GetMongoClusterArgs {
     /**
      * The name of the mongo cluster.
      */
-    mongoClusterName?: string;
+    mongoClusterName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetMongoClusterOutputArgs {
     /**
      * The name of the mongo cluster.
      */
-    mongoClusterName?: pulumi.Input<string | undefined>;
+    mongoClusterName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -86,9 +86,6 @@ export class SharedLimit extends pulumi.CustomResource {
             if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -126,5 +123,5 @@ export interface SharedLimitArgs {
     /**
      * The name of the SharedLimit
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
 }

@@ -31,7 +31,7 @@ export interface GetSharedPrivateLinkResourceArgs {
     /**
      * The Shared Private Link resource name.
      */
-    sharedPrivateLinkResourceName?: string;
+    sharedPrivateLinkResourceName: string;
     /**
      * The database watcher name.
      */
@@ -111,7 +111,7 @@ export interface GetSharedPrivateLinkResourceOutputArgs {
     /**
      * The Shared Private Link resource name.
      */
-    sharedPrivateLinkResourceName?: pulumi.Input<string | undefined>;
+    sharedPrivateLinkResourceName: pulumi.Input<string>;
     /**
      * The database watcher name.
      */

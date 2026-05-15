@@ -31,7 +31,7 @@ export interface GetFileServicePropertiesArgs {
     /**
      * The name of the file Service within the specified storage account. File Service Name must be "default"
      */
-    fileServicesName?: string;
+    fileServicesName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetFileServicePropertiesOutputArgs {
     /**
      * The name of the file Service within the specified storage account. File Service Name must be "default"
      */
-    fileServicesName?: pulumi.Input<string | undefined>;
+    fileServicesName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

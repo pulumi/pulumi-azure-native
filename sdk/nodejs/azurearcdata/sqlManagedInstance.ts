@@ -95,9 +95,6 @@ export class SqlManagedInstance extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.sqlManagedInstanceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sqlManagedInstanceName'");
-            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.azurearcdata.sqlManagedInstancePropertiesArgsProvideDefaults) : undefined;
@@ -154,7 +151,7 @@ export interface SqlManagedInstanceArgs {
     /**
      * Name of SQL Managed Instance
      */
-    sqlManagedInstanceName: pulumi.Input<string>;
+    sqlManagedInstanceName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

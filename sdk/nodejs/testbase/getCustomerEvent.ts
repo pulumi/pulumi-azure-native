@@ -27,7 +27,7 @@ export interface GetCustomerEventArgs {
     /**
      * The resource name of the Test Base Customer event.
      */
-    customerEventName?: string;
+    customerEventName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetCustomerEventOutputArgs {
     /**
      * The resource name of the Test Base Customer event.
      */
-    customerEventName?: pulumi.Input<string | undefined>;
+    customerEventName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

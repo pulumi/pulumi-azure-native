@@ -28,7 +28,7 @@ export interface GetStorageSpaceRetrieveArgs {
     /**
      * Parameter for the name of the storage object
      */
-    storageSpacesName?: string;
+    storageSpacesName: string;
 }
 
 /**
@@ -90,5 +90,5 @@ export interface GetStorageSpaceRetrieveOutputArgs {
     /**
      * Parameter for the name of the storage object
      */
-    storageSpacesName?: pulumi.Input<string | undefined>;
+    storageSpacesName: pulumi.Input<string>;
 }

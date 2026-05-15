@@ -81,9 +81,6 @@ export class InvoiceSection extends pulumi.CustomResource {
             if (args?.billingProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingProfileName'");
             }
-            if (args?.invoiceSectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'invoiceSectionName'");
-            }
             resourceInputs["billingAccountName"] = args?.billingAccountName;
             resourceInputs["billingProfileName"] = args?.billingProfileName;
             resourceInputs["invoiceSectionName"] = args?.invoiceSectionName;
@@ -123,7 +120,7 @@ export interface InvoiceSectionArgs {
     /**
      * The ID that uniquely identifies an invoice section.
      */
-    invoiceSectionName: pulumi.Input<string>;
+    invoiceSectionName?: pulumi.Input<string | undefined>;
     /**
      * An invoice section.
      */

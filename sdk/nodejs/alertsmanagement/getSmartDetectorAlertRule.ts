@@ -27,7 +27,7 @@ export interface GetSmartDetectorAlertRuleArgs {
     /**
      * The name of the alert rule.
      */
-    alertRuleName?: string;
+    alertRuleName: string;
     /**
      * Indicates if Smart Detector should be expanded.
      */
@@ -119,7 +119,7 @@ export interface GetSmartDetectorAlertRuleOutputArgs {
     /**
      * The name of the alert rule.
      */
-    alertRuleName?: pulumi.Input<string | undefined>;
+    alertRuleName: pulumi.Input<string>;
     /**
      * Indicates if Smart Detector should be expanded.
      */

@@ -27,7 +27,7 @@ export interface GetIntegrationAccountCertificateArgs {
     /**
      * The integration account certificate name.
      */
-    certificateName?: string;
+    certificateName: string;
     /**
      * The integration account name.
      */
@@ -107,7 +107,7 @@ export interface GetIntegrationAccountCertificateOutputArgs {
     /**
      * The integration account certificate name.
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName: pulumi.Input<string>;
     /**
      * The integration account name.
      */

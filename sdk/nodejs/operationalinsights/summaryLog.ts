@@ -98,9 +98,6 @@ export class SummaryLog extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.summaryLogsName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'summaryLogsName'");
-            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -165,7 +162,7 @@ export interface SummaryLogArgs {
     /**
      * The name of the summary logs. Must not contain '/'.
      */
-    summaryLogsName: pulumi.Input<string>;
+    summaryLogsName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

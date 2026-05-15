@@ -92,9 +92,6 @@ export class HubRouteTable extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.routeTableName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'routeTableName'");
-            }
             if (args?.virtualHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
@@ -152,7 +149,7 @@ export interface HubRouteTableArgs {
     /**
      * The name of the RouteTable.
      */
-    routeTableName: pulumi.Input<string>;
+    routeTableName?: pulumi.Input<string | undefined>;
     /**
      * List of all routes.
      */

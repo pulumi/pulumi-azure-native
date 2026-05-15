@@ -35,7 +35,7 @@ export interface GetPolicyArgs {
     /**
      * The name of the Policy
      */
-    name?: string;
+    name: string;
     /**
      * policysets
      */
@@ -143,7 +143,7 @@ export interface GetPolicyOutputArgs {
     /**
      * The name of the Policy
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * policysets
      */

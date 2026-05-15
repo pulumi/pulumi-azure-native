@@ -26,7 +26,7 @@ export interface GetDataCollectionRuleAssociationArgs {
     /**
      * The name of the association. The name is case insensitive.
      */
-    associationName?: string;
+    associationName: string;
     /**
      * The identifier of the resource.
      */
@@ -101,7 +101,7 @@ export interface GetDataCollectionRuleAssociationOutputArgs {
     /**
      * The name of the association. The name is case insensitive.
      */
-    associationName?: pulumi.Input<string | undefined>;
+    associationName: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */

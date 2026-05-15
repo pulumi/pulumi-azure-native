@@ -24,7 +24,7 @@ export interface GetEnterprisePolicyArgs {
     /**
      * The EnterprisePolicy name.
      */
-    enterprisePolicyName?: string;
+    enterprisePolicyName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetEnterprisePolicyOutputArgs {
     /**
      * The EnterprisePolicy name.
      */
-    enterprisePolicyName?: pulumi.Input<string | undefined>;
+    enterprisePolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

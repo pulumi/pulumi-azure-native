@@ -29,7 +29,7 @@ export interface GetLinkedServiceArgs {
     /**
      * The linked service name.
      */
-    linkedServiceName?: string;
+    linkedServiceName: string;
     /**
      * The resource group name.
      */
@@ -87,7 +87,7 @@ export interface GetLinkedServiceOutputArgs {
     /**
      * The linked service name.
      */
-    linkedServiceName?: pulumi.Input<string | undefined>;
+    linkedServiceName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

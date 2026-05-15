@@ -73,9 +73,6 @@ export class BuildServiceAgentPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.agentPoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'agentPoolName'");
-            }
             if (args?.buildServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'buildServiceName'");
             }
@@ -115,7 +112,7 @@ export interface BuildServiceAgentPoolArgs {
     /**
      * The name of the build service agent pool resource.
      */
-    agentPoolName: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the build service resource.
      */

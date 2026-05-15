@@ -26,7 +26,7 @@ export interface GetIspCustomerArgs {
     /**
      * Name of the Customer resource
      */
-    customerResourceName?: string;
+    customerResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetIspCustomerOutputArgs {
     /**
      * Name of the Customer resource
      */
-    customerResourceName?: pulumi.Input<string | undefined>;
+    customerResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

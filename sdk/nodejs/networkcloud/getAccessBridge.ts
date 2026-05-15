@@ -24,7 +24,7 @@ export interface GetAccessBridgeArgs {
     /**
      * The name of the access bridge.
      */
-    accessBridgeName?: string;
+    accessBridgeName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -122,7 +122,7 @@ export interface GetAccessBridgeOutputArgs {
     /**
      * The name of the access bridge.
      */
-    accessBridgeName?: pulumi.Input<string | undefined>;
+    accessBridgeName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -99,9 +99,6 @@ export class Favorite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.favoriteId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'favoriteId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -158,7 +155,7 @@ export interface FavoriteArgs {
     /**
      * The Id of a specific favorite defined in the Application Insights component
      */
-    favoriteId: pulumi.Input<string>;
+    favoriteId?: pulumi.Input<string | undefined>;
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */

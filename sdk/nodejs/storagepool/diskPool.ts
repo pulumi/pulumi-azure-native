@@ -111,9 +111,6 @@ export class DiskPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.diskPoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'diskPoolName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -180,7 +177,7 @@ export interface DiskPoolArgs {
     /**
      * The name of the Disk Pool.
      */
-    diskPoolName: pulumi.Input<string>;
+    diskPoolName?: pulumi.Input<string | undefined>;
     /**
      * List of Azure Managed Disks to attach to a Disk Pool.
      */

@@ -27,7 +27,7 @@ export interface GetCertificateArgs {
     /**
      * The name of the certificate resource.
      */
-    certificateName?: string;
+    certificateName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -87,7 +87,7 @@ export interface GetCertificateOutputArgs {
     /**
      * The name of the certificate resource.
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

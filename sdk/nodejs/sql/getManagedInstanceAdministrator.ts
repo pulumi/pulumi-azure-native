@@ -21,7 +21,7 @@ export function getManagedInstanceAdministrator(args: GetManagedInstanceAdminist
 }
 
 export interface GetManagedInstanceAdministratorArgs {
-    administratorName?: string;
+    administratorName: string;
     /**
      * The name of the managed instance.
      */
@@ -86,7 +86,7 @@ export function getManagedInstanceAdministratorOutput(args: GetManagedInstanceAd
 }
 
 export interface GetManagedInstanceAdministratorOutputArgs {
-    administratorName?: pulumi.Input<string | undefined>;
+    administratorName: pulumi.Input<string>;
     /**
      * The name of the managed instance.
      */

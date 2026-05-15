@@ -26,7 +26,7 @@ export interface GetAddressArgs {
     /**
      * The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
      */
-    addressName?: string;
+    addressName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetAddressOutputArgs {
     /**
      * The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
      */
-    addressName?: pulumi.Input<string | undefined>;
+    addressName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

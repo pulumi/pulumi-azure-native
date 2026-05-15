@@ -161,9 +161,6 @@ export class SiteCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.certificateName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'certificateName'");
-            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -246,7 +243,7 @@ export interface SiteCertificateArgs {
     /**
      * Name of the certificate.
      */
-    certificateName: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Method of domain validation for free cert
      */

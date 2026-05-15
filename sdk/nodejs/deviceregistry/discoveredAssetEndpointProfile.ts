@@ -107,9 +107,6 @@ export class DiscoveredAssetEndpointProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.discoveredAssetEndpointProfileName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'discoveredAssetEndpointProfileName'");
-            }
             if (args?.discoveryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'discoveryId'");
             }
@@ -178,7 +175,7 @@ export interface DiscoveredAssetEndpointProfileArgs {
     /**
      * Discovered Asset Endpoint Profile name parameter.
      */
-    discoveredAssetEndpointProfileName: pulumi.Input<string>;
+    discoveredAssetEndpointProfileName?: pulumi.Input<string | undefined>;
     /**
      * Identifier used to detect changes in the asset endpoint profile.
      */

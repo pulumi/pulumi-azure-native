@@ -81,9 +81,6 @@ export class ManagedClusterApplicationType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.applicationTypeName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'applicationTypeName'");
-            }
             if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
@@ -123,7 +120,7 @@ export interface ManagedClusterApplicationTypeArgs {
     /**
      * The name of the application type name resource.
      */
-    applicationTypeName: pulumi.Input<string>;
+    applicationTypeName?: pulumi.Input<string | undefined>;
     /**
      * The name of the cluster resource.
      */

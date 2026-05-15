@@ -27,7 +27,7 @@ export interface GetSqlServerDatabaseArgs {
     /**
      * Name of the database
      */
-    databaseName?: string;
+    databaseName: string;
     /**
      * The name of the Azure resource group
      */
@@ -95,7 +95,7 @@ export interface GetSqlServerDatabaseOutputArgs {
     /**
      * Name of the database
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * The name of the Azure resource group
      */

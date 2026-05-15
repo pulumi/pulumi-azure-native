@@ -75,9 +75,6 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.privateEndpointConnectionProxyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'privateEndpointConnectionProxyName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +112,7 @@ export interface PrivateEndpointConnectionProxyArgs {
     /**
      * The private endpoint connection proxy name.
      */
-    privateEndpointConnectionProxyName: pulumi.Input<string>;
+    privateEndpointConnectionProxyName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

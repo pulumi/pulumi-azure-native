@@ -30,7 +30,7 @@ export interface GetInvitationArgs {
     /**
      * The name of the invitation.
      */
-    invitationName?: string;
+    invitationName: string;
     /**
      * The resource group name.
      */
@@ -131,7 +131,7 @@ export interface GetInvitationOutputArgs {
     /**
      * The name of the invitation.
      */
-    invitationName?: pulumi.Input<string | undefined>;
+    invitationName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

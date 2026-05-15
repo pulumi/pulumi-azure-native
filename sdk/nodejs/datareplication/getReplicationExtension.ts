@@ -27,7 +27,7 @@ export interface GetReplicationExtensionArgs {
     /**
      * The replication extension name.
      */
-    replicationExtensionName?: string;
+    replicationExtensionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,7 +84,7 @@ export interface GetReplicationExtensionOutputArgs {
     /**
      * The replication extension name.
      */
-    replicationExtensionName?: pulumi.Input<string | undefined>;
+    replicationExtensionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -100,9 +100,6 @@ export class NeighborGroup extends pulumi.CustomResource {
             if (args?.destination === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (args?.neighborGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'neighborGroupName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -158,7 +155,7 @@ export interface NeighborGroupArgs {
     /**
      * Name of the Neighbor Group.
      */
-    neighborGroupName: pulumi.Input<string>;
+    neighborGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -31,7 +31,7 @@ export interface GetProviderInstanceArgs {
     /**
      * Name of the provider instance.
      */
-    providerInstanceName?: string;
+    providerInstanceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetProviderInstanceOutputArgs {
     /**
      * Name of the provider instance.
      */
-    providerInstanceName?: pulumi.Input<string | undefined>;
+    providerInstanceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

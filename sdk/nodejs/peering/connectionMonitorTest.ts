@@ -90,9 +90,6 @@ export class ConnectionMonitorTest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.connectionMonitorTestName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectionMonitorTestName'");
-            }
             if (args?.peeringServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringServiceName'");
             }
@@ -138,7 +135,7 @@ export interface ConnectionMonitorTestArgs {
     /**
      * The name of the connection monitor test
      */
-    connectionMonitorTestName: pulumi.Input<string>;
+    connectionMonitorTestName?: pulumi.Input<string | undefined>;
     /**
      * The Connection Monitor test destination
      */

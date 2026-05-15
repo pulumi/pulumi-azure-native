@@ -31,7 +31,7 @@ export interface GetImageArgs {
     /**
      * The name of the image.
      */
-    imageName?: string;
+    imageName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -115,7 +115,7 @@ export interface GetImageOutputArgs {
     /**
      * The name of the image.
      */
-    imageName?: pulumi.Input<string | undefined>;
+    imageName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

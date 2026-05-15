@@ -94,9 +94,6 @@ export class WorkspaceManagerGroup extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.workspaceManagerGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'workspaceManagerGroupName'");
-            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -151,7 +148,7 @@ export interface WorkspaceManagerGroupArgs {
     /**
      * The name of the workspace manager group
      */
-    workspaceManagerGroupName: pulumi.Input<string>;
+    workspaceManagerGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

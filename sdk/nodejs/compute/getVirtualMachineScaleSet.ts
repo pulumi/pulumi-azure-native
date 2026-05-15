@@ -35,7 +35,7 @@ export interface GetVirtualMachineScaleSetArgs {
     /**
      * The name of the VM scale set.
      */
-    vmScaleSetName?: string;
+    vmScaleSetName: string;
 }
 
 /**
@@ -215,5 +215,5 @@ export interface GetVirtualMachineScaleSetOutputArgs {
     /**
      * The name of the VM scale set.
      */
-    vmScaleSetName?: pulumi.Input<string | undefined>;
+    vmScaleSetName: pulumi.Input<string>;
 }

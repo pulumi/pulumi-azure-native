@@ -31,7 +31,7 @@ export interface GetNetworkSecurityGroupArgs {
     /**
      * The name of the network security group.
      */
-    networkSecurityGroupName?: string;
+    networkSecurityGroupName: string;
     /**
      * The name of the resource group.
      */
@@ -127,7 +127,7 @@ export interface GetNetworkSecurityGroupOutputArgs {
     /**
      * The name of the network security group.
      */
-    networkSecurityGroupName?: pulumi.Input<string | undefined>;
+    networkSecurityGroupName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

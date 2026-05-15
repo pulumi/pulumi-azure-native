@@ -83,9 +83,6 @@ export class StorageSpaceRetrieve extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.storageSpacesName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageSpacesName'");
-            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
@@ -133,7 +130,7 @@ export interface StorageSpaceRetrieveArgs {
     /**
      * Parameter for the name of the storage object
      */
-    storageSpacesName: pulumi.Input<string>;
+    storageSpacesName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

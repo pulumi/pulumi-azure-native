@@ -27,7 +27,7 @@ export interface GetPolicyArgs {
     /**
      * The policy name.
      */
-    policyName?: string;
+    policyName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,7 +84,7 @@ export interface GetPolicyOutputArgs {
     /**
      * The policy name.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

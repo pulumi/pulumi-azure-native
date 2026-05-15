@@ -85,9 +85,6 @@ export class ManagedNamespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.managedNamespaceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'managedNamespaceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface ManagedNamespaceArgs {
     /**
      * The name of the managed namespace.
      */
-    managedNamespaceName: pulumi.Input<string>;
+    managedNamespaceName?: pulumi.Input<string | undefined>;
     /**
      * Properties of a namespace.
      */

@@ -141,9 +141,6 @@ export class Pool extends pulumi.CustomResource {
             if (args?.networkConnectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConnectionName'");
             }
-            if (args?.poolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'poolName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -235,7 +232,7 @@ export interface PoolArgs {
     /**
      * Name of the pool.
      */
-    poolName: pulumi.Input<string>;
+    poolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the project.
      */

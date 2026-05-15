@@ -27,7 +27,7 @@ export interface GetBotConnectionArgs {
     /**
      * The name of the Bot Service Connection Setting resource.
      */
-    connectionName?: string;
+    connectionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetBotConnectionOutputArgs {
     /**
      * The name of the Bot Service Connection Setting resource.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -35,7 +35,7 @@ export interface GetSecretArgs {
     /**
      * Name of the Secret under the profile.
      */
-    secretName?: string;
+    secretName: string;
 }
 
 /**
@@ -104,5 +104,5 @@ export interface GetSecretOutputArgs {
     /**
      * Name of the Secret under the profile.
      */
-    secretName?: pulumi.Input<string | undefined>;
+    secretName: pulumi.Input<string>;
 }

@@ -35,7 +35,7 @@ export interface GetSecuritySettingArgs {
     /**
      * Name of security setting
      */
-    securitySettingsName?: string;
+    securitySettingsName: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetSecuritySettingOutputArgs {
     /**
      * Name of security setting
      */
-    securitySettingsName?: pulumi.Input<string | undefined>;
+    securitySettingsName: pulumi.Input<string>;
 }

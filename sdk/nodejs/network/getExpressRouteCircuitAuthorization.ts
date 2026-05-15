@@ -24,7 +24,7 @@ export interface GetExpressRouteCircuitAuthorizationArgs {
     /**
      * The name of the authorization.
      */
-    authorizationName?: string;
+    authorizationName: string;
     /**
      * The name of the express route circuit.
      */
@@ -96,7 +96,7 @@ export interface GetExpressRouteCircuitAuthorizationOutputArgs {
     /**
      * The name of the authorization.
      */
-    authorizationName?: pulumi.Input<string | undefined>;
+    authorizationName: pulumi.Input<string>;
     /**
      * The name of the express route circuit.
      */

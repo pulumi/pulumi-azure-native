@@ -109,9 +109,6 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.authorizationRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'authorizationRuleName'");
-            }
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -174,7 +171,7 @@ export interface NotificationHubAuthorizationRuleArgs {
     /**
      * Authorization Rule Name
      */
-    authorizationRuleName: pulumi.Input<string>;
+    authorizationRuleName?: pulumi.Input<string | undefined>;
     location?: pulumi.Input<string | undefined>;
     /**
      * Namespace name

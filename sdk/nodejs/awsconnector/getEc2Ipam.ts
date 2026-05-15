@@ -24,7 +24,7 @@ export interface GetEc2IpamArgs {
     /**
      * Name of Ec2Ipam
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetEc2IpamOutputArgs {
     /**
      * Name of Ec2Ipam
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

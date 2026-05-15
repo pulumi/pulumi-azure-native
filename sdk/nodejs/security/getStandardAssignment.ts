@@ -28,7 +28,7 @@ export interface GetStandardAssignmentArgs {
     /**
      * The standard assignments assignment key - unique key for the standard assignment
      */
-    standardAssignmentName?: string;
+    standardAssignmentName: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetStandardAssignmentOutputArgs {
     /**
      * The standard assignments assignment key - unique key for the standard assignment
      */
-    standardAssignmentName?: pulumi.Input<string | undefined>;
+    standardAssignmentName: pulumi.Input<string>;
 }

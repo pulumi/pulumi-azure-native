@@ -28,7 +28,7 @@ export interface GetWebAgentArgs {
     /**
      * The name of the web agent.
      */
-    webAgentName?: string;
+    webAgentName: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetWebAgentOutputArgs {
     /**
      * The name of the web agent.
      */
-    webAgentName?: pulumi.Input<string | undefined>;
+    webAgentName: pulumi.Input<string>;
 }

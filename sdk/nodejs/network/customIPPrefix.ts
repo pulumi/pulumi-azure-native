@@ -145,9 +145,6 @@ export class CustomIPPrefix extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.customIpPrefixName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'customIpPrefixName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -232,7 +229,7 @@ export interface CustomIPPrefixArgs {
     /**
      * The name of the custom IP prefix.
      */
-    customIpPrefixName: pulumi.Input<string>;
+    customIpPrefixName?: pulumi.Input<string | undefined>;
     /**
      * The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
      */

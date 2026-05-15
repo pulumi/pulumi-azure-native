@@ -97,9 +97,6 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             resourceInputs["identity"] = args?.identity;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
@@ -158,7 +155,7 @@ export interface PrivateLinkServicesForO365ManagementActivityAPIArgs {
     /**
      * The name of the service instance.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The resource tags.
      */

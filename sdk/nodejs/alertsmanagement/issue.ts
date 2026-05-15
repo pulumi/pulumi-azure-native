@@ -71,9 +71,6 @@ export class Issue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.issueName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'issueName'");
-            }
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
@@ -105,7 +102,7 @@ export interface IssueArgs {
     /**
      * The name of the IssueResource
      */
-    issueName: pulumi.Input<string>;
+    issueName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

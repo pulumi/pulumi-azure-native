@@ -24,7 +24,7 @@ export interface GetCustomRecommendationArgs {
     /**
      * Name of the Custom Recommendation.
      */
-    customRecommendationName?: string;
+    customRecommendationName: string;
     /**
      * The scope of the custom recommendation. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
      */
@@ -105,7 +105,7 @@ export interface GetCustomRecommendationOutputArgs {
     /**
      * Name of the Custom Recommendation.
      */
-    customRecommendationName?: pulumi.Input<string | undefined>;
+    customRecommendationName: pulumi.Input<string>;
     /**
      * The scope of the custom recommendation. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
      */

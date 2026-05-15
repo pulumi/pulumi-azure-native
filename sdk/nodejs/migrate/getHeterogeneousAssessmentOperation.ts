@@ -25,7 +25,7 @@ export interface GetHeterogeneousAssessmentOperationArgs {
     /**
      * Heterogeneous Assessment ARM name
      */
-    assessmentName?: string;
+    assessmentName: string;
     /**
      * Assessment Project Name
      */
@@ -83,7 +83,7 @@ export interface GetHeterogeneousAssessmentOperationOutputArgs {
     /**
      * Heterogeneous Assessment ARM name
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

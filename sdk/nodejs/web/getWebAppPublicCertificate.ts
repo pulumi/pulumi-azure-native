@@ -28,7 +28,7 @@ export interface GetWebAppPublicCertificateArgs {
     /**
      * Public certificate name.
      */
-    publicCertificateName?: string;
+    publicCertificateName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -96,7 +96,7 @@ export interface GetWebAppPublicCertificateOutputArgs {
     /**
      * Public certificate name.
      */
-    publicCertificateName?: pulumi.Input<string | undefined>;
+    publicCertificateName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

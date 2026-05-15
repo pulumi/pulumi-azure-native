@@ -79,9 +79,6 @@ export class Bookshelf extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.bookshelfName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'bookshelfName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -117,7 +114,7 @@ export interface BookshelfArgs {
     /**
      * The name of the Bookshelf
      */
-    bookshelfName: pulumi.Input<string>;
+    bookshelfName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

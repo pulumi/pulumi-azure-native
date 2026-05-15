@@ -84,9 +84,6 @@ export class RaiBlocklistItem extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.raiBlocklistItemName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'raiBlocklistItemName'");
-            }
             if (args?.raiBlocklistName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'raiBlocklistName'");
             }
@@ -135,7 +132,7 @@ export interface RaiBlocklistItemArgs {
     /**
      * The name of the RaiBlocklist Item associated with the custom blocklist
      */
-    raiBlocklistItemName: pulumi.Input<string>;
+    raiBlocklistItemName?: pulumi.Input<string | undefined>;
     /**
      * The name of the RaiBlocklist associated with the Cognitive Services Account
      */

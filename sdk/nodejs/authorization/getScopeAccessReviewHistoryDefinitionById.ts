@@ -24,7 +24,7 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdArgs {
     /**
      * The id of the access review history definition.
      */
-    historyDefinitionId?: string;
+    historyDefinitionId: string;
     /**
      * The scope of the resource.
      */
@@ -125,7 +125,7 @@ export interface GetScopeAccessReviewHistoryDefinitionByIdOutputArgs {
     /**
      * The id of the access review history definition.
      */
-    historyDefinitionId?: pulumi.Input<string | undefined>;
+    historyDefinitionId: pulumi.Input<string>;
     /**
      * The scope of the resource.
      */

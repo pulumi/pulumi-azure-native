@@ -97,9 +97,6 @@ export class IpCommunity extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.ipCommunityName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ipCommunityName'");
-            }
             if (args?.ipCommunityRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipCommunityRules'");
             }
@@ -150,7 +147,7 @@ export interface IpCommunityArgs {
     /**
      * Name of the IP Community.
      */
-    ipCommunityName: pulumi.Input<string>;
+    ipCommunityName?: pulumi.Input<string | undefined>;
     /**
      * List of IP Community Rules.
      */

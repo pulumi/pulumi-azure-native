@@ -93,9 +93,6 @@ export class BatchDeployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.deploymentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deploymentName'");
-            }
             if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
@@ -148,7 +145,7 @@ export interface BatchDeploymentArgs {
     /**
      * The identifier for the Batch deployments.
      */
-    deploymentName: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * Name for the Batch Endpoint.
      */

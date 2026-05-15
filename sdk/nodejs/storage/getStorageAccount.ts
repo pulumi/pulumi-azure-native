@@ -27,7 +27,7 @@ export interface GetStorageAccountArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    accountName?: string;
+    accountName: string;
     /**
      * May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats and blobRestoreStatus.
      */
@@ -267,7 +267,7 @@ export interface GetStorageAccountOutputArgs {
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName: pulumi.Input<string>;
     /**
      * May be used to expand the properties within account's properties. By default, data is not included when fetching properties. Currently we only support geoReplicationStats and blobRestoreStatus.
      */

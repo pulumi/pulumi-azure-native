@@ -26,7 +26,7 @@ export interface GetManagedHsmArgs {
     /**
      * The name of the managed HSM Pool.
      */
-    name?: string;
+    name: string;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */
@@ -97,7 +97,7 @@ export interface GetManagedHsmOutputArgs {
     /**
      * The name of the managed HSM Pool.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the managed HSM pool.
      */

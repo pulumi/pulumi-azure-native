@@ -26,7 +26,7 @@ export interface GetPrivateCloudArgs {
     /**
      * Name of the private cloud
      */
-    privateCloudName?: string;
+    privateCloudName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -188,7 +188,7 @@ export interface GetPrivateCloudOutputArgs {
     /**
      * Name of the private cloud
      */
-    privateCloudName?: pulumi.Input<string | undefined>;
+    privateCloudName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

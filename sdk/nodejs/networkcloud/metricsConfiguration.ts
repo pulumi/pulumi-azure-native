@@ -116,9 +116,6 @@ export class MetricsConfiguration extends pulumi.CustomResource {
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if (args?.metricsConfigurationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'metricsConfigurationName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -189,7 +186,7 @@ export interface MetricsConfigurationArgs {
     /**
      * The name of the metrics configuration for the cluster.
      */
-    metricsConfigurationName: pulumi.Input<string>;
+    metricsConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

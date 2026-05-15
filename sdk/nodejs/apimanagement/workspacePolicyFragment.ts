@@ -81,9 +81,6 @@ export class WorkspacePolicyFragment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.id === undefined && !opts.urn) {
-                throw new Error("Missing required property 'id'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -138,7 +135,7 @@ export interface WorkspacePolicyFragmentArgs {
     /**
      * A resource identifier.
      */
-    id: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

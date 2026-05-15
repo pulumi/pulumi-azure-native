@@ -26,7 +26,7 @@ export interface GetConfigurationReferenceArgs {
     /**
      * The name of the ConfigurationReference
      */
-    configurationReferenceName?: string;
+    configurationReferenceName: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -81,7 +81,7 @@ export interface GetConfigurationReferenceOutputArgs {
     /**
      * The name of the ConfigurationReference
      */
-    configurationReferenceName?: pulumi.Input<string | undefined>;
+    configurationReferenceName: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

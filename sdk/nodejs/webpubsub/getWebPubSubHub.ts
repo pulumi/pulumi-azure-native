@@ -27,7 +27,7 @@ export interface GetWebPubSubHubArgs {
     /**
      * The hub name.
      */
-    hubName?: string;
+    hubName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetWebPubSubHubOutputArgs {
     /**
      * The hub name.
      */
-    hubName?: pulumi.Input<string | undefined>;
+    hubName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

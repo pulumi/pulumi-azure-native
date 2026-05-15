@@ -40,7 +40,7 @@ export interface GetRestorePointArgs {
     /**
      * The name of the restore point.
      */
-    restorePointName?: string;
+    restorePointName: string;
 }
 
 /**
@@ -129,5 +129,5 @@ export interface GetRestorePointOutputArgs {
     /**
      * The name of the restore point.
      */
-    restorePointName?: pulumi.Input<string | undefined>;
+    restorePointName: pulumi.Input<string>;
 }

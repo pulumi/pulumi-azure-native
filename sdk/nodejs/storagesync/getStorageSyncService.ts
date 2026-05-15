@@ -30,7 +30,7 @@ export interface GetStorageSyncServiceArgs {
     /**
      * Name of Storage Sync Service resource.
      */
-    storageSyncServiceName?: string;
+    storageSyncServiceName: string;
 }
 
 /**
@@ -125,5 +125,5 @@ export interface GetStorageSyncServiceOutputArgs {
     /**
      * Name of Storage Sync Service resource.
      */
-    storageSyncServiceName?: pulumi.Input<string | undefined>;
+    storageSyncServiceName: pulumi.Input<string>;
 }

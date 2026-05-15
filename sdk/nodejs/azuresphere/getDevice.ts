@@ -35,7 +35,7 @@ export interface GetDeviceArgs {
     /**
      * Device name
      */
-    deviceName?: string;
+    deviceName: string;
     /**
      * Name of product.
      */
@@ -127,7 +127,7 @@ export interface GetDeviceOutputArgs {
     /**
      * Device name
      */
-    deviceName?: pulumi.Input<string | undefined>;
+    deviceName: pulumi.Input<string>;
     /**
      * Name of product.
      */

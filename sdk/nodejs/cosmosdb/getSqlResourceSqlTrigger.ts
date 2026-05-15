@@ -45,7 +45,7 @@ export interface GetSqlResourceSqlTriggerArgs {
     /**
      * Cosmos DB trigger name.
      */
-    triggerName?: string;
+    triggerName: string;
 }
 
 /**
@@ -116,5 +116,5 @@ export interface GetSqlResourceSqlTriggerOutputArgs {
     /**
      * Cosmos DB trigger name.
      */
-    triggerName?: pulumi.Input<string | undefined>;
+    triggerName: pulumi.Input<string>;
 }

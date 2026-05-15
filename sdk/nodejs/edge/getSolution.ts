@@ -31,7 +31,7 @@ export interface GetSolutionArgs {
     /**
      * Name of the solution
      */
-    solutionName?: string;
+    solutionName: string;
     /**
      * Name of the target
      */
@@ -99,7 +99,7 @@ export interface GetSolutionOutputArgs {
     /**
      * Name of the solution
      */
-    solutionName?: pulumi.Input<string | undefined>;
+    solutionName: pulumi.Input<string>;
     /**
      * Name of the target
      */

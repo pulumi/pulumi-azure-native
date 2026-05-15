@@ -91,9 +91,6 @@ export class CloudConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.cloudConnectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cloudConnectorName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -139,7 +136,7 @@ export interface CloudConnectorArgs {
     /**
      * The name of the cloud connector resource
      */
-    cloudConnectorName: pulumi.Input<string>;
+    cloudConnectorName?: pulumi.Input<string | undefined>;
     /**
      * The cloud connector type.
      */

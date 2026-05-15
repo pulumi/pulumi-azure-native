@@ -77,9 +77,6 @@ export class HuntComment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.huntCommentId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'huntCommentId'");
-            }
             if (args?.huntId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'huntId'");
             }
@@ -124,7 +121,7 @@ export interface HuntCommentArgs {
     /**
      * The hunt comment id (GUID)
      */
-    huntCommentId: pulumi.Input<string>;
+    huntCommentId?: pulumi.Input<string | undefined>;
     /**
      * The hunt id (GUID)
      */

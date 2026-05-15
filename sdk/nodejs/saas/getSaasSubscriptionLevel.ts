@@ -28,7 +28,7 @@ export interface GetSaasSubscriptionLevelArgs {
     /**
      * The name of the resource.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -81,5 +81,5 @@ export interface GetSaasSubscriptionLevelOutputArgs {
     /**
      * The name of the resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

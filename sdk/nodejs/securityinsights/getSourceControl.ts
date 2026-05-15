@@ -31,7 +31,7 @@ export interface GetSourceControlArgs {
     /**
      * Source control Id
      */
-    sourceControlId?: string;
+    sourceControlId: string;
     /**
      * The name of the workspace.
      */
@@ -123,7 +123,7 @@ export interface GetSourceControlOutputArgs {
     /**
      * Source control Id
      */
-    sourceControlId?: pulumi.Input<string | undefined>;
+    sourceControlId: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

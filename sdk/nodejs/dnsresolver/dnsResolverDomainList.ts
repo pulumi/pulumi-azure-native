@@ -93,9 +93,6 @@ export class DnsResolverDomainList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dnsResolverDomainListName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dnsResolverDomainListName'");
-            }
             if (args?.domains === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domains'");
             }
@@ -140,7 +137,7 @@ export interface DnsResolverDomainListArgs {
     /**
      * The name of the DNS resolver domain list.
      */
-    dnsResolverDomainListName: pulumi.Input<string>;
+    dnsResolverDomainListName?: pulumi.Input<string | undefined>;
     /**
      * The domains in the domain list.
      */

@@ -27,7 +27,7 @@ export interface GetHybridConnectionArgs {
     /**
      * The hybrid connection name.
      */
-    hybridConnectionName?: string;
+    hybridConnectionName: string;
     /**
      * The namespace name
      */
@@ -107,7 +107,7 @@ export interface GetHybridConnectionOutputArgs {
     /**
      * The hybrid connection name.
      */
-    hybridConnectionName?: pulumi.Input<string | undefined>;
+    hybridConnectionName: pulumi.Input<string>;
     /**
      * The namespace name
      */

@@ -81,9 +81,6 @@ export class Backup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.backupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'backupName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface BackupArgs {
     /**
      * Name of the backup.
      */
-    backupName: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

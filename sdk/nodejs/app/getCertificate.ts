@@ -27,7 +27,7 @@ export interface GetCertificateArgs {
     /**
      * Name of the Certificate.
      */
-    certificateName?: string;
+    certificateName: string;
     /**
      * Name of the Managed Environment.
      */
@@ -95,7 +95,7 @@ export interface GetCertificateOutputArgs {
     /**
      * Name of the Certificate.
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName: pulumi.Input<string>;
     /**
      * Name of the Managed Environment.
      */

@@ -81,9 +81,6 @@ export class CommitmentPlanAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.commitmentPlanAssociationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'commitmentPlanAssociationName'");
-            }
             if (args?.commitmentPlanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'commitmentPlanName'");
             }
@@ -127,7 +124,7 @@ export interface CommitmentPlanAssociationArgs {
     /**
      * The name of the commitment plan association with the Cognitive Services Account
      */
-    commitmentPlanAssociationName: pulumi.Input<string>;
+    commitmentPlanAssociationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */

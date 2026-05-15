@@ -33,7 +33,7 @@ export interface GetMarkupRuleArgs {
     /**
      * Markup rule name.
      */
-    name?: string;
+    name: string;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface GetMarkupRuleOutputArgs {
     /**
      * Markup rule name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
 }

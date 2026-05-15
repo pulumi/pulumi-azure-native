@@ -27,7 +27,7 @@ export interface GetIdentityBindingArgs {
     /**
      * The name of the identity binding.
      */
-    identityBindingName?: string;
+    identityBindingName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetIdentityBindingOutputArgs {
     /**
      * The name of the identity binding.
      */
-    identityBindingName?: pulumi.Input<string | undefined>;
+    identityBindingName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

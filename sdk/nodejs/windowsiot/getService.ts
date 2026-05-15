@@ -21,7 +21,7 @@ export interface GetServiceArgs {
     /**
      * The name of the Windows IoT Device Service.
      */
-    deviceName?: string;
+    deviceName: string;
     /**
      * The name of the resource group that contains the Windows IoT Device Service.
      */
@@ -98,7 +98,7 @@ export interface GetServiceOutputArgs {
     /**
      * The name of the Windows IoT Device Service.
      */
-    deviceName?: pulumi.Input<string | undefined>;
+    deviceName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the Windows IoT Device Service.
      */

@@ -24,7 +24,7 @@ export interface GetGuardDutyDetectorArgs {
     /**
      * Name of GuardDutyDetector
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetGuardDutyDetectorOutputArgs {
     /**
      * Name of GuardDutyDetector
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

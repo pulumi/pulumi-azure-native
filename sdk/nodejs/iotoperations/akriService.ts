@@ -75,9 +75,6 @@ export class AkriService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.akriServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'akriServiceName'");
-            }
             if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
@@ -115,7 +112,7 @@ export interface AkriServiceArgs {
     /**
      * Name of AkriService resource.
      */
-    akriServiceName: pulumi.Input<string>;
+    akriServiceName?: pulumi.Input<string | undefined>;
     /**
      * Edge location of the resource.
      */

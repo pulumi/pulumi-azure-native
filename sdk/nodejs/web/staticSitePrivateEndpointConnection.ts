@@ -85,9 +85,6 @@ export class StaticSitePrivateEndpointConnection extends pulumi.CustomResource {
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if (args?.privateEndpointConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +134,7 @@ export interface StaticSitePrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The state of a private link connection
      */

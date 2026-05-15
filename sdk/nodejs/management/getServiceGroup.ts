@@ -12,8 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-02-01-preview.
  */
-export function getServiceGroup(args?: GetServiceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceGroupResult> {
-    args = args || {};
+export function getServiceGroup(args: GetServiceGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management:getServiceGroup", {
         "serviceGroupName": args.serviceGroupName,
@@ -24,7 +23,7 @@ export interface GetServiceGroupArgs {
     /**
      * ServiceGroup Name.
      */
-    serviceGroupName?: string;
+    serviceGroupName: string;
 }
 
 /**
@@ -69,8 +68,7 @@ export interface GetServiceGroupResult {
  *
  * Uses Azure REST API version 2024-02-01-preview.
  */
-export function getServiceGroupOutput(args?: GetServiceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceGroupResult> {
-    args = args || {};
+export function getServiceGroupOutput(args: GetServiceGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:management:getServiceGroup", {
         "serviceGroupName": args.serviceGroupName,
@@ -81,5 +79,5 @@ export interface GetServiceGroupOutputArgs {
     /**
      * ServiceGroup Name.
      */
-    serviceGroupName?: pulumi.Input<string | undefined>;
+    serviceGroupName: pulumi.Input<string>;
 }

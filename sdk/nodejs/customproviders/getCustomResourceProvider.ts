@@ -28,7 +28,7 @@ export interface GetCustomResourceProviderArgs {
     /**
      * The name of the resource provider.
      */
-    resourceProviderName?: string;
+    resourceProviderName: string;
 }
 
 /**
@@ -97,5 +97,5 @@ export interface GetCustomResourceProviderOutputArgs {
     /**
      * The name of the resource provider.
      */
-    resourceProviderName?: pulumi.Input<string | undefined>;
+    resourceProviderName: pulumi.Input<string>;
 }

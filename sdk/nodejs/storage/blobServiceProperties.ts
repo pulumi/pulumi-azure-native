@@ -108,9 +108,6 @@ export class BlobServiceProperties extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.blobServicesName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'blobServicesName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -167,7 +164,7 @@ export interface BlobServicePropertiesArgs {
     /**
      * The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
      */
-    blobServicesName: pulumi.Input<string>;
+    blobServicesName?: pulumi.Input<string | undefined>;
     /**
      * The blob service properties for change feed events.
      */

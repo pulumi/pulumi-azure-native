@@ -96,9 +96,6 @@ export class SecurityPartnerProvider extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.securityPartnerProviderName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'securityPartnerProviderName'");
-            }
             resourceInputs["id"] = args?.id;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -150,7 +147,7 @@ export interface SecurityPartnerProviderArgs {
     /**
      * The name of the Security Partner Provider.
      */
-    securityPartnerProviderName: pulumi.Input<string>;
+    securityPartnerProviderName?: pulumi.Input<string | undefined>;
     /**
      * The security provider name.
      */

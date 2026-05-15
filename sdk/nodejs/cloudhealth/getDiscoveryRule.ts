@@ -27,7 +27,7 @@ export interface GetDiscoveryRuleArgs {
     /**
      * Name of the discovery rule. Must be unique within a health model.
      */
-    discoveryRuleName?: string;
+    discoveryRuleName: string;
     /**
      * Name of health model resource
      */
@@ -87,7 +87,7 @@ export interface GetDiscoveryRuleOutputArgs {
     /**
      * Name of the discovery rule. Must be unique within a health model.
      */
-    discoveryRuleName?: pulumi.Input<string | undefined>;
+    discoveryRuleName: pulumi.Input<string>;
     /**
      * Name of health model resource
      */

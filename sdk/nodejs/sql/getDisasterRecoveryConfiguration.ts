@@ -22,7 +22,7 @@ export interface GetDisasterRecoveryConfigurationArgs {
     /**
      * The name of the disaster recovery configuration.
      */
-    disasterRecoveryConfigurationName?: string;
+    disasterRecoveryConfigurationName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -104,7 +104,7 @@ export interface GetDisasterRecoveryConfigurationOutputArgs {
     /**
      * The name of the disaster recovery configuration.
      */
-    disasterRecoveryConfigurationName?: pulumi.Input<string | undefined>;
+    disasterRecoveryConfigurationName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -35,7 +35,7 @@ export interface GetStartStopManagedInstanceScheduleArgs {
     /**
      * Name of the managed instance Start/Stop schedule.
      */
-    startStopScheduleName?: string;
+    startStopScheduleName: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetStartStopManagedInstanceScheduleOutputArgs {
     /**
      * Name of the managed instance Start/Stop schedule.
      */
-    startStopScheduleName?: pulumi.Input<string | undefined>;
+    startStopScheduleName: pulumi.Input<string>;
 }

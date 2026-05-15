@@ -83,9 +83,6 @@ export class InstanceDetails extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.instanceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'instanceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -127,7 +124,7 @@ export interface InstanceDetailsArgs {
     /**
      * The name of the DFP instances. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    instanceName: pulumi.Input<string>;
+    instanceName?: pulumi.Input<string | undefined>;
     /**
      * Location of the DFP resource.
      */

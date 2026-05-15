@@ -89,9 +89,6 @@ export class StaticSiteBuildDatabaseConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.databaseConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'databaseConnectionName'");
-            }
             if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
@@ -152,7 +149,7 @@ export interface StaticSiteBuildDatabaseConnectionArgs {
     /**
      * Name of the database connection.
      */
-    databaseConnectionName: pulumi.Input<string>;
+    databaseConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The stage site identifier.
      */

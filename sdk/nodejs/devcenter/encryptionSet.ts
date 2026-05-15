@@ -96,9 +96,6 @@ export class EncryptionSet extends pulumi.CustomResource {
             if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
-            if (args?.encryptionSetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'encryptionSetName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -149,7 +146,7 @@ export interface EncryptionSetArgs {
     /**
      * The name of the devcenter encryption set.
      */
-    encryptionSetName: pulumi.Input<string>;
+    encryptionSetName?: pulumi.Input<string | undefined>;
     /**
      * Managed identity properties
      */

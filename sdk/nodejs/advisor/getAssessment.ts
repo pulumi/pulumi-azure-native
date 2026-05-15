@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAssessment(args?: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
-    args = args || {};
+export function getAssessment(args: GetAssessmentArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:advisor:getAssessment", {
         "assessmentName": args.assessmentName,
@@ -26,7 +25,7 @@ export interface GetAssessmentArgs {
     /**
      * Advisor assessment name.
      */
-    assessmentName?: string;
+    assessmentName: string;
 }
 
 /**
@@ -97,8 +96,7 @@ export interface GetAssessmentResult {
  *
  * Other available API versions: 2024-11-18-preview, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native advisor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAssessmentOutput(args?: GetAssessmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentResult> {
-    args = args || {};
+export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:advisor:getAssessment", {
         "assessmentName": args.assessmentName,
@@ -109,5 +107,5 @@ export interface GetAssessmentOutputArgs {
     /**
      * Advisor assessment name.
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
 }

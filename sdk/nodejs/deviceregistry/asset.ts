@@ -180,9 +180,6 @@ export class Asset extends pulumi.CustomResource {
             if (args?.assetEndpointProfileRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assetEndpointProfileRef'");
             }
-            if (args?.assetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'assetName'");
-            }
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
@@ -273,7 +270,7 @@ export interface AssetArgs {
     /**
      * Asset name parameter.
      */
-    assetName: pulumi.Input<string>;
+    assetName?: pulumi.Input<string | undefined>;
     /**
      * A set of key-value pairs that contain custom attributes set by the customer.
      */

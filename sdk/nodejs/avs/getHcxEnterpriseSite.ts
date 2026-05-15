@@ -27,7 +27,7 @@ export interface GetHcxEnterpriseSiteArgs {
     /**
      * Name of the HCX Enterprise Site
      */
-    hcxEnterpriseSiteName?: string;
+    hcxEnterpriseSiteName: string;
     /**
      * Name of the private cloud
      */
@@ -95,7 +95,7 @@ export interface GetHcxEnterpriseSiteOutputArgs {
     /**
      * Name of the HCX Enterprise Site
      */
-    hcxEnterpriseSiteName?: pulumi.Input<string | undefined>;
+    hcxEnterpriseSiteName: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

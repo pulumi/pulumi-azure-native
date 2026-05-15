@@ -27,7 +27,7 @@ export interface GetGuestConfigurationHCRPAssignmentArgs {
     /**
      * The guest configuration assignment name.
      */
-    guestConfigurationAssignmentName?: string;
+    guestConfigurationAssignmentName: string;
     /**
      * The name of the ARC machine.
      */
@@ -91,7 +91,7 @@ export interface GetGuestConfigurationHCRPAssignmentOutputArgs {
     /**
      * The guest configuration assignment name.
      */
-    guestConfigurationAssignmentName?: pulumi.Input<string | undefined>;
+    guestConfigurationAssignmentName: pulumi.Input<string>;
     /**
      * The name of the ARC machine.
      */

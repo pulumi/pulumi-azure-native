@@ -41,7 +41,7 @@ export interface GetReplicationStorageClassificationMappingArgs {
     /**
      * Storage classification mapping name.
      */
-    storageClassificationMappingName?: string;
+    storageClassificationMappingName: string;
     /**
      * Storage classification name.
      */
@@ -111,7 +111,7 @@ export interface GetReplicationStorageClassificationMappingOutputArgs {
     /**
      * Storage classification mapping name.
      */
-    storageClassificationMappingName?: pulumi.Input<string | undefined>;
+    storageClassificationMappingName: pulumi.Input<string>;
     /**
      * Storage classification name.
      */

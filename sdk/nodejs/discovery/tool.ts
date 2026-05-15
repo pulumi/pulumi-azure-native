@@ -82,9 +82,6 @@ export class Tool extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.toolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'toolName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -133,5 +130,5 @@ export interface ToolArgs {
     /**
      * The name of the Tool
      */
-    toolName: pulumi.Input<string>;
+    toolName?: pulumi.Input<string | undefined>;
 }

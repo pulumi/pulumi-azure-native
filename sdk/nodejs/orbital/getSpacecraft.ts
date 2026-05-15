@@ -28,7 +28,7 @@ export interface GetSpacecraftArgs {
     /**
      * Spacecraft ID.
      */
-    spacecraftName?: string;
+    spacecraftName: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetSpacecraftOutputArgs {
     /**
      * Spacecraft ID.
      */
-    spacecraftName?: pulumi.Input<string | undefined>;
+    spacecraftName: pulumi.Input<string>;
 }

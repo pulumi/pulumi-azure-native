@@ -26,7 +26,7 @@ export interface GetLogicalNetworkArgs {
     /**
      * Name of the logical network
      */
-    logicalNetworkName?: string;
+    logicalNetworkName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetLogicalNetworkOutputArgs {
     /**
      * Name of the logical network
      */
-    logicalNetworkName?: pulumi.Input<string | undefined>;
+    logicalNetworkName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

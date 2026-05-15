@@ -27,7 +27,7 @@ export interface GetStaticSiteDatabaseConnectionArgs {
     /**
      * Name of the database connection.
      */
-    databaseConnectionName?: string;
+    databaseConnectionName: string;
     /**
      * Name of the static site
      */
@@ -103,7 +103,7 @@ export interface GetStaticSiteDatabaseConnectionOutputArgs {
     /**
      * Name of the database connection.
      */
-    databaseConnectionName?: pulumi.Input<string | undefined>;
+    databaseConnectionName: pulumi.Input<string>;
     /**
      * Name of the static site
      */

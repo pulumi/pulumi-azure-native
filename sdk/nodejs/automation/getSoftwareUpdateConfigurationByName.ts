@@ -35,7 +35,7 @@ export interface GetSoftwareUpdateConfigurationByNameArgs {
     /**
      * The name of the software update configuration to be created.
      */
-    softwareUpdateConfigurationName?: string;
+    softwareUpdateConfigurationName: string;
 }
 
 /**
@@ -123,5 +123,5 @@ export interface GetSoftwareUpdateConfigurationByNameOutputArgs {
     /**
      * The name of the software update configuration to be created.
      */
-    softwareUpdateConfigurationName?: pulumi.Input<string | undefined>;
+    softwareUpdateConfigurationName: pulumi.Input<string>;
 }

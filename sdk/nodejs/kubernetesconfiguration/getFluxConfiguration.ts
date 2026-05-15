@@ -41,7 +41,7 @@ export interface GetFluxConfigurationArgs {
     /**
      * Name of the Flux Configuration.
      */
-    fluxConfigurationName?: string;
+    fluxConfigurationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -183,7 +183,7 @@ export interface GetFluxConfigurationOutputArgs {
     /**
      * Name of the Flux Configuration.
      */
-    fluxConfigurationName?: pulumi.Input<string | undefined>;
+    fluxConfigurationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

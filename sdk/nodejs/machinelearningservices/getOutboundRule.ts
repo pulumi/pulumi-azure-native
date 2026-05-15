@@ -34,7 +34,7 @@ export interface GetOutboundRuleArgs {
     /**
      * Name of the workspace managed network outbound rule
      */
-    ruleName?: string;
+    ruleName: string;
     /**
      * Azure Machine Learning Workspace Name
      */
@@ -94,7 +94,7 @@ export interface GetOutboundRuleOutputArgs {
     /**
      * Name of the workspace managed network outbound rule
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName: pulumi.Input<string>;
     /**
      * Azure Machine Learning Workspace Name
      */

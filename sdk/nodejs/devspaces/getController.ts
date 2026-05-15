@@ -24,7 +24,7 @@ export interface GetControllerArgs {
     /**
      * Name of the resource.
      */
-    name?: string;
+    name: string;
     /**
      * Resource group to which the resource belongs.
      */
@@ -98,7 +98,7 @@ export interface GetControllerOutputArgs {
     /**
      * Name of the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * Resource group to which the resource belongs.
      */

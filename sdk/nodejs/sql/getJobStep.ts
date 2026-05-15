@@ -45,7 +45,7 @@ export interface GetJobStepArgs {
     /**
      * The name of the job step.
      */
-    stepName?: string;
+    stepName: string;
 }
 
 /**
@@ -131,5 +131,5 @@ export interface GetJobStepOutputArgs {
     /**
      * The name of the job step.
      */
-    stepName?: pulumi.Input<string | undefined>;
+    stepName: pulumi.Input<string>;
 }

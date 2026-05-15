@@ -33,7 +33,7 @@ export interface GetReplicationMigrationItemArgs {
     /**
      * Migration item name.
      */
-    migrationItemName?: string;
+    migrationItemName: string;
     /**
      * Protection container name.
      */
@@ -103,7 +103,7 @@ export interface GetReplicationMigrationItemOutputArgs {
     /**
      * Migration item name.
      */
-    migrationItemName?: pulumi.Input<string | undefined>;
+    migrationItemName: pulumi.Input<string>;
     /**
      * Protection container name.
      */

@@ -31,7 +31,7 @@ export interface GetPrivateStoreCollectionOfferArgs {
     /**
      * The offer ID to update or delete
      */
-    offerId?: string;
+    offerId: string;
     /**
      * The store ID - must use the tenant ID
      */
@@ -131,7 +131,7 @@ export interface GetPrivateStoreCollectionOfferOutputArgs {
     /**
      * The offer ID to update or delete
      */
-    offerId?: pulumi.Input<string | undefined>;
+    offerId: pulumi.Input<string>;
     /**
      * The store ID - must use the tenant ID
      */

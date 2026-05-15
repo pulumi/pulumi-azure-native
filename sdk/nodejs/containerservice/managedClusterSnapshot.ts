@@ -92,9 +92,6 @@ export class ManagedClusterSnapshot extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             resourceInputs["creationData"] = args?.creationData;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -143,7 +140,7 @@ export interface ManagedClusterSnapshotArgs {
     /**
      * The name of the managed cluster resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The type of a snapshot. The default is NodePool.
      */

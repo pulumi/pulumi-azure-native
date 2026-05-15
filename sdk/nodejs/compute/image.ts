@@ -97,9 +97,6 @@ export class Image extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.imageName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'imageName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -151,7 +148,7 @@ export interface ImageArgs {
     /**
      * The name of the image.
      */
-    imageName: pulumi.Input<string>;
+    imageName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

@@ -26,7 +26,7 @@ export interface GetAlertProcessingRuleByNameArgs {
     /**
      * The name of the alert processing rule that needs to be fetched.
      */
-    alertProcessingRuleName?: string;
+    alertProcessingRuleName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetAlertProcessingRuleByNameOutputArgs {
     /**
      * The name of the alert processing rule that needs to be fetched.
      */
-    alertProcessingRuleName?: pulumi.Input<string | undefined>;
+    alertProcessingRuleName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

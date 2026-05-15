@@ -34,7 +34,7 @@ export interface GetScheduleArgs {
     /**
      * The name of the Schedule
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -145,7 +145,7 @@ export interface GetScheduleOutputArgs {
     /**
      * The name of the Schedule
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

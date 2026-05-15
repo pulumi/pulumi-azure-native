@@ -30,7 +30,7 @@ export interface GetSecretValueArgs {
     /**
      * The name of the secret resource value which is typically the version identifier for the value.
      */
-    secretValueResourceName?: string;
+    secretValueResourceName: string;
 }
 
 /**
@@ -96,5 +96,5 @@ export interface GetSecretValueOutputArgs {
     /**
      * The name of the secret resource value which is typically the version identifier for the value.
      */
-    secretValueResourceName?: pulumi.Input<string | undefined>;
+    secretValueResourceName: pulumi.Input<string>;
 }

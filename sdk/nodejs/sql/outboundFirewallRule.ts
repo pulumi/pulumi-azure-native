@@ -66,9 +66,6 @@ export class OutboundFirewallRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.outboundRuleFqdn === undefined && !opts.urn) {
-                throw new Error("Missing required property 'outboundRuleFqdn'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -99,7 +96,7 @@ export class OutboundFirewallRule extends pulumi.CustomResource {
  * The set of arguments for constructing a OutboundFirewallRule resource.
  */
 export interface OutboundFirewallRuleArgs {
-    outboundRuleFqdn: pulumi.Input<string>;
+    outboundRuleFqdn?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

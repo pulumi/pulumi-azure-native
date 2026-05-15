@@ -30,7 +30,7 @@ export interface GetTrafficControllerInterfaceArgs {
     /**
      * traffic controller name for path
      */
-    trafficControllerName?: string;
+    trafficControllerName: string;
 }
 
 /**
@@ -113,5 +113,5 @@ export interface GetTrafficControllerInterfaceOutputArgs {
     /**
      * traffic controller name for path
      */
-    trafficControllerName?: pulumi.Input<string | undefined>;
+    trafficControllerName: pulumi.Input<string>;
 }

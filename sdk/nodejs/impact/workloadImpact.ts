@@ -67,13 +67,10 @@ export class WorkloadImpact extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: WorkloadImpactArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: WorkloadImpactArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.workloadImpactName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'workloadImpactName'");
-            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["workloadImpactName"] = args?.workloadImpactName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -105,5 +102,5 @@ export interface WorkloadImpactArgs {
     /**
      * workloadImpact resource 
      */
-    workloadImpactName: pulumi.Input<string>;
+    workloadImpactName?: pulumi.Input<string | undefined>;
 }

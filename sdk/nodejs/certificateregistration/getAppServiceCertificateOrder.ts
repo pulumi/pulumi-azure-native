@@ -26,7 +26,7 @@ export interface GetAppServiceCertificateOrderArgs {
     /**
      * Name of the certificate order..
      */
-    certificateOrderName?: string;
+    certificateOrderName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -165,7 +165,7 @@ export interface GetAppServiceCertificateOrderOutputArgs {
     /**
      * Name of the certificate order..
      */
-    certificateOrderName?: pulumi.Input<string | undefined>;
+    certificateOrderName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

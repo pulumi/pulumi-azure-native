@@ -31,7 +31,7 @@ export interface GetConnectionRaiBlocklistItemArgs {
     /**
      * Name of the RaiBlocklist Item
      */
-    raiBlocklistItemName?: string;
+    raiBlocklistItemName: string;
     /**
      * The name of the RaiBlocklist.
      */
@@ -96,7 +96,7 @@ export interface GetConnectionRaiBlocklistItemOutputArgs {
     /**
      * Name of the RaiBlocklist Item
      */
-    raiBlocklistItemName?: pulumi.Input<string | undefined>;
+    raiBlocklistItemName: pulumi.Input<string>;
     /**
      * The name of the RaiBlocklist.
      */

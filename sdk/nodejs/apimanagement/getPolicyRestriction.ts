@@ -24,7 +24,7 @@ export interface GetPolicyRestrictionArgs {
     /**
      * Policy restrictions after an entity level
      */
-    policyRestrictionId?: string;
+    policyRestrictionId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,7 +84,7 @@ export interface GetPolicyRestrictionOutputArgs {
     /**
      * Policy restrictions after an entity level
      */
-    policyRestrictionId?: pulumi.Input<string | undefined>;
+    policyRestrictionId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

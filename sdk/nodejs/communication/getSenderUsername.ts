@@ -40,7 +40,7 @@ export interface GetSenderUsernameArgs {
     /**
      * The valid sender Username.
      */
-    senderUsername?: string;
+    senderUsername: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetSenderUsernameOutputArgs {
     /**
      * The valid sender Username.
      */
-    senderUsername?: pulumi.Input<string | undefined>;
+    senderUsername: pulumi.Input<string>;
 }

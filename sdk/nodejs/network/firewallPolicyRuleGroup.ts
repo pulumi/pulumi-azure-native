@@ -87,9 +87,6 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.ruleGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ruleGroupName'");
-            }
             resourceInputs["firewallPolicyName"] = args?.firewallPolicyName;
             resourceInputs["id"] = args?.id;
             resourceInputs["name"] = args?.name;
@@ -144,7 +141,7 @@ export interface FirewallPolicyRuleGroupArgs {
     /**
      * The name of the FirewallPolicyRuleGroup.
      */
-    ruleGroupName: pulumi.Input<string>;
+    ruleGroupName?: pulumi.Input<string | undefined>;
     /**
      * Group of Firewall Policy rules.
      */

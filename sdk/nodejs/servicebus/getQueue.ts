@@ -31,7 +31,7 @@ export interface GetQueueArgs {
     /**
      * The queue name.
      */
-    queueName?: string;
+    queueName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -179,7 +179,7 @@ export interface GetQueueOutputArgs {
     /**
      * The queue name.
      */
-    queueName?: pulumi.Input<string | undefined>;
+    queueName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

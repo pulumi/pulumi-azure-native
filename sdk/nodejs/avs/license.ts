@@ -71,9 +71,6 @@ export class License extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.licenseName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'licenseName'");
-            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -109,7 +106,7 @@ export interface LicenseArgs {
     /**
      * Name of the license.
      */
-    licenseName: pulumi.Input<string>;
+    licenseName?: pulumi.Input<string | undefined>;
     /**
      * Name of the private cloud
      */

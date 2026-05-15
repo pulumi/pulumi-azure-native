@@ -27,7 +27,7 @@ export interface GetCredentialSetArgs {
     /**
      * The name of the credential set.
      */
-    credentialSetName?: string;
+    credentialSetName: string;
     /**
      * The name of the container registry.
      */
@@ -104,7 +104,7 @@ export interface GetCredentialSetOutputArgs {
     /**
      * The name of the credential set.
      */
-    credentialSetName?: pulumi.Input<string | undefined>;
+    credentialSetName: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */

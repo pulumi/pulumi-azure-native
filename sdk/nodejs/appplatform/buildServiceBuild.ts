@@ -73,9 +73,6 @@ export class BuildServiceBuild extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.buildName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'buildName'");
-            }
             if (args?.buildServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'buildServiceName'");
             }
@@ -115,7 +112,7 @@ export interface BuildServiceBuildArgs {
     /**
      * The name of the build resource.
      */
-    buildName: pulumi.Input<string>;
+    buildName?: pulumi.Input<string | undefined>;
     /**
      * The name of the build service resource.
      */

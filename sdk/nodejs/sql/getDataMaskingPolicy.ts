@@ -25,7 +25,7 @@ export interface GetDataMaskingPolicyArgs {
     /**
      * The name of the database for which the data masking policy applies.
      */
-    dataMaskingPolicyName?: string;
+    dataMaskingPolicyName: string;
     /**
      * The name of the database.
      */
@@ -106,7 +106,7 @@ export interface GetDataMaskingPolicyOutputArgs {
     /**
      * The name of the database for which the data masking policy applies.
      */
-    dataMaskingPolicyName?: pulumi.Input<string | undefined>;
+    dataMaskingPolicyName: pulumi.Input<string>;
     /**
      * The name of the database.
      */

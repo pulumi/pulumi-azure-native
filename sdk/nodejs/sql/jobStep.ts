@@ -104,9 +104,6 @@ export class JobStep extends pulumi.CustomResource {
             if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (args?.stepName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'stepName'");
-            }
             if (args?.targetGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetGroup'");
             }
@@ -185,7 +182,7 @@ export interface JobStepArgs {
     /**
      * The name of the job step.
      */
-    stepName: pulumi.Input<string>;
+    stepName?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the target group that the job step will be executed on.
      */

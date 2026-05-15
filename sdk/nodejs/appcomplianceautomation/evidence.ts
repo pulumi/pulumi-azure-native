@@ -91,9 +91,6 @@ export class Evidence extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.evidenceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'evidenceName'");
-            }
             if (args?.filePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filePath'");
             }
@@ -144,7 +141,7 @@ export interface EvidenceArgs {
     /**
      * The evidence name.
      */
-    evidenceName: pulumi.Input<string>;
+    evidenceName?: pulumi.Input<string | undefined>;
     /**
      * Evidence type.
      */

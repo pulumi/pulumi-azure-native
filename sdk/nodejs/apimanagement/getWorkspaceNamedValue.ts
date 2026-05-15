@@ -28,7 +28,7 @@ export interface GetWorkspaceNamedValueArgs {
     /**
      * Identifier of the NamedValue.
      */
-    namedValueId?: string;
+    namedValueId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetWorkspaceNamedValueOutputArgs {
     /**
      * Identifier of the NamedValue.
      */
-    namedValueId?: pulumi.Input<string | undefined>;
+    namedValueId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

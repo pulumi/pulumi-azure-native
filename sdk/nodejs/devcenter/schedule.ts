@@ -109,9 +109,6 @@ export class Schedule extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.scheduleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'scheduleName'");
-            }
             if (args?.time === undefined && !opts.urn) {
                 throw new Error("Missing required property 'time'");
             }
@@ -184,7 +181,7 @@ export interface ScheduleArgs {
     /**
      * The name of the schedule that uniquely identifies it.
      */
-    scheduleName: pulumi.Input<string>;
+    scheduleName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether or not this scheduled task is enabled.
      */

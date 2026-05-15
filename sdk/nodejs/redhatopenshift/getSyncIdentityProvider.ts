@@ -27,7 +27,7 @@ export interface GetSyncIdentityProviderArgs {
     /**
      * The name of the SyncIdentityProvider resource.
      */
-    childResourceName?: string;
+    childResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,7 +84,7 @@ export interface GetSyncIdentityProviderOutputArgs {
     /**
      * The name of the SyncIdentityProvider resource.
      */
-    childResourceName?: pulumi.Input<string | undefined>;
+    childResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

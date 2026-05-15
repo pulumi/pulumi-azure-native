@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAttestationAtSubscription(args?: GetAttestationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtSubscriptionResult> {
-    args = args || {};
+export function getAttestationAtSubscription(args: GetAttestationAtSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:policyinsights:getAttestationAtSubscription", {
         "attestationName": args.attestationName,
@@ -26,7 +25,7 @@ export interface GetAttestationAtSubscriptionArgs {
     /**
      * The name of the attestation.
      */
-    attestationName?: string;
+    attestationName: string;
 }
 
 /**
@@ -105,8 +104,7 @@ export interface GetAttestationAtSubscriptionResult {
  *
  * Other available API versions: 2022-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native policyinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAttestationAtSubscriptionOutput(args?: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
-    args = args || {};
+export function getAttestationAtSubscriptionOutput(args: GetAttestationAtSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttestationAtSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:policyinsights:getAttestationAtSubscription", {
         "attestationName": args.attestationName,
@@ -117,5 +115,5 @@ export interface GetAttestationAtSubscriptionOutputArgs {
     /**
      * The name of the attestation.
      */
-    attestationName?: pulumi.Input<string | undefined>;
+    attestationName: pulumi.Input<string>;
 }

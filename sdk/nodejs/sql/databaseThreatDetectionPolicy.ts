@@ -105,9 +105,6 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.securityAlertPolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'securityAlertPolicyName'");
-            }
             if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
@@ -187,7 +184,7 @@ export interface DatabaseThreatDetectionPolicyArgs {
     /**
      * The name of the security alert policy.
      */
-    securityAlertPolicyName: pulumi.Input<string>;
+    securityAlertPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the server.
      */

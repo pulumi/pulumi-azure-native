@@ -112,9 +112,6 @@ export class Gen2Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.environmentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'environmentName'");
-            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -178,7 +175,7 @@ export interface Gen2EnvironmentArgs {
     /**
      * Name of the environment
      */
-    environmentName: pulumi.Input<string>;
+    environmentName?: pulumi.Input<string | undefined>;
     /**
      * The kind of the environment.
      * Expected value is 'Gen2'.

@@ -94,9 +94,6 @@ export class PrivateResolverVirtualNetworkLink extends pulumi.CustomResource {
             if (args?.virtualNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetwork'");
             }
-            if (args?.virtualNetworkLinkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualNetworkLinkName'");
-            }
             resourceInputs["dnsForwardingRulesetName"] = args?.dnsForwardingRulesetName;
             resourceInputs["metadata"] = args?.metadata;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -148,5 +145,5 @@ export interface PrivateResolverVirtualNetworkLinkArgs {
     /**
      * The name of the virtual network link.
      */
-    virtualNetworkLinkName: pulumi.Input<string>;
+    virtualNetworkLinkName?: pulumi.Input<string | undefined>;
 }

@@ -26,7 +26,7 @@ export interface GetActiveDirectoryConfigArgs {
     /**
      * The name of the ActiveDirectoryConfig
      */
-    activeDirectoryConfigName?: string;
+    activeDirectoryConfigName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetActiveDirectoryConfigOutputArgs {
     /**
      * The name of the ActiveDirectoryConfig
      */
-    activeDirectoryConfigName?: pulumi.Input<string | undefined>;
+    activeDirectoryConfigName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

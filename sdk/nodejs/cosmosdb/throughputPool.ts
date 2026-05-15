@@ -88,9 +88,6 @@ export class ThroughputPool extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.throughputPoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'throughputPoolName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["maxThroughput"] = args?.maxThroughput;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -141,5 +138,5 @@ export interface ThroughputPoolArgs {
     /**
      * Cosmos DB Throughput Pool name.
      */
-    throughputPoolName: pulumi.Input<string>;
+    throughputPoolName?: pulumi.Input<string | undefined>;
 }

@@ -30,7 +30,7 @@ export interface GetSolutionTemplateArgs {
     /**
      * The name of the SolutionTemplate
      */
-    solutionTemplateName?: string;
+    solutionTemplateName: string;
 }
 
 /**
@@ -97,5 +97,5 @@ export interface GetSolutionTemplateOutputArgs {
     /**
      * The name of the SolutionTemplate
      */
-    solutionTemplateName?: pulumi.Input<string | undefined>;
+    solutionTemplateName: pulumi.Input<string>;
 }

@@ -105,9 +105,6 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.hostName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'hostName'");
-            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -178,7 +175,7 @@ export interface WebAppHostNameBindingSlotArgs {
     /**
      * Hostname in the hostname binding.
      */
-    hostName: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * Hostname type.
      */

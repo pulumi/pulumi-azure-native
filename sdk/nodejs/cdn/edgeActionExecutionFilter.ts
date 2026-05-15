@@ -100,9 +100,6 @@ export class EdgeActionExecutionFilter extends pulumi.CustomResource {
             if (args?.edgeActionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edgeActionName'");
             }
-            if (args?.executionFilter === undefined && !opts.urn) {
-                throw new Error("Missing required property 'executionFilter'");
-            }
             if (args?.executionFilterIdentifierHeaderName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'executionFilterIdentifierHeaderName'");
             }
@@ -160,7 +157,7 @@ export interface EdgeActionExecutionFilterArgs {
     /**
      * The name of the execution filter
      */
-    executionFilter: pulumi.Input<string>;
+    executionFilter?: pulumi.Input<string | undefined>;
     /**
      * Custom Header Key associated with the execution filter
      */

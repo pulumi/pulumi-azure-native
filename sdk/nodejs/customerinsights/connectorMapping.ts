@@ -135,9 +135,6 @@ export class ConnectorMapping extends pulumi.CustomResource {
             if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if (args?.mappingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'mappingName'");
-            }
             if (args?.mappingProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mappingProperties'");
             }
@@ -227,7 +224,7 @@ export interface ConnectorMappingArgs {
     /**
      * The name of the connector mapping.
      */
-    mappingName: pulumi.Input<string>;
+    mappingName?: pulumi.Input<string | undefined>;
     /**
      * The properties of the mapping.
      */

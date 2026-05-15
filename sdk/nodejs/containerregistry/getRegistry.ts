@@ -26,7 +26,7 @@ export interface GetRegistryArgs {
     /**
      * The name of the container registry.
      */
-    registryName?: string;
+    registryName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -153,7 +153,7 @@ export interface GetRegistryOutputArgs {
     /**
      * The name of the container registry.
      */
-    registryName?: pulumi.Input<string | undefined>;
+    registryName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

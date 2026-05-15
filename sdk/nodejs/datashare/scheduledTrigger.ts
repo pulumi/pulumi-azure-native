@@ -118,9 +118,6 @@ export class ScheduledTrigger extends pulumi.CustomResource {
             if (args?.synchronizationTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synchronizationTime'");
             }
-            if (args?.triggerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'triggerName'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["kind"] = "ScheduleBased";
             resourceInputs["recurrenceInterval"] = args?.recurrenceInterval;
@@ -194,5 +191,5 @@ export interface ScheduledTriggerArgs {
     /**
      * The name of the trigger.
      */
-    triggerName: pulumi.Input<string>;
+    triggerName?: pulumi.Input<string | undefined>;
 }

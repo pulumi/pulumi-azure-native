@@ -33,7 +33,7 @@ export interface GetSqlPoolTransparentDataEncryptionArgs {
     /**
      * The name of the transparent data encryption configuration.
      */
-    transparentDataEncryptionName?: string;
+    transparentDataEncryptionName: string;
     /**
      * The name of the workspace.
      */
@@ -98,7 +98,7 @@ export interface GetSqlPoolTransparentDataEncryptionOutputArgs {
     /**
      * The name of the transparent data encryption configuration.
      */
-    transparentDataEncryptionName?: pulumi.Input<string | undefined>;
+    transparentDataEncryptionName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

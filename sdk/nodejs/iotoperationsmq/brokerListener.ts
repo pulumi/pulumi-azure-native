@@ -124,9 +124,6 @@ export class BrokerListener extends pulumi.CustomResource {
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if (args?.listenerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'listenerName'");
-            }
             if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
@@ -208,7 +205,7 @@ export interface BrokerListenerArgs {
     /**
      * Name of MQ broker/listener resource
      */
-    listenerName: pulumi.Input<string>;
+    listenerName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

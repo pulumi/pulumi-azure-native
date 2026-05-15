@@ -31,7 +31,7 @@ export interface GetModelingArgs {
     /**
      * The name of the Modeling resource.
      */
-    modelingName?: string;
+    modelingName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetModelingOutputArgs {
     /**
      * The name of the Modeling resource.
      */
-    modelingName?: pulumi.Input<string | undefined>;
+    modelingName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

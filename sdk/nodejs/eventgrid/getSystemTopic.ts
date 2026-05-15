@@ -30,7 +30,7 @@ export interface GetSystemTopicArgs {
     /**
      * Name of the system topic.
      */
-    systemTopicName?: string;
+    systemTopicName: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetSystemTopicOutputArgs {
     /**
      * Name of the system topic.
      */
-    systemTopicName?: pulumi.Input<string | undefined>;
+    systemTopicName: pulumi.Input<string>;
 }

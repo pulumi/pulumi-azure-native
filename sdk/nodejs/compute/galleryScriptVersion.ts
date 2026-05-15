@@ -85,9 +85,6 @@ export class GalleryScriptVersion extends pulumi.CustomResource {
             if (args?.galleryScriptName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryScriptName'");
             }
-            if (args?.galleryScriptVersionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'galleryScriptVersionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface GalleryScriptVersionArgs {
     /**
      * The name of the gallery Script Version to be retrieved.
      */
-    galleryScriptVersionName: pulumi.Input<string>;
+    galleryScriptVersionName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

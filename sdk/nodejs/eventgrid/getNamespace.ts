@@ -26,7 +26,7 @@ export interface GetNamespaceArgs {
     /**
      * Name of the namespace.
      */
-    namespaceName?: string;
+    namespaceName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -130,7 +130,7 @@ export interface GetNamespaceOutputArgs {
     /**
      * Name of the namespace.
      */
-    namespaceName?: pulumi.Input<string | undefined>;
+    namespaceName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */

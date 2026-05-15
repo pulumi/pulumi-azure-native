@@ -26,7 +26,7 @@ export interface GetNamespaceArgs {
     /**
      * The Namespace name
      */
-    namespaceName?: string;
+    namespaceName: string;
     /**
      * Name of the resource group within the azure subscription.
      */
@@ -161,7 +161,7 @@ export interface GetNamespaceOutputArgs {
     /**
      * The Namespace name
      */
-    namespaceName?: pulumi.Input<string | undefined>;
+    namespaceName: pulumi.Input<string>;
     /**
      * Name of the resource group within the azure subscription.
      */

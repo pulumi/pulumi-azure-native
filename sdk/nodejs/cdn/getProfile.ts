@@ -26,7 +26,7 @@ export interface GetProfileArgs {
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
-    profileName?: string;
+    profileName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,7 +121,7 @@ export interface GetProfileOutputArgs {
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
-    profileName?: pulumi.Input<string | undefined>;
+    profileName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

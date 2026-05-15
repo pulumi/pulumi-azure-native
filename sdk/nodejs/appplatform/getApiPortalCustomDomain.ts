@@ -32,7 +32,7 @@ export interface GetApiPortalCustomDomainArgs {
     /**
      * The name of the API portal custom domain.
      */
-    domainName?: string;
+    domainName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -97,7 +97,7 @@ export interface GetApiPortalCustomDomainOutputArgs {
     /**
      * The name of the API portal custom domain.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

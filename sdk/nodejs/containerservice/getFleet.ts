@@ -26,7 +26,7 @@ export interface GetFleetArgs {
     /**
      * The name of the Fleet resource.
      */
-    fleetName?: string;
+    fleetName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetFleetOutputArgs {
     /**
      * The name of the Fleet resource.
      */
-    fleetName?: pulumi.Input<string | undefined>;
+    fleetName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

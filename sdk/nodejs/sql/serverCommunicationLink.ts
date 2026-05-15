@@ -76,9 +76,6 @@ export class ServerCommunicationLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.communicationLinkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'communicationLinkName'");
-            }
             if (args?.partnerServer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerServer'");
             }
@@ -121,7 +118,7 @@ export interface ServerCommunicationLinkArgs {
     /**
      * The name of the server communication link.
      */
-    communicationLinkName: pulumi.Input<string>;
+    communicationLinkName?: pulumi.Input<string | undefined>;
     /**
      * The name of the partner server.
      */

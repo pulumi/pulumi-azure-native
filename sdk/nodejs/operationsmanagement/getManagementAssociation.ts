@@ -27,7 +27,7 @@ export interface GetManagementAssociationArgs {
     /**
      * User ManagementAssociation Name.
      */
-    managementAssociationName?: string;
+    managementAssociationName: string;
     /**
      * Provider name for the parent resource.
      */
@@ -95,7 +95,7 @@ export interface GetManagementAssociationOutputArgs {
     /**
      * User ManagementAssociation Name.
      */
-    managementAssociationName?: pulumi.Input<string | undefined>;
+    managementAssociationName: pulumi.Input<string>;
     /**
      * Provider name for the parent resource.
      */

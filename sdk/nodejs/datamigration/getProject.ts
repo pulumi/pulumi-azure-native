@@ -31,7 +31,7 @@ export interface GetProjectArgs {
     /**
      * Name of the project
      */
-    projectName?: string;
+    projectName: string;
     /**
      * Name of the service
      */
@@ -113,7 +113,7 @@ export interface GetProjectOutputArgs {
     /**
      * Name of the project
      */
-    projectName?: pulumi.Input<string | undefined>;
+    projectName: pulumi.Input<string>;
     /**
      * Name of the service
      */

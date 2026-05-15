@@ -27,7 +27,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection associated with the key vault.
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the resource group that contains the key vault.
      */
@@ -103,7 +103,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
     /**
      * Name of the private endpoint connection associated with the key vault.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the key vault.
      */

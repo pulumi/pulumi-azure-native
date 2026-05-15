@@ -152,9 +152,6 @@ export class AutoExportJob extends pulumi.CustomResource {
             if (args?.amlFilesystemName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amlFilesystemName'");
             }
-            if (args?.autoExportJobName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'autoExportJobName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -233,7 +230,7 @@ export interface AutoExportJobArgs {
     /**
      * Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    autoExportJobName: pulumi.Input<string>;
+    autoExportJobName?: pulumi.Input<string | undefined>;
     /**
      * An array of blob paths/prefixes that get auto exported to the cluster namespace. It has '/' as the default value. Number of maximum allowed paths for now is 1.
      */

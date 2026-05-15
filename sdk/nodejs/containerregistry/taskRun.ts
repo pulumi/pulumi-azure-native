@@ -100,9 +100,6 @@ export class TaskRun extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.taskRunName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'taskRunName'");
-            }
             resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
@@ -166,5 +163,5 @@ export interface TaskRunArgs {
     /**
      * The name of the task run.
      */
-    taskRunName: pulumi.Input<string>;
+    taskRunName?: pulumi.Input<string | undefined>;
 }

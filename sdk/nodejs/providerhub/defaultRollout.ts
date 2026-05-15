@@ -76,9 +76,6 @@ export class DefaultRollout extends pulumi.CustomResource {
             if (args?.providerNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            if (args?.rolloutName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'rolloutName'");
-            }
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.providerhub.defaultRolloutPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["providerNamespace"] = args?.providerNamespace;
             resourceInputs["rolloutName"] = args?.rolloutName;
@@ -115,5 +112,5 @@ export interface DefaultRolloutArgs {
     /**
      * The rollout name.
      */
-    rolloutName: pulumi.Input<string>;
+    rolloutName?: pulumi.Input<string | undefined>;
 }

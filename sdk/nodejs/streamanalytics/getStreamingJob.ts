@@ -31,7 +31,7 @@ export interface GetStreamingJobArgs {
     /**
      * The name of the streaming job.
      */
-    jobName?: string;
+    jobName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -187,7 +187,7 @@ export interface GetStreamingJobOutputArgs {
     /**
      * The name of the streaming job.
      */
-    jobName?: pulumi.Input<string | undefined>;
+    jobName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

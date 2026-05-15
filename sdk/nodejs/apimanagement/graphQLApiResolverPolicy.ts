@@ -76,9 +76,6 @@ export class GraphQLApiResolverPolicy extends pulumi.CustomResource {
             if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if (args?.policyId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'policyId'");
-            }
             if (args?.resolverId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resolverId'");
             }
@@ -130,7 +127,7 @@ export interface GraphQLApiResolverPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
      */

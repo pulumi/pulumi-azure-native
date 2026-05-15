@@ -107,9 +107,6 @@ export class KubernetesClusterFeature extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.featureName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'featureName'");
-            }
             if (args?.kubernetesClusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterName'");
             }
@@ -163,7 +160,7 @@ export interface KubernetesClusterFeatureArgs {
     /**
      * The name of the feature.
      */
-    featureName: pulumi.Input<string>;
+    featureName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kubernetes cluster.
      */

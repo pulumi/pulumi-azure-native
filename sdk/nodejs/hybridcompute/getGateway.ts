@@ -26,7 +26,7 @@ export interface GetGatewayArgs {
     /**
      * The name of the Gateway.
      */
-    gatewayName?: string;
+    gatewayName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetGatewayOutputArgs {
     /**
      * The name of the Gateway.
      */
-    gatewayName?: pulumi.Input<string | undefined>;
+    gatewayName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

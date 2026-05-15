@@ -93,9 +93,6 @@ export class SqlSitesController extends pulumi.CustomResource {
             if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
-            if (args?.sqlSiteName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sqlSiteName'");
-            }
             resourceInputs["discoveryScenario"] = args?.discoveryScenario;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["siteAppliancePropertiesCollection"] = args?.siteAppliancePropertiesCollection;
@@ -149,5 +146,5 @@ export interface SqlSitesControllerArgs {
     /**
      * SQL site name.
      */
-    sqlSiteName: pulumi.Input<string>;
+    sqlSiteName?: pulumi.Input<string | undefined>;
 }

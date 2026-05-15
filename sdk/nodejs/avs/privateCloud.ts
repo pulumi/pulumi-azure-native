@@ -186,9 +186,6 @@ export class PrivateCloud extends pulumi.CustomResource {
             if (args?.networkBlock === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkBlock'");
             }
-            if (args?.privateCloudName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'privateCloudName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -322,7 +319,7 @@ export interface PrivateCloudArgs {
     /**
      * Name of the private cloud
      */
-    privateCloudName: pulumi.Input<string>;
+    privateCloudName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

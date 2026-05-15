@@ -26,7 +26,7 @@ export interface GetFabricArgs {
     /**
      * The fabric name.
      */
-    fabricName?: string;
+    fabricName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -86,7 +86,7 @@ export interface GetFabricOutputArgs {
     /**
      * The fabric name.
      */
-    fabricName?: pulumi.Input<string | undefined>;
+    fabricName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

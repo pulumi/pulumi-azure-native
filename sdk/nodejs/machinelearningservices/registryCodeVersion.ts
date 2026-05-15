@@ -85,9 +85,6 @@ export class RegistryCodeVersion extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.version === undefined && !opts.urn) {
-                throw new Error("Missing required property 'version'");
-            }
             resourceInputs["codeName"] = args?.codeName;
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.machinelearningservices.codeVersionPropertiesArgsProvideDefaults) : undefined;
             resourceInputs["registryName"] = args?.registryName;
@@ -134,5 +131,5 @@ export interface RegistryCodeVersionArgs {
     /**
      * Version identifier.
      */
-    version: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

@@ -32,7 +32,7 @@ export interface GetCustomizedAcceleratorArgs {
     /**
      * The name of the customized accelerator.
      */
-    customizedAcceleratorName?: string;
+    customizedAcceleratorName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -101,7 +101,7 @@ export interface GetCustomizedAcceleratorOutputArgs {
     /**
      * The name of the customized accelerator.
      */
-    customizedAcceleratorName?: pulumi.Input<string | undefined>;
+    customizedAcceleratorName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

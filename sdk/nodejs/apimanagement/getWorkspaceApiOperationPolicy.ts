@@ -40,7 +40,7 @@ export interface GetWorkspaceApiOperationPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId?: string;
+    policyId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,7 +120,7 @@ export interface GetWorkspaceApiOperationPolicyOutputArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId?: pulumi.Input<string | undefined>;
+    policyId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

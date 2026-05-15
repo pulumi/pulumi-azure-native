@@ -77,13 +77,10 @@ export class ResourceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.resourceGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceGroupName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["managedBy"] = args?.managedBy;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -123,7 +120,7 @@ export interface ResourceGroupArgs {
     /**
      * The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
      */
-    resourceGroupName: pulumi.Input<string>;
+    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The tags attached to the resource group.
      */

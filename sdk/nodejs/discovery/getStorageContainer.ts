@@ -28,7 +28,7 @@ export interface GetStorageContainerArgs {
     /**
      * The name of the StorageContainer
      */
-    storageContainerName?: string;
+    storageContainerName: string;
 }
 
 /**
@@ -89,5 +89,5 @@ export interface GetStorageContainerOutputArgs {
     /**
      * The name of the StorageContainer
      */
-    storageContainerName?: pulumi.Input<string | undefined>;
+    storageContainerName: pulumi.Input<string>;
 }

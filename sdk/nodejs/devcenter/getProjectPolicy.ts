@@ -31,7 +31,7 @@ export interface GetProjectPolicyArgs {
     /**
      * The name of the project policy.
      */
-    projectPolicyName?: string;
+    projectPolicyName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetProjectPolicyOutputArgs {
     /**
      * The name of the project policy.
      */
-    projectPolicyName?: pulumi.Input<string | undefined>;
+    projectPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

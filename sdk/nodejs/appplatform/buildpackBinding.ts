@@ -79,9 +79,6 @@ export class BuildpackBinding extends pulumi.CustomResource {
             if (args?.builderName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'builderName'");
             }
-            if (args?.buildpackBindingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'buildpackBindingName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -127,7 +124,7 @@ export interface BuildpackBindingArgs {
     /**
      * The name of the Buildpack Binding Name
      */
-    buildpackBindingName: pulumi.Input<string>;
+    buildpackBindingName?: pulumi.Input<string | undefined>;
     /**
      * Properties of a buildpack binding
      */

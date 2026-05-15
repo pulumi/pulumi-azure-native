@@ -35,7 +35,7 @@ export interface GetServiceArgs {
     /**
      * Cosmos DB service name.
      */
-    serviceName?: string;
+    serviceName: string;
 }
 
 /**
@@ -91,5 +91,5 @@ export interface GetServiceOutputArgs {
     /**
      * Cosmos DB service name.
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName: pulumi.Input<string>;
 }

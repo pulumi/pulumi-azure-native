@@ -96,9 +96,6 @@ export class MarkupRule extends pulumi.CustomResource {
             if (args?.customerDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customerDetails'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.percentage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'percentage'");
             }
@@ -165,7 +162,7 @@ export interface MarkupRuleArgs {
     /**
      * Markup rule name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The markup percentage of the rule.
      */

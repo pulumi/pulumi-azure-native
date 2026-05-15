@@ -35,7 +35,7 @@ export interface GetRouteFilterArgs {
     /**
      * The name of the route filter.
      */
-    routeFilterName?: string;
+    routeFilterName: string;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface GetRouteFilterOutputArgs {
     /**
      * The name of the route filter.
      */
-    routeFilterName?: pulumi.Input<string | undefined>;
+    routeFilterName: pulumi.Input<string>;
 }

@@ -77,9 +77,6 @@ export class WebAppDiscoverySiteDataSourcesController extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.discoverySiteDataSourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'discoverySiteDataSourceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -121,7 +118,7 @@ export interface WebAppDiscoverySiteDataSourcesControllerArgs {
     /**
      * Data Source ARM name.
      */
-    discoverySiteDataSourceName: pulumi.Input<string>;
+    discoverySiteDataSourceName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the discovery site Id.
      */

@@ -74,9 +74,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             if (args?.deidServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deidServiceName'");
             }
-            if (args?.privateEndpointConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -113,7 +110,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource.
      */
-    privateEndpointConnectionName: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

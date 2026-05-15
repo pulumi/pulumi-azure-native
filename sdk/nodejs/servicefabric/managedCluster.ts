@@ -244,9 +244,6 @@ export class ManagedCluster extends pulumi.CustomResource {
             if (args?.adminUserName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminUserName'");
             }
-            if (args?.clusterName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if (args?.dnsName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsName'");
             }
@@ -408,7 +405,7 @@ export interface ManagedClusterArgs {
     /**
      * The name of the cluster resource.
      */
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
      */

@@ -129,9 +129,6 @@ export class L2Network extends pulumi.CustomResource {
             if (args?.l2IsolationDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'l2IsolationDomainId'");
             }
-            if (args?.l2NetworkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'l2NetworkName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -205,7 +202,7 @@ export interface L2NetworkArgs {
     /**
      * The name of the L2 network.
      */
-    l2NetworkName: pulumi.Input<string>;
+    l2NetworkName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

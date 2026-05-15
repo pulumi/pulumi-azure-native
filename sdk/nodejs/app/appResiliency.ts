@@ -96,9 +96,6 @@ export class AppResiliency extends pulumi.CustomResource {
             if (args?.appName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -156,7 +153,7 @@ export interface AppResiliencyArgs {
     /**
      * Name of the resiliency policy.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

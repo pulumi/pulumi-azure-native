@@ -33,7 +33,7 @@ export interface GetSnapshotArgs {
     /**
      * Volume Snapshot Resource
      */
-    snapshotName?: string;
+    snapshotName: string;
 }
 
 /**
@@ -99,5 +99,5 @@ export interface GetSnapshotOutputArgs {
     /**
      * Volume Snapshot Resource
      */
-    snapshotName?: pulumi.Input<string | undefined>;
+    snapshotName: pulumi.Input<string>;
 }

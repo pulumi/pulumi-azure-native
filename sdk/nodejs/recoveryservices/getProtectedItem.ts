@@ -43,7 +43,7 @@ export interface GetProtectedItemArgs {
     /**
      * Backed up item name whose details are to be fetched.
      */
-    protectedItemName?: string;
+    protectedItemName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -127,7 +127,7 @@ export interface GetProtectedItemOutputArgs {
     /**
      * Backed up item name whose details are to be fetched.
      */
-    protectedItemName?: pulumi.Input<string | undefined>;
+    protectedItemName: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

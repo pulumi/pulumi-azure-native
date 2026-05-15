@@ -27,7 +27,7 @@ export interface GetIntegrationAccountBatchConfigurationArgs {
     /**
      * The batch configuration name.
      */
-    batchConfigurationName?: string;
+    batchConfigurationName: string;
     /**
      * The integration account name.
      */
@@ -91,7 +91,7 @@ export interface GetIntegrationAccountBatchConfigurationOutputArgs {
     /**
      * The batch configuration name.
      */
-    batchConfigurationName?: pulumi.Input<string | undefined>;
+    batchConfigurationName: pulumi.Input<string>;
     /**
      * The integration account name.
      */

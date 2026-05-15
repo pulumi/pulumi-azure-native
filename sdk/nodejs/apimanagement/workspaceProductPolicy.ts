@@ -73,9 +73,6 @@ export class WorkspaceProductPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.policyId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'policyId'");
-            }
             if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
@@ -126,7 +123,7 @@ export interface WorkspaceProductPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2022-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appcomplianceautomation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getReport(args?: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
-    args = args || {};
+export function getReport(args: GetReportArgs, opts?: pulumi.InvokeOptions): Promise<GetReportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:appcomplianceautomation:getReport", {
         "reportName": args.reportName,
@@ -26,7 +25,7 @@ export interface GetReportArgs {
     /**
      * Report Name.
      */
-    reportName?: string;
+    reportName: string;
 }
 
 /**
@@ -118,8 +117,7 @@ export interface GetReportResult {
  *
  * Other available API versions: 2022-11-16-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native appcomplianceautomation [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getReportOutput(args?: GetReportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportResult> {
-    args = args || {};
+export function getReportOutput(args: GetReportOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:appcomplianceautomation:getReport", {
         "reportName": args.reportName,
@@ -130,5 +128,5 @@ export interface GetReportOutputArgs {
     /**
      * Report Name.
      */
-    reportName?: pulumi.Input<string | undefined>;
+    reportName: pulumi.Input<string>;
 }

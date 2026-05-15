@@ -31,7 +31,7 @@ export interface GetWorkspaceProductPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId?: string;
+    policyId: string;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
@@ -106,7 +106,7 @@ export interface GetWorkspaceProductPolicyOutputArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId?: pulumi.Input<string | undefined>;
+    policyId: pulumi.Input<string>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

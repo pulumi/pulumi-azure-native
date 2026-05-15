@@ -41,7 +41,7 @@ export interface GetElasticSnapshotArgs {
     /**
      * The name of the ElasticSnapshot
      */
-    snapshotName?: string;
+    snapshotName: string;
     /**
      * The name of the ElasticVolume
      */
@@ -111,7 +111,7 @@ export interface GetElasticSnapshotOutputArgs {
     /**
      * The name of the ElasticSnapshot
      */
-    snapshotName?: pulumi.Input<string | undefined>;
+    snapshotName: pulumi.Input<string>;
     /**
      * The name of the ElasticVolume
      */

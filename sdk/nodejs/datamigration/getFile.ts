@@ -28,7 +28,7 @@ export interface GetFileArgs {
     /**
      * Name of the File
      */
-    fileName?: string;
+    fileName: string;
     /**
      * Name of the resource group
      */
@@ -97,7 +97,7 @@ export interface GetFileOutputArgs {
     /**
      * Name of the File
      */
-    fileName?: pulumi.Input<string | undefined>;
+    fileName: pulumi.Input<string>;
     /**
      * Name of the resource group
      */

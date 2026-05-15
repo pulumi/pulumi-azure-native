@@ -80,9 +80,6 @@ export class PrivateEndpointConnectionControllerPrivateEndpointConnection extend
             if (args?.migrateProjectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'migrateProjectName'");
             }
-            if (args?.peConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'peConnectionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -125,7 +122,7 @@ export interface PrivateEndpointConnectionControllerPrivateEndpointConnectionArg
     /**
      * Private endpoint connection name.
      */
-    peConnectionName: pulumi.Input<string>;
+    peConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Properties of Connection state request.
      */

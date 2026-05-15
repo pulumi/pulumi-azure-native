@@ -27,7 +27,7 @@ export interface GetBareMetalMachineKeySetArgs {
     /**
      * The name of the bare metal machine key set.
      */
-    bareMetalMachineKeySetName?: string;
+    bareMetalMachineKeySetName: string;
     /**
      * The name of the cluster.
      */
@@ -140,7 +140,7 @@ export interface GetBareMetalMachineKeySetOutputArgs {
     /**
      * The name of the bare metal machine key set.
      */
-    bareMetalMachineKeySetName?: pulumi.Input<string | undefined>;
+    bareMetalMachineKeySetName: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */

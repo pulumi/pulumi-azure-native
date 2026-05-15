@@ -29,7 +29,7 @@ export interface GetFleetspaceArgs {
     /**
      * Name of the fleetspace.
      */
-    fleetspaceName?: string;
+    fleetspaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetFleetspaceOutputArgs {
     /**
      * Name of the fleetspace.
      */
-    fleetspaceName?: pulumi.Input<string | undefined>;
+    fleetspaceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -95,9 +95,6 @@ export class Workload extends pulumi.CustomResource {
             if (args?.virtualEnclaveName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualEnclaveName'");
             }
-            if (args?.workloadName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'workloadName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupCollection"] = args?.resourceGroupCollection;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -155,5 +152,5 @@ export interface WorkloadArgs {
     /**
      * The name of the workloadResource Resource
      */
-    workloadName: pulumi.Input<string>;
+    workloadName?: pulumi.Input<string | undefined>;
 }

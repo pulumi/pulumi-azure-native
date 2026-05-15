@@ -82,9 +82,6 @@ export class ApiGatewayConfigConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.configConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'configConnectionName'");
-            }
             if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
@@ -126,7 +123,7 @@ export interface ApiGatewayConfigConnectionArgs {
     /**
      * The name of the API Management gateway config connection.
      */
-    configConnectionName: pulumi.Input<string>;
+    configConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the API Management gateway.
      */

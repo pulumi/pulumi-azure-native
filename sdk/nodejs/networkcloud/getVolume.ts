@@ -30,7 +30,7 @@ export interface GetVolumeArgs {
     /**
      * The name of the volume.
      */
-    volumeName?: string;
+    volumeName: string;
 }
 
 export interface GetVolumeResult {
@@ -118,5 +118,5 @@ export interface GetVolumeOutputArgs {
     /**
      * The name of the volume.
      */
-    volumeName?: pulumi.Input<string | undefined>;
+    volumeName: pulumi.Input<string>;
 }

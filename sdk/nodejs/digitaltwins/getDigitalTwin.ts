@@ -28,7 +28,7 @@ export interface GetDigitalTwinArgs {
     /**
      * The name of the DigitalTwinsInstance.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -113,5 +113,5 @@ export interface GetDigitalTwinOutputArgs {
     /**
      * The name of the DigitalTwinsInstance.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

@@ -101,9 +101,6 @@ export class PublishedBlueprint extends pulumi.CustomResource {
             if (args?.resourceScope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            if (args?.versionId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'versionId'");
-            }
             resourceInputs["blueprintName"] = args?.blueprintName;
             resourceInputs["changeNotes"] = args?.changeNotes;
             resourceInputs["description"] = args?.description;
@@ -176,5 +173,5 @@ export interface PublishedBlueprintArgs {
     /**
      * Version of the published blueprint definition.
      */
-    versionId: pulumi.Input<string>;
+    versionId?: pulumi.Input<string | undefined>;
 }

@@ -78,9 +78,6 @@ export class MongoDBResourceMongoDBDatabase extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.databaseName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'databaseName'");
-            }
             if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -124,7 +121,7 @@ export interface MongoDBResourceMongoDBDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The location of the resource group to which the resource belongs.
      */

@@ -30,7 +30,7 @@ export interface GetWebTestArgs {
     /**
      * The name of the Application Insights WebTest resource.
      */
-    webTestName?: string;
+    webTestName: string;
 }
 
 /**
@@ -141,5 +141,5 @@ export interface GetWebTestOutputArgs {
     /**
      * The name of the Application Insights WebTest resource.
      */
-    webTestName?: pulumi.Input<string | undefined>;
+    webTestName: pulumi.Input<string>;
 }

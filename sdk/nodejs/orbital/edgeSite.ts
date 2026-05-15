@@ -81,9 +81,6 @@ export class EdgeSite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.edgeSiteName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'edgeSiteName'");
-            }
             if (args?.globalCommunicationsSite === undefined && !opts.urn) {
                 throw new Error("Missing required property 'globalCommunicationsSite'");
             }
@@ -122,7 +119,7 @@ export interface EdgeSiteArgs {
     /**
      * Edge site name.
      */
-    edgeSiteName: pulumi.Input<string>;
+    edgeSiteName?: pulumi.Input<string | undefined>;
     /**
      * A reference to global communications site.
      */

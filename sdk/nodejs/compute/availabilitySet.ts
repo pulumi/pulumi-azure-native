@@ -109,9 +109,6 @@ export class AvailabilitySet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.availabilitySetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'availabilitySetName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -161,7 +158,7 @@ export interface AvailabilitySetArgs {
     /**
      * The name of the availability set.
      */
-    availabilitySetName: pulumi.Input<string>;
+    availabilitySetName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

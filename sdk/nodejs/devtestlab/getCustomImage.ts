@@ -34,7 +34,7 @@ export interface GetCustomImageArgs {
     /**
      * The name of the CustomImage
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -149,7 +149,7 @@ export interface GetCustomImageOutputArgs {
     /**
      * The name of the CustomImage
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

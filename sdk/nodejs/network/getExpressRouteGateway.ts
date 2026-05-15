@@ -26,7 +26,7 @@ export interface GetExpressRouteGatewayArgs {
     /**
      * The name of the ExpressRoute gateway.
      */
-    expressRouteGatewayName?: string;
+    expressRouteGatewayName: string;
     /**
      * The name of the resource group.
      */
@@ -105,7 +105,7 @@ export interface GetExpressRouteGatewayOutputArgs {
     /**
      * The name of the ExpressRoute gateway.
      */
-    expressRouteGatewayName?: pulumi.Input<string | undefined>;
+    expressRouteGatewayName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

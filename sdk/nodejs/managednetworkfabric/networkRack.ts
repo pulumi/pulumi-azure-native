@@ -100,9 +100,6 @@ export class NetworkRack extends pulumi.CustomResource {
             if (args?.networkFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricId'");
             }
-            if (args?.networkRackName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkRackName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -158,7 +155,7 @@ export interface NetworkRackArgs {
     /**
      * Name of the Network Rack.
      */
-    networkRackName: pulumi.Input<string>;
+    networkRackName?: pulumi.Input<string | undefined>;
     /**
      * Network Rack SKU name.
      */

@@ -91,9 +91,6 @@ export class Hub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.hubName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'hubName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -139,7 +136,7 @@ export interface HubArgs {
     /**
      * The name of the Hub.
      */
-    hubName: pulumi.Input<string>;
+    hubName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */

@@ -25,7 +25,7 @@ export interface GetMachineLearningDatastoreArgs {
     /**
      * The Datastore name.
      */
-    datastoreName?: string;
+    datastoreName: string;
     /**
      * Name of the resource group in which workspace is located.
      */
@@ -95,7 +95,7 @@ export interface GetMachineLearningDatastoreOutputArgs {
     /**
      * The Datastore name.
      */
-    datastoreName?: pulumi.Input<string | undefined>;
+    datastoreName: pulumi.Input<string>;
     /**
      * Name of the resource group in which workspace is located.
      */

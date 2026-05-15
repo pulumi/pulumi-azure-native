@@ -26,7 +26,7 @@ export interface GetRoleManagementPolicyArgs {
     /**
      * The name (guid) of the role management policy to get.
      */
-    roleManagementPolicyName?: string;
+    roleManagementPolicyName: string;
     /**
      * The scope of the role management policy.
      */
@@ -109,7 +109,7 @@ export interface GetRoleManagementPolicyOutputArgs {
     /**
      * The name (guid) of the role management policy to get.
      */
-    roleManagementPolicyName?: pulumi.Input<string | undefined>;
+    roleManagementPolicyName: pulumi.Input<string>;
     /**
      * The scope of the role management policy.
      */

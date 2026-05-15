@@ -79,9 +79,6 @@ export class DocumentProcessor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.processorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'processorName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -121,7 +118,7 @@ export interface DocumentProcessorArgs {
     /**
      * The name of document processor resource.
      */
-    processorName: pulumi.Input<string>;
+    processorName?: pulumi.Input<string | undefined>;
     /**
      * Document processor properties.
      */

@@ -26,7 +26,7 @@ export interface GetApplicationDefinitionArgs {
     /**
      * The name of the managed application definition.
      */
-    applicationDefinitionName?: string;
+    applicationDefinitionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -153,7 +153,7 @@ export interface GetApplicationDefinitionOutputArgs {
     /**
      * The name of the managed application definition.
      */
-    applicationDefinitionName?: pulumi.Input<string | undefined>;
+    applicationDefinitionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

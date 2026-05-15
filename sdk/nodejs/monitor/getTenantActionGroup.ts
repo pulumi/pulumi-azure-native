@@ -28,7 +28,7 @@ export interface GetTenantActionGroupArgs {
     /**
      * The name of the action group.
      */
-    tenantActionGroupName?: string;
+    tenantActionGroupName: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetTenantActionGroupOutputArgs {
     /**
      * The name of the action group.
      */
-    tenantActionGroupName?: pulumi.Input<string | undefined>;
+    tenantActionGroupName: pulumi.Input<string>;
 }

@@ -31,7 +31,7 @@ export interface GetOuContainerArgs {
     /**
      * The name of the OuContainer.
      */
-    ouContainerName?: string;
+    ouContainerName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -131,7 +131,7 @@ export interface GetOuContainerOutputArgs {
     /**
      * The name of the OuContainer.
      */
-    ouContainerName?: pulumi.Input<string | undefined>;
+    ouContainerName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

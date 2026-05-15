@@ -27,7 +27,7 @@ export interface GetLabelingJobArgs {
     /**
      * The name and identifier for the LabelingJob.
      */
-    id?: string;
+    id: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetLabelingJobOutputArgs {
     /**
      * The name and identifier for the LabelingJob.
      */
-    id?: pulumi.Input<string | undefined>;
+    id: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

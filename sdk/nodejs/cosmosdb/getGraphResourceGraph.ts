@@ -31,7 +31,7 @@ export interface GetGraphResourceGraphArgs {
     /**
      * Cosmos DB graph resource name.
      */
-    graphName?: string;
+    graphName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetGraphResourceGraphOutputArgs {
     /**
      * Cosmos DB graph resource name.
      */
-    graphName?: pulumi.Input<string | undefined>;
+    graphName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

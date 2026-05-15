@@ -27,7 +27,7 @@ export interface GetResourceSyncRuleArgs {
     /**
      * Resource Sync Rule name.
      */
-    childResourceName?: string;
+    childResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetResourceSyncRuleOutputArgs {
     /**
      * Resource Sync Rule name.
      */
-    childResourceName?: pulumi.Input<string | undefined>;
+    childResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

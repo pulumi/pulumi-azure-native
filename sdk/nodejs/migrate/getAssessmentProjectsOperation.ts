@@ -26,7 +26,7 @@ export interface GetAssessmentProjectsOperationArgs {
     /**
      * Assessment Project Name
      */
-    projectName?: string;
+    projectName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -134,7 +134,7 @@ export interface GetAssessmentProjectsOperationOutputArgs {
     /**
      * Assessment Project Name
      */
-    projectName?: pulumi.Input<string | undefined>;
+    projectName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -28,7 +28,7 @@ export interface GetCIAMTenantArgs {
     /**
      * The initial sub domain of the tenant.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -110,5 +110,5 @@ export interface GetCIAMTenantOutputArgs {
     /**
      * The initial sub domain of the tenant.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

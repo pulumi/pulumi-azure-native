@@ -213,9 +213,6 @@ export class Machine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.machineName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'machineName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -354,7 +351,7 @@ export interface MachineArgs {
     /**
      * The name of the hybrid machine.
      */
-    machineName: pulumi.Input<string>;
+    machineName?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether any MS SQL instance is discovered on the machine.
      */

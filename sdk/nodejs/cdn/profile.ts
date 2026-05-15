@@ -113,9 +113,6 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.profileName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'profileName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -186,7 +183,7 @@ export interface ProfileArgs {
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
-    profileName: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

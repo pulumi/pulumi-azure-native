@@ -85,9 +85,6 @@ export class Experiment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.experimentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'experimentName'");
-            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -128,7 +125,7 @@ export interface ExperimentArgs {
     /**
      * String that represents a Experiment resource name.
      */
-    experimentName: pulumi.Input<string>;
+    experimentName?: pulumi.Input<string | undefined>;
     /**
      * The identity of the experiment resource.
      */

@@ -71,9 +71,6 @@ export class AuthenticationSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.authenticationSettingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'authenticationSettingName'");
-            }
             if (args?.azureMonitorWorkspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureMonitorWorkspaceName'");
             }
@@ -113,7 +110,7 @@ export interface AuthenticationSettingArgs {
     /**
      * Name of the authentication setting. Must be unique within a health model.
      */
-    authenticationSettingName: pulumi.Input<string>;
+    authenticationSettingName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Azure Monitor Workspace. The name is case insensitive
      */

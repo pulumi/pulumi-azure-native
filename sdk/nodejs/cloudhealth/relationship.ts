@@ -76,9 +76,6 @@ export class Relationship extends pulumi.CustomResource {
             if (args?.healthModelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'healthModelName'");
             }
-            if (args?.relationshipName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'relationshipName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -119,7 +116,7 @@ export interface RelationshipArgs {
     /**
      * Name of the relationship. Must be unique within a health model. For example, a concatenation of parentEntityName and childEntityName can be used as the name.
      */
-    relationshipName: pulumi.Input<string>;
+    relationshipName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

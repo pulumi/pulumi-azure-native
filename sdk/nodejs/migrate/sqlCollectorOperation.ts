@@ -89,9 +89,6 @@ export class SqlCollectorOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.collectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'collectorName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -139,7 +136,7 @@ export interface SqlCollectorOperationArgs {
     /**
      * Sql collector ARM name.
      */
-    collectorName: pulumi.Input<string>;
+    collectorName?: pulumi.Input<string | undefined>;
     /**
      * Gets the discovery site id.
      */

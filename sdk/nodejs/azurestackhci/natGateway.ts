@@ -85,9 +85,6 @@ export class NatGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.natGatewayName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'natGatewayName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -133,7 +130,7 @@ export interface NatGatewayArgs {
     /**
      * Name of the nat gateway
      */
-    natGatewayName: pulumi.Input<string>;
+    natGatewayName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

@@ -97,9 +97,6 @@ export class ExpressRouteGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.expressRouteGatewayName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'expressRouteGatewayName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -160,7 +157,7 @@ export interface ExpressRouteGatewayArgs {
     /**
      * The name of the ExpressRoute gateway.
      */
-    expressRouteGatewayName: pulumi.Input<string>;
+    expressRouteGatewayName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */

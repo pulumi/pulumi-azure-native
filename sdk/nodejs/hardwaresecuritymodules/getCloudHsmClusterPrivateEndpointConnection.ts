@@ -31,7 +31,7 @@ export interface GetCloudHsmClusterPrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection associated with the Cloud HSM Cluster.
      */
-    peConnectionName?: string;
+    peConnectionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetCloudHsmClusterPrivateEndpointConnectionOutputArgs {
     /**
      * Name of the private endpoint connection associated with the Cloud HSM Cluster.
      */
-    peConnectionName?: pulumi.Input<string | undefined>;
+    peConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

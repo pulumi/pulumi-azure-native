@@ -25,7 +25,7 @@ export interface GetJobCredentialArgs {
     /**
      * The name of the credential.
      */
-    credentialName?: string;
+    credentialName: string;
     /**
      * The name of the job agent.
      */
@@ -86,7 +86,7 @@ export interface GetJobCredentialOutputArgs {
     /**
      * The name of the credential.
      */
-    credentialName?: pulumi.Input<string | undefined>;
+    credentialName: pulumi.Input<string>;
     /**
      * The name of the job agent.
      */

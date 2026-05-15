@@ -134,9 +134,6 @@ export class Topic extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.topicName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'topicName'");
-            }
             resourceInputs["dataResidencyBoundary"] = args?.dataResidencyBoundary;
             resourceInputs["disableLocalAuth"] = (args?.disableLocalAuth) ?? false;
             resourceInputs["eventTypeInfo"] = args?.eventTypeInfo;
@@ -243,5 +240,5 @@ export interface TopicArgs {
     /**
      * Name of the topic.
      */
-    topicName: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }

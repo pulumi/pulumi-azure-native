@@ -173,9 +173,6 @@ export class Migration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.migrationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'migrationName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -294,7 +291,7 @@ export interface MigrationArgs {
     /**
      * Name of migration.
      */
-    migrationName: pulumi.Input<string>;
+    migrationName?: pulumi.Input<string | undefined>;
     /**
      * Supported option for a migration.
      */

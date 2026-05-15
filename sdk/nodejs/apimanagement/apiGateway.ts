@@ -113,9 +113,6 @@ export class ApiGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.gatewayName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'gatewayName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -174,7 +171,7 @@ export interface ApiGatewayArgs {
     /**
      * The name of the API Management gateway.
      */
-    gatewayName: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */

@@ -22,7 +22,7 @@ export interface GetExportConfigurationArgs {
     /**
      * The Continuous Export configuration ID. This is unique within a Application Insights component.
      */
-    exportId?: string;
+    exportId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,7 +136,7 @@ export interface GetExportConfigurationOutputArgs {
     /**
      * The Continuous Export configuration ID. This is unique within a Application Insights component.
      */
-    exportId?: pulumi.Input<string | undefined>;
+    exportId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

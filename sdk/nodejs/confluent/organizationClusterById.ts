@@ -85,9 +85,6 @@ export class OrganizationClusterById extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.clusterId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'clusterId'");
-            }
             if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
@@ -133,7 +130,7 @@ export interface OrganizationClusterByIdArgs {
     /**
      * Confluent kafka or schema registry cluster id
      */
-    clusterId: pulumi.Input<string>;
+    clusterId?: pulumi.Input<string | undefined>;
     /**
      * Confluent environment id
      */

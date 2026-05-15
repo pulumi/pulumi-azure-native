@@ -27,7 +27,7 @@ export interface GetAzureADAdministratorArgs {
     /**
      * The name of the Azure AD Administrator.
      */
-    administratorName?: string;
+    administratorName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetAzureADAdministratorOutputArgs {
     /**
      * The name of the Azure AD Administrator.
      */
-    administratorName?: pulumi.Input<string | undefined>;
+    administratorName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

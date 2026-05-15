@@ -31,7 +31,7 @@ export interface GetAutoExportJobArgs {
     /**
      * Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    autoExportJobName?: string;
+    autoExportJobName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -167,7 +167,7 @@ export interface GetAutoExportJobOutputArgs {
     /**
      * Name for the auto export job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    autoExportJobName?: pulumi.Input<string | undefined>;
+    autoExportJobName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

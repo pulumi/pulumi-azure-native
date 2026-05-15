@@ -93,9 +93,6 @@ export class TrustedAccessRoleBinding extends pulumi.CustomResource {
             if (args?.sourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceId'");
             }
-            if (args?.trustedAccessRoleBindingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'trustedAccessRoleBindingName'");
-            }
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["roles"] = args?.roles;
@@ -145,5 +142,5 @@ export interface TrustedAccessRoleBindingArgs {
     /**
      * The name of trusted access role binding.
      */
-    trustedAccessRoleBindingName: pulumi.Input<string>;
+    trustedAccessRoleBindingName?: pulumi.Input<string | undefined>;
 }

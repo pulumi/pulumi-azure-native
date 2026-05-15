@@ -24,7 +24,7 @@ export interface GetActionRuleByNameArgs {
     /**
      * The name of action rule that needs to be fetched
      */
-    actionRuleName?: string;
+    actionRuleName: string;
     /**
      * Resource group name where the resource is created.
      */
@@ -81,7 +81,7 @@ export interface GetActionRuleByNameOutputArgs {
     /**
      * The name of action rule that needs to be fetched
      */
-    actionRuleName?: pulumi.Input<string | undefined>;
+    actionRuleName: pulumi.Input<string>;
     /**
      * Resource group name where the resource is created.
      */

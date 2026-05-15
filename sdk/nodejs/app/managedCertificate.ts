@@ -84,9 +84,6 @@ export class ManagedCertificate extends pulumi.CustomResource {
             if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if (args?.managedCertificateName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'managedCertificateName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +128,7 @@ export interface ManagedCertificateArgs {
     /**
      * Name of the Managed Certificate.
      */
-    managedCertificateName: pulumi.Input<string>;
+    managedCertificateName?: pulumi.Input<string | undefined>;
     /**
      * Certificate resource specific properties
      */

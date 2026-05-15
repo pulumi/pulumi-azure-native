@@ -121,9 +121,6 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.clusterName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -183,7 +180,7 @@ export interface ClusterArgs {
     /**
      * The name of the Log Analytics cluster.
      */
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Resource's identity.
      */

@@ -77,9 +77,6 @@ export class DataflowEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dataflowEndpointName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataflowEndpointName'");
-            }
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
@@ -120,7 +117,7 @@ export interface DataflowEndpointArgs {
     /**
      * Name of Instance dataflowEndpoint resource
      */
-    dataflowEndpointName: pulumi.Input<string>;
+    dataflowEndpointName?: pulumi.Input<string | undefined>;
     /**
      * Edge location of the resource.
      */

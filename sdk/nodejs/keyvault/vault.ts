@@ -87,9 +87,6 @@ export class Vault extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.vaultName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'vaultName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.keyvault.vaultPropertiesArgsProvideDefaults) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -138,5 +135,5 @@ export interface VaultArgs {
     /**
      * Name of the vault
      */
-    vaultName: pulumi.Input<string>;
+    vaultName?: pulumi.Input<string | undefined>;
 }

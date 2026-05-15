@@ -26,7 +26,7 @@ export interface GetLocalRulestackArgs {
     /**
      * LocalRulestack resource name
      */
-    localRulestackName?: string;
+    localRulestackName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetLocalRulestackOutputArgs {
     /**
      * LocalRulestack resource name
      */
-    localRulestackName?: pulumi.Input<string | undefined>;
+    localRulestackName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

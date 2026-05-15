@@ -12,8 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2018-10-01.
  */
-export function getConsole(args?: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
-    args = args || {};
+export function getConsole(args: GetConsoleArgs, opts?: pulumi.InvokeOptions): Promise<GetConsoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal:getConsole", {
         "consoleName": args.consoleName,
@@ -24,7 +23,7 @@ export interface GetConsoleArgs {
     /**
      * The name of the console
      */
-    consoleName?: string;
+    consoleName: string;
 }
 
 /**
@@ -45,8 +44,7 @@ export interface GetConsoleResult {
  *
  * Uses Azure REST API version 2018-10-01.
  */
-export function getConsoleOutput(args?: GetConsoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsoleResult> {
-    args = args || {};
+export function getConsoleOutput(args: GetConsoleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConsoleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portal:getConsole", {
         "consoleName": args.consoleName,
@@ -57,5 +55,5 @@ export interface GetConsoleOutputArgs {
     /**
      * The name of the console
      */
-    consoleName?: pulumi.Input<string | undefined>;
+    consoleName: pulumi.Input<string>;
 }

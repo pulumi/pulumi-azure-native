@@ -29,7 +29,7 @@ export interface GetJitNetworkAccessPolicyArgs {
     /**
      * Name of a Just-in-Time access configuration policy.
      */
-    jitNetworkAccessPolicyName?: string;
+    jitNetworkAccessPolicyName: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetJitNetworkAccessPolicyOutputArgs {
     /**
      * Name of a Just-in-Time access configuration policy.
      */
-    jitNetworkAccessPolicyName?: pulumi.Input<string | undefined>;
+    jitNetworkAccessPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

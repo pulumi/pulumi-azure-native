@@ -184,9 +184,6 @@ export class NamespaceDiscoveredAsset extends pulumi.CustomResource {
             if (args?.deviceRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceRef'");
             }
-            if (args?.discoveredAssetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'discoveredAssetName'");
-            }
             if (args?.discoveryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'discoveryId'");
             }
@@ -329,7 +326,7 @@ export interface NamespaceDiscoveredAssetArgs {
     /**
      * The name of the discovered asset.
      */
-    discoveredAssetName: pulumi.Input<string>;
+    discoveredAssetName?: pulumi.Input<string | undefined>;
     /**
      * Identifier used to detect changes in the asset.
      */

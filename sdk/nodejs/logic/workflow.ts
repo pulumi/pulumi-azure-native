@@ -132,9 +132,6 @@ export class Workflow extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.workflowName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'workflowName'");
-            }
             resourceInputs["accessControl"] = args?.accessControl;
             resourceInputs["definition"] = args?.definition;
             resourceInputs["endpointsConfiguration"] = args?.endpointsConfiguration;
@@ -235,5 +232,5 @@ export interface WorkflowArgs {
     /**
      * The workflow name.
      */
-    workflowName: pulumi.Input<string>;
+    workflowName?: pulumi.Input<string | undefined>;
 }

@@ -94,9 +94,6 @@ export class MachineGroup extends pulumi.CustomResource {
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (args?.machineGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'machineGroupName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -157,7 +154,7 @@ export interface MachineGroupArgs {
     /**
      * Machine Group resource name.
      */
-    machineGroupName: pulumi.Input<string>;
+    machineGroupName?: pulumi.Input<string | undefined>;
     /**
      * References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
      */

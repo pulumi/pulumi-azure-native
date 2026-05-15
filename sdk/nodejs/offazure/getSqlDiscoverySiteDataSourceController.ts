@@ -28,7 +28,7 @@ export interface GetSqlDiscoverySiteDataSourceControllerArgs {
     /**
      * SQL Discovery site data source name.
      */
-    discoverySiteDataSourceName?: string;
+    discoverySiteDataSourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetSqlDiscoverySiteDataSourceControllerOutputArgs {
     /**
      * SQL Discovery site data source name.
      */
-    discoverySiteDataSourceName?: pulumi.Input<string | undefined>;
+    discoverySiteDataSourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -24,7 +24,7 @@ export interface GetServerAzureADAdministratorArgs {
     /**
      * The name of server active directory administrator.
      */
-    administratorName?: string;
+    administratorName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -96,7 +96,7 @@ export interface GetServerAzureADAdministratorOutputArgs {
     /**
      * The name of server active directory administrator.
      */
-    administratorName?: pulumi.Input<string | undefined>;
+    administratorName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -132,9 +132,6 @@ export class VirtualHardDisk extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.virtualHardDiskName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualHardDiskName'");
-            }
             resourceInputs["blockSizeBytes"] = args?.blockSizeBytes;
             resourceInputs["containerId"] = args?.containerId;
             resourceInputs["createFromLocal"] = (args?.createFromLocal) ?? false;
@@ -247,5 +244,5 @@ export interface VirtualHardDiskArgs {
     /**
      * Name of the virtual hard disk
      */
-    virtualHardDiskName: pulumi.Input<string>;
+    virtualHardDiskName?: pulumi.Input<string | undefined>;
 }

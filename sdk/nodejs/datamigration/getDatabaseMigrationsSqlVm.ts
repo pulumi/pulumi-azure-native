@@ -42,7 +42,7 @@ export interface GetDatabaseMigrationsSqlVmArgs {
     /**
      * The name of the target database.
      */
-    targetDbName?: string;
+    targetDbName: string;
 }
 
 /**
@@ -109,5 +109,5 @@ export interface GetDatabaseMigrationsSqlVmOutputArgs {
     /**
      * The name of the target database.
      */
-    targetDbName?: pulumi.Input<string | undefined>;
+    targetDbName: pulumi.Input<string>;
 }

@@ -27,7 +27,7 @@ export interface GetP2sVpnServerConfigurationArgs {
     /**
      * The name of the P2SVpnServerConfiguration.
      */
-    p2SVpnServerConfigurationName?: string;
+    p2SVpnServerConfigurationName: string;
     /**
      * The resource group name of the P2SVpnServerConfiguration.
      */
@@ -83,7 +83,7 @@ export interface GetP2sVpnServerConfigurationOutputArgs {
     /**
      * The name of the P2SVpnServerConfiguration.
      */
-    p2SVpnServerConfigurationName?: pulumi.Input<string | undefined>;
+    p2SVpnServerConfigurationName: pulumi.Input<string>;
     /**
      * The resource group name of the P2SVpnServerConfiguration.
      */

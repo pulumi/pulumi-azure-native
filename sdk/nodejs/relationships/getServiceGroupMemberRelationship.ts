@@ -24,7 +24,7 @@ export interface GetServiceGroupMemberRelationshipArgs {
     /**
      * Name of ServiceGroupMember relationship.
      */
-    name?: string;
+    name: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -77,7 +77,7 @@ export interface GetServiceGroupMemberRelationshipOutputArgs {
     /**
      * Name of ServiceGroupMember relationship.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

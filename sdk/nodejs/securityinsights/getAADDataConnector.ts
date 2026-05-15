@@ -25,7 +25,7 @@ export interface GetAADDataConnectorArgs {
     /**
      * Connector ID
      */
-    dataConnectorId?: string;
+    dataConnectorId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -96,7 +96,7 @@ export interface GetAADDataConnectorOutputArgs {
     /**
      * Connector ID
      */
-    dataConnectorId?: pulumi.Input<string | undefined>;
+    dataConnectorId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

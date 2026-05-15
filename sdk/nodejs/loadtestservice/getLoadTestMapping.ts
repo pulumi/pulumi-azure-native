@@ -26,7 +26,7 @@ export interface GetLoadTestMappingArgs {
     /**
      * Load Test Mapping name
      */
-    loadTestMappingName?: string;
+    loadTestMappingName: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -89,7 +89,7 @@ export interface GetLoadTestMappingOutputArgs {
     /**
      * Load Test Mapping name
      */
-    loadTestMappingName?: pulumi.Input<string | undefined>;
+    loadTestMappingName: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

@@ -38,7 +38,7 @@ export interface GetStudentArgs {
     /**
      * Student alias.
      */
-    studentAlias?: string;
+    studentAlias: string;
 }
 
 /**
@@ -141,5 +141,5 @@ export interface GetStudentOutputArgs {
     /**
      * Student alias.
      */
-    studentAlias?: pulumi.Input<string | undefined>;
+    studentAlias: pulumi.Input<string>;
 }

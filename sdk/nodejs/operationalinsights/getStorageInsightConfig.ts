@@ -31,7 +31,7 @@ export interface GetStorageInsightConfigArgs {
     /**
      * Name of the storageInsightsConfigs resource
      */
-    storageInsightName?: string;
+    storageInsightName: string;
     /**
      * The name of the workspace.
      */
@@ -107,7 +107,7 @@ export interface GetStorageInsightConfigOutputArgs {
     /**
      * Name of the storageInsightsConfigs resource
      */
-    storageInsightName?: pulumi.Input<string | undefined>;
+    storageInsightName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

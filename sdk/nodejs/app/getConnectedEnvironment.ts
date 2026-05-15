@@ -26,7 +26,7 @@ export interface GetConnectedEnvironmentArgs {
     /**
      * Name of the connectedEnvironment.
      */
-    connectedEnvironmentName?: string;
+    connectedEnvironmentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetConnectedEnvironmentOutputArgs {
     /**
      * Name of the connectedEnvironment.
      */
-    connectedEnvironmentName?: pulumi.Input<string | undefined>;
+    connectedEnvironmentName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

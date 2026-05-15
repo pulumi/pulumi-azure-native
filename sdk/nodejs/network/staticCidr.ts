@@ -82,9 +82,6 @@ export class StaticCidr extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.staticCidrName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'staticCidrName'");
-            }
             resourceInputs["networkManagerName"] = args?.networkManagerName;
             resourceInputs["poolName"] = args?.poolName;
             resourceInputs["properties"] = args?.properties;
@@ -131,5 +128,5 @@ export interface StaticCidrArgs {
     /**
      * Static Cidr allocation name.
      */
-    staticCidrName: pulumi.Input<string>;
+    staticCidrName?: pulumi.Input<string | undefined>;
 }

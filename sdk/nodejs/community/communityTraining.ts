@@ -111,9 +111,6 @@ export class CommunityTraining extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.communityTrainingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'communityTrainingName'");
-            }
             if (args?.disasterRecoveryEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'disasterRecoveryEnabled'");
             }
@@ -186,7 +183,7 @@ export interface CommunityTrainingArgs {
     /**
      * The name of the Community Training Resource
      */
-    communityTrainingName: pulumi.Input<string>;
+    communityTrainingName?: pulumi.Input<string | undefined>;
     /**
      * To indicate whether the Community Training instance has Disaster Recovery enabled
      */

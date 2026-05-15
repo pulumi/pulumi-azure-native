@@ -74,9 +74,6 @@ export class IntegrationRuntime extends pulumi.CustomResource {
             if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if (args?.integrationRuntimeName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'integrationRuntimeName'");
-            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -116,7 +113,7 @@ export interface IntegrationRuntimeArgs {
     /**
      * The integration runtime name.
      */
-    integrationRuntimeName: pulumi.Input<string>;
+    integrationRuntimeName?: pulumi.Input<string | undefined>;
     /**
      * Integration runtime properties.
      */

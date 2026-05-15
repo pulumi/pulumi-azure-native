@@ -26,7 +26,7 @@ export interface GetDatastoreArgs {
     /**
      * Name of the datastore.
      */
-    datastoreName?: string;
+    datastoreName: string;
     /**
      * The Resource Group Name.
      */
@@ -133,7 +133,7 @@ export interface GetDatastoreOutputArgs {
     /**
      * Name of the datastore.
      */
-    datastoreName?: pulumi.Input<string | undefined>;
+    datastoreName: pulumi.Input<string>;
     /**
      * The Resource Group Name.
      */

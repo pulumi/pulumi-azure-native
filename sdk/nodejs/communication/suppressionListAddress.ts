@@ -93,9 +93,6 @@ export class SuppressionListAddress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.addressId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'addressId'");
-            }
             if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
@@ -152,7 +149,7 @@ export interface SuppressionListAddressArgs {
     /**
      * The id of the address in a suppression list.
      */
-    addressId: pulumi.Input<string>;
+    addressId?: pulumi.Input<string | undefined>;
     /**
      * The name of the Domains resource.
      */

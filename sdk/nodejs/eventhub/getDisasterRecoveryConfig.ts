@@ -27,7 +27,7 @@ export interface GetDisasterRecoveryConfigArgs {
     /**
      * The Disaster Recovery configuration name
      */
-    alias?: string;
+    alias: string;
     /**
      * The Namespace name
      */
@@ -107,7 +107,7 @@ export interface GetDisasterRecoveryConfigOutputArgs {
     /**
      * The Disaster Recovery configuration name
      */
-    alias?: pulumi.Input<string | undefined>;
+    alias: pulumi.Input<string>;
     /**
      * The Namespace name
      */

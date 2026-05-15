@@ -97,9 +97,6 @@ export class Build extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.buildName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'buildName'");
-            }
             if (args?.builderName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'builderName'");
             }
@@ -147,7 +144,7 @@ export interface BuildArgs {
     /**
      * The name of a build.
      */
-    buildName: pulumi.Input<string>;
+    buildName?: pulumi.Input<string | undefined>;
     /**
      * The name of the builder.
      */

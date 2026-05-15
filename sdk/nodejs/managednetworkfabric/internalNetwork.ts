@@ -141,9 +141,6 @@ export class InternalNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.internalNetworkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'internalNetworkName'");
-            }
             if (args?.l3IsolationDomainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'l3IsolationDomainName'");
             }
@@ -260,7 +257,7 @@ export interface InternalNetworkArgs {
     /**
      * Name of the Internal Network.
      */
-    internalNetworkName: pulumi.Input<string>;
+    internalNetworkName?: pulumi.Input<string | undefined>;
     /**
      * To check whether monitoring of internal network is enabled or not.
      */

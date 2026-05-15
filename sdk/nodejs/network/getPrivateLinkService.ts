@@ -35,7 +35,7 @@ export interface GetPrivateLinkServiceArgs {
     /**
      * The name of the private link service.
      */
-    serviceName?: string;
+    serviceName: string;
 }
 
 /**
@@ -147,5 +147,5 @@ export interface GetPrivateLinkServiceOutputArgs {
     /**
      * The name of the private link service.
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName: pulumi.Input<string>;
 }

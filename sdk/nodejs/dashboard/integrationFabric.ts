@@ -78,9 +78,6 @@ export class IntegrationFabric extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.integrationFabricName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'integrationFabricName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -120,7 +117,7 @@ export interface IntegrationFabricArgs {
     /**
      * The integration fabric name of Azure Managed Grafana.
      */
-    integrationFabricName: pulumi.Input<string>;
+    integrationFabricName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

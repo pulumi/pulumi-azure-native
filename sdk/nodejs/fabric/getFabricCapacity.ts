@@ -26,7 +26,7 @@ export interface GetFabricCapacityArgs {
     /**
      * The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    capacityName?: string;
+    capacityName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,7 +101,7 @@ export interface GetFabricCapacityOutputArgs {
     /**
      * The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    capacityName?: pulumi.Input<string | undefined>;
+    capacityName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

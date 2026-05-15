@@ -35,7 +35,7 @@ export interface GetTableResourceTableRoleAssignmentArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId?: string;
+    roleAssignmentId: string;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface GetTableResourceTableRoleAssignmentOutputArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId?: pulumi.Input<string | undefined>;
+    roleAssignmentId: pulumi.Input<string>;
 }

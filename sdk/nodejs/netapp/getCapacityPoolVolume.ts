@@ -40,7 +40,7 @@ export interface GetCapacityPoolVolumeArgs {
     /**
      * The name of the volume
      */
-    volumeName?: string;
+    volumeName: string;
 }
 
 /**
@@ -341,5 +341,5 @@ export interface GetCapacityPoolVolumeOutputArgs {
     /**
      * The name of the volume
      */
-    volumeName?: pulumi.Input<string | undefined>;
+    volumeName: pulumi.Input<string>;
 }

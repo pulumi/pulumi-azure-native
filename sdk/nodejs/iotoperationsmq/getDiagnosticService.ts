@@ -25,7 +25,7 @@ export interface GetDiagnosticServiceArgs {
     /**
      * Name of MQ diagnostic resource
      */
-    diagnosticServiceName?: string;
+    diagnosticServiceName: string;
     /**
      * Name of MQ resource
      */
@@ -127,7 +127,7 @@ export interface GetDiagnosticServiceOutputArgs {
     /**
      * Name of MQ diagnostic resource
      */
-    diagnosticServiceName?: pulumi.Input<string | undefined>;
+    diagnosticServiceName: pulumi.Input<string>;
     /**
      * Name of MQ resource
      */

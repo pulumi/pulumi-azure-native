@@ -25,7 +25,7 @@ export interface GetMachineLearningDatasetArgs {
     /**
      * The Dataset name.
      */
-    datasetName?: string;
+    datasetName: string;
     /**
      * Name of the resource group in which workspace is located.
      */
@@ -95,7 +95,7 @@ export interface GetMachineLearningDatasetOutputArgs {
     /**
      * The Dataset name.
      */
-    datasetName?: pulumi.Input<string | undefined>;
+    datasetName: pulumi.Input<string>;
     /**
      * Name of the resource group in which workspace is located.
      */

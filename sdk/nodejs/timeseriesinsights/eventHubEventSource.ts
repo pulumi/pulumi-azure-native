@@ -125,9 +125,6 @@ export class EventHubEventSource extends pulumi.CustomResource {
             if (args?.eventHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventHubName'");
             }
-            if (args?.eventSourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'eventSourceName'");
-            }
             if (args?.eventSourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventSourceResourceId'");
             }
@@ -210,7 +207,7 @@ export interface EventHubEventSourceArgs {
     /**
      * Name of the event source.
      */
-    eventSourceName: pulumi.Input<string>;
+    eventSourceName?: pulumi.Input<string | undefined>;
     /**
      * The resource id of the event source in Azure Resource Manager.
      */

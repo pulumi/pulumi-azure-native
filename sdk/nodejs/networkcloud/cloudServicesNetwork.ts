@@ -132,9 +132,6 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.cloudServicesNetworkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cloudServicesNetworkName'");
-            }
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
@@ -201,7 +198,7 @@ export interface CloudServicesNetworkArgs {
     /**
      * The name of the cloud services network.
      */
-    cloudServicesNetworkName: pulumi.Input<string>;
+    cloudServicesNetworkName?: pulumi.Input<string | undefined>;
     /**
      * The indicator of whether the platform default endpoints are allowed for the egress traffic.
      */

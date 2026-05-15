@@ -25,7 +25,7 @@ export interface GetFabricAgentArgs {
     /**
      * The fabric agent name.
      */
-    fabricAgentName?: string;
+    fabricAgentName: string;
     /**
      * The fabric name.
      */
@@ -83,7 +83,7 @@ export interface GetFabricAgentOutputArgs {
     /**
      * The fabric agent name.
      */
-    fabricAgentName?: pulumi.Input<string | undefined>;
+    fabricAgentName: pulumi.Input<string>;
     /**
      * The fabric name.
      */

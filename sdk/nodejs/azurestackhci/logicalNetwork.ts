@@ -101,9 +101,6 @@ export class LogicalNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.logicalNetworkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'logicalNetworkName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -161,7 +158,7 @@ export interface LogicalNetworkArgs {
     /**
      * Name of the logical network
      */
-    logicalNetworkName: pulumi.Input<string>;
+    logicalNetworkName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

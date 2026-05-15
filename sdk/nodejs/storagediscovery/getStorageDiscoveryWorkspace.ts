@@ -30,7 +30,7 @@ export interface GetStorageDiscoveryWorkspaceArgs {
     /**
      * The name of the StorageDiscoveryWorkspace
      */
-    storageDiscoveryWorkspaceName?: string;
+    storageDiscoveryWorkspaceName: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetStorageDiscoveryWorkspaceOutputArgs {
     /**
      * The name of the StorageDiscoveryWorkspace
      */
-    storageDiscoveryWorkspaceName?: pulumi.Input<string | undefined>;
+    storageDiscoveryWorkspaceName: pulumi.Input<string>;
 }

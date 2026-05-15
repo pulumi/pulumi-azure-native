@@ -24,7 +24,7 @@ export interface GetInstanceArgs {
     /**
      * Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)
      */
-    instanceName?: string;
+    instanceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -89,7 +89,7 @@ export interface GetInstanceOutputArgs {
     /**
      * Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)
      */
-    instanceName?: pulumi.Input<string | undefined>;
+    instanceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

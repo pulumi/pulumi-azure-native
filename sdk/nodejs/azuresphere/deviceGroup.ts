@@ -98,9 +98,6 @@ export class DeviceGroup extends pulumi.CustomResource {
             if (args?.catalogName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogName'");
             }
-            if (args?.deviceGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deviceGroupName'");
-            }
             if (args?.productName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productName'");
             }
@@ -161,7 +158,7 @@ export interface DeviceGroupArgs {
     /**
      * Name of device group.
      */
-    deviceGroupName: pulumi.Input<string>;
+    deviceGroupName?: pulumi.Input<string | undefined>;
     /**
      * Operating system feed type of the device group.
      */

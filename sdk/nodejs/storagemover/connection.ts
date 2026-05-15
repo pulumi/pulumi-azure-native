@@ -71,9 +71,6 @@ export class Connection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.connectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -112,7 +109,7 @@ export interface ConnectionArgs {
     /**
      * The name of the Connection resource.
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * Connection properties.
      */

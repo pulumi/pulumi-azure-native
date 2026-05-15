@@ -26,7 +26,7 @@ export interface GetExpressRouteCircuitArgs {
     /**
      * The name of express route circuit.
      */
-    circuitName?: string;
+    circuitName: string;
     /**
      * The name of the resource group.
      */
@@ -157,7 +157,7 @@ export interface GetExpressRouteCircuitOutputArgs {
     /**
      * The name of express route circuit.
      */
-    circuitName?: pulumi.Input<string | undefined>;
+    circuitName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

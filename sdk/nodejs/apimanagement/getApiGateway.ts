@@ -26,7 +26,7 @@ export interface GetApiGatewayArgs {
     /**
      * The name of the API Management gateway.
      */
-    gatewayName?: string;
+    gatewayName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,7 +121,7 @@ export interface GetApiGatewayOutputArgs {
     /**
      * The name of the API Management gateway.
      */
-    gatewayName?: pulumi.Input<string | undefined>;
+    gatewayName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -12,8 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-03-01-preview.
  */
-export function getUserSolution(args?: GetUserSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSolutionResult> {
-    args = args || {};
+export function getUserSolution(args: GetUserSolutionArgs, opts?: pulumi.InvokeOptions): Promise<GetUserSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:marketplace:getUserSolution", {
         "solutionId": args.solutionId,
@@ -24,7 +23,7 @@ export interface GetUserSolutionArgs {
     /**
      * The solution id
      */
-    solutionId?: string;
+    solutionId: string;
 }
 
 /**
@@ -59,8 +58,7 @@ export interface GetUserSolutionResult {
  *
  * Uses Azure REST API version 2023-03-01-preview.
  */
-export function getUserSolutionOutput(args?: GetUserSolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserSolutionResult> {
-    args = args || {};
+export function getUserSolutionOutput(args: GetUserSolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:marketplace:getUserSolution", {
         "solutionId": args.solutionId,
@@ -71,5 +69,5 @@ export interface GetUserSolutionOutputArgs {
     /**
      * The solution id
      */
-    solutionId?: pulumi.Input<string | undefined>;
+    solutionId: pulumi.Input<string>;
 }

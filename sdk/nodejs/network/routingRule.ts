@@ -111,9 +111,6 @@ export class RoutingRule extends pulumi.CustomResource {
             if (args?.ruleCollectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollectionName'");
             }
-            if (args?.ruleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ruleName'");
-            }
             resourceInputs["configurationName"] = args?.configurationName;
             resourceInputs["description"] = args?.description;
             resourceInputs["destination"] = args?.destination;
@@ -183,5 +180,5 @@ export interface RoutingRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
 }

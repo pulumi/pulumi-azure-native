@@ -73,9 +73,6 @@ export class ConfigurationService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.configurationServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'configurationServiceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -111,7 +108,7 @@ export interface ConfigurationServiceArgs {
     /**
      * The name of Application Configuration Service.
      */
-    configurationServiceName: pulumi.Input<string>;
+    configurationServiceName?: pulumi.Input<string | undefined>;
     /**
      * Application Configuration Service properties payload
      */

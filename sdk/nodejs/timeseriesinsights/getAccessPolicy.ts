@@ -24,7 +24,7 @@ export interface GetAccessPolicyArgs {
     /**
      * The name of the Time Series Insights access policy associated with the specified environment.
      */
-    accessPolicyName?: string;
+    accessPolicyName: string;
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */
@@ -88,7 +88,7 @@ export interface GetAccessPolicyOutputArgs {
     /**
      * The name of the Time Series Insights access policy associated with the specified environment.
      */
-    accessPolicyName?: pulumi.Input<string | undefined>;
+    accessPolicyName: pulumi.Input<string>;
     /**
      * The name of the Time Series Insights environment associated with the specified resource group.
      */

@@ -76,9 +76,6 @@ export class Variable extends pulumi.CustomResource {
             if (args?.columns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'columns'");
             }
-            if (args?.variableName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'variableName'");
-            }
             resourceInputs["columns"] = args?.columns;
             resourceInputs["variableName"] = args?.variableName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -110,5 +107,5 @@ export interface VariableArgs {
     /**
      * The name of the variable to operate on.
      */
-    variableName: pulumi.Input<string>;
+    variableName?: pulumi.Input<string | undefined>;
 }

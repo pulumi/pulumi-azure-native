@@ -35,7 +35,7 @@ export interface GetIntegrationAccountSchemaArgs {
     /**
      * The integration account schema name.
      */
-    schemaName?: string;
+    schemaName: string;
 }
 
 /**
@@ -135,5 +135,5 @@ export interface GetIntegrationAccountSchemaOutputArgs {
     /**
      * The integration account schema name.
      */
-    schemaName?: pulumi.Input<string | undefined>;
+    schemaName: pulumi.Input<string>;
 }

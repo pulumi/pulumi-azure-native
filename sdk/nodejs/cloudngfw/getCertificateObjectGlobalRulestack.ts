@@ -30,7 +30,7 @@ export interface GetCertificateObjectGlobalRulestackArgs {
     /**
      * certificate name
      */
-    name?: string;
+    name: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetCertificateObjectGlobalRulestackOutputArgs {
     /**
      * certificate name
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
 }

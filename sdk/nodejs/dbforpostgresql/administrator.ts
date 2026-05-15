@@ -85,9 +85,6 @@ export class Administrator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.objectId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'objectId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -128,7 +125,7 @@ export interface AdministratorArgs {
     /**
      * Object identifier of the Microsoft Entra principal.
      */
-    objectId: pulumi.Input<string>;
+    objectId?: pulumi.Input<string | undefined>;
     /**
      * Name of the Microsoft Entra principal.
      */

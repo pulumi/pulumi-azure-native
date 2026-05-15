@@ -40,7 +40,7 @@ export interface GetStaticCidrArgs {
     /**
      * StaticCidr resource name to retrieve.
      */
-    staticCidrName?: string;
+    staticCidrName: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetStaticCidrOutputArgs {
     /**
      * StaticCidr resource name to retrieve.
      */
-    staticCidrName?: pulumi.Input<string | undefined>;
+    staticCidrName: pulumi.Input<string>;
 }

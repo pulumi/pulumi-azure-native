@@ -30,7 +30,7 @@ export interface GetKustoClusterDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: string;
+    dataSetName: string;
     /**
      * The resource group name.
      */
@@ -110,7 +110,7 @@ export interface GetKustoClusterDataSetOutputArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string | undefined>;
+    dataSetName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

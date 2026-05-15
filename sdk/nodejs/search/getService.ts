@@ -30,7 +30,7 @@ export interface GetServiceArgs {
     /**
      * The name of the Azure AI Search service associated with the specified resource group.
      */
-    searchServiceName?: string;
+    searchServiceName: string;
 }
 
 /**
@@ -177,5 +177,5 @@ export interface GetServiceOutputArgs {
     /**
      * The name of the Azure AI Search service associated with the specified resource group.
      */
-    searchServiceName?: pulumi.Input<string | undefined>;
+    searchServiceName: pulumi.Input<string>;
 }

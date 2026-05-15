@@ -28,7 +28,7 @@ export interface GetHyperVSiteArgs {
     /**
      * Site name.
      */
-    siteName?: string;
+    siteName: string;
 }
 
 /**
@@ -90,5 +90,5 @@ export interface GetHyperVSiteOutputArgs {
     /**
      * Site name.
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName: pulumi.Input<string>;
 }

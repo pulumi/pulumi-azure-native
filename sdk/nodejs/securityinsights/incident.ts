@@ -149,9 +149,6 @@ export class Incident extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.incidentId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'incidentId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -254,7 +251,7 @@ export interface IncidentArgs {
     /**
      * Incident ID
      */
-    incidentId: pulumi.Input<string>;
+    incidentId?: pulumi.Input<string | undefined>;
     /**
      * List of labels relevant to this incident
      */

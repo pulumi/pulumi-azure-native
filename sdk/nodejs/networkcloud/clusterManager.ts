@@ -123,9 +123,6 @@ export class ClusterManager extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.clusterManagerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'clusterManagerName'");
-            }
             if (args?.fabricControllerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricControllerId'");
             }
@@ -194,7 +191,7 @@ export interface ClusterManagerArgs {
     /**
      * The name of the cluster manager.
      */
-    clusterManagerName: pulumi.Input<string>;
+    clusterManagerName?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the fabric controller that has one to one mapping with the cluster manager.
      */

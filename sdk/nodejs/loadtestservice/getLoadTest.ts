@@ -26,7 +26,7 @@ export interface GetLoadTestArgs {
     /**
      * Load Test name
      */
-    loadTestName?: string;
+    loadTestName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetLoadTestOutputArgs {
     /**
      * Load Test name
      */
-    loadTestName?: pulumi.Input<string | undefined>;
+    loadTestName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

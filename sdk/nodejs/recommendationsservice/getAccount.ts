@@ -26,7 +26,7 @@ export interface GetAccountArgs {
     /**
      * The name of the RecommendationsService Account resource.
      */
-    accountName?: string;
+    accountName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetAccountOutputArgs {
     /**
      * The name of the RecommendationsService Account resource.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

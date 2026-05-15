@@ -28,7 +28,7 @@ export interface GetEventHubAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    authorizationRuleName?: string;
+    authorizationRuleName: string;
     /**
      * The Event Hub name
      */
@@ -97,7 +97,7 @@ export interface GetEventHubAuthorizationRuleOutputArgs {
     /**
      * The authorization rule name.
      */
-    authorizationRuleName?: pulumi.Input<string | undefined>;
+    authorizationRuleName: pulumi.Input<string>;
     /**
      * The Event Hub name
      */

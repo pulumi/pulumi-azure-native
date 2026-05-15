@@ -89,9 +89,6 @@ export class Diagnostic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.diagnosticName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'diagnosticName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +128,7 @@ export interface DiagnosticArgs {
     /**
      * Name of Diagnostic.
      */
-    diagnosticName: pulumi.Input<string>;
+    diagnosticName?: pulumi.Input<string | undefined>;
     /**
      * The complex type of the extended location.
      */

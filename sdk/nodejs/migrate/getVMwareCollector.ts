@@ -33,7 +33,7 @@ export interface GetVMwareCollectorArgs {
     /**
      * Unique name of a VMware collector within a project.
      */
-    vmWareCollectorName?: string;
+    vmWareCollectorName: string;
 }
 
 export interface GetVMwareCollectorResult {
@@ -73,5 +73,5 @@ export interface GetVMwareCollectorOutputArgs {
     /**
      * Unique name of a VMware collector within a project.
      */
-    vmWareCollectorName?: pulumi.Input<string | undefined>;
+    vmWareCollectorName: pulumi.Input<string>;
 }

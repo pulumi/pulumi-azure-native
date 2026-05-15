@@ -34,7 +34,7 @@ export interface GetGalleryScriptVersionArgs {
     /**
      * The name of the gallery Script Version to be retrieved.
      */
-    galleryScriptVersionName?: string;
+    galleryScriptVersionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetGalleryScriptVersionOutputArgs {
     /**
      * The name of the gallery Script Version to be retrieved.
      */
-    galleryScriptVersionName?: pulumi.Input<string | undefined>;
+    galleryScriptVersionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

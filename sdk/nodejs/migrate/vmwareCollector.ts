@@ -63,9 +63,6 @@ export class VMwareCollector extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.vmWareCollectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'vmWareCollectorName'");
-            }
             resourceInputs["eTag"] = args?.eTag;
             resourceInputs["projectName"] = args?.projectName;
             resourceInputs["properties"] = args?.properties;
@@ -105,5 +102,5 @@ export interface VMwareCollectorArgs {
     /**
      * Unique name of a VMware collector within a project.
      */
-    vmWareCollectorName: pulumi.Input<string>;
+    vmWareCollectorName?: pulumi.Input<string | undefined>;
 }

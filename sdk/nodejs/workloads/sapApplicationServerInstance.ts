@@ -139,9 +139,6 @@ export class SapApplicationServerInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.applicationInstanceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'applicationInstanceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -211,7 +208,7 @@ export interface SapApplicationServerInstanceArgs {
     /**
      * The name of SAP Application Server instance resource.
      */
-    applicationInstanceName: pulumi.Input<string>;
+    applicationInstanceName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

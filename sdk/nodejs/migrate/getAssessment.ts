@@ -26,7 +26,7 @@ export interface GetAssessmentArgs {
     /**
      * Unique name of an assessment within a project.
      */
-    assessmentName?: string;
+    assessmentName: string;
     /**
      * Unique name of a group within a project.
      */
@@ -89,7 +89,7 @@ export interface GetAssessmentOutputArgs {
     /**
      * Unique name of an assessment within a project.
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
     /**
      * Unique name of a group within a project.
      */

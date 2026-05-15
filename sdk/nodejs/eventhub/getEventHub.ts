@@ -27,7 +27,7 @@ export interface GetEventHubArgs {
     /**
      * The Event Hub name
      */
-    eventHubName?: string;
+    eventHubName: string;
     /**
      * The Namespace name
      */
@@ -123,7 +123,7 @@ export interface GetEventHubOutputArgs {
     /**
      * The Event Hub name
      */
-    eventHubName?: pulumi.Input<string | undefined>;
+    eventHubName: pulumi.Input<string>;
     /**
      * The Namespace name
      */

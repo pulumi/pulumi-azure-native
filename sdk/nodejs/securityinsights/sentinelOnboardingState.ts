@@ -80,9 +80,6 @@ export class SentinelOnboardingState extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.sentinelOnboardingStateName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sentinelOnboardingStateName'");
-            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -125,7 +122,7 @@ export interface SentinelOnboardingStateArgs {
     /**
      * The Sentinel onboarding state name. Supports - default
      */
-    sentinelOnboardingStateName: pulumi.Input<string>;
+    sentinelOnboardingStateName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

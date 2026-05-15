@@ -176,9 +176,6 @@ export class DatabaseBlobAuditingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.blobAuditingPolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'blobAuditingPolicyName'");
-            }
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
@@ -302,7 +299,7 @@ export interface DatabaseBlobAuditingPolicyArgs {
     /**
      * The name of the blob auditing policy.
      */
-    blobAuditingPolicyName: pulumi.Input<string>;
+    blobAuditingPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the database.
      */

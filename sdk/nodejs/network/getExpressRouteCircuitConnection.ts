@@ -32,7 +32,7 @@ export interface GetExpressRouteCircuitConnectionArgs {
     /**
      * The name of the express route circuit connection.
      */
-    connectionName?: string;
+    connectionName: string;
     /**
      * The name of the peering.
      */
@@ -121,7 +121,7 @@ export interface GetExpressRouteCircuitConnectionOutputArgs {
     /**
      * The name of the express route circuit connection.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * The name of the peering.
      */

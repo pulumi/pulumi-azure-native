@@ -29,7 +29,7 @@ export interface GetCloudEdgeManagementRoleArgs {
     /**
      * The role name.
      */
-    name?: string;
+    name: string;
     /**
      * The resource group name.
      */
@@ -102,7 +102,7 @@ export interface GetCloudEdgeManagementRoleOutputArgs {
     /**
      * The role name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The resource group name.
      */

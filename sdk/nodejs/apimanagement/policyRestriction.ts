@@ -73,9 +73,6 @@ export class PolicyRestriction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.policyRestrictionId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'policyRestrictionId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -111,7 +108,7 @@ export interface PolicyRestrictionArgs {
     /**
      * Policy restrictions after an entity level
      */
-    policyRestrictionId: pulumi.Input<string>;
+    policyRestrictionId?: pulumi.Input<string | undefined>;
     /**
      * Indicates if base policy should be enforced for the policy document.
      */

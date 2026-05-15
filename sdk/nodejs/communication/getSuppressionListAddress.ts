@@ -29,7 +29,7 @@ export interface GetSuppressionListAddressArgs {
     /**
      * The id of the address in a suppression list.
      */
-    addressId?: string;
+    addressId: string;
     /**
      * The name of the Domains resource.
      */
@@ -119,7 +119,7 @@ export interface GetSuppressionListAddressOutputArgs {
     /**
      * The id of the address in a suppression list.
      */
-    addressId?: pulumi.Input<string | undefined>;
+    addressId: pulumi.Input<string>;
     /**
      * The name of the Domains resource.
      */

@@ -73,9 +73,6 @@ export class ActionRequest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.actionRequestName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'actionRequestName'");
-            }
             if (args?.requestType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requestType'");
             }
@@ -119,7 +116,7 @@ export class ActionRequest extends pulumi.CustomResource {
  * The set of arguments for constructing a ActionRequest resource.
  */
 export interface ActionRequestArgs {
-    actionRequestName: pulumi.Input<string>;
+    actionRequestName?: pulumi.Input<string | undefined>;
     preReleaseAccessRequestSpec?: pulumi.Input<inputs.testbase.PreReleaseAccessRequestSpecArgs | undefined>;
     requestType: pulumi.Input<string | enums.testbase.RequestTypes>;
     /**

@@ -27,7 +27,7 @@ export interface GetHypervHostControllerArgs {
     /**
      *  Host name
      */
-    hostName?: string;
+    hostName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetHypervHostControllerOutputArgs {
     /**
      *  Host name
      */
-    hostName?: pulumi.Input<string | undefined>;
+    hostName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

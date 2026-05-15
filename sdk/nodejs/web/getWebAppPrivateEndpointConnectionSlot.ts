@@ -32,7 +32,7 @@ export interface GetWebAppPrivateEndpointConnectionSlotArgs {
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -106,7 +106,7 @@ export interface GetWebAppPrivateEndpointConnectionSlotOutputArgs {
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

@@ -25,7 +25,7 @@ export interface GetImageDefinitionArgs {
     /**
      * The resource name of the test base image definition.
      */
-    imageDefinitionName?: string;
+    imageDefinitionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -92,7 +92,7 @@ export interface GetImageDefinitionOutputArgs {
     /**
      * The resource name of the test base image definition.
      */
-    imageDefinitionName?: pulumi.Input<string | undefined>;
+    imageDefinitionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

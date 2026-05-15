@@ -27,7 +27,7 @@ export interface GetIotHubDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName?: string;
+    dataConnectionName: string;
     /**
      * The name of the database in the Kusto cluster.
      */
@@ -131,7 +131,7 @@ export interface GetIotHubDataConnectionOutputArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName?: pulumi.Input<string | undefined>;
+    dataConnectionName: pulumi.Input<string>;
     /**
      * The name of the database in the Kusto cluster.
      */

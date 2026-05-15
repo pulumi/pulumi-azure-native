@@ -27,7 +27,7 @@ export interface GetApmArgs {
     /**
      * The name of the APM
      */
-    apmName?: string;
+    apmName: string;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -87,7 +87,7 @@ export interface GetApmOutputArgs {
     /**
      * The name of the APM
      */
-    apmName?: pulumi.Input<string | undefined>;
+    apmName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

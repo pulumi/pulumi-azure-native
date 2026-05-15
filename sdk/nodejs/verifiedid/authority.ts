@@ -79,9 +79,6 @@ export class Authority extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.authorityName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'authorityName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -117,7 +114,7 @@ export interface AuthorityArgs {
     /**
      * The ID of the authority
      */
-    authorityName: pulumi.Input<string>;
+    authorityName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

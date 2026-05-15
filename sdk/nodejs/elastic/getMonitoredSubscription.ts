@@ -27,7 +27,7 @@ export interface GetMonitoredSubscriptionArgs {
     /**
      * The configuration name. Only 'default' value is supported.
      */
-    configurationName?: string;
+    configurationName: string;
     /**
      * Monitor resource name
      */
@@ -83,7 +83,7 @@ export interface GetMonitoredSubscriptionOutputArgs {
     /**
      * The configuration name. Only 'default' value is supported.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
     /**
      * Monitor resource name
      */

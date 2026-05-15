@@ -36,7 +36,7 @@ export interface GetVirtualMachineExtensionArgs {
     /**
      * The name of the virtual machine extension.
      */
-    vmExtensionName?: string;
+    vmExtensionName: string;
     /**
      * The name of the virtual machine.
      */
@@ -153,7 +153,7 @@ export interface GetVirtualMachineExtensionOutputArgs {
     /**
      * The name of the virtual machine extension.
      */
-    vmExtensionName?: pulumi.Input<string | undefined>;
+    vmExtensionName: pulumi.Input<string>;
     /**
      * The name of the virtual machine.
      */

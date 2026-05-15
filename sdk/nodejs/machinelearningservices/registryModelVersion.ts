@@ -85,9 +85,6 @@ export class RegistryModelVersion extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.version === undefined && !opts.urn) {
-                throw new Error("Missing required property 'version'");
-            }
             resourceInputs["modelName"] = args?.modelName;
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.machinelearningservices.modelVersionPropertiesArgsProvideDefaults) : undefined;
             resourceInputs["registryName"] = args?.registryName;
@@ -134,5 +131,5 @@ export interface RegistryModelVersionArgs {
     /**
      * Version identifier. This is case-sensitive.
      */
-    version: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

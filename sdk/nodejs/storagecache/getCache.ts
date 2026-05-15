@@ -26,7 +26,7 @@ export interface GetCacheArgs {
     /**
      * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
-    cacheName?: string;
+    cacheName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -149,7 +149,7 @@ export interface GetCacheOutputArgs {
     /**
      * Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
      */
-    cacheName?: pulumi.Input<string | undefined>;
+    cacheName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

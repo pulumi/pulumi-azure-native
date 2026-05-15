@@ -24,7 +24,7 @@ export interface GetPublicCloudConnectorArgs {
     /**
      * Represent public cloud connectors resource.
      */
-    publicCloudConnector?: string;
+    publicCloudConnector: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetPublicCloudConnectorOutputArgs {
     /**
      * Represent public cloud connectors resource.
      */
-    publicCloudConnector?: pulumi.Input<string | undefined>;
+    publicCloudConnector: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

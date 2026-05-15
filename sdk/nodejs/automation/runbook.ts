@@ -151,9 +151,6 @@ export class Runbook extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.runbookName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'runbookName'");
-            }
             if (args?.runbookType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runbookType'");
             }
@@ -262,7 +259,7 @@ export interface RunbookArgs {
     /**
      * The runbook name.
      */
-    runbookName: pulumi.Input<string>;
+    runbookName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the type of the runbook.
      */

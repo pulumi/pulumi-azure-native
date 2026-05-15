@@ -172,9 +172,6 @@ export class VirtualHub extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.virtualHubName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualHubName'");
-            }
             resourceInputs["addressPrefix"] = args?.addressPrefix;
             resourceInputs["allowBranchToBranchTraffic"] = args?.allowBranchToBranchTraffic;
             resourceInputs["azureFirewall"] = args?.azureFirewall;
@@ -312,7 +309,7 @@ export interface VirtualHubArgs {
     /**
      * The name of the VirtualHub.
      */
-    virtualHubName: pulumi.Input<string>;
+    virtualHubName?: pulumi.Input<string | undefined>;
     /**
      * List of all virtual hub route table v2s associated with this VirtualHub.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.

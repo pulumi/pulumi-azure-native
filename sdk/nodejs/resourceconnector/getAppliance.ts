@@ -30,7 +30,7 @@ export interface GetApplianceArgs {
     /**
      * Appliances name.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetApplianceOutputArgs {
     /**
      * Appliances name.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

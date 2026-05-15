@@ -27,7 +27,7 @@ export interface GetKustoPoolArgs {
     /**
      * The name of the Kusto pool.
      */
-    kustoPoolName?: string;
+    kustoPoolName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -139,7 +139,7 @@ export interface GetKustoPoolOutputArgs {
     /**
      * The name of the Kusto pool.
      */
-    kustoPoolName?: pulumi.Input<string | undefined>;
+    kustoPoolName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -158,9 +158,6 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -276,7 +273,7 @@ export interface AppServiceEnvironmentArgs {
     /**
      * Name of the App Service Environment.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Full view of networking configuration for an ASE.
      */

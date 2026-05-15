@@ -35,7 +35,7 @@ export interface GetPureStoragePolicyArgs {
     /**
      * Name of the storage policy.
      */
-    storagePolicyName?: string;
+    storagePolicyName: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetPureStoragePolicyOutputArgs {
     /**
      * Name of the storage policy.
      */
-    storagePolicyName?: pulumi.Input<string | undefined>;
+    storagePolicyName: pulumi.Input<string>;
 }

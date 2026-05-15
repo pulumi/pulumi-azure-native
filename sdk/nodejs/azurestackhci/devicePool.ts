@@ -83,9 +83,6 @@ export class DevicePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.devicePoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'devicePoolName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface DevicePoolArgs {
     /**
      * The name of the DevicePool
      */
-    devicePoolName: pulumi.Input<string>;
+    devicePoolName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */

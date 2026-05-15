@@ -94,9 +94,6 @@ export class WorkspaceApiVersionSet extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (args?.versionSetId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'versionSetId'");
-            }
             if (args?.versioningScheme === undefined && !opts.urn) {
                 throw new Error("Missing required property 'versioningScheme'");
             }
@@ -163,7 +160,7 @@ export interface WorkspaceApiVersionSetArgs {
     /**
      * Api Version Set identifier. Must be unique in the current API Management service instance.
      */
-    versionSetId: pulumi.Input<string>;
+    versionSetId?: pulumi.Input<string | undefined>;
     /**
      * An value that determines where the API Version identifier will be located in a HTTP request.
      */

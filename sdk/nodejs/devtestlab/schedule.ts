@@ -122,9 +122,6 @@ export class Schedule extends pulumi.CustomResource {
             if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -196,7 +193,7 @@ export interface ScheduleArgs {
     /**
      * The name of the Schedule
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Notification settings.
      */

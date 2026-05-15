@@ -24,7 +24,7 @@ export interface GetElasticLoadBalancingV2TargetGroupArgs {
     /**
      * Name of ElasticLoadBalancingV2TargetGroup
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetElasticLoadBalancingV2TargetGroupOutputArgs {
     /**
      * Name of ElasticLoadBalancingV2TargetGroup
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

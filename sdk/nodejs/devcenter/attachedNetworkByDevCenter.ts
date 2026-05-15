@@ -89,9 +89,6 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.attachedNetworkConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'attachedNetworkConnectionName'");
-            }
             if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
@@ -138,7 +135,7 @@ export interface AttachedNetworkByDevCenterArgs {
     /**
      * The name of the attached NetworkConnection.
      */
-    attachedNetworkConnectionName: pulumi.Input<string>;
+    attachedNetworkConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the devcenter.
      */

@@ -75,9 +75,6 @@ export class TableServiceProperties extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.tableServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'tableServiceName'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["cors"] = args?.cors;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -117,5 +114,5 @@ export interface TableServicePropertiesArgs {
     /**
      * The name of the Table Service within the specified storage account. Table Service Name must be 'default'
      */
-    tableServiceName: pulumi.Input<string>;
+    tableServiceName?: pulumi.Input<string | undefined>;
 }

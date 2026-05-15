@@ -139,9 +139,6 @@ export class AgentPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.agentPoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'agentPoolName'");
-            }
             if (args?.count === undefined && !opts.urn) {
                 throw new Error("Missing required property 'count'");
             }
@@ -228,7 +225,7 @@ export interface AgentPoolArgs {
     /**
      * The name of the Kubernetes cluster agent pool.
      */
-    agentPoolName: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string | undefined>;
     /**
      * The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
      */

@@ -101,9 +101,6 @@ export class DevCenter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.devCenterName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'devCenterName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -149,7 +146,7 @@ export interface DevCenterArgs {
     /**
      * The name of the devcenter.
      */
-    devCenterName: pulumi.Input<string>;
+    devCenterName?: pulumi.Input<string | undefined>;
     /**
      * The display name of the devcenter.
      */

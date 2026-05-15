@@ -99,9 +99,6 @@ export class TransitHub extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.transitHubName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'transitHubName'");
-            }
             resourceInputs["communityName"] = args?.communityName;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -161,7 +158,7 @@ export interface TransitHubArgs {
     /**
      * The name of the TransitHub Resource
      */
-    transitHubName: pulumi.Input<string>;
+    transitHubName?: pulumi.Input<string | undefined>;
     /**
      * The TransitOption of the transitHub.
      */

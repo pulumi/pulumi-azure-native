@@ -100,9 +100,6 @@ export class KafkaConfiguration extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.kafkaConfigurationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'kafkaConfigurationName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -179,7 +176,7 @@ export interface KafkaConfigurationArgs {
     /**
      * Name of kafka configuration.
      */
-    kafkaConfigurationName: pulumi.Input<string>;
+    kafkaConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

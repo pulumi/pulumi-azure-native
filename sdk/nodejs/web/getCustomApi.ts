@@ -25,7 +25,7 @@ export interface GetCustomApiArgs {
     /**
      * API name
      */
-    apiName?: string;
+    apiName: string;
     /**
      * The resource group
      */
@@ -91,7 +91,7 @@ export interface GetCustomApiOutputArgs {
     /**
      * API name
      */
-    apiName?: pulumi.Input<string | undefined>;
+    apiName: pulumi.Input<string>;
     /**
      * The resource group
      */

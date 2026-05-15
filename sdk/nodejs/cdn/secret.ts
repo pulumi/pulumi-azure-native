@@ -88,9 +88,6 @@ export class Secret extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.secretName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'secretName'");
-            }
             resourceInputs["parameters"] = args?.parameters;
             resourceInputs["profileName"] = args?.profileName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -137,5 +134,5 @@ export interface SecretArgs {
     /**
      * Name of the Secret under the profile.
      */
-    secretName: pulumi.Input<string>;
+    secretName?: pulumi.Input<string | undefined>;
 }

@@ -27,7 +27,7 @@ export interface GetWebAppSiteContainerArgs {
     /**
      * Site Container Name
      */
-    containerName?: string;
+    containerName: string;
     /**
      * Name of the app.
      */
@@ -135,7 +135,7 @@ export interface GetWebAppSiteContainerOutputArgs {
     /**
      * Site Container Name
      */
-    containerName?: pulumi.Input<string | undefined>;
+    containerName: pulumi.Input<string>;
     /**
      * Name of the app.
      */

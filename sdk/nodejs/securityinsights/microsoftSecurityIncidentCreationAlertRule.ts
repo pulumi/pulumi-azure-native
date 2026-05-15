@@ -127,9 +127,6 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.ruleId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ruleId'");
-            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -219,7 +216,7 @@ export interface MicrosoftSecurityIncidentCreationAlertRuleArgs {
     /**
      * Alert rule ID
      */
-    ruleId: pulumi.Input<string>;
+    ruleId?: pulumi.Input<string | undefined>;
     /**
      * the alerts' severities on which the cases will be generated
      */

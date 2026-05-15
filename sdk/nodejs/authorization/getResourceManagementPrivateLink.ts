@@ -28,7 +28,7 @@ export interface GetResourceManagementPrivateLinkArgs {
     /**
      * The name of the resource management private link.
      */
-    rmplName?: string;
+    rmplName: string;
 }
 
 export interface GetResourceManagementPrivateLinkResult {
@@ -75,5 +75,5 @@ export interface GetResourceManagementPrivateLinkOutputArgs {
     /**
      * The name of the resource management private link.
      */
-    rmplName?: pulumi.Input<string | undefined>;
+    rmplName: pulumi.Input<string>;
 }

@@ -26,7 +26,7 @@ export interface GetApprovalArgs {
     /**
      * The name of the approvals resource.
      */
-    approvalName?: string;
+    approvalName: string;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -109,7 +109,7 @@ export interface GetApprovalOutputArgs {
     /**
      * The name of the approvals resource.
      */
-    approvalName?: pulumi.Input<string | undefined>;
+    approvalName: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

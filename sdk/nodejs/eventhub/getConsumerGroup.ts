@@ -28,7 +28,7 @@ export interface GetConsumerGroupArgs {
     /**
      * The consumer group name
      */
-    consumerGroupName?: string;
+    consumerGroupName: string;
     /**
      * The Event Hub name
      */
@@ -105,7 +105,7 @@ export interface GetConsumerGroupOutputArgs {
     /**
      * The consumer group name
      */
-    consumerGroupName?: pulumi.Input<string | undefined>;
+    consumerGroupName: pulumi.Input<string>;
     /**
      * The Event Hub name
      */

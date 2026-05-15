@@ -94,9 +94,6 @@ export class SolutionConfiguration extends pulumi.CustomResource {
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            if (args?.solutionConfiguration === undefined && !opts.urn) {
-                throw new Error("Missing required property 'solutionConfiguration'");
-            }
             if (args?.solutionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'solutionType'");
             }
@@ -142,7 +139,7 @@ export interface SolutionConfigurationArgs {
     /**
      * Represent Solution Configuration Resource.
      */
-    solutionConfiguration: pulumi.Input<string>;
+    solutionConfiguration?: pulumi.Input<string | undefined>;
     /**
      * Solution settings
      */

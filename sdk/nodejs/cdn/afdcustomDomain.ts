@@ -106,9 +106,6 @@ export class AFDCustomDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.customDomainName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'customDomainName'");
-            }
             if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
@@ -168,7 +165,7 @@ export interface AFDCustomDomainArgs {
     /**
      * Name of the domain under the profile which is unique globally.
      */
-    customDomainName: pulumi.Input<string>;
+    customDomainName?: pulumi.Input<string | undefined>;
     /**
      * Key-Value pair representing migration properties for domains.
      */

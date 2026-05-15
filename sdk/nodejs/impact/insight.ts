@@ -71,9 +71,6 @@ export class Insight extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.insightName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'insightName'");
-            }
             if (args?.workloadImpactName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workloadImpactName'");
             }
@@ -105,7 +102,7 @@ export interface InsightArgs {
     /**
      * Name of the insight
      */
-    insightName: pulumi.Input<string>;
+    insightName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

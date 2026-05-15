@@ -22,7 +22,7 @@ export interface GetRedisLinkedServerArgs {
     /**
      * The name of the linked server.
      */
-    linkedServerName?: string;
+    linkedServerName: string;
     /**
      * The name of the redis cache.
      */
@@ -88,7 +88,7 @@ export interface GetRedisLinkedServerOutputArgs {
     /**
      * The name of the linked server.
      */
-    linkedServerName?: pulumi.Input<string | undefined>;
+    linkedServerName: pulumi.Input<string>;
     /**
      * The name of the redis cache.
      */

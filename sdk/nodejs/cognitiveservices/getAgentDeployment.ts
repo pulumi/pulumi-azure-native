@@ -35,7 +35,7 @@ export interface GetAgentDeploymentArgs {
     /**
      * The name of the deployment associated with the Cognitive Services Account
      */
-    deploymentName?: string;
+    deploymentName: string;
     /**
      * The name of Cognitive Services account's project.
      */
@@ -103,7 +103,7 @@ export interface GetAgentDeploymentOutputArgs {
     /**
      * The name of the deployment associated with the Cognitive Services Account
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName: pulumi.Input<string>;
     /**
      * The name of Cognitive Services account's project.
      */

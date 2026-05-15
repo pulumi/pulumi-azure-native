@@ -29,7 +29,7 @@ export interface GetAnomaliesArgs {
     /**
      * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
      */
-    settingsName?: string;
+    settingsName: string;
     /**
      * The name of the workspace.
      */
@@ -96,7 +96,7 @@ export interface GetAnomaliesOutputArgs {
     /**
      * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
      */
-    settingsName?: pulumi.Input<string | undefined>;
+    settingsName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

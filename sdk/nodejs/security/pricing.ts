@@ -107,9 +107,6 @@ export class Pricing extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.pricingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'pricingName'");
-            }
             if (args?.pricingTier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pricingTier'");
             }
@@ -170,7 +167,7 @@ export interface PricingArgs {
     /**
      * name of the pricing configuration
      */
-    pricingName: pulumi.Input<string>;
+    pricingName?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the Defender plan is enabled on the selected scope. Microsoft Defender for Cloud is provided in two pricing tiers: free and standard. The standard tier offers advanced security capabilities, while the free tier offers basic security features.
      */

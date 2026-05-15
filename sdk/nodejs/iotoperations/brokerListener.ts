@@ -86,9 +86,6 @@ export class BrokerListener extends pulumi.CustomResource {
             if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if (args?.listenerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'listenerName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -136,7 +133,7 @@ export interface BrokerListenerArgs {
     /**
      * Name of Instance broker listener resource
      */
-    listenerName: pulumi.Input<string>;
+    listenerName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

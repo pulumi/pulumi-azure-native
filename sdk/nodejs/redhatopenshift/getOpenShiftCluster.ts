@@ -30,7 +30,7 @@ export interface GetOpenShiftClusterArgs {
     /**
      * The name of the OpenShift cluster resource.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -129,5 +129,5 @@ export interface GetOpenShiftClusterOutputArgs {
     /**
      * The name of the OpenShift cluster resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

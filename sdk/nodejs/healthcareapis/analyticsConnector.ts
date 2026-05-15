@@ -99,9 +99,6 @@ export class AnalyticsConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.analyticsConnectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'analyticsConnectorName'");
-            }
             if (args?.dataDestinationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataDestinationConfiguration'");
             }
@@ -160,7 +157,7 @@ export interface AnalyticsConnectorArgs {
     /**
      * The name of Analytics Connector resource.
      */
-    analyticsConnectorName: pulumi.Input<string>;
+    analyticsConnectorName?: pulumi.Input<string | undefined>;
     /**
      * Data destination configuration for Analytics Connector.
      */

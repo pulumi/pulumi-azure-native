@@ -31,7 +31,7 @@ export interface GetBillingRoleAssignmentByDepartmentArgs {
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    billingRoleAssignmentName?: string;
+    billingRoleAssignmentName: string;
     /**
      * The name of the department.
      */
@@ -95,7 +95,7 @@ export interface GetBillingRoleAssignmentByDepartmentOutputArgs {
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    billingRoleAssignmentName?: pulumi.Input<string | undefined>;
+    billingRoleAssignmentName: pulumi.Input<string>;
     /**
      * The name of the department.
      */

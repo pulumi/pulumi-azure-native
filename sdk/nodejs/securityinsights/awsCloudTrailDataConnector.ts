@@ -84,9 +84,6 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dataConnectorId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataConnectorId'");
-            }
             if (args?.dataTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataTypes'");
             }
@@ -138,7 +135,7 @@ export interface AwsCloudTrailDataConnectorArgs {
     /**
      * Connector ID
      */
-    dataConnectorId: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string | undefined>;
     /**
      * The available data types for the connector.
      */

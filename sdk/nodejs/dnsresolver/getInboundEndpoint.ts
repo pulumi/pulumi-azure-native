@@ -31,7 +31,7 @@ export interface GetInboundEndpointArgs {
     /**
      * The name of the inbound endpoint for the DNS resolver.
      */
-    inboundEndpointName?: string;
+    inboundEndpointName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetInboundEndpointOutputArgs {
     /**
      * The name of the inbound endpoint for the DNS resolver.
      */
-    inboundEndpointName?: pulumi.Input<string | undefined>;
+    inboundEndpointName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

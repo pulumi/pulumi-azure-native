@@ -84,9 +84,6 @@ export class RaiBlocklist extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.raiBlocklistName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'raiBlocklistName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +128,7 @@ export interface RaiBlocklistArgs {
     /**
      * The name of the RaiBlocklist associated with the Cognitive Services Account
      */
-    raiBlocklistName: pulumi.Input<string>;
+    raiBlocklistName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

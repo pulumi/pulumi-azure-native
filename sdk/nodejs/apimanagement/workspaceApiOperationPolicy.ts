@@ -79,9 +79,6 @@ export class WorkspaceApiOperationPolicy extends pulumi.CustomResource {
             if (args?.operationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operationId'");
             }
-            if (args?.policyId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'policyId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -138,7 +135,7 @@ export interface WorkspaceApiOperationPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId: pulumi.Input<string>;
+    policyId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

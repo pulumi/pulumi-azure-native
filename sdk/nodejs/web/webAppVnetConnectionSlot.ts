@@ -107,9 +107,6 @@ export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
             if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            if (args?.vnetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'vnetName'");
-            }
             resourceInputs["certBlob"] = args?.certBlob;
             resourceInputs["dnsServers"] = args?.dnsServers;
             resourceInputs["isSwift"] = args?.isSwift;
@@ -180,7 +177,7 @@ export interface WebAppVnetConnectionSlotArgs {
     /**
      * Name of an existing Virtual Network.
      */
-    vnetName: pulumi.Input<string>;
+    vnetName?: pulumi.Input<string | undefined>;
     /**
      * The Virtual Network's resource ID.
      */

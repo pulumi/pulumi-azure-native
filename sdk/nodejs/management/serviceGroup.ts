@@ -75,13 +75,10 @@ export class ServiceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ServiceGroupArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ServiceGroupArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.serviceGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'serviceGroupName'");
-            }
             resourceInputs["kind"] = args?.kind;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["serviceGroupName"] = args?.serviceGroupName;
@@ -121,7 +118,7 @@ export interface ServiceGroupArgs {
     /**
      * ServiceGroup Name.
      */
-    serviceGroupName: pulumi.Input<string>;
+    serviceGroupName?: pulumi.Input<string | undefined>;
     /**
      * The serviceGroup tags.
      */

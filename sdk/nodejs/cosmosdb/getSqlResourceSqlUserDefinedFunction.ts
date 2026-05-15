@@ -45,7 +45,7 @@ export interface GetSqlResourceSqlUserDefinedFunctionArgs {
     /**
      * Cosmos DB userDefinedFunction name.
      */
-    userDefinedFunctionName?: string;
+    userDefinedFunctionName: string;
 }
 
 /**
@@ -116,5 +116,5 @@ export interface GetSqlResourceSqlUserDefinedFunctionOutputArgs {
     /**
      * Cosmos DB userDefinedFunction name.
      */
-    userDefinedFunctionName?: pulumi.Input<string | undefined>;
+    userDefinedFunctionName: pulumi.Input<string>;
 }

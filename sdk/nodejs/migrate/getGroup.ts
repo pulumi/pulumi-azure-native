@@ -25,7 +25,7 @@ export interface GetGroupArgs {
     /**
      * Unique name of a group within a project.
      */
-    groupName?: string;
+    groupName: string;
     /**
      * Name of the Azure Migrate project.
      */
@@ -83,7 +83,7 @@ export interface GetGroupOutputArgs {
     /**
      * Unique name of a group within a project.
      */
-    groupName?: pulumi.Input<string | undefined>;
+    groupName: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */

@@ -90,9 +90,6 @@ export class CustomResourceProvider extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceProviderName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceProviderName'");
-            }
             resourceInputs["actions"] = args?.actions;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -141,7 +138,7 @@ export interface CustomResourceProviderArgs {
     /**
      * The name of the resource provider.
      */
-    resourceProviderName: pulumi.Input<string>;
+    resourceProviderName?: pulumi.Input<string | undefined>;
     /**
      * A list of resource types that the custom resource provider implements.
      */

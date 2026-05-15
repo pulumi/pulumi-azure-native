@@ -30,7 +30,7 @@ export interface GetPrometheusRuleGroupArgs {
     /**
      * The name of the rule group.
      */
-    ruleGroupName?: string;
+    ruleGroupName: string;
 }
 
 /**
@@ -113,5 +113,5 @@ export interface GetPrometheusRuleGroupOutputArgs {
     /**
      * The name of the rule group.
      */
-    ruleGroupName?: pulumi.Input<string | undefined>;
+    ruleGroupName: pulumi.Input<string>;
 }

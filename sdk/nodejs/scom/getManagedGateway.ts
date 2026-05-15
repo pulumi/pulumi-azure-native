@@ -29,7 +29,7 @@ export interface GetManagedGatewayArgs {
     /**
      * The gateway resource name.
      */
-    managedGatewayName?: string;
+    managedGatewayName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetManagedGatewayOutputArgs {
     /**
      * The gateway resource name.
      */
-    managedGatewayName?: pulumi.Input<string | undefined>;
+    managedGatewayName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -31,7 +31,7 @@ export interface GetEventHubConnectionArgs {
     /**
      * The name of the event hub connection.
      */
-    eventHubConnectionName?: string;
+    eventHubConnectionName: string;
     /**
      * The name of the resource group containing the Kusto cluster.
      */
@@ -110,7 +110,7 @@ export interface GetEventHubConnectionOutputArgs {
     /**
      * The name of the event hub connection.
      */
-    eventHubConnectionName?: pulumi.Input<string | undefined>;
+    eventHubConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group containing the Kusto cluster.
      */

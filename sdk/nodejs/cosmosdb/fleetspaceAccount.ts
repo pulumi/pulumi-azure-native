@@ -80,9 +80,6 @@ export class FleetspaceAccount extends pulumi.CustomResource {
             if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
-            if (args?.fleetspaceAccountName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'fleetspaceAccountName'");
-            }
             if (args?.fleetspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetspaceName'");
             }
@@ -125,7 +122,7 @@ export interface FleetspaceAccountArgs {
     /**
      * Cosmos DB fleetspace account name.
      */
-    fleetspaceAccountName: pulumi.Input<string>;
+    fleetspaceAccountName?: pulumi.Input<string | undefined>;
     /**
      * Cosmos DB fleetspace name. Needs to be unique under a fleet.
      */

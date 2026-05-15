@@ -35,7 +35,7 @@ export interface GetSecurityPolicyArgs {
     /**
      * Name of the security policy under the profile.
      */
-    securityPolicyName?: string;
+    securityPolicyName: string;
 }
 
 /**
@@ -104,5 +104,5 @@ export interface GetSecurityPolicyOutputArgs {
     /**
      * Name of the security policy under the profile.
      */
-    securityPolicyName?: pulumi.Input<string | undefined>;
+    securityPolicyName: pulumi.Input<string>;
 }

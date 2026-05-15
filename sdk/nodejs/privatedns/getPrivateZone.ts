@@ -26,7 +26,7 @@ export interface GetPrivateZoneArgs {
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
-    privateZoneName?: string;
+    privateZoneName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,7 +121,7 @@ export interface GetPrivateZoneOutputArgs {
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
-    privateZoneName?: pulumi.Input<string | undefined>;
+    privateZoneName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

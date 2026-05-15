@@ -133,9 +133,6 @@ export class ActionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.actionGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'actionGroupName'");
-            }
             if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
@@ -203,7 +200,7 @@ export interface ActionGroupArgs {
     /**
      * The name of the action group.
      */
-    actionGroupName: pulumi.Input<string>;
+    actionGroupName?: pulumi.Input<string | undefined>;
     /**
      * The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
      */

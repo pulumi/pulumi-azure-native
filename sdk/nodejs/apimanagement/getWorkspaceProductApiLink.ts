@@ -26,7 +26,7 @@ export interface GetWorkspaceProductApiLinkArgs {
     /**
      * Product-API link identifier. Must be unique in the current API Management service instance.
      */
-    apiLinkId?: string;
+    apiLinkId: string;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
@@ -92,7 +92,7 @@ export interface GetWorkspaceProductApiLinkOutputArgs {
     /**
      * Product-API link identifier. Must be unique in the current API Management service instance.
      */
-    apiLinkId?: pulumi.Input<string | undefined>;
+    apiLinkId: pulumi.Input<string>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

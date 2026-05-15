@@ -25,7 +25,7 @@ export interface GetWebAppInstanceFunctionSlotArgs {
     /**
      * Function name.
      */
-    functionName?: string;
+    functionName: string;
     /**
      * Site name.
      */
@@ -138,7 +138,7 @@ export interface GetWebAppInstanceFunctionSlotOutputArgs {
     /**
      * Function name.
      */
-    functionName?: pulumi.Input<string | undefined>;
+    functionName: pulumi.Input<string>;
     /**
      * Site name.
      */

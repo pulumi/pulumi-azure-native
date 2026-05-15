@@ -37,7 +37,7 @@ export interface GetReplicationProtectionClusterArgs {
     /**
      * Replication protection cluster name.
      */
-    replicationProtectionClusterName?: string;
+    replicationProtectionClusterName: string;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -103,7 +103,7 @@ export interface GetReplicationProtectionClusterOutputArgs {
     /**
      * Replication protection cluster name.
      */
-    replicationProtectionClusterName?: pulumi.Input<string | undefined>;
+    replicationProtectionClusterName: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

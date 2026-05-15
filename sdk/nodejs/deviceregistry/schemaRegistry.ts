@@ -111,9 +111,6 @@ export class SchemaRegistry extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.schemaRegistryName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'schemaRegistryName'");
-            }
             if (args?.storageAccountContainerUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountContainerUrl'");
             }
@@ -185,7 +182,7 @@ export interface SchemaRegistryArgs {
     /**
      * Schema registry name parameter.
      */
-    schemaRegistryName: pulumi.Input<string>;
+    schemaRegistryName?: pulumi.Input<string | undefined>;
     /**
      * The Storage Account's Container URL where schemas will be stored.
      */

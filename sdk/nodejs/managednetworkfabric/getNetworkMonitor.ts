@@ -24,7 +24,7 @@ export interface GetNetworkMonitorArgs {
     /**
      * Name of the Network Monitor.
      */
-    networkMonitorName?: string;
+    networkMonitorName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetNetworkMonitorOutputArgs {
     /**
      * Name of the Network Monitor.
      */
-    networkMonitorName?: pulumi.Input<string | undefined>;
+    networkMonitorName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

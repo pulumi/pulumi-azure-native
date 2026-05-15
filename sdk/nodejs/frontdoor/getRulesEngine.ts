@@ -35,7 +35,7 @@ export interface GetRulesEngineArgs {
     /**
      * Name of the Rules Engine which is unique within the Front Door.
      */
-    rulesEngineName?: string;
+    rulesEngineName: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetRulesEngineOutputArgs {
     /**
      * Name of the Rules Engine which is unique within the Front Door.
      */
-    rulesEngineName?: pulumi.Input<string | undefined>;
+    rulesEngineName: pulumi.Input<string>;
 }

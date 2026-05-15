@@ -84,9 +84,6 @@ export class AATPDataConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dataConnectorId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataConnectorId'");
-            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -134,7 +131,7 @@ export interface AATPDataConnectorArgs {
     /**
      * Connector ID
      */
-    dataConnectorId: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string | undefined>;
     /**
      * The available data types for the connector.
      */

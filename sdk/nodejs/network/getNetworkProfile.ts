@@ -31,7 +31,7 @@ export interface GetNetworkProfileArgs {
     /**
      * The name of the public IP prefix.
      */
-    networkProfileName?: string;
+    networkProfileName: string;
     /**
      * The name of the resource group.
      */
@@ -111,7 +111,7 @@ export interface GetNetworkProfileOutputArgs {
     /**
      * The name of the public IP prefix.
      */
-    networkProfileName?: pulumi.Input<string | undefined>;
+    networkProfileName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

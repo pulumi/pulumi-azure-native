@@ -31,7 +31,7 @@ export interface GetIpGroupArgs {
     /**
      * The name of the ipGroups.
      */
-    ipGroupsName?: string;
+    ipGroupsName: string;
     /**
      * The name of the resource group.
      */
@@ -111,7 +111,7 @@ export interface GetIpGroupOutputArgs {
     /**
      * The name of the ipGroups.
      */
-    ipGroupsName?: pulumi.Input<string | undefined>;
+    ipGroupsName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

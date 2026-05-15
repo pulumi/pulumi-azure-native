@@ -93,9 +93,6 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.authConfigName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'authConfigName'");
-            }
             if (args?.containerAppName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppName'");
             }
@@ -141,7 +138,7 @@ export interface ContainerAppsAuthConfigArgs {
     /**
      * Name of the Container App AuthConfig.
      */
-    authConfigName: pulumi.Input<string>;
+    authConfigName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Container App.
      */

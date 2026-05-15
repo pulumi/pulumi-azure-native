@@ -101,13 +101,10 @@ export class Assessment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AssessmentArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.assessmentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'assessmentName'");
-            }
             resourceInputs["assessmentName"] = args?.assessmentName;
             resourceInputs["locale"] = args?.locale;
             resourceInputs["typeId"] = args?.typeId;
@@ -151,7 +148,7 @@ export interface AssessmentArgs {
     /**
      * Advisor assessment name.
      */
-    assessmentName: pulumi.Input<string>;
+    assessmentName?: pulumi.Input<string | undefined>;
     /**
      * Assessment Type Locale.
      */

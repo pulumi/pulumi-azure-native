@@ -35,7 +35,7 @@ export interface GetSyncGroupArgs {
     /**
      * Name of Sync Group resource.
      */
-    syncGroupName?: string;
+    syncGroupName: string;
 }
 
 /**
@@ -99,5 +99,5 @@ export interface GetSyncGroupOutputArgs {
     /**
      * Name of Sync Group resource.
      */
-    syncGroupName?: pulumi.Input<string | undefined>;
+    syncGroupName: pulumi.Input<string>;
 }

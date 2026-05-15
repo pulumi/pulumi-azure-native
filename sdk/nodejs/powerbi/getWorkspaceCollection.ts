@@ -28,7 +28,7 @@ export interface GetWorkspaceCollectionArgs {
     /**
      * Power BI Embedded Workspace Collection name
      */
-    workspaceCollectionName?: string;
+    workspaceCollectionName: string;
 }
 
 export interface GetWorkspaceCollectionResult {
@@ -80,5 +80,5 @@ export interface GetWorkspaceCollectionOutputArgs {
     /**
      * Power BI Embedded Workspace Collection name
      */
-    workspaceCollectionName?: pulumi.Input<string | undefined>;
+    workspaceCollectionName: pulumi.Input<string>;
 }

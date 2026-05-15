@@ -25,7 +25,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * Name of the attestation provider.
      */
@@ -91,7 +91,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
     /**
      * The name of the private endpoint connection associated with the Azure resource
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * Name of the attestation provider.
      */

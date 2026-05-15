@@ -22,7 +22,7 @@ export interface GetAPICollectionArgs {
     /**
      * A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
      */
-    apiCollectionId?: string;
+    apiCollectionId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -80,7 +80,7 @@ export interface GetAPICollectionOutputArgs {
     /**
      * A string representing the apiCollections resource within the Microsoft.Security provider namespace. This string matches the Azure API Management API name.
      */
-    apiCollectionId?: pulumi.Input<string | undefined>;
+    apiCollectionId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

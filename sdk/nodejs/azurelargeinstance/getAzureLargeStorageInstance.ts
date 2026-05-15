@@ -25,7 +25,7 @@ export interface GetAzureLargeStorageInstanceArgs {
     /**
      * Name of the AzureLargeStorageInstance.
      */
-    azureLargeStorageInstanceName?: string;
+    azureLargeStorageInstanceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -96,7 +96,7 @@ export interface GetAzureLargeStorageInstanceOutputArgs {
     /**
      * Name of the AzureLargeStorageInstance.
      */
-    azureLargeStorageInstanceName?: pulumi.Input<string | undefined>;
+    azureLargeStorageInstanceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

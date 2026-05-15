@@ -73,9 +73,6 @@ export class AuthenticationSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.authenticationSettingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'authenticationSettingName'");
-            }
             if (args?.healthModelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'healthModelName'");
             }
@@ -111,7 +108,7 @@ export interface AuthenticationSettingArgs {
     /**
      * Name of the authentication setting. Must be unique within a health model.
      */
-    authenticationSettingName: pulumi.Input<string>;
+    authenticationSettingName?: pulumi.Input<string | undefined>;
     /**
      * Name of health model resource
      */

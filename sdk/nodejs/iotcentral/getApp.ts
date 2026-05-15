@@ -30,7 +30,7 @@ export interface GetAppArgs {
     /**
      * The ARM resource name of the IoT Central application.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -133,5 +133,5 @@ export interface GetAppOutputArgs {
     /**
      * The ARM resource name of the IoT Central application.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

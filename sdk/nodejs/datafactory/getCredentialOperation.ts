@@ -25,7 +25,7 @@ export interface GetCredentialOperationArgs {
     /**
      * Credential name
      */
-    credentialName?: string;
+    credentialName: string;
     /**
      * The factory name.
      */
@@ -83,7 +83,7 @@ export interface GetCredentialOperationOutputArgs {
     /**
      * Credential name
      */
-    credentialName?: pulumi.Input<string | undefined>;
+    credentialName: pulumi.Input<string>;
     /**
      * The factory name.
      */

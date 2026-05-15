@@ -309,9 +309,6 @@ export class WebApp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -579,7 +576,7 @@ export interface WebAppArgs {
     /**
      * Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Property to configure various outbound traffic routing options over virtual network for a site
      */

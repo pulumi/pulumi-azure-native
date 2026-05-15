@@ -121,9 +121,6 @@ export class NamespaceDiscoveredDevice extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.discoveredDeviceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'discoveredDeviceName'");
-            }
             if (args?.discoveryId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'discoveryId'");
             }
@@ -196,7 +193,7 @@ export interface NamespaceDiscoveredDeviceArgs {
     /**
      * The name of the discovered device.
      */
-    discoveredDeviceName: pulumi.Input<string>;
+    discoveredDeviceName?: pulumi.Input<string | undefined>;
     /**
      * Identifier used to detect changes in the discovered device.
      */

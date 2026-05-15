@@ -27,7 +27,7 @@ export interface GetContainerAppsAuthConfigArgs {
     /**
      * Name of the Container App AuthConfig.
      */
-    authConfigName?: string;
+    authConfigName: string;
     /**
      * Name of the Container App.
      */
@@ -107,7 +107,7 @@ export interface GetContainerAppsAuthConfigOutputArgs {
     /**
      * Name of the Container App AuthConfig.
      */
-    authConfigName?: pulumi.Input<string | undefined>;
+    authConfigName: pulumi.Input<string>;
     /**
      * Name of the Container App.
      */

@@ -115,9 +115,6 @@ export class DiagnosticService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.diagnosticServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'diagnosticServiceName'");
-            }
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
@@ -185,7 +182,7 @@ export interface DiagnosticServiceArgs {
     /**
      * Name of MQ diagnostic resource
      */
-    diagnosticServiceName: pulumi.Input<string>;
+    diagnosticServiceName?: pulumi.Input<string | undefined>;
     /**
      * Extended Location
      */

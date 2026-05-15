@@ -90,9 +90,6 @@ export class FileEventTrigger extends pulumi.CustomResource {
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -149,7 +146,7 @@ export interface FileEventTriggerArgs {
     /**
      * The trigger name.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */

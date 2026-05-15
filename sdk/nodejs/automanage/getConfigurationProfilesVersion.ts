@@ -35,7 +35,7 @@ export interface GetConfigurationProfilesVersionArgs {
     /**
      * The configuration profile version name.
      */
-    versionName?: string;
+    versionName: string;
 }
 
 /**
@@ -103,5 +103,5 @@ export interface GetConfigurationProfilesVersionOutputArgs {
     /**
      * The configuration profile version name.
      */
-    versionName?: pulumi.Input<string | undefined>;
+    versionName: pulumi.Input<string>;
 }

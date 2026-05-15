@@ -26,7 +26,7 @@ export interface GetLabPlanArgs {
     /**
      * The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
      */
-    labPlanName?: string;
+    labPlanName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetLabPlanOutputArgs {
     /**
      * The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
      */
-    labPlanName?: pulumi.Input<string | undefined>;
+    labPlanName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

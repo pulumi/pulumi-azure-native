@@ -66,9 +66,6 @@ export class NotificationRecipientEmail extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.email === undefined && !opts.urn) {
-                throw new Error("Missing required property 'email'");
-            }
             if (args?.notificationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationName'");
             }
@@ -105,7 +102,7 @@ export interface NotificationRecipientEmailArgs {
     /**
      * Email identifier.
      */
-    email: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Notification Name Identifier.
      */

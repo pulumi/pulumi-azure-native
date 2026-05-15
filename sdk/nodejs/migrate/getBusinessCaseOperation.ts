@@ -27,7 +27,7 @@ export interface GetBusinessCaseOperationArgs {
     /**
      * Business case ARM name
      */
-    businessCaseName?: string;
+    businessCaseName: string;
     /**
      * Assessment Project Name
      */
@@ -99,7 +99,7 @@ export interface GetBusinessCaseOperationOutputArgs {
     /**
      * Business case ARM name
      */
-    businessCaseName?: pulumi.Input<string | undefined>;
+    businessCaseName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

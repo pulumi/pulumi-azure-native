@@ -27,7 +27,7 @@ export interface GetWorkspaceConnectionArgs {
     /**
      * Friendly name of the workspace connection
      */
-    connectionName?: string;
+    connectionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,7 +84,7 @@ export interface GetWorkspaceConnectionOutputArgs {
     /**
      * Friendly name of the workspace connection
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

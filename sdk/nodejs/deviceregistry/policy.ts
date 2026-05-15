@@ -84,9 +84,6 @@ export class Policy extends pulumi.CustomResource {
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (args?.policyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -131,7 +128,7 @@ export interface PolicyArgs {
     /**
      * The name of the Policy tracked resource.
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * The RP-specific properties for this resource.
      */

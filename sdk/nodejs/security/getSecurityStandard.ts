@@ -28,7 +28,7 @@ export interface GetSecurityStandardArgs {
     /**
      * The Security Standard key - unique key for the standard type
      */
-    standardId?: string;
+    standardId: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetSecurityStandardOutputArgs {
     /**
      * The Security Standard key - unique key for the standard type
      */
-    standardId?: pulumi.Input<string | undefined>;
+    standardId: pulumi.Input<string>;
 }

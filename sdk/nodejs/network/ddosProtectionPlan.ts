@@ -93,9 +93,6 @@ export class DdosProtectionPlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.ddosProtectionPlanName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ddosProtectionPlanName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +134,7 @@ export interface DdosProtectionPlanArgs {
     /**
      * The name of the DDoS protection plan.
      */
-    ddosProtectionPlanName: pulumi.Input<string>;
+    ddosProtectionPlanName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */

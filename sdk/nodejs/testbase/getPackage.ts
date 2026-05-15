@@ -27,7 +27,7 @@ export interface GetPackageArgs {
     /**
      * The resource name of the Test Base Package.
      */
-    packageName?: string;
+    packageName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -159,7 +159,7 @@ export interface GetPackageOutputArgs {
     /**
      * The resource name of the Test Base Package.
      */
-    packageName?: pulumi.Input<string | undefined>;
+    packageName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

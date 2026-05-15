@@ -25,7 +25,7 @@ export interface GetAzureLargeInstanceArgs {
     /**
      * Name of the AzureLargeInstance.
      */
-    azureLargeInstanceName?: string;
+    azureLargeInstanceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,7 +120,7 @@ export interface GetAzureLargeInstanceOutputArgs {
     /**
      * Name of the AzureLargeInstance.
      */
-    azureLargeInstanceName?: pulumi.Input<string | undefined>;
+    azureLargeInstanceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

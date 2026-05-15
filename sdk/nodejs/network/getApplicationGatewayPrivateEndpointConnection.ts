@@ -31,7 +31,7 @@ export interface GetApplicationGatewayPrivateEndpointConnectionArgs {
     /**
      * The name of the application gateway private endpoint connection.
      */
-    connectionName?: string;
+    connectionName: string;
     /**
      * The name of the resource group.
      */
@@ -103,7 +103,7 @@ export interface GetApplicationGatewayPrivateEndpointConnectionOutputArgs {
     /**
      * The name of the application gateway private endpoint connection.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

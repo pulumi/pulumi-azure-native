@@ -100,9 +100,6 @@ export class Watcher extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.watcherName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'watcherName'");
-            }
             resourceInputs["datastore"] = args?.datastore;
             resourceInputs["defaultAlertRuleIdentityResourceId"] = args?.defaultAlertRuleIdentityResourceId;
             resourceInputs["identity"] = args?.identity;
@@ -167,5 +164,5 @@ export interface WatcherArgs {
     /**
      * The database watcher name.
      */
-    watcherName: pulumi.Input<string>;
+    watcherName?: pulumi.Input<string | undefined>;
 }

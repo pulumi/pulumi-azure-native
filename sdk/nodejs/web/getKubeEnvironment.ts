@@ -26,7 +26,7 @@ export interface GetKubeEnvironmentArgs {
     /**
      * Name of the Kubernetes Environment.
      */
-    name?: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -130,7 +130,7 @@ export interface GetKubeEnvironmentOutputArgs {
     /**
      * Name of the Kubernetes Environment.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

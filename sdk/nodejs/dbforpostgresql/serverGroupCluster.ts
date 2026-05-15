@@ -205,9 +205,6 @@ export class ServerGroupCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.clusterName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'clusterName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -318,7 +315,7 @@ export interface ServerGroupClusterArgs {
     /**
      * The name of the cluster.
      */
-    clusterName: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * If public access is enabled on coordinator.
      */

@@ -83,9 +83,6 @@ export class DeidService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.deidServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deidServiceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface DeidServiceArgs {
     /**
      * The name of the deid service
      */
-    deidServiceName: pulumi.Input<string>;
+    deidServiceName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */

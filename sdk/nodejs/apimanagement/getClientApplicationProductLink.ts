@@ -29,7 +29,7 @@ export interface GetClientApplicationProductLinkArgs {
     /**
      * Client Application Product Link identifier. Must be unique in the current API Management service instance.
      */
-    clientApplicationProductLinkId?: string;
+    clientApplicationProductLinkId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -90,7 +90,7 @@ export interface GetClientApplicationProductLinkOutputArgs {
     /**
      * Client Application Product Link identifier. Must be unique in the current API Management service instance.
      */
-    clientApplicationProductLinkId?: pulumi.Input<string | undefined>;
+    clientApplicationProductLinkId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

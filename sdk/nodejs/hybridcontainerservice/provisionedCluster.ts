@@ -84,9 +84,6 @@ export class ProvisionedCluster extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
@@ -140,7 +137,7 @@ export interface ProvisionedClusterArgs {
     /**
      * Parameter for the name of the provisioned cluster
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

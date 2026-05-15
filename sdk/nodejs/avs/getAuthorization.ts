@@ -27,7 +27,7 @@ export interface GetAuthorizationArgs {
     /**
      * Name of the ExpressRoute Circuit Authorization
      */
-    authorizationName?: string;
+    authorizationName: string;
     /**
      * Name of the private cloud
      */
@@ -99,7 +99,7 @@ export interface GetAuthorizationOutputArgs {
     /**
      * Name of the ExpressRoute Circuit Authorization
      */
-    authorizationName?: pulumi.Input<string | undefined>;
+    authorizationName: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

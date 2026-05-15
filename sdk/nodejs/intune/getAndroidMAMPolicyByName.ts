@@ -26,7 +26,7 @@ export interface GetAndroidMAMPolicyByNameArgs {
     /**
      * Unique name for the policy
      */
-    policyName?: string;
+    policyName: string;
     /**
      * select specific fields in entity.
      */
@@ -104,7 +104,7 @@ export interface GetAndroidMAMPolicyByNameOutputArgs {
     /**
      * Unique name for the policy
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName: pulumi.Input<string>;
     /**
      * select specific fields in entity.
      */

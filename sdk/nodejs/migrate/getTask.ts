@@ -35,7 +35,7 @@ export interface GetTaskArgs {
     /**
      * Task ARM name
      */
-    taskName?: string;
+    taskName: string;
 }
 
 /**
@@ -99,5 +99,5 @@ export interface GetTaskOutputArgs {
     /**
      * Task ARM name
      */
-    taskName?: pulumi.Input<string | undefined>;
+    taskName: pulumi.Input<string>;
 }

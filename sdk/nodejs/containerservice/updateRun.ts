@@ -115,9 +115,6 @@ export class UpdateRun extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.updateRunName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'updateRunName'");
-            }
             resourceInputs["fleetName"] = args?.fleetName;
             resourceInputs["managedClusterUpdate"] = args?.managedClusterUpdate;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -175,7 +172,7 @@ export interface UpdateRunArgs {
     /**
      * The name of the UpdateRun resource.
      */
-    updateRunName: pulumi.Input<string>;
+    updateRunName?: pulumi.Input<string | undefined>;
     /**
      * The resource id of the FleetUpdateStrategy resource to reference.
      *

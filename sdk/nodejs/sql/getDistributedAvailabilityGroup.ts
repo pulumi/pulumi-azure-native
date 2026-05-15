@@ -27,7 +27,7 @@ export interface GetDistributedAvailabilityGroupArgs {
     /**
      * The distributed availability group name.
      */
-    distributedAvailabilityGroupName?: string;
+    distributedAvailabilityGroupName: string;
     /**
      * The name of the managed instance.
      */
@@ -123,7 +123,7 @@ export interface GetDistributedAvailabilityGroupOutputArgs {
     /**
      * The distributed availability group name.
      */
-    distributedAvailabilityGroupName?: pulumi.Input<string | undefined>;
+    distributedAvailabilityGroupName: pulumi.Input<string>;
     /**
      * The name of the managed instance.
      */

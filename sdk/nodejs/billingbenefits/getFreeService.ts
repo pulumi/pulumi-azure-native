@@ -24,7 +24,7 @@ export interface GetFreeServiceArgs {
     /**
      * Name of the free service
      */
-    freeServiceName?: string;
+    freeServiceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -141,7 +141,7 @@ export interface GetFreeServiceOutputArgs {
     /**
      * Name of the free service
      */
-    freeServiceName?: pulumi.Input<string | undefined>;
+    freeServiceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

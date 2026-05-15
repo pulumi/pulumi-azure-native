@@ -26,7 +26,7 @@ export interface GetMonitorArgs {
     /**
      * Name of the SAP monitor resource.
      */
-    monitorName?: string;
+    monitorName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -133,7 +133,7 @@ export interface GetMonitorOutputArgs {
     /**
      * Name of the SAP monitor resource.
      */
-    monitorName?: pulumi.Input<string | undefined>;
+    monitorName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

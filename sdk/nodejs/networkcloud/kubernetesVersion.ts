@@ -92,9 +92,6 @@ export class KubernetesVersion extends pulumi.CustomResource {
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if (args?.kubernetesVersionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'kubernetesVersionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -140,7 +137,7 @@ export interface KubernetesVersionArgs {
     /**
      * The name of the Kubernetes version resource.
      */
-    kubernetesVersionName: pulumi.Input<string>;
+    kubernetesVersionName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

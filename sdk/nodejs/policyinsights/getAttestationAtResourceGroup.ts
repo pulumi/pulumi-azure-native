@@ -26,7 +26,7 @@ export interface GetAttestationAtResourceGroupArgs {
     /**
      * The name of the attestation.
      */
-    attestationName?: string;
+    attestationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,7 +121,7 @@ export interface GetAttestationAtResourceGroupOutputArgs {
     /**
      * The name of the attestation.
      */
-    attestationName?: pulumi.Input<string | undefined>;
+    attestationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

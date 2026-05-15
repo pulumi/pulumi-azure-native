@@ -104,9 +104,6 @@ export class IncidentTask extends pulumi.CustomResource {
             if (args?.incidentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'incidentId'");
             }
-            if (args?.incidentTaskId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'incidentTaskId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -175,7 +172,7 @@ export interface IncidentTaskArgs {
     /**
      * Incident task ID
      */
-    incidentTaskId: pulumi.Input<string>;
+    incidentTaskId?: pulumi.Input<string | undefined>;
     /**
      * Information on the client (user or application) that made some action
      */

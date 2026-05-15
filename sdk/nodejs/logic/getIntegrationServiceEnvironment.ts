@@ -24,7 +24,7 @@ export interface GetIntegrationServiceEnvironmentArgs {
     /**
      * The integration service environment name.
      */
-    integrationServiceEnvironmentName?: string;
+    integrationServiceEnvironmentName: string;
     /**
      * The resource group.
      */
@@ -89,7 +89,7 @@ export interface GetIntegrationServiceEnvironmentOutputArgs {
     /**
      * The integration service environment name.
      */
-    integrationServiceEnvironmentName?: pulumi.Input<string | undefined>;
+    integrationServiceEnvironmentName: pulumi.Input<string>;
     /**
      * The resource group.
      */

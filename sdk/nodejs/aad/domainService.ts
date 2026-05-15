@@ -153,9 +153,6 @@ export class DomainService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.domainServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'domainServiceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -243,7 +240,7 @@ export interface DomainServiceArgs {
     /**
      * The name of the domain service.
      */
-    domainServiceName: pulumi.Input<string>;
+    domainServiceName?: pulumi.Input<string | undefined>;
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */

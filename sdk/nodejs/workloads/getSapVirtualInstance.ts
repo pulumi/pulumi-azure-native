@@ -28,7 +28,7 @@ export interface GetSapVirtualInstanceArgs {
     /**
      * The name of the Virtual Instances for SAP solutions resource
      */
-    sapVirtualInstanceName?: string;
+    sapVirtualInstanceName: string;
 }
 
 /**
@@ -129,5 +129,5 @@ export interface GetSapVirtualInstanceOutputArgs {
     /**
      * The name of the Virtual Instances for SAP solutions resource
      */
-    sapVirtualInstanceName?: pulumi.Input<string | undefined>;
+    sapVirtualInstanceName: pulumi.Input<string>;
 }

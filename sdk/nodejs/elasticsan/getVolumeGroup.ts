@@ -35,7 +35,7 @@ export interface GetVolumeGroupArgs {
     /**
      * The name of the VolumeGroup.
      */
-    volumeGroupName?: string;
+    volumeGroupName: string;
 }
 
 /**
@@ -123,5 +123,5 @@ export interface GetVolumeGroupOutputArgs {
     /**
      * The name of the VolumeGroup.
      */
-    volumeGroupName?: pulumi.Input<string | undefined>;
+    volumeGroupName: pulumi.Input<string>;
 }

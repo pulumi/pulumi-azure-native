@@ -94,9 +94,6 @@ export class PermissionBinding extends pulumi.CustomResource {
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (args?.permissionBindingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'permissionBindingName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -154,7 +151,7 @@ export interface PermissionBindingArgs {
     /**
      * The permission binding name.
      */
-    permissionBindingName: pulumi.Input<string>;
+    permissionBindingName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */

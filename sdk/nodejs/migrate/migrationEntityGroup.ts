@@ -77,9 +77,6 @@ export class MigrationEntityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.migrationEntityGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'migrationEntityGroupName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -117,7 +114,7 @@ export interface MigrationEntityGroupArgs {
     /**
      * Migration Entity Group ARM name
      */
-    migrationEntityGroupName: pulumi.Input<string>;
+    migrationEntityGroupName?: pulumi.Input<string | undefined>;
     /**
      * Migrate Project Name
      */

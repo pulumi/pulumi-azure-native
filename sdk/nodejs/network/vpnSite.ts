@@ -120,9 +120,6 @@ export class VpnSite extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.vpnSiteName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'vpnSiteName'");
-            }
             resourceInputs["addressSpace"] = args?.addressSpace;
             resourceInputs["bgpProperties"] = args?.bgpProperties;
             resourceInputs["deviceProperties"] = args?.deviceProperties;
@@ -226,5 +223,5 @@ export interface VpnSiteArgs {
     /**
      * The name of the VpnSite being created or updated.
      */
-    vpnSiteName: pulumi.Input<string>;
+    vpnSiteName?: pulumi.Input<string | undefined>;
 }

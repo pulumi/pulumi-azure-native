@@ -28,7 +28,7 @@ export interface GetBuildServiceAgentPoolArgs {
     /**
      * The name of the build service agent pool resource.
      */
-    agentPoolName?: string;
+    agentPoolName: string;
     /**
      * The name of the build service resource.
      */
@@ -93,7 +93,7 @@ export interface GetBuildServiceAgentPoolOutputArgs {
     /**
      * The name of the build service agent pool resource.
      */
-    agentPoolName?: pulumi.Input<string | undefined>;
+    agentPoolName: pulumi.Input<string>;
     /**
      * The name of the build service resource.
      */

@@ -81,13 +81,10 @@ export class ConfigurationAssignmentsForSubscription extends pulumi.CustomResour
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ConfigurationAssignmentsForSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: ConfigurationAssignmentsForSubscriptionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.configurationAssignmentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'configurationAssignmentName'");
-            }
             resourceInputs["configurationAssignmentName"] = args?.configurationAssignmentName;
             resourceInputs["filter"] = args?.filter;
             resourceInputs["location"] = args?.location;
@@ -121,7 +118,7 @@ export interface ConfigurationAssignmentsForSubscriptionArgs {
     /**
      * The name of the ConfigurationAssignment
      */
-    configurationAssignmentName: pulumi.Input<string>;
+    configurationAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * Properties of the configuration assignment
      */

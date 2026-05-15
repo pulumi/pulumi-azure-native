@@ -27,7 +27,7 @@ export interface GetDatabaseArgs {
     /**
      * Name of the database (case-sensitive). Exact database names can be retrieved by getting the list of all existing databases in a server.
      */
-    databaseName?: string;
+    databaseName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetDatabaseOutputArgs {
     /**
      * Name of the database (case-sensitive). Exact database names can be retrieved by getting the list of all existing databases in a server.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

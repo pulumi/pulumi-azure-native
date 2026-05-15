@@ -28,7 +28,7 @@ export interface GetEndpointArgs {
     /**
      * The name of the Traffic Manager endpoint.
      */
-    endpointName?: string;
+    endpointName: string;
     /**
      * The type of the Traffic Manager endpoint.
      */
@@ -141,7 +141,7 @@ export interface GetEndpointOutputArgs {
     /**
      * The name of the Traffic Manager endpoint.
      */
-    endpointName?: pulumi.Input<string | undefined>;
+    endpointName: pulumi.Input<string>;
     /**
      * The type of the Traffic Manager endpoint.
      */

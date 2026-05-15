@@ -98,9 +98,6 @@ export class ElasticVolume extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.volumeName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'volumeName'");
-            }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["location"] = args?.location;
             resourceInputs["poolName"] = args?.poolName;
@@ -163,7 +160,7 @@ export interface ElasticVolumeArgs {
     /**
      * The name of the ElasticVolume
      */
-    volumeName: pulumi.Input<string>;
+    volumeName?: pulumi.Input<string | undefined>;
     /**
      * The availability zones.
      */

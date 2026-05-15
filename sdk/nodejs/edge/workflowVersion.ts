@@ -87,9 +87,6 @@ export class WorkflowVersion extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.versionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'versionName'");
-            }
             if (args?.workflowName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workflowName'");
             }
@@ -143,7 +140,7 @@ export interface WorkflowVersionArgs {
     /**
      * The name of the workflowVersion.
      */
-    versionName: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the workflow
      */

@@ -26,7 +26,7 @@ export interface GetBudgetArgs {
     /**
      * Budget Name.
      */
-    budgetName?: string;
+    budgetName: string;
     /**
      * The scope associated with budget operations.
      *
@@ -177,7 +177,7 @@ export interface GetBudgetOutputArgs {
     /**
      * Budget Name.
      */
-    budgetName?: pulumi.Input<string | undefined>;
+    budgetName: pulumi.Input<string>;
     /**
      * The scope associated with budget operations.
      *

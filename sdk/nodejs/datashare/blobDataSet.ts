@@ -102,9 +102,6 @@ export class BlobDataSet extends pulumi.CustomResource {
             if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if (args?.dataSetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataSetName'");
-            }
             if (args?.filePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filePath'");
             }
@@ -176,7 +173,7 @@ export interface BlobDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string | undefined>;
     /**
      * File path within the source data set
      */

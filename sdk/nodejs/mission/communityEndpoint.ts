@@ -89,9 +89,6 @@ export class CommunityEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.communityEndpointName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'communityEndpointName'");
-            }
             if (args?.communityName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communityName'");
             }
@@ -138,7 +135,7 @@ export interface CommunityEndpointArgs {
     /**
      * The name of the Community Endpoint Resource
      */
-    communityEndpointName: pulumi.Input<string>;
+    communityEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the communityResource Resource
      */

@@ -118,9 +118,6 @@ export class RestApiPollerDataConnector extends pulumi.CustomResource {
             if (args?.connectorDefinitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorDefinitionName'");
             }
-            if (args?.dataConnectorId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataConnectorId'");
-            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -194,7 +191,7 @@ export interface RestApiPollerDataConnectorArgs {
     /**
      * Connector ID
      */
-    dataConnectorId: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string | undefined>;
     /**
      * The Log Analytics table destination.
      */

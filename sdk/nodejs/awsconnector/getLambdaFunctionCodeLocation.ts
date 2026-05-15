@@ -24,7 +24,7 @@ export interface GetLambdaFunctionCodeLocationArgs {
     /**
      * Name of LambdaFunctionCodeLocation
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetLambdaFunctionCodeLocationOutputArgs {
     /**
      * Name of LambdaFunctionCodeLocation
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

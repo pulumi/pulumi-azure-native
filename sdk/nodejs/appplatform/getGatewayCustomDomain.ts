@@ -28,7 +28,7 @@ export interface GetGatewayCustomDomainArgs {
     /**
      * The name of the Spring Cloud Gateway custom domain.
      */
-    domainName?: string;
+    domainName: string;
     /**
      * The name of Spring Cloud Gateway.
      */
@@ -93,7 +93,7 @@ export interface GetGatewayCustomDomainOutputArgs {
     /**
      * The name of the Spring Cloud Gateway custom domain.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName: pulumi.Input<string>;
     /**
      * The name of Spring Cloud Gateway.
      */

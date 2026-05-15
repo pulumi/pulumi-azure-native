@@ -28,7 +28,7 @@ export interface GetContainerArgs {
     /**
      * The container Name
      */
-    containerName?: string;
+    containerName: string;
     /**
      * The device name.
      */
@@ -105,7 +105,7 @@ export interface GetContainerOutputArgs {
     /**
      * The container Name
      */
-    containerName?: pulumi.Input<string | undefined>;
+    containerName: pulumi.Input<string>;
     /**
      * The device name.
      */

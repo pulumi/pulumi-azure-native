@@ -31,7 +31,7 @@ export interface GetBandwidthScheduleArgs {
     /**
      * The bandwidth schedule name.
      */
-    name?: string;
+    name: string;
     /**
      * The resource group name.
      */
@@ -103,7 +103,7 @@ export interface GetBandwidthScheduleOutputArgs {
     /**
      * The bandwidth schedule name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The resource group name.
      */

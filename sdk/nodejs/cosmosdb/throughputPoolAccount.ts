@@ -88,9 +88,6 @@ export class ThroughputPoolAccount extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.throughputPoolAccountName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'throughputPoolAccountName'");
-            }
             if (args?.throughputPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'throughputPoolName'");
             }
@@ -141,7 +138,7 @@ export interface ThroughputPoolAccountArgs {
     /**
      * Cosmos DB global database account in a Throughput Pool
      */
-    throughputPoolAccountName: pulumi.Input<string>;
+    throughputPoolAccountName?: pulumi.Input<string | undefined>;
     /**
      * Cosmos DB Throughput Pool name.
      */

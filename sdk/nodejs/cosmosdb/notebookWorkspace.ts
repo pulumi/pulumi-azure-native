@@ -73,9 +73,6 @@ export class NotebookWorkspace extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.notebookWorkspaceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'notebookWorkspaceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -112,7 +109,7 @@ export interface NotebookWorkspaceArgs {
     /**
      * The name of the notebook workspace resource.
      */
-    notebookWorkspaceName: pulumi.Input<string>;
+    notebookWorkspaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

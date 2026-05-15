@@ -73,9 +73,6 @@ export class DatabaseMigrationsSqlDb extends pulumi.CustomResource {
             if (args?.sqlDbInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlDbInstanceName'");
             }
-            if (args?.targetDbName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'targetDbName'");
-            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sqlDbInstanceName"] = args?.sqlDbInstanceName;
@@ -114,5 +111,5 @@ export interface DatabaseMigrationsSqlDbArgs {
     /**
      * The name of the target database.
      */
-    targetDbName: pulumi.Input<string>;
+    targetDbName?: pulumi.Input<string | undefined>;
 }

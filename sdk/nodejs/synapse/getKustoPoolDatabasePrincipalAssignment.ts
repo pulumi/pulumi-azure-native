@@ -35,7 +35,7 @@ export interface GetKustoPoolDatabasePrincipalAssignmentArgs {
     /**
      * The name of the Kusto principalAssignment.
      */
-    principalAssignmentName?: string;
+    principalAssignmentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -131,7 +131,7 @@ export interface GetKustoPoolDatabasePrincipalAssignmentOutputArgs {
     /**
      * The name of the Kusto principalAssignment.
      */
-    principalAssignmentName?: pulumi.Input<string | undefined>;
+    principalAssignmentName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

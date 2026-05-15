@@ -26,7 +26,7 @@ export interface GetOperatorApiConnectionArgs {
     /**
      * Azure Programmable Connectivity (APC) Operator API Connection Name.
      */
-    operatorApiConnectionName?: string;
+    operatorApiConnectionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -125,7 +125,7 @@ export interface GetOperatorApiConnectionOutputArgs {
     /**
      * Azure Programmable Connectivity (APC) Operator API Connection Name.
      */
-    operatorApiConnectionName?: pulumi.Input<string | undefined>;
+    operatorApiConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

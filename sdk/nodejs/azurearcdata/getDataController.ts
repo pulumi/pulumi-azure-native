@@ -26,7 +26,7 @@ export interface GetDataControllerArgs {
     /**
      * The name of the data controller
      */
-    dataControllerName?: string;
+    dataControllerName: string;
     /**
      * The name of the Azure resource group
      */
@@ -93,7 +93,7 @@ export interface GetDataControllerOutputArgs {
     /**
      * The name of the data controller
      */
-    dataControllerName?: pulumi.Input<string | undefined>;
+    dataControllerName: pulumi.Input<string>;
     /**
      * The name of the Azure resource group
      */

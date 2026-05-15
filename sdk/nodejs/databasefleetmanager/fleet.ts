@@ -79,9 +79,6 @@ export class Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.fleetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'fleetName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -117,7 +114,7 @@ export interface FleetArgs {
     /**
      * Name of the database fleet.
      */
-    fleetName: pulumi.Input<string>;
+    fleetName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

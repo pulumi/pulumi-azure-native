@@ -33,7 +33,7 @@ export interface GetWorkspaceSubscriptionArgs {
     /**
      * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
      */
-    sid?: string;
+    sid: string;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */
@@ -142,7 +142,7 @@ export interface GetWorkspaceSubscriptionOutputArgs {
     /**
      * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
      */
-    sid?: pulumi.Input<string | undefined>;
+    sid: pulumi.Input<string>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

@@ -27,7 +27,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection to the Azure AI Search service with the specified resource group.
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
     /**
      * The name of the private endpoint connection to the Azure AI Search service with the specified resource group.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -29,7 +29,7 @@ export interface GetGalleryScriptArgs {
     /**
      * The name of the gallery Script Definition to be retrieved.
      */
-    galleryScriptName?: string;
+    galleryScriptName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -95,7 +95,7 @@ export interface GetGalleryScriptOutputArgs {
     /**
      * The name of the gallery Script Definition to be retrieved.
      */
-    galleryScriptName?: pulumi.Input<string | undefined>;
+    galleryScriptName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -28,7 +28,7 @@ export interface GetResourceGuardProxyArgs {
      * The name of the resource group where the recovery services vault is present.
      */
     resourceGroupName: string;
-    resourceGuardProxyName?: string;
+    resourceGuardProxyName: string;
     /**
      * The name of the recovery services vault.
      */
@@ -90,7 +90,7 @@ export interface GetResourceGuardProxyOutputArgs {
      * The name of the resource group where the recovery services vault is present.
      */
     resourceGroupName: pulumi.Input<string>;
-    resourceGuardProxyName?: pulumi.Input<string | undefined>;
+    resourceGuardProxyName: pulumi.Input<string>;
     /**
      * The name of the recovery services vault.
      */

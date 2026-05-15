@@ -37,7 +37,7 @@ export interface GetRuleArgs {
     /**
      * The rule name.
      */
-    ruleName?: string;
+    ruleName: string;
     /**
      * The subscription name.
      */
@@ -123,7 +123,7 @@ export interface GetRuleOutputArgs {
     /**
      * The rule name.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName: pulumi.Input<string>;
     /**
      * The subscription name.
      */

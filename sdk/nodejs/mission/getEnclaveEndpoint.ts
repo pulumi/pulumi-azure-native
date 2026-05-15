@@ -27,7 +27,7 @@ export interface GetEnclaveEndpointArgs {
     /**
      * The name of the Enclave Endpoint Resource
      */
-    enclaveEndpointName?: string;
+    enclaveEndpointName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -103,7 +103,7 @@ export interface GetEnclaveEndpointOutputArgs {
     /**
      * The name of the Enclave Endpoint Resource
      */
-    enclaveEndpointName?: pulumi.Input<string | undefined>;
+    enclaveEndpointName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

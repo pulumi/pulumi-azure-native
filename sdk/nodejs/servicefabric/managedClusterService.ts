@@ -90,9 +90,6 @@ export class ManagedClusterService extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.serviceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             resourceInputs["applicationName"] = args?.applicationName;
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["location"] = args?.location;
@@ -147,7 +144,7 @@ export interface ManagedClusterServiceArgs {
     /**
      * The name of the service resource in the format of {applicationName}~{serviceName}.
      */
-    serviceName: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * Azure resource tags.
      */

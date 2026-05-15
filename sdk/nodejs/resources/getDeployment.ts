@@ -26,7 +26,7 @@ export interface GetDeploymentArgs {
     /**
      * The name of the deployment.
      */
-    deploymentName?: string;
+    deploymentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetDeploymentOutputArgs {
     /**
      * The name of the deployment.
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

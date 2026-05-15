@@ -24,7 +24,7 @@ export interface GetDocumentProcessorArgs {
     /**
      * The name of document processor resource.
      */
-    processorName?: string;
+    processorName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetDocumentProcessorOutputArgs {
     /**
      * The name of document processor resource.
      */
-    processorName?: pulumi.Input<string | undefined>;
+    processorName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

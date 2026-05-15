@@ -112,9 +112,6 @@ export class PacketCapture extends pulumi.CustomResource {
             if (args?.networkWatcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if (args?.packetCaptureName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'packetCaptureName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -191,7 +188,7 @@ export interface PacketCaptureArgs {
     /**
      * The name of the packet capture session.
      */
-    packetCaptureName: pulumi.Input<string>;
+    packetCaptureName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

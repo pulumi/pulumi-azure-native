@@ -93,9 +93,6 @@ export class ApiGatewayHostnameBinding extends pulumi.CustomResource {
             if (args?.hostname === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostname'");
             }
-            if (args?.hostnameBindingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'hostnameBindingName'");
-            }
             if (args?.keyVault === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVault'");
             }
@@ -147,7 +144,7 @@ export interface ApiGatewayHostnameBindingArgs {
     /**
      * Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
      */
-    hostnameBindingName: pulumi.Input<string>;
+    hostnameBindingName?: pulumi.Input<string | undefined>;
     /**
      * The link to the API Management service workspace.
      */

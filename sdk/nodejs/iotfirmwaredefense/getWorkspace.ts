@@ -30,7 +30,7 @@ export interface GetWorkspaceArgs {
     /**
      * The name of the firmware analysis workspace.
      */
-    workspaceName?: string;
+    workspaceName: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetWorkspaceOutputArgs {
     /**
      * The name of the firmware analysis workspace.
      */
-    workspaceName?: pulumi.Input<string | undefined>;
+    workspaceName: pulumi.Input<string>;
 }

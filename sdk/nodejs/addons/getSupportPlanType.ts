@@ -21,7 +21,7 @@ export interface GetSupportPlanTypeArgs {
     /**
      * The Canonical support plan type.
      */
-    planTypeName?: string;
+    planTypeName: string;
     /**
      * The support plan type. For now the only valid type is "canonical".
      */
@@ -70,7 +70,7 @@ export interface GetSupportPlanTypeOutputArgs {
     /**
      * The Canonical support plan type.
      */
-    planTypeName?: pulumi.Input<string | undefined>;
+    planTypeName: pulumi.Input<string>;
     /**
      * The support plan type. For now the only valid type is "canonical".
      */

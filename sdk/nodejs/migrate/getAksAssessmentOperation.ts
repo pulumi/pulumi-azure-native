@@ -27,7 +27,7 @@ export interface GetAksAssessmentOperationArgs {
     /**
      * AKS Assessment Name.
      */
-    assessmentName?: string;
+    assessmentName: string;
     /**
      * Assessment Project Name
      */
@@ -103,7 +103,7 @@ export interface GetAksAssessmentOperationOutputArgs {
     /**
      * AKS Assessment Name.
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

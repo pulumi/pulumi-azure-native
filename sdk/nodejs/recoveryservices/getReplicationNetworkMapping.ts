@@ -33,7 +33,7 @@ export interface GetReplicationNetworkMappingArgs {
     /**
      * Network mapping name.
      */
-    networkMappingName?: string;
+    networkMappingName: string;
     /**
      * Primary network name.
      */
@@ -103,7 +103,7 @@ export interface GetReplicationNetworkMappingOutputArgs {
     /**
      * Network mapping name.
      */
-    networkMappingName?: pulumi.Input<string | undefined>;
+    networkMappingName: pulumi.Input<string>;
     /**
      * Primary network name.
      */

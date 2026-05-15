@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2022-04-01-preview, 2022-06-01-preview, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getScheduledAction(args?: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
-    args = args || {};
+export function getScheduledAction(args: GetScheduledActionArgs, opts?: pulumi.InvokeOptions): Promise<GetScheduledActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getScheduledAction", {
         "name": args.name,
@@ -26,7 +25,7 @@ export interface GetScheduledActionArgs {
     /**
      * Scheduled action name.
      */
-    name?: string;
+    name: string;
 }
 
 /**
@@ -101,8 +100,7 @@ export interface GetScheduledActionResult {
  *
  * Other available API versions: 2022-04-01-preview, 2022-06-01-preview, 2022-10-01, 2023-03-01, 2023-04-01-preview, 2023-07-01-preview, 2023-08-01, 2023-09-01, 2023-11-01, 2024-10-01-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native costmanagement [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getScheduledActionOutput(args?: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledActionResult> {
-    args = args || {};
+export function getScheduledActionOutput(args: GetScheduledActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getScheduledAction", {
         "name": args.name,
@@ -113,5 +111,5 @@ export interface GetScheduledActionOutputArgs {
     /**
      * Scheduled action name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
 }

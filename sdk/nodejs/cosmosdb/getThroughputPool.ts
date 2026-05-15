@@ -30,7 +30,7 @@ export interface GetThroughputPoolArgs {
     /**
      * Cosmos DB Throughput Pool name.
      */
-    throughputPoolName?: string;
+    throughputPoolName: string;
 }
 
 /**
@@ -97,5 +97,5 @@ export interface GetThroughputPoolOutputArgs {
     /**
      * Cosmos DB Throughput Pool name.
      */
-    throughputPoolName?: pulumi.Input<string | undefined>;
+    throughputPoolName: pulumi.Input<string>;
 }

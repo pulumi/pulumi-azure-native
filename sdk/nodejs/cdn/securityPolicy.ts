@@ -88,9 +88,6 @@ export class SecurityPolicy extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.securityPolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'securityPolicyName'");
-            }
             resourceInputs["parameters"] = args?.parameters;
             resourceInputs["profileName"] = args?.profileName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -137,5 +134,5 @@ export interface SecurityPolicyArgs {
     /**
      * Name of the security policy under the profile.
      */
-    securityPolicyName: pulumi.Input<string>;
+    securityPolicyName?: pulumi.Input<string | undefined>;
 }

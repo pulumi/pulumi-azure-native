@@ -100,9 +100,6 @@ export class MultipleActivationKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.multipleActivationKeyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'multipleActivationKeyName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -166,7 +163,7 @@ export interface MultipleActivationKeyArgs {
     /**
      * The name of the MAK key.
      */
-    multipleActivationKeyName: pulumi.Input<string>;
+    multipleActivationKeyName?: pulumi.Input<string | undefined>;
     /**
      * Type of OS for which the key is requested.
      */

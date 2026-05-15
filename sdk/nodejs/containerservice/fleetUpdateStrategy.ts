@@ -90,9 +90,6 @@ export class FleetUpdateStrategy extends pulumi.CustomResource {
             if (args?.strategy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'strategy'");
             }
-            if (args?.updateStrategyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'updateStrategyName'");
-            }
             resourceInputs["fleetName"] = args?.fleetName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["strategy"] = args?.strategy;
@@ -138,5 +135,5 @@ export interface FleetUpdateStrategyArgs {
     /**
      * The name of the UpdateStrategy resource.
      */
-    updateStrategyName: pulumi.Input<string>;
+    updateStrategyName?: pulumi.Input<string | undefined>;
 }

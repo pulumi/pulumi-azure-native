@@ -27,7 +27,7 @@ export interface GetManagedNamespaceArgs {
     /**
      * The name of the managed namespace.
      */
-    managedNamespaceName?: string;
+    managedNamespaceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -99,7 +99,7 @@ export interface GetManagedNamespaceOutputArgs {
     /**
      * The name of the managed namespace.
      */
-    managedNamespaceName?: pulumi.Input<string | undefined>;
+    managedNamespaceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

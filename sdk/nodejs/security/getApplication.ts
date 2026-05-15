@@ -9,8 +9,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-07-01-preview.
  */
-export function getApplication(args?: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    args = args || {};
+export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getApplication", {
         "applicationId": args.applicationId,
@@ -21,7 +20,7 @@ export interface GetApplicationArgs {
     /**
      * The security Application key - unique key for the standard application
      */
-    applicationId?: string;
+    applicationId: string;
 }
 
 /**
@@ -62,8 +61,7 @@ export interface GetApplicationResult {
  *
  * Uses Azure REST API version 2022-07-01-preview.
  */
-export function getApplicationOutput(args?: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
-    args = args || {};
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getApplication", {
         "applicationId": args.applicationId,
@@ -74,5 +72,5 @@ export interface GetApplicationOutputArgs {
     /**
      * The security Application key - unique key for the standard application
      */
-    applicationId?: pulumi.Input<string | undefined>;
+    applicationId: pulumi.Input<string>;
 }

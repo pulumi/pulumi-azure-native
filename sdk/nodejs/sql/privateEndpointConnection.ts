@@ -81,9 +81,6 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.privateEndpointConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'privateEndpointConnectionName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -124,7 +121,7 @@ export interface PrivateEndpointConnectionArgs {
      * Private endpoint which the connection belongs to.
      */
     privateEndpoint?: pulumi.Input<inputs.sql.PrivateEndpointPropertyArgs | undefined>;
-    privateEndpointConnectionName: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Connection state of the private endpoint connection.
      */

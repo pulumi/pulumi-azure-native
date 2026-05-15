@@ -77,9 +77,6 @@ export class GuestConfigurationConnectedVMwarevSphereAssignment extends pulumi.C
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.guestConfigurationAssignmentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'guestConfigurationAssignmentName'");
-            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -120,7 +117,7 @@ export interface GuestConfigurationConnectedVMwarevSphereAssignmentArgs {
     /**
      * The guest configuration assignment name.
      */
-    guestConfigurationAssignmentName: pulumi.Input<string>;
+    guestConfigurationAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * Region where the VM is located.
      */

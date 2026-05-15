@@ -30,7 +30,7 @@ export interface GetTrunkedNetworkArgs {
     /**
      * The name of the trunked network.
      */
-    trunkedNetworkName?: string;
+    trunkedNetworkName: string;
 }
 
 export interface GetTrunkedNetworkResult {
@@ -138,5 +138,5 @@ export interface GetTrunkedNetworkOutputArgs {
     /**
      * The name of the trunked network.
      */
-    trunkedNetworkName?: pulumi.Input<string | undefined>;
+    trunkedNetworkName: pulumi.Input<string>;
 }

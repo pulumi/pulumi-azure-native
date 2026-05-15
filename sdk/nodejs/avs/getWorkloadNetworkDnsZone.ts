@@ -27,7 +27,7 @@ export interface GetWorkloadNetworkDnsZoneArgs {
     /**
      * ID of the DNS zone.
      */
-    dnsZoneId?: string;
+    dnsZoneId: string;
     /**
      * Name of the private cloud
      */
@@ -111,7 +111,7 @@ export interface GetWorkloadNetworkDnsZoneOutputArgs {
     /**
      * ID of the DNS zone.
      */
-    dnsZoneId?: pulumi.Input<string | undefined>;
+    dnsZoneId: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

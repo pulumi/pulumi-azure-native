@@ -22,7 +22,7 @@ export interface GetSingleServerConfigurationArgs {
     /**
      * The name of the server configuration.
      */
-    configurationName?: string;
+    configurationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -96,7 +96,7 @@ export interface GetSingleServerConfigurationOutputArgs {
     /**
      * The name of the server configuration.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

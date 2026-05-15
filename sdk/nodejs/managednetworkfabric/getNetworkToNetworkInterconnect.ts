@@ -31,7 +31,7 @@ export interface GetNetworkToNetworkInterconnectArgs {
     /**
      * Name of the Network to Network Interconnect.
      */
-    networkToNetworkInterconnectName?: string;
+    networkToNetworkInterconnectName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -139,7 +139,7 @@ export interface GetNetworkToNetworkInterconnectOutputArgs {
     /**
      * Name of the Network to Network Interconnect.
      */
-    networkToNetworkInterconnectName?: pulumi.Input<string | undefined>;
+    networkToNetworkInterconnectName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

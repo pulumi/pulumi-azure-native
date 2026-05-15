@@ -117,9 +117,6 @@ export class Topic extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.topicName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'topicName'");
-            }
             resourceInputs["clusterId"] = args?.clusterId;
             resourceInputs["configs"] = args?.configs;
             resourceInputs["environmentId"] = args?.environmentId;
@@ -219,5 +216,5 @@ export interface TopicArgs {
     /**
      * Confluent kafka or schema registry topic name
      */
-    topicName: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }

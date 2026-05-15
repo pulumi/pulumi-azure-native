@@ -31,7 +31,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * Private endpoint connection name
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group to which the container registry belongs.
      */
@@ -95,7 +95,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
     /**
      * Private endpoint connection name
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group to which the container registry belongs.
      */

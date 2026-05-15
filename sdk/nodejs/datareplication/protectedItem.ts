@@ -73,9 +73,6 @@ export class ProtectedItem extends pulumi.CustomResource {
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if (args?.protectedItemName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'protectedItemName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +112,7 @@ export interface ProtectedItemArgs {
     /**
      * The protected item name.
      */
-    protectedItemName: pulumi.Input<string>;
+    protectedItemName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

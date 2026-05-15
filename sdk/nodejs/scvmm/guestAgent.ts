@@ -97,9 +97,6 @@ export class GuestAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.guestAgentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'guestAgentName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -151,7 +148,7 @@ export interface GuestAgentArgs {
     /**
      * Name of the guestAgents.
      */
-    guestAgentName: pulumi.Input<string>;
+    guestAgentName?: pulumi.Input<string | undefined>;
     /**
      * HTTP Proxy configuration for the VM.
      */

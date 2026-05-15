@@ -31,7 +31,7 @@ export interface GetUserArgs {
     /**
      * The user name.
      */
-    name?: string;
+    name: string;
     /**
      * The resource group name.
      */
@@ -99,7 +99,7 @@ export interface GetUserOutputArgs {
     /**
      * The user name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The resource group name.
      */

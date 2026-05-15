@@ -30,7 +30,7 @@ export interface GetVpnServerConfigurationArgs {
     /**
      * The name of the VpnServerConfiguration being retrieved.
      */
-    vpnServerConfigurationName?: string;
+    vpnServerConfigurationName: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetVpnServerConfigurationOutputArgs {
     /**
      * The name of the VpnServerConfiguration being retrieved.
      */
-    vpnServerConfigurationName?: pulumi.Input<string | undefined>;
+    vpnServerConfigurationName: pulumi.Input<string>;
 }

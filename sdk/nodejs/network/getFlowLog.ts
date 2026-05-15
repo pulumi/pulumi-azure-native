@@ -27,7 +27,7 @@ export interface GetFlowLogArgs {
     /**
      * The name of the flow log resource.
      */
-    flowLogName?: string;
+    flowLogName: string;
     /**
      * The name of the network watcher.
      */
@@ -131,7 +131,7 @@ export interface GetFlowLogOutputArgs {
     /**
      * The name of the flow log resource.
      */
-    flowLogName?: pulumi.Input<string | undefined>;
+    flowLogName: pulumi.Input<string>;
     /**
      * The name of the network watcher.
      */

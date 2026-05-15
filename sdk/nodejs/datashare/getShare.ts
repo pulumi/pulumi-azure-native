@@ -33,7 +33,7 @@ export interface GetShareArgs {
     /**
      * The name of the share to retrieve.
      */
-    shareName?: string;
+    shareName: string;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface GetShareOutputArgs {
     /**
      * The name of the share to retrieve.
      */
-    shareName?: pulumi.Input<string | undefined>;
+    shareName: pulumi.Input<string>;
 }

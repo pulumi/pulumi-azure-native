@@ -30,7 +30,7 @@ export interface GetResourcePoolArgs {
     /**
      * Name of the resourcePool.
      */
-    resourcePoolName?: string;
+    resourcePoolName: string;
 }
 
 /**
@@ -183,5 +183,5 @@ export interface GetResourcePoolOutputArgs {
     /**
      * Name of the resourcePool.
      */
-    resourcePoolName?: pulumi.Input<string | undefined>;
+    resourcePoolName: pulumi.Input<string>;
 }

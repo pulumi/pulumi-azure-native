@@ -105,9 +105,6 @@ export class NGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.ngroupsName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ngroupsName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -171,7 +168,7 @@ export interface NGroupArgs {
     /**
      * The NGroups name.
      */
-    ngroupsName: pulumi.Input<string>;
+    ngroupsName?: pulumi.Input<string | undefined>;
     /**
      * Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
      */

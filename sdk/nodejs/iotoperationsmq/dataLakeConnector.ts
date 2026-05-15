@@ -115,9 +115,6 @@ export class DataLakeConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dataLakeConnectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataLakeConnectorName'");
-            }
             if (args?.databaseFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseFormat'");
             }
@@ -190,7 +187,7 @@ export interface DataLakeConnectorArgs {
     /**
      * Name of MQ dataLakeConnector resource
      */
-    dataLakeConnectorName: pulumi.Input<string>;
+    dataLakeConnectorName?: pulumi.Input<string | undefined>;
     /**
      * DataLake database format to use.
      */

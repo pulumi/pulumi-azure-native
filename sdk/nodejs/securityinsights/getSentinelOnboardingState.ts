@@ -31,7 +31,7 @@ export interface GetSentinelOnboardingStateArgs {
     /**
      * The Sentinel onboarding state name. Supports - default
      */
-    sentinelOnboardingStateName?: string;
+    sentinelOnboardingStateName: string;
     /**
      * The name of the workspace.
      */
@@ -95,7 +95,7 @@ export interface GetSentinelOnboardingStateOutputArgs {
     /**
      * The Sentinel onboarding state name. Supports - default
      */
-    sentinelOnboardingStateName?: pulumi.Input<string | undefined>;
+    sentinelOnboardingStateName: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

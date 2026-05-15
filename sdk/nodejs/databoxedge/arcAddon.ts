@@ -104,9 +104,6 @@ export class ArcAddon extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.addonName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'addonName'");
-            }
             if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
@@ -173,7 +170,7 @@ export interface ArcAddonArgs {
     /**
      * The addon name.
      */
-    addonName: pulumi.Input<string>;
+    addonName?: pulumi.Input<string | undefined>;
     /**
      * The device name.
      */

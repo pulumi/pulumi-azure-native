@@ -111,9 +111,6 @@ export class PolicyExemption extends pulumi.CustomResource {
             if (args?.policyAssignmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            if (args?.policyExemptionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'policyExemptionName'");
-            }
             if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
@@ -193,7 +190,7 @@ export interface PolicyExemptionArgs {
     /**
      * The name of the policy exemption to delete.
      */
-    policyExemptionName: pulumi.Input<string>;
+    policyExemptionName?: pulumi.Input<string | undefined>;
     /**
      * The resource selector list to filter policies by resource properties.
      */

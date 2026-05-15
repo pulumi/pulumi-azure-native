@@ -133,9 +133,6 @@ export class NetworkFabricController extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.networkFabricControllerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkFabricControllerName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -225,7 +222,7 @@ export interface NetworkFabricControllerArgs {
     /**
      * Name of the Network Fabric Controller.
      */
-    networkFabricControllerName: pulumi.Input<string>;
+    networkFabricControllerName?: pulumi.Input<string | undefined>;
     /**
      * Network Fabric Controller SKU.
      */

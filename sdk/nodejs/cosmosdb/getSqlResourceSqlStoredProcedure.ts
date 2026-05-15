@@ -45,7 +45,7 @@ export interface GetSqlResourceSqlStoredProcedureArgs {
     /**
      * Cosmos DB storedProcedure name.
      */
-    storedProcedureName?: string;
+    storedProcedureName: string;
 }
 
 /**
@@ -116,5 +116,5 @@ export interface GetSqlResourceSqlStoredProcedureOutputArgs {
     /**
      * Cosmos DB storedProcedure name.
      */
-    storedProcedureName?: pulumi.Input<string | undefined>;
+    storedProcedureName: pulumi.Input<string>;
 }

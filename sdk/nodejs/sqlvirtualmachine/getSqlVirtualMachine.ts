@@ -35,7 +35,7 @@ export interface GetSqlVirtualMachineArgs {
     /**
      * Name of the SQL virtual machine.
      */
-    sqlVirtualMachineName?: string;
+    sqlVirtualMachineName: string;
 }
 
 /**
@@ -187,5 +187,5 @@ export interface GetSqlVirtualMachineOutputArgs {
     /**
      * Name of the SQL virtual machine.
      */
-    sqlVirtualMachineName?: pulumi.Input<string | undefined>;
+    sqlVirtualMachineName: pulumi.Input<string>;
 }

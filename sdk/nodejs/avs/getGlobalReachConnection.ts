@@ -27,7 +27,7 @@ export interface GetGlobalReachConnectionArgs {
     /**
      * Name of the global reach connection
      */
-    globalReachConnectionName?: string;
+    globalReachConnectionName: string;
     /**
      * Name of the private cloud
      */
@@ -111,7 +111,7 @@ export interface GetGlobalReachConnectionOutputArgs {
     /**
      * Name of the global reach connection
      */
-    globalReachConnectionName?: pulumi.Input<string | undefined>;
+    globalReachConnectionName: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

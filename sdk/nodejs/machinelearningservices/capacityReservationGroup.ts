@@ -94,9 +94,6 @@ export class CapacityReservationGroup extends pulumi.CustomResource {
             if (args?.capacityReservationGroupProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacityReservationGroupProperties'");
             }
-            if (args?.groupId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'groupId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -142,7 +139,7 @@ export interface CapacityReservationGroupArgs {
     /**
      * Group ID
      */
-    groupId: pulumi.Input<string>;
+    groupId?: pulumi.Input<string | undefined>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */

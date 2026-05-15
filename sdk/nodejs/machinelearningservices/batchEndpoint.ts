@@ -93,9 +93,6 @@ export class BatchEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.endpointName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'endpointName'");
-            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -144,7 +141,7 @@ export interface BatchEndpointArgs {
     /**
      * Name for the Batch Endpoint.
      */
-    endpointName: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */

@@ -31,7 +31,7 @@ export interface GetMachineGroupArgs {
     /**
      * Machine Group resource name.
      */
-    machineGroupName?: string;
+    machineGroupName: string;
     /**
      * Resource group name within the specified subscriptionId.
      */
@@ -116,7 +116,7 @@ export interface GetMachineGroupOutputArgs {
     /**
      * Machine Group resource name.
      */
-    machineGroupName?: pulumi.Input<string | undefined>;
+    machineGroupName: pulumi.Input<string>;
     /**
      * Resource group name within the specified subscriptionId.
      */

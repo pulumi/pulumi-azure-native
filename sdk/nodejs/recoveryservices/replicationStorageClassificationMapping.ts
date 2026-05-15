@@ -82,9 +82,6 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
             if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if (args?.storageClassificationMappingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageClassificationMappingName'");
-            }
             if (args?.storageClassificationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageClassificationName'");
             }
@@ -135,7 +132,7 @@ export interface ReplicationStorageClassificationMappingArgs {
     /**
      * Storage classification mapping name.
      */
-    storageClassificationMappingName: pulumi.Input<string>;
+    storageClassificationMappingName?: pulumi.Input<string | undefined>;
     /**
      * Storage classification name.
      */

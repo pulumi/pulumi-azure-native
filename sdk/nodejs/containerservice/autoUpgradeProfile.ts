@@ -96,9 +96,6 @@ export class AutoUpgradeProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.autoUpgradeProfileName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'autoUpgradeProfileName'");
-            }
             if (args?.channel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channel'");
             }
@@ -147,7 +144,7 @@ export interface AutoUpgradeProfileArgs {
     /**
      * The name of the AutoUpgradeProfile resource.
      */
-    autoUpgradeProfileName: pulumi.Input<string>;
+    autoUpgradeProfileName?: pulumi.Input<string | undefined>;
     /**
      * Configures how auto-upgrade will be run.
      */

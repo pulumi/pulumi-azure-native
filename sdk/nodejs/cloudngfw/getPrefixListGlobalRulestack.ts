@@ -30,7 +30,7 @@ export interface GetPrefixListGlobalRulestackArgs {
     /**
      * Local Rule priority
      */
-    name?: string;
+    name: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetPrefixListGlobalRulestackOutputArgs {
     /**
      * Local Rule priority
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
 }

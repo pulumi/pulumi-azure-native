@@ -98,9 +98,6 @@ export class StandbyContainerGroupPool extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.standbyContainerGroupPoolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'standbyContainerGroupPoolName'");
-            }
             resourceInputs["containerGroupProperties"] = args?.containerGroupProperties;
             resourceInputs["elasticityProfile"] = args?.elasticityProfile;
             resourceInputs["location"] = args?.location;
@@ -153,7 +150,7 @@ export interface StandbyContainerGroupPoolArgs {
     /**
      * Name of the standby container group pool
      */
-    standbyContainerGroupPoolName: pulumi.Input<string>;
+    standbyContainerGroupPoolName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

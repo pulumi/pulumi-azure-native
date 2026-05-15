@@ -29,7 +29,7 @@ export interface GetFusionAlertRuleArgs {
     /**
      * Alert rule ID
      */
-    ruleId?: string;
+    ruleId: string;
     /**
      * The name of the workspace.
      */
@@ -124,7 +124,7 @@ export interface GetFusionAlertRuleOutputArgs {
     /**
      * Alert rule ID
      */
-    ruleId?: pulumi.Input<string | undefined>;
+    ruleId: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

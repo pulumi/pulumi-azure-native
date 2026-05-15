@@ -31,7 +31,7 @@ export interface GetDscConfigurationArgs {
     /**
      * The configuration name.
      */
-    configurationName?: string;
+    configurationName: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -139,7 +139,7 @@ export interface GetDscConfigurationOutputArgs {
     /**
      * The configuration name.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

@@ -73,9 +73,6 @@ export class JobPrivateEndpoint extends pulumi.CustomResource {
             if (args?.jobAgentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobAgentName'");
             }
-            if (args?.privateEndpointName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'privateEndpointName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -119,7 +116,7 @@ export interface JobPrivateEndpointArgs {
     /**
      * The name of the private endpoint.
      */
-    privateEndpointName: pulumi.Input<string>;
+    privateEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

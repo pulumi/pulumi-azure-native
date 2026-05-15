@@ -77,9 +77,6 @@ export class AccessPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.accessPolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'accessPolicyName'");
-            }
             if (args?.cacheName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
@@ -120,7 +117,7 @@ export interface AccessPolicyArgs {
     /**
      * The name of the access policy that is being added to the Redis cache.
      */
-    accessPolicyName: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Redis cache.
      */

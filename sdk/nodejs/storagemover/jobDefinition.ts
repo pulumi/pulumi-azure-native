@@ -128,9 +128,6 @@ export class JobDefinition extends pulumi.CustomResource {
             if (args?.copyMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'copyMode'");
             }
-            if (args?.jobDefinitionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'jobDefinitionName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -214,7 +211,7 @@ export interface JobDefinitionArgs {
     /**
      * The name of the Job Definition resource.
      */
-    jobDefinitionName: pulumi.Input<string>;
+    jobDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Project resource.
      */

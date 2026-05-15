@@ -26,7 +26,7 @@ export interface GetAssetEndpointProfileArgs {
     /**
      * Asset Endpoint Profile name parameter.
      */
-    assetEndpointProfileName?: string;
+    assetEndpointProfileName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -121,7 +121,7 @@ export interface GetAssetEndpointProfileOutputArgs {
     /**
      * Asset Endpoint Profile name parameter.
      */
-    assetEndpointProfileName?: pulumi.Input<string | undefined>;
+    assetEndpointProfileName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

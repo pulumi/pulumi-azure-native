@@ -112,9 +112,6 @@ export class GalleryImageVersion extends pulumi.CustomResource {
             if (args?.galleryImageName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryImageName'");
             }
-            if (args?.galleryImageVersionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'galleryImageVersionName'");
-            }
             if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
@@ -176,7 +173,7 @@ export interface GalleryImageVersionArgs {
     /**
      * The name of the gallery image version to be retrieved.
      */
-    galleryImageVersionName: pulumi.Input<string>;
+    galleryImageVersionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Shared Image Gallery.
      */

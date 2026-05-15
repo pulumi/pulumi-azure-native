@@ -76,9 +76,6 @@ export class ElasticBackup extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.backupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'backupName'");
-            }
             if (args?.backupVaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'backupVaultName'");
             }
@@ -119,7 +116,7 @@ export interface ElasticBackupArgs {
     /**
      * The name of the ElasticBackup
      */
-    backupName: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the ElasticBackupVault
      */

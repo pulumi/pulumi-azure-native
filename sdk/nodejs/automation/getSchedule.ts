@@ -35,7 +35,7 @@ export interface GetScheduleArgs {
     /**
      * The schedule name.
      */
-    scheduleName?: string;
+    scheduleName: string;
 }
 
 /**
@@ -147,5 +147,5 @@ export interface GetScheduleOutputArgs {
     /**
      * The schedule name.
      */
-    scheduleName?: pulumi.Input<string | undefined>;
+    scheduleName: pulumi.Input<string>;
 }

@@ -24,7 +24,7 @@ export interface GetReportByResourceGroupNameArgs {
     /**
      * Report Name.
      */
-    reportName?: string;
+    reportName: string;
     /**
      * Azure Resource Group Name.
      */
@@ -89,7 +89,7 @@ export interface GetReportByResourceGroupNameOutputArgs {
     /**
      * Report Name.
      */
-    reportName?: pulumi.Input<string | undefined>;
+    reportName: pulumi.Input<string>;
     /**
      * Azure Resource Group Name.
      */

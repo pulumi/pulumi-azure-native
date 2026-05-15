@@ -30,7 +30,7 @@ export interface GetCapabilityArgs {
     /**
      * String that represents a Capability resource name.
      */
-    capabilityName?: string;
+    capabilityName: string;
     /**
      * String that represents a resource provider namespace.
      */
@@ -105,7 +105,7 @@ export interface GetCapabilityOutputArgs {
     /**
      * String that represents a Capability resource name.
      */
-    capabilityName?: pulumi.Input<string | undefined>;
+    capabilityName: pulumi.Input<string>;
     /**
      * String that represents a resource provider namespace.
      */

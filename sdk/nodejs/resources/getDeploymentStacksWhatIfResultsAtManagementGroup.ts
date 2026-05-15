@@ -24,7 +24,7 @@ export interface GetDeploymentStacksWhatIfResultsAtManagementGroupArgs {
     /**
      * Name of the deployment stack what-if result.
      */
-    deploymentStacksWhatIfResultName?: string;
+    deploymentStacksWhatIfResultName: string;
     /**
      * The management group ID.
      */
@@ -85,7 +85,7 @@ export interface GetDeploymentStacksWhatIfResultsAtManagementGroupOutputArgs {
     /**
      * Name of the deployment stack what-if result.
      */
-    deploymentStacksWhatIfResultName?: pulumi.Input<string | undefined>;
+    deploymentStacksWhatIfResultName: pulumi.Input<string>;
     /**
      * The management group ID.
      */

@@ -88,9 +88,6 @@ export class Service extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.serviceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.appplatform.clusterResourcePropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -137,7 +134,7 @@ export interface ServiceArgs {
     /**
      * The name of the Service resource.
      */
-    serviceName: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * Sku of the Service resource
      */

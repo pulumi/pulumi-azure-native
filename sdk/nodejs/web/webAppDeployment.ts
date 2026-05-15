@@ -102,9 +102,6 @@ export class WebAppDeployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.id === undefined && !opts.urn) {
-                throw new Error("Missing required property 'id'");
-            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -179,7 +176,7 @@ export interface WebAppDeploymentArgs {
     /**
      * ID of an existing deployment.
      */
-    id: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Kind of resource.
      */

@@ -82,9 +82,6 @@ export class ClientGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.clientGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'clientGroupName'");
-            }
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -124,7 +121,7 @@ export interface ClientGroupArgs {
     /**
      * The client group name.
      */
-    clientGroupName: pulumi.Input<string>;
+    clientGroupName?: pulumi.Input<string | undefined>;
     /**
      * Description for the Client Group resource.
      */

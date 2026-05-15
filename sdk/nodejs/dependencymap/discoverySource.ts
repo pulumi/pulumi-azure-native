@@ -87,9 +87,6 @@ export class DiscoverySource extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.sourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sourceName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["mapName"] = args?.mapName;
             resourceInputs["properties"] = args?.properties;
@@ -139,7 +136,7 @@ export interface DiscoverySourceArgs {
     /**
      * discovery source resource
      */
-    sourceName: pulumi.Input<string>;
+    sourceName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

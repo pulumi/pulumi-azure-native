@@ -27,7 +27,7 @@ export interface GetConnectedEnvironmentsCertificateArgs {
     /**
      * Name of the Certificate.
      */
-    certificateName?: string;
+    certificateName: string;
     /**
      * Name of the Connected Environment.
      */
@@ -95,7 +95,7 @@ export interface GetConnectedEnvironmentsCertificateOutputArgs {
     /**
      * Name of the Certificate.
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName: pulumi.Input<string>;
     /**
      * Name of the Connected Environment.
      */

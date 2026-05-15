@@ -27,7 +27,7 @@ export interface GetClusterArgs {
     /**
      * Name of the cluster
      */
-    clusterName?: string;
+    clusterName: string;
     /**
      * Name of the private cloud
      */
@@ -107,7 +107,7 @@ export interface GetClusterOutputArgs {
     /**
      * Name of the cluster
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

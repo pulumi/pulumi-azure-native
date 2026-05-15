@@ -86,9 +86,6 @@ export class Deployment extends pulumi.CustomResource {
             if (args?.catalogName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogName'");
             }
-            if (args?.deploymentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deploymentName'");
-            }
             if (args?.deviceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceGroupName'");
             }
@@ -147,7 +144,7 @@ export interface DeploymentArgs {
     /**
      * Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
      */
-    deploymentName: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * Name of device group.
      */

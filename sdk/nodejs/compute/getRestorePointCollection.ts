@@ -35,7 +35,7 @@ export interface GetRestorePointCollectionArgs {
     /**
      * The name of the restore point collection.
      */
-    restorePointCollectionName?: string;
+    restorePointCollectionName: string;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface GetRestorePointCollectionOutputArgs {
     /**
      * The name of the restore point collection.
      */
-    restorePointCollectionName?: pulumi.Input<string | undefined>;
+    restorePointCollectionName: pulumi.Input<string>;
 }

@@ -35,7 +35,7 @@ export interface GetRouteTableArgs {
     /**
      * The name of the route table.
      */
-    routeTableName?: string;
+    routeTableName: string;
 }
 
 /**
@@ -119,5 +119,5 @@ export interface GetRouteTableOutputArgs {
     /**
      * The name of the route table.
      */
-    routeTableName?: pulumi.Input<string | undefined>;
+    routeTableName: pulumi.Input<string>;
 }

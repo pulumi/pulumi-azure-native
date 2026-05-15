@@ -129,9 +129,6 @@ export class AmlFilesystem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.amlFilesystemName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'amlFilesystemName'");
-            }
             if (args?.filesystemSubnet === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filesystemSubnet'");
             }
@@ -200,7 +197,7 @@ export interface AmlFilesystemArgs {
     /**
      * Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    amlFilesystemName: pulumi.Input<string>;
+    amlFilesystemName?: pulumi.Input<string | undefined>;
     /**
      * Specifies encryption settings of the AML file system.
      */

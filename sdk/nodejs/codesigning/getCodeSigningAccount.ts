@@ -26,7 +26,7 @@ export interface GetCodeSigningAccountArgs {
     /**
      * Artifact Signing account name.
      */
-    accountName?: string;
+    accountName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetCodeSigningAccountOutputArgs {
     /**
      * Artifact Signing account name.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

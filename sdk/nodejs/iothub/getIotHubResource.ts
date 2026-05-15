@@ -30,7 +30,7 @@ export interface GetIotHubResourceArgs {
     /**
      * The name of the IoT hub.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetIotHubResourceOutputArgs {
     /**
      * The name of the IoT hub.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

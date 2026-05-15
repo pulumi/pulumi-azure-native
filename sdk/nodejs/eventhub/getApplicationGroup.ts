@@ -27,7 +27,7 @@ export interface GetApplicationGroupArgs {
     /**
      * The Application Group name 
      */
-    applicationGroupName?: string;
+    applicationGroupName: string;
     /**
      * The Namespace name
      */
@@ -99,7 +99,7 @@ export interface GetApplicationGroupOutputArgs {
     /**
      * The Application Group name 
      */
-    applicationGroupName?: pulumi.Input<string | undefined>;
+    applicationGroupName: pulumi.Input<string>;
     /**
      * The Namespace name
      */

@@ -40,7 +40,7 @@ export interface GetApplicationPackageArgs {
     /**
      * The version of the application.
      */
-    versionName?: string;
+    versionName: string;
 }
 
 /**
@@ -129,5 +129,5 @@ export interface GetApplicationPackageOutputArgs {
     /**
      * The version of the application.
      */
-    versionName?: pulumi.Input<string | undefined>;
+    versionName: pulumi.Input<string>;
 }

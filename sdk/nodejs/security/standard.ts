@@ -110,9 +110,6 @@ export class Standard extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.standardId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'standardId'");
-            }
             resourceInputs["category"] = args?.category;
             resourceInputs["components"] = args?.components;
             resourceInputs["description"] = args?.description;
@@ -187,7 +184,7 @@ export interface StandardArgs {
     /**
      * The Security Standard key - unique key for the standard type
      */
-    standardId: pulumi.Input<string>;
+    standardId?: pulumi.Input<string | undefined>;
     /**
      * List of all standard supported clouds.
      */

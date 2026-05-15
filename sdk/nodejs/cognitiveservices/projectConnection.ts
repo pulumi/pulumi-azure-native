@@ -72,9 +72,6 @@ export class ProjectConnection extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.connectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectionName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -116,7 +113,7 @@ export interface ProjectConnectionArgs {
     /**
      * Friendly name of the connection
      */
-    connectionName: pulumi.Input<string>;
+    connectionName?: pulumi.Input<string | undefined>;
     /**
      * The name of Cognitive Services account's project.
      */

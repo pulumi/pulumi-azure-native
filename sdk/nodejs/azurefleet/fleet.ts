@@ -128,9 +128,6 @@ export class Fleet extends pulumi.CustomResource {
             if (args?.computeProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeProfile'");
             }
-            if (args?.fleetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'fleetName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -199,7 +196,7 @@ export interface FleetArgs {
     /**
      * The name of the Compute Fleet
      */
-    fleetName: pulumi.Input<string>;
+    fleetName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */

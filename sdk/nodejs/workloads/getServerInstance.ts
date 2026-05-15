@@ -38,7 +38,7 @@ export interface GetServerInstanceArgs {
     /**
      * The name of the Server instance resource for SAP Migration.
      */
-    serverInstanceName?: string;
+    serverInstanceName: string;
 }
 
 /**
@@ -137,5 +137,5 @@ export interface GetServerInstanceOutputArgs {
     /**
      * The name of the Server instance resource for SAP Migration.
      */
-    serverInstanceName?: pulumi.Input<string | undefined>;
+    serverInstanceName: pulumi.Input<string>;
 }

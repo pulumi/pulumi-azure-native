@@ -116,9 +116,6 @@ export class Workspace extends pulumi.CustomResource {
             if (args?.userStorageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userStorageAccountId'");
             }
-            if (args?.workspaceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'workspaceName'");
-            }
             resourceInputs["keyVaultIdentifierId"] = args?.keyVaultIdentifierId;
             resourceInputs["location"] = args?.location;
             resourceInputs["ownerEmail"] = args?.ownerEmail;
@@ -193,5 +190,5 @@ export interface WorkspaceArgs {
     /**
      * The name of the machine learning workspace.
      */
-    workspaceName: pulumi.Input<string>;
+    workspaceName?: pulumi.Input<string | undefined>;
 }

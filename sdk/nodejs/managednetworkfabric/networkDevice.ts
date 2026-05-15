@@ -125,9 +125,6 @@ export class NetworkDevice extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.networkDeviceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkDeviceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -200,7 +197,7 @@ export interface NetworkDeviceArgs {
     /**
      * Name of the Network Device.
      */
-    networkDeviceName: pulumi.Input<string>;
+    networkDeviceName?: pulumi.Input<string | undefined>;
     /**
      * Network Device SKU name.
      */

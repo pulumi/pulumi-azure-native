@@ -31,7 +31,7 @@ export interface GetPolicySetDefinitionVersionArgs {
     /**
      * The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
      */
-    policyDefinitionVersion?: string;
+    policyDefinitionVersion: string;
     /**
      * The name of the policy set definition.
      */
@@ -119,7 +119,7 @@ export interface GetPolicySetDefinitionVersionOutputArgs {
     /**
      * The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
      */
-    policyDefinitionVersion?: pulumi.Input<string | undefined>;
+    policyDefinitionVersion: pulumi.Input<string>;
     /**
      * The name of the policy set definition.
      */

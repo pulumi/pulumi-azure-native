@@ -132,9 +132,6 @@ export class Firewall extends pulumi.CustomResource {
             if (args?.dnsSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsSettings'");
             }
-            if (args?.firewallName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'firewallName'");
-            }
             if (args?.marketplaceDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'marketplaceDetails'");
             }
@@ -211,7 +208,7 @@ export interface FirewallArgs {
     /**
      * Firewall resource name
      */
-    firewallName: pulumi.Input<string>;
+    firewallName?: pulumi.Input<string | undefined>;
     /**
      * Frontend settings for Firewall
      */

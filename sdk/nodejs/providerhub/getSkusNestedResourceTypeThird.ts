@@ -50,7 +50,7 @@ export interface GetSkusNestedResourceTypeThirdArgs {
     /**
      * The SKU.
      */
-    sku?: string;
+    sku: string;
 }
 
 /**
@@ -122,5 +122,5 @@ export interface GetSkusNestedResourceTypeThirdOutputArgs {
     /**
      * The SKU.
      */
-    sku?: pulumi.Input<string | undefined>;
+    sku: pulumi.Input<string>;
 }

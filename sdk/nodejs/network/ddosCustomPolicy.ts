@@ -82,9 +82,6 @@ export class DdosCustomPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.ddosCustomPolicyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ddosCustomPolicyName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -123,7 +120,7 @@ export interface DdosCustomPolicyArgs {
     /**
      * The name of the DDoS custom policy.
      */
-    ddosCustomPolicyName: pulumi.Input<string>;
+    ddosCustomPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Resource ID.
      */

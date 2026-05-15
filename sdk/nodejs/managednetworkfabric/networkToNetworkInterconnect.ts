@@ -124,9 +124,6 @@ export class NetworkToNetworkInterconnect extends pulumi.CustomResource {
             if (args?.networkFabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricName'");
             }
-            if (args?.networkToNetworkInterconnectName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkToNetworkInterconnectName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -214,7 +211,7 @@ export interface NetworkToNetworkInterconnectArgs {
     /**
      * Name of the Network to Network Interconnect.
      */
-    networkToNetworkInterconnectName: pulumi.Input<string>;
+    networkToNetworkInterconnectName?: pulumi.Input<string | undefined>;
     /**
      * Type of NNI used. Example: CE | NPB
      */

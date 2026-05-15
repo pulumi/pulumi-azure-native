@@ -24,7 +24,7 @@ export interface GetLinkedStorageAccountArgs {
     /**
      * Linked storage accounts type.
      */
-    dataSourceType?: string;
+    dataSourceType: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,7 +84,7 @@ export interface GetLinkedStorageAccountOutputArgs {
     /**
      * Linked storage accounts type.
      */
-    dataSourceType?: pulumi.Input<string | undefined>;
+    dataSourceType: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

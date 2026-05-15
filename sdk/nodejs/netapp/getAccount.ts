@@ -26,7 +26,7 @@ export interface GetAccountArgs {
     /**
      * The name of the NetApp account
      */
-    accountName?: string;
+    accountName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -109,7 +109,7 @@ export interface GetAccountOutputArgs {
     /**
      * The name of the NetApp account
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -26,7 +26,7 @@ export interface GetConfigurationAssignmentsForResourceGroupArgs {
     /**
      * The name of the ConfigurationAssignment
      */
-    configurationAssignmentName?: string;
+    configurationAssignmentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetConfigurationAssignmentsForResourceGroupOutputArgs {
     /**
      * The name of the ConfigurationAssignment
      */
-    configurationAssignmentName?: pulumi.Input<string | undefined>;
+    configurationAssignmentName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

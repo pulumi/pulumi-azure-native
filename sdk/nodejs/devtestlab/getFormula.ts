@@ -34,7 +34,7 @@ export interface GetFormulaArgs {
     /**
      * The name of the formula.
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -133,7 +133,7 @@ export interface GetFormulaOutputArgs {
     /**
      * The name of the formula.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

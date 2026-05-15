@@ -27,7 +27,7 @@ export interface GetVirtualHubBgpConnectionArgs {
     /**
      * The name of the connection.
      */
-    connectionName?: string;
+    connectionName: string;
     /**
      * The resource group name of the VirtualHub.
      */
@@ -103,7 +103,7 @@ export interface GetVirtualHubBgpConnectionOutputArgs {
     /**
      * The name of the connection.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualHub.
      */

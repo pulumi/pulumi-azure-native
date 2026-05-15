@@ -25,7 +25,7 @@ export interface GetSqlAssessmentV3OperationArgs {
     /**
      * SQL Assessment arm name.
      */
-    assessmentName?: string;
+    assessmentName: string;
     /**
      * Assessment Project Name
      */
@@ -83,7 +83,7 @@ export interface GetSqlAssessmentV3OperationOutputArgs {
     /**
      * SQL Assessment arm name.
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */

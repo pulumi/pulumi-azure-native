@@ -36,7 +36,7 @@ export interface GetVolumeSnapshotArgs {
     /**
      * The name of the volume snapshot within the given volume group.
      */
-    snapshotName?: string;
+    snapshotName: string;
     /**
      * The name of the VolumeGroup.
      */
@@ -113,7 +113,7 @@ export interface GetVolumeSnapshotOutputArgs {
     /**
      * The name of the volume snapshot within the given volume group.
      */
-    snapshotName?: pulumi.Input<string | undefined>;
+    snapshotName: pulumi.Input<string>;
     /**
      * The name of the VolumeGroup.
      */

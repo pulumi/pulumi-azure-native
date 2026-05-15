@@ -83,9 +83,6 @@ export class ServiceTask extends pulumi.CustomResource {
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if (args?.taskName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'taskName'");
-            }
             resourceInputs["groupName"] = args?.groupName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["serviceName"] = args?.serviceName;
@@ -129,5 +126,5 @@ export interface ServiceTaskArgs {
     /**
      * Name of the Task
      */
-    taskName: pulumi.Input<string>;
+    taskName?: pulumi.Input<string | undefined>;
 }

@@ -26,7 +26,7 @@ export interface GetElasticSanArgs {
     /**
      * The name of the ElasticSan.
      */
-    elasticSanName?: string;
+    elasticSanName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -133,7 +133,7 @@ export interface GetElasticSanOutputArgs {
     /**
      * The name of the ElasticSan.
      */
-    elasticSanName?: pulumi.Input<string | undefined>;
+    elasticSanName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -98,9 +98,6 @@ export class VirtualNetworkAppliance extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.virtualNetworkApplianceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualNetworkApplianceName'");
-            }
             resourceInputs["bandwidthInGbps"] = args?.bandwidthInGbps;
             resourceInputs["id"] = args?.id;
             resourceInputs["location"] = args?.location;
@@ -166,5 +163,5 @@ export interface VirtualNetworkApplianceArgs {
     /**
      * The name of the virtual network appliance.
      */
-    virtualNetworkApplianceName: pulumi.Input<string>;
+    virtualNetworkApplianceName?: pulumi.Input<string | undefined>;
 }

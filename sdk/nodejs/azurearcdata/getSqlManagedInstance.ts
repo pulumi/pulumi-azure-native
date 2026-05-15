@@ -30,7 +30,7 @@ export interface GetSqlManagedInstanceArgs {
     /**
      * Name of SQL Managed Instance
      */
-    sqlManagedInstanceName?: string;
+    sqlManagedInstanceName: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetSqlManagedInstanceOutputArgs {
     /**
      * Name of SQL Managed Instance
      */
-    sqlManagedInstanceName?: pulumi.Input<string | undefined>;
+    sqlManagedInstanceName: pulumi.Input<string>;
 }

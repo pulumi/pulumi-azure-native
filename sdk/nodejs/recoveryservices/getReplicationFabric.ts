@@ -28,7 +28,7 @@ export interface GetReplicationFabricArgs {
     /**
      * Fabric name.
      */
-    fabricName?: string;
+    fabricName: string;
     /**
      * OData filter options.
      */
@@ -93,7 +93,7 @@ export interface GetReplicationFabricOutputArgs {
     /**
      * Fabric name.
      */
-    fabricName?: pulumi.Input<string | undefined>;
+    fabricName: pulumi.Input<string>;
     /**
      * OData filter options.
      */

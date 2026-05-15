@@ -93,9 +93,6 @@ export class NetworkProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.networkProfileName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkProfileName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -150,7 +147,7 @@ export interface NetworkProfileArgs {
     /**
      * The name of the network profile.
      */
-    networkProfileName: pulumi.Input<string>;
+    networkProfileName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

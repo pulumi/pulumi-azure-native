@@ -85,9 +85,6 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.loadBalancerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'loadBalancerName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -129,7 +126,7 @@ export interface LoadBalancerArgs {
     /**
      * Name of the load balancer
      */
-    loadBalancerName: pulumi.Input<string>;
+    loadBalancerName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

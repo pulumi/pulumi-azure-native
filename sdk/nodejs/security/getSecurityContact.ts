@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getSecurityContact(args?: GetSecurityContactArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityContactResult> {
-    args = args || {};
+export function getSecurityContact(args: GetSecurityContactArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getSecurityContact", {
         "securityContactName": args.securityContactName,
@@ -26,7 +25,7 @@ export interface GetSecurityContactArgs {
     /**
      * Name of the security contact object
      */
-    securityContactName?: string;
+    securityContactName: string;
 }
 
 /**
@@ -77,8 +76,7 @@ export interface GetSecurityContactResult {
  *
  * Other available API versions: 2017-08-01-preview, 2020-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getSecurityContactOutput(args?: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityContactResult> {
-    args = args || {};
+export function getSecurityContactOutput(args: GetSecurityContactOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityContactResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getSecurityContact", {
         "securityContactName": args.securityContactName,
@@ -89,5 +87,5 @@ export interface GetSecurityContactOutputArgs {
     /**
      * Name of the security contact object
      */
-    securityContactName?: pulumi.Input<string | undefined>;
+    securityContactName: pulumi.Input<string>;
 }

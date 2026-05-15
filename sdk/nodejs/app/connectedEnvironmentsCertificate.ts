@@ -81,9 +81,6 @@ export class ConnectedEnvironmentsCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.certificateName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'certificateName'");
-            }
             if (args?.connectedEnvironmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectedEnvironmentName'");
             }
@@ -123,7 +120,7 @@ export interface ConnectedEnvironmentsCertificateArgs {
     /**
      * Name of the Certificate.
      */
-    certificateName: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Connected Environment.
      */

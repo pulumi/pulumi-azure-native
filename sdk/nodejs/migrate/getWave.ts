@@ -35,7 +35,7 @@ export interface GetWaveArgs {
     /**
      * Migration Wave Resource
      */
-    waveName?: string;
+    waveName: string;
 }
 
 /**
@@ -99,5 +99,5 @@ export interface GetWaveOutputArgs {
     /**
      * Migration Wave Resource
      */
-    waveName?: pulumi.Input<string | undefined>;
+    waveName: pulumi.Input<string>;
 }

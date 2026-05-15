@@ -94,9 +94,6 @@ export class SenderUsername extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.senderUsername === undefined && !opts.urn) {
-                throw new Error("Missing required property 'senderUsername'");
-            }
             if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
@@ -152,7 +149,7 @@ export interface SenderUsernameArgs {
     /**
      * The valid sender Username.
      */
-    senderUsername: pulumi.Input<string>;
+    senderUsername?: pulumi.Input<string | undefined>;
     /**
      * A sender senderUsername to be used when sending emails.
      */

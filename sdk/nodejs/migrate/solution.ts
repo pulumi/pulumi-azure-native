@@ -77,9 +77,6 @@ export class Solution extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.solutionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'solutionName'");
-            }
             resourceInputs["migrateProjectName"] = args?.migrateProjectName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -121,5 +118,5 @@ export interface SolutionArgs {
     /**
      * Unique name of a migration solution within a migrate project.
      */
-    solutionName: pulumi.Input<string>;
+    solutionName?: pulumi.Input<string | undefined>;
 }

@@ -27,7 +27,7 @@ export interface GetAutoUpgradeProfileArgs {
     /**
      * The name of the AutoUpgradeProfile resource.
      */
-    autoUpgradeProfileName?: string;
+    autoUpgradeProfileName: string;
     /**
      * The name of the Fleet resource.
      */
@@ -110,7 +110,7 @@ export interface GetAutoUpgradeProfileOutputArgs {
     /**
      * The name of the AutoUpgradeProfile resource.
      */
-    autoUpgradeProfileName?: pulumi.Input<string | undefined>;
+    autoUpgradeProfileName: pulumi.Input<string>;
     /**
      * The name of the Fleet resource.
      */

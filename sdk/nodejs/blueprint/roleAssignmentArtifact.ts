@@ -89,9 +89,6 @@ export class RoleAssignmentArtifact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.artifactName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'artifactName'");
-            }
             if (args?.blueprintName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blueprintName'");
             }
@@ -146,7 +143,7 @@ export interface RoleAssignmentArtifactArgs {
     /**
      * Name of the blueprint artifact.
      */
-    artifactName: pulumi.Input<string>;
+    artifactName?: pulumi.Input<string | undefined>;
     /**
      * Name of the blueprint definition.
      */

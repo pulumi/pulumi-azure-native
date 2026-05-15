@@ -71,9 +71,6 @@ export class CompoundAssessmentOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.compoundAssessmentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'compoundAssessmentName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -109,7 +106,7 @@ export interface CompoundAssessmentOperationArgs {
     /**
      * Compound Assessment ARM name
      */
-    compoundAssessmentName: pulumi.Input<string>;
+    compoundAssessmentName?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */

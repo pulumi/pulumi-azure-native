@@ -31,7 +31,7 @@ export interface GetSqlResourceSqlDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName?: string;
+    databaseName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetSqlResourceSqlDatabaseOutputArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

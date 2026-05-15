@@ -65,13 +65,10 @@ export class UserSolution extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: UserSolutionArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: UserSolutionArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.solutionId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'solutionId'");
-            }
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["products"] = args?.products;
             resourceInputs["solutionId"] = args?.solutionId;
@@ -103,5 +100,5 @@ export interface UserSolutionArgs {
     /**
      * The solution id
      */
-    solutionId: pulumi.Input<string>;
+    solutionId?: pulumi.Input<string | undefined>;
 }

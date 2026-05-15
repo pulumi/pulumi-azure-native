@@ -28,7 +28,7 @@ export interface GetSecretSyncArgs {
     /**
      * The name of the SecretSync
      */
-    secretSyncName?: string;
+    secretSyncName: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetSecretSyncOutputArgs {
     /**
      * The name of the SecretSync
      */
-    secretSyncName?: pulumi.Input<string | undefined>;
+    secretSyncName: pulumi.Input<string>;
 }

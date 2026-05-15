@@ -97,9 +97,6 @@ export class ManagedClusterApplicationTypeVersion extends pulumi.CustomResource 
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.version === undefined && !opts.urn) {
-                throw new Error("Missing required property 'version'");
-            }
             resourceInputs["appPackageUrl"] = args?.appPackageUrl;
             resourceInputs["applicationTypeName"] = args?.applicationTypeName;
             resourceInputs["clusterName"] = args?.clusterName;
@@ -160,5 +157,5 @@ export interface ManagedClusterApplicationTypeVersionArgs {
     /**
      * The application type version.
      */
-    version: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

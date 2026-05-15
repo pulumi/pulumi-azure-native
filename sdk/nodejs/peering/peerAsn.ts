@@ -81,13 +81,10 @@ export class PeerAsn extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: PeerAsnArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.peerAsnName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'peerAsnName'");
-            }
             resourceInputs["peerAsn"] = args?.peerAsn;
             resourceInputs["peerAsnName"] = args?.peerAsnName;
             resourceInputs["peerContactDetail"] = args?.peerContactDetail;
@@ -125,7 +122,7 @@ export interface PeerAsnArgs {
     /**
      * The peer ASN name.
      */
-    peerAsnName: pulumi.Input<string>;
+    peerAsnName?: pulumi.Input<string | undefined>;
     /**
      * The contact details of the peer.
      */

@@ -35,7 +35,7 @@ export interface GetServiceFabricArgs {
     /**
      * The name of the service fabric.
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -127,7 +127,7 @@ export interface GetServiceFabricOutputArgs {
     /**
      * The name of the service fabric.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

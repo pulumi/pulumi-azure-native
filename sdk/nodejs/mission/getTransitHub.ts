@@ -35,7 +35,7 @@ export interface GetTransitHubArgs {
     /**
      * The name of the TransitHub Resource
      */
-    transitHubName?: string;
+    transitHubName: string;
 }
 
 /**
@@ -115,5 +115,5 @@ export interface GetTransitHubOutputArgs {
     /**
      * The name of the TransitHub Resource
      */
-    transitHubName?: pulumi.Input<string | undefined>;
+    transitHubName: pulumi.Input<string>;
 }

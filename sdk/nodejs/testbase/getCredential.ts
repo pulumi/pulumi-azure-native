@@ -25,7 +25,7 @@ export interface GetCredentialArgs {
     /**
      * The credential resource name.
      */
-    credentialName?: string;
+    credentialName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetCredentialOutputArgs {
     /**
      * The credential resource name.
      */
-    credentialName?: pulumi.Input<string | undefined>;
+    credentialName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

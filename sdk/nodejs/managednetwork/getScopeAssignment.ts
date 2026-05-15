@@ -25,7 +25,7 @@ export interface GetScopeAssignmentArgs {
     /**
      * The name of the scope assignment to get.
      */
-    scopeAssignmentName?: string;
+    scopeAssignmentName: string;
 }
 
 /**
@@ -86,5 +86,5 @@ export interface GetScopeAssignmentOutputArgs {
     /**
      * The name of the scope assignment to get.
      */
-    scopeAssignmentName?: pulumi.Input<string | undefined>;
+    scopeAssignmentName: pulumi.Input<string>;
 }

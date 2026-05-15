@@ -29,7 +29,7 @@ export interface GetExtensionArgs {
     /**
      * Id of extension resource.
      */
-    extensionId?: string;
+    extensionId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -111,7 +111,7 @@ export interface GetExtensionOutputArgs {
     /**
      * Id of extension resource.
      */
-    extensionId?: pulumi.Input<string | undefined>;
+    extensionId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

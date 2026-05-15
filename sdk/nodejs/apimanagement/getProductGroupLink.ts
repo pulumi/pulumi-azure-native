@@ -25,7 +25,7 @@ export interface GetProductGroupLinkArgs {
     /**
      * Product-Group link identifier. Must be unique in the current API Management service instance.
      */
-    groupLinkId?: string;
+    groupLinkId: string;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */
@@ -86,7 +86,7 @@ export interface GetProductGroupLinkOutputArgs {
     /**
      * Product-Group link identifier. Must be unique in the current API Management service instance.
      */
-    groupLinkId?: pulumi.Input<string | undefined>;
+    groupLinkId: pulumi.Input<string>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

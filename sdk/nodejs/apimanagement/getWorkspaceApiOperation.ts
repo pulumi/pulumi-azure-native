@@ -33,7 +33,7 @@ export interface GetWorkspaceApiOperationArgs {
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
-    operationId?: string;
+    operationId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -127,7 +127,7 @@ export interface GetWorkspaceApiOperationOutputArgs {
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
-    operationId?: pulumi.Input<string | undefined>;
+    operationId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

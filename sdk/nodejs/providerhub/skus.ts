@@ -76,9 +76,6 @@ export class Skus extends pulumi.CustomResource {
             if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            if (args?.sku === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sku'");
-            }
             resourceInputs["properties"] = args?.properties;
             resourceInputs["providerNamespace"] = args?.providerNamespace;
             resourceInputs["resourceType"] = args?.resourceType;
@@ -117,5 +114,5 @@ export interface SkusArgs {
     /**
      * The SKU.
      */
-    sku: pulumi.Input<string>;
+    sku?: pulumi.Input<string | undefined>;
 }

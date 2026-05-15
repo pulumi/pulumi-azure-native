@@ -26,7 +26,7 @@ export interface GetHostPoolArgs {
     /**
      * The name of the host pool within the specified resource group
      */
-    hostPoolName?: string;
+    hostPoolName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -196,7 +196,7 @@ export interface GetHostPoolOutputArgs {
     /**
      * The name of the host pool within the specified resource group
      */
-    hostPoolName?: pulumi.Input<string | undefined>;
+    hostPoolName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

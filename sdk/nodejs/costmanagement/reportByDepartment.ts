@@ -92,9 +92,6 @@ export class ReportByDepartment extends pulumi.CustomResource {
             if (args?.departmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'departmentId'");
             }
-            if (args?.reportName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'reportName'");
-            }
             resourceInputs["definition"] = args?.definition;
             resourceInputs["deliveryInfo"] = args?.deliveryInfo;
             resourceInputs["departmentId"] = args?.departmentId;
@@ -145,7 +142,7 @@ export interface ReportByDepartmentArgs {
     /**
      * Report Name.
      */
-    reportName: pulumi.Input<string>;
+    reportName?: pulumi.Input<string | undefined>;
     /**
      * Has schedule information for the report.
      */

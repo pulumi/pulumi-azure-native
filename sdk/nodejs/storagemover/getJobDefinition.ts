@@ -28,7 +28,7 @@ export interface GetJobDefinitionArgs {
     /**
      * The name of the Job Definition resource.
      */
-    jobDefinitionName?: string;
+    jobDefinitionName: string;
     /**
      * The name of the Project resource.
      */
@@ -145,7 +145,7 @@ export interface GetJobDefinitionOutputArgs {
     /**
      * The name of the Job Definition resource.
      */
-    jobDefinitionName?: pulumi.Input<string | undefined>;
+    jobDefinitionName: pulumi.Input<string>;
     /**
      * The name of the Project resource.
      */

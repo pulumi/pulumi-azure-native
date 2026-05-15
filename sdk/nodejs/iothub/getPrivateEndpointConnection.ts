@@ -27,7 +27,7 @@ export interface GetPrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection
      */
-    privateEndpointConnectionName?: string;
+    privateEndpointConnectionName: string;
     /**
      * The name of the resource group that contains the IoT hub.
      */
@@ -83,7 +83,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
     /**
      * The name of the private endpoint connection
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the IoT hub.
      */

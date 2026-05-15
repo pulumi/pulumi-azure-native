@@ -116,9 +116,6 @@ export class CapacityReservation extends pulumi.CustomResource {
             if (args?.capacityReservationGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacityReservationGroupName'");
             }
-            if (args?.capacityReservationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'capacityReservationName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -178,7 +175,7 @@ export interface CapacityReservationArgs {
     /**
      * The name of the capacity reservation.
      */
-    capacityReservationName: pulumi.Input<string>;
+    capacityReservationName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

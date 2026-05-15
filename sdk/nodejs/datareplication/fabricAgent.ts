@@ -71,9 +71,6 @@ export class FabricAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.fabricAgentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'fabricAgentName'");
-            }
             if (args?.fabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
@@ -109,7 +106,7 @@ export interface FabricAgentArgs {
     /**
      * The fabric agent name.
      */
-    fabricAgentName: pulumi.Input<string>;
+    fabricAgentName?: pulumi.Input<string | undefined>;
     /**
      * The fabric name.
      */

@@ -92,9 +92,6 @@ export class ApplicationResource extends pulumi.CustomResource {
             if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
@@ -153,7 +150,7 @@ export interface ApplicationResourceArgs {
     /**
      * The name of the application resource.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The type of the application resource.
      */

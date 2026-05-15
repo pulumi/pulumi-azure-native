@@ -78,9 +78,6 @@ export class VirtualNetworkRule extends pulumi.CustomResource {
             if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if (args?.virtualNetworkRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualNetworkRuleName'");
-            }
             if (args?.virtualNetworkSubnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkSubnetId'");
             }
@@ -127,7 +124,7 @@ export interface VirtualNetworkRuleArgs {
     /**
      * The name of the virtual network rule.
      */
-    virtualNetworkRuleName: pulumi.Input<string>;
+    virtualNetworkRuleName?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource id of the virtual network subnet.
      */

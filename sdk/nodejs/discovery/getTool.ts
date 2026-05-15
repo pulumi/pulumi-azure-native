@@ -28,7 +28,7 @@ export interface GetToolArgs {
     /**
      * The name of the Tool
      */
-    toolName?: string;
+    toolName: string;
 }
 
 /**
@@ -89,5 +89,5 @@ export interface GetToolOutputArgs {
     /**
      * The name of the Tool
      */
-    toolName?: pulumi.Input<string | undefined>;
+    toolName: pulumi.Input<string>;
 }

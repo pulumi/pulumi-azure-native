@@ -28,7 +28,7 @@ export interface GetTagInheritanceSettingArgs {
     /**
      * Setting type.
      */
-    type?: string;
+    type: string;
 }
 
 /**
@@ -82,5 +82,5 @@ export interface GetTagInheritanceSettingOutputArgs {
     /**
      * Setting type.
      */
-    type?: pulumi.Input<string | undefined>;
+    type: pulumi.Input<string>;
 }

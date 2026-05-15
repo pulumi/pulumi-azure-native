@@ -83,9 +83,6 @@ export class VirtualCluster extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.virtualClusterName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualClusterName'");
-            }
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
@@ -136,5 +133,5 @@ export interface VirtualClusterArgs {
     /**
      * The name of the virtual cluster.
      */
-    virtualClusterName: pulumi.Input<string>;
+    virtualClusterName?: pulumi.Input<string | undefined>;
 }

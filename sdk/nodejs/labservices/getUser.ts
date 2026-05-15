@@ -35,7 +35,7 @@ export interface GetUserArgs {
     /**
      * The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
      */
-    userName?: string;
+    userName: string;
 }
 
 /**
@@ -127,5 +127,5 @@ export interface GetUserOutputArgs {
     /**
      * The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
      */
-    userName?: pulumi.Input<string | undefined>;
+    userName: pulumi.Input<string>;
 }

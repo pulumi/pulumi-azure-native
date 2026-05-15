@@ -121,9 +121,6 @@ export class ConnectedRegistry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.connectedRegistryName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'connectedRegistryName'");
-            }
             if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
@@ -193,7 +190,7 @@ export interface ConnectedRegistryArgs {
     /**
      * The name of the connected registry.
      */
-    connectedRegistryName: pulumi.Input<string>;
+    connectedRegistryName?: pulumi.Input<string | undefined>;
     /**
      * The garbage collection properties of the connected registry.
      */

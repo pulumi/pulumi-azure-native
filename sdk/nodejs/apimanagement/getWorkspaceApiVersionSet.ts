@@ -33,7 +33,7 @@ export interface GetWorkspaceApiVersionSetArgs {
     /**
      * Api Version Set identifier. Must be unique in the current API Management service instance.
      */
-    versionSetId?: string;
+    versionSetId: string;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */
@@ -110,7 +110,7 @@ export interface GetWorkspaceApiVersionSetOutputArgs {
     /**
      * Api Version Set identifier. Must be unique in the current API Management service instance.
      */
-    versionSetId?: pulumi.Input<string | undefined>;
+    versionSetId: pulumi.Input<string>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

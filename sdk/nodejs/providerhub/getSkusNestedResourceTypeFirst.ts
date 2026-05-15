@@ -40,7 +40,7 @@ export interface GetSkusNestedResourceTypeFirstArgs {
     /**
      * The SKU.
      */
-    sku?: string;
+    sku: string;
 }
 
 /**
@@ -102,5 +102,5 @@ export interface GetSkusNestedResourceTypeFirstOutputArgs {
     /**
      * The SKU.
      */
-    sku?: pulumi.Input<string | undefined>;
+    sku: pulumi.Input<string>;
 }

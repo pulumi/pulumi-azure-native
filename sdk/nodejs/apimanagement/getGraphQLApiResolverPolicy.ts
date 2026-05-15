@@ -35,7 +35,7 @@ export interface GetGraphQLApiResolverPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId?: string;
+    policyId: string;
     /**
      * Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
      */
@@ -110,7 +110,7 @@ export interface GetGraphQLApiResolverPolicyOutputArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId?: pulumi.Input<string | undefined>;
+    policyId: pulumi.Input<string>;
     /**
      * Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
      */

@@ -26,7 +26,7 @@ export interface GetDdosProtectionPlanArgs {
     /**
      * The name of the DDoS protection plan.
      */
-    ddosProtectionPlanName?: string;
+    ddosProtectionPlanName: string;
     /**
      * The name of the resource group.
      */
@@ -101,7 +101,7 @@ export interface GetDdosProtectionPlanOutputArgs {
     /**
      * The name of the DDoS protection plan.
      */
-    ddosProtectionPlanName?: pulumi.Input<string | undefined>;
+    ddosProtectionPlanName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

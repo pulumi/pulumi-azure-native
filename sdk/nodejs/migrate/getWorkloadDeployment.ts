@@ -38,7 +38,7 @@ export interface GetWorkloadDeploymentArgs {
     /**
      * Workload deployment name.
      */
-    workloadDeploymentName?: string;
+    workloadDeploymentName: string;
 }
 
 /**
@@ -102,5 +102,5 @@ export interface GetWorkloadDeploymentOutputArgs {
     /**
      * Workload deployment name.
      */
-    workloadDeploymentName?: pulumi.Input<string | undefined>;
+    workloadDeploymentName: pulumi.Input<string>;
 }

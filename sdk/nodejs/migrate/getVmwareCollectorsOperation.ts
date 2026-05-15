@@ -35,7 +35,7 @@ export interface GetVmwareCollectorsOperationArgs {
     /**
      * VMware collector ARM name
      */
-    vmWareCollectorName?: string;
+    vmWareCollectorName: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetVmwareCollectorsOperationOutputArgs {
     /**
      * VMware collector ARM name
      */
-    vmWareCollectorName?: pulumi.Input<string | undefined>;
+    vmWareCollectorName: pulumi.Input<string>;
 }

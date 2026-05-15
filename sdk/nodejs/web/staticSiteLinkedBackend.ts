@@ -82,9 +82,6 @@ export class StaticSiteLinkedBackend extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.linkedBackendName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'linkedBackendName'");
-            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -136,7 +133,7 @@ export interface StaticSiteLinkedBackendArgs {
     /**
      * Name of the backend to link to the static site
      */
-    linkedBackendName: pulumi.Input<string>;
+    linkedBackendName?: pulumi.Input<string | undefined>;
     /**
      * Name of the static site
      */

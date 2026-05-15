@@ -70,9 +70,6 @@ export class GroupQuota extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.groupQuotaName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'groupQuotaName'");
-            }
             if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
@@ -104,7 +101,7 @@ export interface GroupQuotaArgs {
     /**
      * The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
      */
-    groupQuotaName: pulumi.Input<string>;
+    groupQuotaName?: pulumi.Input<string | undefined>;
     /**
      * Management Group Id.
      */

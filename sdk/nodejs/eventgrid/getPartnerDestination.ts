@@ -26,7 +26,7 @@ export interface GetPartnerDestinationArgs {
     /**
      * Name of the partner destination.
      */
-    partnerDestinationName?: string;
+    partnerDestinationName: string;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -114,7 +114,7 @@ export interface GetPartnerDestinationOutputArgs {
     /**
      * Name of the partner destination.
      */
-    partnerDestinationName?: pulumi.Input<string | undefined>;
+    partnerDestinationName: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */

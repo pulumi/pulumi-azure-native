@@ -30,7 +30,7 @@ export interface GetRoutePolicyArgs {
     /**
      * Name of the Route Policy.
      */
-    routePolicyName?: string;
+    routePolicyName: string;
 }
 
 /**
@@ -121,5 +121,5 @@ export interface GetRoutePolicyOutputArgs {
     /**
      * Name of the Route Policy.
      */
-    routePolicyName?: pulumi.Input<string | undefined>;
+    routePolicyName: pulumi.Input<string>;
 }

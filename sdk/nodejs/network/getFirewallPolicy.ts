@@ -31,7 +31,7 @@ export interface GetFirewallPolicyArgs {
     /**
      * The name of the Firewall Policy.
      */
-    firewallPolicyName?: string;
+    firewallPolicyName: string;
     /**
      * The name of the resource group.
      */
@@ -163,7 +163,7 @@ export interface GetFirewallPolicyOutputArgs {
     /**
      * The name of the Firewall Policy.
      */
-    firewallPolicyName?: pulumi.Input<string | undefined>;
+    firewallPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

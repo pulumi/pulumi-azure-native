@@ -26,7 +26,7 @@ export interface GetComputePolicyArgs {
     /**
      * The name of the compute policy to retrieve.
      */
-    computePolicyName?: string;
+    computePolicyName: string;
     /**
      * The name of the Azure resource group.
      */
@@ -92,7 +92,7 @@ export interface GetComputePolicyOutputArgs {
     /**
      * The name of the compute policy to retrieve.
      */
-    computePolicyName?: pulumi.Input<string | undefined>;
+    computePolicyName: pulumi.Input<string>;
     /**
      * The name of the Azure resource group.
      */

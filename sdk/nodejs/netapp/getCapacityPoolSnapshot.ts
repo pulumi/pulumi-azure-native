@@ -41,7 +41,7 @@ export interface GetCapacityPoolSnapshotArgs {
     /**
      * The name of the snapshot
      */
-    snapshotName?: string;
+    snapshotName: string;
     /**
      * The name of the volume
      */
@@ -123,7 +123,7 @@ export interface GetCapacityPoolSnapshotOutputArgs {
     /**
      * The name of the snapshot
      */
-    snapshotName?: pulumi.Input<string | undefined>;
+    snapshotName: pulumi.Input<string>;
     /**
      * The name of the volume
      */

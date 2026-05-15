@@ -30,7 +30,7 @@ export interface GetCustomLocationArgs {
     /**
      * Custom Locations name.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -121,5 +121,5 @@ export interface GetCustomLocationOutputArgs {
     /**
      * Custom Locations name.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

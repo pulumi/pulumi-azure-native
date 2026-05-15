@@ -37,7 +37,7 @@ export interface GetTagByApiArgs {
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    tagId?: string;
+    tagId: string;
 }
 
 /**
@@ -98,5 +98,5 @@ export interface GetTagByApiOutputArgs {
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    tagId?: pulumi.Input<string | undefined>;
+    tagId: pulumi.Input<string>;
 }

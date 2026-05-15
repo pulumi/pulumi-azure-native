@@ -83,9 +83,6 @@ export class Archife extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.archiveName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'archiveName'");
-            }
             if (args?.packageType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageType'");
             }
@@ -133,7 +130,7 @@ export interface ArchifeArgs {
     /**
      * The name of the archive resource.
      */
-    archiveName: pulumi.Input<string>;
+    archiveName?: pulumi.Input<string | undefined>;
     /**
      * The package source of the archive.
      */

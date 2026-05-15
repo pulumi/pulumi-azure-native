@@ -34,7 +34,7 @@ export interface GetWorkspaceApiSchemaArgs {
     /**
      * Schema id identifier. Must be unique in the current API Management service instance.
      */
-    schemaId?: string;
+    schemaId: string;
     /**
      * The name of the API Management service.
      */
@@ -116,7 +116,7 @@ export interface GetWorkspaceApiSchemaOutputArgs {
     /**
      * Schema id identifier. Must be unique in the current API Management service instance.
      */
-    schemaId?: pulumi.Input<string | undefined>;
+    schemaId: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */

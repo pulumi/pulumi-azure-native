@@ -110,9 +110,6 @@ export class NotificationChannel extends pulumi.CustomResource {
             if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -182,7 +179,7 @@ export interface NotificationChannelArgs {
     /**
      * The name of the notification channel.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The locale to use when sending a notification (fallback for unsupported languages is EN).
      */

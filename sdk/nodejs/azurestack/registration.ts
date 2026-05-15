@@ -89,9 +89,6 @@ export class Registration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.registrationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'registrationName'");
-            }
             if (args?.registrationToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registrationToken'");
             }
@@ -139,7 +136,7 @@ export interface RegistrationArgs {
     /**
      * Name of the Azure Stack registration.
      */
-    registrationName: pulumi.Input<string>;
+    registrationName?: pulumi.Input<string | undefined>;
     /**
      * The token identifying registered Azure Stack
      */

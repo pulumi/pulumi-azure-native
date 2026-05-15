@@ -26,7 +26,7 @@ export interface GetIpPrefixArgs {
     /**
      * Name of the IP Prefix.
      */
-    ipPrefixName?: string;
+    ipPrefixName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetIpPrefixOutputArgs {
     /**
      * Name of the IP Prefix.
      */
-    ipPrefixName?: pulumi.Input<string | undefined>;
+    ipPrefixName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

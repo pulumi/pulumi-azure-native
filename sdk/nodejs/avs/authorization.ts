@@ -85,9 +85,6 @@ export class Authorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.authorizationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'authorizationName'");
-            }
             if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
@@ -129,7 +126,7 @@ export interface AuthorizationArgs {
     /**
      * Name of the ExpressRoute Circuit Authorization
      */
-    authorizationName: pulumi.Input<string>;
+    authorizationName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the ExpressRoute Circuit
      */

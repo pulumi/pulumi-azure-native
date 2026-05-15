@@ -82,9 +82,6 @@ export class GraphResourceGraph extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.graphName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'graphName'");
-            }
             if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -130,7 +127,7 @@ export interface GraphResourceGraphArgs {
     /**
      * Cosmos DB graph resource name.
      */
-    graphName: pulumi.Input<string>;
+    graphName?: pulumi.Input<string | undefined>;
     /**
      * Identity for the resource.
      */

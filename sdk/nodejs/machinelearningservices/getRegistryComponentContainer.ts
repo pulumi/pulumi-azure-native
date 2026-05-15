@@ -27,7 +27,7 @@ export interface GetRegistryComponentContainerArgs {
     /**
      * Container name.
      */
-    componentName?: string;
+    componentName: string;
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */
@@ -87,7 +87,7 @@ export interface GetRegistryComponentContainerOutputArgs {
     /**
      * Container name.
      */
-    componentName?: pulumi.Input<string | undefined>;
+    componentName: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning registry. This is case-insensitive
      */

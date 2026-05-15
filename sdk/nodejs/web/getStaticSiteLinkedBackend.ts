@@ -24,7 +24,7 @@ export interface GetStaticSiteLinkedBackendArgs {
     /**
      * Name of the linked backend that should be retrieved
      */
-    linkedBackendName?: string;
+    linkedBackendName: string;
     /**
      * Name of the static site
      */
@@ -96,7 +96,7 @@ export interface GetStaticSiteLinkedBackendOutputArgs {
     /**
      * Name of the linked backend that should be retrieved
      */
-    linkedBackendName?: pulumi.Input<string | undefined>;
+    linkedBackendName: pulumi.Input<string>;
     /**
      * Name of the static site
      */

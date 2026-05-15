@@ -202,9 +202,6 @@ export class Pool extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.poolName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'poolName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -345,7 +342,7 @@ export interface PoolArgs {
     /**
      * The pool name. This must be unique within the account.
      */
-    poolName: pulumi.Input<string>;
+    poolName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

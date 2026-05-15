@@ -73,9 +73,6 @@ export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if (args?.policyName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'policyName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -120,7 +117,7 @@ export interface BackupShortTermRetentionPolicyArgs {
     /**
      * The policy name. Should always be "default".
      */
-    policyName: pulumi.Input<string>;
+    policyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

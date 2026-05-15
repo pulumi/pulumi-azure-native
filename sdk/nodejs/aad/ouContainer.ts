@@ -116,9 +116,6 @@ export class OuContainer extends pulumi.CustomResource {
             if (args?.domainServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainServiceName'");
             }
-            if (args?.ouContainerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'ouContainerName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -182,7 +179,7 @@ export interface OuContainerArgs {
     /**
      * The name of the OuContainer.
      */
-    ouContainerName: pulumi.Input<string>;
+    ouContainerName?: pulumi.Input<string | undefined>;
     /**
      * The account password
      */

@@ -30,7 +30,7 @@ export interface GetBillingRoleAssignmentByBillingAccountArgs {
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    billingRoleAssignmentName?: string;
+    billingRoleAssignmentName: string;
 }
 
 /**
@@ -89,5 +89,5 @@ export interface GetBillingRoleAssignmentByBillingAccountOutputArgs {
     /**
      * The ID that uniquely identifies a role assignment.
      */
-    billingRoleAssignmentName?: pulumi.Input<string | undefined>;
+    billingRoleAssignmentName: pulumi.Input<string>;
 }

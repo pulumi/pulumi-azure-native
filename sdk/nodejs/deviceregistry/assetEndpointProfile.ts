@@ -113,9 +113,6 @@ export class AssetEndpointProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.assetEndpointProfileName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'assetEndpointProfileName'");
-            }
             if (args?.endpointProfileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointProfileType'");
             }
@@ -180,7 +177,7 @@ export interface AssetEndpointProfileArgs {
     /**
      * Asset Endpoint Profile name parameter.
      */
-    assetEndpointProfileName: pulumi.Input<string>;
+    assetEndpointProfileName?: pulumi.Input<string | undefined>;
     /**
      * Defines the client authentication mechanism to the server.
      */

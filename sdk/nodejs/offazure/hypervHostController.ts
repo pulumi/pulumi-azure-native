@@ -97,9 +97,6 @@ export class HypervHostController extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.hostName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'hostName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -151,7 +148,7 @@ export interface HypervHostControllerArgs {
     /**
      *  Host name
      */
-    hostName: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * The status of the last operation.
      */

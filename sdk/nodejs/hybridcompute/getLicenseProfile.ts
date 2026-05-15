@@ -27,7 +27,7 @@ export interface GetLicenseProfileArgs {
     /**
      * The name of the license profile.
      */
-    licenseProfileName?: string;
+    licenseProfileName: string;
     /**
      * The name of the hybrid machine.
      */
@@ -155,7 +155,7 @@ export interface GetLicenseProfileOutputArgs {
     /**
      * The name of the license profile.
      */
-    licenseProfileName?: pulumi.Input<string | undefined>;
+    licenseProfileName: pulumi.Input<string>;
     /**
      * The name of the hybrid machine.
      */

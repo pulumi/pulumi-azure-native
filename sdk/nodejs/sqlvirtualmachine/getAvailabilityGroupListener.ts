@@ -28,7 +28,7 @@ export interface GetAvailabilityGroupListenerArgs {
     /**
      * Name of the availability group listener.
      */
-    availabilityGroupListenerName?: string;
+    availabilityGroupListenerName: string;
     /**
      * The child resources to include in the response.
      */
@@ -117,7 +117,7 @@ export interface GetAvailabilityGroupListenerOutputArgs {
     /**
      * Name of the availability group listener.
      */
-    availabilityGroupListenerName?: pulumi.Input<string | undefined>;
+    availabilityGroupListenerName: pulumi.Input<string>;
     /**
      * The child resources to include in the response.
      */

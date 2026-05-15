@@ -28,7 +28,7 @@ export interface GetSpaceArgs {
     /**
      * The name of the space
      */
-    spaceName?: string;
+    spaceName: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetSpaceOutputArgs {
     /**
      * The name of the space
      */
-    spaceName?: pulumi.Input<string | undefined>;
+    spaceName: pulumi.Input<string>;
 }

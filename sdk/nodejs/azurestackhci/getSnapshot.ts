@@ -28,7 +28,7 @@ export interface GetSnapshotArgs {
     /**
      * Name of the snapshot
      */
-    snapshotName?: string;
+    snapshotName: string;
 }
 
 /**
@@ -93,5 +93,5 @@ export interface GetSnapshotOutputArgs {
     /**
      * Name of the snapshot
      */
-    snapshotName?: pulumi.Input<string | undefined>;
+    snapshotName: pulumi.Input<string>;
 }

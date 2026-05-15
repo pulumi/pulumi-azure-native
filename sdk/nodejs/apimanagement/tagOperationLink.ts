@@ -69,9 +69,6 @@ export class TagOperationLink extends pulumi.CustomResource {
             if (args?.operationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operationId'");
             }
-            if (args?.operationLinkId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'operationLinkId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -113,7 +110,7 @@ export interface TagOperationLinkArgs {
     /**
      * Tag-operation link identifier. Must be unique in the current API Management service instance.
      */
-    operationLinkId: pulumi.Input<string>;
+    operationLinkId?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

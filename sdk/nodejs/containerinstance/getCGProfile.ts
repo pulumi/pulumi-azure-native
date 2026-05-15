@@ -26,7 +26,7 @@ export interface GetCGProfileArgs {
     /**
      * ContainerGroupProfile name.
      */
-    containerGroupProfileName?: string;
+    containerGroupProfileName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -168,7 +168,7 @@ export interface GetCGProfileOutputArgs {
     /**
      * ContainerGroupProfile name.
      */
-    containerGroupProfileName?: pulumi.Input<string | undefined>;
+    containerGroupProfileName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

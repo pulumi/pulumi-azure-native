@@ -29,7 +29,7 @@ export interface GetMECRoleArgs {
     /**
      * The role name.
      */
-    name?: string;
+    name: string;
     /**
      * The resource group name.
      */
@@ -104,7 +104,7 @@ export interface GetMECRoleOutputArgs {
     /**
      * The role name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The resource group name.
      */

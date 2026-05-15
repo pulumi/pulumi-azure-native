@@ -26,7 +26,7 @@ export interface GetL2IsolationDomainArgs {
     /**
      * Name of the L2 Isolation Domain.
      */
-    l2IsolationDomainName?: string;
+    l2IsolationDomainName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetL2IsolationDomainOutputArgs {
     /**
      * Name of the L2 Isolation Domain.
      */
-    l2IsolationDomainName?: pulumi.Input<string | undefined>;
+    l2IsolationDomainName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

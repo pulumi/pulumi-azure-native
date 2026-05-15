@@ -36,7 +36,7 @@ export interface GetWorkflowVersionArgs {
     /**
      * The name of the workflowVersion.
      */
-    versionName?: string;
+    versionName: string;
     /**
      * Name of the workflow
      */
@@ -109,7 +109,7 @@ export interface GetWorkflowVersionOutputArgs {
     /**
      * The name of the workflowVersion.
      */
-    versionName?: pulumi.Input<string | undefined>;
+    versionName: pulumi.Input<string>;
     /**
      * Name of the workflow
      */

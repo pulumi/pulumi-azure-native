@@ -141,9 +141,6 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.namespaceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'namespaceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -233,7 +230,7 @@ export interface NamespaceArgs {
     /**
      * The namespace name.
      */
-    namespaceName: pulumi.Input<string>;
+    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
      */

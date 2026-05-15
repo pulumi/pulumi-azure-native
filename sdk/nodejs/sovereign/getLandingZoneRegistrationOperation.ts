@@ -29,7 +29,7 @@ export interface GetLandingZoneRegistrationOperationArgs {
     /**
      * The name of the landing zone registration resource.
      */
-    landingZoneRegistrationName?: string;
+    landingZoneRegistrationName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -87,7 +87,7 @@ export interface GetLandingZoneRegistrationOperationOutputArgs {
     /**
      * The name of the landing zone registration resource.
      */
-    landingZoneRegistrationName?: pulumi.Input<string | undefined>;
+    landingZoneRegistrationName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

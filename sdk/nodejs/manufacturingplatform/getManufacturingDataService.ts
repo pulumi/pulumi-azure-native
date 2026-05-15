@@ -24,7 +24,7 @@ export interface GetManufacturingDataServiceArgs {
     /**
      * Name.
      */
-    mdsResourceName?: string;
+    mdsResourceName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetManufacturingDataServiceOutputArgs {
     /**
      * Name.
      */
-    mdsResourceName?: pulumi.Input<string | undefined>;
+    mdsResourceName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

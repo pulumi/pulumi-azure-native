@@ -187,9 +187,6 @@ export class Snapshot extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.snapshotName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'snapshotName'");
-            }
             resourceInputs["completionPercent"] = args?.completionPercent;
             resourceInputs["copyCompletionError"] = args?.copyCompletionError;
             resourceInputs["creationData"] = args?.creationData;
@@ -348,7 +345,7 @@ export interface SnapshotArgs {
     /**
      * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
      */
-    snapshotName: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string | undefined>;
     /**
      * List of supported capabilities for the image from which the source disk from the snapshot was originally created.
      */

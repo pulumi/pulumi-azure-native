@@ -24,7 +24,7 @@ export interface GetPricingArgs {
     /**
      * name of the pricing configuration
      */
-    pricingName?: string;
+    pricingName: string;
     /**
      * The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
      */
@@ -113,7 +113,7 @@ export interface GetPricingOutputArgs {
     /**
      * name of the pricing configuration
      */
-    pricingName?: pulumi.Input<string | undefined>;
+    pricingName: pulumi.Input<string>;
     /**
      * The scope id of the pricing. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or a specific resource (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}) - Supported resources are (VirtualMachines)
      */

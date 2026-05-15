@@ -35,7 +35,7 @@ export interface GetScalingPlanPooledScheduleArgs {
     /**
      * The name of the ScalingPlanSchedule
      */
-    scalingPlanScheduleName?: string;
+    scalingPlanScheduleName: string;
 }
 
 /**
@@ -159,5 +159,5 @@ export interface GetScalingPlanPooledScheduleOutputArgs {
     /**
      * The name of the ScalingPlanSchedule
      */
-    scalingPlanScheduleName?: pulumi.Input<string | undefined>;
+    scalingPlanScheduleName: pulumi.Input<string>;
 }

@@ -40,7 +40,7 @@ export interface GetRoutingRuleCollectionArgs {
     /**
      * The name of the network manager routing Configuration rule collection.
      */
-    ruleCollectionName?: string;
+    ruleCollectionName: string;
 }
 
 /**
@@ -125,5 +125,5 @@ export interface GetRoutingRuleCollectionOutputArgs {
     /**
      * The name of the network manager routing Configuration rule collection.
      */
-    ruleCollectionName?: pulumi.Input<string | undefined>;
+    ruleCollectionName: pulumi.Input<string>;
 }

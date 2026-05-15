@@ -160,9 +160,6 @@ export class CommunicationsGateway extends pulumi.CustomResource {
             if (args?.codecs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'codecs'");
             }
-            if (args?.communicationsGatewayName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'communicationsGatewayName'");
-            }
             if (args?.connectivity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectivity'");
             }
@@ -260,7 +257,7 @@ export interface CommunicationsGatewayArgs {
     /**
      * Unique identifier for this deployment
      */
-    communicationsGatewayName: pulumi.Input<string>;
+    communicationsGatewayName?: pulumi.Input<string | undefined>;
     /**
      * How to connect back to the operator network, e.g. MAPS
      */

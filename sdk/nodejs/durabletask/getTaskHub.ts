@@ -35,7 +35,7 @@ export interface GetTaskHubArgs {
     /**
      * The name of the TaskHub
      */
-    taskHubName?: string;
+    taskHubName: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetTaskHubOutputArgs {
     /**
      * The name of the TaskHub
      */
-    taskHubName?: pulumi.Input<string | undefined>;
+    taskHubName: pulumi.Input<string>;
 }

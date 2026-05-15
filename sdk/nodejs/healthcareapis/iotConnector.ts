@@ -97,9 +97,6 @@ export class IotConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.iotConnectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'iotConnectorName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -159,7 +156,7 @@ export interface IotConnectorArgs {
     /**
      * The name of IoT Connector resource.
      */
-    iotConnectorName: pulumi.Input<string>;
+    iotConnectorName?: pulumi.Input<string | undefined>;
     /**
      * The resource location.
      */

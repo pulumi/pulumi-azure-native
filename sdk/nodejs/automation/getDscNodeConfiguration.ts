@@ -31,7 +31,7 @@ export interface GetDscNodeConfigurationArgs {
     /**
      * The Dsc node configuration name.
      */
-    nodeConfigurationName?: string;
+    nodeConfigurationName: string;
     /**
      * Name of an Azure Resource group.
      */
@@ -111,7 +111,7 @@ export interface GetDscNodeConfigurationOutputArgs {
     /**
      * The Dsc node configuration name.
      */
-    nodeConfigurationName?: pulumi.Input<string | undefined>;
+    nodeConfigurationName: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

@@ -28,7 +28,7 @@ export interface GetAppServiceCertificateOrderCertificateArgs {
     /**
      * Name of the certificate.
      */
-    name?: string;
+    name: string;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -104,7 +104,7 @@ export interface GetAppServiceCertificateOrderCertificateOutputArgs {
     /**
      * Name of the certificate.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

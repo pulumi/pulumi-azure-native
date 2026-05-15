@@ -31,7 +31,7 @@ export interface GetObjectReplicationPolicyArgs {
     /**
      * For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
      */
-    objectReplicationPolicyId?: string;
+    objectReplicationPolicyId: string;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetObjectReplicationPolicyOutputArgs {
     /**
      * For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
      */
-    objectReplicationPolicyId?: pulumi.Input<string | undefined>;
+    objectReplicationPolicyId: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

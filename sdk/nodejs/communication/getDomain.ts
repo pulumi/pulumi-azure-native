@@ -27,7 +27,7 @@ export interface GetDomainArgs {
     /**
      * The name of the Domains resource.
      */
-    domainName?: string;
+    domainName: string;
     /**
      * The name of the EmailService resource.
      */
@@ -123,7 +123,7 @@ export interface GetDomainOutputArgs {
     /**
      * The name of the Domains resource.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName: pulumi.Input<string>;
     /**
      * The name of the EmailService resource.
      */

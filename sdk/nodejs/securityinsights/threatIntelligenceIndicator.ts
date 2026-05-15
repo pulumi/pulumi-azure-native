@@ -80,9 +80,6 @@ export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (args?.name === undefined && !opts.urn) {
-                throw new Error("Missing required property 'name'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -220,7 +217,7 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * Threat intelligence indicator name field.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Threat intelligence entity object marking references
      */

@@ -85,9 +85,6 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.profileName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'profileName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -137,7 +134,7 @@ export interface NetworkExperimentProfileArgs {
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
-    profileName: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Resource group within the Azure subscription.
      */

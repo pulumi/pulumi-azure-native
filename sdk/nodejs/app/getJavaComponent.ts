@@ -31,7 +31,7 @@ export interface GetJavaComponentArgs {
     /**
      * Name of the Java Component.
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -91,7 +91,7 @@ export interface GetJavaComponentOutputArgs {
     /**
      * Name of the Java Component.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

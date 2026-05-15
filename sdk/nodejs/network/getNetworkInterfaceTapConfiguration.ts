@@ -35,7 +35,7 @@ export interface GetNetworkInterfaceTapConfigurationArgs {
     /**
      * The name of the tap configuration.
      */
-    tapConfigurationName?: string;
+    tapConfigurationName: string;
 }
 
 /**
@@ -99,5 +99,5 @@ export interface GetNetworkInterfaceTapConfigurationOutputArgs {
     /**
      * The name of the tap configuration.
      */
-    tapConfigurationName?: pulumi.Input<string | undefined>;
+    tapConfigurationName: pulumi.Input<string>;
 }

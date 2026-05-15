@@ -25,7 +25,7 @@ export interface GetDataLakeConnectorArgs {
     /**
      * Name of MQ dataLakeConnector resource
      */
-    dataLakeConnectorName?: string;
+    dataLakeConnectorName: string;
     /**
      * Name of MQ resource
      */
@@ -127,7 +127,7 @@ export interface GetDataLakeConnectorOutputArgs {
     /**
      * Name of MQ dataLakeConnector resource
      */
-    dataLakeConnectorName?: pulumi.Input<string | undefined>;
+    dataLakeConnectorName: pulumi.Input<string>;
     /**
      * Name of MQ resource
      */

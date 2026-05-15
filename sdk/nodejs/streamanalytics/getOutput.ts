@@ -31,7 +31,7 @@ export interface GetOutputArgs {
     /**
      * The name of the output.
      */
-    outputName?: string;
+    outputName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetOutputOutputArgs {
     /**
      * The name of the output.
      */
-    outputName?: pulumi.Input<string | undefined>;
+    outputName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

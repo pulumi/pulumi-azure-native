@@ -26,7 +26,7 @@ export interface GetL2NetworkArgs {
     /**
      * The name of the L2 network.
      */
-    l2NetworkName?: string;
+    l2NetworkName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,7 +130,7 @@ export interface GetL2NetworkOutputArgs {
     /**
      * The name of the L2 network.
      */
-    l2NetworkName?: pulumi.Input<string | undefined>;
+    l2NetworkName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

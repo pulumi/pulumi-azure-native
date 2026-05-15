@@ -28,7 +28,7 @@ export interface GetScopingConfigurationArgs {
     /**
      * The scoping configuration of the specific report.
      */
-    scopingConfigurationName?: string;
+    scopingConfigurationName: string;
 }
 
 /**
@@ -85,5 +85,5 @@ export interface GetScopingConfigurationOutputArgs {
     /**
      * The scoping configuration of the specific report.
      */
-    scopingConfigurationName?: pulumi.Input<string | undefined>;
+    scopingConfigurationName: pulumi.Input<string>;
 }

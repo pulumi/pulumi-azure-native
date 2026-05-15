@@ -26,7 +26,7 @@ export interface GetRackArgs {
     /**
      * The name of the rack.
      */
-    rackName?: string;
+    rackName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -122,7 +122,7 @@ export interface GetRackOutputArgs {
     /**
      * The name of the rack.
      */
-    rackName?: pulumi.Input<string | undefined>;
+    rackName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -95,9 +95,6 @@ export class SqlPoolWorkloadClassifier extends pulumi.CustomResource {
             if (args?.sqlPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlPoolName'");
             }
-            if (args?.workloadClassifierName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'workloadClassifierName'");
-            }
             if (args?.workloadGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workloadGroupName'");
             }
@@ -175,7 +172,7 @@ export interface SqlPoolWorkloadClassifierArgs {
     /**
      * The name of the workload classifier.
      */
-    workloadClassifierName: pulumi.Input<string>;
+    workloadClassifierName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workload group.
      */

@@ -129,9 +129,6 @@ export class NotificationHub extends pulumi.CustomResource {
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if (args?.notificationHubName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'notificationHubName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -232,7 +229,7 @@ export interface NotificationHubArgs {
     /**
      * Notification Hub name
      */
-    notificationHubName: pulumi.Input<string>;
+    notificationHubName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the RegistrationTtl of the created NotificationHub
      */

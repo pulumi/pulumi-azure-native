@@ -93,9 +93,6 @@ export class WebAppSitesController extends pulumi.CustomResource {
             if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
-            if (args?.webAppSiteName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'webAppSiteName'");
-            }
             resourceInputs["discoveryScenario"] = args?.discoveryScenario;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["siteAppliancePropertiesCollection"] = args?.siteAppliancePropertiesCollection;
@@ -149,5 +146,5 @@ export interface WebAppSitesControllerArgs {
     /**
      * Web app site name.
      */
-    webAppSiteName: pulumi.Input<string>;
+    webAppSiteName?: pulumi.Input<string | undefined>;
 }

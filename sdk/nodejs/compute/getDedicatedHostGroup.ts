@@ -31,7 +31,7 @@ export interface GetDedicatedHostGroupArgs {
     /**
      * The name of the dedicated host group.
      */
-    hostGroupName?: string;
+    hostGroupName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,7 +119,7 @@ export interface GetDedicatedHostGroupOutputArgs {
     /**
      * The name of the dedicated host group.
      */
-    hostGroupName?: pulumi.Input<string | undefined>;
+    hostGroupName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

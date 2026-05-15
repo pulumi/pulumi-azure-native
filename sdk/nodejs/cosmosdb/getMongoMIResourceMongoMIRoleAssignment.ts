@@ -35,7 +35,7 @@ export interface GetMongoMIResourceMongoMIRoleAssignmentArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId?: string;
+    roleAssignmentId: string;
 }
 
 /**
@@ -107,5 +107,5 @@ export interface GetMongoMIResourceMongoMIRoleAssignmentOutputArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId?: pulumi.Input<string | undefined>;
+    roleAssignmentId: pulumi.Input<string>;
 }

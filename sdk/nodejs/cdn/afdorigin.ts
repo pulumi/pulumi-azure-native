@@ -121,9 +121,6 @@ export class AFDOrigin extends pulumi.CustomResource {
             if (args?.originGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originGroupName'");
             }
-            if (args?.originName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'originName'");
-            }
             if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -215,7 +212,7 @@ export interface AFDOriginArgs {
     /**
      * Name of the origin which is unique within the profile.
      */
-    originName: pulumi.Input<string>;
+    originName?: pulumi.Input<string | undefined>;
     /**
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
      */

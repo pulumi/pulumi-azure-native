@@ -81,9 +81,6 @@ export class DataSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dataSourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataSourceName'");
-            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -129,7 +126,7 @@ export interface DataSourceArgs {
     /**
      * The name of the datasource resource.
      */
-    dataSourceName: pulumi.Input<string>;
+    dataSourceName?: pulumi.Input<string | undefined>;
     /**
      * The kind of the DataSource.
      */

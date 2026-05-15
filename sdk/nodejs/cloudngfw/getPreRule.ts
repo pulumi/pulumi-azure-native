@@ -30,7 +30,7 @@ export interface GetPreRuleArgs {
     /**
      * Pre Rule priority
      */
-    priority?: string;
+    priority: string;
 }
 
 /**
@@ -158,5 +158,5 @@ export interface GetPreRuleOutputArgs {
     /**
      * Pre Rule priority
      */
-    priority?: pulumi.Input<string | undefined>;
+    priority: pulumi.Input<string>;
 }

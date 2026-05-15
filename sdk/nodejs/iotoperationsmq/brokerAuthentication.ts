@@ -94,9 +94,6 @@ export class BrokerAuthentication extends pulumi.CustomResource {
             if (args?.authenticationMethods === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authenticationMethods'");
             }
-            if (args?.authenticationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'authenticationName'");
-            }
             if (args?.brokerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerName'");
             }
@@ -156,7 +153,7 @@ export interface BrokerAuthenticationArgs {
     /**
      * Name of MQ broker/authentication resource
      */
-    authenticationName: pulumi.Input<string>;
+    authenticationName?: pulumi.Input<string | undefined>;
     /**
      * Name of MQ broker resource
      */

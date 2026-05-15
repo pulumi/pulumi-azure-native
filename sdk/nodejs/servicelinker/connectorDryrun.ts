@@ -85,9 +85,6 @@ export class ConnectorDryrun extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.dryrunName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dryrunName'");
-            }
             if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
@@ -130,7 +127,7 @@ export interface ConnectorDryrunArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName: pulumi.Input<string>;
+    dryrunName?: pulumi.Input<string | undefined>;
     /**
      * The name of Azure region.
      */

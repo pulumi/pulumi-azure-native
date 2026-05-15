@@ -35,7 +35,7 @@ export interface GetWorkbookArgs {
     /**
      * The name of the workbook resource. The value must be an UUID.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -151,5 +151,5 @@ export interface GetWorkbookOutputArgs {
     /**
      * The name of the workbook resource. The value must be an UUID.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

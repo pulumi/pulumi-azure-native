@@ -77,9 +77,6 @@ export class TimeSeriesDatabaseConnection extends pulumi.CustomResource {
             if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if (args?.timeSeriesDatabaseConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'timeSeriesDatabaseConnectionName'");
-            }
             resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.digitaltwins.azureDataExplorerConnectionPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
@@ -121,5 +118,5 @@ export interface TimeSeriesDatabaseConnectionArgs {
     /**
      * Name of time series database connection.
      */
-    timeSeriesDatabaseConnectionName: pulumi.Input<string>;
+    timeSeriesDatabaseConnectionName?: pulumi.Input<string | undefined>;
 }

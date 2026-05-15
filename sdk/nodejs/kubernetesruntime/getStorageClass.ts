@@ -28,7 +28,7 @@ export interface GetStorageClassArgs {
     /**
      * The name of the the storage class
      */
-    storageClassName?: string;
+    storageClassName: string;
 }
 
 /**
@@ -125,5 +125,5 @@ export interface GetStorageClassOutputArgs {
     /**
      * The name of the the storage class
      */
-    storageClassName?: pulumi.Input<string | undefined>;
+    storageClassName: pulumi.Input<string>;
 }

@@ -91,9 +91,6 @@ export class ServiceConfiguration extends pulumi.CustomResource {
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            if (args?.serviceConfigurationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'serviceConfigurationName'");
-            }
             if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
@@ -148,7 +145,7 @@ export interface ServiceConfigurationArgs {
     /**
      * The service name.
      */
-    serviceConfigurationName: pulumi.Input<string>;
+    serviceConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * Name of the service.
      */

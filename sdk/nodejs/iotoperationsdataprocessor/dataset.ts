@@ -103,9 +103,6 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.datasetName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'datasetName'");
-            }
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
@@ -160,7 +157,7 @@ export interface DatasetArgs {
     /**
      * Name of dataset.
      */
-    datasetName: pulumi.Input<string>;
+    datasetName?: pulumi.Input<string | undefined>;
     /**
      * Detailed description of the Dataset.
      */

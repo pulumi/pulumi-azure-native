@@ -26,7 +26,7 @@ export interface GetDnsResolverPolicyArgs {
     /**
      * The name of the DNS resolver policy.
      */
-    dnsResolverPolicyName?: string;
+    dnsResolverPolicyName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetDnsResolverPolicyOutputArgs {
     /**
      * The name of the DNS resolver policy.
      */
-    dnsResolverPolicyName?: pulumi.Input<string | undefined>;
+    dnsResolverPolicyName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

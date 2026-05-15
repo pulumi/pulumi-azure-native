@@ -35,7 +35,7 @@ export interface GetSiteReferenceArgs {
     /**
      * The name of the SiteReference
      */
-    siteReferenceName?: string;
+    siteReferenceName: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetSiteReferenceOutputArgs {
     /**
      * The name of the SiteReference
      */
-    siteReferenceName?: pulumi.Input<string | undefined>;
+    siteReferenceName: pulumi.Input<string>;
 }

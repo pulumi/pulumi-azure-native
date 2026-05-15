@@ -110,9 +110,6 @@ export class Resource extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.resourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'resourceName'");
-            }
             if (args?.resourceProviderNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceProviderNamespace'");
             }
@@ -205,7 +202,7 @@ export interface ResourceArgs {
     /**
      * The name of the resource to create.
      */
-    resourceName: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * The namespace of the resource provider.
      */

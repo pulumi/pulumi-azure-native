@@ -24,7 +24,7 @@ export interface GetInsightArgs {
     /**
      * Name of the insight
      */
-    insightName?: string;
+    insightName: string;
     /**
      * workloadImpact resource 
      */
@@ -77,7 +77,7 @@ export interface GetInsightOutputArgs {
     /**
      * Name of the insight
      */
-    insightName?: pulumi.Input<string | undefined>;
+    insightName: pulumi.Input<string>;
     /**
      * workloadImpact resource 
      */

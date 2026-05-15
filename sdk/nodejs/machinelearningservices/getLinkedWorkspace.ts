@@ -27,7 +27,7 @@ export interface GetLinkedWorkspaceArgs {
     /**
      * Friendly name of the linked workspace
      */
-    linkName?: string;
+    linkName: string;
     /**
      * Name of the resource group in which workspace is located.
      */
@@ -83,7 +83,7 @@ export interface GetLinkedWorkspaceOutputArgs {
     /**
      * Friendly name of the linked workspace
      */
-    linkName?: pulumi.Input<string | undefined>;
+    linkName: pulumi.Input<string>;
     /**
      * Name of the resource group in which workspace is located.
      */

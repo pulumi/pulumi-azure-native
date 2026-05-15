@@ -27,7 +27,7 @@ export interface GetConfigurationGroupSchemaArgs {
     /**
      * The name of the configuration group schema.
      */
-    configurationGroupSchemaName?: string;
+    configurationGroupSchemaName: string;
     /**
      * The name of the publisher.
      */
@@ -95,7 +95,7 @@ export interface GetConfigurationGroupSchemaOutputArgs {
     /**
      * The name of the configuration group schema.
      */
-    configurationGroupSchemaName?: pulumi.Input<string | undefined>;
+    configurationGroupSchemaName: pulumi.Input<string>;
     /**
      * The name of the publisher.
      */

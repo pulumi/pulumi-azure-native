@@ -77,9 +77,6 @@ export class MetadataSchema extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.metadataSchemaName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'metadataSchemaName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -124,7 +121,7 @@ export interface MetadataSchemaArgs {
     /**
      * The name of the metadata schema.
      */
-    metadataSchemaName: pulumi.Input<string>;
+    metadataSchemaName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

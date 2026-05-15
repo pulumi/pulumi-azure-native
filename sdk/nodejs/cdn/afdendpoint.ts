@@ -98,9 +98,6 @@ export class AFDEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.endpointName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'endpointName'");
-            }
             if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -157,7 +154,7 @@ export interface AFDEndpointArgs {
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
-    endpointName: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

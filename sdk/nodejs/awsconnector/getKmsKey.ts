@@ -24,7 +24,7 @@ export interface GetKmsKeyArgs {
     /**
      * Name of KmsKey
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetKmsKeyOutputArgs {
     /**
      * Name of KmsKey
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

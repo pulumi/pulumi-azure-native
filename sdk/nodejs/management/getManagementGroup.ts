@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getManagementGroup(args?: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
-    args = args || {};
+export function getManagementGroup(args: GetManagementGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management:getManagementGroup", {
         "expand": args.expand,
@@ -37,7 +36,7 @@ export interface GetManagementGroupArgs {
     /**
      * Management Group ID.
      */
-    groupId?: string;
+    groupId: string;
     /**
      * The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
      */
@@ -92,8 +91,7 @@ export interface GetManagementGroupResult {
  *
  * Other available API versions: 2021-04-01, 2024-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native management [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getManagementGroupOutput(args?: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementGroupResult> {
-    args = args || {};
+export function getManagementGroupOutput(args: GetManagementGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagementGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:management:getManagementGroup", {
         "expand": args.expand,
@@ -115,7 +113,7 @@ export interface GetManagementGroupOutputArgs {
     /**
      * Management Group ID.
      */
-    groupId?: pulumi.Input<string | undefined>;
+    groupId: pulumi.Input<string>;
     /**
      * The $recurse=true query string parameter allows clients to request inclusion of entire hierarchy in the response payload. Note that  $expand=children must be passed up if $recurse is set to true.
      */

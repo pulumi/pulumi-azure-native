@@ -79,9 +79,6 @@ export class ManagedEnvironmentsStorage extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.storageName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageName'");
-            }
             resourceInputs["environmentName"] = args?.environmentName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -123,5 +120,5 @@ export interface ManagedEnvironmentsStorageArgs {
     /**
      * Name of the storage.
      */
-    storageName: pulumi.Input<string>;
+    storageName?: pulumi.Input<string | undefined>;
 }

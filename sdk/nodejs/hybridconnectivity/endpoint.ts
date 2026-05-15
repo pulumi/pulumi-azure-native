@@ -77,9 +77,6 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.endpointName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'endpointName'");
-            }
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
@@ -116,7 +113,7 @@ export interface EndpointArgs {
     /**
      * The endpoint name.
      */
-    endpointName: pulumi.Input<string>;
+    endpointName?: pulumi.Input<string | undefined>;
     /**
      * The resource Id of the connectivity endpoint (optional).
      */

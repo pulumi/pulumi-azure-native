@@ -107,9 +107,6 @@ export class VirtualNetwork extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.virtualNetworkName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualNetworkName'");
-            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["inventoryItemId"] = args?.inventoryItemId;
             resourceInputs["location"] = args?.location;
@@ -176,7 +173,7 @@ export interface VirtualNetworkArgs {
     /**
      * Name of the VirtualNetwork.
      */
-    virtualNetworkName: pulumi.Input<string>;
+    virtualNetworkName?: pulumi.Input<string | undefined>;
     /**
      * ARM Id of the vmmServer resource in which this resource resides.
      */

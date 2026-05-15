@@ -74,9 +74,6 @@ export class MonitoredResource extends pulumi.CustomResource {
             if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if (args?.monitoredResourceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'monitoredResourceName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -113,7 +110,7 @@ export interface MonitoredResourceArgs {
     /**
      * The monitored resource name.
      */
-    monitoredResourceName: pulumi.Input<string>;
+    monitoredResourceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

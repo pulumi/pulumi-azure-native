@@ -29,7 +29,7 @@ export interface GetKpiArgs {
     /**
      * The name of the KPI.
      */
-    kpiName?: string;
+    kpiName: string;
     /**
      * The name of the resource group.
      */
@@ -155,7 +155,7 @@ export interface GetKpiOutputArgs {
     /**
      * The name of the KPI.
      */
-    kpiName?: pulumi.Input<string | undefined>;
+    kpiName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

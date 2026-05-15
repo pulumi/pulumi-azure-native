@@ -73,9 +73,6 @@ export class DiscoveryRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.discoveryRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'discoveryRuleName'");
-            }
             if (args?.healthModelName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'healthModelName'");
             }
@@ -111,7 +108,7 @@ export interface DiscoveryRuleArgs {
     /**
      * Name of the discovery rule. Must be unique within a health model.
      */
-    discoveryRuleName: pulumi.Input<string>;
+    discoveryRuleName?: pulumi.Input<string | undefined>;
     /**
      * Name of health model resource
      */

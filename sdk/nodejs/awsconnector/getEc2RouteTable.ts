@@ -24,7 +24,7 @@ export interface GetEc2RouteTableArgs {
     /**
      * Name of Ec2RouteTable
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,7 +85,7 @@ export interface GetEc2RouteTableOutputArgs {
     /**
      * Name of Ec2RouteTable
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

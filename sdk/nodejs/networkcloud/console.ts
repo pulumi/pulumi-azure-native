@@ -115,9 +115,6 @@ export class Console extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.consoleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'consoleName'");
-            }
             if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
@@ -184,7 +181,7 @@ export interface ConsoleArgs {
     /**
      * The name of the virtual machine console.
      */
-    consoleName: pulumi.Input<string>;
+    consoleName?: pulumi.Input<string | undefined>;
     /**
      * The indicator of whether the console access is enabled.
      */

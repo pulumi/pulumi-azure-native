@@ -102,9 +102,6 @@ export class StandardAssignment extends pulumi.CustomResource {
             if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if (args?.standardAssignmentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'standardAssignmentName'");
-            }
             resourceInputs["assignedStandard"] = args?.assignedStandard;
             resourceInputs["attestationData"] = args?.attestationData;
             resourceInputs["description"] = args?.description;
@@ -183,5 +180,5 @@ export interface StandardAssignmentArgs {
     /**
      * The standard assignments assignment key - unique key for the standard assignment
      */
-    standardAssignmentName: pulumi.Input<string>;
+    standardAssignmentName?: pulumi.Input<string | undefined>;
 }

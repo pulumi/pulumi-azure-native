@@ -157,13 +157,10 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: AccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.CustomResourceOptions) {
+    constructor(name: string, args?: AccessReviewScheduleDefinitionByIdArgs, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.scheduleDefinitionId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'scheduleDefinitionId'");
-            }
             resourceInputs["autoApplyDecisionsEnabled"] = args?.autoApplyDecisionsEnabled;
             resourceInputs["backupReviewers"] = args?.backupReviewers;
             resourceInputs["defaultDecision"] = args?.defaultDecision;
@@ -333,7 +330,7 @@ export interface AccessReviewScheduleDefinitionByIdArgs {
     /**
      * The id of the access review schedule definition.
      */
-    scheduleDefinitionId: pulumi.Input<string>;
+    scheduleDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The recurrence type : weekly, monthly, etc.
      */

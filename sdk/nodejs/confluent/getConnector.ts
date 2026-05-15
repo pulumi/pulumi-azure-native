@@ -33,7 +33,7 @@ export interface GetConnectorArgs {
     /**
      * Confluent connector name
      */
-    connectorName?: string;
+    connectorName: string;
     /**
      * Confluent environment id
      */
@@ -111,7 +111,7 @@ export interface GetConnectorOutputArgs {
     /**
      * Confluent connector name
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName: pulumi.Input<string>;
     /**
      * Confluent environment id
      */

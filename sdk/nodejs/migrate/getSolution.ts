@@ -33,7 +33,7 @@ export interface GetSolutionArgs {
     /**
      * Unique name of a migration solution within a migrate project.
      */
-    solutionName?: string;
+    solutionName: string;
 }
 
 /**
@@ -91,5 +91,5 @@ export interface GetSolutionOutputArgs {
     /**
      * Unique name of a migration solution within a migrate project.
      */
-    solutionName?: pulumi.Input<string | undefined>;
+    solutionName: pulumi.Input<string>;
 }

@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2020-01-01, 2025-05-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAssessmentMetadataInSubscription(args?: GetAssessmentMetadataInSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentMetadataInSubscriptionResult> {
-    args = args || {};
+export function getAssessmentMetadataInSubscription(args: GetAssessmentMetadataInSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetAssessmentMetadataInSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:security:getAssessmentMetadataInSubscription", {
         "assessmentMetadataName": args.assessmentMetadataName,
@@ -26,7 +25,7 @@ export interface GetAssessmentMetadataInSubscriptionArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    assessmentMetadataName?: string;
+    assessmentMetadataName: string;
 }
 
 /**
@@ -103,8 +102,7 @@ export interface GetAssessmentMetadataInSubscriptionResult {
  *
  * Other available API versions: 2020-01-01, 2025-05-04. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getAssessmentMetadataInSubscriptionOutput(args?: GetAssessmentMetadataInSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentMetadataInSubscriptionResult> {
-    args = args || {};
+export function getAssessmentMetadataInSubscriptionOutput(args: GetAssessmentMetadataInSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentMetadataInSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:security:getAssessmentMetadataInSubscription", {
         "assessmentMetadataName": args.assessmentMetadataName,
@@ -115,5 +113,5 @@ export interface GetAssessmentMetadataInSubscriptionOutputArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    assessmentMetadataName?: pulumi.Input<string | undefined>;
+    assessmentMetadataName: pulumi.Input<string>;
 }

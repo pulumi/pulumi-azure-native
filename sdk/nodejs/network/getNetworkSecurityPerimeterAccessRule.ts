@@ -28,7 +28,7 @@ export interface GetNetworkSecurityPerimeterAccessRuleArgs {
     /**
      * The name of the NSP access rule.
      */
-    accessRuleName?: string;
+    accessRuleName: string;
     /**
      * The name of the network security perimeter.
      */
@@ -129,7 +129,7 @@ export interface GetNetworkSecurityPerimeterAccessRuleOutputArgs {
     /**
      * The name of the NSP access rule.
      */
-    accessRuleName?: pulumi.Input<string | undefined>;
+    accessRuleName: pulumi.Input<string>;
     /**
      * The name of the network security perimeter.
      */

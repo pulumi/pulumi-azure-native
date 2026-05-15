@@ -156,9 +156,6 @@ export class AzureCliScript extends pulumi.CustomResource {
             if (args?.retentionInterval === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionInterval'");
             }
-            if (args?.scriptName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'scriptName'");
-            }
             resourceInputs["arguments"] = args?.arguments;
             resourceInputs["azCliVersion"] = args?.azCliVersion;
             resourceInputs["cleanupPreference"] = (args?.cleanupPreference) ?? "Always";
@@ -276,7 +273,7 @@ export interface AzureCliScriptArgs {
     /**
      * Name of the deployment script.
      */
-    scriptName: pulumi.Input<string>;
+    scriptName?: pulumi.Input<string | undefined>;
     /**
      * Storage Account settings.
      */

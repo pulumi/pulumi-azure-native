@@ -92,9 +92,6 @@ export class CapacityPoolCache extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.cacheName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cacheName'");
-            }
             if (args?.poolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
@@ -146,7 +143,7 @@ export interface CapacityPoolCacheArgs {
     /**
      * The name of the cache resource.
      */
-    cacheName: pulumi.Input<string>;
+    cacheName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

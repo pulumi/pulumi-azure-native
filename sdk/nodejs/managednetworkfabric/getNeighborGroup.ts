@@ -26,7 +26,7 @@ export interface GetNeighborGroupArgs {
     /**
      * Name of the Neighbor Group.
      */
-    neighborGroupName?: string;
+    neighborGroupName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,7 +105,7 @@ export interface GetNeighborGroupOutputArgs {
     /**
      * Name of the Neighbor Group.
      */
-    neighborGroupName?: pulumi.Input<string | undefined>;
+    neighborGroupName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

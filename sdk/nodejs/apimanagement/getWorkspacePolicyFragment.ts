@@ -30,7 +30,7 @@ export interface GetWorkspacePolicyFragmentArgs {
     /**
      * A resource identifier.
      */
-    id?: string;
+    id: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -108,7 +108,7 @@ export interface GetWorkspacePolicyFragmentOutputArgs {
     /**
      * A resource identifier.
      */
-    id?: pulumi.Input<string | undefined>;
+    id: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

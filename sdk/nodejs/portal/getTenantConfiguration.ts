@@ -14,8 +14,7 @@ import * as utilities from "../utilities";
  *
  * Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getTenantConfiguration(args?: GetTenantConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantConfigurationResult> {
-    args = args || {};
+export function getTenantConfiguration(args: GetTenantConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:portal:getTenantConfiguration", {
         "configurationName": args.configurationName,
@@ -26,7 +25,7 @@ export interface GetTenantConfigurationArgs {
     /**
      * The name of the Configuration
      */
-    configurationName?: string;
+    configurationName: string;
 }
 
 /**
@@ -65,8 +64,7 @@ export interface GetTenantConfigurationResult {
  *
  * Other available API versions: 2019-01-01-preview, 2020-09-01-preview, 2025-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native portal [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
-export function getTenantConfigurationOutput(args?: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTenantConfigurationResult> {
-    args = args || {};
+export function getTenantConfigurationOutput(args: GetTenantConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTenantConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:portal:getTenantConfiguration", {
         "configurationName": args.configurationName,
@@ -77,5 +75,5 @@ export interface GetTenantConfigurationOutputArgs {
     /**
      * The name of the Configuration
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName: pulumi.Input<string>;
 }

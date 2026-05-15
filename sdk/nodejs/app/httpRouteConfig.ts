@@ -76,9 +76,6 @@ export class HttpRouteConfig extends pulumi.CustomResource {
             if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if (args?.httpRouteName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'httpRouteName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -115,7 +112,7 @@ export interface HttpRouteConfigArgs {
     /**
      * Name of the Http Route Config Resource.
      */
-    httpRouteName: pulumi.Input<string>;
+    httpRouteName?: pulumi.Input<string | undefined>;
     /**
      * Http Route Config properties
      */

@@ -101,9 +101,6 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.localNetworkGatewayName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'localNetworkGatewayName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -170,7 +167,7 @@ export interface LocalNetworkGatewayArgs {
     /**
      * The name of the local network gateway.
      */
-    localNetworkGatewayName: pulumi.Input<string>;
+    localNetworkGatewayName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */

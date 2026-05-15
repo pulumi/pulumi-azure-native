@@ -78,9 +78,6 @@ export class Fabric extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.fabricName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'fabricName'");
-            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -119,7 +116,7 @@ export interface FabricArgs {
     /**
      * The fabric name.
      */
-    fabricName: pulumi.Input<string>;
+    fabricName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the location of the fabric.
      */

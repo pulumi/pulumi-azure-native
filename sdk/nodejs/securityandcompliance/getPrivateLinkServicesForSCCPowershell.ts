@@ -28,7 +28,7 @@ export interface GetPrivateLinkServicesForSCCPowershellArgs {
     /**
      * The name of the service instance.
      */
-    resourceName?: string;
+    resourceName: string;
 }
 
 /**
@@ -101,5 +101,5 @@ export interface GetPrivateLinkServicesForSCCPowershellOutputArgs {
     /**
      * The name of the service instance.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName: pulumi.Input<string>;
 }

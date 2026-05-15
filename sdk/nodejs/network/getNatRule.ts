@@ -31,7 +31,7 @@ export interface GetNatRuleArgs {
     /**
      * The name of the nat rule.
      */
-    natRuleName?: string;
+    natRuleName: string;
     /**
      * The resource group name of the VpnGateway.
      */
@@ -115,7 +115,7 @@ export interface GetNatRuleOutputArgs {
     /**
      * The name of the nat rule.
      */
-    natRuleName?: pulumi.Input<string | undefined>;
+    natRuleName: pulumi.Input<string>;
     /**
      * The resource group name of the VpnGateway.
      */

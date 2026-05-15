@@ -28,7 +28,7 @@ export interface GetManagementGroupDiagnosticSettingArgs {
     /**
      * The name of the diagnostic setting.
      */
-    name?: string;
+    name: string;
 }
 
 /**
@@ -105,5 +105,5 @@ export interface GetManagementGroupDiagnosticSettingOutputArgs {
     /**
      * The name of the diagnostic setting.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
 }

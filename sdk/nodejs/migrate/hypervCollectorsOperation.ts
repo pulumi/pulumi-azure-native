@@ -89,9 +89,6 @@ export class HypervCollectorsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.hypervCollectorName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'hypervCollectorName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -143,7 +140,7 @@ export interface HypervCollectorsOperationArgs {
     /**
      * Hyper-V collector ARM name
      */
-    hypervCollectorName: pulumi.Input<string>;
+    hypervCollectorName?: pulumi.Input<string | undefined>;
     /**
      * Assessment Project Name
      */

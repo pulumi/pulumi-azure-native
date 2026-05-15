@@ -26,7 +26,7 @@ export interface GetVpnGatewayArgs {
     /**
      * The name of the gateway.
      */
-    gatewayName?: string;
+    gatewayName: string;
     /**
      * The resource group name of the VpnGateway.
      */
@@ -121,7 +121,7 @@ export interface GetVpnGatewayOutputArgs {
     /**
      * The name of the gateway.
      */
-    gatewayName?: pulumi.Input<string | undefined>;
+    gatewayName: pulumi.Input<string>;
     /**
      * The resource group name of the VpnGateway.
      */

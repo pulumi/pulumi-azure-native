@@ -26,7 +26,7 @@ export interface GetProfileArgs {
     /**
      * The name of the Traffic Manager profile.
      */
-    profileName?: string;
+    profileName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -113,7 +113,7 @@ export interface GetProfileOutputArgs {
     /**
      * The name of the Traffic Manager profile.
      */
-    profileName?: pulumi.Input<string | undefined>;
+    profileName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

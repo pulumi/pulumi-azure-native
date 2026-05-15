@@ -125,9 +125,6 @@ export class DatabaseMigrationsMongoToCosmosDbvCoreMongo extends pulumi.CustomRe
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if (args?.migrationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'migrationName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -196,7 +193,7 @@ export interface DatabaseMigrationsMongoToCosmosDbvCoreMongoArgs {
     /**
      * Name of the migration.
      */
-    migrationName: pulumi.Input<string>;
+    migrationName?: pulumi.Input<string | undefined>;
     /**
      * ID for current migration operation.
      */

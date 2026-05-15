@@ -40,7 +40,7 @@ export interface GetSuppressionListArgs {
     /**
      * The name of the suppression list.
      */
-    suppressionListName?: string;
+    suppressionListName: string;
 }
 
 /**
@@ -117,5 +117,5 @@ export interface GetSuppressionListOutputArgs {
     /**
      * The name of the suppression list.
      */
-    suppressionListName?: pulumi.Input<string | undefined>;
+    suppressionListName: pulumi.Input<string>;
 }

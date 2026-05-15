@@ -83,9 +83,6 @@ export class HyperVSite extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.siteName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'siteName'");
-            }
             resourceInputs["eTag"] = args?.eTag;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
@@ -140,6 +137,6 @@ export interface HyperVSiteArgs {
     /**
      * Site name.
      */
-    siteName: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -27,7 +27,7 @@ export interface GetExternalNetworkArgs {
     /**
      * Name of the External Network.
      */
-    externalNetworkName?: string;
+    externalNetworkName: string;
     /**
      * Name of the L3 Isolation Domain.
      */
@@ -131,7 +131,7 @@ export interface GetExternalNetworkOutputArgs {
     /**
      * Name of the External Network.
      */
-    externalNetworkName?: pulumi.Input<string | undefined>;
+    externalNetworkName: pulumi.Input<string>;
     /**
      * Name of the L3 Isolation Domain.
      */

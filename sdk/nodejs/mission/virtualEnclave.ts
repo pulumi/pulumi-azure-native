@@ -142,9 +142,6 @@ export class VirtualEnclave extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.virtualEnclaveName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'virtualEnclaveName'");
-            }
             resourceInputs["bastionEnabled"] = (args?.bastionEnabled) ?? false;
             resourceInputs["communityResourceId"] = args?.communityResourceId;
             resourceInputs["enclaveDefaultSettings"] = args ? pulumi.output(args.enclaveDefaultSettings).apply(v => v === undefined ? undefined : inputs.mission.enclaveDefaultSettingsModelArgsProvideDefaults(v)) : undefined;
@@ -247,7 +244,7 @@ export interface VirtualEnclaveArgs {
     /**
      * The name of the enclaveResource Resource
      */
-    virtualEnclaveName: pulumi.Input<string>;
+    virtualEnclaveName?: pulumi.Input<string | undefined>;
     /**
      * Workload role assignments
      */

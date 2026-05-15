@@ -106,9 +106,6 @@ export class L2Connection extends pulumi.CustomResource {
             if (args?.groundStationPartnerRouter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groundStationPartnerRouter'");
             }
-            if (args?.l2ConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'l2ConnectionName'");
-            }
             if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
@@ -170,7 +167,7 @@ export interface L2ConnectionArgs {
     /**
      * L2 Connection name.
      */
-    l2ConnectionName: pulumi.Input<string>;
+    l2ConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

@@ -30,7 +30,7 @@ export interface GetVirtualMachineTemplateArgs {
     /**
      * Name of the virtual machine template resource.
      */
-    virtualMachineTemplateName?: string;
+    virtualMachineTemplateName: string;
 }
 
 /**
@@ -175,5 +175,5 @@ export interface GetVirtualMachineTemplateOutputArgs {
     /**
      * Name of the virtual machine template resource.
      */
-    virtualMachineTemplateName?: pulumi.Input<string | undefined>;
+    virtualMachineTemplateName: pulumi.Input<string>;
 }

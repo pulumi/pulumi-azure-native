@@ -115,9 +115,6 @@ export class EventGridDataConnection extends pulumi.CustomResource {
             if (args?.consumerGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumerGroup'");
             }
-            if (args?.dataConnectionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dataConnectionName'");
-            }
             if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
@@ -198,7 +195,7 @@ export interface EventGridDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName: pulumi.Input<string>;
+    dataConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */

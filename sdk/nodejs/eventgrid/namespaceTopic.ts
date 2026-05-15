@@ -92,9 +92,6 @@ export class NamespaceTopic extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.topicName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'topicName'");
-            }
             resourceInputs["eventRetentionInDays"] = args?.eventRetentionInDays;
             resourceInputs["inputSchema"] = (args?.inputSchema) ?? "CloudEventSchemaV1_0";
             resourceInputs["namespaceName"] = args?.namespaceName;
@@ -151,5 +148,5 @@ export interface NamespaceTopicArgs {
     /**
      * Name of the namespace topic.
      */
-    topicName: pulumi.Input<string>;
+    topicName?: pulumi.Input<string | undefined>;
 }

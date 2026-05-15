@@ -26,7 +26,7 @@ export interface GetGatewayArgs {
     /**
      * Azure Programmable Connectivity Gateway Name.
      */
-    gatewayName?: string;
+    gatewayName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -97,7 +97,7 @@ export interface GetGatewayOutputArgs {
     /**
      * Azure Programmable Connectivity Gateway Name.
      */
-    gatewayName?: pulumi.Input<string | undefined>;
+    gatewayName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

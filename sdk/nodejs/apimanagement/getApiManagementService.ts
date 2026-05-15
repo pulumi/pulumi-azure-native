@@ -30,7 +30,7 @@ export interface GetApiManagementServiceArgs {
     /**
      * The name of the API Management service.
      */
-    serviceName?: string;
+    serviceName: string;
 }
 
 /**
@@ -237,5 +237,5 @@ export interface GetApiManagementServiceOutputArgs {
     /**
      * The name of the API Management service.
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName: pulumi.Input<string>;
 }

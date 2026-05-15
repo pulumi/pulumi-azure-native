@@ -88,9 +88,6 @@ export class RouteMap extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.routeMapName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'routeMapName'");
-            }
             if (args?.virtualHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
@@ -146,7 +143,7 @@ export interface RouteMapArgs {
     /**
      * The name of the RouteMap.
      */
-    routeMapName: pulumi.Input<string>;
+    routeMapName?: pulumi.Input<string | undefined>;
     /**
      * List of RouteMap rules to be applied.
      */

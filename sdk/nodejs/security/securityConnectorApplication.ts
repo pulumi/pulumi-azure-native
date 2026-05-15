@@ -75,9 +75,6 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.applicationId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'applicationId'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -118,7 +115,7 @@ export interface SecurityConnectorApplicationArgs {
     /**
      * The security Application key - unique key for the standard application
      */
-    applicationId: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string | undefined>;
     /**
      * description of the application
      */

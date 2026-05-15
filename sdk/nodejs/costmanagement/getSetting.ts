@@ -12,8 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2019-11-01.
  */
-export function getSetting(args?: GetSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSettingResult> {
-    args = args || {};
+export function getSetting(args: GetSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:costmanagement:getSetting", {
         "settingName": args.settingName,
@@ -24,7 +23,7 @@ export interface GetSettingArgs {
     /**
      * Name of the setting. Allowed values: myscope
      */
-    settingName?: string;
+    settingName: string;
 }
 
 /**
@@ -69,8 +68,7 @@ export interface GetSettingResult {
  *
  * Uses Azure REST API version 2019-11-01.
  */
-export function getSettingOutput(args?: GetSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSettingResult> {
-    args = args || {};
+export function getSettingOutput(args: GetSettingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSettingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:costmanagement:getSetting", {
         "settingName": args.settingName,
@@ -81,5 +79,5 @@ export interface GetSettingOutputArgs {
     /**
      * Name of the setting. Allowed values: myscope
      */
-    settingName?: pulumi.Input<string | undefined>;
+    settingName: pulumi.Input<string>;
 }

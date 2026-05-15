@@ -26,7 +26,7 @@ export interface GetAuthorizationAccessPolicyArgs {
     /**
      * Identifier of the authorization access policy.
      */
-    authorizationAccessPolicyId?: string;
+    authorizationAccessPolicyId: string;
     /**
      * Identifier of the authorization.
      */
@@ -100,7 +100,7 @@ export interface GetAuthorizationAccessPolicyOutputArgs {
     /**
      * Identifier of the authorization access policy.
      */
-    authorizationAccessPolicyId?: pulumi.Input<string | undefined>;
+    authorizationAccessPolicyId: pulumi.Input<string>;
     /**
      * Identifier of the authorization.
      */

@@ -35,7 +35,7 @@ export interface GetDiskArgs {
     /**
      * The name of the disk.
      */
-    name?: string;
+    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -151,7 +151,7 @@ export interface GetDiskOutputArgs {
     /**
      * The name of the disk.
      */
-    name?: pulumi.Input<string | undefined>;
+    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

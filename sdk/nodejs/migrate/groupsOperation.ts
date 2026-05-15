@@ -105,9 +105,6 @@ export class GroupsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.groupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'groupName'");
-            }
             if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
@@ -159,7 +156,7 @@ export interface GroupsOperationArgs {
     /**
      * Group ARM name
      */
-    groupName: pulumi.Input<string>;
+    groupName?: pulumi.Input<string | undefined>;
     /**
      * The type of group.
      */

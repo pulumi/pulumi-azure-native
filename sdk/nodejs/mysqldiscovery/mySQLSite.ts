@@ -103,9 +103,6 @@ export class MySQLSite extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if (args?.siteName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'siteName'");
-            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
             resourceInputs["masterSiteId"] = args?.masterSiteId;
@@ -168,7 +165,7 @@ export interface MySQLSiteArgs {
     /**
      * The name of Site
      */
-    siteName: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */

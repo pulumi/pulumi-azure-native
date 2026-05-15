@@ -157,9 +157,6 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.applicationName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'applicationName'");
-            }
             if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
@@ -240,7 +237,7 @@ export interface ApplicationArgs {
     /**
      * The name of the managed application.
      */
-    applicationName: pulumi.Input<string>;
+    applicationName?: pulumi.Input<string | undefined>;
     /**
      * The identity of the resource.
      */

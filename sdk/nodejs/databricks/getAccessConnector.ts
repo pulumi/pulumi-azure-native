@@ -26,7 +26,7 @@ export interface GetAccessConnectorArgs {
     /**
      * The name of the Azure Databricks Access Connector.
      */
-    connectorName?: string;
+    connectorName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,7 +93,7 @@ export interface GetAccessConnectorOutputArgs {
     /**
      * The name of the Azure Databricks Access Connector.
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

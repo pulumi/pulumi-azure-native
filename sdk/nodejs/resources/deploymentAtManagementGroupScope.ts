@@ -77,9 +77,6 @@ export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.deploymentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deploymentName'");
-            }
             if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
@@ -116,7 +113,7 @@ export interface DeploymentAtManagementGroupScopeArgs {
     /**
      * The name of the deployment.
      */
-    deploymentName: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     /**
      * The management group ID.
      */

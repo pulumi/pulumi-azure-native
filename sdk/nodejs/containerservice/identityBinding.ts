@@ -77,9 +77,6 @@ export class IdentityBinding extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.identityBindingName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'identityBindingName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -117,7 +114,7 @@ export interface IdentityBindingArgs {
     /**
      * The name of the identity binding.
      */
-    identityBindingName: pulumi.Input<string>;
+    identityBindingName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */

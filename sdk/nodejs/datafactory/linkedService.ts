@@ -74,9 +74,6 @@ export class LinkedService extends pulumi.CustomResource {
             if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if (args?.linkedServiceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'linkedServiceName'");
-            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -116,7 +113,7 @@ export interface LinkedServiceArgs {
     /**
      * The linked service name.
      */
-    linkedServiceName: pulumi.Input<string>;
+    linkedServiceName?: pulumi.Input<string | undefined>;
     /**
      * Properties of linked service.
      */

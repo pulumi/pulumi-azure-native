@@ -35,7 +35,7 @@ export interface GetServerTrustGroupArgs {
     /**
      * The name of the server trust group.
      */
-    serverTrustGroupName?: string;
+    serverTrustGroupName: string;
 }
 
 /**
@@ -95,5 +95,5 @@ export interface GetServerTrustGroupOutputArgs {
     /**
      * The name of the server trust group.
      */
-    serverTrustGroupName?: pulumi.Input<string | undefined>;
+    serverTrustGroupName: pulumi.Input<string>;
 }

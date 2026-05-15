@@ -86,9 +86,6 @@ export class Mq extends pulumi.CustomResource {
             if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if (args?.mqName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'mqName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -134,7 +131,7 @@ export interface MqArgs {
     /**
      * Name of MQ resource
      */
-    mqName: pulumi.Input<string>;
+    mqName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -93,9 +93,6 @@ export class DisasterRecoveryConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.alias === undefined && !opts.urn) {
-                throw new Error("Missing required property 'alias'");
-            }
             if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
@@ -141,7 +138,7 @@ export interface DisasterRecoveryConfigArgs {
     /**
      * The Disaster Recovery configuration name
      */
-    alias: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * Alternate name specified when alias and namespace names are same.
      */

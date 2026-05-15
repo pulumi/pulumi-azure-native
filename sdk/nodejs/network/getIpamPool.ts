@@ -31,7 +31,7 @@ export interface GetIpamPoolArgs {
     /**
      * Pool resource name.
      */
-    poolName?: string;
+    poolName: string;
     /**
      * The name of the resource group.
      */
@@ -99,7 +99,7 @@ export interface GetIpamPoolOutputArgs {
     /**
      * Pool resource name.
      */
-    poolName?: pulumi.Input<string | undefined>;
+    poolName: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

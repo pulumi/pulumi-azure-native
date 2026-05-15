@@ -29,7 +29,7 @@ export interface GetGlobalParameterArgs {
     /**
      * The global parameter name.
      */
-    globalParameterName?: string;
+    globalParameterName: string;
     /**
      * The resource group name.
      */
@@ -87,7 +87,7 @@ export interface GetGlobalParameterOutputArgs {
     /**
      * The global parameter name.
      */
-    globalParameterName?: pulumi.Input<string | undefined>;
+    globalParameterName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

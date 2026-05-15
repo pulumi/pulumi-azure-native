@@ -40,7 +40,7 @@ export interface GetManagedClusterServiceArgs {
     /**
      * The name of the service resource in the format of {applicationName}~{serviceName}.
      */
-    serviceName?: string;
+    serviceName: string;
 }
 
 /**
@@ -113,5 +113,5 @@ export interface GetManagedClusterServiceOutputArgs {
     /**
      * The name of the service resource in the format of {applicationName}~{serviceName}.
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName: pulumi.Input<string>;
 }

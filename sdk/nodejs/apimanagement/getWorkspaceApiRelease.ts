@@ -30,7 +30,7 @@ export interface GetWorkspaceApiReleaseArgs {
     /**
      * Release identifier within an API. Must be unique in the current API Management service instance.
      */
-    releaseId?: string;
+    releaseId: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -108,7 +108,7 @@ export interface GetWorkspaceApiReleaseOutputArgs {
     /**
      * Release identifier within an API. Must be unique in the current API Management service instance.
      */
-    releaseId?: pulumi.Input<string | undefined>;
+    releaseId: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

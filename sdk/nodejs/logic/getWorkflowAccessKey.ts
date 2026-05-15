@@ -22,7 +22,7 @@ export interface GetWorkflowAccessKeyArgs {
     /**
      * The workflow access key name.
      */
-    accessKeyName?: string;
+    accessKeyName: string;
     /**
      * The resource group name.
      */
@@ -77,7 +77,7 @@ export interface GetWorkflowAccessKeyOutputArgs {
     /**
      * The workflow access key name.
      */
-    accessKeyName?: pulumi.Input<string | undefined>;
+    accessKeyName: pulumi.Input<string>;
     /**
      * The resource group name.
      */

@@ -31,7 +31,7 @@ export interface GetMoveResourceArgs {
     /**
      * The Move Resource Name.
      */
-    moveResourceName?: string;
+    moveResourceName: string;
     /**
      * The Resource Group Name.
      */
@@ -91,7 +91,7 @@ export interface GetMoveResourceOutputArgs {
     /**
      * The Move Resource Name.
      */
-    moveResourceName?: pulumi.Input<string | undefined>;
+    moveResourceName: pulumi.Input<string>;
     /**
      * The Resource Group Name.
      */

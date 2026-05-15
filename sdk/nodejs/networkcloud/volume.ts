@@ -116,9 +116,6 @@ export class Volume extends pulumi.CustomResource {
             if (args?.sizeMiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sizeMiB'");
             }
-            if (args?.volumeName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'volumeName'");
-            }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -185,5 +182,5 @@ export interface VolumeArgs {
     /**
      * The name of the volume.
      */
-    volumeName: pulumi.Input<string>;
+    volumeName?: pulumi.Input<string | undefined>;
 }

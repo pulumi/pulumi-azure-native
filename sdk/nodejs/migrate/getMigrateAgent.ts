@@ -26,7 +26,7 @@ export interface GetMigrateAgentArgs {
     /**
      * MigrateAgent name.
      */
-    agentName?: string;
+    agentName: string;
     /**
      * ModernizeProject name.
      */
@@ -90,7 +90,7 @@ export interface GetMigrateAgentOutputArgs {
     /**
      * MigrateAgent name.
      */
-    agentName?: pulumi.Input<string | undefined>;
+    agentName: pulumi.Input<string>;
     /**
      * ModernizeProject name.
      */

@@ -111,9 +111,6 @@ export class Pipeline extends pulumi.CustomResource {
             if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if (args?.pipelineName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'pipelineName'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -187,7 +184,7 @@ export interface PipelineArgs {
     /**
      * Name of pipeline
      */
-    pipelineName: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

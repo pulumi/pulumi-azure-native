@@ -81,9 +81,6 @@ export class SqlServerAvailabilityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if (args?.availabilityGroupName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'availabilityGroupName'");
-            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -126,7 +123,7 @@ export interface SqlServerAvailabilityGroupArgs {
     /**
      * Name of SQL Availability Group
      */
-    availabilityGroupName: pulumi.Input<string>;
+    availabilityGroupName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */

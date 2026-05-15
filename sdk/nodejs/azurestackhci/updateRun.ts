@@ -134,9 +134,6 @@ export class UpdateRun extends pulumi.CustomResource {
             if (args?.updateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'updateName'");
             }
-            if (args?.updateRunName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'updateRunName'");
-            }
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["description"] = args?.description;
             resourceInputs["duration"] = args?.duration;
@@ -261,5 +258,5 @@ export interface UpdateRunArgs {
     /**
      * The name of the Update Run
      */
-    updateRunName: pulumi.Input<string>;
+    updateRunName?: pulumi.Input<string | undefined>;
 }

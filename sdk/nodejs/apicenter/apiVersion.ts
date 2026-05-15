@@ -92,9 +92,6 @@ export class ApiVersion extends pulumi.CustomResource {
             if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if (args?.versionName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'versionName'");
-            }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
@@ -151,7 +148,7 @@ export interface ApiVersionArgs {
     /**
      * The name of the API version.
      */
-    versionName: pulumi.Input<string>;
+    versionName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

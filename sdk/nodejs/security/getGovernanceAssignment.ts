@@ -29,7 +29,7 @@ export interface GetGovernanceAssignmentArgs {
     /**
      * The governance assignment key - the assessment key of the required governance assignment
      */
-    assignmentKey?: string;
+    assignmentKey: string;
     /**
      * The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
      */
@@ -103,7 +103,7 @@ export interface GetGovernanceAssignmentOutputArgs {
     /**
      * The governance assignment key - the assessment key of the required governance assignment
      */
-    assignmentKey?: pulumi.Input<string | undefined>;
+    assignmentKey: pulumi.Input<string>;
     /**
      * The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
      */

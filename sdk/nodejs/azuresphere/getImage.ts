@@ -29,7 +29,7 @@ export interface GetImageArgs {
     /**
      * Image name. Use an image GUID for GA versions of the API.
      */
-    imageName?: string;
+    imageName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,7 +119,7 @@ export interface GetImageOutputArgs {
     /**
      * Image name. Use an image GUID for GA versions of the API.
      */
-    imageName?: pulumi.Input<string | undefined>;
+    imageName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

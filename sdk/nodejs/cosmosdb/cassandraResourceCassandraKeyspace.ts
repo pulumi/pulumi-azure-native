@@ -78,9 +78,6 @@ export class CassandraResourceCassandraKeyspace extends pulumi.CustomResource {
             if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if (args?.keyspaceName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'keyspaceName'");
-            }
             if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
@@ -124,7 +121,7 @@ export interface CassandraResourceCassandraKeyspaceArgs {
     /**
      * Cosmos DB keyspace name.
      */
-    keyspaceName: pulumi.Input<string>;
+    keyspaceName?: pulumi.Input<string | undefined>;
     /**
      * The location of the resource group to which the resource belongs.
      */

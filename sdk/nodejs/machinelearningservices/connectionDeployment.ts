@@ -71,9 +71,6 @@ export class ConnectionDeployment extends pulumi.CustomResource {
             if (args?.connectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionName'");
             }
-            if (args?.deploymentName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'deploymentName'");
-            }
             if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
@@ -118,7 +115,7 @@ export interface ConnectionDeploymentArgs {
     /**
      * Name of the deployment resource
      */
-    deploymentName: pulumi.Input<string>;
+    deploymentName?: pulumi.Input<string | undefined>;
     properties: pulumi.Input<inputs.machinelearningservices.ContentSafetyEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.ManagedOnlineEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.OpenAIEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.SpeechEndpointDeploymentResourcePropertiesArgs>;
     /**
      * Api version used by proxy call

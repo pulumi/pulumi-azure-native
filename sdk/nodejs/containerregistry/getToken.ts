@@ -35,7 +35,7 @@ export interface GetTokenArgs {
     /**
      * The name of the token.
      */
-    tokenName?: string;
+    tokenName: string;
 }
 
 /**
@@ -111,5 +111,5 @@ export interface GetTokenOutputArgs {
     /**
      * The name of the token.
      */
-    tokenName?: pulumi.Input<string | undefined>;
+    tokenName: pulumi.Input<string>;
 }

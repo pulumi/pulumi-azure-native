@@ -110,9 +110,6 @@ export class DnsSecurityRule extends pulumi.CustomResource {
             if (args?.dnsResolverPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverPolicyName'");
             }
-            if (args?.dnsSecurityRuleName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'dnsSecurityRuleName'");
-            }
             if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
@@ -174,7 +171,7 @@ export interface DnsSecurityRuleArgs {
     /**
      * The name of the DNS security rule.
      */
-    dnsSecurityRuleName: pulumi.Input<string>;
+    dnsSecurityRuleName?: pulumi.Input<string | undefined>;
     /**
      * The state of DNS security rule.
      */
