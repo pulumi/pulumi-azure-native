@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// The name of the ConfigurationAssignment
         /// </summary>
-        [Input("configurationAssignmentName")]
-        public Input<string>? ConfigurationAssignmentName { get; set; }
+        [Input("configurationAssignmentName", required: true)]
+        public Input<string> ConfigurationAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// Properties of the configuration assignment

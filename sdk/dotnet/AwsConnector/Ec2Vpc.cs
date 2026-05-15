@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.AwsConnector
         /// <summary>
         /// Name of Ec2Vpc
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

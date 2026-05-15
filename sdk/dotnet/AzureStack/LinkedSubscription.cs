@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.AzureStack
         /// <summary>
         /// Name of the Linked Subscription resource.
         /// </summary>
-        [Input("linkedSubscriptionName")]
-        public Input<string>? LinkedSubscriptionName { get; set; }
+        [Input("linkedSubscriptionName", required: true)]
+        public Input<string> LinkedSubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// Location of the resource.

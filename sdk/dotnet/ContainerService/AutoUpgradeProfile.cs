@@ -137,8 +137,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the AutoUpgradeProfile resource.
         /// </summary>
-        [Input("autoUpgradeProfileName")]
-        public Input<string>? AutoUpgradeProfileName { get; set; }
+        [Input("autoUpgradeProfileName", required: true)]
+        public Input<string> AutoUpgradeProfileName { get; set; } = null!;
 
         /// <summary>
         /// Configures how auto-upgrade will be run.

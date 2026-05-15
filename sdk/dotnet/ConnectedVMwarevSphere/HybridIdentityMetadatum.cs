@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the hybridIdentityMetadata.
         /// </summary>
-        [Input("metadataName")]
-        public Input<string>? MetadataName { get; set; }
+        [Input("metadataName", required: true)]
+        public Input<string> MetadataName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the Public Key.

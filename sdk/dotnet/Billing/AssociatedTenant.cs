@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.Billing
         /// <summary>
         /// The ID that uniquely identifies a tenant.
         /// </summary>
-        [Input("associatedTenantName")]
-        public Input<string>? AssociatedTenantName { get; set; }
+        [Input("associatedTenantName", required: true)]
+        public Input<string> AssociatedTenantName { get; set; } = null!;
 
         /// <summary>
         /// The ID that uniquely identifies a billing account.

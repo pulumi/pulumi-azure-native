@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the EmailService resource.
         /// </summary>
-        [Input("emailServiceName")]
-        public Input<string>? EmailServiceName { get; set; }
+        [Input("emailServiceName", required: true)]
+        public Input<string> EmailServiceName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

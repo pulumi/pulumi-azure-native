@@ -186,8 +186,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The name of the mongo cluster.
         /// </summary>
-        [Input("mongoClusterName")]
-        public Input<string>? MongoClusterName { get; set; }
+        [Input("mongoClusterName", required: true)]
+        public Input<string> MongoClusterName { get; set; } = null!;
 
         [Input("nodeGroupSpecs")]
         private InputList<Inputs.NodeGroupSpecArgs>? _nodeGroupSpecs;

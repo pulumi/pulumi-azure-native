@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Monitor.
         /// </summary>
-        [Input("networkMonitorName")]
-        public Input<string>? NetworkMonitorName { get; set; }
+        [Input("networkMonitorName", required: true)]
+        public Input<string> NetworkMonitorName { get; set; } = null!;
 
         /// <summary>
         /// The NetworkFabric Properties

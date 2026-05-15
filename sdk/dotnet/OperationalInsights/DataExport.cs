@@ -148,8 +148,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The data export rule name.
         /// </summary>
-        [Input("dataExportName")]
-        public Input<string>? DataExportName { get; set; }
+        [Input("dataExportName", required: true)]
+        public Input<string> DataExportName { get; set; } = null!;
 
         /// <summary>
         /// Active when enabled.

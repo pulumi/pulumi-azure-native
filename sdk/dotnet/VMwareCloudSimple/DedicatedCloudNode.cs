@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
         /// <summary>
         /// dedicated cloud node name
         /// </summary>
-        [Input("dedicatedCloudNodeName")]
-        public Input<string>? DedicatedCloudNodeName { get; set; }
+        [Input("dedicatedCloudNodeName", required: true)]
+        public Input<string> DedicatedCloudNodeName { get; set; } = null!;
 
         /// <summary>
         /// SKU's id

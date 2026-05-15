@@ -221,8 +221,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the license profile.
         /// </summary>
-        [Input("licenseProfileName")]
-        public Input<string>? LicenseProfileName { get; set; }
+        [Input("licenseProfileName", required: true)]
+        public Input<string> LicenseProfileName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

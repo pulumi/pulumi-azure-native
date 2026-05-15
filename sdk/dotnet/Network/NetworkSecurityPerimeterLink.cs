@@ -179,8 +179,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP link.
         /// </summary>
-        [Input("linkName")]
-        public Input<string>? LinkName { get; set; }
+        [Input("linkName", required: true)]
+        public Input<string> LinkName { get; set; } = null!;
 
         [Input("localInboundProfiles")]
         private InputList<string>? _localInboundProfiles;

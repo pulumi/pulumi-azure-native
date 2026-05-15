@@ -101,8 +101,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of a Hyper-V collector within a project.
         /// </summary>
-        [Input("hyperVCollectorName")]
-        public Input<string>? HyperVCollectorName { get; set; }
+        [Input("hyperVCollectorName", required: true)]
+        public Input<string> HyperVCollectorName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Azure Migrate project.

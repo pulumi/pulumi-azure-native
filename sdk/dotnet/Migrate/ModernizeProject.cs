@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// ModernizeProject Name.
         /// </summary>
-        [Input("modernizeProjectName")]
-        public Input<string>? ModernizeProjectName { get; set; }
+        [Input("modernizeProjectName", required: true)]
+        public Input<string> ModernizeProjectName { get; set; } = null!;
 
         /// <summary>
         /// ModernizeProject properties.

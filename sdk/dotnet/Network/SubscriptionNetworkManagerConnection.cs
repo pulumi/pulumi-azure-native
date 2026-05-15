@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.Network
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SubscriptionNetworkManagerConnection(string name, SubscriptionNetworkManagerConnectionArgs? args = null, CustomResourceOptions? options = null)
+        public SubscriptionNetworkManagerConnection(string name, SubscriptionNetworkManagerConnectionArgs args, CustomResourceOptions? options = null)
             : base("azure-native:network:SubscriptionNetworkManagerConnection", name, args ?? new SubscriptionNetworkManagerConnectionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Name for the network manager connection.
         /// </summary>
-        [Input("networkManagerConnectionName")]
-        public Input<string>? NetworkManagerConnectionName { get; set; }
+        [Input("networkManagerConnectionName", required: true)]
+        public Input<string> NetworkManagerConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Network Manager Id.

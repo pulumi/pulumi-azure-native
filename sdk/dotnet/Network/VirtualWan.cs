@@ -248,8 +248,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VirtualWAN being created or updated.
         /// </summary>
-        [Input("virtualWANName")]
-        public Input<string>? VirtualWANName { get; set; }
+        [Input("virtualWANName", required: true)]
+        public Input<string> VirtualWANName { get; set; } = null!;
 
         public VirtualWanArgs()
         {

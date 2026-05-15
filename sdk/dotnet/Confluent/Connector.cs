@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Confluent connector name
         /// </summary>
-        [Input("connectorName")]
-        public Input<string>? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// Connector Service type info base properties.

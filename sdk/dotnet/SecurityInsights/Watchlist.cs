@@ -393,8 +393,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The alias of the watchlist
         /// </summary>
-        [Input("watchlistAlias")]
-        public Input<string>? WatchlistAlias { get; set; }
+        [Input("watchlistAlias", required: true)]
+        public Input<string> WatchlistAlias { get; set; } = null!;
 
         /// <summary>
         /// The id (a Guid) of the watchlist

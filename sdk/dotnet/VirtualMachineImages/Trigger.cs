@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// <summary>
         /// The name of the trigger
         /// </summary>
-        [Input("triggerName")]
-        public Input<string>? TriggerName { get; set; }
+        [Input("triggerName", required: true)]
+        public Input<string> TriggerName { get; set; } = null!;
 
         public TriggerArgs()
         {

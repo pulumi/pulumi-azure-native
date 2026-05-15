@@ -173,8 +173,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the virtual machine console.
         /// </summary>
-        [Input("consoleName")]
-        public Input<string>? ConsoleName { get; set; }
+        [Input("consoleName", required: true)]
+        public Input<string> ConsoleName { get; set; } = null!;
 
         /// <summary>
         /// The indicator of whether the console access is enabled.

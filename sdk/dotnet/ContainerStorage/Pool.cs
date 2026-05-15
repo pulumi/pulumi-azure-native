@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.ContainerStorage
         /// <summary>
         /// Pool Object
         /// </summary>
-        [Input("poolName")]
-        public Input<string>? PoolName { get; set; }
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
         /// Type of the Pool: ephemeralDisk, azureDisk, or elasticsan.

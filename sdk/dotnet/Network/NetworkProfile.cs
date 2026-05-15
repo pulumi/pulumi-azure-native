@@ -196,8 +196,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network profile.
         /// </summary>
-        [Input("networkProfileName")]
-        public Input<string>? NetworkProfileName { get; set; }
+        [Input("networkProfileName", required: true)]
+        public Input<string> NetworkProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

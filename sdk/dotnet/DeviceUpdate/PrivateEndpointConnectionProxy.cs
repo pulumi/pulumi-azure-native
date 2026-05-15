@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// <summary>
         /// The ID of the private endpoint connection proxy object.
         /// </summary>
-        [Input("privateEndpointConnectionProxyId")]
-        public Input<string>? PrivateEndpointConnectionProxyId { get; set; }
+        [Input("privateEndpointConnectionProxyId", required: true)]
+        public Input<string> PrivateEndpointConnectionProxyId { get; set; } = null!;
 
         /// <summary>
         /// Remote private endpoint details.

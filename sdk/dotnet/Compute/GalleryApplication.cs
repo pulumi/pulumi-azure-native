@@ -190,8 +190,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery Application Definition to be retrieved.
         /// </summary>
-        [Input("galleryApplicationName")]
-        public Input<string>? GalleryApplicationName { get; set; }
+        [Input("galleryApplicationName", required: true)]
+        public Input<string> GalleryApplicationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Shared Image Gallery.

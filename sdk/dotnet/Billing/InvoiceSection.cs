@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.Billing
         /// <summary>
         /// The ID that uniquely identifies an invoice section.
         /// </summary>
-        [Input("invoiceSectionName")]
-        public Input<string>? InvoiceSectionName { get; set; }
+        [Input("invoiceSectionName", required: true)]
+        public Input<string> InvoiceSectionName { get; set; } = null!;
 
         /// <summary>
         /// An invoice section.

@@ -152,8 +152,8 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// The name of the PlaywrightWorkspace
         /// </summary>
-        [Input("playwrightWorkspaceName")]
-        public Input<string>? PlaywrightWorkspaceName { get; set; }
+        [Input("playwrightWorkspaceName", required: true)]
+        public Input<string> PlaywrightWorkspaceName { get; set; } = null!;
 
         /// <summary>
         /// Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.

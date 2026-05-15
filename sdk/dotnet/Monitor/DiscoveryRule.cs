@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Name of the discovery rule. Must be unique within a health model.
         /// </summary>
-        [Input("discoveryRuleName")]
-        public Input<string>? DiscoveryRuleName { get; set; }
+        [Input("discoveryRuleName", required: true)]
+        public Input<string> DiscoveryRuleName { get; set; } = null!;
 
         /// <summary>
         /// Name of health model resource

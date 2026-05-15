@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.HybridCloud
         /// <summary>
         /// The name of the cloud connection resource
         /// </summary>
-        [Input("cloudConnectionName")]
-        public Input<string>? CloudConnectionName { get; set; }
+        [Input("cloudConnectionName", required: true)]
+        public Input<string> CloudConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The cloud connector which discovered the remote resource.

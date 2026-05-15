@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the Kubernetes version resource.
         /// </summary>
-        [Input("kubernetesVersionName")]
-        public Input<string>? KubernetesVersionName { get; set; }
+        [Input("kubernetesVersionName", required: true)]
+        public Input<string> KubernetesVersionName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

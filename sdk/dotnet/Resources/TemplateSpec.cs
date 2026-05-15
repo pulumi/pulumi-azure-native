@@ -176,8 +176,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the Template Spec.
         /// </summary>
-        [Input("templateSpecName")]
-        public Input<string>? TemplateSpecName { get; set; }
+        [Input("templateSpecName", required: true)]
+        public Input<string> TemplateSpecName { get; set; } = null!;
 
         public TemplateSpecArgs()
         {

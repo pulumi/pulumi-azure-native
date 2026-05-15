@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.Easm
         /// <summary>
         /// The name of the Label.
         /// </summary>
-        [Input("labelName")]
-        public Input<string>? LabelName { get; set; }
+        [Input("labelName", required: true)]
+        public Input<string> LabelName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

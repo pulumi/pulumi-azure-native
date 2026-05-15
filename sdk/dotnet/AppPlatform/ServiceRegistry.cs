@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of Service Registry.
         /// </summary>
-        [Input("serviceRegistryName")]
-        public Input<string>? ServiceRegistryName { get; set; }
+        [Input("serviceRegistryName", required: true)]
+        public Input<string> ServiceRegistryName { get; set; } = null!;
 
         public ServiceRegistryArgs()
         {

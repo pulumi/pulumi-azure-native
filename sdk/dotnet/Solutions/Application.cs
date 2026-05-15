@@ -244,8 +244,8 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// The name of the managed application.
         /// </summary>
-        [Input("applicationName")]
-        public Input<string>? ApplicationName { get; set; }
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
 
         /// <summary>
         /// The identity of the resource.

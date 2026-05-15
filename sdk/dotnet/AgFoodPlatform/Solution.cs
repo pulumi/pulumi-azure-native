@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.AgFoodPlatform
         /// <summary>
         /// SolutionId for Data Manager For Agriculture Resource.
         /// </summary>
-        [Input("solutionId")]
-        public Input<string>? SolutionId { get; set; }
+        [Input("solutionId", required: true)]
+        public Input<string> SolutionId { get; set; } = null!;
 
         public SolutionArgs()
         {

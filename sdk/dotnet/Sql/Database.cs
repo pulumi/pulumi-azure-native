@@ -446,8 +446,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("databaseName")]
-        public Input<string>? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// The resource identifier of the elastic pool containing this database.

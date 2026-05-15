@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Disaster Recovery configuration name
         /// </summary>
-        [Input("alias")]
-        public Input<string>? Alias { get; set; }
+        [Input("alias", required: true)]
+        public Input<string> Alias { get; set; } = null!;
 
         /// <summary>
         /// Alternate name specified when alias and namespace names are same.

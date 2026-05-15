@@ -151,8 +151,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Name of the container to be registered.
         /// </summary>
-        [Input("containerName")]
-        public Input<string>? ContainerName { get; set; }
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
         /// Optional ETag.

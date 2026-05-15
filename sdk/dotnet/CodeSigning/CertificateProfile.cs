@@ -199,8 +199,8 @@ namespace Pulumi.AzureNative.CodeSigning
         /// <summary>
         /// Certificate profile name.
         /// </summary>
-        [Input("profileName")]
-        public Input<string>? ProfileName { get; set; }
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
         /// Profile type of the certificate.

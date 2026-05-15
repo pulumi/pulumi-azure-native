@@ -197,8 +197,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the job step.
         /// </summary>
-        [Input("stepName")]
-        public Input<string>? StepName { get; set; }
+        [Input("stepName", required: true)]
+        public Input<string> StepName { get; set; } = null!;
 
         /// <summary>
         /// The resource ID of the target group that the job step will be executed on.

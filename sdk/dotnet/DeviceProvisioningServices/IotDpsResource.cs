@@ -176,8 +176,8 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
         /// <summary>
         /// Name of provisioning service to create or update.
         /// </summary>
-        [Input("provisioningServiceName")]
-        public Input<string>? ProvisioningServiceName { get; set; }
+        [Input("provisioningServiceName", required: true)]
+        public Input<string> ProvisioningServiceName { get; set; } = null!;
 
         /// <summary>
         /// Resource group identifier.

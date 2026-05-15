@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Name of the setting. Allowed values: myscope
         /// </summary>
-        [Input("settingName")]
-        public Input<string>? SettingName { get; set; }
+        [Input("settingName", required: true)]
+        public Input<string> SettingName { get; set; } = null!;
 
         /// <summary>
         /// Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.

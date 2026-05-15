@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the transparent data encryption configuration.
         /// </summary>
-        [Input("transparentDataEncryptionName")]
-        public Input<string>? TransparentDataEncryptionName { get; set; }
+        [Input("transparentDataEncryptionName", required: true)]
+        public Input<string> TransparentDataEncryptionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.AzureLargeInstance
         /// <summary>
         /// Name of the AzureLargeInstance.
         /// </summary>
-        [Input("azureLargeInstanceName")]
-        public Input<string>? AzureLargeInstanceName { get; set; }
+        [Input("azureLargeInstanceName", required: true)]
+        public Input<string> AzureLargeInstanceName { get; set; } = null!;
 
         /// <summary>
         /// Specifies the hardware settings for the Azure Large Instance.

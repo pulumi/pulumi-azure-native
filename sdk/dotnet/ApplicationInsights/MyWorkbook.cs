@@ -225,8 +225,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The name of the Application Insights component resource.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// Configuration of this particular private workbook. Configuration data is a string containing valid JSON

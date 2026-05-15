@@ -293,8 +293,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Namespace name
         /// </summary>
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
 
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;

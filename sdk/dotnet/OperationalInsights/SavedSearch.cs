@@ -178,8 +178,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The id of the saved search.
         /// </summary>
-        [Input("savedSearchId")]
-        public Input<string>? SavedSearchId { get; set; }
+        [Input("savedSearchId", required: true)]
+        public Input<string> SavedSearchId { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Inputs.TagArgs>? _tags;

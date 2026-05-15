@@ -115,8 +115,8 @@ namespace Pulumi.AzureNative.Sql
         [Input("createDnsRecord")]
         public Input<bool>? CreateDnsRecord { get; set; }
 
-        [Input("dnsAliasName")]
-        public Input<string>? DnsAliasName { get; set; }
+        [Input("dnsAliasName", required: true)]
+        public Input<string> DnsAliasName { get; set; } = null!;
 
         /// <summary>
         /// The name of the managed instance.

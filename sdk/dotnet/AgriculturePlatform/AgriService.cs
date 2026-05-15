@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.AgriculturePlatform
         /// <summary>
         /// The name of the AgriService resource.
         /// </summary>
-        [Input("agriServiceResourceName")]
-        public Input<string>? AgriServiceResourceName { get; set; }
+        [Input("agriServiceResourceName", required: true)]
+        public Input<string> AgriServiceResourceName { get; set; } = null!;
 
         /// <summary>
         /// The managed service identities assigned to this resource.

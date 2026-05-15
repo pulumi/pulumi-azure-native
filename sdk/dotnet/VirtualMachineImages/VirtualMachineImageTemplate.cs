@@ -259,8 +259,8 @@ namespace Pulumi.AzureNative.VirtualMachineImages
         /// <summary>
         /// The name of the image Template
         /// </summary>
-        [Input("imageTemplateName")]
-        public Input<string>? ImageTemplateName { get; set; }
+        [Input("imageTemplateName", required: true)]
+        public Input<string> ImageTemplateName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

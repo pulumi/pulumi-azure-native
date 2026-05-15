@@ -280,8 +280,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Name of Server Endpoint object.
         /// </summary>
-        [Input("serverEndpointName")]
-        public Input<string>? ServerEndpointName { get; set; }
+        [Input("serverEndpointName", required: true)]
+        public Input<string> ServerEndpointName { get; set; } = null!;
 
         /// <summary>
         /// Server Local path.

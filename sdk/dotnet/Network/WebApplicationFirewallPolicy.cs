@@ -229,8 +229,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the policy.
         /// </summary>
-        [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
         /// The PolicySettings for policy.

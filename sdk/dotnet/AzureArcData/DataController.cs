@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// The name of the data controller
         /// </summary>
-        [Input("dataControllerName")]
-        public Input<string>? DataControllerName { get; set; }
+        [Input("dataControllerName", required: true)]
+        public Input<string> DataControllerName { get; set; } = null!;
 
         /// <summary>
         /// The extendedLocation of the resource.

@@ -181,8 +181,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// Name of the environment
         /// </summary>
-        [Input("environmentName")]
-        public Input<string>? EnvironmentName { get; set; }
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// The kind of the environment.

@@ -147,8 +147,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the virtual cluster.
         /// </summary>
-        [Input("virtualClusterName")]
-        public Input<string>? VirtualClusterName { get; set; }
+        [Input("virtualClusterName", required: true)]
+        public Input<string> VirtualClusterName { get; set; } = null!;
 
         public VirtualClusterArgs()
         {

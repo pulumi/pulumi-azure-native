@@ -350,8 +350,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the private cloud
         /// </summary>
-        [Input("privateCloudName")]
-        public Input<string>? PrivateCloudName { get; set; }
+        [Input("privateCloudName", required: true)]
+        public Input<string> PrivateCloudName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

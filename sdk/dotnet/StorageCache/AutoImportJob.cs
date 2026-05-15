@@ -276,8 +276,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name for the auto import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         /// </summary>
-        [Input("autoImportJobName")]
-        public Input<string>? AutoImportJobName { get; set; }
+        [Input("autoImportJobName", required: true)]
+        public Input<string> AutoImportJobName { get; set; } = null!;
 
         [Input("autoImportPrefixes")]
         private InputList<string>? _autoImportPrefixes;

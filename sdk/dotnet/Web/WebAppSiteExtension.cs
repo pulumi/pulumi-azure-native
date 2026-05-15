@@ -243,8 +243,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Site extension name.
         /// </summary>
-        [Input("siteExtensionId")]
-        public Input<string>? SiteExtensionId { get; set; }
+        [Input("siteExtensionId", required: true)]
+        public Input<string> SiteExtensionId { get; set; } = null!;
 
         public WebAppSiteExtensionArgs()
         {

@@ -352,8 +352,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the Kusto cluster.
         /// </summary>
-        [Input("clusterName")]
-        public Input<string>? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
         /// A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).

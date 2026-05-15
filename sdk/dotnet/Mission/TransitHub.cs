@@ -169,8 +169,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the TransitHub Resource
         /// </summary>
-        [Input("transitHubName")]
-        public Input<string>? TransitHubName { get; set; }
+        [Input("transitHubName", required: true)]
+        public Input<string> TransitHubName { get; set; } = null!;
 
         /// <summary>
         /// The TransitOption of the transitHub.

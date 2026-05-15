@@ -220,8 +220,8 @@ namespace Pulumi.AzureNative.Intune
         /// <summary>
         /// Unique name for the policy
         /// </summary>
-        [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
 
         [Input("screenCapture")]
         public Input<string>? ScreenCapture { get; set; }

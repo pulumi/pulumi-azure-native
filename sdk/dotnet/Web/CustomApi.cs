@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// API name
         /// </summary>
-        [Input("apiName")]
-        public Input<string>? ApiName { get; set; }
+        [Input("apiName", required: true)]
+        public Input<string> ApiName { get; set; } = null!;
 
         /// <summary>
         /// Resource location

@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of the test base image definition.
         /// </summary>
-        [Input("imageDefinitionName")]
-        public Input<string>? ImageDefinitionName { get; set; }
+        [Input("imageDefinitionName", required: true)]
+        public Input<string> ImageDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// Custom image OS state.

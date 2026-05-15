@@ -55,7 +55,7 @@ namespace Pulumi.AzureNative.Impact
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public WorkloadImpact(string name, WorkloadImpactArgs? args = null, CustomResourceOptions? options = null)
+        public WorkloadImpact(string name, WorkloadImpactArgs args, CustomResourceOptions? options = null)
             : base("azure-native:impact:WorkloadImpact", name, args ?? new WorkloadImpactArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.Impact
         /// <summary>
         /// workloadImpact resource 
         /// </summary>
-        [Input("workloadImpactName")]
-        public Input<string>? WorkloadImpactName { get; set; }
+        [Input("workloadImpactName", required: true)]
+        public Input<string> WorkloadImpactName { get; set; } = null!;
 
         public WorkloadImpactArgs()
         {

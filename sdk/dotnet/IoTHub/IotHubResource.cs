@@ -188,8 +188,8 @@ namespace Pulumi.AzureNative.IoTHub
         /// <summary>
         /// The name of the IoT hub.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// IotHub SKU info

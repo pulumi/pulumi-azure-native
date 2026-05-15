@@ -161,8 +161,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the encryption protector to be updated.
         /// </summary>
-        [Input("encryptionProtectorName")]
-        public Input<string>? EncryptionProtectorName { get; set; }
+        [Input("encryptionProtectorName", required: true)]
+        public Input<string> EncryptionProtectorName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.

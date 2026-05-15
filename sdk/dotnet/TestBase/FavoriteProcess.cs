@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
         /// </summary>
-        [Input("favoriteProcessResourceName")]
-        public Input<string>? FavoriteProcessResourceName { get; set; }
+        [Input("favoriteProcessResourceName", required: true)]
+        public Input<string> FavoriteProcessResourceName { get; set; } = null!;
 
         /// <summary>
         /// The resource name of the Test Base Package.

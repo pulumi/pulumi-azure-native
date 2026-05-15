@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.ManagedServices
         /// <summary>
         /// The GUID of the registration definition.
         /// </summary>
-        [Input("registrationDefinitionId")]
-        public Input<string>? RegistrationDefinitionId { get; set; }
+        [Input("registrationDefinitionId", required: true)]
+        public Input<string> RegistrationDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The scope of the resource.

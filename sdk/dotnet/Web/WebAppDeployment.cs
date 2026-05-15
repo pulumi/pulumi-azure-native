@@ -205,8 +205,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// ID of an existing deployment.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// Kind of resource.

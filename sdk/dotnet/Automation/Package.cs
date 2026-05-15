@@ -168,8 +168,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of Package.
         /// </summary>
-        [Input("packageName")]
-        public Input<string>? PackageName { get; set; }
+        [Input("packageName", required: true)]
+        public Input<string> PackageName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

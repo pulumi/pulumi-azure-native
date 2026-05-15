@@ -190,8 +190,8 @@ namespace Pulumi.AzureNative.Marketplace
         /// <summary>
         /// The offer ID to update or delete
         /// </summary>
-        [Input("offerId")]
-        public Input<string>? OfferId { get; set; }
+        [Input("offerId", required: true)]
+        public Input<string> OfferId { get; set; } = null!;
 
         [Input("plans")]
         private InputList<Inputs.PlanArgs>? _plans;

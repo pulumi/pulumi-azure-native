@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// The name of the Failover Group
         /// </summary>
-        [Input("failoverGroupName")]
-        public Input<string>? FailoverGroupName { get; set; }
+        [Input("failoverGroupName", required: true)]
+        public Input<string> FailoverGroupName { get; set; } = null!;
 
         /// <summary>
         /// null

@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the Table Service within the specified storage account. Table Service Name must be 'default'
         /// </summary>
-        [Input("tableServiceName")]
-        public Input<string>? TableServiceName { get; set; }
+        [Input("tableServiceName", required: true)]
+        public Input<string> TableServiceName { get; set; } = null!;
 
         public TableServicePropertiesArgs()
         {

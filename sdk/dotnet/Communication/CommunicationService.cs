@@ -167,8 +167,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the CommunicationService resource.
         /// </summary>
-        [Input("communicationServiceName")]
-        public Input<string>? CommunicationServiceName { get; set; }
+        [Input("communicationServiceName", required: true)]
+        public Input<string> CommunicationServiceName { get; set; } = null!;
 
         /// <summary>
         /// The location where the communication service stores its data at rest.

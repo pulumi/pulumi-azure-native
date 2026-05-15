@@ -169,8 +169,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the task run.
         /// </summary>
-        [Input("taskRunName")]
-        public Input<string>? TaskRunName { get; set; }
+        [Input("taskRunName", required: true)]
+        public Input<string> TaskRunName { get; set; } = null!;
 
         public TaskRunArgs()
         {

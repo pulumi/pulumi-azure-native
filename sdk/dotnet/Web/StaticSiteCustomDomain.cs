@@ -134,8 +134,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// The custom domain to create.
         /// </summary>
-        [Input("domainName")]
-        public Input<string>? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
         /// Kind of resource.

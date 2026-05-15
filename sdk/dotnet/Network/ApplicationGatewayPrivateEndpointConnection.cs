@@ -152,8 +152,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the application gateway private endpoint connection.
         /// </summary>
-        [Input("connectionName")]
-        public Input<string>? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Resource ID.

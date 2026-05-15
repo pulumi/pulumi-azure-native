@@ -145,8 +145,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Data center name in a managed Cassandra cluster.
         /// </summary>
-        [Input("dataCenterName")]
-        public Input<string>? DataCenterName { get; set; }
+        [Input("dataCenterName", required: true)]
+        public Input<string> DataCenterName { get; set; } = null!;
 
         /// <summary>
         /// Properties of a managed Cassandra data center.

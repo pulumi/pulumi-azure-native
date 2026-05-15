@@ -220,8 +220,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Name of the SAP monitor resource.
         /// </summary>
-        [Input("monitorName")]
-        public Input<string>? MonitorName { get; set; }
+        [Input("monitorName", required: true)]
+        public Input<string> MonitorName { get; set; } = null!;
 
         /// <summary>
         /// The subnet which the SAP monitor will be deployed in

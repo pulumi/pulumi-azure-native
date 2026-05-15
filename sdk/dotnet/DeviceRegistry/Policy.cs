@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// The name of the Policy tracked resource.
         /// </summary>
-        [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
         /// The RP-specific properties for this resource.

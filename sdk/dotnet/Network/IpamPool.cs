@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// IP Address Manager Pool resource name.
         /// </summary>
-        [Input("poolName")]
-        public Input<string>? PoolName { get; set; }
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
         /// Properties of IpamPool resource properties which are specific to the Pool resource.

@@ -108,8 +108,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Tag-operation link identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("operationLinkId")]
-        public Input<string>? OperationLinkId { get; set; }
+        [Input("operationLinkId", required: true)]
+        public Input<string> OperationLinkId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

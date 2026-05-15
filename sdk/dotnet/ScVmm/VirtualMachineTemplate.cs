@@ -268,8 +268,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the VirtualMachineTemplate.
         /// </summary>
-        [Input("virtualMachineTemplateName")]
-        public Input<string>? VirtualMachineTemplateName { get; set; }
+        [Input("virtualMachineTemplateName", required: true)]
+        public Input<string> VirtualMachineTemplateName { get; set; } = null!;
 
         /// <summary>
         /// ARM Id of the vmmServer resource in which this resource resides.

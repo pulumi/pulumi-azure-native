@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         /// <summary>
         /// Name of Endpoint Resource.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// DigitalTwinsInstance endpoint resource properties.

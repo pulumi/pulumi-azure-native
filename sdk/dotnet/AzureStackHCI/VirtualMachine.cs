@@ -240,8 +240,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the virtual machine
         /// </summary>
-        [Input("virtualMachineName")]
-        public Input<string>? VirtualMachineName { get; set; }
+        [Input("virtualMachineName", required: true)]
+        public Input<string> VirtualMachineName { get; set; } = null!;
 
         public VirtualMachineArgs()
         {

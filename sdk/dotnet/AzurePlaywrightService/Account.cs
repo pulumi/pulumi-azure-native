@@ -146,8 +146,8 @@ namespace Pulumi.AzureNative.AzurePlaywrightService
         /// <summary>
         /// Name of account.
         /// </summary>
-        [Input("accountName")]
-        public Input<string>? AccountName { get; set; }
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
         /// When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.

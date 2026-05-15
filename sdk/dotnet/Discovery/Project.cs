@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the Project
         /// </summary>
-        [Input("projectName")]
-        public Input<string>? ProjectName { get; set; }
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

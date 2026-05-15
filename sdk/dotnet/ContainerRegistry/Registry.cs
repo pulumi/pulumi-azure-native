@@ -291,8 +291,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the container registry.
         /// </summary>
-        [Input("registryName")]
-        public Input<string>? RegistryName { get; set; }
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

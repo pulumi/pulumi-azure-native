@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of Instance dataflowEndpoint resource.
         /// </summary>
-        [Input("dataflowGraphName")]
-        public Input<string>? DataflowGraphName { get; set; }
+        [Input("dataflowGraphName", required: true)]
+        public Input<string> DataflowGraphName { get; set; } = null!;
 
         /// <summary>
         /// Name of Instance dataflowProfile resource

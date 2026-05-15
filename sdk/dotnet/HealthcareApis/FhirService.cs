@@ -241,8 +241,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of FHIR Service resource.
         /// </summary>
-        [Input("fhirServiceName")]
-        public Input<string>? FhirServiceName { get; set; }
+        [Input("fhirServiceName", required: true)]
+        public Input<string> FhirServiceName { get; set; } = null!;
 
         /// <summary>
         /// Setting indicating whether the service has a managed identity associated with it.

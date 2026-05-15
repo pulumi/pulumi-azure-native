@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Name of Association
         /// </summary>
-        [Input("associationName")]
-        public Input<string>? AssociationName { get; set; }
+        [Input("associationName", required: true)]
+        public Input<string> AssociationName { get; set; } = null!;
 
         /// <summary>
         /// Association Type

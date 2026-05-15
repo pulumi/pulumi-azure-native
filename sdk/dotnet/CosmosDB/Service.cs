@@ -155,8 +155,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB service name.
         /// </summary>
-        [Input("serviceName")]
-        public Input<string>? ServiceName { get; set; }
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         public ServiceArgs()
         {

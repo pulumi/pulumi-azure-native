@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The identity of the gateway.
         /// </summary>
-        [Input("gatewayResourceName")]
-        public Input<string>? GatewayResourceName { get; set; }
+        [Input("gatewayResourceName", required: true)]
+        public Input<string> GatewayResourceName { get; set; } = null!;
 
         [Input("http")]
         private InputList<Inputs.HttpConfigArgs>? _http;

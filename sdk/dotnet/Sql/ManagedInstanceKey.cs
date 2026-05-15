@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the managed instance key to be operated on (updated or created).
         /// </summary>
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
+        [Input("keyName", required: true)]
+        public Input<string> KeyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the managed instance.

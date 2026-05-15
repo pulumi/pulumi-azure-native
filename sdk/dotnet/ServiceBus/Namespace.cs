@@ -250,8 +250,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The namespace name.
         /// </summary>
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
         /// The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4

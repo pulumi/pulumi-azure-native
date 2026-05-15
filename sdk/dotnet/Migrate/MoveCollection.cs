@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// The Move Collection Name.
         /// </summary>
-        [Input("moveCollectionName")]
-        public Input<string>? MoveCollectionName { get; set; }
+        [Input("moveCollectionName", required: true)]
+        public Input<string> MoveCollectionName { get; set; } = null!;
 
         /// <summary>
         /// Defines the move collection properties.

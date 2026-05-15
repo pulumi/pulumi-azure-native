@@ -293,8 +293,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the private link service.
         /// </summary>
-        [Input("serviceName")]
-        public Input<string>? ServiceName { get; set; }
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

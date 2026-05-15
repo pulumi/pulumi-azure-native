@@ -163,8 +163,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Name of the vault
         /// </summary>
-        [Input("vaultName")]
-        public Input<string>? VaultName { get; set; }
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
 
         public VaultArgs()
         {

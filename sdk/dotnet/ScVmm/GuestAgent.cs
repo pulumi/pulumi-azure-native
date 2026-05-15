@@ -146,8 +146,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the guestAgents.
         /// </summary>
-        [Input("guestAgentName")]
-        public Input<string>? GuestAgentName { get; set; }
+        [Input("guestAgentName", required: true)]
+        public Input<string> GuestAgentName { get; set; } = null!;
 
         /// <summary>
         /// HTTP Proxy configuration for the VM.

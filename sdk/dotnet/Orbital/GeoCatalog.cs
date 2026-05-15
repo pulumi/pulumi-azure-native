@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// The name of the catalog
         /// </summary>
-        [Input("catalogName")]
-        public Input<string>? CatalogName { get; set; }
+        [Input("catalogName", required: true)]
+        public Input<string> CatalogName { get; set; } = null!;
 
         /// <summary>
         /// The managed service identities assigned to this resource.

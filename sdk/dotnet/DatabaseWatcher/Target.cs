@@ -116,8 +116,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// The target resource name.
         /// </summary>
-        [Input("targetName")]
-        public Input<string>? TargetName { get; set; }
+        [Input("targetName", required: true)]
+        public Input<string> TargetName { get; set; } = null!;
 
         /// <summary>
         /// The database watcher name.

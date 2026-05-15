@@ -159,8 +159,8 @@ namespace Pulumi.AzureNative.IoTOperationsOrchestrator
         /// <summary>
         /// Name of Instance.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Reconciliation Policy.

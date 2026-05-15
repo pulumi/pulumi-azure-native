@@ -420,8 +420,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the peering.
         /// </summary>
-        [Input("virtualNetworkPeeringName")]
-        public Input<string>? VirtualNetworkPeeringName { get; set; }
+        [Input("virtualNetworkPeeringName", required: true)]
+        public Input<string> VirtualNetworkPeeringName { get; set; } = null!;
 
         public VirtualNetworkPeeringArgs()
         {

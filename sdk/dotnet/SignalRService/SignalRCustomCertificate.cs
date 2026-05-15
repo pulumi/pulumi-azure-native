@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.SignalRService
         /// <summary>
         /// Custom certificate name
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// Base uri of the KeyVault that stores certificate.

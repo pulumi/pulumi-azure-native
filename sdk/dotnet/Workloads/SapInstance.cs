@@ -159,8 +159,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// The name of SAP Instance resource for SAP Migration.
         /// </summary>
-        [Input("sapInstanceName")]
-        public Input<string>? SapInstanceName { get; set; }
+        [Input("sapInstanceName", required: true)]
+        public Input<string> SapInstanceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// <summary>
         /// Name of the EnterprisePolicy.
         /// </summary>
-        [Input("enterprisePolicyName")]
-        public Input<string>? EnterprisePolicyName { get; set; }
+        [Input("enterprisePolicyName", required: true)]
+        public Input<string> EnterprisePolicyName { get; set; } = null!;
 
         /// <summary>
         /// The health status of the resource.

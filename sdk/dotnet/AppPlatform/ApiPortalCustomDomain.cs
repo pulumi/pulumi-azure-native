@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the API portal custom domain.
         /// </summary>
-        [Input("domainName")]
-        public Input<string>? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
         /// The properties of custom domain for API portal

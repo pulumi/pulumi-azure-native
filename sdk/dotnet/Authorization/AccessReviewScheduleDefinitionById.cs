@@ -189,7 +189,7 @@ namespace Pulumi.AzureNative.Authorization
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AccessReviewScheduleDefinitionById(string name, AccessReviewScheduleDefinitionByIdArgs? args = null, CustomResourceOptions? options = null)
+        public AccessReviewScheduleDefinitionById(string name, AccessReviewScheduleDefinitionByIdArgs args, CustomResourceOptions? options = null)
             : base("azure-native:authorization:AccessReviewScheduleDefinitionById", name, args ?? new AccessReviewScheduleDefinitionByIdArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -393,8 +393,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The id of the access review schedule definition.
         /// </summary>
-        [Input("scheduleDefinitionId")]
-        public Input<string>? ScheduleDefinitionId { get; set; }
+        [Input("scheduleDefinitionId", required: true)]
+        public Input<string> ScheduleDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The recurrence type : weekly, monthly, etc.

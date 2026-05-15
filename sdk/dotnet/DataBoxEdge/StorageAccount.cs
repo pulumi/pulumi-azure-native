@@ -175,8 +175,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The StorageAccount name.
         /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
+        [Input("storageAccountName", required: true)]
+        public Input<string> StorageAccountName { get; set; } = null!;
 
         /// <summary>
         /// Current status of the storage account

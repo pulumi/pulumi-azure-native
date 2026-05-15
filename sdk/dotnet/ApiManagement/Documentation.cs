@@ -115,8 +115,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Documentation identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("documentationId")]
-        public Input<string>? DocumentationId { get; set; }
+        [Input("documentationId", required: true)]
+        public Input<string> DocumentationId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

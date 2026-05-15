@@ -212,8 +212,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the security alert policy.
         /// </summary>
-        [Input("securityAlertPolicyName")]
-        public Input<string>? SecurityAlertPolicyName { get; set; }
+        [Input("securityAlertPolicyName", required: true)]
+        public Input<string> SecurityAlertPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the  server.

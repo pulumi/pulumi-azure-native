@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.ContainerStorage
         /// <summary>
         /// Volume Snapshot Resource
         /// </summary>
-        [Input("snapshotName")]
-        public Input<string>? SnapshotName { get; set; }
+        [Input("snapshotName", required: true)]
+        public Input<string> SnapshotName { get; set; } = null!;
 
         /// <summary>
         /// Reference to the source volume

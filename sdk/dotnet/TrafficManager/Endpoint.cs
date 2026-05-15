@@ -215,8 +215,8 @@ namespace Pulumi.AzureNative.TrafficManager
         /// <summary>
         /// The name of the Traffic Manager endpoint.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.

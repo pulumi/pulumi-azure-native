@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Name of the security setting
         /// </summary>
-        [Input("workspaceSettingName")]
-        public Input<string>? WorkspaceSettingName { get; set; }
+        [Input("workspaceSettingName", required: true)]
+        public Input<string> WorkspaceSettingName { get; set; } = null!;
 
         public WorkspaceSettingArgs()
         {

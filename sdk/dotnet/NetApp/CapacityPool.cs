@@ -262,8 +262,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the capacity pool
         /// </summary>
-        [Input("poolName")]
-        public Input<string>? PoolName { get; set; }
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
         /// The qos type of the pool

@@ -146,8 +146,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the IP Prefix.
         /// </summary>
-        [Input("ipPrefixName")]
-        public Input<string>? IpPrefixName { get; set; }
+        [Input("ipPrefixName", required: true)]
+        public Input<string> IpPrefixName { get; set; } = null!;
 
         [Input("ipPrefixRules", required: true)]
         private InputList<Inputs.IpPrefixRuleArgs>? _ipPrefixRules;

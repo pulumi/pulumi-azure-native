@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Workspace identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("workspaceId")]
-        public Input<string>? WorkspaceId { get; set; }
+        [Input("workspaceId", required: true)]
+        public Input<string> WorkspaceId { get; set; } = null!;
 
         public WorkspaceArgs()
         {

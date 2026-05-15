@@ -267,8 +267,8 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
         /// <summary>
         /// Name of the Source Control Configuration.
         /// </summary>
-        [Input("sourceControlConfigurationName")]
-        public Input<string>? SourceControlConfigurationName { get; set; }
+        [Input("sourceControlConfigurationName", required: true)]
+        public Input<string> SourceControlConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances

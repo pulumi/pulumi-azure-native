@@ -236,8 +236,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the snapshot policy
         /// </summary>
-        [Input("snapshotPolicyName")]
-        public Input<string>? SnapshotPolicyName { get; set; }
+        [Input("snapshotPolicyName", required: true)]
+        public Input<string> SnapshotPolicyName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

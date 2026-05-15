@@ -181,8 +181,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The NGroups name.
         /// </summary>
-        [Input("ngroupsName")]
-        public Input<string>? NgroupsName { get; set; }
+        [Input("ngroupsName", required: true)]
+        public Input<string> NgroupsName { get; set; } = null!;
 
         /// <summary>
         /// Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.

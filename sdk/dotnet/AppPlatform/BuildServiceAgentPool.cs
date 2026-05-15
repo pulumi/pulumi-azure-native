@@ -116,8 +116,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the build service agent pool resource.
         /// </summary>
-        [Input("agentPoolName")]
-        public Input<string>? AgentPoolName { get; set; }
+        [Input("agentPoolName", required: true)]
+        public Input<string> AgentPoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the build service resource.

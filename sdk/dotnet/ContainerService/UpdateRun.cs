@@ -179,8 +179,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the UpdateRun resource.
         /// </summary>
-        [Input("updateRunName")]
-        public Input<string>? UpdateRunName { get; set; }
+        [Input("updateRunName", required: true)]
+        public Input<string> UpdateRunName { get; set; } = null!;
 
         /// <summary>
         /// The resource id of the FleetUpdateStrategy resource to reference.

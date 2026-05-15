@@ -169,8 +169,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The data connector definition name.
         /// </summary>
-        [Input("dataConnectorDefinitionName")]
-        public Input<string>? DataConnectorDefinitionName { get; set; }
+        [Input("dataConnectorDefinitionName", required: true)]
+        public Input<string> DataConnectorDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The kind of the data connector definitions

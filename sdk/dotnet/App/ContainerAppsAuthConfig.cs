@@ -148,8 +148,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Container App AuthConfig.
         /// </summary>
-        [Input("authConfigName")]
-        public Input<string>? AuthConfigName { get; set; }
+        [Input("authConfigName", required: true)]
+        public Input<string> AuthConfigName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Container App.

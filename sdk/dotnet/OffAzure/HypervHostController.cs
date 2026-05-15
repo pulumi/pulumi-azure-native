@@ -147,8 +147,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         ///  Host name
         /// </summary>
-        [Input("hostName")]
-        public Input<string>? HostName { get; set; }
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
 
         /// <summary>
         /// The status of the last operation.

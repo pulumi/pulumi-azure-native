@@ -101,8 +101,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Preview subscription ID.
         /// </summary>
-        [Input("previewSubscription")]
-        public Input<string>? PreviewSubscription { get; set; }
+        [Input("previewSubscription", required: true)]
+        public Input<string> PreviewSubscription { get; set; } = null!;
 
         /// <summary>
         /// The name of the vendor sku.

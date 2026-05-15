@@ -193,8 +193,8 @@ namespace Pulumi.AzureNative.DevHub
         /// <summary>
         /// The name of the IacProfile.
         /// </summary>
-        [Input("iacProfileName")]
-        public Input<string>? IacProfileName { get; set; }
+        [Input("iacProfileName", required: true)]
+        public Input<string> IacProfileName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

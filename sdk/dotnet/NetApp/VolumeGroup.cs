@@ -171,8 +171,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the volumeGroup
         /// </summary>
-        [Input("volumeGroupName")]
-        public Input<string>? VolumeGroupName { get; set; }
+        [Input("volumeGroupName", required: true)]
+        public Input<string> VolumeGroupName { get; set; } = null!;
 
         [Input("volumes")]
         private InputList<Inputs.VolumeGroupVolumePropertiesArgs>? _volumes;

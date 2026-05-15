@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
         /// <summary>
         /// Name of the Azure Bare Metal Storage Instance, also known as the ResourceName.
         /// </summary>
-        [Input("azureBareMetalStorageInstanceName")]
-        public Input<string>? AzureBareMetalStorageInstanceName { get; set; }
+        [Input("azureBareMetalStorageInstanceName", required: true)]
+        public Input<string> AzureBareMetalStorageInstanceName { get; set; } = null!;
 
         /// <summary>
         /// Specifies the AzureBareMetaStorageInstance unique ID.

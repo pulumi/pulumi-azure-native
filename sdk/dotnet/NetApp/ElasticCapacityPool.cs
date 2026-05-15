@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ElasticCapacityPool
         /// </summary>
-        [Input("poolName")]
-        public Input<string>? PoolName { get; set; }
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

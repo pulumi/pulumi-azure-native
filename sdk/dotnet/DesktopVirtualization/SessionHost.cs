@@ -255,8 +255,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the session host within the specified host pool
         /// </summary>
-        [Input("sessionHostName")]
-        public Input<string>? SessionHostName { get; set; }
+        [Input("sessionHostName", required: true)]
+        public Input<string> SessionHostName { get; set; } = null!;
 
         public SessionHostArgs()
         {

@@ -134,8 +134,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// <summary>
         /// The name of the Scheduler
         /// </summary>
-        [Input("schedulerName")]
-        public Input<string>? SchedulerName { get; set; }
+        [Input("schedulerName", required: true)]
+        public Input<string> SchedulerName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

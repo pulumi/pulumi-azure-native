@@ -187,8 +187,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Add-on name.
         /// </summary>
-        [Input("premierAddOnName")]
-        public Input<string>? PremierAddOnName { get; set; }
+        [Input("premierAddOnName", required: true)]
+        public Input<string> PremierAddOnName { get; set; } = null!;
 
         /// <summary>
         /// Premier add on Product.

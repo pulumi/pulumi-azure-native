@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Rack.
         /// </summary>
-        [Input("networkRackName")]
-        public Input<string>? NetworkRackName { get; set; }
+        [Input("networkRackName", required: true)]
+        public Input<string> NetworkRackName { get; set; } = null!;
 
         /// <summary>
         /// Network Rack SKU name.

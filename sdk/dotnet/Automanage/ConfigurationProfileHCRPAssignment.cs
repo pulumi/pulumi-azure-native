@@ -108,8 +108,8 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// Name of the configuration profile assignment. Only default is supported.
         /// </summary>
-        [Input("configurationProfileAssignmentName")]
-        public Input<string>? ConfigurationProfileAssignmentName { get; set; }
+        [Input("configurationProfileAssignmentName", required: true)]
+        public Input<string> ConfigurationProfileAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Arc machine.

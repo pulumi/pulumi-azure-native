@@ -220,8 +220,8 @@ namespace Pulumi.AzureNative.Solutions
         /// <summary>
         /// The name of the managed application definition.
         /// </summary>
-        [Input("applicationDefinitionName")]
-        public Input<string>? ApplicationDefinitionName { get; set; }
+        [Input("applicationDefinitionName", required: true)]
+        public Input<string> ApplicationDefinitionName { get; set; } = null!;
 
         [Input("artifacts")]
         private InputList<Inputs.ApplicationDefinitionArtifactArgs>? _artifacts;

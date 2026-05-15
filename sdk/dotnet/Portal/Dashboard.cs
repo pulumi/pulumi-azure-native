@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the dashboard.
         /// </summary>
-        [Input("dashboardName")]
-        public Input<string>? DashboardName { get; set; }
+        [Input("dashboardName", required: true)]
+        public Input<string> DashboardName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

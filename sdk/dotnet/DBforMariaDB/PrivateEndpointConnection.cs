@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.DBforMariaDB
         [Input("privateEndpoint")]
         public Input<Inputs.PrivateEndpointPropertyArgs>? PrivateEndpoint { get; set; }
 
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Connection state of the private endpoint connection.

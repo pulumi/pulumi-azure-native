@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.ComputeBulkActions
         /// <summary>
         /// The name of the LaunchBulkInstancesOperation.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Details of the resource plan.

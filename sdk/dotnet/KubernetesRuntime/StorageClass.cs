@@ -244,8 +244,8 @@ namespace Pulumi.AzureNative.KubernetesRuntime
         /// <summary>
         /// The name of the the storage class
         /// </summary>
-        [Input("storageClassName")]
-        public Input<string>? StorageClassName { get; set; }
+        [Input("storageClassName", required: true)]
+        public Input<string> StorageClassName { get; set; } = null!;
 
         /// <summary>
         /// Properties of the StorageClass

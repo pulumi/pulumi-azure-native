@@ -177,8 +177,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the peering.
         /// </summary>
-        [Input("peeringName")]
-        public Input<string>? PeeringName { get; set; }
+        [Input("peeringName", required: true)]
+        public Input<string> PeeringName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

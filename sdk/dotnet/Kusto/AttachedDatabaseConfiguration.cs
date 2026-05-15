@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the attached database configuration.
         /// </summary>
-        [Input("attachedDatabaseConfigurationName")]
-        public Input<string>? AttachedDatabaseConfigurationName { get; set; }
+        [Input("attachedDatabaseConfigurationName", required: true)]
+        public Input<string> AttachedDatabaseConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Kusto cluster.

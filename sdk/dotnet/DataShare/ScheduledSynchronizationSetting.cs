@@ -172,8 +172,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the synchronizationSetting.
         /// </summary>
-        [Input("synchronizationSettingName")]
-        public Input<string>? SynchronizationSettingName { get; set; }
+        [Input("synchronizationSettingName", required: true)]
+        public Input<string> SynchronizationSettingName { get; set; } = null!;
 
         /// <summary>
         /// Synchronization time

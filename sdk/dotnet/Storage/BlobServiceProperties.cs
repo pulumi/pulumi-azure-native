@@ -178,8 +178,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
         /// </summary>
-        [Input("blobServicesName")]
-        public Input<string>? BlobServicesName { get; set; }
+        [Input("blobServicesName", required: true)]
+        public Input<string> BlobServicesName { get; set; } = null!;
 
         /// <summary>
         /// The blob service properties for change feed events.

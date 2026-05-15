@@ -367,8 +367,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Machine Assessment ARM name
         /// </summary>
-        [Input("assessmentName")]
-        public Input<string>? AssessmentName { get; set; }
+        [Input("assessmentName", required: true)]
+        public Input<string> AssessmentName { get; set; } = null!;
 
         [Input("azureDiskTypes")]
         private InputList<Union<string, Pulumi.AzureNative.Migrate.AzureDiskType>>? _azureDiskTypes;

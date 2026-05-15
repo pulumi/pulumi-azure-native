@@ -182,8 +182,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// The name of the Agent resource.
         /// </summary>
-        [Input("agentName")]
-        public Input<string>? AgentName { get; set; }
+        [Input("agentName", required: true)]
+        public Input<string> AgentName { get; set; } = null!;
 
         /// <summary>
         /// The fully qualified resource ID of the Hybrid Compute resource for the Agent.

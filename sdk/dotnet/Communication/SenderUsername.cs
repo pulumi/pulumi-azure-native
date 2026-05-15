@@ -151,8 +151,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The valid sender Username.
         /// </summary>
-        [Input("senderUsername")]
-        public Input<string>? SenderUsername { get; set; }
+        [Input("senderUsername", required: true)]
+        public Input<string> SenderUsername { get; set; } = null!;
 
         /// <summary>
         /// A sender senderUsername to be used when sending emails.

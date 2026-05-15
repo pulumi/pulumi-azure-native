@@ -137,8 +137,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the cache rule.
         /// </summary>
-        [Input("cacheRuleName")]
-        public Input<string>? CacheRuleName { get; set; }
+        [Input("cacheRuleName", required: true)]
+        public Input<string> CacheRuleName { get; set; } = null!;
 
         /// <summary>
         /// The ARM resource ID of the credential store which is associated with the cache rule.

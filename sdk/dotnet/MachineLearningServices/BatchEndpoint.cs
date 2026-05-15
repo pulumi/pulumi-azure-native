@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name for the Batch Endpoint.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)

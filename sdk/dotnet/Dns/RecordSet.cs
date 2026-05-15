@@ -344,8 +344,8 @@ namespace Pulumi.AzureNative.Dns
         /// <summary>
         /// The name of the record set, relative to the name of the zone.
         /// </summary>
-        [Input("relativeRecordSetName")]
-        public Input<string>? RelativeRecordSetName { get; set; }
+        [Input("relativeRecordSetName", required: true)]
+        public Input<string> RelativeRecordSetName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

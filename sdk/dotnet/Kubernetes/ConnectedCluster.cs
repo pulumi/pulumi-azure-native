@@ -271,8 +271,8 @@ namespace Pulumi.AzureNative.Kubernetes
         /// <summary>
         /// The name of the Kubernetes cluster on which get is called.
         /// </summary>
-        [Input("clusterName")]
-        public Input<string>? ClusterName { get; set; }
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
 
         /// <summary>
         /// The Kubernetes distribution running on this connected cluster.

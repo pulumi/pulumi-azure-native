@@ -197,8 +197,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the NetApp account
         /// </summary>
-        [Input("accountName")]
-        public Input<string>? AccountName { get; set; }
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
 
         [Input("activeDirectories")]
         private InputList<Inputs.ActiveDirectoryArgs>? _activeDirectories;

@@ -193,8 +193,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Hostname in the hostname binding.
         /// </summary>
-        [Input("hostName")]
-        public Input<string>? HostName { get; set; }
+        [Input("hostName", required: true)]
+        public Input<string> HostName { get; set; } = null!;
 
         /// <summary>
         /// Hostname type.

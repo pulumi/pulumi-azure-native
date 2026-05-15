@@ -168,8 +168,8 @@ namespace Pulumi.AzureNative.Consumption
         /// <summary>
         /// Budget Name.
         /// </summary>
-        [Input("budgetName")]
-        public Input<string>? BudgetName { get; set; }
+        [Input("budgetName", required: true)]
+        public Input<string> BudgetName { get; set; } = null!;
 
         /// <summary>
         /// The category of the budget, whether the budget tracks cost or usage.

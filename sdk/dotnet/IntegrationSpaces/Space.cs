@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// The name of the space
         /// </summary>
-        [Input("spaceName")]
-        public Input<string>? SpaceName { get; set; }
+        [Input("spaceName", required: true)]
+        public Input<string> SpaceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

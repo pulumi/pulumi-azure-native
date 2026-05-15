@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of instance.
         /// </summary>
-        [Input("instanceName")]
-        public Input<string>? InstanceName { get; set; }
+        [Input("instanceName", required: true)]
+        public Input<string> InstanceName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

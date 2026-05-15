@@ -167,8 +167,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the Shared Image Gallery.
         /// </summary>
-        [Input("galleryName")]
-        public Input<string>? GalleryName { get; set; }
+        [Input("galleryName", required: true)]
+        public Input<string> GalleryName { get; set; } = null!;
 
         /// <summary>
         /// The identity of the gallery, if configured.

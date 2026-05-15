@@ -222,8 +222,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Function name.
         /// </summary>
-        [Input("functionName")]
-        public Input<string>? FunctionName { get; set; }
+        [Input("functionName", required: true)]
+        public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
         /// Function URI.

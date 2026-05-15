@@ -183,8 +183,8 @@ namespace Pulumi.AzureNative.StorageActions
         /// <summary>
         /// The name of the storage task within the specified resource group. Storage task names must be between 3 and 18 characters in length and use numbers and lower-case letters only.
         /// </summary>
-        [Input("storageTaskName")]
-        public Input<string>? StorageTaskName { get; set; }
+        [Input("storageTaskName", required: true)]
+        public Input<string> StorageTaskName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

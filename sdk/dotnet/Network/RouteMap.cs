@@ -172,8 +172,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the RouteMap.
         /// </summary>
-        [Input("routeMapName")]
-        public Input<string>? RouteMapName { get; set; }
+        [Input("routeMapName", required: true)]
+        public Input<string> RouteMapName { get; set; } = null!;
 
         [Input("rules")]
         private InputList<Inputs.RouteMapRuleArgs>? _rules;

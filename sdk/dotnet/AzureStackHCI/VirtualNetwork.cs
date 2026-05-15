@@ -209,8 +209,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the virtual network
         /// </summary>
-        [Input("virtualNetworkName")]
-        public Input<string>? VirtualNetworkName { get; set; }
+        [Input("virtualNetworkName", required: true)]
+        public Input<string> VirtualNetworkName { get; set; } = null!;
 
         /// <summary>
         /// name of the network switch to be used for VMs

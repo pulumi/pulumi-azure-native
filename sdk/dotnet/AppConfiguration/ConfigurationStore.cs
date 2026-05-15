@@ -195,8 +195,8 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// The name of the configuration store.
         /// </summary>
-        [Input("configStoreName")]
-        public Input<string>? ConfigStoreName { get; set; }
+        [Input("configStoreName", required: true)]
+        public Input<string> ConfigStoreName { get; set; } = null!;
 
         /// <summary>
         /// Indicates whether the configuration store need to be recovered.

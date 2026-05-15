@@ -193,8 +193,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the partner destination.
         /// </summary>
-        [Input("partnerDestinationName")]
-        public Input<string>? PartnerDestinationName { get; set; }
+        [Input("partnerDestinationName", required: true)]
+        public Input<string> PartnerDestinationName { get; set; } = null!;
 
         /// <summary>
         /// The immutable Id of the corresponding partner registration.

@@ -307,8 +307,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the virtual machine extension.
         /// </summary>
-        [Input("vmExtensionName")]
-        public Input<string>? VmExtensionName { get; set; }
+        [Input("vmExtensionName", required: true)]
+        public Input<string> VmExtensionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the virtual machine.

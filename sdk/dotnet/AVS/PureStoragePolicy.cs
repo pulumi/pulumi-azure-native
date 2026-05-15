@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the storage policy.
         /// </summary>
-        [Input("storagePolicyName")]
-        public Input<string>? StoragePolicyName { get; set; }
+        [Input("storagePolicyName", required: true)]
+        public Input<string> StoragePolicyName { get; set; } = null!;
 
         /// <summary>
         /// Azure resource ID of the Pure Storage Pool associated with the storage policy

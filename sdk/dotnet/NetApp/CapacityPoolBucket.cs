@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the bucket
         /// </summary>
-        [Input("bucketName")]
-        public Input<string>? BucketName { get; set; }
+        [Input("bucketName", required: true)]
+        public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
         /// File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.

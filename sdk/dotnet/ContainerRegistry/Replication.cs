@@ -170,8 +170,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the replication.
         /// </summary>
-        [Input("replicationName")]
-        public Input<string>? ReplicationName { get; set; }
+        [Input("replicationName", required: true)]
+        public Input<string> ReplicationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -183,8 +183,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the web agent.
         /// </summary>
-        [Input("webAgentName")]
-        public Input<string>? WebAgentName { get; set; }
+        [Input("webAgentName", required: true)]
+        public Input<string> WebAgentName { get; set; } = null!;
 
         public WebAgentArgs()
         {

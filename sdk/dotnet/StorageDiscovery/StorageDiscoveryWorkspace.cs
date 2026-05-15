@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.StorageDiscovery
         /// <summary>
         /// The name of the StorageDiscoveryWorkspace
         /// </summary>
-        [Input("storageDiscoveryWorkspaceName")]
-        public Input<string>? StorageDiscoveryWorkspaceName { get; set; }
+        [Input("storageDiscoveryWorkspaceName", required: true)]
+        public Input<string> StorageDiscoveryWorkspaceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

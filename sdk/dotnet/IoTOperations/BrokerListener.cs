@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of Instance broker listener resource
         /// </summary>
-        [Input("listenerName")]
-        public Input<string>? ListenerName { get; set; }
+        [Input("listenerName", required: true)]
+        public Input<string> ListenerName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

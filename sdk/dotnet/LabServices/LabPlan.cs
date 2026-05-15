@@ -206,8 +206,8 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
         /// </summary>
-        [Input("labPlanName")]
-        public Input<string>? LabPlanName { get; set; }
+        [Input("labPlanName", required: true)]
+        public Input<string> LabPlanName { get; set; } = null!;
 
         /// <summary>
         /// Base Url of the lms instance this lab plan can link lab rosters against.

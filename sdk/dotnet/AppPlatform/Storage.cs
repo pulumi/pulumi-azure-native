@@ -134,8 +134,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the storage resource.
         /// </summary>
-        [Input("storageName")]
-        public Input<string>? StorageName { get; set; }
+        [Input("storageName", required: true)]
+        public Input<string> StorageName { get; set; } = null!;
 
         public StorageArgs()
         {

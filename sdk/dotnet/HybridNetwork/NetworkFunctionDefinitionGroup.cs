@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the network function definition group.
         /// </summary>
-        [Input("networkFunctionDefinitionGroupName")]
-        public Input<string>? NetworkFunctionDefinitionGroupName { get; set; }
+        [Input("networkFunctionDefinitionGroupName", required: true)]
+        public Input<string> NetworkFunctionDefinitionGroupName { get; set; } = null!;
 
         /// <summary>
         /// Network function definition group properties.

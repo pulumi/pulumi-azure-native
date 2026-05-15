@@ -218,8 +218,8 @@ namespace Pulumi.AzureNative.Dns
         /// <summary>
         /// The name of the DNS zone (without a terminating dot).
         /// </summary>
-        [Input("zoneName")]
-        public Input<string>? ZoneName { get; set; }
+        [Input("zoneName", required: true)]
+        public Input<string> ZoneName { get; set; } = null!;
 
         /// <summary>
         /// The type of this DNS zone (Public or Private).

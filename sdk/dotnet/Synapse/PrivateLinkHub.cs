@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Name of the privateLinkHub
         /// </summary>
-        [Input("privateLinkHubName")]
-        public Input<string>? PrivateLinkHubName { get; set; }
+        [Input("privateLinkHubName", required: true)]
+        public Input<string> PrivateLinkHubName { get; set; } = null!;
 
         /// <summary>
         /// PrivateLinkHub provisioning state

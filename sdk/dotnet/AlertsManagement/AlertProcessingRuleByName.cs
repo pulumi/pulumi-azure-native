@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the alert processing rule that needs to be fetched.
         /// </summary>
-        [Input("alertProcessingRuleName")]
-        public Input<string>? AlertProcessingRuleName { get; set; }
+        [Input("alertProcessingRuleName", required: true)]
+        public Input<string> AlertProcessingRuleName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

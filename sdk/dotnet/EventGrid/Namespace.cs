@@ -218,8 +218,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the namespace.
         /// </summary>
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
 
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;

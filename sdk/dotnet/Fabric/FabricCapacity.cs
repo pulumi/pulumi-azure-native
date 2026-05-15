@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.Fabric
         /// <summary>
         /// The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
         /// </summary>
-        [Input("capacityName")]
-        public Input<string>? CapacityName { get; set; }
+        [Input("capacityName", required: true)]
+        public Input<string> CapacityName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -171,8 +171,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the invitation.
         /// </summary>
-        [Input("invitationName")]
-        public Input<string>? InvitationName { get; set; }
+        [Input("invitationName", required: true)]
+        public Input<string> InvitationName { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

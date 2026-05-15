@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Name of the authentication setting. Must be unique within a health model.
         /// </summary>
-        [Input("authenticationSettingName")]
-        public Input<string>? AuthenticationSettingName { get; set; }
+        [Input("authenticationSettingName", required: true)]
+        public Input<string> AuthenticationSettingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Azure Monitor Workspace. The name is case insensitive

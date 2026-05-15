@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.Workloads
         /// <summary>
         /// Name of the SAP monitor alert resource.
         /// </summary>
-        [Input("alertName")]
-        public Input<string>? AlertName { get; set; }
+        [Input("alertName", required: true)]
+        public Input<string> AlertName { get; set; } = null!;
 
         /// <summary>
         /// Describes the properties of an alert.

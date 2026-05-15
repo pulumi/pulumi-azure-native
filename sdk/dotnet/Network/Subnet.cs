@@ -435,8 +435,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the subnet.
         /// </summary>
-        [Input("subnetName")]
-        public Input<string>? SubnetName { get; set; }
+        [Input("subnetName", required: true)]
+        public Input<string> SubnetName { get; set; } = null!;
 
         /// <summary>
         /// Resource type.

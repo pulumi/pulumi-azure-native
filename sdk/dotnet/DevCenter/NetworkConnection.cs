@@ -209,8 +209,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// Name of the Network Connection that can be applied to a Pool.
         /// </summary>
-        [Input("networkConnectionName")]
-        public Input<string>? NetworkConnectionName { get; set; }
+        [Input("networkConnectionName", required: true)]
+        public Input<string> NetworkConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name for resource group where NICs will be placed.

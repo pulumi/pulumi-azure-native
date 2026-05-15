@@ -168,8 +168,8 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// The name of the Bot resource.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the SKU of the resource.

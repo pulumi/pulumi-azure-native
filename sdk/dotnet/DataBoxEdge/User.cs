@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The user name.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource group name.

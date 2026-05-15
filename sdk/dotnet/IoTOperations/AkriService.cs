@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of AkriService resource.
         /// </summary>
-        [Input("akriServiceName")]
-        public Input<string>? AkriServiceName { get; set; }
+        [Input("akriServiceName", required: true)]
+        public Input<string> AkriServiceName { get; set; } = null!;
 
         /// <summary>
         /// Edge location of the resource.

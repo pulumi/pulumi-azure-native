@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the restore point collection.
         /// </summary>
-        [Input("restorePointCollectionName")]
-        public Input<string>? RestorePointCollectionName { get; set; }
+        [Input("restorePointCollectionName", required: true)]
+        public Input<string> RestorePointCollectionName { get; set; } = null!;
 
         /// <summary>
         /// The properties of the source resource that this restore point collection is created from.

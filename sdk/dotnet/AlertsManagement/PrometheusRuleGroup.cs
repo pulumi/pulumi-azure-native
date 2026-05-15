@@ -180,8 +180,8 @@ namespace Pulumi.AzureNative.AlertsManagement
         /// <summary>
         /// The name of the rule group.
         /// </summary>
-        [Input("ruleGroupName")]
-        public Input<string>? RuleGroupName { get; set; }
+        [Input("ruleGroupName", required: true)]
+        public Input<string> RuleGroupName { get; set; } = null!;
 
         [Input("rules", required: true)]
         private InputList<Inputs.PrometheusRuleArgs>? _rules;

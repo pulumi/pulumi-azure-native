@@ -152,8 +152,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of Azure API Center service.
         /// </summary>
-        [Input("serviceName")]
-        public Input<string>? ServiceName { get; set; }
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

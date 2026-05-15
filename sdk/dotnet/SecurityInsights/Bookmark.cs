@@ -218,8 +218,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Bookmark ID
         /// </summary>
-        [Input("bookmarkId")]
-        public Input<string>? BookmarkId { get; set; }
+        [Input("bookmarkId", required: true)]
+        public Input<string> BookmarkId { get; set; } = null!;
 
         /// <summary>
         /// The time the bookmark was created

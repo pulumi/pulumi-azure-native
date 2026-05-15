@@ -171,8 +171,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// The name of the API Management gateway.
         /// </summary>
-        [Input("gatewayName")]
-        public Input<string>? GatewayName { get; set; }
+        [Input("gatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

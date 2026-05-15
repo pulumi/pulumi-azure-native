@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
         /// </summary>
-        [Input("secretName")]
-        public Input<string>? SecretName { get; set; }
+        [Input("secretName", required: true)]
+        public Input<string> SecretName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -143,8 +143,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB graph resource name.
         /// </summary>
-        [Input("graphName")]
-        public Input<string>? GraphName { get; set; }
+        [Input("graphName", required: true)]
+        public Input<string> GraphName { get; set; } = null!;
 
         /// <summary>
         /// Identity for the resource.

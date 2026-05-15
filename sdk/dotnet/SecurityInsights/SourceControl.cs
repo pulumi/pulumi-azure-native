@@ -225,8 +225,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Source control Id
         /// </summary>
-        [Input("sourceControlId")]
-        public Input<string>? SourceControlId { get; set; }
+        [Input("sourceControlId", required: true)]
+        public Input<string> SourceControlId { get; set; } = null!;
 
         /// <summary>
         /// The version number associated with the source control

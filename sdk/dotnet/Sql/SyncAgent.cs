@@ -155,8 +155,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the sync agent.
         /// </summary>
-        [Input("syncAgentName")]
-        public Input<string>? SyncAgentName { get; set; }
+        [Input("syncAgentName", required: true)]
+        public Input<string> SyncAgentName { get; set; } = null!;
 
         /// <summary>
         /// ARM resource id of the sync database in the sync agent.

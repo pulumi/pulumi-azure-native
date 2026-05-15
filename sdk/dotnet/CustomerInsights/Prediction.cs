@@ -291,8 +291,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// Name of the prediction.
         /// </summary>
-        [Input("predictionName")]
-        public Input<string>? PredictionName { get; set; }
+        [Input("predictionName", required: true)]
+        public Input<string> PredictionName { get; set; } = null!;
 
         /// <summary>
         /// Primary profile type.

@@ -137,8 +137,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The name of the application type name resource.
         /// </summary>
-        [Input("applicationTypeName")]
-        public Input<string>? ApplicationTypeName { get; set; }
+        [Input("applicationTypeName", required: true)]
+        public Input<string> ApplicationTypeName { get; set; } = null!;
 
         /// <summary>
         /// The name of the cluster resource.

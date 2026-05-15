@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the guestAgents.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The resource id of the private link scope this machine is assigned to, if any.

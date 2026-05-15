@@ -160,8 +160,8 @@ namespace Pulumi.AzureNative.ServiceFabricMesh
         /// <summary>
         /// The identity of the application.
         /// </summary>
-        [Input("applicationResourceName")]
-        public Input<string>? ApplicationResourceName { get; set; }
+        [Input("applicationResourceName", required: true)]
+        public Input<string> ApplicationResourceName { get; set; } = null!;
 
         /// <summary>
         /// Internal - used by Visual Studio to setup the debugging session on the local development environment.

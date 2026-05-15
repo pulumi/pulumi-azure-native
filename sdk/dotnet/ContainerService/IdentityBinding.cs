@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the identity binding.
         /// </summary>
-        [Input("identityBindingName")]
-        public Input<string>? IdentityBindingName { get; set; }
+        [Input("identityBindingName", required: true)]
+        public Input<string> IdentityBindingName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

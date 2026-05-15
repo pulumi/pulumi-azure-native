@@ -211,8 +211,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the database.
         /// </summary>
-        [Input("databaseName")]
-        public Input<string>? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.

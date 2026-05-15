@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.DomainRegistration
         /// <summary>
         /// Name of identifier.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Ownership Id.

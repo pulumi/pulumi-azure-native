@@ -188,8 +188,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Email Template Name Identifier.
         /// </summary>
-        [Input("templateName")]
-        public Input<string>? TemplateName { get; set; }
+        [Input("templateName", required: true)]
+        public Input<string> TemplateName { get; set; } = null!;
 
         /// <summary>
         /// Title of the Template.

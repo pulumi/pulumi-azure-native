@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Private endpoint connection name.
         /// </summary>
-        [Input("peConnectionName")]
-        public Input<string>? PeConnectionName { get; set; }
+        [Input("peConnectionName", required: true)]
+        public Input<string> PeConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Properties of Connection state request.

@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The permission binding name.
         /// </summary>
-        [Input("permissionBindingName")]
-        public Input<string>? PermissionBindingName { get; set; }
+        [Input("permissionBindingName", required: true)]
+        public Input<string> PermissionBindingName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription.

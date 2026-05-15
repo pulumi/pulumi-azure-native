@@ -237,8 +237,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// entity query ID
         /// </summary>
-        [Input("entityQueryId")]
-        public Input<string>? EntityQueryId { get; set; }
+        [Input("entityQueryId", required: true)]
+        public Input<string> EntityQueryId { get; set; } = null!;
 
         /// <summary>
         /// The type of the query's source entity

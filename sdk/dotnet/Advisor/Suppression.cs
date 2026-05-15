@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.Advisor
         /// <summary>
         /// The name of the suppression.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The recommendation ID.

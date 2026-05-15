@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.OperationsManagement
         /// <summary>
         /// User ManagementAssociation Name.
         /// </summary>
-        [Input("managementAssociationName")]
-        public Input<string>? ManagementAssociationName { get; set; }
+        [Input("managementAssociationName", required: true)]
+        public Input<string> ManagementAssociationName { get; set; } = null!;
 
         /// <summary>
         /// Properties for ManagementAssociation object supported by the OperationsManagement resource provider.

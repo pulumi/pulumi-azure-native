@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// Resource name for the network function resource.
         /// </summary>
-        [Input("networkFunctionName")]
-        public Input<string>? NetworkFunctionName { get; set; }
+        [Input("networkFunctionName", required: true)]
+        public Input<string> NetworkFunctionName { get; set; } = null!;
 
         /// <summary>
         /// Network function properties.

@@ -403,8 +403,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the hybrid machine.
         /// </summary>
-        [Input("machineName")]
-        public Input<string>? MachineName { get; set; }
+        [Input("machineName", required: true)]
+        public Input<string> MachineName { get; set; } = null!;
 
         /// <summary>
         /// Specifies whether any MS SQL instance is discovered on the machine.

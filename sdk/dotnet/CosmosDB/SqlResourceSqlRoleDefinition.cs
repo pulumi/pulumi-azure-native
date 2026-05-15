@@ -191,8 +191,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The GUID for the Role Definition.
         /// </summary>
-        [Input("roleDefinitionId")]
-        public Input<string>? RoleDefinitionId { get; set; }
+        [Input("roleDefinitionId", required: true)]
+        public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// A user-friendly name for the Role Definition. Must be unique for the database account.

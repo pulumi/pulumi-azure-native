@@ -529,8 +529,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the virtual machine.
         /// </summary>
-        [Input("vmName")]
-        public Input<string>? VmName { get; set; }
+        [Input("vmName", required: true)]
+        public Input<string> VmName { get; set; } = null!;
 
         [Input("zones")]
         private InputList<string>? _zones;

@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.MySQLDiscovery
         /// <summary>
         /// The name of Site
         /// </summary>
-        [Input("siteName")]
-        public Input<string>? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

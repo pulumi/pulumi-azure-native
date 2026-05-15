@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.TestBase
 
     public sealed class ActionRequestArgs : global::Pulumi.ResourceArgs
     {
-        [Input("actionRequestName")]
-        public Input<string>? ActionRequestName { get; set; }
+        [Input("actionRequestName", required: true)]
+        public Input<string> ActionRequestName { get; set; } = null!;
 
         [Input("preReleaseAccessRequestSpec")]
         public Input<Inputs.PreReleaseAccessRequestSpecArgs>? PreReleaseAccessRequestSpec { get; set; }

@@ -117,7 +117,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public GlobalRulestack(string name, GlobalRulestackArgs? args = null, CustomResourceOptions? options = null)
+        public GlobalRulestack(string name, GlobalRulestackArgs args, CustomResourceOptions? options = null)
             : base("azure-native:cloudngfw:GlobalRulestack", name, args ?? new GlobalRulestackArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -196,8 +196,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// GlobalRulestack resource name
         /// </summary>
-        [Input("globalRulestackName")]
-        public Input<string>? GlobalRulestackName { get; set; }
+        [Input("globalRulestackName", required: true)]
+        public Input<string> GlobalRulestackName { get; set; } = null!;
 
         /// <summary>
         /// The managed service identities assigned to this resource.

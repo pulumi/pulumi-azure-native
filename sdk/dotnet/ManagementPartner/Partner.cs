@@ -91,7 +91,7 @@ namespace Pulumi.AzureNative.ManagementPartner
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Partner(string name, PartnerArgs? args = null, CustomResourceOptions? options = null)
+        public Partner(string name, PartnerArgs args, CustomResourceOptions? options = null)
             : base("azure-native:managementpartner:Partner", name, args ?? new PartnerArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.ManagementPartner
         /// <summary>
         /// Id of the Partner
         /// </summary>
-        [Input("partnerId")]
-        public Input<string>? PartnerId { get; set; }
+        [Input("partnerId", required: true)]
+        public Input<string> PartnerId { get; set; } = null!;
 
         public PartnerArgs()
         {

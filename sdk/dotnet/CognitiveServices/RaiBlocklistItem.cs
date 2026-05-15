@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the RaiBlocklist Item associated with the custom blocklist
         /// </summary>
-        [Input("raiBlocklistItemName")]
-        public Input<string>? RaiBlocklistItemName { get; set; }
+        [Input("raiBlocklistItemName", required: true)]
+        public Input<string> RaiBlocklistItemName { get; set; } = null!;
 
         /// <summary>
         /// The name of the RaiBlocklist associated with the Cognitive Services Account

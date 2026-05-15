@@ -170,8 +170,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// The name of resource.
         /// </summary>
-        [Input("connectorName")]
-        public Input<string>? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// The name of Azure region.

@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the HubVirtualNetworkConnection.
         /// </summary>
-        [Input("connectionName")]
-        public Input<string>? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Enable internet security.

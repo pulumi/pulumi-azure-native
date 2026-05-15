@@ -184,8 +184,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Export Name.
         /// </summary>
-        [Input("exportName")]
-        public Input<string>? ExportName { get; set; }
+        [Input("exportName", required: true)]
+        public Input<string> ExportName { get; set; } = null!;
 
         /// <summary>
         /// The format of the export being delivered. Currently only 'Csv' is supported.

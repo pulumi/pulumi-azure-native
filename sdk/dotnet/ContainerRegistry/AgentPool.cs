@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the agent pool.
         /// </summary>
-        [Input("agentPoolName")]
-        public Input<string>? AgentPoolName { get; set; }
+        [Input("agentPoolName", required: true)]
+        public Input<string> AgentPoolName { get; set; } = null!;
 
         /// <summary>
         /// The count of agent machine

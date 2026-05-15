@@ -205,8 +205,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the partner namespace.
         /// </summary>
-        [Input("partnerNamespaceName")]
-        public Input<string>? PartnerNamespaceName { get; set; }
+        [Input("partnerNamespaceName", required: true)]
+        public Input<string> PartnerNamespaceName { get; set; } = null!;
 
         /// <summary>
         /// The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:

@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the cache resource.
         /// </summary>
-        [Input("cacheName")]
-        public Input<string>? CacheName { get; set; }
+        [Input("cacheName", required: true)]
+        public Input<string> CacheName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

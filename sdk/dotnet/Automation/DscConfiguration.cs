@@ -184,8 +184,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The create or update parameters for configuration.
         /// </summary>
-        [Input("configurationName")]
-        public Input<string>? ConfigurationName { get; set; }
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the description of the configuration.

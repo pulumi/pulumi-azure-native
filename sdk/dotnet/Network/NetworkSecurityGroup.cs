@@ -231,8 +231,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network security group.
         /// </summary>
-        [Input("networkSecurityGroupName")]
-        public Input<string>? NetworkSecurityGroupName { get; set; }
+        [Input("networkSecurityGroupName", required: true)]
+        public Input<string> NetworkSecurityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

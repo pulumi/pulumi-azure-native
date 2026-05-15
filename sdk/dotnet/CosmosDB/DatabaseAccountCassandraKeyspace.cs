@@ -168,8 +168,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB keyspace name.
         /// </summary>
-        [Input("keyspaceName")]
-        public Input<string>? KeyspaceName { get; set; }
+        [Input("keyspaceName", required: true)]
+        public Input<string> KeyspaceName { get; set; } = null!;
 
         [Input("options", required: true)]
         private InputMap<string>? _options;

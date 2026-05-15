@@ -301,8 +301,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VpnSite being created or updated.
         /// </summary>
-        [Input("vpnSiteName")]
-        public Input<string>? VpnSiteName { get; set; }
+        [Input("vpnSiteName", required: true)]
+        public Input<string> VpnSiteName { get; set; } = null!;
 
         public VpnSiteArgs()
         {

@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// Web app site name.
         /// </summary>
-        [Input("webAppSiteName")]
-        public Input<string>? WebAppSiteName { get; set; }
+        [Input("webAppSiteName", required: true)]
+        public Input<string> WebAppSiteName { get; set; } = null!;
 
         public WebAppSitesControllerArgs()
         {

@@ -325,8 +325,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the blob auditing policy.
         /// </summary>
-        [Input("blobAuditingPolicyName")]
-        public Input<string>? BlobAuditingPolicyName { get; set; }
+        [Input("blobAuditingPolicyName", required: true)]
+        public Input<string> BlobAuditingPolicyName { get; set; } = null!;
 
         /// <summary>
         /// Specifies whether audit events are sent to Azure Monitor. 

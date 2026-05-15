@@ -159,8 +159,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Discovered Asset Endpoint Profile name parameter.
         /// </summary>
-        [Input("discoveredAssetEndpointProfileName")]
-        public Input<string>? DiscoveredAssetEndpointProfileName { get; set; }
+        [Input("discoveredAssetEndpointProfileName", required: true)]
+        public Input<string> DiscoveredAssetEndpointProfileName { get; set; } = null!;
 
         /// <summary>
         /// Identifier used to detect changes in the asset endpoint profile.

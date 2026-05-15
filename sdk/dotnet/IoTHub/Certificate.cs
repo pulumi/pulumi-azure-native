@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.IoTHub
         /// <summary>
         /// The name of the certificate
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The description of an X509 CA Certificate.

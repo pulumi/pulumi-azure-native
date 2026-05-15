@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Setting type.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public TagInheritanceSettingArgs()
         {

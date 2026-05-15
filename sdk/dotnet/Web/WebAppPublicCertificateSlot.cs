@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Public certificate name.
         /// </summary>
-        [Input("publicCertificateName")]
-        public Input<string>? PublicCertificateName { get; set; }
+        [Input("publicCertificateName", required: true)]
+        public Input<string> PublicCertificateName { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

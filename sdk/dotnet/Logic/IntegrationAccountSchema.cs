@@ -213,8 +213,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account schema name.
         /// </summary>
-        [Input("schemaName")]
-        public Input<string>? SchemaName { get; set; }
+        [Input("schemaName", required: true)]
+        public Input<string> SchemaName { get; set; } = null!;
 
         /// <summary>
         /// The schema type.

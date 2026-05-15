@@ -188,8 +188,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The ID for the User Definition {dbName.userName}.
         /// </summary>
-        [Input("mongoUserDefinitionId")]
-        public Input<string>? MongoUserDefinitionId { get; set; }
+        [Input("mongoUserDefinitionId", required: true)]
+        public Input<string> MongoUserDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The password for User Definition. Response does not contain user password.

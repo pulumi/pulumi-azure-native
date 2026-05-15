@@ -656,8 +656,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Unique name of the app to create or update. To create or update a deployment slot, use the {slot} parameter.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Property to configure various outbound traffic routing options over virtual network for a site

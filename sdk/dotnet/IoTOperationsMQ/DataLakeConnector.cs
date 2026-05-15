@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ dataLakeConnector resource
         /// </summary>
-        [Input("dataLakeConnectorName")]
-        public Input<string>? DataLakeConnectorName { get; set; }
+        [Input("dataLakeConnectorName", required: true)]
+        public Input<string> DataLakeConnectorName { get; set; } = null!;
 
         /// <summary>
         /// DataLake database format to use.

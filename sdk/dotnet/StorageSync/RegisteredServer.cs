@@ -322,8 +322,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Registered Server serverId
         /// </summary>
-        [Input("serverId")]
-        public Input<string>? ServerId { get; set; }
+        [Input("serverId", required: true)]
+        public Input<string> ServerId { get; set; } = null!;
 
         /// <summary>
         /// Registered Server OS Version

@@ -233,8 +233,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// Big Data pool name
         /// </summary>
-        [Input("bigDataPoolName")]
-        public Input<string>? BigDataPoolName { get; set; }
+        [Input("bigDataPoolName", required: true)]
+        public Input<string> BigDataPoolName { get; set; } = null!;
 
         /// <summary>
         /// The cache size

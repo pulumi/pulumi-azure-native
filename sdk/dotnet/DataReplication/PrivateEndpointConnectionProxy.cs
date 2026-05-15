@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The private endpoint connection proxy name.
         /// </summary>
-        [Input("privateEndpointConnectionProxyName")]
-        public Input<string>? PrivateEndpointConnectionProxyName { get; set; }
+        [Input("privateEndpointConnectionProxyName", required: true)]
+        public Input<string> PrivateEndpointConnectionProxyName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

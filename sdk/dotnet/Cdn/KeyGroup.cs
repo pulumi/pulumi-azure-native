@@ -113,8 +113,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the KeyGroup under the profile.
         /// </summary>
-        [Input("keyGroupName")]
-        public Input<string>? KeyGroupName { get; set; }
+        [Input("keyGroupName", required: true)]
+        public Input<string> KeyGroupName { get; set; } = null!;
 
         [Input("keyReferences")]
         private InputList<Inputs.ResourceReferenceArgs>? _keyReferences;

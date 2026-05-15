@@ -177,8 +177,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Name of the configuration (also known as server parameter).
         /// </summary>
-        [Input("configurationName")]
-        public Input<string>? ConfigurationName { get; set; }
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

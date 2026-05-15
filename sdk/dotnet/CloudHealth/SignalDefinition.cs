@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.CloudHealth
         /// <summary>
         /// Name of the signal definition. Must be unique within a health model.
         /// </summary>
-        [Input("signalDefinitionName")]
-        public Input<string>? SignalDefinitionName { get; set; }
+        [Input("signalDefinitionName", required: true)]
+        public Input<string> SignalDefinitionName { get; set; } = null!;
 
         public SignalDefinitionArgs()
         {

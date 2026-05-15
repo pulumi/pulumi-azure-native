@@ -210,8 +210,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the nat gateway.
         /// </summary>
-        [Input("natGatewayName")]
-        public Input<string>? NatGatewayName { get; set; }
+        [Input("natGatewayName", required: true)]
+        public Input<string> NatGatewayName { get; set; } = null!;
 
         [Input("publicIpAddresses")]
         private InputList<Inputs.SubResourceArgs>? _publicIpAddresses;

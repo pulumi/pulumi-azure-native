@@ -116,8 +116,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the authorization provider.
         /// </summary>
-        [Input("authorizationProviderId")]
-        public Input<string>? AuthorizationProviderId { get; set; }
+        [Input("authorizationProviderId", required: true)]
+        public Input<string> AuthorizationProviderId { get; set; } = null!;
 
         /// <summary>
         /// Authorization Provider name. Must be 1 to 300 characters long.

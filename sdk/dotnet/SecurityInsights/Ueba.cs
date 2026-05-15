@@ -208,8 +208,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         /// </summary>
-        [Input("settingsName")]
-        public Input<string>? SettingsName { get; set; }
+        [Input("settingsName", required: true)]
+        public Input<string> SettingsName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

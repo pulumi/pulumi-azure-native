@@ -149,8 +149,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP association.
         /// </summary>
-        [Input("associationName")]
-        public Input<string>? AssociationName { get; set; }
+        [Input("associationName", required: true)]
+        public Input<string> AssociationName { get; set; } = null!;
 
         /// <summary>
         /// Resource ID.

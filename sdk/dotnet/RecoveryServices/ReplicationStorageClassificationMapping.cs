@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Storage classification mapping name.
         /// </summary>
-        [Input("storageClassificationMappingName")]
-        public Input<string>? StorageClassificationMappingName { get; set; }
+        [Input("storageClassificationMappingName", required: true)]
+        public Input<string> StorageClassificationMappingName { get; set; } = null!;
 
         /// <summary>
         /// Storage classification name.

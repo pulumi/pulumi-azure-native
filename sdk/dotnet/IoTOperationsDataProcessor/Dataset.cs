@@ -147,8 +147,8 @@ namespace Pulumi.AzureNative.IoTOperationsDataProcessor
         /// <summary>
         /// Name of dataset.
         /// </summary>
-        [Input("datasetName")]
-        public Input<string>? DatasetName { get; set; }
+        [Input("datasetName", required: true)]
+        public Input<string> DatasetName { get; set; } = null!;
 
         /// <summary>
         /// Detailed description of the Dataset.

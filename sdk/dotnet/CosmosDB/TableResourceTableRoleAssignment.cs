@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The GUID for the Role Assignment.
         /// </summary>
-        [Input("roleAssignmentId")]
-        public Input<string>? RoleAssignmentId { get; set; }
+        [Input("roleAssignmentId", required: true)]
+        public Input<string> RoleAssignmentId { get; set; } = null!;
 
         /// <summary>
         /// The unique identifier for the associated Role Definition.

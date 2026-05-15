@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account name.
         /// </summary>
-        [Input("integrationAccountName")]
-        public Input<string>? IntegrationAccountName { get; set; }
+        [Input("integrationAccountName", required: true)]
+        public Input<string> IntegrationAccountName { get; set; } = null!;
 
         /// <summary>
         /// The integration service environment.

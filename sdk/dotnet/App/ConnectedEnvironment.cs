@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the connectedEnvironment.
         /// </summary>
-        [Input("connectedEnvironmentName")]
-        public Input<string>? ConnectedEnvironmentName { get; set; }
+        [Input("connectedEnvironmentName", required: true)]
+        public Input<string> ConnectedEnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// Custom domain configuration for the environment

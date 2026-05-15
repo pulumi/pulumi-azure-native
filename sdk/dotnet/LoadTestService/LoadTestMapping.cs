@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.LoadTestService
         /// <summary>
         /// Load Test Mapping name
         /// </summary>
-        [Input("loadTestMappingName")]
-        public Input<string>? LoadTestMappingName { get; set; }
+        [Input("loadTestMappingName", required: true)]
+        public Input<string> LoadTestMappingName { get; set; } = null!;
 
         /// <summary>
         /// The fully qualified Azure Resource manager identifier of the resource.

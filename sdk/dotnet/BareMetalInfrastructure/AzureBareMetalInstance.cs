@@ -171,8 +171,8 @@ namespace Pulumi.AzureNative.BareMetalInfrastructure
         /// <summary>
         /// Name of the Azure Bare Metal Instance, also known as the ResourceName.
         /// </summary>
-        [Input("azureBareMetalInstanceName")]
-        public Input<string>? AzureBareMetalInstanceName { get; set; }
+        [Input("azureBareMetalInstanceName", required: true)]
+        public Input<string> AzureBareMetalInstanceName { get; set; } = null!;
 
         /// <summary>
         /// Specifies the hardware settings for the Azure Bare Metal Instance.

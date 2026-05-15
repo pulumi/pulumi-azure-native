@@ -214,8 +214,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the application group
         /// </summary>
-        [Input("applicationGroupName")]
-        public Input<string>? ApplicationGroupName { get; set; }
+        [Input("applicationGroupName", required: true)]
+        public Input<string> ApplicationGroupName { get; set; } = null!;
 
         /// <summary>
         /// Resource Type of ApplicationGroup.

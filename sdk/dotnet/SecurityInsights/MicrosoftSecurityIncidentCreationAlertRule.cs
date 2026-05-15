@@ -333,8 +333,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Alert rule ID
         /// </summary>
-        [Input("ruleId")]
-        public Input<string>? RuleId { get; set; }
+        [Input("ruleId", required: true)]
+        public Input<string> RuleId { get; set; } = null!;
 
         [Input("severitiesFilter")]
         private InputList<Union<string, Pulumi.AzureNative.SecurityInsights.AlertSeverity>>? _severitiesFilter;

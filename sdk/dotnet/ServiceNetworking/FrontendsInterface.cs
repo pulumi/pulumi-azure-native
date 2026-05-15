@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.ServiceNetworking
         /// <summary>
         /// Frontends
         /// </summary>
-        [Input("frontendName")]
-        public Input<string>? FrontendName { get; set; }
+        [Input("frontendName", required: true)]
+        public Input<string> FrontendName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

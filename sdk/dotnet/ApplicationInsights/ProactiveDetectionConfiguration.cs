@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The ProactiveDetection configuration ID. This is unique within a Application Insights component.
         /// </summary>
-        [Input("configurationId")]
-        public Input<string>? ConfigurationId { get; set; }
+        [Input("configurationId", required: true)]
+        public Input<string> ConfigurationId { get; set; } = null!;
 
         [Input("customEmails")]
         private InputList<string>? _customEmails;

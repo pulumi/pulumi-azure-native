@@ -169,8 +169,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VirtualHubRouteTableV2.
         /// </summary>
-        [Input("routeTableName")]
-        public Input<string>? RouteTableName { get; set; }
+        [Input("routeTableName", required: true)]
+        public Input<string> RouteTableName { get; set; } = null!;
 
         [Input("routes")]
         private InputList<Inputs.VirtualHubRouteV2Args>? _routes;

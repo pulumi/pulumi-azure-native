@@ -145,8 +145,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Name for the network manager connection.
         /// </summary>
-        [Input("networkManagerConnectionName")]
-        public Input<string>? NetworkManagerConnectionName { get; set; }
+        [Input("networkManagerConnectionName", required: true)]
+        public Input<string> NetworkManagerConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Network Manager Id.

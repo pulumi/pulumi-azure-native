@@ -201,8 +201,8 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         /// </summary>
-        [Input("labName")]
-        public Input<string>? LabName { get; set; }
+        [Input("labName", required: true)]
+        public Input<string> LabName { get; set; } = null!;
 
         /// <summary>
         /// The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..

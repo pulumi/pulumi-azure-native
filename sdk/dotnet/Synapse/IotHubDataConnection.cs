@@ -172,8 +172,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the data connection.
         /// </summary>
-        [Input("dataConnectionName")]
-        public Input<string>? DataConnectionName { get; set; }
+        [Input("dataConnectionName", required: true)]
+        public Input<string> DataConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The data format of the message. Optionally the data format can be added to each message.

@@ -259,8 +259,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the custom IP prefix.
         /// </summary>
-        [Input("customIpPrefixName")]
-        public Input<string>? CustomIpPrefixName { get; set; }
+        [Input("customIpPrefixName", required: true)]
+        public Input<string> CustomIpPrefixName { get; set; } = null!;
 
         /// <summary>
         /// The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.

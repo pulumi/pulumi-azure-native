@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// The name of the private endpoint connection to the Azure AI Search service with the specified resource group.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Describes the properties of an existing private endpoint connection to the Azure AI Search service.

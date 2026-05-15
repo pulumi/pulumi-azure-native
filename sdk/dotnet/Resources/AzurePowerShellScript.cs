@@ -306,8 +306,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment script.
         /// </summary>
-        [Input("scriptName")]
-        public Input<string>? ScriptName { get; set; }
+        [Input("scriptName", required: true)]
+        public Input<string> ScriptName { get; set; } = null!;
 
         /// <summary>
         /// Storage Account settings.

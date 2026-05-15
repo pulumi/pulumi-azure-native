@@ -247,8 +247,8 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// <summary>
         /// Notification Hub name
         /// </summary>
-        [Input("notificationHubName")]
-        public Input<string>? NotificationHubName { get; set; }
+        [Input("notificationHubName", required: true)]
+        public Input<string> NotificationHubName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the RegistrationTtl of the created NotificationHub

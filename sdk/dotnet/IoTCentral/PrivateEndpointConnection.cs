@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.IoTCentral
         /// <summary>
         /// The private endpoint connection name.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

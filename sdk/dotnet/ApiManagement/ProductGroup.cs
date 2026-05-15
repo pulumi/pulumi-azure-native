@@ -134,8 +134,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Group identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("groupId")]
-        public Input<string>? GroupId { get; set; }
+        [Input("groupId", required: true)]
+        public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.

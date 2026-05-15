@@ -176,8 +176,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The ID of the role definition.
         /// </summary>
-        [Input("roleDefinitionId")]
-        public Input<string>? RoleDefinitionId { get; set; }
+        [Input("roleDefinitionId", required: true)]
+        public Input<string> RoleDefinitionId { get; set; } = null!;
 
         /// <summary>
         /// The role name.

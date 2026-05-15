@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Friendly name of the workspace connection
         /// </summary>
-        [Input("connectionName")]
-        public Input<string>? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
 
         [Input("properties", required: true)]
         public object Properties { get; set; } = null!;

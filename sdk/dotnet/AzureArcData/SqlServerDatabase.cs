@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of the database
         /// </summary>
-        [Input("databaseName")]
-        public Input<string>? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

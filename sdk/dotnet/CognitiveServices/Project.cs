@@ -147,8 +147,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of Cognitive Services account's project.
         /// </summary>
-        [Input("projectName")]
-        public Input<string>? ProjectName { get; set; }
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
         /// Properties of Cognitive Services project.

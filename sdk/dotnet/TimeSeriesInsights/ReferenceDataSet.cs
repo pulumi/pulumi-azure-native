@@ -160,8 +160,8 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
         /// <summary>
         /// Name of the reference data set.
         /// </summary>
-        [Input("referenceDataSetName")]
-        public Input<string>? ReferenceDataSetName { get; set; }
+        [Input("referenceDataSetName", required: true)]
+        public Input<string> ReferenceDataSetName { get; set; } = null!;
 
         /// <summary>
         /// Name of an Azure Resource group.

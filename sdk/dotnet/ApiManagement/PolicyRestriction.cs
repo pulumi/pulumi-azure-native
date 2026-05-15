@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Policy restrictions after an entity level
         /// </summary>
-        [Input("policyRestrictionId")]
-        public Input<string>? PolicyRestrictionId { get; set; }
+        [Input("policyRestrictionId", required: true)]
+        public Input<string> PolicyRestrictionId { get; set; } = null!;
 
         /// <summary>
         /// Indicates if base policy should be enforced for the policy document.

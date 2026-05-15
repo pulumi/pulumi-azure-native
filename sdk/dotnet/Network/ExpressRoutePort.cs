@@ -244,8 +244,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the ExpressRoutePort resource.
         /// </summary>
-        [Input("expressRoutePortName")]
-        public Input<string>? ExpressRoutePortName { get; set; }
+        [Input("expressRoutePortName", required: true)]
+        public Input<string> ExpressRoutePortName { get; set; } = null!;
 
         /// <summary>
         /// Resource ID.

@@ -160,8 +160,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the Cloud.
         /// </summary>
-        [Input("cloudName")]
-        public Input<string>? CloudName { get; set; }
+        [Input("cloudName", required: true)]
+        public Input<string> CloudName { get; set; } = null!;
 
         /// <summary>
         /// The extended location.

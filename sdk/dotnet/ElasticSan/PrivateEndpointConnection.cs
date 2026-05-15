@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// The name of the Private Endpoint connection.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Private Link Service Connection State.

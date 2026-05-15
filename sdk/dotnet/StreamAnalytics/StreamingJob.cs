@@ -320,8 +320,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// The name of the streaming job.
         /// </summary>
-        [Input("jobName")]
-        public Input<string>? JobName { get; set; }
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
         /// The properties that are associated with an Azure Storage account with MSI

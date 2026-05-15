@@ -108,8 +108,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of ClusterJob
         /// </summary>
-        [Input("jobsName")]
-        public Input<string>? JobsName { get; set; }
+        [Input("jobsName", required: true)]
+        public Input<string> JobsName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

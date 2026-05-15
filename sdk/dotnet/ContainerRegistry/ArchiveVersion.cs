@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.ContainerRegistry
         /// <summary>
         /// The name of the archive version resource.
         /// </summary>
-        [Input("archiveVersionName")]
-        public Input<string>? ArchiveVersionName { get; set; }
+        [Input("archiveVersionName", required: true)]
+        public Input<string> ArchiveVersionName { get; set; } = null!;
 
         /// <summary>
         /// The type of the package resource.

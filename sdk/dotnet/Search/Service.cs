@@ -340,8 +340,8 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// The name of the Azure AI Search service associated with the specified resource group.
         /// </summary>
-        [Input("searchServiceName")]
-        public Input<string>? SearchServiceName { get; set; }
+        [Input("searchServiceName", required: true)]
+        public Input<string> SearchServiceName { get; set; } = null!;
 
         /// <summary>
         /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.

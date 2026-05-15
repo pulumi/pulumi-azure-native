@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Import SQL Collector arm name.
         /// </summary>
-        [Input("importSqlCollectorsName")]
-        public Input<string>? ImportSqlCollectorsName { get; set; }
+        [Input("importSqlCollectorsName", required: true)]
+        public Input<string> ImportSqlCollectorsName { get; set; } = null!;
 
         /// <summary>
         /// Assessment Project Name

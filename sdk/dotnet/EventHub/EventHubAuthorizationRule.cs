@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The authorization rule name.
         /// </summary>
-        [Input("authorizationRuleName")]
-        public Input<string>? AuthorizationRuleName { get; set; }
+        [Input("authorizationRuleName", required: true)]
+        public Input<string> AuthorizationRuleName { get; set; } = null!;
 
         /// <summary>
         /// The Event Hub name

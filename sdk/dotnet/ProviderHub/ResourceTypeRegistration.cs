@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.ProviderHub
         /// <summary>
         /// The resource type.
         /// </summary>
-        [Input("resourceType")]
-        public Input<string>? ResourceType { get; set; }
+        [Input("resourceType", required: true)]
+        public Input<string> ResourceType { get; set; } = null!;
 
         public ResourceTypeRegistrationArgs()
         {

@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// <summary>
         /// The Fluid Relay server resource name.
         /// </summary>
-        [Input("fluidRelayServerName")]
-        public Input<string>? FluidRelayServerName { get; set; }
+        [Input("fluidRelayServerName", required: true)]
+        public Input<string> FluidRelayServerName { get; set; } = null!;
 
         /// <summary>
         /// The type of identity used for the resource.

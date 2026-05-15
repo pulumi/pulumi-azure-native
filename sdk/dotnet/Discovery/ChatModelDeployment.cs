@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the ChatModelDeployment
         /// </summary>
-        [Input("chatModelDeploymentName")]
-        public Input<string>? ChatModelDeploymentName { get; set; }
+        [Input("chatModelDeploymentName", required: true)]
+        public Input<string> ChatModelDeploymentName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Content item identifier.
         /// </summary>
-        [Input("contentItemId")]
-        public Input<string>? ContentItemId { get; set; }
+        [Input("contentItemId", required: true)]
+        public Input<string> ContentItemId { get; set; } = null!;
 
         /// <summary>
         /// Content type identifier.

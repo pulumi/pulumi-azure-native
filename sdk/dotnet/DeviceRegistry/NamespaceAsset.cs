@@ -310,8 +310,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// The name of the asset.
         /// </summary>
-        [Input("assetName")]
-        public Input<string>? AssetName { get; set; }
+        [Input("assetName", required: true)]
+        public Input<string> AssetName { get; set; } = null!;
 
         [Input("assetTypeRefs")]
         private InputList<string>? _assetTypeRefs;

@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The IP Filter Rule name.
         /// </summary>
-        [Input("ipFilterRuleName")]
-        public Input<string>? IpFilterRuleName { get; set; }
+        [Input("ipFilterRuleName", required: true)]
+        public Input<string> IpFilterRuleName { get; set; } = null!;
 
         /// <summary>
         /// IP Mask

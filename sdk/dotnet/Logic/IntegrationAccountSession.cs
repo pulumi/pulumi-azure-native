@@ -146,8 +146,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account session name.
         /// </summary>
-        [Input("sessionName")]
-        public Input<string>? SessionName { get; set; }
+        [Input("sessionName", required: true)]
+        public Input<string> SessionName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

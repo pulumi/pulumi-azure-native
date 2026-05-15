@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// Identifier of key and label combination. Key and label are joined by $ character. Label is optional.
         /// </summary>
-        [Input("keyValueName")]
-        public Input<string>? KeyValueName { get; set; }
+        [Input("keyValueName", required: true)]
+        public Input<string> KeyValueName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

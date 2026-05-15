@@ -175,8 +175,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of the Test Base Account.
         /// </summary>
-        [Input("testBaseAccountName")]
-        public Input<string>? TestBaseAccountName { get; set; }
+        [Input("testBaseAccountName", required: true)]
+        public Input<string> TestBaseAccountName { get; set; } = null!;
 
         public TestBaseAccountArgs()
         {

@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.Scheduler
         /// <summary>
         /// The job name.
         /// </summary>
-        [Input("jobName")]
-        public Input<string>? JobName { get; set; }
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the job properties.

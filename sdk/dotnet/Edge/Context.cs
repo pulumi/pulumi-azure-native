@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Context.
         /// </summary>
-        [Input("contextName")]
-        public Input<string>? ContextName { get; set; }
+        [Input("contextName", required: true)]
+        public Input<string> ContextName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -261,8 +261,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The id (a Guid) of the watchlist item
         /// </summary>
-        [Input("watchlistItemId")]
-        public Input<string>? WatchlistItemId { get; set; }
+        [Input("watchlistItemId", required: true)]
+        public Input<string> WatchlistItemId { get; set; } = null!;
 
         /// <summary>
         /// The type of the watchlist item

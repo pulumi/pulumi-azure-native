@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The parameters supplied to the create or update credential operation.
         /// </summary>
-        [Input("credentialName")]
-        public Input<string>? CredentialName { get; set; }
+        [Input("credentialName", required: true)]
+        public Input<string> CredentialName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the description of the credential.

@@ -180,8 +180,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the gallery inVMAccessControlProfile version to be retrieved.
         /// </summary>
-        [Input("inVMAccessControlProfileVersionName")]
-        public Input<string>? InVMAccessControlProfileVersionName { get; set; }
+        [Input("inVMAccessControlProfileVersionName", required: true)]
+        public Input<string> InVMAccessControlProfileVersionName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

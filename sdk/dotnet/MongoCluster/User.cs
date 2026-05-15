@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.MongoCluster
         /// <summary>
         /// The name of the mongo cluster user.
         /// </summary>
-        [Input("userName")]
-        public Input<string>? UserName { get; set; }
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
 
         public UserArgs()
         {

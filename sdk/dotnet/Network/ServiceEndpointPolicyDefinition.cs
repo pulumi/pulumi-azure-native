@@ -191,8 +191,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the service endpoint policy definition name.
         /// </summary>
-        [Input("serviceEndpointPolicyDefinitionName")]
-        public Input<string>? ServiceEndpointPolicyDefinitionName { get; set; }
+        [Input("serviceEndpointPolicyDefinitionName", required: true)]
+        public Input<string> ServiceEndpointPolicyDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the service endpoint policy.

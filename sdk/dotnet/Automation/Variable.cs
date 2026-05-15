@@ -167,8 +167,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The variable name.
         /// </summary>
-        [Input("variableName")]
-        public Input<string>? VariableName { get; set; }
+        [Input("variableName", required: true)]
+        public Input<string> VariableName { get; set; } = null!;
 
         public VariableArgs()
         {

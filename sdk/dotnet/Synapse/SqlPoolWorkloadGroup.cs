@@ -179,8 +179,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the workload group.
         /// </summary>
-        [Input("workloadGroupName")]
-        public Input<string>? WorkloadGroupName { get; set; }
+        [Input("workloadGroupName", required: true)]
+        public Input<string> WorkloadGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

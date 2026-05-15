@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// The Move Resource Name.
         /// </summary>
-        [Input("moveResourceName")]
-        public Input<string>? MoveResourceName { get; set; }
+        [Input("moveResourceName", required: true)]
+        public Input<string> MoveResourceName { get; set; } = null!;
 
         /// <summary>
         /// Defines the move resource properties.

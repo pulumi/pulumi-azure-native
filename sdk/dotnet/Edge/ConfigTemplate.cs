@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the ConfigTemplate
         /// </summary>
-        [Input("configTemplateName")]
-        public Input<string>? ConfigTemplateName { get; set; }
+        [Input("configTemplateName", required: true)]
+        public Input<string> ConfigTemplateName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

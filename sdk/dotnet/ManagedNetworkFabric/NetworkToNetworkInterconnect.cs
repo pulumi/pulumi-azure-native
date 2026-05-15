@@ -218,8 +218,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network to Network Interconnect.
         /// </summary>
-        [Input("networkToNetworkInterconnectName")]
-        public Input<string>? NetworkToNetworkInterconnectName { get; set; }
+        [Input("networkToNetworkInterconnectName", required: true)]
+        public Input<string> NetworkToNetworkInterconnectName { get; set; } = null!;
 
         /// <summary>
         /// Type of NNI used. Example: CE | NPB

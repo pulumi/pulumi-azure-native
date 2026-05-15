@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The kind of the server vulnerability assessments setting
         /// </summary>
-        [Input("settingKind")]
-        public Input<string>? SettingKind { get; set; }
+        [Input("settingKind", required: true)]
+        public Input<string> SettingKind { get; set; } = null!;
 
         public AzureServersSettingArgs()
         {

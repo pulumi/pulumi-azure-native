@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The Disaster Recovery configuration name
         /// </summary>
-        [Input("alias")]
-        public Input<string>? Alias { get; set; }
+        [Input("alias", required: true)]
+        public Input<string> Alias { get; set; } = null!;
 
         /// <summary>
         /// Primary/Secondary eventhub namespace name, which is part of GEO DR pairing

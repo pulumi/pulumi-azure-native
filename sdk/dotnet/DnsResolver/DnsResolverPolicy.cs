@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS resolver policy.
         /// </summary>
-        [Input("dnsResolverPolicyName")]
-        public Input<string>? DnsResolverPolicyName { get; set; }
+        [Input("dnsResolverPolicyName", required: true)]
+        public Input<string> DnsResolverPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

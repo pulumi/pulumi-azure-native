@@ -150,8 +150,8 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// The configuration profile version name.
         /// </summary>
-        [Input("versionName")]
-        public Input<string>? VersionName { get; set; }
+        [Input("versionName", required: true)]
+        public Input<string> VersionName { get; set; } = null!;
 
         public ConfigurationProfilesVersionArgs()
         {

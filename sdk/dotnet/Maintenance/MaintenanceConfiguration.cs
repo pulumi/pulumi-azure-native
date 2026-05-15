@@ -237,8 +237,8 @@ namespace Pulumi.AzureNative.Maintenance
         /// <summary>
         /// The name of the MaintenanceConfiguration
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.

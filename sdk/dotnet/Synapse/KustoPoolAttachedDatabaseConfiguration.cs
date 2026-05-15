@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the attached database configuration.
         /// </summary>
-        [Input("attachedDatabaseConfigurationName")]
-        public Input<string>? AttachedDatabaseConfigurationName { get; set; }
+        [Input("attachedDatabaseConfigurationName", required: true)]
+        public Input<string> AttachedDatabaseConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The name of the database which you would like to attach, use * if you want to follow all current and future databases.

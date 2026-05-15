@@ -252,8 +252,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the credit
         /// </summary>
-        [Input("creditName")]
-        public Input<string>? CreditName { get; set; }
+        [Input("creditName", required: true)]
+        public Input<string> CreditName { get; set; } = null!;
 
         /// <summary>
         /// End DateTime in UTC.

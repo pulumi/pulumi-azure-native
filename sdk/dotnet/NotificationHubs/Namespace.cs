@@ -246,8 +246,8 @@ namespace Pulumi.AzureNative.NotificationHubs
         /// <summary>
         /// Namespace name
         /// </summary>
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
 
         /// <summary>
         /// Defines values for NamespaceType.

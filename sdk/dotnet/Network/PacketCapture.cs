@@ -245,8 +245,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the packet capture session.
         /// </summary>
-        [Input("packetCaptureName")]
-        public Input<string>? PacketCaptureName { get; set; }
+        [Input("packetCaptureName", required: true)]
+        public Input<string> PacketCaptureName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

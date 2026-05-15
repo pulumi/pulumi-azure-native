@@ -115,8 +115,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Confluent environment id
         /// </summary>
-        [Input("environmentId")]
-        public Input<string>? EnvironmentId { get; set; }
+        [Input("environmentId", required: true)]
+        public Input<string> EnvironmentId { get; set; } = null!;
 
         /// <summary>
         /// Type of environment

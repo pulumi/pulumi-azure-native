@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The governance assignment key - the assessment key of the required governance assignment
         /// </summary>
-        [Input("assignmentKey")]
-        public Input<string>? AssignmentKey { get; set; }
+        [Input("assignmentKey", required: true)]
+        public Input<string> AssignmentKey { get; set; } = null!;
 
         /// <summary>
         /// The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners

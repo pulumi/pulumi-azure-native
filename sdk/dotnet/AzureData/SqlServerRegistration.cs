@@ -148,8 +148,8 @@ namespace Pulumi.AzureNative.AzureData
         /// <summary>
         /// Name of the SQL Server registration.
         /// </summary>
-        [Input("sqlServerRegistrationName")]
-        public Input<string>? SqlServerRegistrationName { get; set; }
+        [Input("sqlServerRegistrationName", required: true)]
+        public Input<string> SqlServerRegistrationName { get; set; } = null!;
 
         /// <summary>
         /// Subscription Id

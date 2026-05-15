@@ -286,8 +286,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the resourcePool.
         /// </summary>
-        [Input("resourcePoolName")]
-        public Input<string>? ResourcePoolName { get; set; }
+        [Input("resourcePoolName", required: true)]
+        public Input<string> ResourcePoolName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

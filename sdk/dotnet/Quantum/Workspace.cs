@@ -161,8 +161,8 @@ namespace Pulumi.AzureNative.Quantum
         /// <summary>
         /// The name of the quantum workspace resource.
         /// </summary>
-        [Input("workspaceName")]
-        public Input<string>? WorkspaceName { get; set; }
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
 
         public WorkspaceArgs()
         {

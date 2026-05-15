@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the function app to register with the static site.
         /// </summary>
-        [Input("functionAppName")]
-        public Input<string>? FunctionAppName { get; set; }
+        [Input("functionAppName", required: true)]
+        public Input<string> FunctionAppName { get; set; } = null!;
 
         /// <summary>
         /// The region of the function app registered with the static site

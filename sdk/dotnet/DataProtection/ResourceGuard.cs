@@ -167,8 +167,8 @@ namespace Pulumi.AzureNative.DataProtection
         /// <summary>
         /// The name of ResourceGuard
         /// </summary>
-        [Input("resourceGuardsName")]
-        public Input<string>? ResourceGuardsName { get; set; }
+        [Input("resourceGuardsName", required: true)]
+        public Input<string> ResourceGuardsName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

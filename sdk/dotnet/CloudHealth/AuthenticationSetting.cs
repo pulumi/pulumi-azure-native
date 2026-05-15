@@ -102,8 +102,8 @@ namespace Pulumi.AzureNative.CloudHealth
         /// <summary>
         /// Name of the authentication setting. Must be unique within a health model.
         /// </summary>
-        [Input("authenticationSettingName")]
-        public Input<string>? AuthenticationSettingName { get; set; }
+        [Input("authenticationSettingName", required: true)]
+        public Input<string> AuthenticationSettingName { get; set; } = null!;
 
         /// <summary>
         /// Name of health model resource

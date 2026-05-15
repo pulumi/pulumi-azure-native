@@ -167,8 +167,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP access rule.
         /// </summary>
-        [Input("accessRuleName")]
-        public Input<string>? AccessRuleName { get; set; }
+        [Input("accessRuleName", required: true)]
+        public Input<string> AccessRuleName { get; set; } = null!;
 
         [Input("addressPrefixes")]
         private InputList<string>? _addressPrefixes;

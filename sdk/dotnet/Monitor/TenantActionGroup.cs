@@ -216,8 +216,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the action group.
         /// </summary>
-        [Input("tenantActionGroupName")]
-        public Input<string>? TenantActionGroupName { get; set; }
+        [Input("tenantActionGroupName", required: true)]
+        public Input<string> TenantActionGroupName { get; set; } = null!;
 
         [Input("voiceReceivers")]
         private InputList<Inputs.VoiceReceiverArgs>? _voiceReceivers;

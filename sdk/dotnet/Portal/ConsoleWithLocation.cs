@@ -81,8 +81,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the console
         /// </summary>
-        [Input("consoleName")]
-        public Input<string>? ConsoleName { get; set; }
+        [Input("consoleName", required: true)]
+        public Input<string> ConsoleName { get; set; } = null!;
 
         /// <summary>
         /// The provider location

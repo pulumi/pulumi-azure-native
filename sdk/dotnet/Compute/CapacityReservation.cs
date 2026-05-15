@@ -179,8 +179,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the capacity reservation.
         /// </summary>
-        [Input("capacityReservationName")]
-        public Input<string>? CapacityReservationName { get; set; }
+        [Input("capacityReservationName", required: true)]
+        public Input<string> CapacityReservationName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

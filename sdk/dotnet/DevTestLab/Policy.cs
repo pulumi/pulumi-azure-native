@@ -197,8 +197,8 @@ namespace Pulumi.AzureNative.DevTestLab
         /// <summary>
         /// The name of the Policy
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// policysets

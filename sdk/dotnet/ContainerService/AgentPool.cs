@@ -506,8 +506,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the agent pool.
         /// </summary>
-        [Input("agentPoolName")]
-        public Input<string>? AgentPoolName { get; set; }
+        [Input("agentPoolName", required: true)]
+        public Input<string> AgentPoolName { get; set; } = null!;
 
         [Input("availabilityZones")]
         private InputList<string>? _availabilityZones;

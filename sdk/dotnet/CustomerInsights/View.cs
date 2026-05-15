@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the view.
         /// </summary>
-        [Input("viewName")]
-        public Input<string>? ViewName { get; set; }
+        [Input("viewName", required: true)]
+        public Input<string> ViewName { get; set; } = null!;
 
         public ViewArgs()
         {

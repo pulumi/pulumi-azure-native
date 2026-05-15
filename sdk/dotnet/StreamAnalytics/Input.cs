@@ -98,8 +98,8 @@ namespace Pulumi.AzureNative.StreamAnalytics
         /// <summary>
         /// The name of the input.
         /// </summary>
-        [Input("inputName")]
-        public Input<string>? InputName { get; set; }
+        [Input("inputName", required: true)]
+        public Input<string> InputName { get; set; } = null!;
 
         /// <summary>
         /// The name of the streaming job.

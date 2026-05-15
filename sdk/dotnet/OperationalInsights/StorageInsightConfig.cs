@@ -160,8 +160,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Name of the storageInsightsConfigs resource
         /// </summary>
-        [Input("storageInsightName")]
-        public Input<string>? StorageInsightName { get; set; }
+        [Input("storageInsightName", required: true)]
+        public Input<string> StorageInsightName { get; set; } = null!;
 
         [Input("tables")]
         private InputList<string>? _tables;

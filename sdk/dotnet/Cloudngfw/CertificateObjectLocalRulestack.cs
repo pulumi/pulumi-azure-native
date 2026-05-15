@@ -172,8 +172,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// certificate name
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

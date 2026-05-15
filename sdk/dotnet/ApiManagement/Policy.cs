@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// The identifier of the Policy.
         /// </summary>
-        [Input("policyId")]
-        public Input<string>? PolicyId { get; set; }
+        [Input("policyId", required: true)]
+        public Input<string> PolicyId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

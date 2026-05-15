@@ -231,8 +231,8 @@ namespace Pulumi.AzureNative.Logic
         /// <summary>
         /// The integration account RosettaNet ProcessConfiguration name.
         /// </summary>
-        [Input("rosettaNetProcessConfigurationName")]
-        public Input<string>? RosettaNetProcessConfigurationName { get; set; }
+        [Input("rosettaNetProcessConfigurationName", required: true)]
+        public Input<string> RosettaNetProcessConfigurationName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

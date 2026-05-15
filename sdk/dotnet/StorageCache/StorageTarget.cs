@@ -219,8 +219,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name of Storage Target.
         /// </summary>
-        [Input("storageTargetName")]
-        public Input<string>? StorageTargetName { get; set; }
+        [Input("storageTargetName", required: true)]
+        public Input<string> StorageTargetName { get; set; } = null!;
 
         /// <summary>
         /// Type of the Storage Target.

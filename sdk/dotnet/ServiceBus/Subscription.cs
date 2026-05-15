@@ -322,8 +322,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The subscription name.
         /// </summary>
-        [Input("subscriptionName")]
-        public Input<string>? SubscriptionName { get; set; }
+        [Input("subscriptionName", required: true)]
+        public Input<string> SubscriptionName { get; set; } = null!;
 
         /// <summary>
         /// The topic name.

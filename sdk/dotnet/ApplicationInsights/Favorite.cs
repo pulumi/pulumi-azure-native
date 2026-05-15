@@ -155,8 +155,8 @@ namespace Pulumi.AzureNative.ApplicationInsights
         /// <summary>
         /// The Id of a specific favorite defined in the Application Insights component
         /// </summary>
-        [Input("favoriteId")]
-        public Input<string>? FavoriteId { get; set; }
+        [Input("favoriteId", required: true)]
+        public Input<string> FavoriteId { get; set; } = null!;
 
         /// <summary>
         /// Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.

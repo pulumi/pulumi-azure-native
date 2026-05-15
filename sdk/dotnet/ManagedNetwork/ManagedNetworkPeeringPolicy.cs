@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.ManagedNetwork
         /// <summary>
         /// The name of the Managed Network Peering Policy.
         /// </summary>
-        [Input("managedNetworkPeeringPolicyName")]
-        public Input<string>? ManagedNetworkPeeringPolicyName { get; set; }
+        [Input("managedNetworkPeeringPolicyName", required: true)]
+        public Input<string> ManagedNetworkPeeringPolicyName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the properties of a Managed Network Policy

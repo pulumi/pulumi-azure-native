@@ -152,8 +152,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Name of the managed HSM Pool
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Properties of the managed HSM

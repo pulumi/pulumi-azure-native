@@ -177,8 +177,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The Security Standard key - unique key for the standard type
         /// </summary>
-        [Input("standardId")]
-        public Input<string>? StandardId { get; set; }
+        [Input("standardId", required: true)]
+        public Input<string> StandardId { get; set; } = null!;
 
         public SecurityStandardArgs()
         {

@@ -181,8 +181,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the ipGroups.
         /// </summary>
-        [Input("ipGroupsName")]
-        public Input<string>? IpGroupsName { get; set; }
+        [Input("ipGroupsName", required: true)]
+        public Input<string> IpGroupsName { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

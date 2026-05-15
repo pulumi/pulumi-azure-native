@@ -154,8 +154,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The name of the private endpoint connection connection.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Details about the state of the connection.

@@ -204,8 +204,8 @@ namespace Pulumi.AzureNative.ProgrammableConnectivity
         /// <summary>
         /// Azure Programmable Connectivity (APC) Operator API Connection Name.
         /// </summary>
-        [Input("operatorApiConnectionName")]
-        public Input<string>? OperatorApiConnectionName { get; set; }
+        [Input("operatorApiConnectionName", required: true)]
+        public Input<string> OperatorApiConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Reference to the Operator API Plan Resource ID.

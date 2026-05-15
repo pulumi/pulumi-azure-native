@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Physical server collector ARM name
         /// </summary>
-        [Input("serverCollectorName")]
-        public Input<string>? ServerCollectorName { get; set; }
+        [Input("serverCollectorName", required: true)]
+        public Input<string> ServerCollectorName { get; set; } = null!;
 
         public ServerCollectorsOperationArgs()
         {

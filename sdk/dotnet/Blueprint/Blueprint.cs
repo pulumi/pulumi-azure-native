@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.Blueprint
         /// <summary>
         /// Name of the blueprint definition.
         /// </summary>
-        [Input("blueprintName")]
-        public Input<string>? BlueprintName { get; set; }
+        [Input("blueprintName", required: true)]
+        public Input<string> BlueprintName { get; set; } = null!;
 
         /// <summary>
         /// Multi-line explain this resource.

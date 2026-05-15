@@ -137,8 +137,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Sql collector ARM name.
         /// </summary>
-        [Input("collectorName")]
-        public Input<string>? CollectorName { get; set; }
+        [Input("collectorName", required: true)]
+        public Input<string> CollectorName { get; set; } = null!;
 
         /// <summary>
         /// Gets the discovery site id.

@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.ConnectedCache
         /// <summary>
         /// Name of the ConnectedCache resource
         /// </summary>
-        [Input("cacheNodeResourceName")]
-        public Input<string>? CacheNodeResourceName { get; set; }
+        [Input("cacheNodeResourceName", required: true)]
+        public Input<string> CacheNodeResourceName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Customer resource

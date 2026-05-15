@@ -180,8 +180,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the restore point.
         /// </summary>
-        [Input("restorePointName")]
-        public Input<string>? RestorePointName { get; set; }
+        [Input("restorePointName", required: true)]
+        public Input<string> RestorePointName { get; set; } = null!;
 
         /// <summary>
         /// Gets the details of the VM captured at the time of the restore point creation.

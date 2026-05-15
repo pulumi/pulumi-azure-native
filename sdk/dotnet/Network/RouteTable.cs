@@ -219,8 +219,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the route table.
         /// </summary>
-        [Input("routeTableName")]
-        public Input<string>? RouteTableName { get; set; }
+        [Input("routeTableName", required: true)]
+        public Input<string> RouteTableName { get; set; } = null!;
 
         [Input("routes")]
         private InputList<Inputs.RouteArgs>? _routes;

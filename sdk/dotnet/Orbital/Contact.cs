@@ -190,8 +190,8 @@ namespace Pulumi.AzureNative.Orbital
         /// <summary>
         /// Contact name.
         /// </summary>
-        [Input("contactName")]
-        public Input<string>? ContactName { get; set; }
+        [Input("contactName", required: true)]
+        public Input<string> ContactName { get; set; } = null!;
 
         /// <summary>
         /// The reference to the contact profile resource.

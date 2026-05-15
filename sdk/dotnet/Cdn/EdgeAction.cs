@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The name of the Edge Action
         /// </summary>
-        [Input("edgeActionName")]
-        public Input<string>? EdgeActionName { get; set; }
+        [Input("edgeActionName", required: true)]
+        public Input<string> EdgeActionName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -116,8 +116,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// <summary>
         /// The name of the TaskHub
         /// </summary>
-        [Input("taskHubName")]
-        public Input<string>? TaskHubName { get; set; }
+        [Input("taskHubName", required: true)]
+        public Input<string> TaskHubName { get; set; } = null!;
 
         public TaskHubArgs()
         {

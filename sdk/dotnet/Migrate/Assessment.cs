@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Unique name of an assessment within a project.
         /// </summary>
-        [Input("assessmentName")]
-        public Input<string>? AssessmentName { get; set; }
+        [Input("assessmentName", required: true)]
+        public Input<string> AssessmentName { get; set; } = null!;
 
         /// <summary>
         /// For optimistic concurrency control.

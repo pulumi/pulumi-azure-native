@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.AppConfiguration
         /// <summary>
         /// The name of the replica.
         /// </summary>
-        [Input("replicaName")]
-        public Input<string>? ReplicaName { get; set; }
+        [Input("replicaName", required: true)]
+        public Input<string> ReplicaName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group to which the container registry belongs.

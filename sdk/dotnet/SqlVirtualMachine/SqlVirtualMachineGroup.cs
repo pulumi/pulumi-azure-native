@@ -180,8 +180,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
         /// <summary>
         /// Name of the SQL virtual machine group.
         /// </summary>
-        [Input("sqlVirtualMachineGroupName")]
-        public Input<string>? SqlVirtualMachineGroupName { get; set; }
+        [Input("sqlVirtualMachineGroupName", required: true)]
+        public Input<string> SqlVirtualMachineGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

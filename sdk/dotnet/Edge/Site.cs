@@ -115,8 +115,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the Site
         /// </summary>
-        [Input("siteName")]
-        public Input<string>? SiteName { get; set; }
+        [Input("siteName", required: true)]
+        public Input<string> SiteName { get; set; } = null!;
 
         public SiteArgs()
         {

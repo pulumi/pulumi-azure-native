@@ -338,8 +338,8 @@ namespace Pulumi.AzureNative.WebPubSub
         /// <summary>
         /// The name of the resource.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// Stop or start the resource.  Default to "False".

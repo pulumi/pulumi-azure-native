@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.IoTFirmwareDefense
         /// <summary>
         /// The name of the firmware analysis workspace.
         /// </summary>
-        [Input("workspaceName")]
-        public Input<string>? WorkspaceName { get; set; }
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
 
         public WorkspaceArgs()
         {

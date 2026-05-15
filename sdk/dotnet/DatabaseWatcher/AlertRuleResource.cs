@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// <summary>
         /// The alert rule proxy resource name.
         /// </summary>
-        [Input("alertRuleResourceName")]
-        public Input<string>? AlertRuleResourceName { get; set; }
+        [Input("alertRuleResourceName", required: true)]
+        public Input<string> AlertRuleResourceName { get; set; } = null!;
 
         /// <summary>
         /// The template ID associated with alert rule resource.

@@ -512,8 +512,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the virtual network gateway connection.
         /// </summary>
-        [Input("virtualNetworkGatewayConnectionName")]
-        public Input<string>? VirtualNetworkGatewayConnectionName { get; set; }
+        [Input("virtualNetworkGatewayConnectionName", required: true)]
+        public Input<string> VirtualNetworkGatewayConnectionName { get; set; } = null!;
 
         public VirtualNetworkGatewayConnectionArgs()
         {

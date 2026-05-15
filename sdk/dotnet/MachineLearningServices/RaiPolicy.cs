@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of the Rai Policy.
         /// </summary>
-        [Input("raiPolicyName")]
-        public Input<string>? RaiPolicyName { get; set; }
+        [Input("raiPolicyName", required: true)]
+        public Input<string> RaiPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -261,8 +261,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The device name.
         /// </summary>
-        [Input("deviceName")]
-        public Input<string>? DeviceName { get; set; }
+        [Input("deviceName", required: true)]
+        public Input<string> DeviceName { get; set; } = null!;
 
         /// <summary>
         /// Msi identity of the resource

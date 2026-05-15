@@ -202,8 +202,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB storedProcedure name.
         /// </summary>
-        [Input("storedProcedureName")]
-        public Input<string>? StoredProcedureName { get; set; }
+        [Input("storedProcedureName", required: true)]
+        public Input<string> StoredProcedureName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

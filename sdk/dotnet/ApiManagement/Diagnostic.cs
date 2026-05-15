@@ -182,8 +182,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Diagnostic identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("diagnosticId")]
-        public Input<string>? DiagnosticId { get; set; }
+        [Input("diagnosticId", required: true)]
+        public Input<string> DiagnosticId { get; set; } = null!;
 
         /// <summary>
         /// Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.

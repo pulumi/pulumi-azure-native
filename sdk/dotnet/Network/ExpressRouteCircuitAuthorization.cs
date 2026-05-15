@@ -183,8 +183,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the authorization.
         /// </summary>
-        [Input("authorizationName")]
-        public Input<string>? AuthorizationName { get; set; }
+        [Input("authorizationName", required: true)]
+        public Input<string> AuthorizationName { get; set; } = null!;
 
         /// <summary>
         /// The authorization use status.

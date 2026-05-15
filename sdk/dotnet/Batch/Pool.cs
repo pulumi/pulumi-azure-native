@@ -403,8 +403,8 @@ namespace Pulumi.AzureNative.Batch
         /// <summary>
         /// The pool name. This must be unique within the account.
         /// </summary>
-        [Input("poolName")]
-        public Input<string>? PoolName { get; set; }
+        [Input("poolName", required: true)]
+        public Input<string> PoolName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

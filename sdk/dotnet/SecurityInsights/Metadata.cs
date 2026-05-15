@@ -310,8 +310,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The Metadata name.
         /// </summary>
-        [Input("metadataName")]
-        public Input<string>? MetadataName { get; set; }
+        [Input("metadataName", required: true)]
+        public Input<string> MetadataName { get; set; } = null!;
 
         /// <summary>
         /// Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)

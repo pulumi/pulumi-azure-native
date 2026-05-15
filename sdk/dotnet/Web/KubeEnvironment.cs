@@ -240,8 +240,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the Kubernetes Environment.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Name of the resource group to which the resource belongs.

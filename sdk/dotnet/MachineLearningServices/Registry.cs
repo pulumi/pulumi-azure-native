@@ -262,8 +262,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of Azure Machine Learning registry. This is case-insensitive
         /// </summary>
-        [Input("registryName")]
-        public Input<string>? RegistryName { get; set; }
+        [Input("registryName", required: true)]
+        public Input<string> RegistryName { get; set; } = null!;
 
         [Input("registryPrivateEndpointConnections")]
         private InputList<Inputs.RegistryPrivateEndpointConnectionArgs>? _registryPrivateEndpointConnections;

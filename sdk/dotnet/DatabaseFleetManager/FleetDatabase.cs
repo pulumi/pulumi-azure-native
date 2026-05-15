@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
         /// <summary>
         /// Name of the database.
         /// </summary>
-        [Input("databaseName")]
-        public Input<string>? DatabaseName { get; set; }
+        [Input("databaseName", required: true)]
+        public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
         /// Name of the database fleet.

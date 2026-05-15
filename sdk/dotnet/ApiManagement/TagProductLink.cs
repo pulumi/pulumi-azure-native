@@ -108,8 +108,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Tag-product link identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("productLinkId")]
-        public Input<string>? ProductLinkId { get; set; }
+        [Input("productLinkId", required: true)]
+        public Input<string> ProductLinkId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

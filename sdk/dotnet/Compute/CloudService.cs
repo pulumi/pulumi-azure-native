@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// Name of the cloud service.
         /// </summary>
-        [Input("cloudServiceName")]
-        public Input<string>? CloudServiceName { get; set; }
+        [Input("cloudServiceName", required: true)]
+        public Input<string> CloudServiceName { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the Backend entity. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("backendId")]
-        public Input<string>? BackendId { get; set; }
+        [Input("backendId", required: true)]
+        public Input<string> BackendId { get; set; } = null!;
 
         /// <summary>
         /// Backend Circuit Breaker Configuration

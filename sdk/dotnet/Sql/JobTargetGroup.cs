@@ -143,8 +143,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the target group.
         /// </summary>
-        [Input("targetGroupName")]
-        public Input<string>? TargetGroupName { get; set; }
+        [Input("targetGroupName", required: true)]
+        public Input<string> TargetGroupName { get; set; } = null!;
 
         public JobTargetGroupArgs()
         {

@@ -192,8 +192,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of the automation account.
         /// </summary>
-        [Input("automationAccountName")]
-        public Input<string>? AutomationAccountName { get; set; }
+        [Input("automationAccountName", required: true)]
+        public Input<string> AutomationAccountName { get; set; } = null!;
 
         /// <summary>
         /// Indicates whether requests using non-AAD authentication are blocked

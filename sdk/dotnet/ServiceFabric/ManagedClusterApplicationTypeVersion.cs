@@ -185,8 +185,8 @@ namespace Pulumi.AzureNative.ServiceFabric
         /// <summary>
         /// The application type version.
         /// </summary>
-        [Input("version")]
-        public Input<string>? Version { get; set; }
+        [Input("version", required: true)]
+        public Input<string> Version { get; set; } = null!;
 
         public ManagedClusterApplicationTypeVersionArgs()
         {

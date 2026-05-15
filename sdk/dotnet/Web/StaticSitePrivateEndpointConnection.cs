@@ -152,8 +152,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the private endpoint connection.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The state of a private link connection

@@ -267,8 +267,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the L3 network.
         /// </summary>
-        [Input("l3NetworkName")]
-        public Input<string>? L3NetworkName { get; set; }
+        [Input("l3NetworkName", required: true)]
+        public Input<string> L3NetworkName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

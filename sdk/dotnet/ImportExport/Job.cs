@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.ImportExport
         /// <summary>
         /// The name of the import/export job.
         /// </summary>
-        [Input("jobName")]
-        public Input<string>? JobName { get; set; }
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the job should be created

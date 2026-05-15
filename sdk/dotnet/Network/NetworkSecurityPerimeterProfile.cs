@@ -143,8 +143,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the NSP profile.
         /// </summary>
-        [Input("profileName")]
-        public Input<string>? ProfileName { get; set; }
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

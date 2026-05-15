@@ -159,8 +159,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// The client name.
         /// </summary>
-        [Input("clientName")]
-        public Input<string>? ClientName { get; set; }
+        [Input("clientName", required: true)]
+        public Input<string> ClientName { get; set; } = null!;
 
         /// <summary>
         /// Description for the Client resource.

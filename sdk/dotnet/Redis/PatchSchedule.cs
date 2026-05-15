@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The name of the RedisPatchSchedule
         /// </summary>
-        [Input("default")]
-        public Input<string>? Default { get; set; }
+        [Input("default", required: true)]
+        public Input<string> Default { get; set; } = null!;
 
         /// <summary>
         /// The name of the redis cache.

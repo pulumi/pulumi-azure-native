@@ -255,8 +255,8 @@ namespace Pulumi.AzureNative.MySQLDiscovery
         /// <summary>
         /// The name of Server
         /// </summary>
-        [Input("serverName")]
-        public Input<string>? ServerName { get; set; }
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
         /// The name of Site

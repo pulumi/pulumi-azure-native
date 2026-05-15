@@ -226,8 +226,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the virtual network resource.
         /// </summary>
-        [Input("virtualNetworkName")]
-        public Input<string>? VirtualNetworkName { get; set; }
+        [Input("virtualNetworkName", required: true)]
+        public Input<string> VirtualNetworkName { get; set; } = null!;
 
         public VirtualNetworkArgs()
         {

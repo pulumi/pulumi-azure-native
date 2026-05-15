@@ -271,8 +271,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the Azure Firewall.
         /// </summary>
-        [Input("azureFirewallName")]
-        public Input<string>? AzureFirewallName { get; set; }
+        [Input("azureFirewallName", required: true)]
+        public Input<string> AzureFirewallName { get; set; } = null!;
 
         /// <summary>
         /// The firewallPolicy associated with this azure firewall.

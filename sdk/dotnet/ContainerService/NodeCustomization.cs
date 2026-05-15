@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the Node Customization resource.
         /// </summary>
-        [Input("nodeCustomizationName")]
-        public Input<string>? NodeCustomizationName { get; set; }
+        [Input("nodeCustomizationName", required: true)]
+        public Input<string> NodeCustomizationName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

@@ -134,8 +134,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// The hybrid connection name.
         /// </summary>
-        [Input("hybridConnectionName")]
-        public Input<string>? HybridConnectionName { get; set; }
+        [Input("hybridConnectionName", required: true)]
+        public Input<string> HybridConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The namespace name

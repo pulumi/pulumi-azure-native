@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the virtual network
         /// </summary>
-        [Input("virtualNetworksName")]
-        public Input<string>? VirtualNetworksName { get; set; }
+        [Input("virtualNetworksName", required: true)]
+        public Input<string> VirtualNetworksName { get; set; } = null!;
 
         public VirtualNetworkRetrieveArgs()
         {

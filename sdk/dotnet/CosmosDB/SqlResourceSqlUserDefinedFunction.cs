@@ -214,8 +214,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB userDefinedFunction name.
         /// </summary>
-        [Input("userDefinedFunctionName")]
-        public Input<string>? UserDefinedFunctionName { get; set; }
+        [Input("userDefinedFunctionName", required: true)]
+        public Input<string> UserDefinedFunctionName { get; set; } = null!;
 
         public SqlResourceSqlUserDefinedFunctionArgs()
         {

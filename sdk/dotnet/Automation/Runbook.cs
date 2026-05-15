@@ -275,8 +275,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The runbook name.
         /// </summary>
-        [Input("runbookName")]
-        public Input<string>? RunbookName { get; set; }
+        [Input("runbookName", required: true)]
+        public Input<string> RunbookName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the type of the runbook.

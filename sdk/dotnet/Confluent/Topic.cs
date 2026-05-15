@@ -235,8 +235,8 @@ namespace Pulumi.AzureNative.Confluent
         /// <summary>
         /// Confluent kafka or schema registry topic name
         /// </summary>
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
+        [Input("topicName", required: true)]
+        public Input<string> TopicName { get; set; } = null!;
 
         public TopicArgs()
         {

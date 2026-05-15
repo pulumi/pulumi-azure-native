@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of the API deployment.
         /// </summary>
-        [Input("deploymentName")]
-        public Input<string>? DeploymentName { get; set; }
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// Description of the deployment.

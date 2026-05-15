@@ -179,8 +179,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the sku.
         /// </summary>
-        [Input("skuName")]
-        public Input<string>? SkuName { get; set; }
+        [Input("skuName", required: true)]
+        public Input<string> SkuName { get; set; } = null!;
 
         /// <summary>
         /// The sku type.

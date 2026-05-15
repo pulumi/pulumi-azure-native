@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Connection name
         /// </summary>
-        [Input("connectionName")]
-        public Input<string>? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Resource location

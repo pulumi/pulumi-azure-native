@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the cloud link.
         /// </summary>
-        [Input("cloudLinkName")]
-        public Input<string>? CloudLinkName { get; set; }
+        [Input("cloudLinkName", required: true)]
+        public Input<string> CloudLinkName { get; set; } = null!;
 
         /// <summary>
         /// Identifier of the other private cloud participating in the link.

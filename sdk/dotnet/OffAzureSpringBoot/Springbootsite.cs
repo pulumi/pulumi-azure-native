@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// <summary>
         /// The springbootsites name.
         /// </summary>
-        [Input("springbootsitesName")]
-        public Input<string>? SpringbootsitesName { get; set; }
+        [Input("springbootsitesName", required: true)]
+        public Input<string> SpringbootsitesName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

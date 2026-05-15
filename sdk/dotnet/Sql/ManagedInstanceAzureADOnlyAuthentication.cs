@@ -112,8 +112,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of server azure active directory only authentication.
         /// </summary>
-        [Input("authenticationName")]
-        public Input<string>? AuthenticationName { get; set; }
+        [Input("authenticationName", required: true)]
+        public Input<string> AuthenticationName { get; set; } = null!;
 
         /// <summary>
         /// Azure Active Directory only Authentication enabled.

@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The vault name.
         /// </summary>
-        [Input("vaultName")]
-        public Input<string>? VaultName { get; set; }
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
 
         public VaultArgs()
         {

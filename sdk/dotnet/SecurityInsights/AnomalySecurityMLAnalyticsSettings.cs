@@ -307,8 +307,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Security ML Analytics Settings resource name
         /// </summary>
-        [Input("settingsResourceName")]
-        public Input<string>? SettingsResourceName { get; set; }
+        [Input("settingsResourceName", required: true)]
+        public Input<string> SettingsResourceName { get; set; } = null!;
 
         /// <summary>
         /// The anomaly SecurityMLAnalyticsSettings status

@@ -271,8 +271,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Asset name parameter.
         /// </summary>
-        [Input("assetName")]
-        public Input<string>? AssetName { get; set; }
+        [Input("assetName", required: true)]
+        public Input<string> AssetName { get; set; } = null!;
 
         /// <summary>
         /// A set of key-value pairs that contain custom attributes set by the customer.

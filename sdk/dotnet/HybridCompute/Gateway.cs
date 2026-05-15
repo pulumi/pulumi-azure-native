@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the Gateway.
         /// </summary>
-        [Input("gatewayName")]
-        public Input<string>? GatewayName { get; set; }
+        [Input("gatewayName", required: true)]
+        public Input<string> GatewayName { get; set; } = null!;
 
         /// <summary>
         /// The type of the Gateway resource.

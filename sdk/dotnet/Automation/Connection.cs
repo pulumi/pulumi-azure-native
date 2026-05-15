@@ -137,8 +137,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The parameters supplied to the create or update connection operation.
         /// </summary>
-        [Input("connectionName")]
-        public Input<string>? ConnectionName { get; set; }
+        [Input("connectionName", required: true)]
+        public Input<string> ConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the connectionType of the connection.

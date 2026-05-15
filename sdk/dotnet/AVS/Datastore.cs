@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the datastore
         /// </summary>
-        [Input("datastoreName")]
-        public Input<string>? DatastoreName { get; set; }
+        [Input("datastoreName", required: true)]
+        public Input<string> DatastoreName { get; set; } = null!;
 
         /// <summary>
         /// An iSCSI volume

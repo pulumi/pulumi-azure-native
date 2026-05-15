@@ -172,8 +172,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the domain under the profile which is unique globally.
         /// </summary>
-        [Input("customDomainName")]
-        public Input<string>? CustomDomainName { get; set; }
+        [Input("customDomainName", required: true)]
+        public Input<string> CustomDomainName { get; set; } = null!;
 
         [Input("extendedProperties")]
         private InputMap<string>? _extendedProperties;

@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public RaiExternalSafetyProvider(string name, RaiExternalSafetyProviderArgs? args = null, CustomResourceOptions? options = null)
+        public RaiExternalSafetyProvider(string name, RaiExternalSafetyProviderArgs args, CustomResourceOptions? options = null)
             : base("azure-native:cognitiveservices:RaiExternalSafetyProvider", name, args ?? new RaiExternalSafetyProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the Rai External Safety Provider associated with the Cognitive Services Account
         /// </summary>
-        [Input("safetyProviderName")]
-        public Input<string>? SafetyProviderName { get; set; }
+        [Input("safetyProviderName", required: true)]
+        public Input<string> SafetyProviderName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

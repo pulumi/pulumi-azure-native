@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the mesh membership.
         /// </summary>
-        [Input("meshMembershipName")]
-        public Input<string>? MeshMembershipName { get; set; }
+        [Input("meshMembershipName", required: true)]
+        public Input<string> MeshMembershipName { get; set; } = null!;
 
         /// <summary>
         /// Mesh membership properties of a managed cluster.

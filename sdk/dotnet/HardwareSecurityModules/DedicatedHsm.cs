@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
         /// <summary>
         /// Name of the dedicated Hsm
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Specifies the network interfaces of the dedicated hsm.

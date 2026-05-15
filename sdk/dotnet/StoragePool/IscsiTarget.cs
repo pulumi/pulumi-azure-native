@@ -173,8 +173,8 @@ namespace Pulumi.AzureNative.StoragePool
         /// <summary>
         /// The name of the iSCSI Target.
         /// </summary>
-        [Input("iscsiTargetName")]
-        public Input<string>? IscsiTargetName { get; set; }
+        [Input("iscsiTargetName", required: true)]
+        public Input<string> IscsiTargetName { get; set; } = null!;
 
         [Input("luns")]
         private InputList<Inputs.IscsiLunArgs>? _luns;

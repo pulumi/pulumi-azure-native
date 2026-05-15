@@ -205,8 +205,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the policy definition to create.
         /// </summary>
-        [Input("policyDefinitionName")]
-        public Input<string>? PolicyDefinitionName { get; set; }
+        [Input("policyDefinitionName", required: true)]
+        public Input<string> PolicyDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The policy rule.

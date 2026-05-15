@@ -286,8 +286,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Incident ID
         /// </summary>
-        [Input("incidentId")]
-        public Input<string>? IncidentId { get; set; }
+        [Input("incidentId", required: true)]
+        public Input<string> IncidentId { get; set; } = null!;
 
         [Input("labels")]
         private InputList<Inputs.IncidentLabelArgs>? _labels;

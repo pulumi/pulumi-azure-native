@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// The name and identifier for the Job. This is case-sensitive.
         /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         /// <summary>
         /// [Required] Additional attributes of the entity.

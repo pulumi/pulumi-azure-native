@@ -252,8 +252,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the sync group.
         /// </summary>
-        [Input("syncGroupName")]
-        public Input<string>? SyncGroupName { get; set; }
+        [Input("syncGroupName", required: true)]
+        public Input<string> SyncGroupName { get; set; } = null!;
 
         /// <summary>
         /// If use private link connection is enabled.

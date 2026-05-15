@@ -273,8 +273,8 @@ namespace Pulumi.AzureNative.TestBase
         /// <summary>
         /// The resource name of the Test Base Draft Package.
         /// </summary>
-        [Input("draftPackageName")]
-        public Input<string>? DraftPackageName { get; set; }
+        [Input("draftPackageName", required: true)]
+        public Input<string> DraftPackageName { get; set; } = null!;
 
         /// <summary>
         /// Specifies whether this draft package is used to edit a package.

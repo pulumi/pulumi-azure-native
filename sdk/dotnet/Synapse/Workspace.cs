@@ -354,8 +354,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the workspace.
         /// </summary>
-        [Input("workspaceName")]
-        public Input<string>? WorkspaceName { get; set; }
+        [Input("workspaceName", required: true)]
+        public Input<string> WorkspaceName { get; set; } = null!;
 
         /// <summary>
         /// Git integration settings

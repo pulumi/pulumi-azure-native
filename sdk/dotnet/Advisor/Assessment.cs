@@ -105,7 +105,7 @@ namespace Pulumi.AzureNative.Advisor
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Assessment(string name, AssessmentArgs? args = null, CustomResourceOptions? options = null)
+        public Assessment(string name, AssessmentArgs args, CustomResourceOptions? options = null)
             : base("azure-native:advisor:Assessment", name, args ?? new AssessmentArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -151,8 +151,8 @@ namespace Pulumi.AzureNative.Advisor
         /// <summary>
         /// Advisor assessment name.
         /// </summary>
-        [Input("assessmentName")]
-        public Input<string>? AssessmentName { get; set; }
+        [Input("assessmentName", required: true)]
+        public Input<string> AssessmentName { get; set; } = null!;
 
         /// <summary>
         /// Assessment Type Locale.

@@ -166,8 +166,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Image name. Use an image GUID for GA versions of the API.
         /// </summary>
-        [Input("imageName")]
-        public Input<string>? ImageName { get; set; }
+        [Input("imageName", required: true)]
+        public Input<string> ImageName { get; set; } = null!;
 
         /// <summary>
         /// Regional data boundary for an image

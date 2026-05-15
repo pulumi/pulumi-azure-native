@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.ServiceBus
         /// <summary>
         /// The rule name.
         /// </summary>
-        [Input("ruleName")]
-        public Input<string>? RuleName { get; set; }
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         /// <summary>
         /// Properties of sqlFilter

@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the firewall rule.
         /// </summary>
-        [Input("firewallRuleName")]
-        public Input<string>? FirewallRuleName { get; set; }
+        [Input("firewallRuleName", required: true)]
+        public Input<string> FirewallRuleName { get; set; } = null!;
 
         /// <summary>
         /// Resource name.

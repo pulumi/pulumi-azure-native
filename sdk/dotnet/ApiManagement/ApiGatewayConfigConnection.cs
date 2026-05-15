@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// The name of the API Management gateway config connection.
         /// </summary>
-        [Input("configConnectionName")]
-        public Input<string>? ConfigConnectionName { get; set; }
+        [Input("configConnectionName", required: true)]
+        public Input<string> ConfigConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the API Management gateway.

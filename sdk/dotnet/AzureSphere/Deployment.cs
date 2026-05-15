@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
         /// </summary>
-        [Input("deploymentName")]
-        public Input<string>? DeploymentName { get; set; }
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// Name of device group.

@@ -222,8 +222,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the elastic pool.
         /// </summary>
-        [Input("elasticPoolName")]
-        public Input<string>? ElasticPoolName { get; set; }
+        [Input("elasticPoolName", required: true)]
+        public Input<string> ElasticPoolName { get; set; } = null!;
 
         /// <summary>
         /// The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.

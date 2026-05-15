@@ -203,8 +203,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the ExpressRoute gateway.
         /// </summary>
-        [Input("expressRouteGatewayName")]
-        public Input<string>? ExpressRouteGatewayName { get; set; }
+        [Input("expressRouteGatewayName", required: true)]
+        public Input<string> ExpressRouteGatewayName { get; set; } = null!;
 
         /// <summary>
         /// Resource ID.

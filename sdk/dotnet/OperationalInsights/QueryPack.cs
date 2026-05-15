@@ -141,8 +141,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The name of the Log Analytics QueryPack resource.
         /// </summary>
-        [Input("queryPackName")]
-        public Input<string>? QueryPackName { get; set; }
+        [Input("queryPackName", required: true)]
+        public Input<string> QueryPackName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

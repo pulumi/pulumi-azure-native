@@ -284,8 +284,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Alert rule ID
         /// </summary>
-        [Input("ruleId")]
-        public Input<string>? RuleId { get; set; }
+        [Input("ruleId", required: true)]
+        public Input<string> RuleId { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

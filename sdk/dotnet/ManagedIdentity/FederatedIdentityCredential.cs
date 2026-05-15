@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.ManagedIdentity
         /// <summary>
         /// The name of the federated identity credential resource.
         /// </summary>
-        [Input("federatedIdentityCredentialResourceName")]
-        public Input<string>? FederatedIdentityCredentialResourceName { get; set; }
+        [Input("federatedIdentityCredentialResourceName", required: true)]
+        public Input<string> FederatedIdentityCredentialResourceName { get; set; } = null!;
 
         /// <summary>
         /// The URL of the issuer to be trusted.

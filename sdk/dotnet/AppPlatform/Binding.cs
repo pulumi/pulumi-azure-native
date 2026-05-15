@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the Binding resource.
         /// </summary>
-        [Input("bindingName")]
-        public Input<string>? BindingName { get; set; }
+        [Input("bindingName", required: true)]
+        public Input<string> BindingName { get; set; } = null!;
 
         /// <summary>
         /// Properties of the Binding resource

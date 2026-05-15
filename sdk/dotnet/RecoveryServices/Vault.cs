@@ -208,8 +208,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// The name of the recovery services vault.
         /// </summary>
-        [Input("vaultName")]
-        public Input<string>? VaultName { get; set; }
+        [Input("vaultName", required: true)]
+        public Input<string> VaultName { get; set; } = null!;
 
         public VaultArgs()
         {

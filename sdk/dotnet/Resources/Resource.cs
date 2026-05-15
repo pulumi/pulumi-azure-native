@@ -227,8 +227,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// The name of the resource to create.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// The namespace of the resource provider.

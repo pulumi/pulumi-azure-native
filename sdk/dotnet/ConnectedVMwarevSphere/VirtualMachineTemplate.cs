@@ -295,8 +295,8 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
         /// <summary>
         /// Name of the virtual machine template resource.
         /// </summary>
-        [Input("virtualMachineTemplateName")]
-        public Input<string>? VirtualMachineTemplateName { get; set; }
+        [Input("virtualMachineTemplateName", required: true)]
+        public Input<string> VirtualMachineTemplateName { get; set; } = null!;
 
         public VirtualMachineTemplateArgs()
         {

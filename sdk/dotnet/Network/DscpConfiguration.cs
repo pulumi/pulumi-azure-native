@@ -223,8 +223,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the resource.
         /// </summary>
-        [Input("dscpConfigurationName")]
-        public Input<string>? DscpConfigurationName { get; set; }
+        [Input("dscpConfigurationName", required: true)]
+        public Input<string> DscpConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// Resource ID.

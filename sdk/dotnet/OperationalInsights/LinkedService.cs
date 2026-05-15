@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// Name of the linkedServices resource
         /// </summary>
-        [Input("linkedServiceName")]
-        public Input<string>? LinkedServiceName { get; set; }
+        [Input("linkedServiceName", required: true)]
+        public Input<string> LinkedServiceName { get; set; } = null!;
 
         /// <summary>
         /// The provisioning state of the linked service.

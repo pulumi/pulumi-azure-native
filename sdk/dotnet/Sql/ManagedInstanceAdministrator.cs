@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.Sql
 
     public sealed class ManagedInstanceAdministratorArgs : global::Pulumi.ResourceArgs
     {
-        [Input("administratorName")]
-        public Input<string>? AdministratorName { get; set; }
+        [Input("administratorName", required: true)]
+        public Input<string> AdministratorName { get; set; } = null!;
 
         /// <summary>
         /// Type of the managed instance administrator.

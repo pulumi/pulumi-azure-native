@@ -173,8 +173,8 @@ namespace Pulumi.AzureNative.PrivateDns
         /// <summary>
         /// The name of the Private DNS zone (without a terminating dot).
         /// </summary>
-        [Input("privateZoneName")]
-        public Input<string>? PrivateZoneName { get; set; }
+        [Input("privateZoneName", required: true)]
+        public Input<string> PrivateZoneName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

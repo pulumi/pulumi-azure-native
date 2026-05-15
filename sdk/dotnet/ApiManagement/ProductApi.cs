@@ -242,8 +242,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         /// </summary>
-        [Input("apiId")]
-        public Input<string>? ApiId { get; set; }
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
 
         /// <summary>
         /// Product identifier. Must be unique in the current API Management service instance.

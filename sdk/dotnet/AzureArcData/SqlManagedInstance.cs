@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of SQL Managed Instance
         /// </summary>
-        [Input("sqlManagedInstanceName")]
-        public Input<string>? SqlManagedInstanceName { get; set; }
+        [Input("sqlManagedInstanceName", required: true)]
+        public Input<string> SqlManagedInstanceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

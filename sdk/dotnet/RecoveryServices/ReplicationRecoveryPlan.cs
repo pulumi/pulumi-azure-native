@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Recovery plan name.
         /// </summary>
-        [Input("recoveryPlanName")]
-        public Input<string>? RecoveryPlanName { get; set; }
+        [Input("recoveryPlanName", required: true)]
+        public Input<string> RecoveryPlanName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group where the recovery services vault is present.

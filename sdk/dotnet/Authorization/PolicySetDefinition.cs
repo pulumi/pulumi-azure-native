@@ -217,8 +217,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the policy set definition to create.
         /// </summary>
-        [Input("policySetDefinitionName")]
-        public Input<string>? PolicySetDefinitionName { get; set; }
+        [Input("policySetDefinitionName", required: true)]
+        public Input<string> PolicySetDefinitionName { get; set; } = null!;
 
         /// <summary>
         /// The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.

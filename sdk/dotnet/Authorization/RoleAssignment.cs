@@ -205,8 +205,8 @@ namespace Pulumi.AzureNative.Authorization
         /// <summary>
         /// The name of the role assignment. It can be any valid GUID.
         /// </summary>
-        [Input("roleAssignmentName")]
-        public Input<string>? RoleAssignmentName { get; set; }
+        [Input("roleAssignmentName", required: true)]
+        public Input<string> RoleAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The role definition ID.

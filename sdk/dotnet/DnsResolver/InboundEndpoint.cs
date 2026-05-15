@@ -145,8 +145,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the inbound endpoint for the DNS resolver.
         /// </summary>
-        [Input("inboundEndpointName")]
-        public Input<string>? InboundEndpointName { get; set; }
+        [Input("inboundEndpointName", required: true)]
+        public Input<string> InboundEndpointName { get; set; } = null!;
 
         [Input("ipConfigurations", required: true)]
         private InputList<Inputs.IpConfigurationArgs>? _ipConfigurations;

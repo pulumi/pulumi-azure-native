@@ -172,8 +172,8 @@ namespace Pulumi.AzureNative.StorageSync
         /// <summary>
         /// Name of Cloud Endpoint object.
         /// </summary>
-        [Input("cloudEndpointName")]
-        public Input<string>? CloudEndpointName { get; set; }
+        [Input("cloudEndpointName", required: true)]
+        public Input<string> CloudEndpointName { get; set; } = null!;
 
         /// <summary>
         /// Friendly Name

@@ -136,8 +136,8 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// <summary>
         /// Parameter for the name of the storage object
         /// </summary>
-        [Input("storageSpacesName")]
-        public Input<string>? StorageSpacesName { get; set; }
+        [Input("storageSpacesName", required: true)]
+        public Input<string> StorageSpacesName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

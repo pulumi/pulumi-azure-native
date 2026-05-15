@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.BotService
         /// <summary>
         /// The name of the Channel resource.
         /// </summary>
-        [Input("channelName")]
-        public Input<string>? ChannelName { get; set; }
+        [Input("channelName", required: true)]
+        public Input<string> ChannelName { get; set; } = null!;
 
         /// <summary>
         /// Required. Gets or sets the Kind of the resource.

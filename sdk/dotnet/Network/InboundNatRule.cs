@@ -278,8 +278,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the inbound NAT rule.
         /// </summary>
-        [Input("inboundNatRuleName")]
-        public Input<string>? InboundNatRuleName { get; set; }
+        [Input("inboundNatRuleName", required: true)]
+        public Input<string> InboundNatRuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the load balancer.

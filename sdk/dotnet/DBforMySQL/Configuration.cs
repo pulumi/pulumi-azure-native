@@ -173,8 +173,8 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// The name of the server configuration.
         /// </summary>
-        [Input("configurationName")]
-        public Input<string>? ConfigurationName { get; set; }
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// Current value of the configuration.

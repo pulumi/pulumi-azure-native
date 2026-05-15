@@ -191,8 +191,8 @@ namespace Pulumi.AzureNative.StorageCache
         /// <summary>
         /// Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         /// </summary>
-        [Input("amlFilesystemName")]
-        public Input<string>? AmlFilesystemName { get; set; }
+        [Input("amlFilesystemName", required: true)]
+        public Input<string> AmlFilesystemName { get; set; } = null!;
 
         /// <summary>
         /// Specifies encryption settings of the AML file system.

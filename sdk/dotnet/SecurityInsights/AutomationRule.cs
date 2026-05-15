@@ -197,8 +197,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Automation rule ID
         /// </summary>
-        [Input("automationRuleId")]
-        public Input<string>? AutomationRuleId { get; set; }
+        [Input("automationRuleId", required: true)]
+        public Input<string> AutomationRuleId { get; set; } = null!;
 
         /// <summary>
         /// The display name of the automation rule.

@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Logic App, the extension resource.
         /// </summary>
-        [Input("logicAppName")]
-        public Input<string>? LogicAppName { get; set; }
+        [Input("logicAppName", required: true)]
+        public Input<string> LogicAppName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

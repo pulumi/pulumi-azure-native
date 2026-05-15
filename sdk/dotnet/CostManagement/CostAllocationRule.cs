@@ -113,8 +113,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
         /// </summary>
-        [Input("ruleName")]
-        public Input<string>? RuleName { get; set; }
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         public CostAllocationRuleArgs()
         {

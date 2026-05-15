@@ -144,8 +144,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the Backup Vault
         /// </summary>
-        [Input("backupVaultName")]
-        public Input<string>? BackupVaultName { get; set; }
+        [Input("backupVaultName", required: true)]
+        public Input<string> BackupVaultName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

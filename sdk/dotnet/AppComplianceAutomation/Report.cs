@@ -187,8 +187,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// Report Name.
         /// </summary>
-        [Input("reportName")]
-        public Input<string>? ReportName { get; set; }
+        [Input("reportName", required: true)]
+        public Input<string> ReportName { get; set; } = null!;
 
         [Input("resources", required: true)]
         private InputList<Inputs.ResourceMetadataArgs>? _resources;

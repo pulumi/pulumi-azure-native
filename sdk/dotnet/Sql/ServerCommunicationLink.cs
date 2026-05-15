@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server communication link.
         /// </summary>
-        [Input("communicationLinkName")]
-        public Input<string>? CommunicationLinkName { get; set; }
+        [Input("communicationLinkName", required: true)]
+        public Input<string> CommunicationLinkName { get; set; } = null!;
 
         /// <summary>
         /// The name of the partner server.

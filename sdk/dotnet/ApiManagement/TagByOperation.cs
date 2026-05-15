@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Tag identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("tagId")]
-        public Input<string>? TagId { get; set; }
+        [Input("tagId", required: true)]
+        public Input<string> TagId { get; set; } = null!;
 
         public TagByOperationArgs()
         {

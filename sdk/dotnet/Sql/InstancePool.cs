@@ -155,8 +155,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the instance pool to be created or updated.
         /// </summary>
-        [Input("instancePoolName")]
-        public Input<string>? InstancePoolName { get; set; }
+        [Input("instancePoolName", required: true)]
+        public Input<string> InstancePoolName { get; set; } = null!;
 
         /// <summary>
         /// The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).

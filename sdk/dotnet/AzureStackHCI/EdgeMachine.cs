@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of Device
         /// </summary>
-        [Input("edgeMachineName")]
-        public Input<string>? EdgeMachineName { get; set; }
+        [Input("edgeMachineName", required: true)]
+        public Input<string> EdgeMachineName { get; set; } = null!;
 
         /// <summary>
         /// The managed service identities assigned to this resource.

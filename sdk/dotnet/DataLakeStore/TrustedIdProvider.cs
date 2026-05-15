@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.DataLakeStore
         /// <summary>
         /// The name of the trusted identity provider. This is used for differentiation of providers in the account.
         /// </summary>
-        [Input("trustedIdProviderName")]
-        public Input<string>? TrustedIdProviderName { get; set; }
+        [Input("trustedIdProviderName", required: true)]
+        public Input<string> TrustedIdProviderName { get; set; } = null!;
 
         public TrustedIdProviderArgs()
         {

@@ -132,8 +132,8 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// The name of the Azure AD Administrator.
         /// </summary>
-        [Input("administratorName")]
-        public Input<string>? AdministratorName { get; set; }
+        [Input("administratorName", required: true)]
+        public Input<string> AdministratorName { get; set; } = null!;
 
         /// <summary>
         /// Type of the sever administrator.

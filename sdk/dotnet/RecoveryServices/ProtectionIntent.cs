@@ -160,8 +160,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Intent object name.
         /// </summary>
-        [Input("intentObjectName")]
-        public Input<string>? IntentObjectName { get; set; }
+        [Input("intentObjectName", required: true)]
+        public Input<string> IntentObjectName { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

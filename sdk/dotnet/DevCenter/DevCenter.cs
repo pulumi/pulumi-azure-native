@@ -161,8 +161,8 @@ namespace Pulumi.AzureNative.DevCenter
         /// <summary>
         /// The name of the devcenter.
         /// </summary>
-        [Input("devCenterName")]
-        public Input<string>? DevCenterName { get; set; }
+        [Input("devCenterName", required: true)]
+        public Input<string> DevCenterName { get; set; } = null!;
 
         /// <summary>
         /// The display name of the devcenter.

@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of Dev Tool Portal.
         /// </summary>
-        [Input("devToolPortalName")]
-        public Input<string>? DevToolPortalName { get; set; }
+        [Input("devToolPortalName", required: true)]
+        public Input<string> DevToolPortalName { get; set; } = null!;
 
         /// <summary>
         /// Dev Tool Portal properties payload

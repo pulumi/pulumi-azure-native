@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.DBforMySQL
         /// <summary>
         /// The name of the backup.
         /// </summary>
-        [Input("backupName")]
-        public Input<string>? BackupName { get; set; }
+        [Input("backupName", required: true)]
+        public Input<string> BackupName { get; set; } = null!;
 
         /// <summary>
         /// Backup name

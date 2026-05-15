@@ -170,8 +170,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// <summary>
         /// The Experiment identifier associated with the Experiment
         /// </summary>
-        [Input("experimentName")]
-        public Input<string>? ExperimentName { get; set; }
+        [Input("experimentName", required: true)]
+        public Input<string> ExperimentName { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

@@ -109,8 +109,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the addon.
         /// </summary>
-        [Input("addonName")]
-        public Input<string>? AddonName { get; set; }
+        [Input("addonName", required: true)]
+        public Input<string> AddonName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud

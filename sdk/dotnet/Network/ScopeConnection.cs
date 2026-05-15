@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Name for the cross-tenant connection.
         /// </summary>
-        [Input("scopeConnectionName")]
-        public Input<string>? ScopeConnectionName { get; set; }
+        [Input("scopeConnectionName", required: true)]
+        public Input<string> ScopeConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Tenant ID.

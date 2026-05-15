@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Name of the backup.
         /// </summary>
-        [Input("backupName")]
-        public Input<string>? BackupName { get; set; }
+        [Input("backupName", required: true)]
+        public Input<string> BackupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

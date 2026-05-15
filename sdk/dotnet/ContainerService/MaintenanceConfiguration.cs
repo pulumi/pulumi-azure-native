@@ -198,8 +198,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of the maintenance configuration.
         /// </summary>
-        [Input("configName")]
-        public Input<string>? ConfigName { get; set; }
+        [Input("configName", required: true)]
+        public Input<string> ConfigName { get; set; } = null!;
 
         /// <summary>
         /// Maintenance window for the maintenance configuration.

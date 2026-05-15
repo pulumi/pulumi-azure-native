@@ -264,8 +264,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The name of the container group.
         /// </summary>
-        [Input("containerGroupName")]
-        public Input<string>? ContainerGroupName { get; set; }
+        [Input("containerGroupName", required: true)]
+        public Input<string> ContainerGroupName { get; set; } = null!;
 
         /// <summary>
         /// The reference container group profile properties.

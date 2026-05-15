@@ -194,8 +194,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// The name of the data collection rule. The name is case insensitive.
         /// </summary>
-        [Input("dataCollectionRuleName")]
-        public Input<string>? DataCollectionRuleName { get; set; }
+        [Input("dataCollectionRuleName", required: true)]
+        public Input<string> DataCollectionRuleName { get; set; } = null!;
 
         [Input("dataFlows")]
         private InputList<Inputs.DataFlowArgs>? _dataFlows;

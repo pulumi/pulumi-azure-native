@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// The name of the schedule that uniquely identifies it within containing lab. Used in resource URIs.
         /// </summary>
-        [Input("scheduleName")]
-        public Input<string>? ScheduleName { get; set; }
+        [Input("scheduleName", required: true)]
+        public Input<string> ScheduleName { get; set; } = null!;
 
         /// <summary>
         /// When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.

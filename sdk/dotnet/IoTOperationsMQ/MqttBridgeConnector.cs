@@ -213,8 +213,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ mqttBridgeConnector resource
         /// </summary>
-        [Input("mqttBridgeConnectorName")]
-        public Input<string>? MqttBridgeConnectorName { get; set; }
+        [Input("mqttBridgeConnectorName", required: true)]
+        public Input<string> MqttBridgeConnectorName { get; set; } = null!;
 
         /// <summary>
         /// The Node Tolerations for the Bridge Connector pods.

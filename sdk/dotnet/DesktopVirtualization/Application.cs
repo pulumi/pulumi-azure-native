@@ -217,8 +217,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the application within the specified application group
         /// </summary>
-        [Input("applicationName")]
-        public Input<string>? ApplicationName { get; set; }
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
 
         /// <summary>
         /// Resource Type of Application.

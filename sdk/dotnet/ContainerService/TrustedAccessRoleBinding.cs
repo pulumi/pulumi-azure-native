@@ -200,8 +200,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// <summary>
         /// The name of trusted access role binding.
         /// </summary>
-        [Input("trustedAccessRoleBindingName")]
-        public Input<string>? TrustedAccessRoleBindingName { get; set; }
+        [Input("trustedAccessRoleBindingName", required: true)]
+        public Input<string> TrustedAccessRoleBindingName { get; set; } = null!;
 
         public TrustedAccessRoleBindingArgs()
         {

@@ -230,8 +230,8 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// <summary>
         /// The name of the OpenShift cluster resource.
         /// </summary>
-        [Input("resourceName")]
-        public Input<string>? ResourceName { get; set; }
+        [Input("resourceName", required: true)]
+        public Input<string> ResourceName { get; set; } = null!;
 
         /// <summary>
         /// The cluster service principal profile.

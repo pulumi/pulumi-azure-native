@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the solution version
         /// </summary>
-        [Input("solutionVersionName")]
-        public Input<string>? SolutionVersionName { get; set; }
+        [Input("solutionVersionName", required: true)]
+        public Input<string> SolutionVersionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the target

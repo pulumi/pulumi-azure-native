@@ -203,8 +203,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The name of module.
         /// </summary>
-        [Input("moduleName")]
-        public Input<string>? ModuleName { get; set; }
+        [Input("moduleName", required: true)]
+        public Input<string> ModuleName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets name of the resource.

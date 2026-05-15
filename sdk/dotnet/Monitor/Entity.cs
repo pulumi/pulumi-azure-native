@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.Monitor
         /// <summary>
         /// Name of the entity. Must be unique within a health model.
         /// </summary>
-        [Input("entityName")]
-        public Input<string>? EntityName { get; set; }
+        [Input("entityName", required: true)]
+        public Input<string> EntityName { get; set; } = null!;
 
         /// <summary>
         /// Name of health model resource

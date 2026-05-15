@@ -124,8 +124,8 @@ namespace Pulumi.AzureNative.AzureLargeInstance
         /// <summary>
         /// Name of the AzureLargeStorageInstance.
         /// </summary>
-        [Input("azureLargeStorageInstanceName")]
-        public Input<string>? AzureLargeStorageInstanceName { get; set; }
+        [Input("azureLargeStorageInstanceName", required: true)]
+        public Input<string> AzureLargeStorageInstanceName { get; set; } = null!;
 
         /// <summary>
         /// Specifies the AzureLargeStorageInstance unique ID.

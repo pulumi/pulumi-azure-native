@@ -169,8 +169,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// ID of the DNS zone.
         /// </summary>
-        [Input("dnsZoneId")]
-        public Input<string>? DnsZoneId { get; set; }
+        [Input("dnsZoneId", required: true)]
+        public Input<string> DnsZoneId { get; set; } = null!;
 
         [Input("domain")]
         private InputList<string>? _domain;

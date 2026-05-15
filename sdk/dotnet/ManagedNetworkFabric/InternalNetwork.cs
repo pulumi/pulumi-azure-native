@@ -284,8 +284,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Internal Network.
         /// </summary>
-        [Input("internalNetworkName")]
-        public Input<string>? InternalNetworkName { get; set; }
+        [Input("internalNetworkName", required: true)]
+        public Input<string> InternalNetworkName { get; set; } = null!;
 
         /// <summary>
         /// To check whether monitoring of internal network is enabled or not.

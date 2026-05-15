@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.NetApp
         /// <summary>
         /// The name of the ActiveDirectoryConfig
         /// </summary>
-        [Input("activeDirectoryConfigName")]
-        public Input<string>? ActiveDirectoryConfigName { get; set; }
+        [Input("activeDirectoryConfigName", required: true)]
+        public Input<string> ActiveDirectoryConfigName { get; set; } = null!;
 
         /// <summary>
         /// The managed service identities assigned to this resource.

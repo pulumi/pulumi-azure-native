@@ -239,8 +239,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the connection monitor.
         /// </summary>
-        [Input("connectionMonitorName")]
-        public Input<string>? ConnectionMonitorName { get; set; }
+        [Input("connectionMonitorName", required: true)]
+        public Input<string> ConnectionMonitorName { get; set; } = null!;
 
         /// <summary>
         /// Describes the destination of connection monitor.

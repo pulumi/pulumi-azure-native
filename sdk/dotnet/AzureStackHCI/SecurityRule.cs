@@ -242,8 +242,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the security rule.
         /// </summary>
-        [Input("securityRuleName")]
-        public Input<string>? SecurityRuleName { get; set; }
+        [Input("securityRuleName", required: true)]
+        public Input<string> SecurityRuleName { get; set; } = null!;
 
         [Input("sourceAddressPrefixes")]
         private InputList<string>? _sourceAddressPrefixes;

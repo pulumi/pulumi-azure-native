@@ -157,8 +157,8 @@ namespace Pulumi.AzureNative.OffAzure
         /// <summary>
         /// SQL site name.
         /// </summary>
-        [Input("sqlSiteName")]
-        public Input<string>? SqlSiteName { get; set; }
+        [Input("sqlSiteName", required: true)]
+        public Input<string> SqlSiteName { get; set; } = null!;
 
         public SqlSitesControllerArgs()
         {

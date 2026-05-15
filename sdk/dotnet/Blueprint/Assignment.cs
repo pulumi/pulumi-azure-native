@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.Blueprint
         /// <summary>
         /// Name of the blueprint assignment.
         /// </summary>
-        [Input("assignmentName")]
-        public Input<string>? AssignmentName { get; set; }
+        [Input("assignmentName", required: true)]
+        public Input<string> AssignmentName { get; set; } = null!;
 
         /// <summary>
         /// ID of the published version of a blueprint definition.

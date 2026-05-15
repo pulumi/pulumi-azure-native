@@ -208,8 +208,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The pipeline name.
         /// </summary>
-        [Input("pipelineName")]
-        public Input<string>? PipelineName { get; set; }
+        [Input("pipelineName", required: true)]
+        public Input<string> PipelineName { get; set; } = null!;
 
         /// <summary>
         /// Pipeline Policy.

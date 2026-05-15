@@ -125,8 +125,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of the RaiBlocklist Item
         /// </summary>
-        [Input("raiBlocklistItemName")]
-        public Input<string>? RaiBlocklistItemName { get; set; }
+        [Input("raiBlocklistItemName", required: true)]
+        public Input<string> RaiBlocklistItemName { get; set; } = null!;
 
         /// <summary>
         /// The name of the RaiBlocklist.

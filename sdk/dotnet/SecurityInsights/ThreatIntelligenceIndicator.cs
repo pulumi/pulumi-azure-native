@@ -292,8 +292,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Threat intelligence indicator name field.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         [Input("objectMarkingRefs")]
         private InputList<string>? _objectMarkingRefs;

@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.DeviceProvisioningServices
         /// <summary>
         /// The name of the certificate create or update.
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// properties of a certificate

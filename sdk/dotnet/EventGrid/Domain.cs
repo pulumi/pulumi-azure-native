@@ -264,8 +264,8 @@ namespace Pulumi.AzureNative.EventGrid
         /// <summary>
         /// Name of the domain.
         /// </summary>
-        [Input("domainName")]
-        public Input<string>? DomainName { get; set; }
+        [Input("domainName", required: true)]
+        public Input<string> DomainName { get; set; } = null!;
 
         /// <summary>
         /// Event Type Information for the domain. This information is provided by the publisher and can be used by the 

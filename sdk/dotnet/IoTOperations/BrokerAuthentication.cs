@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of Instance broker authentication resource
         /// </summary>
-        [Input("authenticationName")]
-        public Input<string>? AuthenticationName { get; set; }
+        [Input("authenticationName", required: true)]
+        public Input<string> AuthenticationName { get; set; } = null!;
 
         /// <summary>
         /// Name of broker.

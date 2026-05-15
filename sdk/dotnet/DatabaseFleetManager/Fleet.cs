@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.DatabaseFleetManager
         /// <summary>
         /// Name of the database fleet.
         /// </summary>
-        [Input("fleetName")]
-        public Input<string>? FleetName { get; set; }
+        [Input("fleetName", required: true)]
+        public Input<string> FleetName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

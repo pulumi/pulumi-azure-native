@@ -204,8 +204,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Job Name
         /// </summary>
-        [Input("jobName")]
-        public Input<string>? JobName { get; set; }
+        [Input("jobName", required: true)]
+        public Input<string> JobName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

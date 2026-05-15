@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the certificate resource.
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// Properties of the certificate resource payload.

@@ -146,8 +146,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         /// </summary>
-        [Input("encryptionScopeName")]
-        public Input<string>? EncryptionScopeName { get; set; }
+        [Input("encryptionScopeName", required: true)]
+        public Input<string> EncryptionScopeName { get; set; } = null!;
 
         /// <summary>
         /// The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.

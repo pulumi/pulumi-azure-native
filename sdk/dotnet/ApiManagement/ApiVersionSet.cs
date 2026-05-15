@@ -176,8 +176,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Api Version Set identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("versionSetId")]
-        public Input<string>? VersionSetId { get; set; }
+        [Input("versionSetId", required: true)]
+        public Input<string> VersionSetId { get; set; } = null!;
 
         /// <summary>
         /// An value that determines where the API Version identifier will be located in a HTTP request.

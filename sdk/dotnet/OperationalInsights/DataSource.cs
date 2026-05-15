@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.OperationalInsights
         /// <summary>
         /// The name of the datasource resource.
         /// </summary>
-        [Input("dataSourceName")]
-        public Input<string>? DataSourceName { get; set; }
+        [Input("dataSourceName", required: true)]
+        public Input<string> DataSourceName { get; set; } = null!;
 
         /// <summary>
         /// The kind of the DataSource.

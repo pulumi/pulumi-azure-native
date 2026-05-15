@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.Sovereign
         /// <summary>
         /// The landing zone account.
         /// </summary>
-        [Input("landingZoneAccountName")]
-        public Input<string>? LandingZoneAccountName { get; set; }
+        [Input("landingZoneAccountName", required: true)]
+        public Input<string> LandingZoneAccountName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

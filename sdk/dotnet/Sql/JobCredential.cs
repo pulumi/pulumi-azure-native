@@ -113,8 +113,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the credential.
         /// </summary>
-        [Input("credentialName")]
-        public Input<string>? CredentialName { get; set; }
+        [Input("credentialName", required: true)]
+        public Input<string> CredentialName { get; set; } = null!;
 
         /// <summary>
         /// The name of the job agent.

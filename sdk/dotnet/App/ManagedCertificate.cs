@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Managed Certificate.
         /// </summary>
-        [Input("managedCertificateName")]
-        public Input<string>? ManagedCertificateName { get; set; }
+        [Input("managedCertificateName", required: true)]
+        public Input<string> ManagedCertificateName { get; set; } = null!;
 
         /// <summary>
         /// Certificate resource specific properties

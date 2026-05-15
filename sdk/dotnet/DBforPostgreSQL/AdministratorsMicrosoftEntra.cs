@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Object identifier of the Microsoft Entra principal.
         /// </summary>
-        [Input("objectId")]
-        public Input<string>? ObjectId { get; set; }
+        [Input("objectId", required: true)]
+        public Input<string> ObjectId { get; set; } = null!;
 
         /// <summary>
         /// Name of the Microsoft Entra principal.

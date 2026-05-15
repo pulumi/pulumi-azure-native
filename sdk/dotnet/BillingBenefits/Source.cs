@@ -228,8 +228,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the credit source
         /// </summary>
-        [Input("sourceName")]
-        public Input<string>? SourceName { get; set; }
+        [Input("sourceName", required: true)]
+        public Input<string> SourceName { get; set; } = null!;
 
         /// <summary>
         /// The uri of the resource impacted which lead to the grant of the credit.

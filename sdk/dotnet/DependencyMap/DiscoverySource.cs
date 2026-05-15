@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.DependencyMap
         /// <summary>
         /// discovery source resource
         /// </summary>
-        [Input("sourceName")]
-        public Input<string>? SourceName { get; set; }
+        [Input("sourceName", required: true)]
+        public Input<string> SourceName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

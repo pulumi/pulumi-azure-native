@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The name of the access policy that is being added to the Redis cache.
         /// </summary>
-        [Input("accessPolicyName")]
-        public Input<string>? AccessPolicyName { get; set; }
+        [Input("accessPolicyName", required: true)]
+        public Input<string> AccessPolicyName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Redis cache.

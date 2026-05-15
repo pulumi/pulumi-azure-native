@@ -97,8 +97,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The fabric agent (Dra) name.
         /// </summary>
-        [Input("fabricAgentName")]
-        public Input<string>? FabricAgentName { get; set; }
+        [Input("fabricAgentName", required: true)]
+        public Input<string> FabricAgentName { get; set; } = null!;
 
         /// <summary>
         /// The fabric name.

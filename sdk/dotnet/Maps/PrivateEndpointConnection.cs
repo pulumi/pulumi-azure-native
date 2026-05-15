@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// The name of the Private Endpoint Connection.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// A collection of information about the state of the connection between service consumer and provider.

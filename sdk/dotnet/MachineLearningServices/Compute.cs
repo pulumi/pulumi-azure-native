@@ -170,8 +170,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of the Azure Machine Learning compute.
         /// </summary>
-        [Input("computeName")]
-        public Input<string>? ComputeName { get; set; }
+        [Input("computeName", required: true)]
+        public Input<string> ComputeName { get; set; } = null!;
 
         /// <summary>
         /// The identity of the resource.

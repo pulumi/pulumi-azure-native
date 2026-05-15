@@ -279,8 +279,8 @@ namespace Pulumi.AzureNative.HybridCompute
         /// <summary>
         /// The name of the run command.
         /// </summary>
-        [Input("runCommandName")]
-        public Input<string>? RunCommandName { get; set; }
+        [Input("runCommandName", required: true)]
+        public Input<string> RunCommandName { get; set; } = null!;
 
         /// <summary>
         /// The source of the run command script.

@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.IntegrationSpaces
         /// <summary>
         /// The name of the Application
         /// </summary>
-        [Input("applicationName")]
-        public Input<string>? ApplicationName { get; set; }
+        [Input("applicationName", required: true)]
+        public Input<string> ApplicationName { get; set; } = null!;
 
         /// <summary>
         /// The description of the resource.

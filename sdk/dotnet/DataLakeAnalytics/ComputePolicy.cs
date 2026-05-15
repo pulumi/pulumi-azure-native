@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
         /// <summary>
         /// The name of the compute policy to create or update.
         /// </summary>
-        [Input("computePolicyName")]
-        public Input<string>? ComputePolicyName { get; set; }
+        [Input("computePolicyName", required: true)]
+        public Input<string> ComputePolicyName { get; set; } = null!;
 
         /// <summary>
         /// The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.

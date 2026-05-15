@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// The name of the mongo cluster firewall rule.
         /// </summary>
-        [Input("firewallRuleName")]
-        public Input<string>? FirewallRuleName { get; set; }
+        [Input("firewallRuleName", required: true)]
+        public Input<string> FirewallRuleName { get; set; } = null!;
 
         /// <summary>
         /// The name of the mongo cluster.

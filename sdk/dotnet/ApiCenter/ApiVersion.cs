@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.ApiCenter
         /// <summary>
         /// The name of the API version.
         /// </summary>
-        [Input("versionName")]
-        public Input<string>? VersionName { get; set; }
+        [Input("versionName", required: true)]
+        public Input<string> VersionName { get; set; } = null!;
 
         /// <summary>
         /// The name of the workspace.

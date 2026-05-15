@@ -245,8 +245,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the trunked network.
         /// </summary>
-        [Input("trunkedNetworkName")]
-        public Input<string>? TrunkedNetworkName { get; set; }
+        [Input("trunkedNetworkName", required: true)]
+        public Input<string> TrunkedNetworkName { get; set; } = null!;
 
         [Input("vlans", required: true)]
         private InputList<double>? _vlans;

@@ -182,8 +182,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Incident task ID
         /// </summary>
-        [Input("incidentTaskId")]
-        public Input<string>? IncidentTaskId { get; set; }
+        [Input("incidentTaskId", required: true)]
+        public Input<string> IncidentTaskId { get; set; } = null!;
 
         /// <summary>
         /// Information on the client (user or application) that made some action

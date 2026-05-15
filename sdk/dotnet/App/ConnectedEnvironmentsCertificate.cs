@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Certificate.
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Connected Environment.

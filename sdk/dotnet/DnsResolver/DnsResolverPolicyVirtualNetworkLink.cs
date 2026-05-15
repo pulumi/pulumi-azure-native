@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.DnsResolver
         /// <summary>
         /// The name of the DNS resolver policy virtual network link for the DNS resolver policy.
         /// </summary>
-        [Input("dnsResolverPolicyVirtualNetworkLinkName")]
-        public Input<string>? DnsResolverPolicyVirtualNetworkLinkName { get; set; }
+        [Input("dnsResolverPolicyVirtualNetworkLinkName", required: true)]
+        public Input<string> DnsResolverPolicyVirtualNetworkLinkName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

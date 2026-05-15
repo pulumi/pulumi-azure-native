@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment stack what-if result.
         /// </summary>
-        [Input("deploymentStacksWhatIfResultName")]
-        public Input<string>? DeploymentStacksWhatIfResultName { get; set; }
+        [Input("deploymentStacksWhatIfResultName", required: true)]
+        public Input<string> DeploymentStacksWhatIfResultName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.

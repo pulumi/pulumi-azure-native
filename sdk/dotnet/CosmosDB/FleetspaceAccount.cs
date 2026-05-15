@@ -115,8 +115,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB fleetspace account name.
         /// </summary>
-        [Input("fleetspaceAccountName")]
-        public Input<string>? FleetspaceAccountName { get; set; }
+        [Input("fleetspaceAccountName", required: true)]
+        public Input<string> FleetspaceAccountName { get; set; } = null!;
 
         /// <summary>
         /// Cosmos DB fleetspace name. Needs to be unique under a fleet.

@@ -311,8 +311,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the server.
         /// </summary>
-        [Input("serverName")]
-        public Input<string>? ServerName { get; set; }
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

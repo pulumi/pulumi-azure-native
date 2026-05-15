@@ -150,8 +150,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// The name of the commitmentPlan associated with the Cognitive Services Account
         /// </summary>
-        [Input("commitmentPlanName")]
-        public Input<string>? CommitmentPlanName { get; set; }
+        [Input("commitmentPlanName", required: true)]
+        public Input<string> CommitmentPlanName { get; set; } = null!;
 
         /// <summary>
         /// The Kind of the resource.

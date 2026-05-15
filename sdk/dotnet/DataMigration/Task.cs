@@ -143,8 +143,8 @@ namespace Pulumi.AzureNative.DataMigration
         /// <summary>
         /// Name of the Task
         /// </summary>
-        [Input("taskName")]
-        public Input<string>? TaskName { get; set; }
+        [Input("taskName", required: true)]
+        public Input<string> TaskName { get; set; } = null!;
 
         public TaskArgs()
         {

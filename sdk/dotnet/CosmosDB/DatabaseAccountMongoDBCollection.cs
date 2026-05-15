@@ -180,8 +180,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB collection name.
         /// </summary>
-        [Input("collectionName")]
-        public Input<string>? CollectionName { get; set; }
+        [Input("collectionName", required: true)]
+        public Input<string> CollectionName { get; set; } = null!;
 
         /// <summary>
         /// Cosmos DB database name.

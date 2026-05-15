@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the ExpressRoute Circuit Authorization
         /// </summary>
-        [Input("authorizationName")]
-        public Input<string>? AuthorizationName { get; set; }
+        [Input("authorizationName", required: true)]
+        public Input<string> AuthorizationName { get; set; } = null!;
 
         /// <summary>
         /// The ID of the ExpressRoute Circuit

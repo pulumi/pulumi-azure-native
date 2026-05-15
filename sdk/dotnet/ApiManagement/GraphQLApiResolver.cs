@@ -139,8 +139,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("resolverId")]
-        public Input<string>? ResolverId { get; set; }
+        [Input("resolverId", required: true)]
+        public Input<string> ResolverId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

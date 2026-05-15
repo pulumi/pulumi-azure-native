@@ -154,8 +154,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the private dns zone group.
         /// </summary>
-        [Input("privateDnsZoneGroupName")]
-        public Input<string>? PrivateDnsZoneGroupName { get; set; }
+        [Input("privateDnsZoneGroupName", required: true)]
+        public Input<string> PrivateDnsZoneGroupName { get; set; } = null!;
 
         /// <summary>
         /// The name of the private endpoint.

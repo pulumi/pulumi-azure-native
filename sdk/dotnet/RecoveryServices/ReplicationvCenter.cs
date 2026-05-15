@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// vcenter name.
         /// </summary>
-        [Input("vcenterName")]
-        public Input<string>? VcenterName { get; set; }
+        [Input("vcenterName", required: true)]
+        public Input<string> VcenterName { get; set; } = null!;
 
         public ReplicationvCenterArgs()
         {

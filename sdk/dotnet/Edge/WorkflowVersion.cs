@@ -138,8 +138,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// The name of the workflowVersion.
         /// </summary>
-        [Input("versionName")]
-        public Input<string>? VersionName { get; set; }
+        [Input("versionName", required: true)]
+        public Input<string> VersionName { get; set; } = null!;
 
         /// <summary>
         /// Name of the workflow

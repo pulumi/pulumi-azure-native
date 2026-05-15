@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// Name of a Just-in-Time access configuration policy.
         /// </summary>
-        [Input("jitNetworkAccessPolicyName")]
-        public Input<string>? JitNetworkAccessPolicyName { get; set; }
+        [Input("jitNetworkAccessPolicyName", required: true)]
+        public Input<string> JitNetworkAccessPolicyName { get; set; } = null!;
 
         /// <summary>
         /// Kind of the resource

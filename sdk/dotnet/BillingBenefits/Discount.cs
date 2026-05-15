@@ -151,8 +151,8 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// <summary>
         /// Name of the discount
         /// </summary>
-        [Input("discountName")]
-        public Input<string>? DiscountName { get; set; }
+        [Input("discountName", required: true)]
+        public Input<string> DiscountName { get; set; } = null!;
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)

@@ -102,8 +102,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// MigrateAgent name.
         /// </summary>
-        [Input("agentName")]
-        public Input<string>? AgentName { get; set; }
+        [Input("agentName", required: true)]
+        public Input<string> AgentName { get; set; } = null!;
 
         /// <summary>
         /// ModernizeProject name.

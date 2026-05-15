@@ -115,8 +115,8 @@ namespace Pulumi.AzureNative.PowerBI
         /// <summary>
         /// The name of the Azure resource.
         /// </summary>
-        [Input("azureResourceName")]
-        public Input<string>? AzureResourceName { get; set; }
+        [Input("azureResourceName", required: true)]
+        public Input<string> AzureResourceName { get; set; } = null!;
 
         /// <summary>
         /// Specifies the location of the resource.

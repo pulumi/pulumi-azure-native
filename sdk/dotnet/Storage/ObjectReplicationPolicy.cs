@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.Storage
         /// <summary>
         /// For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         /// </summary>
-        [Input("objectReplicationPolicyId")]
-        public Input<string>? ObjectReplicationPolicyId { get; set; }
+        [Input("objectReplicationPolicyId", required: true)]
+        public Input<string> ObjectReplicationPolicyId { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group within the user's subscription. The name is case insensitive.

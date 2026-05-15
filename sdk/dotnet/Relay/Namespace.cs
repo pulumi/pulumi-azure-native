@@ -171,8 +171,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// The namespace name
         /// </summary>
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
+        [Input("namespaceName", required: true)]
+        public Input<string> NamespaceName { get; set; } = null!;
 
         [Input("privateEndpointConnections")]
         private InputList<Inputs.PrivateEndpointConnectionArgs>? _privateEndpointConnections;

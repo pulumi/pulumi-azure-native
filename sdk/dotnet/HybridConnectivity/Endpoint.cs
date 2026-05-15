@@ -110,8 +110,8 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// <summary>
         /// The endpoint name.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// The resource Id of the connectivity endpoint (optional).

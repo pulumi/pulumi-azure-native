@@ -244,8 +244,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Container App.
         /// </summary>
-        [Input("containerAppName")]
-        public Input<string>? ContainerAppName { get; set; }
+        [Input("containerAppName", required: true)]
+        public Input<string> ContainerAppName { get; set; } = null!;
 
         /// <summary>
         /// Resource ID of environment.

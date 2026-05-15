@@ -154,8 +154,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Name of device group.
         /// </summary>
-        [Input("deviceGroupName")]
-        public Input<string>? DeviceGroupName { get; set; }
+        [Input("deviceGroupName", required: true)]
+        public Input<string> DeviceGroupName { get; set; } = null!;
 
         /// <summary>
         /// Operating system feed type of the device group.

@@ -173,8 +173,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the image.
         /// </summary>
-        [Input("imageName")]
-        public Input<string>? ImageName { get; set; }
+        [Input("imageName", required: true)]
+        public Input<string> ImageName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

@@ -122,8 +122,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the HCX Enterprise Site
         /// </summary>
-        [Input("hcxEnterpriseSiteName")]
-        public Input<string>? HcxEnterpriseSiteName { get; set; }
+        [Input("hcxEnterpriseSiteName", required: true)]
+        public Input<string> HcxEnterpriseSiteName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud

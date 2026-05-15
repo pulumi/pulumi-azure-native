@@ -102,8 +102,8 @@ namespace Pulumi.AzureNative.Datadog
         /// <summary>
         /// The configuration name. Only 'default' value is supported.
         /// </summary>
-        [Input("configurationName")]
-        public Input<string>? ConfigurationName { get; set; }
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// Monitor resource name

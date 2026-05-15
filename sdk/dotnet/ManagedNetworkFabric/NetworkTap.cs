@@ -187,8 +187,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Tap.
         /// </summary>
-        [Input("networkTapName")]
-        public Input<string>? NetworkTapName { get; set; }
+        [Input("networkTapName", required: true)]
+        public Input<string> NetworkTapName { get; set; } = null!;
 
         /// <summary>
         /// Polling type.

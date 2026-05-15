@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.Edge
         /// <summary>
         /// Name of the instance
         /// </summary>
-        [Input("instanceName")]
-        public Input<string>? InstanceName { get; set; }
+        [Input("instanceName", required: true)]
+        public Input<string> InstanceName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

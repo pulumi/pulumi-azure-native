@@ -249,8 +249,8 @@ namespace Pulumi.AzureNative.CertificateRegistration
         /// <summary>
         /// Name of the certificate order.
         /// </summary>
-        [Input("certificateOrderName")]
-        public Input<string>? CertificateOrderName { get; set; }
+        [Input("certificateOrderName", required: true)]
+        public Input<string> CertificateOrderName { get; set; } = null!;
 
         [Input("certificates")]
         private InputMap<Inputs.AppServiceCertificateArgs>? _certificates;

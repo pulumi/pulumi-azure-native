@@ -163,8 +163,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the share.
         /// </summary>
-        [Input("shareName")]
-        public Input<string>? ShareName { get; set; }
+        [Input("shareName", required: true)]
+        public Input<string> ShareName { get; set; } = null!;
 
         /// <summary>
         /// Share terms.

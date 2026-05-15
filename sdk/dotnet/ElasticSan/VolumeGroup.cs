@@ -197,8 +197,8 @@ namespace Pulumi.AzureNative.ElasticSan
         /// <summary>
         /// The name of the VolumeGroup.
         /// </summary>
-        [Input("volumeGroupName")]
-        public Input<string>? VolumeGroupName { get; set; }
+        [Input("volumeGroupName", required: true)]
+        public Input<string> VolumeGroupName { get; set; } = null!;
 
         public VolumeGroupArgs()
         {

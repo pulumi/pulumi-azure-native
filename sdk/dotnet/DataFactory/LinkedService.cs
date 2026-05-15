@@ -106,8 +106,8 @@ namespace Pulumi.AzureNative.DataFactory
         /// <summary>
         /// The linked service name.
         /// </summary>
-        [Input("linkedServiceName")]
-        public Input<string>? LinkedServiceName { get; set; }
+        [Input("linkedServiceName", required: true)]
+        public Input<string> LinkedServiceName { get; set; } = null!;
 
         /// <summary>
         /// Properties of linked service.

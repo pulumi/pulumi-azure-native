@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.Sovereign
         /// <summary>
         /// The landing zone configuration name
         /// </summary>
-        [Input("landingZoneConfigurationName")]
-        public Input<string>? LandingZoneConfigurationName { get; set; }
+        [Input("landingZoneConfigurationName", required: true)]
+        public Input<string> LandingZoneConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.Automanage
         /// <summary>
         /// Name of the configuration profile.
         /// </summary>
-        [Input("configurationProfileName")]
-        public Input<string>? ConfigurationProfileName { get; set; }
+        [Input("configurationProfileName", required: true)]
+        public Input<string> ConfigurationProfileName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

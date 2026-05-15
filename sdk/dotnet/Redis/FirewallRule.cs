@@ -147,8 +147,8 @@ namespace Pulumi.AzureNative.Redis
         /// <summary>
         /// The name of the firewall rule.
         /// </summary>
-        [Input("ruleName")]
-        public Input<string>? RuleName { get; set; }
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         /// <summary>
         /// lowest IP address included in the range

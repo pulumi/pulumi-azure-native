@@ -170,8 +170,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of the storage container
         /// </summary>
-        [Input("storageContainerName")]
-        public Input<string>? StorageContainerName { get; set; }
+        [Input("storageContainerName", required: true)]
+        public Input<string> StorageContainerName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

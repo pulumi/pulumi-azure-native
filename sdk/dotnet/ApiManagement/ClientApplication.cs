@@ -126,8 +126,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Client Application identifier. Must be unique in the current API Management service instance.
         /// </summary>
-        [Input("clientApplicationId")]
-        public Input<string>? ClientApplicationId { get; set; }
+        [Input("clientApplicationId", required: true)]
+        public Input<string> ClientApplicationId { get; set; } = null!;
 
         /// <summary>
         /// Client application description.

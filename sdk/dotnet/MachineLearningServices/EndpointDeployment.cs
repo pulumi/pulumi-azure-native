@@ -103,8 +103,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of the deployment resource
         /// </summary>
-        [Input("deploymentName")]
-        public Input<string>? DeploymentName { get; set; }
+        [Input("deploymentName", required: true)]
+        public Input<string> DeploymentName { get; set; } = null!;
 
         /// <summary>
         /// Name of the endpoint resource.

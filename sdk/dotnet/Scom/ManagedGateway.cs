@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.Scom
         /// <summary>
         /// The gateway resource name.
         /// </summary>
-        [Input("managedGatewayName")]
-        public Input<string>? ManagedGatewayName { get; set; }
+        [Input("managedGatewayName", required: true)]
+        public Input<string> ManagedGatewayName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -90,8 +90,8 @@ namespace Pulumi.AzureNative.Features
         /// <summary>
         /// The feature name.
         /// </summary>
-        [Input("featureName")]
-        public Input<string>? FeatureName { get; set; }
+        [Input("featureName", required: true)]
+        public Input<string> FeatureName { get; set; } = null!;
 
         [Input("properties")]
         public Input<Inputs.SubscriptionFeatureRegistrationPropertiesArgs>? Properties { get; set; }

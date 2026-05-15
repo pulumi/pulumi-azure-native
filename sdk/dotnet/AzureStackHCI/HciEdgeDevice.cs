@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// Name of Device
         /// </summary>
-        [Input("edgeDeviceName")]
-        public Input<string>? EdgeDeviceName { get; set; }
+        [Input("edgeDeviceName", required: true)]
+        public Input<string> EdgeDeviceName { get; set; } = null!;
 
         /// <summary>
         /// Edge device kind.

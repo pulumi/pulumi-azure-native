@@ -233,8 +233,8 @@ namespace Pulumi.AzureNative.Automation
         /// <summary>
         /// The schedule name.
         /// </summary>
-        [Input("scheduleName")]
-        public Input<string>? ScheduleName { get; set; }
+        [Input("scheduleName", required: true)]
+        public Input<string> ScheduleName { get; set; } = null!;
 
         /// <summary>
         /// Gets or sets the start time of the schedule.

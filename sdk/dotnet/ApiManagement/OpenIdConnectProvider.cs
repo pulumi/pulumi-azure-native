@@ -184,8 +184,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the OpenID Connect Provider.
         /// </summary>
-        [Input("opid")]
-        public Input<string>? Opid { get; set; }
+        [Input("opid", required: true)]
+        public Input<string> Opid { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -274,8 +274,8 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Name of the routing rule.
         /// </summary>
-        [Input("routeName")]
-        public Input<string>? RouteName { get; set; }
+        [Input("routeName", required: true)]
+        public Input<string> RouteName { get; set; } = null!;
 
         [Input("ruleSets")]
         private InputList<Inputs.ResourceReferenceArgs>? _ruleSets;

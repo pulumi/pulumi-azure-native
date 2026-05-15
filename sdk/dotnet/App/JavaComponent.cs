@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Java Component.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// Java Component resource specific properties

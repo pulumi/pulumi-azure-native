@@ -129,8 +129,8 @@ namespace Pulumi.AzureNative.IoTOperationsMQ
         /// <summary>
         /// Name of MQ broker/authorization resource
         /// </summary>
-        [Input("authorizationName")]
-        public Input<string>? AuthorizationName { get; set; }
+        [Input("authorizationName", required: true)]
+        public Input<string> AuthorizationName { get; set; } = null!;
 
         /// <summary>
         /// The list of authorization policies supported by the Authorization Resource.

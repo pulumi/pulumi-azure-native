@@ -145,8 +145,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the approvals resource.
         /// </summary>
-        [Input("approvalName")]
-        public Input<string>? ApprovalName { get; set; }
+        [Input("approvalName", required: true)]
+        public Input<string> ApprovalName { get; set; } = null!;
 
         [Input("approvers")]
         private InputList<Inputs.ApproverArgs>? _approvers;

@@ -108,8 +108,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the build resource.
         /// </summary>
-        [Input("buildName")]
-        public Input<string>? BuildName { get; set; }
+        [Input("buildName", required: true)]
+        public Input<string> BuildName { get; set; } = null!;
 
         /// <summary>
         /// The name of the build service resource.

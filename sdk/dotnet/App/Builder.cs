@@ -137,8 +137,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// The name of the builder.
         /// </summary>
-        [Input("builderName")]
-        public Input<string>? BuilderName { get; set; }
+        [Input("builderName", required: true)]
+        public Input<string> BuilderName { get; set; } = null!;
 
         [Input("containerRegistries")]
         private InputList<Inputs.ContainerRegistryArgs>? _containerRegistries;

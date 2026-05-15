@@ -107,8 +107,8 @@ namespace Pulumi.AzureNative.StorageMover
         /// <summary>
         /// The name of the Endpoint resource.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// The resource specific properties for the Storage Mover resource.

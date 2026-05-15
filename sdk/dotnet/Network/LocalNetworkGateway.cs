@@ -230,8 +230,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the local network gateway.
         /// </summary>
-        [Input("localNetworkGatewayName")]
-        public Input<string>? LocalNetworkGatewayName { get; set; }
+        [Input("localNetworkGatewayName", required: true)]
+        public Input<string> LocalNetworkGatewayName { get; set; } = null!;
 
         /// <summary>
         /// Resource location.

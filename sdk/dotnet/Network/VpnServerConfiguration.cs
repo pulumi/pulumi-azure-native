@@ -188,8 +188,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the VpnServerConfiguration being created or updated.
         /// </summary>
-        [Input("vpnServerConfigurationName")]
-        public Input<string>? VpnServerConfigurationName { get; set; }
+        [Input("vpnServerConfigurationName", required: true)]
+        public Input<string> VpnServerConfigurationName { get; set; } = null!;
 
         public VpnServerConfigurationArgs()
         {

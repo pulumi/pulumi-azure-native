@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.AVS
         /// <summary>
         /// Name of the license.
         /// </summary>
-        [Input("licenseName")]
-        public Input<string>? LicenseName { get; set; }
+        [Input("licenseName", required: true)]
+        public Input<string> LicenseName { get; set; } = null!;
 
         /// <summary>
         /// Name of the private cloud

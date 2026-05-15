@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// Reachability Analysis Run name.
         /// </summary>
-        [Input("reachabilityAnalysisRunName")]
-        public Input<string>? ReachabilityAnalysisRunName { get; set; }
+        [Input("reachabilityAnalysisRunName", required: true)]
+        public Input<string> ReachabilityAnalysisRunName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

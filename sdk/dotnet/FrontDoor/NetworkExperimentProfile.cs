@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// <summary>
         /// The Profile identifier associated with the Tenant and Partner
         /// </summary>
-        [Input("profileName")]
-        public Input<string>? ProfileName { get; set; }
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
         /// Name of the Resource group within the Azure subscription.

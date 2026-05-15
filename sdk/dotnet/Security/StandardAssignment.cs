@@ -201,8 +201,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The standard assignments assignment key - unique key for the standard assignment
         /// </summary>
-        [Input("standardAssignmentName")]
-        public Input<string>? StandardAssignmentName { get; set; }
+        [Input("standardAssignmentName", required: true)]
+        public Input<string> StandardAssignmentName { get; set; } = null!;
 
         public StandardAssignmentArgs()
         {

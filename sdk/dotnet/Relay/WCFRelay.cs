@@ -158,8 +158,8 @@ namespace Pulumi.AzureNative.Relay
         /// <summary>
         /// The relay name.
         /// </summary>
-        [Input("relayName")]
-        public Input<string>? RelayName { get; set; }
+        [Input("relayName", required: true)]
+        public Input<string> RelayName { get; set; } = null!;
 
         /// <summary>
         /// WCF relay type.

@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.HybridNetwork
         /// <summary>
         /// The name of the configuration group value.
         /// </summary>
-        [Input("configurationGroupValueName")]
-        public Input<string>? ConfigurationGroupValueName { get; set; }
+        [Input("configurationGroupValueName", required: true)]
+        public Input<string> ConfigurationGroupValueName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

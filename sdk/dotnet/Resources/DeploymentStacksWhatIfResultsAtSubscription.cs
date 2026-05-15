@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.Resources
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DeploymentStacksWhatIfResultsAtSubscription(string name, DeploymentStacksWhatIfResultsAtSubscriptionArgs? args = null, CustomResourceOptions? options = null)
+        public DeploymentStacksWhatIfResultsAtSubscription(string name, DeploymentStacksWhatIfResultsAtSubscriptionArgs args, CustomResourceOptions? options = null)
             : base("azure-native:resources:DeploymentStacksWhatIfResultsAtSubscription", name, args ?? new DeploymentStacksWhatIfResultsAtSubscriptionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -111,8 +111,8 @@ namespace Pulumi.AzureNative.Resources
         /// <summary>
         /// Name of the deployment stack what-if result.
         /// </summary>
-        [Input("deploymentStacksWhatIfResultName")]
-        public Input<string>? DeploymentStacksWhatIfResultName { get; set; }
+        [Input("deploymentStacksWhatIfResultName", required: true)]
+        public Input<string> DeploymentStacksWhatIfResultName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.

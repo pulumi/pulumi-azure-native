@@ -175,8 +175,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the network manager security Configuration rule collection.
         /// </summary>
-        [Input("ruleCollectionName")]
-        public Input<string>? RuleCollectionName { get; set; }
+        [Input("ruleCollectionName", required: true)]
+        public Input<string> RuleCollectionName { get; set; } = null!;
 
         public SecurityUserRuleCollectionArgs()
         {

@@ -334,8 +334,8 @@ namespace Pulumi.AzureNative.DesktopVirtualization
         /// <summary>
         /// The name of the host pool within the specified resource group
         /// </summary>
-        [Input("hostPoolName")]
-        public Input<string>? HostPoolName { get; set; }
+        [Input("hostPoolName", required: true)]
+        public Input<string> HostPoolName { get; set; } = null!;
 
         /// <summary>
         /// HostPool type for desktop.

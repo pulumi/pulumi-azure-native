@@ -175,8 +175,8 @@ namespace Pulumi.AzureNative.KeyVault
         /// <summary>
         /// Name of the private endpoint connection associated with the managed hsm pool.
         /// </summary>
-        [Input("privateEndpointConnectionName")]
-        public Input<string>? PrivateEndpointConnectionName { get; set; }
+        [Input("privateEndpointConnectionName", required: true)]
+        public Input<string> PrivateEndpointConnectionName { get; set; } = null!;
 
         /// <summary>
         /// Approval state of the private link connection.

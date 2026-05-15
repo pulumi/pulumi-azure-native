@@ -119,8 +119,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Name of the workspace managed network outbound rule
         /// </summary>
-        [Input("ruleName")]
-        public Input<string>? RuleName { get; set; }
+        [Input("ruleName", required: true)]
+        public Input<string> RuleName { get; set; } = null!;
 
         /// <summary>
         /// Azure Machine Learning Workspace Name

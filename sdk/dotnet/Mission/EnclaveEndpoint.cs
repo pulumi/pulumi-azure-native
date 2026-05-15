@@ -127,8 +127,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the Enclave Endpoint Resource
         /// </summary>
-        [Input("enclaveEndpointName")]
-        public Input<string>? EnclaveEndpointName { get; set; }
+        [Input("enclaveEndpointName", required: true)]
+        public Input<string> EnclaveEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

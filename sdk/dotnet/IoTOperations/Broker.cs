@@ -114,8 +114,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of broker.
         /// </summary>
-        [Input("brokerName")]
-        public Input<string>? BrokerName { get; set; }
+        [Input("brokerName", required: true)]
+        public Input<string> BrokerName { get; set; } = null!;
 
         /// <summary>
         /// Edge location of the resource.

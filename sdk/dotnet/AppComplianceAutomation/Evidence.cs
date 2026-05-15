@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
         /// <summary>
         /// The evidence name.
         /// </summary>
-        [Input("evidenceName")]
-        public Input<string>? EvidenceName { get; set; }
+        [Input("evidenceName", required: true)]
+        public Input<string> EvidenceName { get; set; } = null!;
 
         /// <summary>
         /// Evidence type.

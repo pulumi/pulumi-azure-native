@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.DataBoxEdge
         /// <summary>
         /// The container name.
         /// </summary>
-        [Input("containerName")]
-        public Input<string>? ContainerName { get; set; }
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
 
         /// <summary>
         /// DataFormat for Container

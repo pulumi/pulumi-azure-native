@@ -190,8 +190,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the VirtualNetwork.
         /// </summary>
-        [Input("virtualNetworkName")]
-        public Input<string>? VirtualNetworkName { get; set; }
+        [Input("virtualNetworkName", required: true)]
+        public Input<string> VirtualNetworkName { get; set; } = null!;
 
         /// <summary>
         /// ARM Id of the vmmServer resource in which this resource resides.

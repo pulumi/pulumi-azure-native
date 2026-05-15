@@ -128,8 +128,8 @@ namespace Pulumi.AzureNative.ApiManagement
         /// <summary>
         /// Identifier of the authorization access policy.
         /// </summary>
-        [Input("authorizationAccessPolicyId")]
-        public Input<string>? AuthorizationAccessPolicyId { get; set; }
+        [Input("authorizationAccessPolicyId", required: true)]
+        public Input<string> AuthorizationAccessPolicyId { get; set; } = null!;
 
         /// <summary>
         /// Identifier of the authorization.

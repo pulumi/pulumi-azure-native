@@ -173,8 +173,8 @@ namespace Pulumi.AzureNative.ServiceLinker
         /// <summary>
         /// The name Linker resource.
         /// </summary>
-        [Input("linkerName")]
-        public Input<string>? LinkerName { get; set; }
+        [Input("linkerName", required: true)]
+        public Input<string> LinkerName { get; set; } = null!;
 
         /// <summary>
         /// The network solution.

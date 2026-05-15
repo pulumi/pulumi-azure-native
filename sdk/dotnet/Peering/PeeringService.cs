@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.Peering
         /// <summary>
         /// The name of the peering service.
         /// </summary>
-        [Input("peeringServiceName")]
-        public Input<string>? PeeringServiceName { get; set; }
+        [Input("peeringServiceName", required: true)]
+        public Input<string> PeeringServiceName { get; set; } = null!;
 
         /// <summary>
         /// The name of the service provider.

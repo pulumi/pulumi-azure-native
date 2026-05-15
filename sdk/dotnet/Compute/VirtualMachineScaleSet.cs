@@ -463,8 +463,8 @@ namespace Pulumi.AzureNative.Compute
         /// <summary>
         /// The name of the VM scale set.
         /// </summary>
-        [Input("vmScaleSetName")]
-        public Input<string>? VmScaleSetName { get; set; }
+        [Input("vmScaleSetName", required: true)]
+        public Input<string> VmScaleSetName { get; set; } = null!;
 
         /// <summary>
         /// Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.

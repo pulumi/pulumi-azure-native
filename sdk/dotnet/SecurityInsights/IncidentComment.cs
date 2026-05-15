@@ -165,8 +165,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Incident comment ID
         /// </summary>
-        [Input("incidentCommentId")]
-        public Input<string>? IncidentCommentId { get; set; }
+        [Input("incidentCommentId", required: true)]
+        public Input<string> IncidentCommentId { get; set; } = null!;
 
         /// <summary>
         /// Incident ID

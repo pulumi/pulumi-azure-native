@@ -292,8 +292,8 @@ namespace Pulumi.AzureNative.CustomerInsights
         /// <summary>
         /// The name of the profile.
         /// </summary>
-        [Input("profileName")]
-        public Input<string>? ProfileName { get; set; }
+        [Input("profileName", required: true)]
+        public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group.

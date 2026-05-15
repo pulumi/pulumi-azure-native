@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// Name of of the certificate to upload.
         /// </summary>
-        [Input("certificateName")]
-        public Input<string>? CertificateName { get; set; }
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
 
         /// <summary>
         /// The name of the managed instance.

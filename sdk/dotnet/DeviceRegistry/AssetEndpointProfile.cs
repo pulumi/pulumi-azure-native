@@ -175,8 +175,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// <summary>
         /// Asset Endpoint Profile name parameter.
         /// </summary>
-        [Input("assetEndpointProfileName")]
-        public Input<string>? AssetEndpointProfileName { get; set; }
+        [Input("assetEndpointProfileName", required: true)]
+        public Input<string> AssetEndpointProfileName { get; set; } = null!;
 
         /// <summary>
         /// Defines the client authentication mechanism to the server.

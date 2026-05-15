@@ -163,8 +163,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         /// <summary>
         /// Backup policy to be created.
         /// </summary>
-        [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
         /// ProtectionPolicyResource properties

@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Name of product.
         /// </summary>
-        [Input("productName")]
-        public Input<string>? ProductName { get; set; }
+        [Input("productName", required: true)]
+        public Input<string> ProductName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

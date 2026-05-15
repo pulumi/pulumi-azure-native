@@ -341,8 +341,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of Network Virtual Appliance.
         /// </summary>
-        [Input("networkVirtualApplianceName")]
-        public Input<string>? NetworkVirtualApplianceName { get; set; }
+        [Input("networkVirtualApplianceName", required: true)]
+        public Input<string> NetworkVirtualApplianceName { get; set; } = null!;
 
         /// <summary>
         /// Network Virtual Appliance SKU.

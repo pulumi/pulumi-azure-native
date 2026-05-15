@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.Quota
         /// <summary>
         /// The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
         /// </summary>
-        [Input("groupQuotaName")]
-        public Input<string>? GroupQuotaName { get; set; }
+        [Input("groupQuotaName", required: true)]
+        public Input<string> GroupQuotaName { get; set; } = null!;
 
         /// <summary>
         /// Management Group Id.

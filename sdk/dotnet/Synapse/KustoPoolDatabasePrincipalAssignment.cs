@@ -156,8 +156,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the Kusto principalAssignment.
         /// </summary>
-        [Input("principalAssignmentName")]
-        public Input<string>? PrincipalAssignmentName { get; set; }
+        [Input("principalAssignmentName", required: true)]
+        public Input<string> PrincipalAssignmentName { get; set; } = null!;
 
         /// <summary>
         /// The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.

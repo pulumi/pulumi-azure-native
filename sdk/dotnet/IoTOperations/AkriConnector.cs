@@ -115,8 +115,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// <summary>
         /// Name of AkriConnector resource.
         /// </summary>
-        [Input("connectorName")]
-        public Input<string>? ConnectorName { get; set; }
+        [Input("connectorName", required: true)]
+        public Input<string> ConnectorName { get; set; } = null!;
 
         /// <summary>
         /// Edge location of the resource.

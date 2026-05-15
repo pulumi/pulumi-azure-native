@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.RecommendationsService
         /// <summary>
         /// The name of the RecommendationsService Account resource.
         /// </summary>
-        [Input("accountName")]
-        public Input<string>? AccountName { get; set; }
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
         /// The identity used for the resource.

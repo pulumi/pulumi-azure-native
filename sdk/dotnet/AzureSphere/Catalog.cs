@@ -118,8 +118,8 @@ namespace Pulumi.AzureNative.AzureSphere
         /// <summary>
         /// Name of catalog
         /// </summary>
-        [Input("catalogName")]
-        public Input<string>? CatalogName { get; set; }
+        [Input("catalogName", required: true)]
+        public Input<string> CatalogName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

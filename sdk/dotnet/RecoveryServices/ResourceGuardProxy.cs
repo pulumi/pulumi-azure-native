@@ -161,8 +161,8 @@ namespace Pulumi.AzureNative.RecoveryServices
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("resourceGuardProxyName")]
-        public Input<string>? ResourceGuardProxyName { get; set; }
+        [Input("resourceGuardProxyName", required: true)]
+        public Input<string> ResourceGuardProxyName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

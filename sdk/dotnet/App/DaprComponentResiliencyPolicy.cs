@@ -131,8 +131,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Dapr Component Resiliency Policy.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The optional outbound component resiliency policy configuration

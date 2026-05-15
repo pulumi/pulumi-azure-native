@@ -159,8 +159,8 @@ namespace Pulumi.AzureNative.NetworkCloud
         /// <summary>
         /// The name of the feature.
         /// </summary>
-        [Input("featureName")]
-        public Input<string>? FeatureName { get; set; }
+        [Input("featureName", required: true)]
+        public Input<string> FeatureName { get; set; } = null!;
 
         /// <summary>
         /// The name of the Kubernetes cluster.

@@ -192,8 +192,8 @@ namespace Pulumi.AzureNative.CosmosDB
         /// <summary>
         /// Cosmos DB table name.
         /// </summary>
-        [Input("tableName")]
-        public Input<string>? TableName { get; set; }
+        [Input("tableName", required: true)]
+        public Input<string> TableName { get; set; } = null!;
 
         public DatabaseAccountTableArgs()
         {

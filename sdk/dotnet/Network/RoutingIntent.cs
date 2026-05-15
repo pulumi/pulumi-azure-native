@@ -145,8 +145,8 @@ namespace Pulumi.AzureNative.Network
         /// <summary>
         /// The name of the per VirtualHub singleton Routing Intent resource.
         /// </summary>
-        [Input("routingIntentName")]
-        public Input<string>? RoutingIntentName { get; set; }
+        [Input("routingIntentName", required: true)]
+        public Input<string> RoutingIntentName { get; set; } = null!;
 
         [Input("routingPolicies")]
         private InputList<Inputs.RoutingPolicyArgs>? _routingPolicies;

@@ -116,8 +116,8 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Name of SQL Availability Group
         /// </summary>
-        [Input("availabilityGroupName")]
-        public Input<string>? AvailabilityGroupName { get; set; }
+        [Input("availabilityGroupName", required: true)]
+        public Input<string> AvailabilityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

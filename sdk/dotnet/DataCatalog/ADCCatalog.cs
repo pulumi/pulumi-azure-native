@@ -153,8 +153,8 @@ namespace Pulumi.AzureNative.DataCatalog
         /// <summary>
         /// The name of the data catalog in the specified subscription and resource group.
         /// </summary>
-        [Input("catalogName")]
-        public Input<string>? CatalogName { get; set; }
+        [Input("catalogName", required: true)]
+        public Input<string> CatalogName { get; set; } = null!;
 
         /// <summary>
         /// Automatic unit adjustment enabled or not.

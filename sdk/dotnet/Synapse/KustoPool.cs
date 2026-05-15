@@ -192,8 +192,8 @@ namespace Pulumi.AzureNative.Synapse
         /// <summary>
         /// The name of the Kusto pool.
         /// </summary>
-        [Input("kustoPoolName")]
-        public Input<string>? KustoPoolName { get; set; }
+        [Input("kustoPoolName", required: true)]
+        public Input<string> KustoPoolName { get; set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives

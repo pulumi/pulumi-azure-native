@@ -136,8 +136,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// InferenceEndpoint name.
         /// </summary>
-        [Input("endpointName")]
-        public Input<string>? EndpointName { get; set; }
+        [Input("endpointName", required: true)]
+        public Input<string> EndpointName { get; set; } = null!;
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)

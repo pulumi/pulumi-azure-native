@@ -177,8 +177,8 @@ namespace Pulumi.AzureNative.LabServices
         /// <summary>
         /// The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
         /// </summary>
-        [Input("userName")]
-        public Input<string>? UserName { get; set; }
+        [Input("userName", required: true)]
+        public Input<string> UserName { get; set; } = null!;
 
         public UserArgs()
         {

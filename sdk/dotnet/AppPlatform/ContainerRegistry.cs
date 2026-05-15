@@ -107,8 +107,8 @@ namespace Pulumi.AzureNative.AppPlatform
         /// <summary>
         /// The name of the container registry.
         /// </summary>
-        [Input("containerRegistryName")]
-        public Input<string>? ContainerRegistryName { get; set; }
+        [Input("containerRegistryName", required: true)]
+        public Input<string> ContainerRegistryName { get; set; } = null!;
 
         /// <summary>
         /// Properties of the container registry resource payload.

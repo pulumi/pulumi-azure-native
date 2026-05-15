@@ -57,7 +57,7 @@ namespace Pulumi.AzureNative.Portal
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TenantConfiguration(string name, TenantConfigurationArgs? args = null, CustomResourceOptions? options = null)
+        public TenantConfiguration(string name, TenantConfigurationArgs args, CustomResourceOptions? options = null)
             : base("azure-native:portal:TenantConfiguration", name, args ?? new TenantConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -104,8 +104,8 @@ namespace Pulumi.AzureNative.Portal
         /// <summary>
         /// The name of the Configuration
         /// </summary>
-        [Input("configurationName")]
-        public Input<string>? ConfigurationName { get; set; }
+        [Input("configurationName", required: true)]
+        public Input<string> ConfigurationName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

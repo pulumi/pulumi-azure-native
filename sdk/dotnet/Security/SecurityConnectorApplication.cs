@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.Security
         /// <summary>
         /// The security Application key - unique key for the standard application
         /// </summary>
-        [Input("applicationId")]
-        public Input<string>? ApplicationId { get; set; }
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
         /// description of the application

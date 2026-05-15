@@ -164,8 +164,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Schema Group name 
         /// </summary>
-        [Input("schemaGroupName")]
-        public Input<string>? SchemaGroupName { get; set; }
+        [Input("schemaGroupName", required: true)]
+        public Input<string> SchemaGroupName { get; set; } = null!;
 
         [Input("schemaType")]
         public InputUnion<string, Pulumi.AzureNative.EventHub.SchemaType>? SchemaType { get; set; }

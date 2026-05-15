@@ -67,7 +67,7 @@ namespace Pulumi.AzureNative.Management
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ServiceGroup(string name, ServiceGroupArgs? args = null, CustomResourceOptions? options = null)
+        public ServiceGroup(string name, ServiceGroupArgs args, CustomResourceOptions? options = null)
             : base("azure-native:management:ServiceGroup", name, args ?? new ServiceGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -123,8 +123,8 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// ServiceGroup Name.
         /// </summary>
-        [Input("serviceGroupName")]
-        public Input<string>? ServiceGroupName { get; set; }
+        [Input("serviceGroupName", required: true)]
+        public Input<string> ServiceGroupName { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

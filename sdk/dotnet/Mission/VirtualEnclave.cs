@@ -277,8 +277,8 @@ namespace Pulumi.AzureNative.Mission
         /// <summary>
         /// The name of the enclaveResource Resource
         /// </summary>
-        [Input("virtualEnclaveName")]
-        public Input<string>? VirtualEnclaveName { get; set; }
+        [Input("virtualEnclaveName", required: true)]
+        public Input<string> VirtualEnclaveName { get; set; } = null!;
 
         [Input("workloadRoleAssignments")]
         private InputList<Inputs.RoleAssignmentItemArgs>? _workloadRoleAssignments;

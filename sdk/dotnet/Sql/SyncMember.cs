@@ -234,8 +234,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The name of the sync member.
         /// </summary>
-        [Input("syncMemberName")]
-        public Input<string>? SyncMemberName { get; set; }
+        [Input("syncMemberName", required: true)]
+        public Input<string> SyncMemberName { get; set; } = null!;
 
         /// <summary>
         /// Whether to use private link connection.

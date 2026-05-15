@@ -200,8 +200,8 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         /// <summary>
         /// Name of the Network Device.
         /// </summary>
-        [Input("networkDeviceName")]
-        public Input<string>? NetworkDeviceName { get; set; }
+        [Input("networkDeviceName", required: true)]
+        public Input<string> NetworkDeviceName { get; set; } = null!;
 
         /// <summary>
         /// Network Device SKU name.

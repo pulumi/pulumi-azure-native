@@ -133,8 +133,8 @@ namespace Pulumi.AzureNative.Communication
         /// <summary>
         /// The name of the SmtpUsernameResource.
         /// </summary>
-        [Input("smtpUsername")]
-        public Input<string>? SmtpUsername { get; set; }
+        [Input("smtpUsername", required: true)]
+        public Input<string> SmtpUsername { get; set; } = null!;
 
         /// <summary>
         /// The tenant of the linked Entra Application.

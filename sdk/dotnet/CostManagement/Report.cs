@@ -135,8 +135,8 @@ namespace Pulumi.AzureNative.CostManagement
         /// <summary>
         /// Report Name.
         /// </summary>
-        [Input("reportName")]
-        public Input<string>? ReportName { get; set; }
+        [Input("reportName", required: true)]
+        public Input<string> ReportName { get; set; } = null!;
 
         /// <summary>
         /// Has schedule information for the report.

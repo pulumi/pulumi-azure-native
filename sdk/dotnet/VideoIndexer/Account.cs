@@ -167,8 +167,8 @@ namespace Pulumi.AzureNative.VideoIndexer
         /// <summary>
         /// The name of the Azure Video Indexer account.
         /// </summary>
-        [Input("accountName")]
-        public Input<string>? AccountName { get; set; }
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)

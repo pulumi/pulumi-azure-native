@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.Management
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ManagementGroup(string name, ManagementGroupArgs? args = null, CustomResourceOptions? options = null)
+        public ManagementGroup(string name, ManagementGroupArgs args, CustomResourceOptions? options = null)
             : base("azure-native:management:ManagementGroup", name, args ?? new ManagementGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -140,8 +140,8 @@ namespace Pulumi.AzureNative.Management
         /// <summary>
         /// Management Group ID.
         /// </summary>
-        [Input("groupId")]
-        public Input<string>? GroupId { get; set; }
+        [Input("groupId", required: true)]
+        public Input<string> GroupId { get; set; } = null!;
 
         /// <summary>
         /// The name of the management group. For example, 00000000-0000-0000-0000-000000000000

@@ -189,8 +189,8 @@ namespace Pulumi.AzureNative.DataShare
         /// <summary>
         /// The name of the data set mapping to be created.
         /// </summary>
-        [Input("dataSetMappingName")]
-        public Input<string>? DataSetMappingName { get; set; }
+        [Input("dataSetMappingName", required: true)]
+        public Input<string> DataSetMappingName { get; set; } = null!;
 
         /// <summary>
         /// The file system name.

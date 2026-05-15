@@ -179,8 +179,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The managed private endpoint name of Azure Managed Grafana.
         /// </summary>
-        [Input("managedPrivateEndpointName")]
-        public Input<string>? ManagedPrivateEndpointName { get; set; }
+        [Input("managedPrivateEndpointName", required: true)]
+        public Input<string> ManagedPrivateEndpointName { get; set; } = null!;
 
         /// <summary>
         /// The ARM resource ID of the resource for which the managed private endpoint is pointing to.

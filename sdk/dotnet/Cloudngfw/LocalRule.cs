@@ -301,8 +301,8 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Local Rule priority
         /// </summary>
-        [Input("priority")]
-        public Input<string>? Priority { get; set; }
+        [Input("priority", required: true)]
+        public Input<string> Priority { get; set; } = null!;
 
         /// <summary>
         /// any, application-default, TCP:number, UDP:number

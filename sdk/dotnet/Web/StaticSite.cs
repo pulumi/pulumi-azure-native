@@ -285,8 +285,8 @@ namespace Pulumi.AzureNative.Web
         /// <summary>
         /// Name of the static site to create or update.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The provider that submitted the last deployment to the primary environment of the static site.

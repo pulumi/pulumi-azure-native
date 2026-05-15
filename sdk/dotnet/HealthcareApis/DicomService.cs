@@ -199,8 +199,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// <summary>
         /// The name of DICOM Service resource.
         /// </summary>
-        [Input("dicomServiceName")]
-        public Input<string>? DicomServiceName { get; set; }
+        [Input("dicomServiceName", required: true)]
+        public Input<string> DicomServiceName { get; set; } = null!;
 
         /// <summary>
         /// If data partitions is enabled or not.

@@ -105,8 +105,8 @@ namespace Pulumi.AzureNative.EventHub
         /// <summary>
         /// The Virtual Network Rule name.
         /// </summary>
-        [Input("virtualNetworkRuleName")]
-        public Input<string>? VirtualNetworkRuleName { get; set; }
+        [Input("virtualNetworkRuleName", required: true)]
+        public Input<string> VirtualNetworkRuleName { get; set; } = null!;
 
         /// <summary>
         /// ARM ID of Virtual Network Subnet

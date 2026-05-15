@@ -99,8 +99,8 @@ namespace Pulumi.AzureNative.DataReplication
         /// <summary>
         /// The policy name.
         /// </summary>
-        [Input("policyName")]
-        public Input<string>? PolicyName { get; set; }
+        [Input("policyName", required: true)]
+        public Input<string> PolicyName { get; set; } = null!;
 
         /// <summary>
         /// Policy model properties.

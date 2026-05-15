@@ -160,8 +160,8 @@ namespace Pulumi.AzureNative.AzureStackHCI
         /// <summary>
         /// The name of the machine extension.
         /// </summary>
-        [Input("extensionName")]
-        public Input<string>? ExtensionName { get; set; }
+        [Input("extensionName", required: true)]
+        public Input<string> ExtensionName { get; set; } = null!;
 
         /// <summary>
         /// How the extension handler should be forced to update even if the extension configuration has not changed.

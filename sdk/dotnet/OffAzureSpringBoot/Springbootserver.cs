@@ -120,8 +120,8 @@ namespace Pulumi.AzureNative.OffAzureSpringBoot
         /// <summary>
         /// The springbootservers name.
         /// </summary>
-        [Input("springbootserversName")]
-        public Input<string>? SpringbootserversName { get; set; }
+        [Input("springbootserversName", required: true)]
+        public Input<string> SpringbootserversName { get; set; } = null!;
 
         public SpringbootserverArgs()
         {

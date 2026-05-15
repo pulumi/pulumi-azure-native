@@ -485,8 +485,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// Connector ID
         /// </summary>
-        [Input("dataConnectorId")]
-        public Input<string>? DataConnectorId { get; set; }
+        [Input("dataConnectorId", required: true)]
+        public Input<string> DataConnectorId { get; set; } = null!;
 
         /// <summary>
         /// The Log Analytics table destination.

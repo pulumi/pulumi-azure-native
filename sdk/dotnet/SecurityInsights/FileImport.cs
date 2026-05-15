@@ -199,8 +199,8 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// File import ID
         /// </summary>
-        [Input("fileImportId")]
-        public Input<string>? FileImportId { get; set; }
+        [Input("fileImportId", required: true)]
+        public Input<string> FileImportId { get; set; } = null!;
 
         /// <summary>
         /// Represents the imported file.

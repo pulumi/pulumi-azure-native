@@ -137,8 +137,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// Name of the Azure Migrate project.
         /// </summary>
-        [Input("projectName")]
-        public Input<string>? ProjectName { get; set; }
+        [Input("projectName", required: true)]
+        public Input<string> ProjectName { get; set; } = null!;
 
         /// <summary>
         /// Properties of the project.

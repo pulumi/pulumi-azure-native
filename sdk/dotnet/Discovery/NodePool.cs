@@ -117,8 +117,8 @@ namespace Pulumi.AzureNative.Discovery
         /// <summary>
         /// The name of the NodePool
         /// </summary>
-        [Input("nodePoolName")]
-        public Input<string>? NodePoolName { get; set; }
+        [Input("nodePoolName", required: true)]
+        public Input<string> NodePoolName { get; set; } = null!;
 
         /// <summary>
         /// The resource-specific properties for this resource.

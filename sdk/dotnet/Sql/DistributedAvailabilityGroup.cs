@@ -180,8 +180,8 @@ namespace Pulumi.AzureNative.Sql
         /// <summary>
         /// The distributed availability group name.
         /// </summary>
-        [Input("distributedAvailabilityGroupName")]
-        public Input<string>? DistributedAvailabilityGroupName { get; set; }
+        [Input("distributedAvailabilityGroupName", required: true)]
+        public Input<string> DistributedAvailabilityGroupName { get; set; } = null!;
 
         /// <summary>
         /// The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.

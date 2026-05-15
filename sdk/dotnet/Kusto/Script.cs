@@ -187,8 +187,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the Kusto database script.
         /// </summary>
-        [Input("scriptName")]
-        public Input<string>? ScriptName { get; set; }
+        [Input("scriptName", required: true)]
+        public Input<string> ScriptName { get; set; } = null!;
 
         /// <summary>
         /// The url to the KQL script blob file. Must not be used together with scriptContent property

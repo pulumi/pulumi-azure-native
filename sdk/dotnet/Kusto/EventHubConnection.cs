@@ -148,8 +148,8 @@ namespace Pulumi.AzureNative.Kusto
         /// <summary>
         /// The name of the event hub connection.
         /// </summary>
-        [Input("eventHubConnectionName")]
-        public Input<string>? EventHubConnectionName { get; set; }
+        [Input("eventHubConnectionName", required: true)]
+        public Input<string> EventHubConnectionName { get; set; } = null!;
 
         /// <summary>
         /// The resource ID of the event hub to be used to create a data connection.

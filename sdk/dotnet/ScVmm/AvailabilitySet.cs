@@ -136,8 +136,8 @@ namespace Pulumi.AzureNative.ScVmm
         /// <summary>
         /// Name of the availability set.
         /// </summary>
-        [Input("availabilitySetName")]
-        public Input<string>? AvailabilitySetName { get; set; }
+        [Input("availabilitySetName", required: true)]
+        public Input<string> AvailabilitySetName { get; set; } = null!;
 
         /// <summary>
         /// The extended location.

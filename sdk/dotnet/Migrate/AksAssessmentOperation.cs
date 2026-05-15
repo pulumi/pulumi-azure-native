@@ -130,8 +130,8 @@ namespace Pulumi.AzureNative.Migrate
         /// <summary>
         /// AKS Assessment Name.
         /// </summary>
-        [Input("assessmentName")]
-        public Input<string>? AssessmentName { get; set; }
+        [Input("assessmentName", required: true)]
+        public Input<string> AssessmentName { get; set; } = null!;
 
         /// <summary>
         /// Assessment Project Name

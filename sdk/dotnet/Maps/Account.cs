@@ -142,8 +142,8 @@ namespace Pulumi.AzureNative.Maps
         /// <summary>
         /// The name of the Maps Account.
         /// </summary>
-        [Input("accountName")]
-        public Input<string>? AccountName { get; set; }
+        [Input("accountName", required: true)]
+        public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
