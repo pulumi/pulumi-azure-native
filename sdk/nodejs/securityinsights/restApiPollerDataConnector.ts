@@ -141,7 +141,7 @@ export class RestApiPollerDataConnector extends pulumi.CustomResource {
             resourceInputs["paging"] = args?.paging;
             resourceInputs["request"] = args?.request;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["response"] = args ? pulumi.output(args.response).apply(v => v === undefined ? undefined : inputs.securityinsights.ccpResponseConfigArgsProvideDefaults(v)) : undefined;
+            resourceInputs["response"] = args ? (args.response ? pulumi.output(args.response).apply(inputs.securityinsights.ccpResponseConfigArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -179,7 +179,7 @@ export interface RestApiPollerDataConnectorArgs {
     /**
      * The add on attributes. The key name will become attribute name (a column) and the value will become the attribute value in the payload.
      */
-    addOnAttributes?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    addOnAttributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The a authentication model.
      */
@@ -191,19 +191,19 @@ export interface RestApiPollerDataConnectorArgs {
     /**
      * Connector ID
      */
-    dataConnectorId?: pulumi.Input<string | undefined>;
+    dataConnectorId?: pulumi.Input<string>;
     /**
      * The Log Analytics table destination.
      */
-    dataType?: pulumi.Input<string | undefined>;
+    dataType?: pulumi.Input<string>;
     /**
      * The DCR related properties.
      */
-    dcrConfig?: pulumi.Input<inputs.securityinsights.DCRConfigurationArgs | undefined>;
+    dcrConfig?: pulumi.Input<inputs.securityinsights.DCRConfigurationArgs>;
     /**
      * Indicates whether the connector is active or not.
      */
-    isActive?: pulumi.Input<boolean | undefined>;
+    isActive?: pulumi.Input<boolean>;
     /**
      * The kind of the data connector
      * Expected value is 'RestApiPoller'.
@@ -212,7 +212,7 @@ export interface RestApiPollerDataConnectorArgs {
     /**
      * The paging configuration.
      */
-    paging?: pulumi.Input<inputs.securityinsights.RestApiPollerRequestPagingConfigArgs | undefined>;
+    paging?: pulumi.Input<inputs.securityinsights.RestApiPollerRequestPagingConfigArgs>;
     /**
      * The request configuration.
      */
@@ -224,7 +224,7 @@ export interface RestApiPollerDataConnectorArgs {
     /**
      * The response configuration.
      */
-    response?: pulumi.Input<inputs.securityinsights.CcpResponseConfigArgs | undefined>;
+    response?: pulumi.Input<inputs.securityinsights.CcpResponseConfigArgs>;
     /**
      * The name of the workspace.
      */

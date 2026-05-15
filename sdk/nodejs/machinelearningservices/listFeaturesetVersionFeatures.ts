@@ -93,11 +93,11 @@ export interface ListFeaturesetVersionFeaturesOutputArgs {
     /**
      * Continuation token for pagination.
      */
-    skip?: pulumi.Input<string | undefined>;
+    skip?: pulumi.Input<string>;
     /**
      * Comma-separated list of tag names (and optionally values). Example: tag1,tag2=value2
      */
-    tags?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<string>;
     /**
      * Featureset Version identifier. This is case-sensitive.
      */

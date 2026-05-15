@@ -138,10 +138,10 @@ def get_outbound_rule(managed_network_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_outbound_rule_output(managed_network_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_outbound_rule_output(managed_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutboundRuleResult]:
     """
     Uses Azure REST API version 2025-04-01-preview.

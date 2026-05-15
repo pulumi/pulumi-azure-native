@@ -181,7 +181,7 @@ export class ContainerGroup extends pulumi.CustomResource {
             resourceInputs["identity"] = args?.identity;
             resourceInputs["imageRegistryCredentials"] = args?.imageRegistryCredentials;
             resourceInputs["initContainers"] = args?.initContainers;
-            resourceInputs["ipAddress"] = args ? pulumi.output(args.ipAddress).apply(v => v === undefined ? undefined : inputs.containerinstance.ipAddressArgsProvideDefaults(v)) : undefined;
+            resourceInputs["ipAddress"] = args ? (args.ipAddress ? pulumi.output(args.ipAddress).apply(inputs.containerinstance.ipAddressArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["osType"] = args?.osType;
             resourceInputs["priority"] = args?.priority;
@@ -242,15 +242,15 @@ export interface ContainerGroupArgs {
     /**
      * The properties for confidential container group
      */
-    confidentialComputeProperties?: pulumi.Input<inputs.containerinstance.ConfidentialComputePropertiesArgs | undefined>;
+    confidentialComputeProperties?: pulumi.Input<inputs.containerinstance.ConfidentialComputePropertiesArgs>;
     /**
      * The name of the container group.
      */
-    containerGroupName?: pulumi.Input<string | undefined>;
+    containerGroupName?: pulumi.Input<string>;
     /**
      * The reference container group profile properties.
      */
-    containerGroupProfile?: pulumi.Input<inputs.containerinstance.ContainerGroupProfileReferenceDefinitionArgs | undefined>;
+    containerGroupProfile?: pulumi.Input<inputs.containerinstance.ContainerGroupProfileReferenceDefinitionArgs>;
     /**
      * The containers within the container group.
      */
@@ -258,47 +258,47 @@ export interface ContainerGroupArgs {
     /**
      * The diagnostic information for a container group.
      */
-    diagnostics?: pulumi.Input<inputs.containerinstance.ContainerGroupDiagnosticsArgs | undefined>;
+    diagnostics?: pulumi.Input<inputs.containerinstance.ContainerGroupDiagnosticsArgs>;
     /**
      * The DNS config information for a container group.
      */
-    dnsConfig?: pulumi.Input<inputs.containerinstance.DnsConfigurationArgs | undefined>;
+    dnsConfig?: pulumi.Input<inputs.containerinstance.DnsConfigurationArgs>;
     /**
      * The encryption properties for a container group.
      */
-    encryptionProperties?: pulumi.Input<inputs.containerinstance.EncryptionPropertiesArgs | undefined>;
+    encryptionProperties?: pulumi.Input<inputs.containerinstance.EncryptionPropertiesArgs>;
     /**
      * extensions used by virtual kubelet
      */
-    extensions?: pulumi.Input<pulumi.Input<inputs.containerinstance.DeploymentExtensionSpecArgs>[] | undefined>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.containerinstance.DeploymentExtensionSpecArgs>[]>;
     /**
      * The identity of the container group, if configured.
      */
-    identity?: pulumi.Input<inputs.containerinstance.ContainerGroupIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.containerinstance.ContainerGroupIdentityArgs>;
     /**
      * The image registry credentials by which the container group is created from.
      */
-    imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.ImageRegistryCredentialArgs>[] | undefined>;
+    imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.ImageRegistryCredentialArgs>[]>;
     /**
      * The init containers for a container group.
      */
-    initContainers?: pulumi.Input<pulumi.Input<inputs.containerinstance.InitContainerDefinitionArgs>[] | undefined>;
+    initContainers?: pulumi.Input<pulumi.Input<inputs.containerinstance.InitContainerDefinitionArgs>[]>;
     /**
      * The IP address type of the container group.
      */
-    ipAddress?: pulumi.Input<inputs.containerinstance.IpAddressArgs | undefined>;
+    ipAddress?: pulumi.Input<inputs.containerinstance.IpAddressArgs>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The operating system type required by the containers in the container group.
      */
-    osType?: pulumi.Input<string | enums.containerinstance.OperatingSystemTypes | undefined>;
+    osType?: pulumi.Input<string | enums.containerinstance.OperatingSystemTypes>;
     /**
      * The priority of the container group.
      */
-    priority?: pulumi.Input<string | enums.containerinstance.ContainerGroupPriority | undefined>;
+    priority?: pulumi.Input<string | enums.containerinstance.ContainerGroupPriority>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -309,29 +309,29 @@ export interface ContainerGroupArgs {
      * - `OnFailure` Restart on failure
      * - `Never` Never restart
      */
-    restartPolicy?: pulumi.Input<string | enums.containerinstance.ContainerGroupRestartPolicy | undefined>;
+    restartPolicy?: pulumi.Input<string | enums.containerinstance.ContainerGroupRestartPolicy>;
     /**
      * The SKU for a container group.
      */
-    sku?: pulumi.Input<string | enums.containerinstance.ContainerGroupSku | undefined>;
+    sku?: pulumi.Input<string | enums.containerinstance.ContainerGroupSku>;
     /**
      * The reference standby pool profile properties.
      */
-    standbyPoolProfile?: pulumi.Input<inputs.containerinstance.StandbyPoolProfileDefinitionArgs | undefined>;
+    standbyPoolProfile?: pulumi.Input<inputs.containerinstance.StandbyPoolProfileDefinitionArgs>;
     /**
      * The subnet resource IDs for a container group.
      */
-    subnetIds?: pulumi.Input<pulumi.Input<inputs.containerinstance.ContainerGroupSubnetIdArgs>[] | undefined>;
+    subnetIds?: pulumi.Input<pulumi.Input<inputs.containerinstance.ContainerGroupSubnetIdArgs>[]>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.VolumeArgs>[] | undefined>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.VolumeArgs>[]>;
     /**
      * The zones for the container group.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

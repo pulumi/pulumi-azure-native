@@ -24,8 +24,8 @@ class TableServicePropertiesArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cors: pulumi.Input[Optional['CorsRulesArgs']] = None,
-                 table_service_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
+                 table_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TableServiceProperties resource.
 
@@ -67,26 +67,26 @@ class TableServicePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> pulumi.Input[Optional['CorsRulesArgs']]:
+    def cors(self) -> Optional[pulumi.Input['CorsRulesArgs']]:
         """
         Specifies CORS rules for the Table service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Table service.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: pulumi.Input[Optional['CorsRulesArgs']]):
+    def cors(self, value: Optional[pulumi.Input['CorsRulesArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="tableServiceName")
-    def table_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def table_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the Table Service within the specified storage account. Table Service Name must be 'default'
         """
         return pulumi.get(self, "table_service_name")
 
     @table_service_name.setter
-    def table_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def table_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "table_service_name", value)
 
 
@@ -96,10 +96,10 @@ class TableServiceProperties(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 cors: pulumi.Input[Optional[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 table_service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The properties of a storage account’s Table service.
@@ -145,10 +145,10 @@ class TableServiceProperties(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 cors: pulumi.Input[Optional[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 table_service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

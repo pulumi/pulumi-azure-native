@@ -135,11 +135,11 @@ export interface RouteFilterArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -147,14 +147,14 @@ export interface RouteFilterArgs {
     /**
      * The name of the route filter.
      */
-    routeFilterName?: pulumi.Input<string | undefined>;
+    routeFilterName?: pulumi.Input<string>;
     /**
      * Collection of RouteFilterRules contained within a route filter.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.network.RouteFilterRuleArgs>[] | undefined>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.RouteFilterRuleArgs>[]>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

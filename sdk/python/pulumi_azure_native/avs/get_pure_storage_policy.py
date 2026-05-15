@@ -166,9 +166,9 @@ def get_pure_storage_policy(private_cloud_name: Optional[_builtins.str] = None,
         storage_pool_id=pulumi.get(__ret__, 'storage_pool_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_pure_storage_policy_output(private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   storage_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_pure_storage_policy_output(private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   storage_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPureStoragePolicyResult]:
     """
     Get a PureStoragePolicy

@@ -228,35 +228,35 @@ export interface MetadataArgs {
     /**
      * The creator of the content item.
      */
-    author?: pulumi.Input<inputs.securityinsights.MetadataAuthorArgs | undefined>;
+    author?: pulumi.Input<inputs.securityinsights.MetadataAuthorArgs>;
     /**
      * Categories for the solution content item
      */
-    categories?: pulumi.Input<inputs.securityinsights.MetadataCategoriesArgs | undefined>;
+    categories?: pulumi.Input<inputs.securityinsights.MetadataCategoriesArgs>;
     /**
      * Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
      */
-    contentId?: pulumi.Input<string | undefined>;
+    contentId?: pulumi.Input<string>;
     /**
      * Schema version of the content. Can be used to distinguish between different flow based on the schema version
      */
-    contentSchemaVersion?: pulumi.Input<string | undefined>;
+    contentSchemaVersion?: pulumi.Input<string>;
     /**
      * The custom version of the content. A optional free text
      */
-    customVersion?: pulumi.Input<string | undefined>;
+    customVersion?: pulumi.Input<string>;
     /**
      * Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
      */
-    dependencies?: pulumi.Input<inputs.securityinsights.MetadataDependenciesArgs | undefined>;
+    dependencies?: pulumi.Input<inputs.securityinsights.MetadataDependenciesArgs>;
     /**
      * first publish date solution content item
      */
-    firstPublishDate?: pulumi.Input<string | undefined>;
+    firstPublishDate?: pulumi.Input<string>;
     /**
      * the icon identifier. this id can later be fetched from the solution template
      */
-    icon?: pulumi.Input<string | undefined>;
+    icon?: pulumi.Input<string>;
     /**
      * The kind of content the metadata is for.
      */
@@ -264,11 +264,11 @@ export interface MetadataArgs {
     /**
      * last publish date for the solution content item
      */
-    lastPublishDate?: pulumi.Input<string | undefined>;
+    lastPublishDate?: pulumi.Input<string>;
     /**
      * The Metadata name.
      */
-    metadataName?: pulumi.Input<string | undefined>;
+    metadataName?: pulumi.Input<string>;
     /**
      * Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
      */
@@ -276,15 +276,15 @@ export interface MetadataArgs {
     /**
      * preview image file names. These will be taken from the solution artifacts
      */
-    previewImages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    previewImages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * preview image file names. These will be taken from the solution artifacts. used for dark theme support
      */
-    previewImagesDark?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    previewImagesDark?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Providers for the solution content item
      */
-    providers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    providers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -292,23 +292,23 @@ export interface MetadataArgs {
     /**
      * Source of the content.  This is where/how it was created.
      */
-    source?: pulumi.Input<inputs.securityinsights.MetadataSourceArgs | undefined>;
+    source?: pulumi.Input<inputs.securityinsights.MetadataSourceArgs>;
     /**
      * Support information for the metadata - type, name, contact information
      */
-    support?: pulumi.Input<inputs.securityinsights.MetadataSupportArgs | undefined>;
+    support?: pulumi.Input<inputs.securityinsights.MetadataSupportArgs>;
     /**
      * the tactics the resource covers
      */
-    threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * the techniques the resource covers, these have to be aligned with the tactics being used
      */
-    threatAnalysisTechniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    threatAnalysisTechniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM template best practices.  Can also be any string, but then we cannot guarantee any version checks
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

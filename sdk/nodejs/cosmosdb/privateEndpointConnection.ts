@@ -124,23 +124,23 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Group id of the private endpoint.
      */
-    groupId?: pulumi.Input<string | undefined>;
+    groupId?: pulumi.Input<string>;
     /**
      * Private endpoint which the connection belongs to.
      */
-    privateEndpoint?: pulumi.Input<inputs.cosmosdb.PrivateEndpointPropertyArgs | undefined>;
+    privateEndpoint?: pulumi.Input<inputs.cosmosdb.PrivateEndpointPropertyArgs>;
     /**
      * The name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection State of the Private Endpoint Connection.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.cosmosdb.PrivateLinkServiceConnectionStatePropertyArgs | undefined>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.cosmosdb.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * Provisioning state of the private endpoint.
      */
-    provisioningState?: pulumi.Input<string | undefined>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

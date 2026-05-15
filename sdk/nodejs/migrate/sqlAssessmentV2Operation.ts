@@ -339,77 +339,77 @@ export interface SqlAssessmentV2OperationArgs {
     /**
      * SQL Assessment arm name.
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * Assessment type of the assessment.
      */
-    assessmentType?: pulumi.Input<string | enums.migrate.AssessmentType | undefined>;
+    assessmentType?: pulumi.Input<string | enums.migrate.AssessmentType>;
     /**
      * Gets or sets user preference indicating intent of async commit mode.
      */
-    asyncCommitModeIntent?: pulumi.Input<string | enums.migrate.AsyncCommitModeIntent | undefined>;
+    asyncCommitModeIntent?: pulumi.Input<string | enums.migrate.AsyncCommitModeIntent>;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
-    azureLocation?: pulumi.Input<string | undefined>;
+    azureLocation?: pulumi.Input<string>;
     /**
      * Azure Offer Code.
      */
-    azureOfferCode?: pulumi.Input<string | enums.migrate.AzureOfferCode | undefined>;
+    azureOfferCode?: pulumi.Input<string | enums.migrate.AzureOfferCode>;
     /**
      * Gets or sets Azure Offer Code for VM.
      */
-    azureOfferCodeForVm?: pulumi.Input<string | enums.migrate.AzureOfferCode | undefined>;
+    azureOfferCodeForVm?: pulumi.Input<string | enums.migrate.AzureOfferCode>;
     /**
      * Gets or sets a value indicating azure security offering type.
      */
-    azureSecurityOfferingType?: pulumi.Input<string | enums.migrate.AzureSecurityOfferingType | undefined>;
+    azureSecurityOfferingType?: pulumi.Input<string | enums.migrate.AzureSecurityOfferingType>;
     /**
      * Gets or sets user configurable SQL database settings.
      */
-    azureSqlDatabaseSettings?: pulumi.Input<inputs.migrate.SqlDbSettingsArgs | undefined>;
+    azureSqlDatabaseSettings?: pulumi.Input<inputs.migrate.SqlDbSettingsArgs>;
     /**
      * Gets or sets user configurable SQL managed instance settings.
      */
-    azureSqlManagedInstanceSettings?: pulumi.Input<inputs.migrate.SqlMiSettingsArgs | undefined>;
+    azureSqlManagedInstanceSettings?: pulumi.Input<inputs.migrate.SqlMiSettingsArgs>;
     /**
      * Gets or sets user configurable SQL VM settings.
      */
-    azureSqlVmSettings?: pulumi.Input<inputs.migrate.SqlVmSettingsArgs | undefined>;
+    azureSqlVmSettings?: pulumi.Input<inputs.migrate.SqlVmSettingsArgs>;
     /**
      * Confidence Rating in Percentage.
      */
-    confidenceRatingInPercentage?: pulumi.Input<number | undefined>;
+    confidenceRatingInPercentage?: pulumi.Input<number>;
     /**
      * Currency in which prices should be reported.
      */
-    currency?: pulumi.Input<string | enums.migrate.AzureCurrency | undefined>;
+    currency?: pulumi.Input<string | enums.migrate.AzureCurrency>;
     /**
      * Gets or sets the Azure Location or Azure region where to which the machines
      * will be migrated.
      */
-    disasterRecoveryLocation?: pulumi.Input<string | enums.migrate.AzureLocation | undefined>;
+    disasterRecoveryLocation?: pulumi.Input<string | enums.migrate.AzureLocation>;
     /**
      * Custom discount percentage.
      */
-    discountPercentage?: pulumi.Input<number | undefined>;
+    discountPercentage?: pulumi.Input<number>;
     /**
      * Gets or sets the Enterprise agreement subscription id.
      */
-    eaSubscriptionId?: pulumi.Input<string | undefined>;
+    eaSubscriptionId?: pulumi.Input<string>;
     /**
      * Gets or sets a value indicating whether HADR assessments needs to be created.
      */
-    enableHadrAssessment?: pulumi.Input<boolean | undefined>;
+    enableHadrAssessment?: pulumi.Input<boolean>;
     /**
      * Gets or sets the duration for which the entity (SQL, VMs) are up in the
      * on-premises environment.
      */
-    entityUptime?: pulumi.Input<inputs.migrate.EntityUptimeArgs | undefined>;
+    entityUptime?: pulumi.Input<inputs.migrate.EntityUptimeArgs>;
     /**
      * Gets or sets user configurable setting to display the environment type.
      */
-    environmentType?: pulumi.Input<string | enums.migrate.EnvironmentType | undefined>;
+    environmentType?: pulumi.Input<string | enums.migrate.EnvironmentType>;
     /**
      * Group ARM name
      */
@@ -417,36 +417,36 @@ export interface SqlAssessmentV2OperationArgs {
     /**
      * Gets the group type for the assessment.
      */
-    groupType?: pulumi.Input<string | enums.migrate.GroupType | undefined>;
+    groupType?: pulumi.Input<string | enums.migrate.GroupType>;
     /**
      * Gets or sets a value indicating whether internet access is available.
      */
-    isInternetAccessAvailable?: pulumi.Input<boolean | undefined>;
+    isInternetAccessAvailable?: pulumi.Input<boolean>;
     /**
      * Gets or sets user preference indicating intent of multi-subnet configuration.
      */
-    multiSubnetIntent?: pulumi.Input<string | enums.migrate.MultiSubnetIntent | undefined>;
+    multiSubnetIntent?: pulumi.Input<string | enums.migrate.MultiSubnetIntent>;
     /**
      * Gets or sets SQL optimization logic.
      */
-    optimizationLogic?: pulumi.Input<string | enums.migrate.OptimizationLogic | undefined>;
+    optimizationLogic?: pulumi.Input<string | enums.migrate.OptimizationLogic>;
     /**
      * Gets or sets user configurable setting to display the azure hybrid use benefit.
      */
-    osLicense?: pulumi.Input<string | enums.migrate.OsLicense | undefined>;
+    osLicense?: pulumi.Input<string | enums.migrate.OsLicense>;
     /**
      * Percentile of the utilization data values to be considered while assessing
      * machines.
      */
-    percentile?: pulumi.Input<string | enums.migrate.Percentile | undefined>;
+    percentile?: pulumi.Input<string | enums.migrate.Percentile>;
     /**
      * Gets or sets the end time to consider performance data for assessment.
      */
-    perfDataEndTime?: pulumi.Input<string | undefined>;
+    perfDataEndTime?: pulumi.Input<string>;
     /**
      * Gets or sets the start time to consider performance data for assessment.
      */
-    perfDataStartTime?: pulumi.Input<string | undefined>;
+    perfDataStartTime?: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */
@@ -454,15 +454,15 @@ export interface SqlAssessmentV2OperationArgs {
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState>;
     /**
      * Reserved instance.
      */
-    reservedInstance?: pulumi.Input<string | enums.migrate.AzureReservedInstance | undefined>;
+    reservedInstance?: pulumi.Input<string | enums.migrate.AzureReservedInstance>;
     /**
      * Gets or sets azure reserved instance for VM.
      */
-    reservedInstanceForVm?: pulumi.Input<string | enums.migrate.AzureReservedInstance | undefined>;
+    reservedInstanceForVm?: pulumi.Input<string | enums.migrate.AzureReservedInstance>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -471,18 +471,18 @@ export interface SqlAssessmentV2OperationArgs {
      * Percentage of buffer that user wants on performance metrics when recommending
      * Azure sizes.
      */
-    scalingFactor?: pulumi.Input<number | undefined>;
+    scalingFactor?: pulumi.Input<number>;
     /**
      * Assessment sizing criterion.
      */
-    sizingCriterion?: pulumi.Input<string | enums.migrate.AssessmentSizingCriterion | undefined>;
+    sizingCriterion?: pulumi.Input<string | enums.migrate.AssessmentSizingCriterion>;
     /**
      * SQL server license.
      */
-    sqlServerLicense?: pulumi.Input<string | enums.migrate.SqlServerLicense | undefined>;
+    sqlServerLicense?: pulumi.Input<string | enums.migrate.SqlServerLicense>;
     /**
      * Time Range for which the historic utilization data should be considered for
      * assessment.
      */
-    timeRange?: pulumi.Input<string | enums.migrate.TimeRange | undefined>;
+    timeRange?: pulumi.Input<string | enums.migrate.TimeRange>;
 }

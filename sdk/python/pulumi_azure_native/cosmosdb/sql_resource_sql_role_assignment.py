@@ -21,10 +21,10 @@ class SqlResourceSqlRoleAssignmentArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None):
+                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlResourceSqlRoleAssignment resource.
 
@@ -72,50 +72,50 @@ class SqlResourceSqlRoleAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleAssignmentId")
-    def role_assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def role_assignment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The GUID for the Role Assignment.
         """
         return pulumi.get(self, "role_assignment_id")
 
     @role_assignment_id.setter
-    def role_assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def role_assignment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "role_assignment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The unique identifier for the associated Role Definition.
         """
         return pulumi.get(self, "role_definition_id")
 
     @role_definition_id.setter
-    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The data plane resource path for which access is being granted through this Role Assignment.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
 
@@ -125,12 +125,12 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         An Azure Cosmos DB Role Assignment
@@ -178,12 +178,12 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -189,10 +189,10 @@ def get_archife(archive_name: Optional[_builtins.str] = None,
         repository_endpoint_prefix=pulumi.get(__ret__, 'repository_endpoint_prefix'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_archife_output(archive_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       package_type: pulumi.Input[Optional[_builtins.str]] = None,
-                       registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_archife_output(archive_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       package_type: Optional[pulumi.Input[_builtins.str]] = None,
+                       registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArchifeResult]:
     """
     Gets the properties of the archive.

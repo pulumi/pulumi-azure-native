@@ -108,7 +108,7 @@ export interface WorkspaceArgs {
     /**
      * Description of the workspace.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Name of the workspace.
      */
@@ -124,5 +124,5 @@ export interface WorkspaceArgs {
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */
-    workspaceId?: pulumi.Input<string | undefined>;
+    workspaceId?: pulumi.Input<string>;
 }

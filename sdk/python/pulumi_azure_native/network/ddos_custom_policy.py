@@ -20,10 +20,10 @@ __all__ = ['DdosCustomPolicyArgs', 'DdosCustomPolicy']
 class DdosCustomPolicyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 ddos_custom_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 ddos_custom_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DdosCustomPolicy resource.
 
@@ -57,50 +57,50 @@ class DdosCustomPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="ddosCustomPolicyName")
-    def ddos_custom_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def ddos_custom_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the DDoS custom policy.
         """
         return pulumi.get(self, "ddos_custom_policy_name")
 
     @ddos_custom_policy_name.setter
-    def ddos_custom_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def ddos_custom_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "ddos_custom_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,11 +110,11 @@ class DdosCustomPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ddos_custom_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ddos_custom_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A DDoS custom policy in a resource group.
@@ -161,11 +161,11 @@ class DdosCustomPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ddos_custom_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 ddos_custom_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

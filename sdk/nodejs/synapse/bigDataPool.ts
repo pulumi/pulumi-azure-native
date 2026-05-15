@@ -223,67 +223,67 @@ export interface BigDataPoolArgs {
     /**
      * Auto-pausing properties
      */
-    autoPause?: pulumi.Input<inputs.synapse.AutoPausePropertiesArgs | undefined>;
+    autoPause?: pulumi.Input<inputs.synapse.AutoPausePropertiesArgs>;
     /**
      * Auto-scaling properties
      */
-    autoScale?: pulumi.Input<inputs.synapse.AutoScalePropertiesArgs | undefined>;
+    autoScale?: pulumi.Input<inputs.synapse.AutoScalePropertiesArgs>;
     /**
      * Big Data pool name
      */
-    bigDataPoolName?: pulumi.Input<string | undefined>;
+    bigDataPoolName?: pulumi.Input<string>;
     /**
      * The cache size
      */
-    cacheSize?: pulumi.Input<number | undefined>;
+    cacheSize?: pulumi.Input<number>;
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
-    customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.LibraryInfoArgs>[] | undefined>;
+    customLibraries?: pulumi.Input<pulumi.Input<inputs.synapse.LibraryInfoArgs>[]>;
     /**
      * The default folder where Spark logs will be written.
      */
-    defaultSparkLogFolder?: pulumi.Input<string | undefined>;
+    defaultSparkLogFolder?: pulumi.Input<string>;
     /**
      * Dynamic Executor Allocation
      */
-    dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.DynamicExecutorAllocationArgs | undefined>;
+    dynamicExecutorAllocation?: pulumi.Input<inputs.synapse.DynamicExecutorAllocationArgs>;
     /**
      * Whether to stop any running jobs in the Big Data pool
      */
-    force?: pulumi.Input<boolean | undefined>;
+    force?: pulumi.Input<boolean>;
     /**
      * Whether autotune is required or not.
      */
-    isAutotuneEnabled?: pulumi.Input<boolean | undefined>;
+    isAutotuneEnabled?: pulumi.Input<boolean>;
     /**
      * Whether compute isolation is required or not.
      */
-    isComputeIsolationEnabled?: pulumi.Input<boolean | undefined>;
+    isComputeIsolationEnabled?: pulumi.Input<boolean>;
     /**
      * Library version requirements
      */
-    libraryRequirements?: pulumi.Input<inputs.synapse.LibraryRequirementsArgs | undefined>;
+    libraryRequirements?: pulumi.Input<inputs.synapse.LibraryRequirementsArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The number of nodes in the Big Data pool.
      */
-    nodeCount?: pulumi.Input<number | undefined>;
+    nodeCount?: pulumi.Input<number>;
     /**
      * The level of compute power that each node in the Big Data pool has.
      */
-    nodeSize?: pulumi.Input<string | enums.synapse.NodeSize | undefined>;
+    nodeSize?: pulumi.Input<string | enums.synapse.NodeSize>;
     /**
      * The kind of nodes that the Big Data pool provides.
      */
-    nodeSizeFamily?: pulumi.Input<string | enums.synapse.NodeSizeFamily | undefined>;
+    nodeSizeFamily?: pulumi.Input<string | enums.synapse.NodeSizeFamily>;
     /**
      * The state of the Big Data pool.
      */
-    provisioningState?: pulumi.Input<string | undefined>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -291,23 +291,23 @@ export interface BigDataPoolArgs {
     /**
      * Whether session level packages enabled.
      */
-    sessionLevelPackagesEnabled?: pulumi.Input<boolean | undefined>;
+    sessionLevelPackagesEnabled?: pulumi.Input<boolean>;
     /**
      * Spark configuration file to specify additional properties
      */
-    sparkConfigProperties?: pulumi.Input<inputs.synapse.SparkConfigPropertiesArgs | undefined>;
+    sparkConfigProperties?: pulumi.Input<inputs.synapse.SparkConfigPropertiesArgs>;
     /**
      * The Spark events folder
      */
-    sparkEventsFolder?: pulumi.Input<string | undefined>;
+    sparkEventsFolder?: pulumi.Input<string>;
     /**
      * The Apache Spark version.
      */
-    sparkVersion?: pulumi.Input<string | undefined>;
+    sparkVersion?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace.
      */

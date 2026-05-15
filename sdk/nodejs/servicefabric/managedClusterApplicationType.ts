@@ -120,7 +120,7 @@ export interface ManagedClusterApplicationTypeArgs {
     /**
      * The name of the application type name resource.
      */
-    applicationTypeName?: pulumi.Input<string | undefined>;
+    applicationTypeName?: pulumi.Input<string>;
     /**
      * The name of the cluster resource.
      */
@@ -128,7 +128,7 @@ export interface ManagedClusterApplicationTypeArgs {
     /**
      * Resource location depends on the parent resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -136,5 +136,5 @@ export interface ManagedClusterApplicationTypeArgs {
     /**
      * Azure resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

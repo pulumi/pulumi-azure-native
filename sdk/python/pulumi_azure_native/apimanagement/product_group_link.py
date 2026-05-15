@@ -23,7 +23,7 @@ class ProductGroupLinkArgs:
                  product_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 group_link_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 group_link_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProductGroupLink resource.
 
@@ -90,14 +90,14 @@ class ProductGroupLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupLinkId")
-    def group_link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def group_link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Product-Group link identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "group_link_id")
 
     @group_link_id.setter
-    def group_link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def group_link_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "group_link_id", value)
 
 
@@ -107,11 +107,11 @@ class ProductGroupLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 group_link_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_link_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Product-group link details.
@@ -158,11 +158,11 @@ class ProductGroupLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 group_link_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_link_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

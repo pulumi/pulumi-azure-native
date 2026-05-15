@@ -122,7 +122,7 @@ export interface FleetspaceAccountArgs {
     /**
      * Cosmos DB fleetspace account name.
      */
-    fleetspaceAccountName?: pulumi.Input<string | undefined>;
+    fleetspaceAccountName?: pulumi.Input<string>;
     /**
      * Cosmos DB fleetspace name. Needs to be unique under a fleet.
      */
@@ -130,7 +130,7 @@ export interface FleetspaceAccountArgs {
     /**
      * Configuration for fleetspace Account in the fleetspace.
      */
-    globalDatabaseAccountProperties?: pulumi.Input<inputs.cosmosdb.FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs | undefined>;
+    globalDatabaseAccountProperties?: pulumi.Input<inputs.cosmosdb.FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

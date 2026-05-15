@@ -75,7 +75,7 @@ export interface ListDnsForwardingRulesetByVirtualNetworkOutputArgs {
     /**
      * The maximum number of results to return. If not specified, returns up to 100 results.
      */
-    top?: pulumi.Input<number | undefined>;
+    top?: pulumi.Input<number>;
     /**
      * The name of the virtual network.
      */

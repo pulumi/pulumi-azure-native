@@ -130,7 +130,7 @@ export class Schedule extends pulumi.CustomResource {
             resourceInputs["labName"] = args?.labName;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
-            resourceInputs["notificationSettings"] = args ? pulumi.output(args.notificationSettings).apply(v => v === undefined ? undefined : inputs.devtestlab.notificationSettingsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["notificationSettings"] = args ? (args.notificationSettings ? pulumi.output(args.notificationSettings).apply(inputs.devtestlab.notificationSettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["status"] = (args?.status) ?? "Disabled";
             resourceInputs["tags"] = args?.tags;
@@ -177,11 +177,11 @@ export interface ScheduleArgs {
     /**
      * If the schedule will occur once each day of the week, specify the daily recurrence.
      */
-    dailyRecurrence?: pulumi.Input<inputs.devtestlab.DayDetailsArgs | undefined>;
+    dailyRecurrence?: pulumi.Input<inputs.devtestlab.DayDetailsArgs>;
     /**
      * If the schedule will occur multiple times a day, specify the hourly recurrence.
      */
-    hourlyRecurrence?: pulumi.Input<inputs.devtestlab.HourDetailsArgs | undefined>;
+    hourlyRecurrence?: pulumi.Input<inputs.devtestlab.HourDetailsArgs>;
     /**
      * labs
      */
@@ -189,15 +189,15 @@ export interface ScheduleArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Schedule
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Notification settings.
      */
-    notificationSettings?: pulumi.Input<inputs.devtestlab.NotificationSettingsArgs | undefined>;
+    notificationSettings?: pulumi.Input<inputs.devtestlab.NotificationSettingsArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -205,25 +205,25 @@ export interface ScheduleArgs {
     /**
      * The status of the schedule (i.e. Enabled, Disabled)
      */
-    status?: pulumi.Input<string | enums.devtestlab.EnableStatus | undefined>;
+    status?: pulumi.Input<string | enums.devtestlab.EnableStatus>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The resource ID to which the schedule belongs
      */
-    targetResourceId?: pulumi.Input<string | undefined>;
+    targetResourceId?: pulumi.Input<string>;
     /**
      * The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
      */
-    taskType?: pulumi.Input<string | undefined>;
+    taskType?: pulumi.Input<string>;
     /**
      * The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
      */
-    timeZoneId?: pulumi.Input<string | undefined>;
+    timeZoneId?: pulumi.Input<string>;
     /**
      * If the schedule will occur only some days of the week, specify the weekly recurrence.
      */
-    weeklyRecurrence?: pulumi.Input<inputs.devtestlab.WeekDetailsArgs | undefined>;
+    weeklyRecurrence?: pulumi.Input<inputs.devtestlab.WeekDetailsArgs>;
 }

@@ -80,8 +80,8 @@ def list_cluster_callout_policies(cluster_name: Optional[_builtins.str] = None,
     return AwaitableListClusterCalloutPoliciesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_cluster_callout_policies_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_cluster_callout_policies_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListClusterCalloutPoliciesResult]:
     """
     Returns the allowed callout policies for the specified service.

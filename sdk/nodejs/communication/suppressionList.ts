@@ -138,7 +138,7 @@ export interface SuppressionListArgs {
     /**
      * The the name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
      */
-    listName?: pulumi.Input<string | undefined>;
+    listName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -146,5 +146,5 @@ export interface SuppressionListArgs {
     /**
      * The name of the suppression list.
      */
-    suppressionListName?: pulumi.Input<string | undefined>;
+    suppressionListName?: pulumi.Input<string>;
 }

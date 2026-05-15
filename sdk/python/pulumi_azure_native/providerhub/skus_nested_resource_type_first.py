@@ -25,8 +25,8 @@ class SkusNestedResourceTypeFirstArgs:
                  nested_resource_type_first: pulumi.Input[_builtins.str],
                  provider_namespace: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SkuResourcePropertiesArgs']] = None,
-                 sku: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['SkuResourcePropertiesArgs']] = None,
+                 sku: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SkusNestedResourceTypeFirst resource.
 
@@ -81,23 +81,23 @@ class SkusNestedResourceTypeFirstArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['SkuResourcePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['SkuResourcePropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['SkuResourcePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['SkuResourcePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def sku(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The SKU.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def sku(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "sku", value)
 
 
@@ -107,11 +107,11 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 nested_resource_type_first: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['SkuResourcePropertiesArgs', 'SkuResourcePropertiesArgsDict']]] = None,
-                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 nested_resource_type_first: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['SkuResourcePropertiesArgs', 'SkuResourcePropertiesArgsDict']]] = None,
+                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
@@ -157,11 +157,11 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 nested_resource_type_first: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['SkuResourcePropertiesArgs', 'SkuResourcePropertiesArgsDict']]] = None,
-                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 nested_resource_type_first: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['SkuResourcePropertiesArgs', 'SkuResourcePropertiesArgsDict']]] = None,
+                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

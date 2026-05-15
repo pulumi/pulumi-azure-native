@@ -133,7 +133,7 @@ export interface PrivateResolverVirtualNetworkLinkArgs {
     /**
      * Metadata attached to the virtual network link.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -145,5 +145,5 @@ export interface PrivateResolverVirtualNetworkLinkArgs {
     /**
      * The name of the virtual network link.
      */
-    virtualNetworkLinkName?: pulumi.Input<string | undefined>;
+    virtualNetworkLinkName?: pulumi.Input<string>;
 }

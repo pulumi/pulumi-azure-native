@@ -70,9 +70,9 @@ def list_controller_connection_details(name: Optional[_builtins.str] = None,
 
     return AwaitableListControllerConnectionDetailsResult(
         connection_details_list=pulumi.get(__ret__, 'connection_details_list'))
-def list_controller_connection_details_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              target_container_host_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+def list_controller_connection_details_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              target_container_host_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListControllerConnectionDetailsResult]:
     """
     Lists connection details for the underlying container resources of an Azure Dev Spaces Controller.

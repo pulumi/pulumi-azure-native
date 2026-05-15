@@ -24,9 +24,9 @@ class SqlSitesControllerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
-                 discovery_scenario: pulumi.Input[Optional[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]] = None,
-                 site_appliance_properties_collection: pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]] = None,
-                 sql_site_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 discovery_scenario: Optional[pulumi.Input[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]] = None,
+                 site_appliance_properties_collection: Optional[pulumi.Input[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]] = None,
+                 sql_site_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlSitesController resource.
 
@@ -73,19 +73,19 @@ class SqlSitesControllerArgs:
 
     @_builtins.property
     @pulumi.getter(name="discoveryScenario")
-    def discovery_scenario(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]]:
+    def discovery_scenario(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]]:
         """
         Gets or sets the discovery scenario.
         """
         return pulumi.get(self, "discovery_scenario")
 
     @discovery_scenario.setter
-    def discovery_scenario(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]]):
+    def discovery_scenario(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]]):
         pulumi.set(self, "discovery_scenario", value)
 
     @_builtins.property
     @pulumi.getter(name="siteAppliancePropertiesCollection")
-    def site_appliance_properties_collection(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]]:
+    def site_appliance_properties_collection(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]]:
         """
         Gets or sets the appliance details used by service to communicate
                    
@@ -94,19 +94,19 @@ class SqlSitesControllerArgs:
         return pulumi.get(self, "site_appliance_properties_collection")
 
     @site_appliance_properties_collection.setter
-    def site_appliance_properties_collection(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]]):
+    def site_appliance_properties_collection(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]]):
         pulumi.set(self, "site_appliance_properties_collection", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlSiteName")
-    def sql_site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def sql_site_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         SQL site name.
         """
         return pulumi.get(self, "sql_site_name")
 
     @sql_site_name.setter
-    def sql_site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def sql_site_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "sql_site_name", value)
 
 
@@ -116,11 +116,11 @@ class SqlSitesController(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 discovery_scenario: pulumi.Input[Optional[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_appliance_properties_collection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SiteAppliancePropertiesArgs', 'SiteAppliancePropertiesArgsDict']]]]] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sql_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_scenario: Optional[pulumi.Input[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 site_appliance_properties_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SiteAppliancePropertiesArgs', 'SiteAppliancePropertiesArgsDict']]]]] = None,
+                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sql_site_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         SQL site web model.
@@ -169,11 +169,11 @@ class SqlSitesController(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 discovery_scenario: pulumi.Input[Optional[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_appliance_properties_collection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SiteAppliancePropertiesArgs', 'SiteAppliancePropertiesArgsDict']]]]] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sql_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_scenario: Optional[pulumi.Input[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 site_appliance_properties_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SiteAppliancePropertiesArgs', 'SiteAppliancePropertiesArgsDict']]]]] = None,
+                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sql_site_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

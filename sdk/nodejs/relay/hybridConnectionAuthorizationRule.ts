@@ -121,7 +121,7 @@ export interface HybridConnectionAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    authorizationRuleName?: pulumi.Input<string | undefined>;
+    authorizationRuleName?: pulumi.Input<string>;
     /**
      * The hybrid connection name.
      */

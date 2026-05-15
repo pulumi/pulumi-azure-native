@@ -149,7 +149,7 @@ export interface SuppressionListAddressArgs {
     /**
      * The id of the address in a suppression list.
      */
-    addressId?: pulumi.Input<string | undefined>;
+    addressId?: pulumi.Input<string>;
     /**
      * The name of the Domains resource.
      */
@@ -165,15 +165,15 @@ export interface SuppressionListAddressArgs {
     /**
      * The first name of the email recipient.
      */
-    firstName?: pulumi.Input<string | undefined>;
+    firstName?: pulumi.Input<string>;
     /**
      * The last name of the email recipient.
      */
-    lastName?: pulumi.Input<string | undefined>;
+    lastName?: pulumi.Input<string>;
     /**
      * An optional property to provide contextual notes or a description for an address.
      */
-    notes?: pulumi.Input<string | undefined>;
+    notes?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

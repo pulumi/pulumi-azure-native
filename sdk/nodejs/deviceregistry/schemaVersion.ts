@@ -139,7 +139,7 @@ export interface SchemaVersionArgs {
     /**
      * Human-readable description of the schema.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -159,5 +159,5 @@ export interface SchemaVersionArgs {
     /**
      * Schema version name parameter.
      */
-    schemaVersionName?: pulumi.Input<string | undefined>;
+    schemaVersionName?: pulumi.Input<string>;
 }

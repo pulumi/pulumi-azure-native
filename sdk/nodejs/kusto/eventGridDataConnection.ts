@@ -201,7 +201,7 @@ export interface EventGridDataConnectionArgs {
     /**
      * The name of blob storage event type to process.
      */
-    blobStorageEventType?: pulumi.Input<string | enums.kusto.BlobStorageEventType | undefined>;
+    blobStorageEventType?: pulumi.Input<string | enums.kusto.BlobStorageEventType>;
     /**
      * The name of the Kusto cluster.
      */
@@ -213,11 +213,11 @@ export interface EventGridDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName?: pulumi.Input<string | undefined>;
+    dataConnectionName?: pulumi.Input<string>;
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    dataFormat?: pulumi.Input<string | enums.kusto.EventGridDataFormat | undefined>;
+    dataFormat?: pulumi.Input<string | enums.kusto.EventGridDataFormat>;
     /**
      * The name of the database in the Kusto cluster.
      */
@@ -225,11 +225,11 @@ export interface EventGridDataConnectionArgs {
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed
      */
-    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting | undefined>;
+    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting>;
     /**
      * The resource ID of the event grid that is subscribed to the storage account events.
      */
-    eventGridResourceId?: pulumi.Input<string | undefined>;
+    eventGridResourceId?: pulumi.Input<string>;
     /**
      * The resource ID where the event grid is configured to send events.
      */
@@ -237,7 +237,7 @@ export interface EventGridDataConnectionArgs {
     /**
      * A Boolean value that, if set to true, indicates that ingestion should ignore the first record of every file
      */
-    ignoreFirstRecord?: pulumi.Input<boolean | undefined>;
+    ignoreFirstRecord?: pulumi.Input<boolean>;
     /**
      * Kind of the endpoint for the data connection
      * Expected value is 'EventGrid'.
@@ -246,15 +246,15 @@ export interface EventGridDataConnectionArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub and storage account.
      */
-    managedIdentityResourceId?: pulumi.Input<string | undefined>;
+    managedIdentityResourceId?: pulumi.Input<string>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
-    mappingRuleName?: pulumi.Input<string | undefined>;
+    mappingRuleName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -266,5 +266,5 @@ export interface EventGridDataConnectionArgs {
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
-    tableName?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string>;
 }

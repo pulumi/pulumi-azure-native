@@ -113,11 +113,11 @@ export interface AssessmentArgs {
     /**
      * Unique name of an assessment within a project.
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * For optimistic concurrency control.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Unique name of a group within a project.
      */

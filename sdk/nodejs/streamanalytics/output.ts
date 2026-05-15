@@ -132,7 +132,7 @@ export interface OutputArgs {
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    datasource?: pulumi.Input<inputs.streamanalytics.AzureDataLakeStoreOutputDataSourceArgs | inputs.streamanalytics.AzureFunctionOutputDataSourceArgs | inputs.streamanalytics.AzureSqlDatabaseOutputDataSourceArgs | inputs.streamanalytics.AzureSynapseOutputDataSourceArgs | inputs.streamanalytics.AzureTableOutputDataSourceArgs | inputs.streamanalytics.BlobOutputDataSourceArgs | inputs.streamanalytics.DocumentDbOutputDataSourceArgs | inputs.streamanalytics.EventHubOutputDataSourceArgs | inputs.streamanalytics.EventHubV2OutputDataSourceArgs | inputs.streamanalytics.GatewayMessageBusOutputDataSourceArgs | inputs.streamanalytics.PowerBIOutputDataSourceArgs | inputs.streamanalytics.ServiceBusQueueOutputDataSourceArgs | inputs.streamanalytics.ServiceBusTopicOutputDataSourceArgs | undefined>;
+    datasource?: pulumi.Input<inputs.streamanalytics.AzureDataLakeStoreOutputDataSourceArgs | inputs.streamanalytics.AzureFunctionOutputDataSourceArgs | inputs.streamanalytics.AzureSqlDatabaseOutputDataSourceArgs | inputs.streamanalytics.AzureSynapseOutputDataSourceArgs | inputs.streamanalytics.AzureTableOutputDataSourceArgs | inputs.streamanalytics.BlobOutputDataSourceArgs | inputs.streamanalytics.DocumentDbOutputDataSourceArgs | inputs.streamanalytics.EventHubOutputDataSourceArgs | inputs.streamanalytics.EventHubV2OutputDataSourceArgs | inputs.streamanalytics.GatewayMessageBusOutputDataSourceArgs | inputs.streamanalytics.PowerBIOutputDataSourceArgs | inputs.streamanalytics.ServiceBusQueueOutputDataSourceArgs | inputs.streamanalytics.ServiceBusTopicOutputDataSourceArgs>;
     /**
      * The name of the streaming job.
      */
@@ -140,11 +140,11 @@ export interface OutputArgs {
     /**
      * Resource name
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the output.
      */
-    outputName?: pulumi.Input<string | undefined>;
+    outputName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -152,13 +152,13 @@ export interface OutputArgs {
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    serialization?: pulumi.Input<inputs.streamanalytics.AvroSerializationArgs | inputs.streamanalytics.CsvSerializationArgs | inputs.streamanalytics.JsonSerializationArgs | inputs.streamanalytics.ParquetSerializationArgs | undefined>;
+    serialization?: pulumi.Input<inputs.streamanalytics.AvroSerializationArgs | inputs.streamanalytics.CsvSerializationArgs | inputs.streamanalytics.JsonSerializationArgs | inputs.streamanalytics.ParquetSerializationArgs>;
     /**
      * The size window to constrain a Stream Analytics output to.
      */
-    sizeWindow?: pulumi.Input<number | undefined>;
+    sizeWindow?: pulumi.Input<number>;
     /**
      * The time frame for filtering Stream Analytics job outputs.
      */
-    timeWindow?: pulumi.Input<string | undefined>;
+    timeWindow?: pulumi.Input<string>;
 }

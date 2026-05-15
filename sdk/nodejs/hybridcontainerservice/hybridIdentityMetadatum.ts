@@ -124,15 +124,15 @@ export interface HybridIdentityMetadatumArgs {
     /**
      * Parameter for the name of the hybrid identity metadata resource.
      */
-    hybridIdentityMetadataResourceName?: pulumi.Input<string | undefined>;
+    hybridIdentityMetadataResourceName?: pulumi.Input<string>;
     /**
      * The identity of the provisioned cluster.
      */
-    identity?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClusterIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClusterIdentityArgs>;
     /**
      * Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
      */
-    publicKey?: pulumi.Input<string | undefined>;
+    publicKey?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -144,5 +144,5 @@ export interface HybridIdentityMetadatumArgs {
     /**
      * Unique id of the parent provisioned cluster resource.
      */
-    resourceUid?: pulumi.Input<string | undefined>;
+    resourceUid?: pulumi.Input<string>;
 }

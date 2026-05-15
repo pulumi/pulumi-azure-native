@@ -124,7 +124,7 @@ export interface EnvironmentSpecificationVersionArgs {
     /**
      * Version of EnvironmentSpecificationVersion.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */

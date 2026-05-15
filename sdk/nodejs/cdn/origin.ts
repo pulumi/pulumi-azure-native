@@ -193,7 +193,7 @@ export interface OriginArgs {
     /**
      * Origin is enabled for load balancing or not
      */
-    enabled?: pulumi.Input<boolean | undefined>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
@@ -205,39 +205,39 @@ export interface OriginArgs {
     /**
      * The value of the HTTP port. Must be between 1 and 65535.
      */
-    httpPort?: pulumi.Input<number | undefined>;
+    httpPort?: pulumi.Input<number>;
     /**
      * The value of the HTTPS port. Must be between 1 and 65535.
      */
-    httpsPort?: pulumi.Input<number | undefined>;
+    httpsPort?: pulumi.Input<number>;
     /**
      * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
-    originHostHeader?: pulumi.Input<string | undefined>;
+    originHostHeader?: pulumi.Input<string>;
     /**
      * Name of the origin which is unique within the endpoint.
      */
-    originName?: pulumi.Input<string | undefined>;
+    originName?: pulumi.Input<string>;
     /**
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
      */
-    priority?: pulumi.Input<number | undefined>;
+    priority?: pulumi.Input<number>;
     /**
      * The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
      */
-    privateLinkAlias?: pulumi.Input<string | undefined>;
+    privateLinkAlias?: pulumi.Input<string>;
     /**
      * A custom message to be included in the approval request to connect to the Private Link.
      */
-    privateLinkApprovalMessage?: pulumi.Input<string | undefined>;
+    privateLinkApprovalMessage?: pulumi.Input<string>;
     /**
      * The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
      */
-    privateLinkLocation?: pulumi.Input<string | undefined>;
+    privateLinkLocation?: pulumi.Input<string>;
     /**
      * The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
      */
-    privateLinkResourceId?: pulumi.Input<string | undefined>;
+    privateLinkResourceId?: pulumi.Input<string>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -249,5 +249,5 @@ export interface OriginArgs {
     /**
      * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
      */
-    weight?: pulumi.Input<number | undefined>;
+    weight?: pulumi.Input<number>;
 }

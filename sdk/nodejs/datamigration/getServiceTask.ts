@@ -97,7 +97,7 @@ export interface GetServiceTaskOutputArgs {
     /**
      * Expand the response
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */

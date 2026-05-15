@@ -159,23 +159,23 @@ export interface GalleryApplicationArgs {
     /**
      * A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
      */
-    customActions?: pulumi.Input<pulumi.Input<inputs.compute.GalleryApplicationCustomActionArgs>[] | undefined>;
+    customActions?: pulumi.Input<pulumi.Input<inputs.compute.GalleryApplicationCustomActionArgs>[]>;
     /**
      * The description of this gallery Application Definition resource. This property is updatable.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
      */
-    endOfLifeDate?: pulumi.Input<string | undefined>;
+    endOfLifeDate?: pulumi.Input<string>;
     /**
      * The Eula agreement for the gallery Application Definition.
      */
-    eula?: pulumi.Input<string | undefined>;
+    eula?: pulumi.Input<string>;
     /**
      * The name of the gallery Application Definition to be retrieved.
      */
-    galleryApplicationName?: pulumi.Input<string | undefined>;
+    galleryApplicationName?: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -183,15 +183,15 @@ export interface GalleryApplicationArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The privacy statement uri.
      */
-    privacyStatementUri?: pulumi.Input<string | undefined>;
+    privacyStatementUri?: pulumi.Input<string>;
     /**
      * The release note uri.
      */
-    releaseNoteUri?: pulumi.Input<string | undefined>;
+    releaseNoteUri?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -203,5 +203,5 @@ export interface GalleryApplicationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

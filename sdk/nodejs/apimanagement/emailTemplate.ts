@@ -132,15 +132,15 @@ export interface EmailTemplateArgs {
     /**
      * Email Template Body. This should be a valid XDocument
      */
-    body?: pulumi.Input<string | undefined>;
+    body?: pulumi.Input<string>;
     /**
      * Description of the Email Template.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Email Template Parameter values.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.EmailTemplateParametersContractPropertiesArgs>[] | undefined>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.EmailTemplateParametersContractPropertiesArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -152,13 +152,13 @@ export interface EmailTemplateArgs {
     /**
      * Subject of the Template.
      */
-    subject?: pulumi.Input<string | undefined>;
+    subject?: pulumi.Input<string>;
     /**
      * Email Template Name Identifier.
      */
-    templateName?: pulumi.Input<string | undefined>;
+    templateName?: pulumi.Input<string>;
     /**
      * Title of the Template.
      */
-    title?: pulumi.Input<string | undefined>;
+    title?: pulumi.Input<string>;
 }

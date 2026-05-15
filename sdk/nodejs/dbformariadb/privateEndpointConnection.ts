@@ -112,12 +112,12 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Private endpoint which the connection belongs to.
      */
-    privateEndpoint?: pulumi.Input<inputs.dbformariadb.PrivateEndpointPropertyArgs | undefined>;
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpoint?: pulumi.Input<inputs.dbformariadb.PrivateEndpointPropertyArgs>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection state of the private endpoint connection.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.dbformariadb.PrivateLinkServiceConnectionStatePropertyArgs | undefined>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.dbformariadb.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -152,27 +152,27 @@ export interface SecurityConnectorArgs {
     /**
      * The security connector environment data.
      */
-    environmentData?: pulumi.Input<inputs.security.AwsEnvironmentDataArgs | inputs.security.AzureDevOpsScopeEnvironmentDataArgs | inputs.security.DockerHubEnvironmentDataArgs | inputs.security.GcpProjectEnvironmentDataArgs | inputs.security.GithubScopeEnvironmentDataArgs | inputs.security.GitlabScopeEnvironmentDataArgs | inputs.security.JFrogEnvironmentDataArgs | undefined>;
+    environmentData?: pulumi.Input<inputs.security.AwsEnvironmentDataArgs | inputs.security.AzureDevOpsScopeEnvironmentDataArgs | inputs.security.DockerHubEnvironmentDataArgs | inputs.security.GcpProjectEnvironmentDataArgs | inputs.security.GithubScopeEnvironmentDataArgs | inputs.security.GitlabScopeEnvironmentDataArgs | inputs.security.JFrogEnvironmentDataArgs>;
     /**
      * The multi cloud resource's cloud name.
      */
-    environmentName?: pulumi.Input<string | enums.security.CloudName | undefined>;
+    environmentName?: pulumi.Input<string | enums.security.CloudName>;
     /**
      * The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
      */
-    hierarchyIdentifier?: pulumi.Input<string | undefined>;
+    hierarchyIdentifier?: pulumi.Input<string>;
     /**
      * Kind of the resource
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Location where the resource is stored
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * A collection of offerings for the security connector.
      */
-    offerings?: pulumi.Input<pulumi.Input<inputs.security.CspmMonitorAwsOfferingArgs | inputs.security.CspmMonitorAzureDevOpsOfferingArgs | inputs.security.CspmMonitorDockerHubOfferingArgs | inputs.security.CspmMonitorGcpOfferingArgs | inputs.security.CspmMonitorGitLabOfferingArgs | inputs.security.CspmMonitorGithubOfferingArgs | inputs.security.CspmMonitorJFrogOfferingArgs | inputs.security.DefenderCspmAwsOfferingArgs | inputs.security.DefenderCspmDockerHubOfferingArgs | inputs.security.DefenderCspmGcpOfferingArgs | inputs.security.DefenderCspmJFrogOfferingArgs | inputs.security.DefenderFoDatabasesAwsOfferingArgs | inputs.security.DefenderForContainersAwsOfferingArgs | inputs.security.DefenderForContainersDockerHubOfferingArgs | inputs.security.DefenderForContainersGcpOfferingArgs | inputs.security.DefenderForContainersJFrogOfferingArgs | inputs.security.DefenderForDatabasesGcpOfferingArgs | inputs.security.DefenderForServersAwsOfferingArgs | inputs.security.DefenderForServersGcpOfferingArgs>[] | undefined>;
+    offerings?: pulumi.Input<pulumi.Input<inputs.security.CspmMonitorAwsOfferingArgs | inputs.security.CspmMonitorAzureDevOpsOfferingArgs | inputs.security.CspmMonitorDockerHubOfferingArgs | inputs.security.CspmMonitorGcpOfferingArgs | inputs.security.CspmMonitorGitLabOfferingArgs | inputs.security.CspmMonitorGithubOfferingArgs | inputs.security.CspmMonitorJFrogOfferingArgs | inputs.security.DefenderCspmAwsOfferingArgs | inputs.security.DefenderCspmDockerHubOfferingArgs | inputs.security.DefenderCspmGcpOfferingArgs | inputs.security.DefenderCspmJFrogOfferingArgs | inputs.security.DefenderFoDatabasesAwsOfferingArgs | inputs.security.DefenderForContainersAwsOfferingArgs | inputs.security.DefenderForContainersDockerHubOfferingArgs | inputs.security.DefenderForContainersGcpOfferingArgs | inputs.security.DefenderForContainersJFrogOfferingArgs | inputs.security.DefenderForDatabasesGcpOfferingArgs | inputs.security.DefenderForServersAwsOfferingArgs | inputs.security.DefenderForServersGcpOfferingArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -180,9 +180,9 @@ export interface SecurityConnectorArgs {
     /**
      * The security connector name.
      */
-    securityConnectorName?: pulumi.Input<string | undefined>;
+    securityConnectorName?: pulumi.Input<string>;
     /**
      * A list of key value pairs that describe the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

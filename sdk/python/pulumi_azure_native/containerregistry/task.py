@@ -24,20 +24,20 @@ class TaskArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 agent_configuration: pulumi.Input[Optional['AgentPropertiesArgs']] = None,
-                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional['CredentialsArgs']] = None,
-                 identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
-                 is_system_task: pulumi.Input[Optional[_builtins.bool]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_template: pulumi.Input[Optional[_builtins.str]] = None,
-                 platform: pulumi.Input[Optional['PlatformPropertiesArgs']] = None,
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'TaskStatus']]] = None,
-                 step: pulumi.Input[Optional[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 task_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
-                 trigger: pulumi.Input[Optional['TriggerPropertiesArgs']] = None):
+                 agent_configuration: Optional[pulumi.Input['AgentPropertiesArgs']] = None,
+                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: Optional[pulumi.Input['CredentialsArgs']] = None,
+                 identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+                 is_system_task: Optional[pulumi.Input[_builtins.bool]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 platform: Optional[pulumi.Input['PlatformPropertiesArgs']] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'TaskStatus']]] = None,
+                 step: Optional[pulumi.Input[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 task_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 trigger: Optional[pulumi.Input['TriggerPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Task resource.
 
@@ -119,170 +119,170 @@ class TaskArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentConfiguration")
-    def agent_configuration(self) -> pulumi.Input[Optional['AgentPropertiesArgs']]:
+    def agent_configuration(self) -> Optional[pulumi.Input['AgentPropertiesArgs']]:
         """
         The machine configuration of the run agent.
         """
         return pulumi.get(self, "agent_configuration")
 
     @agent_configuration.setter
-    def agent_configuration(self, value: pulumi.Input[Optional['AgentPropertiesArgs']]):
+    def agent_configuration(self, value: Optional[pulumi.Input['AgentPropertiesArgs']]):
         pulumi.set(self, "agent_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="agentPoolName")
-    def agent_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def agent_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The dedicated agent pool for the task.
         """
         return pulumi.get(self, "agent_pool_name")
 
     @agent_pool_name.setter
-    def agent_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def agent_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> pulumi.Input[Optional['CredentialsArgs']]:
+    def credentials(self) -> Optional[pulumi.Input['CredentialsArgs']]:
         """
         The properties that describes a set of credentials that will be used when this run is invoked.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: pulumi.Input[Optional['CredentialsArgs']]):
+    def credentials(self, value: Optional[pulumi.Input['CredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['IdentityPropertiesArgs']]:
+    def identity(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
         """
         Identity for the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['IdentityPropertiesArgs']]):
+    def identity(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="isSystemTask")
-    def is_system_task(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def is_system_task(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         The value of this property indicates whether the task resource is system task or not.
         """
         return pulumi.get(self, "is_system_task")
 
     @is_system_task.setter
-    def is_system_task(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def is_system_task(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "is_system_task", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The location of the resource. This cannot be changed after the resource is created.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="logTemplate")
-    def log_template(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def log_template(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The template that describes the repository and tag information for run log artifact.
         """
         return pulumi.get(self, "log_template")
 
     @log_template.setter
-    def log_template(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def log_template(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "log_template", value)
 
     @_builtins.property
     @pulumi.getter
-    def platform(self) -> pulumi.Input[Optional['PlatformPropertiesArgs']]:
+    def platform(self) -> Optional[pulumi.Input['PlatformPropertiesArgs']]:
         """
         The platform properties against which the run has to happen.
         """
         return pulumi.get(self, "platform")
 
     @platform.setter
-    def platform(self, value: pulumi.Input[Optional['PlatformPropertiesArgs']]):
+    def platform(self, value: Optional[pulumi.Input['PlatformPropertiesArgs']]):
         pulumi.set(self, "platform", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TaskStatus']]]:
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TaskStatus']]]:
         """
         The current status of task.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TaskStatus']]]):
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TaskStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter
-    def step(self) -> pulumi.Input[Optional[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']]]:
+    def step(self) -> Optional[pulumi.Input[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']]]:
         """
         The properties of a task step.
         """
         return pulumi.get(self, "step")
 
     @step.setter
-    def step(self, value: pulumi.Input[Optional[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']]]):
+    def step(self, value: Optional[pulumi.Input[Union['DockerBuildStepArgs', 'EncodedTaskStepArgs', 'FileTaskStepArgs']]]):
         pulumi.set(self, "step", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="taskName")
-    def task_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def task_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the container registry task.
         """
         return pulumi.get(self, "task_name")
 
     @task_name.setter
-    def task_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def task_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "task_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def timeout(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Run timeout in seconds.
         """
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def timeout(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "timeout", value)
 
     @_builtins.property
     @pulumi.getter
-    def trigger(self) -> pulumi.Input[Optional['TriggerPropertiesArgs']]:
+    def trigger(self) -> Optional[pulumi.Input['TriggerPropertiesArgs']]:
         """
         The properties that describe all triggers for the task.
         """
         return pulumi.get(self, "trigger")
 
     @trigger.setter
-    def trigger(self, value: pulumi.Input[Optional['TriggerPropertiesArgs']]):
+    def trigger(self, value: Optional[pulumi.Input['TriggerPropertiesArgs']]):
         pulumi.set(self, "trigger", value)
 
 
@@ -292,22 +292,22 @@ class Task(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_configuration: pulumi.Input[Optional[Union['AgentPropertiesArgs', 'AgentPropertiesArgsDict']]] = None,
-                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['CredentialsArgs', 'CredentialsArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 is_system_task: pulumi.Input[Optional[_builtins.bool]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_template: pulumi.Input[Optional[_builtins.str]] = None,
-                 platform: pulumi.Input[Optional[Union['PlatformPropertiesArgs', 'PlatformPropertiesArgsDict']]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'TaskStatus']]] = None,
-                 step: pulumi.Input[Optional[Union[Union['DockerBuildStepArgs', 'DockerBuildStepArgsDict'], Union['EncodedTaskStepArgs', 'EncodedTaskStepArgsDict'], Union['FileTaskStepArgs', 'FileTaskStepArgsDict']]]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 task_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
-                 trigger: pulumi.Input[Optional[Union['TriggerPropertiesArgs', 'TriggerPropertiesArgsDict']]] = None,
+                 agent_configuration: Optional[pulumi.Input[Union['AgentPropertiesArgs', 'AgentPropertiesArgsDict']]] = None,
+                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: Optional[pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 is_system_task: Optional[pulumi.Input[_builtins.bool]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 platform: Optional[pulumi.Input[Union['PlatformPropertiesArgs', 'PlatformPropertiesArgsDict']]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'TaskStatus']]] = None,
+                 step: Optional[pulumi.Input[Union[Union['DockerBuildStepArgs', 'DockerBuildStepArgsDict'], Union['EncodedTaskStepArgs', 'EncodedTaskStepArgsDict'], Union['FileTaskStepArgs', 'FileTaskStepArgsDict']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 task_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 trigger: Optional[pulumi.Input[Union['TriggerPropertiesArgs', 'TriggerPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         The task that has the ARM resource and task properties.
@@ -367,22 +367,22 @@ class Task(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_configuration: pulumi.Input[Optional[Union['AgentPropertiesArgs', 'AgentPropertiesArgsDict']]] = None,
-                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credentials: pulumi.Input[Optional[Union['CredentialsArgs', 'CredentialsArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 is_system_task: pulumi.Input[Optional[_builtins.bool]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_template: pulumi.Input[Optional[_builtins.str]] = None,
-                 platform: pulumi.Input[Optional[Union['PlatformPropertiesArgs', 'PlatformPropertiesArgsDict']]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'TaskStatus']]] = None,
-                 step: pulumi.Input[Optional[Union[Union['DockerBuildStepArgs', 'DockerBuildStepArgsDict'], Union['EncodedTaskStepArgs', 'EncodedTaskStepArgsDict'], Union['FileTaskStepArgs', 'FileTaskStepArgsDict']]]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 task_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 timeout: pulumi.Input[Optional[_builtins.int]] = None,
-                 trigger: pulumi.Input[Optional[Union['TriggerPropertiesArgs', 'TriggerPropertiesArgsDict']]] = None,
+                 agent_configuration: Optional[pulumi.Input[Union['AgentPropertiesArgs', 'AgentPropertiesArgsDict']]] = None,
+                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credentials: Optional[pulumi.Input[Union['CredentialsArgs', 'CredentialsArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 is_system_task: Optional[pulumi.Input[_builtins.bool]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_template: Optional[pulumi.Input[_builtins.str]] = None,
+                 platform: Optional[pulumi.Input[Union['PlatformPropertiesArgs', 'PlatformPropertiesArgsDict']]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'TaskStatus']]] = None,
+                 step: Optional[pulumi.Input[Union[Union['DockerBuildStepArgs', 'DockerBuildStepArgsDict'], Union['EncodedTaskStepArgs', 'EncodedTaskStepArgsDict'], Union['FileTaskStepArgs', 'FileTaskStepArgsDict']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 task_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 timeout: Optional[pulumi.Input[_builtins.int]] = None,
+                 trigger: Optional[pulumi.Input[Union['TriggerPropertiesArgs', 'TriggerPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

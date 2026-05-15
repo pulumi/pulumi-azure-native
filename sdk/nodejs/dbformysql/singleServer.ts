@@ -208,11 +208,11 @@ export interface SingleServerArgs {
     /**
      * The Azure Active Directory identity of the server.
      */
-    identity?: pulumi.Input<inputs.dbformysql.ResourceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.dbformysql.ResourceIdentityArgs>;
     /**
      * The location the resource resides in.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the server.
      */
@@ -224,13 +224,13 @@ export interface SingleServerArgs {
     /**
      * The name of the server.
      */
-    serverName?: pulumi.Input<string | undefined>;
+    serverName?: pulumi.Input<string>;
     /**
      * The SKU (pricing tier) of the server.
      */
-    sku?: pulumi.Input<inputs.dbformysql.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.dbformysql.SkuArgs>;
     /**
      * Application-specific metadata in the form of key-value pairs.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

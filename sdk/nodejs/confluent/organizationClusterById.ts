@@ -130,7 +130,7 @@ export interface OrganizationClusterByIdArgs {
     /**
      * Confluent kafka or schema registry cluster id
      */
-    clusterId?: pulumi.Input<string | undefined>;
+    clusterId?: pulumi.Input<string>;
     /**
      * Confluent environment id
      */
@@ -138,11 +138,11 @@ export interface OrganizationClusterByIdArgs {
     /**
      * Type of cluster
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Metadata of the record
      */
-    metadata?: pulumi.Input<inputs.confluent.SCMetadataEntityArgs | undefined>;
+    metadata?: pulumi.Input<inputs.confluent.SCMetadataEntityArgs>;
     /**
      * Organization resource name
      */
@@ -154,9 +154,9 @@ export interface OrganizationClusterByIdArgs {
     /**
      * Specification of the cluster
      */
-    spec?: pulumi.Input<inputs.confluent.SCClusterSpecEntityArgs | undefined>;
+    spec?: pulumi.Input<inputs.confluent.SCClusterSpecEntityArgs>;
     /**
      * Specification of the cluster status
      */
-    status?: pulumi.Input<inputs.confluent.ClusterStatusEntityArgs | undefined>;
+    status?: pulumi.Input<inputs.confluent.ClusterStatusEntityArgs>;
 }

@@ -221,11 +221,11 @@ export interface DeploymentStackAtSubscriptionArgs {
     /**
      * Flag to bypass service errors that indicate the stack resource list is not correctly synchronized.
      */
-    bypassStackOutOfSyncError?: pulumi.Input<boolean | undefined>;
+    bypassStackOutOfSyncError?: pulumi.Input<boolean>;
     /**
      * The debug setting of the deployment.
      */
-    debugSetting?: pulumi.Input<inputs.resources.DeploymentStacksDebugSettingArgs | undefined>;
+    debugSetting?: pulumi.Input<inputs.resources.DeploymentStacksDebugSettingArgs>;
     /**
      * Defines how resources deployed by the stack are locked.
      */
@@ -233,37 +233,37 @@ export interface DeploymentStackAtSubscriptionArgs {
     /**
      * The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
      */
-    deploymentScope?: pulumi.Input<string | undefined>;
+    deploymentScope?: pulumi.Input<string>;
     /**
      * Name of the deployment stack.
      */
-    deploymentStackName?: pulumi.Input<string | undefined>;
+    deploymentStackName?: pulumi.Input<string>;
     /**
      * Deployment stack description. Max length of 4096 characters.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.resources.DeploymentParameterArgs>} | undefined>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.resources.DeploymentParameterArgs>}>;
     /**
      * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
      */
-    parametersLink?: pulumi.Input<inputs.resources.DeploymentStacksParametersLinkArgs | undefined>;
+    parametersLink?: pulumi.Input<inputs.resources.DeploymentStacksParametersLinkArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
      */
-    template?: any | undefined;
+    template?: any;
     /**
      * The URI of the template. Use either the templateLink property or the template property, but not both.
      */
-    templateLink?: pulumi.Input<inputs.resources.DeploymentStacksTemplateLinkArgs | undefined>;
+    templateLink?: pulumi.Input<inputs.resources.DeploymentStacksTemplateLinkArgs>;
 }

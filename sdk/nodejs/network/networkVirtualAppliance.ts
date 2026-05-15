@@ -231,51 +231,51 @@ export interface NetworkVirtualApplianceArgs {
     /**
      * Details required for Additional Network Interface.
      */
-    additionalNics?: pulumi.Input<pulumi.Input<inputs.network.VirtualApplianceAdditionalNicPropertiesArgs>[] | undefined>;
+    additionalNics?: pulumi.Input<pulumi.Input<inputs.network.VirtualApplianceAdditionalNicPropertiesArgs>[]>;
     /**
      * BootStrapConfigurationBlobs storage URLs.
      */
-    bootStrapConfigurationBlobs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    bootStrapConfigurationBlobs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * CloudInitConfiguration string in plain text.
      */
-    cloudInitConfiguration?: pulumi.Input<string | undefined>;
+    cloudInitConfiguration?: pulumi.Input<string>;
     /**
      * CloudInitConfigurationBlob storage URLs.
      */
-    cloudInitConfigurationBlobs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    cloudInitConfigurationBlobs?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The delegation for the Virtual Appliance
      */
-    delegation?: pulumi.Input<inputs.network.DelegationPropertiesArgs | undefined>;
+    delegation?: pulumi.Input<inputs.network.DelegationPropertiesArgs>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The service principal that has read access to cloud-init and config blob.
      */
-    identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs>;
     /**
      * List of Resource Uri of Public IPs for Internet Ingress Scenario.
      */
-    internetIngressPublicIps?: pulumi.Input<pulumi.Input<inputs.network.InternetIngressPublicIpsPropertiesArgs>[] | undefined>;
+    internetIngressPublicIps?: pulumi.Input<pulumi.Input<inputs.network.InternetIngressPublicIpsPropertiesArgs>[]>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Network Profile containing configurations for Public and Private NIC.
      */
-    networkProfile?: pulumi.Input<inputs.network.NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs | undefined>;
+    networkProfile?: pulumi.Input<inputs.network.NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs>;
     /**
      * The name of Network Virtual Appliance.
      */
-    networkVirtualApplianceName?: pulumi.Input<string | undefined>;
+    networkVirtualApplianceName?: pulumi.Input<string>;
     /**
      * Network Virtual Appliance SKU.
      */
-    nvaSku?: pulumi.Input<inputs.network.VirtualApplianceSkuPropertiesArgs | undefined>;
+    nvaSku?: pulumi.Input<inputs.network.VirtualApplianceSkuPropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -283,17 +283,17 @@ export interface NetworkVirtualApplianceArgs {
     /**
      * Public key for SSH login.
      */
-    sshPublicKey?: pulumi.Input<string | undefined>;
+    sshPublicKey?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
      */
-    virtualApplianceAsn?: pulumi.Input<number | undefined>;
+    virtualApplianceAsn?: pulumi.Input<number>;
     /**
      * The Virtual Hub where Network Virtual Appliance is being deployed.
      */
-    virtualHub?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    virtualHub?: pulumi.Input<inputs.network.SubResourceArgs>;
 }

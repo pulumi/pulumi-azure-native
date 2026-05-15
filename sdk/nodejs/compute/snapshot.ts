@@ -269,11 +269,11 @@ export interface SnapshotArgs {
     /**
      * Percentage complete for the background copy when a resource is created via the CopyStart operation.
      */
-    completionPercent?: pulumi.Input<number | undefined>;
+    completionPercent?: pulumi.Input<number>;
     /**
      * Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
      */
-    copyCompletionError?: pulumi.Input<inputs.compute.CopyCompletionErrorArgs | undefined>;
+    copyCompletionError?: pulumi.Input<inputs.compute.CopyCompletionErrorArgs>;
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
@@ -281,55 +281,55 @@ export interface SnapshotArgs {
     /**
      * Additional authentication requirements when exporting or uploading to a disk or snapshot.
      */
-    dataAccessAuthMode?: pulumi.Input<string | enums.compute.DataAccessAuthMode | undefined>;
+    dataAccessAuthMode?: pulumi.Input<string | enums.compute.DataAccessAuthMode>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
-    diskAccessId?: pulumi.Input<string | undefined>;
+    diskAccessId?: pulumi.Input<string>;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
-    diskSizeGB?: pulumi.Input<number | undefined>;
+    diskSizeGB?: pulumi.Input<number>;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    encryption?: pulumi.Input<inputs.compute.EncryptionArgs | undefined>;
+    encryption?: pulumi.Input<inputs.compute.EncryptionArgs>;
     /**
      * Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    encryptionSettingsCollection?: pulumi.Input<inputs.compute.EncryptionSettingsCollectionArgs | undefined>;
+    encryptionSettingsCollection?: pulumi.Input<inputs.compute.EncryptionSettingsCollectionArgs>;
     /**
      * The extended location where the snapshot will be created. Extended location cannot be changed.
      */
-    extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    hyperVGeneration?: pulumi.Input<string | enums.compute.HyperVGeneration | undefined>;
+    hyperVGeneration?: pulumi.Input<string | enums.compute.HyperVGeneration>;
     /**
      * Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
      */
-    incremental?: pulumi.Input<boolean | undefined>;
+    incremental?: pulumi.Input<boolean>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Policy for accessing the disk via network.
      */
-    networkAccessPolicy?: pulumi.Input<string | enums.compute.NetworkAccessPolicy | undefined>;
+    networkAccessPolicy?: pulumi.Input<string | enums.compute.NetworkAccessPolicy>;
     /**
      * The Operating System type.
      */
-    osType?: pulumi.Input<enums.compute.OperatingSystemTypes | undefined>;
+    osType?: pulumi.Input<enums.compute.OperatingSystemTypes>;
     /**
      * Policy for controlling export on the disk.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.compute.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.compute.PublicNetworkAccess>;
     /**
      * Purchase plan information for the image from which the source disk for the snapshot was originally created.
      */
-    purchasePlan?: pulumi.Input<inputs.compute.DiskPurchasePlanArgs | undefined>;
+    purchasePlan?: pulumi.Input<inputs.compute.DiskPurchasePlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -337,25 +337,25 @@ export interface SnapshotArgs {
     /**
      * Contains the security related information for the resource.
      */
-    securityProfile?: pulumi.Input<inputs.compute.DiskSecurityProfileArgs | undefined>;
+    securityProfile?: pulumi.Input<inputs.compute.DiskSecurityProfileArgs>;
     /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
-    sku?: pulumi.Input<inputs.compute.SnapshotSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.compute.SnapshotSkuArgs>;
     /**
      * The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
      */
-    snapshotName?: pulumi.Input<string | undefined>;
+    snapshotName?: pulumi.Input<string>;
     /**
      * List of supported capabilities for the image from which the source disk from the snapshot was originally created.
      */
-    supportedCapabilities?: pulumi.Input<inputs.compute.SupportedCapabilitiesArgs | undefined>;
+    supportedCapabilities?: pulumi.Input<inputs.compute.SupportedCapabilitiesArgs>;
     /**
      * Indicates the OS on a snapshot supports hibernation.
      */
-    supportsHibernation?: pulumi.Input<boolean | undefined>;
+    supportsHibernation?: pulumi.Input<boolean>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -146,7 +146,7 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * The name of the managed private endpoint.
      */
-    managedPrivateEndpointName?: pulumi.Input<string | undefined>;
+    managedPrivateEndpointName?: pulumi.Input<string>;
     /**
      * The ARM resource ID of the resource for which the managed private endpoint is created.
      */
@@ -154,11 +154,11 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * The region of the resource to which the managed private endpoint is created.
      */
-    privateLinkResourceRegion?: pulumi.Input<string | undefined>;
+    privateLinkResourceRegion?: pulumi.Input<string>;
     /**
      * The user request message.
      */
-    requestMessage?: pulumi.Input<string | undefined>;
+    requestMessage?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

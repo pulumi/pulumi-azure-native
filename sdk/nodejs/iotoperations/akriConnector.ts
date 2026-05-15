@@ -122,11 +122,11 @@ export interface AkriConnectorArgs {
     /**
      * Name of AkriConnector resource.
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName?: pulumi.Input<string>;
     /**
      * Edge location of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.iotoperations.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.iotoperations.ExtendedLocationArgs>;
     /**
      * Name of instance.
      */

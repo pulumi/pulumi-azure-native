@@ -25,7 +25,7 @@ class MaintenanceConfigurationArgs:
                  environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  scheduled_entries: pulumi.Input[Sequence[pulumi.Input['ScheduledEntryArgs']]],
-                 config_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 config_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MaintenanceConfiguration resource.
 
@@ -78,14 +78,14 @@ class MaintenanceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configName")
-    def config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the maintenance configuration.
         """
         return pulumi.get(self, "config_name")
 
     @config_name.setter
-    def config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "config_name", value)
 
 
@@ -95,10 +95,10 @@ class MaintenanceConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scheduled_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledEntryArgs', 'ScheduledEntryArgsDict']]]]] = None,
+                 config_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduled_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledEntryArgs', 'ScheduledEntryArgsDict']]]]] = None,
                  __props__=None):
         """
         Information about the Maintenance Configuration resource.
@@ -144,10 +144,10 @@ class MaintenanceConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scheduled_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduledEntryArgs', 'ScheduledEntryArgsDict']]]]] = None,
+                 config_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduled_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduledEntryArgs', 'ScheduledEntryArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

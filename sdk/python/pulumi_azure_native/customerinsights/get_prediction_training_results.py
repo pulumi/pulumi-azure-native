@@ -125,9 +125,9 @@ def get_prediction_training_results(hub_name: Optional[_builtins.str] = None,
         primary_profile_instance_count=pulumi.get(__ret__, 'primary_profile_instance_count'),
         score_name=pulumi.get(__ret__, 'score_name'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
-def get_prediction_training_results_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           prediction_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_prediction_training_results_output(hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           prediction_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPredictionTrainingResultsResult]:
     """
     Gets training results.

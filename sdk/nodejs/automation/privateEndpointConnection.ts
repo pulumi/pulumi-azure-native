@@ -124,19 +124,19 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Gets the groupIds.
      */
-    groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Private endpoint which the connection belongs to.
      */
-    privateEndpoint?: pulumi.Input<inputs.automation.PrivateEndpointPropertyArgs | undefined>;
+    privateEndpoint?: pulumi.Input<inputs.automation.PrivateEndpointPropertyArgs>;
     /**
      * The name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection State of the Private Endpoint Connection.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.automation.PrivateLinkServiceConnectionStatePropertyArgs | undefined>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.automation.PrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * Name of an Azure Resource group.
      */

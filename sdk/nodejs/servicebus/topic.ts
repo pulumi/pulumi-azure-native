@@ -210,35 +210,35 @@ export interface TopicArgs {
     /**
      * ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
      */
-    autoDeleteOnIdle?: pulumi.Input<string | undefined>;
+    autoDeleteOnIdle?: pulumi.Input<string>;
     /**
      * ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      */
-    defaultMessageTimeToLive?: pulumi.Input<string | undefined>;
+    defaultMessageTimeToLive?: pulumi.Input<string>;
     /**
      * ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
      */
-    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string | undefined>;
+    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
      * Value that indicates whether server-side batched operations are enabled.
      */
-    enableBatchedOperations?: pulumi.Input<boolean | undefined>;
+    enableBatchedOperations?: pulumi.Input<boolean>;
     /**
      * Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
      */
-    enableExpress?: pulumi.Input<boolean | undefined>;
+    enableExpress?: pulumi.Input<boolean>;
     /**
      * Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
      */
-    enablePartitioning?: pulumi.Input<boolean | undefined>;
+    enablePartitioning?: pulumi.Input<boolean>;
     /**
      * Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
      */
-    maxMessageSizeInKilobytes?: pulumi.Input<number | undefined>;
+    maxMessageSizeInKilobytes?: pulumi.Input<number>;
     /**
      * Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
      */
-    maxSizeInMegabytes?: pulumi.Input<number | undefined>;
+    maxSizeInMegabytes?: pulumi.Input<number>;
     /**
      * The namespace name
      */
@@ -246,7 +246,7 @@ export interface TopicArgs {
     /**
      * Value indicating if this topic requires duplicate detection.
      */
-    requiresDuplicateDetection?: pulumi.Input<boolean | undefined>;
+    requiresDuplicateDetection?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -254,13 +254,13 @@ export interface TopicArgs {
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    status?: pulumi.Input<enums.servicebus.EntityStatus | undefined>;
+    status?: pulumi.Input<enums.servicebus.EntityStatus>;
     /**
      * Value that indicates whether the topic supports ordering.
      */
-    supportOrdering?: pulumi.Input<boolean | undefined>;
+    supportOrdering?: pulumi.Input<boolean>;
     /**
      * The topic name.
      */
-    topicName?: pulumi.Input<string | undefined>;
+    topicName?: pulumi.Input<string>;
 }

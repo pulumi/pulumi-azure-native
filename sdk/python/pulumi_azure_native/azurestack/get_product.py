@@ -348,9 +348,9 @@ def get_product(product_name: Optional[_builtins.str] = None,
         sku=pulumi.get(__ret__, 'sku'),
         type=pulumi.get(__ret__, 'type'),
         vm_extension_type=pulumi.get(__ret__, 'vm_extension_type'))
-def get_product_output(product_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       registration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+def get_product_output(product_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       registration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Returns the specified product.

@@ -22,7 +22,7 @@ class DynamicSchemaArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  schema_name: pulumi.Input[_builtins.str],
-                 dynamic_schema_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 dynamic_schema_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DynamicSchema resource.
 
@@ -61,14 +61,14 @@ class DynamicSchemaArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicSchemaName")
-    def dynamic_schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def dynamic_schema_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the DynamicSchema
         """
         return pulumi.get(self, "dynamic_schema_name")
 
     @dynamic_schema_name.setter
-    def dynamic_schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def dynamic_schema_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dynamic_schema_name", value)
 
 
@@ -78,9 +78,9 @@ class DynamicSchema(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dynamic_schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         DynamicSchema Resource
@@ -125,9 +125,9 @@ class DynamicSchema(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dynamic_schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

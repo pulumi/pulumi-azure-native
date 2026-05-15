@@ -162,15 +162,15 @@ export interface FirewallPolicyDraftArgs {
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    basePolicy?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    basePolicy?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * DNS Proxy Settings definition.
      */
-    dnsSettings?: pulumi.Input<inputs.network.DnsSettingsArgs | undefined>;
+    dnsSettings?: pulumi.Input<inputs.network.DnsSettingsArgs>;
     /**
      * Explicit Proxy Settings definition.
      */
-    explicitProxy?: pulumi.Input<inputs.network.ExplicitProxyArgs | undefined>;
+    explicitProxy?: pulumi.Input<inputs.network.ExplicitProxyArgs>;
     /**
      * The name of the Firewall Policy.
      */
@@ -178,19 +178,19 @@ export interface FirewallPolicyDraftArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Insights on Firewall Policy.
      */
-    insights?: pulumi.Input<inputs.network.FirewallPolicyInsightsArgs | undefined>;
+    insights?: pulumi.Input<inputs.network.FirewallPolicyInsightsArgs>;
     /**
      * The configuration for Intrusion detection.
      */
-    intrusionDetection?: pulumi.Input<inputs.network.FirewallPolicyIntrusionDetectionArgs | undefined>;
+    intrusionDetection?: pulumi.Input<inputs.network.FirewallPolicyIntrusionDetectionArgs>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -198,21 +198,21 @@ export interface FirewallPolicyDraftArgs {
     /**
      * The private IP addresses/IP ranges to which traffic will not be SNAT.
      */
-    snat?: pulumi.Input<inputs.network.FirewallPolicySNATArgs | undefined>;
+    snat?: pulumi.Input<inputs.network.FirewallPolicySNATArgs>;
     /**
      * SQL Settings definition.
      */
-    sql?: pulumi.Input<inputs.network.FirewallPolicySQLArgs | undefined>;
+    sql?: pulumi.Input<inputs.network.FirewallPolicySQLArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The operation mode for Threat Intelligence.
      */
-    threatIntelMode?: pulumi.Input<string | enums.network.AzureFirewallThreatIntelMode | undefined>;
+    threatIntelMode?: pulumi.Input<string | enums.network.AzureFirewallThreatIntelMode>;
     /**
      * ThreatIntel Whitelist for Firewall Policy.
      */
-    threatIntelWhitelist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelWhitelistArgs | undefined>;
+    threatIntelWhitelist?: pulumi.Input<inputs.network.FirewallPolicyThreatIntelWhitelistArgs>;
 }

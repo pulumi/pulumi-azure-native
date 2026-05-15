@@ -170,7 +170,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             }
             resourceInputs["assessmentSettings"] = args?.assessmentSettings;
             resourceInputs["autoBackupSettings"] = args?.autoBackupSettings;
-            resourceInputs["autoPatchingSettings"] = args ? pulumi.output(args.autoPatchingSettings).apply(v => v === undefined ? undefined : inputs.sqlvirtualmachine.autoPatchingSettingsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["autoPatchingSettings"] = args ? (args.autoPatchingSettings ? pulumi.output(args.autoPatchingSettings).apply(inputs.sqlvirtualmachine.autoPatchingSettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["enableAutomaticUpgrade"] = (args?.enableAutomaticUpgrade) ?? false;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["keyVaultCredentialSettings"] = args?.keyVaultCredentialSettings;
@@ -184,7 +184,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             resourceInputs["sqlServerLicenseType"] = args?.sqlServerLicenseType;
             resourceInputs["sqlVirtualMachineGroupResourceId"] = args?.sqlVirtualMachineGroupResourceId;
             resourceInputs["sqlVirtualMachineName"] = args?.sqlVirtualMachineName;
-            resourceInputs["storageConfigurationSettings"] = args ? pulumi.output(args.storageConfigurationSettings).apply(v => v === undefined ? undefined : inputs.sqlvirtualmachine.storageConfigurationSettingsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["storageConfigurationSettings"] = args ? (args.storageConfigurationSettings ? pulumi.output(args.storageConfigurationSettings).apply(inputs.sqlvirtualmachine.storageConfigurationSettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualMachineIdentitySettings"] = args?.virtualMachineIdentitySettings;
             resourceInputs["virtualMachineResourceId"] = args?.virtualMachineResourceId;
@@ -242,35 +242,35 @@ export interface SqlVirtualMachineArgs {
     /**
      * SQL best practices Assessment Settings.
      */
-    assessmentSettings?: pulumi.Input<inputs.sqlvirtualmachine.AssessmentSettingsArgs | undefined>;
+    assessmentSettings?: pulumi.Input<inputs.sqlvirtualmachine.AssessmentSettingsArgs>;
     /**
      * Auto backup settings for SQL Server.
      */
-    autoBackupSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoBackupSettingsArgs | undefined>;
+    autoBackupSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoBackupSettingsArgs>;
     /**
      * Auto patching settings for applying critical security updates to SQL virtual machine.
      */
-    autoPatchingSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoPatchingSettingsArgs | undefined>;
+    autoPatchingSettings?: pulumi.Input<inputs.sqlvirtualmachine.AutoPatchingSettingsArgs>;
     /**
      * Enable automatic upgrade of Sql IaaS extension Agent.
      */
-    enableAutomaticUpgrade?: pulumi.Input<boolean | undefined>;
+    enableAutomaticUpgrade?: pulumi.Input<boolean>;
     /**
      * DO NOT USE. This value will be deprecated. Azure Active Directory identity of the server.
      */
-    identity?: pulumi.Input<inputs.sqlvirtualmachine.ResourceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.sqlvirtualmachine.ResourceIdentityArgs>;
     /**
      * Key vault credential settings.
      */
-    keyVaultCredentialSettings?: pulumi.Input<inputs.sqlvirtualmachine.KeyVaultCredentialSettingsArgs | undefined>;
+    keyVaultCredentialSettings?: pulumi.Input<inputs.sqlvirtualmachine.KeyVaultCredentialSettingsArgs>;
     /**
      * SQL IaaS Agent least privilege mode.
      */
-    leastPrivilegeMode?: pulumi.Input<string | enums.sqlvirtualmachine.LeastPrivilegeMode | undefined>;
+    leastPrivilegeMode?: pulumi.Input<string | enums.sqlvirtualmachine.LeastPrivilegeMode>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -278,53 +278,53 @@ export interface SqlVirtualMachineArgs {
     /**
      * SQL Server configuration management settings.
      */
-    serverConfigurationsManagementSettings?: pulumi.Input<inputs.sqlvirtualmachine.ServerConfigurationsManagementSettingsArgs | undefined>;
+    serverConfigurationsManagementSettings?: pulumi.Input<inputs.sqlvirtualmachine.ServerConfigurationsManagementSettingsArgs>;
     /**
      * SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
      */
-    sqlImageOffer?: pulumi.Input<string | undefined>;
+    sqlImageOffer?: pulumi.Input<string>;
     /**
      * SQL Server edition type.
      */
-    sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.SqlImageSku | undefined>;
+    sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.SqlImageSku>;
     /**
      * SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
      */
-    sqlManagement?: pulumi.Input<string | enums.sqlvirtualmachine.SqlManagementMode | undefined>;
+    sqlManagement?: pulumi.Input<string | enums.sqlvirtualmachine.SqlManagementMode>;
     /**
      * SQL Server license type.
      */
-    sqlServerLicenseType?: pulumi.Input<string | enums.sqlvirtualmachine.SqlServerLicenseType | undefined>;
+    sqlServerLicenseType?: pulumi.Input<string | enums.sqlvirtualmachine.SqlServerLicenseType>;
     /**
      * ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
      */
-    sqlVirtualMachineGroupResourceId?: pulumi.Input<string | undefined>;
+    sqlVirtualMachineGroupResourceId?: pulumi.Input<string>;
     /**
      * Name of the SQL virtual machine.
      */
-    sqlVirtualMachineName?: pulumi.Input<string | undefined>;
+    sqlVirtualMachineName?: pulumi.Input<string>;
     /**
      * Storage Configuration Settings.
      */
-    storageConfigurationSettings?: pulumi.Input<inputs.sqlvirtualmachine.StorageConfigurationSettingsArgs | undefined>;
+    storageConfigurationSettings?: pulumi.Input<inputs.sqlvirtualmachine.StorageConfigurationSettingsArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Virtual Machine Identity details used for Sql IaaS extension configurations.
      */
-    virtualMachineIdentitySettings?: pulumi.Input<inputs.sqlvirtualmachine.VirtualMachineIdentityArgs | undefined>;
+    virtualMachineIdentitySettings?: pulumi.Input<inputs.sqlvirtualmachine.VirtualMachineIdentityArgs>;
     /**
      * ARM Resource id of underlying virtual machine created from SQL marketplace image.
      */
-    virtualMachineResourceId?: pulumi.Input<string | undefined>;
+    virtualMachineResourceId?: pulumi.Input<string>;
     /**
      * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
      */
-    wsfcDomainCredentials?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainCredentialsArgs | undefined>;
+    wsfcDomainCredentials?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainCredentialsArgs>;
     /**
      * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
      */
-    wsfcStaticIp?: pulumi.Input<string | undefined>;
+    wsfcStaticIp?: pulumi.Input<string>;
 }

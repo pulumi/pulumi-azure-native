@@ -175,7 +175,7 @@ export interface Gen2EnvironmentArgs {
     /**
      * Name of the environment
      */
-    environmentName?: pulumi.Input<string | undefined>;
+    environmentName?: pulumi.Input<string>;
     /**
      * The kind of the environment.
      * Expected value is 'Gen2'.
@@ -184,7 +184,7 @@ export interface Gen2EnvironmentArgs {
     /**
      * The location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
@@ -200,7 +200,7 @@ export interface Gen2EnvironmentArgs {
     /**
      * Key-value pairs of additional properties for the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of event properties which will be used to define the environment's time series id.
      */
@@ -208,5 +208,5 @@ export interface Gen2EnvironmentArgs {
     /**
      * The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
      */
-    warmStoreConfiguration?: pulumi.Input<inputs.timeseriesinsights.WarmStoreConfigurationPropertiesArgs | undefined>;
+    warmStoreConfiguration?: pulumi.Input<inputs.timeseriesinsights.WarmStoreConfigurationPropertiesArgs>;
 }

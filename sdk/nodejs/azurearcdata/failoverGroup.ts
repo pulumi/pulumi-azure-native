@@ -83,7 +83,7 @@ export class FailoverGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sqlManagedInstanceName'");
             }
             resourceInputs["failoverGroupName"] = args?.failoverGroupName;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.azurearcdata.failoverGroupPropertiesArgsProvideDefaults) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.azurearcdata.failoverGroupPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sqlManagedInstanceName"] = args?.sqlManagedInstanceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -111,7 +111,7 @@ export interface FailoverGroupArgs {
     /**
      * The name of the Failover Group
      */
-    failoverGroupName?: pulumi.Input<string | undefined>;
+    failoverGroupName?: pulumi.Input<string>;
     /**
      * null
      */

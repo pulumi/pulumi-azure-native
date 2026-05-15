@@ -199,10 +199,10 @@ def get_web_app_relay_service_connection_slot(entity_name: Optional[_builtins.st
         resource_connection_string=pulumi.get(__ret__, 'resource_connection_string'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_relay_service_connection_slot_output(entity_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     slot: pulumi.Input[Optional[_builtins.str]] = None,
+def get_web_app_relay_service_connection_slot_output(entity_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                     name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                     slot: Optional[pulumi.Input[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppRelayServiceConnectionSlotResult]:
     """
     Description for Gets a hybrid connection configuration by its name.

@@ -130,15 +130,15 @@ export interface ElasticBackupPolicyArgs {
     /**
      * The name of the ElasticBackupPolicy
      */
-    backupPolicyName?: pulumi.Input<string | undefined>;
+    backupPolicyName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.netapp.ElasticBackupPolicyPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.netapp.ElasticBackupPolicyPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -146,5 +146,5 @@ export interface ElasticBackupPolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

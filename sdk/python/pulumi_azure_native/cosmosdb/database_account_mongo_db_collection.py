@@ -27,7 +27,7 @@ class DatabaseAccountMongoDBCollectionArgs:
                  options: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  resource: pulumi.Input['MongoDBCollectionResourceArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 collection_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 collection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabaseAccountMongoDBCollection resource.
 
@@ -108,14 +108,14 @@ class DatabaseAccountMongoDBCollectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="collectionName")
-    def collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def collection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Cosmos DB collection name.
         """
         return pulumi.get(self, "collection_name")
 
     @collection_name.setter
-    def collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def collection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "collection_name", value)
 
 
@@ -125,12 +125,12 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 collection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource: pulumi.Input[Optional[Union['MongoDBCollectionResourceArgs', 'MongoDBCollectionResourceArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource: Optional[pulumi.Input[Union['MongoDBCollectionResourceArgs', 'MongoDBCollectionResourceArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         An Azure Cosmos DB MongoDB collection.
@@ -178,12 +178,12 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 collection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource: pulumi.Input[Optional[Union['MongoDBCollectionResourceArgs', 'MongoDBCollectionResourceArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource: Optional[pulumi.Input[Union['MongoDBCollectionResourceArgs', 'MongoDBCollectionResourceArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -123,7 +123,7 @@ export interface HciEdgeDeviceJobArgs {
     /**
      * Name of EdgeDevice Job
      */
-    jobsName?: pulumi.Input<string | undefined>;
+    jobsName?: pulumi.Input<string>;
     /**
      * Edge device kind.
      * Expected value is 'HCI'.

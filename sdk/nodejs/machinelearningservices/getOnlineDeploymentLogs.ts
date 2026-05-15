@@ -82,7 +82,7 @@ export interface GetOnlineDeploymentLogsOutputArgs {
     /**
      * The type of container to retrieve logs from.
      */
-    containerType?: pulumi.Input<string | enums.machinelearningservices.ContainerType | undefined>;
+    containerType?: pulumi.Input<string | enums.machinelearningservices.ContainerType>;
     /**
      * Inference Endpoint Deployment name.
      */
@@ -98,7 +98,7 @@ export interface GetOnlineDeploymentLogsOutputArgs {
     /**
      * The maximum number of lines to tail.
      */
-    tail?: pulumi.Input<number | undefined>;
+    tail?: pulumi.Input<number>;
     /**
      * Azure Machine Learning Workspace Name
      */

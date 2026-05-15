@@ -101,11 +101,11 @@ export interface DependencyOfRelationshipArgs {
     /**
      * Name of dependencyOf relationship.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.relationships.DependencyOfRelationshipPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.relationships.DependencyOfRelationshipPropertiesArgs>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

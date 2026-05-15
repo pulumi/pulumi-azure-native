@@ -24,18 +24,18 @@ class FirewallPolicyDraftArgs:
     def __init__(__self__, *,
                  firewall_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 base_policy: pulumi.Input[Optional['SubResourceArgs']] = None,
-                 dns_settings: pulumi.Input[Optional['DnsSettingsArgs']] = None,
-                 explicit_proxy: pulumi.Input[Optional['ExplicitProxyArgs']] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 insights: pulumi.Input[Optional['FirewallPolicyInsightsArgs']] = None,
-                 intrusion_detection: pulumi.Input[Optional['FirewallPolicyIntrusionDetectionArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 snat: pulumi.Input[Optional['FirewallPolicySNATArgs']] = None,
-                 sql: pulumi.Input[Optional['FirewallPolicySQLArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intel_mode: pulumi.Input[Optional[Union[_builtins.str, 'AzureFirewallThreatIntelMode']]] = None,
-                 threat_intel_whitelist: pulumi.Input[Optional['FirewallPolicyThreatIntelWhitelistArgs']] = None):
+                 base_policy: Optional[pulumi.Input['SubResourceArgs']] = None,
+                 dns_settings: Optional[pulumi.Input['DnsSettingsArgs']] = None,
+                 explicit_proxy: Optional[pulumi.Input['ExplicitProxyArgs']] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 insights: Optional[pulumi.Input['FirewallPolicyInsightsArgs']] = None,
+                 intrusion_detection: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 snat: Optional[pulumi.Input['FirewallPolicySNATArgs']] = None,
+                 sql: Optional[pulumi.Input['FirewallPolicySQLArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[Union[_builtins.str, 'AzureFirewallThreatIntelMode']]] = None,
+                 threat_intel_whitelist: Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']] = None):
         """
         The set of arguments for constructing a FirewallPolicyDraft resource.
 
@@ -107,146 +107,146 @@ class FirewallPolicyDraftArgs:
 
     @_builtins.property
     @pulumi.getter(name="basePolicy")
-    def base_policy(self) -> pulumi.Input[Optional['SubResourceArgs']]:
+    def base_policy(self) -> Optional[pulumi.Input['SubResourceArgs']]:
         """
         The parent firewall policy from which rules are inherited.
         """
         return pulumi.get(self, "base_policy")
 
     @base_policy.setter
-    def base_policy(self, value: pulumi.Input[Optional['SubResourceArgs']]):
+    def base_policy(self, value: Optional[pulumi.Input['SubResourceArgs']]):
         pulumi.set(self, "base_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> pulumi.Input[Optional['DnsSettingsArgs']]:
+    def dns_settings(self) -> Optional[pulumi.Input['DnsSettingsArgs']]:
         """
         DNS Proxy Settings definition.
         """
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
-    def dns_settings(self, value: pulumi.Input[Optional['DnsSettingsArgs']]):
+    def dns_settings(self, value: Optional[pulumi.Input['DnsSettingsArgs']]):
         pulumi.set(self, "dns_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="explicitProxy")
-    def explicit_proxy(self) -> pulumi.Input[Optional['ExplicitProxyArgs']]:
+    def explicit_proxy(self) -> Optional[pulumi.Input['ExplicitProxyArgs']]:
         """
         Explicit Proxy Settings definition.
         """
         return pulumi.get(self, "explicit_proxy")
 
     @explicit_proxy.setter
-    def explicit_proxy(self, value: pulumi.Input[Optional['ExplicitProxyArgs']]):
+    def explicit_proxy(self, value: Optional[pulumi.Input['ExplicitProxyArgs']]):
         pulumi.set(self, "explicit_proxy", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def insights(self) -> pulumi.Input[Optional['FirewallPolicyInsightsArgs']]:
+    def insights(self) -> Optional[pulumi.Input['FirewallPolicyInsightsArgs']]:
         """
         Insights on Firewall Policy.
         """
         return pulumi.get(self, "insights")
 
     @insights.setter
-    def insights(self, value: pulumi.Input[Optional['FirewallPolicyInsightsArgs']]):
+    def insights(self, value: Optional[pulumi.Input['FirewallPolicyInsightsArgs']]):
         pulumi.set(self, "insights", value)
 
     @_builtins.property
     @pulumi.getter(name="intrusionDetection")
-    def intrusion_detection(self) -> pulumi.Input[Optional['FirewallPolicyIntrusionDetectionArgs']]:
+    def intrusion_detection(self) -> Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']]:
         """
         The configuration for Intrusion detection.
         """
         return pulumi.get(self, "intrusion_detection")
 
     @intrusion_detection.setter
-    def intrusion_detection(self, value: pulumi.Input[Optional['FirewallPolicyIntrusionDetectionArgs']]):
+    def intrusion_detection(self, value: Optional[pulumi.Input['FirewallPolicyIntrusionDetectionArgs']]):
         pulumi.set(self, "intrusion_detection", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def snat(self) -> pulumi.Input[Optional['FirewallPolicySNATArgs']]:
+    def snat(self) -> Optional[pulumi.Input['FirewallPolicySNATArgs']]:
         """
         The private IP addresses/IP ranges to which traffic will not be SNAT.
         """
         return pulumi.get(self, "snat")
 
     @snat.setter
-    def snat(self, value: pulumi.Input[Optional['FirewallPolicySNATArgs']]):
+    def snat(self, value: Optional[pulumi.Input['FirewallPolicySNATArgs']]):
         pulumi.set(self, "snat", value)
 
     @_builtins.property
     @pulumi.getter
-    def sql(self) -> pulumi.Input[Optional['FirewallPolicySQLArgs']]:
+    def sql(self) -> Optional[pulumi.Input['FirewallPolicySQLArgs']]:
         """
         SQL Settings definition.
         """
         return pulumi.get(self, "sql")
 
     @sql.setter
-    def sql(self, value: pulumi.Input[Optional['FirewallPolicySQLArgs']]):
+    def sql(self, value: Optional[pulumi.Input['FirewallPolicySQLArgs']]):
         pulumi.set(self, "sql", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelMode")
-    def threat_intel_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AzureFirewallThreatIntelMode']]]:
+    def threat_intel_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureFirewallThreatIntelMode']]]:
         """
         The operation mode for Threat Intelligence.
         """
         return pulumi.get(self, "threat_intel_mode")
 
     @threat_intel_mode.setter
-    def threat_intel_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureFirewallThreatIntelMode']]]):
+    def threat_intel_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureFirewallThreatIntelMode']]]):
         pulumi.set(self, "threat_intel_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="threatIntelWhitelist")
-    def threat_intel_whitelist(self) -> pulumi.Input[Optional['FirewallPolicyThreatIntelWhitelistArgs']]:
+    def threat_intel_whitelist(self) -> Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']]:
         """
         ThreatIntel Whitelist for Firewall Policy.
         """
         return pulumi.get(self, "threat_intel_whitelist")
 
     @threat_intel_whitelist.setter
-    def threat_intel_whitelist(self, value: pulumi.Input[Optional['FirewallPolicyThreatIntelWhitelistArgs']]):
+    def threat_intel_whitelist(self, value: Optional[pulumi.Input['FirewallPolicyThreatIntelWhitelistArgs']]):
         pulumi.set(self, "threat_intel_whitelist", value)
 
 
@@ -256,20 +256,20 @@ class FirewallPolicyDraft(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_policy: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 dns_settings: pulumi.Input[Optional[Union['DnsSettingsArgs', 'DnsSettingsArgsDict']]] = None,
-                 explicit_proxy: pulumi.Input[Optional[Union['ExplicitProxyArgs', 'ExplicitProxyArgsDict']]] = None,
-                 firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 insights: pulumi.Input[Optional[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict']]] = None,
-                 intrusion_detection: pulumi.Input[Optional[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 snat: pulumi.Input[Optional[Union['FirewallPolicySNATArgs', 'FirewallPolicySNATArgsDict']]] = None,
-                 sql: pulumi.Input[Optional[Union['FirewallPolicySQLArgs', 'FirewallPolicySQLArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intel_mode: pulumi.Input[Optional[Union[_builtins.str, 'AzureFirewallThreatIntelMode']]] = None,
-                 threat_intel_whitelist: pulumi.Input[Optional[Union['FirewallPolicyThreatIntelWhitelistArgs', 'FirewallPolicyThreatIntelWhitelistArgsDict']]] = None,
+                 base_policy: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['DnsSettingsArgs', 'DnsSettingsArgsDict']]] = None,
+                 explicit_proxy: Optional[pulumi.Input[Union['ExplicitProxyArgs', 'ExplicitProxyArgsDict']]] = None,
+                 firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 insights: Optional[pulumi.Input[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict']]] = None,
+                 intrusion_detection: Optional[pulumi.Input[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 snat: Optional[pulumi.Input[Union['FirewallPolicySNATArgs', 'FirewallPolicySNATArgsDict']]] = None,
+                 sql: Optional[pulumi.Input[Union['FirewallPolicySQLArgs', 'FirewallPolicySQLArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[Union[_builtins.str, 'AzureFirewallThreatIntelMode']]] = None,
+                 threat_intel_whitelist: Optional[pulumi.Input[Union['FirewallPolicyThreatIntelWhitelistArgs', 'FirewallPolicyThreatIntelWhitelistArgsDict']]] = None,
                  __props__=None):
         """
         FirewallPolicy Resource.
@@ -325,20 +325,20 @@ class FirewallPolicyDraft(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 base_policy: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 dns_settings: pulumi.Input[Optional[Union['DnsSettingsArgs', 'DnsSettingsArgsDict']]] = None,
-                 explicit_proxy: pulumi.Input[Optional[Union['ExplicitProxyArgs', 'ExplicitProxyArgsDict']]] = None,
-                 firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 insights: pulumi.Input[Optional[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict']]] = None,
-                 intrusion_detection: pulumi.Input[Optional[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 snat: pulumi.Input[Optional[Union['FirewallPolicySNATArgs', 'FirewallPolicySNATArgsDict']]] = None,
-                 sql: pulumi.Input[Optional[Union['FirewallPolicySQLArgs', 'FirewallPolicySQLArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 threat_intel_mode: pulumi.Input[Optional[Union[_builtins.str, 'AzureFirewallThreatIntelMode']]] = None,
-                 threat_intel_whitelist: pulumi.Input[Optional[Union['FirewallPolicyThreatIntelWhitelistArgs', 'FirewallPolicyThreatIntelWhitelistArgsDict']]] = None,
+                 base_policy: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['DnsSettingsArgs', 'DnsSettingsArgsDict']]] = None,
+                 explicit_proxy: Optional[pulumi.Input[Union['ExplicitProxyArgs', 'ExplicitProxyArgsDict']]] = None,
+                 firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 insights: Optional[pulumi.Input[Union['FirewallPolicyInsightsArgs', 'FirewallPolicyInsightsArgsDict']]] = None,
+                 intrusion_detection: Optional[pulumi.Input[Union['FirewallPolicyIntrusionDetectionArgs', 'FirewallPolicyIntrusionDetectionArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 snat: Optional[pulumi.Input[Union['FirewallPolicySNATArgs', 'FirewallPolicySNATArgsDict']]] = None,
+                 sql: Optional[pulumi.Input[Union['FirewallPolicySQLArgs', 'FirewallPolicySQLArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 threat_intel_mode: Optional[pulumi.Input[Union[_builtins.str, 'AzureFirewallThreatIntelMode']]] = None,
+                 threat_intel_whitelist: Optional[pulumi.Input[Union['FirewallPolicyThreatIntelWhitelistArgs', 'FirewallPolicyThreatIntelWhitelistArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -132,7 +132,7 @@ export interface WebPubSubCustomCertificateArgs {
     /**
      * Custom certificate name
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName?: pulumi.Input<string>;
     /**
      * Base uri of the KeyVault that stores certificate.
      */
@@ -144,7 +144,7 @@ export interface WebPubSubCustomCertificateArgs {
     /**
      * Certificate secret version.
      */
-    keyVaultSecretVersion?: pulumi.Input<string | undefined>;
+    keyVaultSecretVersion?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

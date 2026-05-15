@@ -131,7 +131,7 @@ export interface GetGlobalScheduleOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=status)'
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The name of the Schedule
      */

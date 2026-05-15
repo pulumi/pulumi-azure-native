@@ -148,15 +148,15 @@ export interface EnvironmentArgs {
     /**
      * The custom metadata defined for API catalog entities.
      */
-    customProperties?: any | undefined;
+    customProperties?: any;
     /**
      * The environment description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the environment.
      */
-    environmentName?: pulumi.Input<string | undefined>;
+    environmentName?: pulumi.Input<string>;
     /**
      * Environment kind.
      */
@@ -164,7 +164,7 @@ export interface EnvironmentArgs {
     /**
      * Environment onboarding information
      */
-    onboarding?: pulumi.Input<inputs.apicenter.OnboardingArgs | undefined>;
+    onboarding?: pulumi.Input<inputs.apicenter.OnboardingArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -172,7 +172,7 @@ export interface EnvironmentArgs {
     /**
      * Server information of the environment.
      */
-    server?: pulumi.Input<inputs.apicenter.EnvironmentServerArgs | undefined>;
+    server?: pulumi.Input<inputs.apicenter.EnvironmentServerArgs>;
     /**
      * The name of Azure API Center service.
      */

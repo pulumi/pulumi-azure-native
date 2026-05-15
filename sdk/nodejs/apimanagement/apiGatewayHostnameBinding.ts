@@ -144,7 +144,7 @@ export interface ApiGatewayHostnameBindingArgs {
     /**
      * Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
      */
-    hostnameBindingName?: pulumi.Input<string | undefined>;
+    hostnameBindingName?: pulumi.Input<string>;
     /**
      * The link to the API Management service workspace.
      */

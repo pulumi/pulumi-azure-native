@@ -24,11 +24,11 @@ class IotHubResourceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['IotHubSkuInfoArgs'],
-                 identity: pulumi.Input[Optional['ArmIdentityArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['IotHubPropertiesArgs']] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: Optional[pulumi.Input['ArmIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['IotHubPropertiesArgs']] = None,
+                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IotHubResource resource.
 
@@ -79,62 +79,62 @@ class IotHubResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['ArmIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ArmIdentityArgs']]:
         """
         The managed identities for the IotHub.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['ArmIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ArmIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['IotHubPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['IotHubPropertiesArgs']]:
         """
         IotHub properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['IotHubPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['IotHubPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the IoT hub.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,13 +144,13 @@ class IotHubResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['ArmIdentityArgs', 'ArmIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['IotHubPropertiesArgs', 'IotHubPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['IotHubSkuInfoArgs', 'IotHubSkuInfoArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ArmIdentityArgs', 'ArmIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['IotHubPropertiesArgs', 'IotHubPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[Union['IotHubSkuInfoArgs', 'IotHubSkuInfoArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The description of the IoT hub.
@@ -199,13 +199,13 @@ class IotHubResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['ArmIdentityArgs', 'ArmIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['IotHubPropertiesArgs', 'IotHubPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['IotHubSkuInfoArgs', 'IotHubSkuInfoArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ArmIdentityArgs', 'ArmIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['IotHubPropertiesArgs', 'IotHubPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[Union['IotHubSkuInfoArgs', 'IotHubSkuInfoArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

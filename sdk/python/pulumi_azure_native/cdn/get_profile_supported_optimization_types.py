@@ -71,8 +71,8 @@ def get_profile_supported_optimization_types(profile_name: Optional[_builtins.st
 
     return AwaitableGetProfileSupportedOptimizationTypesResult(
         supported_optimization_types=pulumi.get(__ret__, 'supported_optimization_types'))
-def get_profile_supported_optimization_types_output(profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_profile_supported_optimization_types_output(profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileSupportedOptimizationTypesResult]:
     """
     Gets the supported optimization types for the current profile. A user can create an endpoint with an optimization type from the listed values.

@@ -85,8 +85,8 @@ def list_web_app_site_backups(name: Optional[_builtins.str] = None,
     return AwaitableListWebAppSiteBackupsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_web_app_site_backups_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_web_app_site_backups_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppSiteBackupsResult]:
     """
     Description for Gets existing backups of an app.

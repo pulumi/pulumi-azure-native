@@ -124,15 +124,15 @@ export interface ManagedCertificateArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the Managed Certificate.
      */
-    managedCertificateName?: pulumi.Input<string | undefined>;
+    managedCertificateName?: pulumi.Input<string>;
     /**
      * Certificate resource specific properties
      */
-    properties?: pulumi.Input<inputs.app.ManagedCertificatePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.app.ManagedCertificatePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface ManagedCertificateArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

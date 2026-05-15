@@ -73,11 +73,11 @@ export interface GetNetworkVirtualApplianceBootDiagnosticLogsOutputArgs {
     /**
      * Specifies the sas-url to the storage blob into which console screen shot for the requested instance will be written
      */
-    consoleScreenshotStorageSasUrl?: pulumi.Input<string | undefined>;
+    consoleScreenshotStorageSasUrl?: pulumi.Input<string>;
     /**
      * The network virtual appliance instance id for which boot diagnostic logs is being requested
      */
-    instanceId?: pulumi.Input<number | undefined>;
+    instanceId?: pulumi.Input<number>;
     /**
      * The name of Network Virtual Appliance.
      */
@@ -89,5 +89,5 @@ export interface GetNetworkVirtualApplianceBootDiagnosticLogsOutputArgs {
     /**
      * Specifies the sas-url to the storage blob into which serial console logs for the requested instance will be written
      */
-    serialConsoleStorageSasUrl?: pulumi.Input<string | undefined>;
+    serialConsoleStorageSasUrl?: pulumi.Input<string>;
 }

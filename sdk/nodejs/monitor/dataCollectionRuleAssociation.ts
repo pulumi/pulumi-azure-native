@@ -134,19 +134,19 @@ export interface DataCollectionRuleAssociationArgs {
     /**
      * The name of the association. The name is case insensitive.
      */
-    associationName?: pulumi.Input<string | undefined>;
+    associationName?: pulumi.Input<string>;
     /**
      * The resource ID of the data collection endpoint that is to be associated.
      */
-    dataCollectionEndpointId?: pulumi.Input<string | undefined>;
+    dataCollectionEndpointId?: pulumi.Input<string>;
     /**
      * The resource ID of the data collection rule that is to be associated.
      */
-    dataCollectionRuleId?: pulumi.Input<string | undefined>;
+    dataCollectionRuleId?: pulumi.Input<string>;
     /**
      * Description of the association.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */

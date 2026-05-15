@@ -125,11 +125,11 @@ export interface DotNetComponentArgs {
     /**
      * Type of the .NET Component.
      */
-    componentType?: pulumi.Input<string | enums.app.DotNetComponentType | undefined>;
+    componentType?: pulumi.Input<string | enums.app.DotNetComponentType>;
     /**
      * List of .NET Components configuration properties
      */
-    configurations?: pulumi.Input<pulumi.Input<inputs.app.DotNetComponentConfigurationPropertyArgs>[] | undefined>;
+    configurations?: pulumi.Input<pulumi.Input<inputs.app.DotNetComponentConfigurationPropertyArgs>[]>;
     /**
      * Name of the Managed Environment.
      */
@@ -137,7 +137,7 @@ export interface DotNetComponentArgs {
     /**
      * Name of the .NET Component.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -145,5 +145,5 @@ export interface DotNetComponentArgs {
     /**
      * List of .NET Components that are bound to the .NET component
      */
-    serviceBinds?: pulumi.Input<pulumi.Input<inputs.app.DotNetComponentServiceBindArgs>[] | undefined>;
+    serviceBinds?: pulumi.Input<pulumi.Input<inputs.app.DotNetComponentServiceBindArgs>[]>;
 }

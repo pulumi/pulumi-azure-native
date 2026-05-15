@@ -138,9 +138,9 @@ def get_managed_network_peering_policy(managed_network_name: Optional[_builtins.
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_network_peering_policy_output(managed_network_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              managed_network_peering_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_managed_network_peering_policy_output(managed_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              managed_network_peering_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedNetworkPeeringPolicyResult]:
     """
     The Get ManagedNetworkPeeringPolicies operation gets a Managed Network Peering Policy resource, specified by the  resource group, Managed Network name, and peering policy name

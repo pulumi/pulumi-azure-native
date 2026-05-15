@@ -23,8 +23,8 @@ class SpringbootappArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SpringbootappsPropertiesArgs']] = None,
-                 springbootapps_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['SpringbootappsPropertiesArgs']] = None,
+                 springbootapps_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Springbootapp resource.
 
@@ -66,26 +66,26 @@ class SpringbootappArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['SpringbootappsPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['SpringbootappsPropertiesArgs']]:
         """
         The springbootapps resource definition.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['SpringbootappsPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['SpringbootappsPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="springbootappsName")
-    def springbootapps_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def springbootapps_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The springbootapps name.
         """
         return pulumi.get(self, "springbootapps_name")
 
     @springbootapps_name.setter
-    def springbootapps_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def springbootapps_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "springbootapps_name", value)
 
 
@@ -95,10 +95,10 @@ class Springbootapp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 springbootapps_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 springbootapps_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The springbootapps envelope resource definition.
@@ -140,10 +140,10 @@ class Springbootapp(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 springbootapps_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['SpringbootappsPropertiesArgs', 'SpringbootappsPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 springbootapps_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

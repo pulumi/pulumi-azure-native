@@ -135,7 +135,7 @@ export interface PrivateLinkServicesForMIPPolicySyncArgs {
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    identity?: pulumi.Input<inputs.m365securityandcompliance.ServicesResourceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.m365securityandcompliance.ServicesResourceIdentityArgs>;
     /**
      * The kind of the service.
      */
@@ -143,11 +143,11 @@ export interface PrivateLinkServicesForMIPPolicySyncArgs {
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The common properties of a service.
      */
-    properties?: pulumi.Input<inputs.m365securityandcompliance.ServicesPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.m365securityandcompliance.ServicesPropertiesArgs>;
     /**
      * The name of the resource group that contains the service instance.
      */
@@ -155,9 +155,9 @@ export interface PrivateLinkServicesForMIPPolicySyncArgs {
     /**
      * The name of the service instance.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

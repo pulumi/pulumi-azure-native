@@ -122,14 +122,14 @@ def get_entity(filter: Optional[_builtins.str] = None,
         count=pulumi.get(__ret__, 'count'),
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def get_entity_output(filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      search: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      select: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      skip: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
-                      skiptoken: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                      top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
-                      view: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_entity_output(filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                      group_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                      search: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                      select: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                      skip: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+                      skiptoken: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                      top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+                      view: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityResult]:
     """
     List all entities (Management Groups, Subscriptions, etc.) for the authenticated user.

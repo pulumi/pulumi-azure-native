@@ -127,9 +127,9 @@ def list_web_app_azure_storage_accounts_slot(name: Optional[_builtins.str] = Non
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def list_web_app_azure_storage_accounts_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    slot: pulumi.Input[Optional[_builtins.str]] = None,
+def list_web_app_azure_storage_accounts_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                    slot: Optional[pulumi.Input[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppAzureStorageAccountsSlotResult]:
     """
     Description for Gets the Azure storage account configurations of an app.

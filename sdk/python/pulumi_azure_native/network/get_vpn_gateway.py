@@ -267,8 +267,8 @@ def get_vpn_gateway(gateway_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'),
         vpn_gateway_scale_unit=pulumi.get(__ret__, 'vpn_gateway_scale_unit'))
-def get_vpn_gateway_output(gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_vpn_gateway_output(gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
     Retrieves the details of a virtual wan vpn gateway.

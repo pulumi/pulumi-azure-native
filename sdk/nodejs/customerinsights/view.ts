@@ -139,7 +139,7 @@ export interface ViewArgs {
     /**
      * Localized display name for the view.
      */
-    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the hub.
      */
@@ -151,9 +151,9 @@ export interface ViewArgs {
     /**
      * the user ID.
      */
-    userId?: pulumi.Input<string | undefined>;
+    userId?: pulumi.Input<string>;
     /**
      * The name of the view.
      */
-    viewName?: pulumi.Input<string | undefined>;
+    viewName?: pulumi.Input<string>;
 }

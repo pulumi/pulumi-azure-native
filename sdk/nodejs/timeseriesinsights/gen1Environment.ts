@@ -176,7 +176,7 @@ export interface Gen1EnvironmentArgs {
     /**
      * Name of the environment
      */
-    environmentName?: pulumi.Input<string | undefined>;
+    environmentName?: pulumi.Input<string>;
     /**
      * The kind of the environment.
      * Expected value is 'Gen1'.
@@ -185,11 +185,11 @@ export interface Gen1EnvironmentArgs {
     /**
      * The location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
      */
-    partitionKeyProperties?: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.TimeSeriesIdPropertyArgs>[] | undefined>;
+    partitionKeyProperties?: pulumi.Input<pulumi.Input<inputs.timeseriesinsights.TimeSeriesIdPropertyArgs>[]>;
     /**
      * Name of an Azure Resource group.
      */
@@ -201,9 +201,9 @@ export interface Gen1EnvironmentArgs {
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */
-    storageLimitExceededBehavior?: pulumi.Input<string | enums.timeseriesinsights.StorageLimitExceededBehavior | undefined>;
+    storageLimitExceededBehavior?: pulumi.Input<string | enums.timeseriesinsights.StorageLimitExceededBehavior>;
     /**
      * Key-value pairs of additional properties for the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

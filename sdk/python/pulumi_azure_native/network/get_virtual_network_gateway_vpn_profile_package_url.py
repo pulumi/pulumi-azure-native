@@ -65,8 +65,8 @@ def get_virtual_network_gateway_vpn_profile_package_url(resource_group_name: Opt
 
     return AwaitableGetVirtualNetworkGatewayVpnProfilePackageUrlResult(
         value=pulumi.get(__ret__, 'value'))
-def get_virtual_network_gateway_vpn_profile_package_url_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                               virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_network_gateway_vpn_profile_package_url_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                               virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnProfilePackageUrlResult]:
     """
     Gets pre-generated VPN profile for P2S client of the virtual network gateway in the specified resource group. The profile needs to be generated first using generateVpnProfile.

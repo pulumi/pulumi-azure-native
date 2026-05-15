@@ -115,15 +115,15 @@ export interface CustomApiArgs {
     /**
      * API name
      */
-    apiName?: pulumi.Input<string | undefined>;
+    apiName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Custom API properties
      */
-    properties?: pulumi.Input<inputs.web.CustomApiPropertiesDefinitionArgs | undefined>;
+    properties?: pulumi.Input<inputs.web.CustomApiPropertiesDefinitionArgs>;
     /**
      * The resource group
      */
@@ -131,9 +131,9 @@ export interface CustomApiArgs {
     /**
      * Subscription Id
      */
-    subscriptionId?: pulumi.Input<string | undefined>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -109,7 +109,7 @@ export interface AccountConnectionArgs {
     /**
      * Friendly name of the connection
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Connection property base schema.
      */

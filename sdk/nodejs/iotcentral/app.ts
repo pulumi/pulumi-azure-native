@@ -130,7 +130,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["networkRuleSets"] = args ? pulumi.output(args.networkRuleSets).apply(v => v === undefined ? undefined : inputs.iotcentral.networkRuleSetsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["networkRuleSets"] = args ? (args.networkRuleSets ? pulumi.output(args.networkRuleSets).apply(inputs.iotcentral.networkRuleSetsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
@@ -179,23 +179,23 @@ export interface AppArgs {
     /**
      * The display name of the application.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The managed identities for the IoT Central application.
      */
-    identity?: pulumi.Input<inputs.iotcentral.SystemAssignedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.iotcentral.SystemAssignedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Network Rule Set Properties of this IoT Central application.
      */
-    networkRuleSets?: pulumi.Input<inputs.iotcentral.NetworkRuleSetsArgs | undefined>;
+    networkRuleSets?: pulumi.Input<inputs.iotcentral.NetworkRuleSetsArgs>;
     /**
      * Whether requests from the public network are allowed.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.iotcentral.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.iotcentral.PublicNetworkAccess>;
     /**
      * The name of the resource group that contains the IoT Central application.
      */
@@ -203,7 +203,7 @@ export interface AppArgs {
     /**
      * The ARM resource name of the IoT Central application.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * A valid instance SKU.
      */
@@ -211,13 +211,13 @@ export interface AppArgs {
     /**
      * The subdomain of the application.
      */
-    subdomain?: pulumi.Input<string | undefined>;
+    subdomain?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the application template, which is a blueprint that defines the characteristics and behaviors of an application. Optional; if not specified, defaults to a blank blueprint and allows the application to be defined from scratch.
      */
-    template?: pulumi.Input<string | undefined>;
+    template?: pulumi.Input<string>;
 }

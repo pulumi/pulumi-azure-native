@@ -21,8 +21,8 @@ class CustomerSubscriptionArgs:
     def __init__(__self__, *,
                  registration_name: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
-                 customer_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 customer_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerSubscription resource.
 
@@ -64,26 +64,26 @@ class CustomerSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="customerSubscriptionName")
-    def customer_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def customer_subscription_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the product.
         """
         return pulumi.get(self, "customer_subscription_name")
 
     @customer_subscription_name.setter
-    def customer_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def customer_subscription_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "customer_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Tenant Id.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -93,10 +93,10 @@ class CustomerSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 registration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
-                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 registration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Customer subscription.
@@ -142,10 +142,10 @@ class CustomerSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 customer_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 registration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
-                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 customer_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 registration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

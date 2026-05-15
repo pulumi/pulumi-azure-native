@@ -150,11 +150,11 @@ export interface WebAppHybridConnectionArgs {
     /**
      * The hostname of the endpoint.
      */
-    hostname?: pulumi.Input<string | undefined>;
+    hostname?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The name of the web app.
      */
@@ -166,15 +166,15 @@ export interface WebAppHybridConnectionArgs {
     /**
      * The port of the endpoint.
      */
-    port?: pulumi.Input<number | undefined>;
+    port?: pulumi.Input<number>;
     /**
      * The ARM URI to the Service Bus relay.
      */
-    relayArmUri?: pulumi.Input<string | undefined>;
+    relayArmUri?: pulumi.Input<string>;
     /**
      * The name of the Service Bus relay.
      */
-    relayName?: pulumi.Input<string | undefined>;
+    relayName?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -182,18 +182,18 @@ export interface WebAppHybridConnectionArgs {
     /**
      * The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
      */
-    sendKeyName?: pulumi.Input<string | undefined>;
+    sendKeyName?: pulumi.Input<string>;
     /**
      * The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
      * normally, use the POST /listKeys API instead.
      */
-    sendKeyValue?: pulumi.Input<string | undefined>;
+    sendKeyValue?: pulumi.Input<string>;
     /**
      * The name of the Service Bus namespace.
      */
-    serviceBusNamespace?: pulumi.Input<string | undefined>;
+    serviceBusNamespace?: pulumi.Input<string>;
     /**
      * The suffix for the service bus endpoint. By default this is .servicebus.windows.net
      */
-    serviceBusSuffix?: pulumi.Input<string | undefined>;
+    serviceBusSuffix?: pulumi.Input<string>;
 }

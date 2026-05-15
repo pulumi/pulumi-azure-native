@@ -127,11 +127,11 @@ export interface RegisteredPrefixArgs {
     /**
      * The customer's prefix from which traffic originates.
      */
-    prefix?: pulumi.Input<string | undefined>;
+    prefix?: pulumi.Input<string>;
     /**
      * The name of the registered prefix.
      */
-    registeredPrefixName?: pulumi.Input<string | undefined>;
+    registeredPrefixName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

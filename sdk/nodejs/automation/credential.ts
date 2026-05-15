@@ -140,11 +140,11 @@ export interface CredentialArgs {
     /**
      * The parameters supplied to the create or update credential operation.
      */
-    credentialName?: pulumi.Input<string | undefined>;
+    credentialName?: pulumi.Input<string>;
     /**
      * Gets or sets the description of the credential.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Gets or sets the name of the credential.
      */

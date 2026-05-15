@@ -74,7 +74,7 @@ class AddressSpaceArgsDict(TypedDict):
     """
     AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
     """
-    address_prefixes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    address_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     A list of address blocks reserved for this virtual network in CIDR notation.
     """
@@ -82,7 +82,7 @@ class AddressSpaceArgsDict(TypedDict):
 @pulumi.input_type
 class AddressSpaceArgs:
     def __init__(__self__, *,
-                 address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 address_prefixes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
 
@@ -93,14 +93,14 @@ class AddressSpaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
-    def address_prefixes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def address_prefixes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of address blocks reserved for this virtual network in CIDR notation.
         """
         return pulumi.get(self, "address_prefixes")
 
     @address_prefixes.setter
-    def address_prefixes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def address_prefixes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "address_prefixes", value)
 
 
@@ -108,12 +108,12 @@ class AutomaticClusterUpdateDefinitionArgsDict(TypedDict):
     """
     Status of automated cluster updates feature.
     """
-    value: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AutomaticClusterUpdateValue']]]]
+    value: NotRequired[pulumi.Input[Union[_builtins.str, 'AutomaticClusterUpdateValue']]]
 
 @pulumi.input_type
 class AutomaticClusterUpdateDefinitionArgs:
     def __init__(__self__, *,
-                 value: pulumi.Input[Optional[Union[_builtins.str, 'AutomaticClusterUpdateValue']]] = None):
+                 value: Optional[pulumi.Input[Union[_builtins.str, 'AutomaticClusterUpdateValue']]] = None):
         """
         Status of automated cluster updates feature.
         """
@@ -122,11 +122,11 @@ class AutomaticClusterUpdateDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AutomaticClusterUpdateValue']]]:
+    def value(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AutomaticClusterUpdateValue']]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AutomaticClusterUpdateValue']]]):
+    def value(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AutomaticClusterUpdateValue']]]):
         pulumi.set(self, "value", value)
 
 
@@ -134,17 +134,17 @@ class ComplianceSecurityProfileDefinitionArgsDict(TypedDict):
     """
     Status of Compliance Security Profile feature.
     """
-    compliance_standards: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ComplianceStandard']]]]]]
+    compliance_standards: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ComplianceStandard']]]]]
     """
     Compliance standards associated with the workspace.
     """
-    value: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ComplianceSecurityProfileValue']]]]
+    value: NotRequired[pulumi.Input[Union[_builtins.str, 'ComplianceSecurityProfileValue']]]
 
 @pulumi.input_type
 class ComplianceSecurityProfileDefinitionArgs:
     def __init__(__self__, *,
-                 compliance_standards: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ComplianceStandard']]]]] = None,
-                 value: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceSecurityProfileValue']]] = None):
+                 compliance_standards: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ComplianceStandard']]]]] = None,
+                 value: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceSecurityProfileValue']]] = None):
         """
         Status of Compliance Security Profile feature.
 
@@ -157,23 +157,23 @@ class ComplianceSecurityProfileDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="complianceStandards")
-    def compliance_standards(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ComplianceStandard']]]]]:
+    def compliance_standards(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ComplianceStandard']]]]]:
         """
         Compliance standards associated with the workspace.
         """
         return pulumi.get(self, "compliance_standards")
 
     @compliance_standards.setter
-    def compliance_standards(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ComplianceStandard']]]]]):
+    def compliance_standards(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ComplianceStandard']]]]]):
         pulumi.set(self, "compliance_standards", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ComplianceSecurityProfileValue']]]:
+    def value(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ComplianceSecurityProfileValue']]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceSecurityProfileValue']]]):
+    def value(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ComplianceSecurityProfileValue']]]):
         pulumi.set(self, "value", value)
 
 
@@ -181,11 +181,11 @@ class DefaultCatalogPropertiesArgsDict(TypedDict):
     """
     These properties lets user specify default catalog properties during workspace creation.
     """
-    initial_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    initial_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
     """
-    initial_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'InitialType']]]]
+    initial_type: NotRequired[pulumi.Input[Union[_builtins.str, 'InitialType']]]
     """
     Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
     """
@@ -193,8 +193,8 @@ class DefaultCatalogPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DefaultCatalogPropertiesArgs:
     def __init__(__self__, *,
-                 initial_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 initial_type: pulumi.Input[Optional[Union[_builtins.str, 'InitialType']]] = None):
+                 initial_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 initial_type: Optional[pulumi.Input[Union[_builtins.str, 'InitialType']]] = None):
         """
         These properties lets user specify default catalog properties during workspace creation.
 
@@ -210,26 +210,26 @@ class DefaultCatalogPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="initialName")
-    def initial_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def initial_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Specifies the initial Name of default catalog. If not specified, the name of the workspace will be used.
         """
         return pulumi.get(self, "initial_name")
 
     @initial_name.setter
-    def initial_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def initial_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "initial_name", value)
 
     @_builtins.property
     @pulumi.getter(name="initialType")
-    def initial_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'InitialType']]]:
+    def initial_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'InitialType']]]:
         """
         Defines the initial type of the default catalog. Possible values (case-insensitive):  HiveMetastore, UnityCatalog
         """
         return pulumi.get(self, "initial_type")
 
     @initial_type.setter
-    def initial_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'InitialType']]]):
+    def initial_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'InitialType']]]):
         pulumi.set(self, "initial_type", value)
 
 
@@ -237,11 +237,11 @@ class EncryptionEntitiesDefinitionArgsDict(TypedDict):
     """
     Encryption entities for databricks workspace resource.
     """
-    managed_disk: NotRequired[pulumi.Input[Optional['ManagedDiskEncryptionArgs']]]
+    managed_disk: NotRequired[pulumi.Input['ManagedDiskEncryptionArgsDict']]
     """
     Encryption properties for the databricks managed disks.
     """
-    managed_services: NotRequired[pulumi.Input[Optional['EncryptionV2Args']]]
+    managed_services: NotRequired[pulumi.Input['EncryptionV2ArgsDict']]
     """
     Encryption properties for the databricks managed services.
     """
@@ -249,8 +249,8 @@ class EncryptionEntitiesDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionEntitiesDefinitionArgs:
     def __init__(__self__, *,
-                 managed_disk: pulumi.Input[Optional['ManagedDiskEncryptionArgs']] = None,
-                 managed_services: pulumi.Input[Optional['EncryptionV2Args']] = None):
+                 managed_disk: Optional[pulumi.Input['ManagedDiskEncryptionArgs']] = None,
+                 managed_services: Optional[pulumi.Input['EncryptionV2Args']] = None):
         """
         Encryption entities for databricks workspace resource.
 
@@ -264,26 +264,26 @@ class EncryptionEntitiesDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedDisk")
-    def managed_disk(self) -> pulumi.Input[Optional['ManagedDiskEncryptionArgs']]:
+    def managed_disk(self) -> Optional[pulumi.Input['ManagedDiskEncryptionArgs']]:
         """
         Encryption properties for the databricks managed disks.
         """
         return pulumi.get(self, "managed_disk")
 
     @managed_disk.setter
-    def managed_disk(self, value: pulumi.Input[Optional['ManagedDiskEncryptionArgs']]):
+    def managed_disk(self, value: Optional[pulumi.Input['ManagedDiskEncryptionArgs']]):
         pulumi.set(self, "managed_disk", value)
 
     @_builtins.property
     @pulumi.getter(name="managedServices")
-    def managed_services(self) -> pulumi.Input[Optional['EncryptionV2Args']]:
+    def managed_services(self) -> Optional[pulumi.Input['EncryptionV2Args']]:
         """
         Encryption properties for the databricks managed services.
         """
         return pulumi.get(self, "managed_services")
 
     @managed_services.setter
-    def managed_services(self, value: pulumi.Input[Optional['EncryptionV2Args']]):
+    def managed_services(self, value: Optional[pulumi.Input['EncryptionV2Args']]):
         pulumi.set(self, "managed_services", value)
 
 
@@ -366,7 +366,7 @@ class EncryptionV2ArgsDict(TypedDict):
     """
     The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault
     """
-    key_vault_properties: NotRequired[pulumi.Input[Optional['EncryptionV2KeyVaultPropertiesArgs']]]
+    key_vault_properties: NotRequired[pulumi.Input['EncryptionV2KeyVaultPropertiesArgsDict']]
     """
     Key Vault input properties for encryption.
     """
@@ -375,7 +375,7 @@ class EncryptionV2ArgsDict(TypedDict):
 class EncryptionV2Args:
     def __init__(__self__, *,
                  key_source: pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']],
-                 key_vault_properties: pulumi.Input[Optional['EncryptionV2KeyVaultPropertiesArgs']] = None):
+                 key_vault_properties: Optional[pulumi.Input['EncryptionV2KeyVaultPropertiesArgs']] = None):
         """
         The object that contains details of encryption used on the workspace.
 
@@ -400,14 +400,14 @@ class EncryptionV2Args:
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> pulumi.Input[Optional['EncryptionV2KeyVaultPropertiesArgs']]:
+    def key_vault_properties(self) -> Optional[pulumi.Input['EncryptionV2KeyVaultPropertiesArgs']]:
         """
         Key Vault input properties for encryption.
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: pulumi.Input[Optional['EncryptionV2KeyVaultPropertiesArgs']]):
+    def key_vault_properties(self, value: Optional[pulumi.Input['EncryptionV2KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
 
@@ -415,19 +415,19 @@ class EncryptionArgsDict(TypedDict):
     """
     The object that contains details of encryption used on the workspace.
     """
-    key_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     The name of KeyVault key.
     """
-    key_source: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]]
+    key_source: NotRequired[pulumi.Input[Union[_builtins.str, 'KeySource']]]
     """
     The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
     """
-    key_vault_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key_vault_uri: NotRequired[pulumi.Input[_builtins.str]]
     """
     The Uri of KeyVault.
     """
-    key_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    key_version: NotRequired[pulumi.Input[_builtins.str]]
     """
     The version of KeyVault key.
     """
@@ -435,10 +435,10 @@ class EncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class EncryptionArgs:
     def __init__(__self__, *,
-                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_source: pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]] = None,
-                 key_vault_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_version: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_source: Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]] = None,
+                 key_vault_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The object that contains details of encryption used on the workspace.
 
@@ -460,50 +460,50 @@ class EncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def key_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of KeyVault key.
         """
         return pulumi.get(self, "key_name")
 
     @key_name.setter
-    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def key_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keySource")
-    def key_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]:
+    def key_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]]:
         """
         The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
         """
         return pulumi.get(self, "key_source")
 
     @key_source.setter
-    def key_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'KeySource']]]):
+    def key_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KeySource']]]):
         pulumi.set(self, "key_source", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUri")
-    def key_vault_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def key_vault_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Uri of KeyVault.
         """
         return pulumi.get(self, "key_vault_uri")
 
     @key_vault_uri.setter
-    def key_vault_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def key_vault_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "key_vault_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVersion")
-    def key_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def key_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The version of KeyVault key.
         """
         return pulumi.get(self, "key_version")
 
     @key_version.setter
-    def key_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def key_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "key_version", value)
 
 
@@ -511,15 +511,15 @@ class EnhancedSecurityComplianceDefinitionArgsDict(TypedDict):
     """
     Status of settings related to the Enhanced Security and Compliance Add-On.
     """
-    automatic_cluster_update: NotRequired[pulumi.Input[Optional['AutomaticClusterUpdateDefinitionArgs']]]
+    automatic_cluster_update: NotRequired[pulumi.Input['AutomaticClusterUpdateDefinitionArgsDict']]
     """
     Status of automated cluster updates feature.
     """
-    compliance_security_profile: NotRequired[pulumi.Input[Optional['ComplianceSecurityProfileDefinitionArgs']]]
+    compliance_security_profile: NotRequired[pulumi.Input['ComplianceSecurityProfileDefinitionArgsDict']]
     """
     Status of Compliance Security Profile feature.
     """
-    enhanced_security_monitoring: NotRequired[pulumi.Input[Optional['EnhancedSecurityMonitoringDefinitionArgs']]]
+    enhanced_security_monitoring: NotRequired[pulumi.Input['EnhancedSecurityMonitoringDefinitionArgsDict']]
     """
     Status of Enhanced Security Monitoring feature.
     """
@@ -527,9 +527,9 @@ class EnhancedSecurityComplianceDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class EnhancedSecurityComplianceDefinitionArgs:
     def __init__(__self__, *,
-                 automatic_cluster_update: pulumi.Input[Optional['AutomaticClusterUpdateDefinitionArgs']] = None,
-                 compliance_security_profile: pulumi.Input[Optional['ComplianceSecurityProfileDefinitionArgs']] = None,
-                 enhanced_security_monitoring: pulumi.Input[Optional['EnhancedSecurityMonitoringDefinitionArgs']] = None):
+                 automatic_cluster_update: Optional[pulumi.Input['AutomaticClusterUpdateDefinitionArgs']] = None,
+                 compliance_security_profile: Optional[pulumi.Input['ComplianceSecurityProfileDefinitionArgs']] = None,
+                 enhanced_security_monitoring: Optional[pulumi.Input['EnhancedSecurityMonitoringDefinitionArgs']] = None):
         """
         Status of settings related to the Enhanced Security and Compliance Add-On.
 
@@ -546,38 +546,38 @@ class EnhancedSecurityComplianceDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="automaticClusterUpdate")
-    def automatic_cluster_update(self) -> pulumi.Input[Optional['AutomaticClusterUpdateDefinitionArgs']]:
+    def automatic_cluster_update(self) -> Optional[pulumi.Input['AutomaticClusterUpdateDefinitionArgs']]:
         """
         Status of automated cluster updates feature.
         """
         return pulumi.get(self, "automatic_cluster_update")
 
     @automatic_cluster_update.setter
-    def automatic_cluster_update(self, value: pulumi.Input[Optional['AutomaticClusterUpdateDefinitionArgs']]):
+    def automatic_cluster_update(self, value: Optional[pulumi.Input['AutomaticClusterUpdateDefinitionArgs']]):
         pulumi.set(self, "automatic_cluster_update", value)
 
     @_builtins.property
     @pulumi.getter(name="complianceSecurityProfile")
-    def compliance_security_profile(self) -> pulumi.Input[Optional['ComplianceSecurityProfileDefinitionArgs']]:
+    def compliance_security_profile(self) -> Optional[pulumi.Input['ComplianceSecurityProfileDefinitionArgs']]:
         """
         Status of Compliance Security Profile feature.
         """
         return pulumi.get(self, "compliance_security_profile")
 
     @compliance_security_profile.setter
-    def compliance_security_profile(self, value: pulumi.Input[Optional['ComplianceSecurityProfileDefinitionArgs']]):
+    def compliance_security_profile(self, value: Optional[pulumi.Input['ComplianceSecurityProfileDefinitionArgs']]):
         pulumi.set(self, "compliance_security_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="enhancedSecurityMonitoring")
-    def enhanced_security_monitoring(self) -> pulumi.Input[Optional['EnhancedSecurityMonitoringDefinitionArgs']]:
+    def enhanced_security_monitoring(self) -> Optional[pulumi.Input['EnhancedSecurityMonitoringDefinitionArgs']]:
         """
         Status of Enhanced Security Monitoring feature.
         """
         return pulumi.get(self, "enhanced_security_monitoring")
 
     @enhanced_security_monitoring.setter
-    def enhanced_security_monitoring(self, value: pulumi.Input[Optional['EnhancedSecurityMonitoringDefinitionArgs']]):
+    def enhanced_security_monitoring(self, value: Optional[pulumi.Input['EnhancedSecurityMonitoringDefinitionArgs']]):
         pulumi.set(self, "enhanced_security_monitoring", value)
 
 
@@ -585,12 +585,12 @@ class EnhancedSecurityMonitoringDefinitionArgsDict(TypedDict):
     """
     Status of Enhanced Security Monitoring feature.
     """
-    value: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'EnhancedSecurityMonitoringValue']]]]
+    value: NotRequired[pulumi.Input[Union[_builtins.str, 'EnhancedSecurityMonitoringValue']]]
 
 @pulumi.input_type
 class EnhancedSecurityMonitoringDefinitionArgs:
     def __init__(__self__, *,
-                 value: pulumi.Input[Optional[Union[_builtins.str, 'EnhancedSecurityMonitoringValue']]] = None):
+                 value: Optional[pulumi.Input[Union[_builtins.str, 'EnhancedSecurityMonitoringValue']]] = None):
         """
         Status of Enhanced Security Monitoring feature.
         """
@@ -599,11 +599,11 @@ class EnhancedSecurityMonitoringDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EnhancedSecurityMonitoringValue']]]:
+    def value(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnhancedSecurityMonitoringValue']]]:
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EnhancedSecurityMonitoringValue']]]):
+    def value(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnhancedSecurityMonitoringValue']]]):
         pulumi.set(self, "value", value)
 
 
@@ -690,7 +690,7 @@ class ManagedDiskEncryptionArgsDict(TypedDict):
     """
     Key Vault input properties for encryption.
     """
-    rotation_to_latest_key_version_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    rotation_to_latest_key_version_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
     """
@@ -700,7 +700,7 @@ class ManagedDiskEncryptionArgs:
     def __init__(__self__, *,
                  key_source: pulumi.Input[Union[_builtins.str, 'EncryptionKeySource']],
                  key_vault_properties: pulumi.Input['ManagedDiskEncryptionKeyVaultPropertiesArgs'],
-                 rotation_to_latest_key_version_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+                 rotation_to_latest_key_version_enabled: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The object that contains details of encryption used on the workspace.
 
@@ -739,14 +739,14 @@ class ManagedDiskEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="rotationToLatestKeyVersionEnabled")
-    def rotation_to_latest_key_version_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def rotation_to_latest_key_version_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Indicate whether the latest key version should be automatically used for Managed Disk Encryption.
         """
         return pulumi.get(self, "rotation_to_latest_key_version_enabled")
 
     @rotation_to_latest_key_version_enabled.setter
-    def rotation_to_latest_key_version_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def rotation_to_latest_key_version_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "rotation_to_latest_key_version_enabled", value)
 
 
@@ -758,7 +758,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -767,7 +767,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -792,14 +792,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -811,7 +811,7 @@ class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
     """
     Private endpoint connection state
     """
-    group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     GroupIds from the private link service resource.
     """
@@ -820,7 +820,7 @@ class PrivateEndpointConnectionPropertiesArgsDict(TypedDict):
 class PrivateEndpointConnectionPropertiesArgs:
     def __init__(__self__, *,
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
-                 group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The properties of a private endpoint connection
 
@@ -845,14 +845,14 @@ class PrivateEndpointConnectionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupIds")
-    def group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         GroupIds from the private link service resource.
         """
         return pulumi.get(self, "group_ids")
 
     @group_ids.setter
-    def group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_ids", value)
 
 
@@ -864,11 +864,11 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     The status of a private endpoint connection
     """
-    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    actions_required: NotRequired[pulumi.Input[_builtins.str]]
     """
     Actions required for a private endpoint connection
     """
-    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    description: NotRequired[pulumi.Input[_builtins.str]]
     """
     The description for the current state of a private endpoint connection
     """
@@ -877,8 +877,8 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
                  status: pulumi.Input[Union[_builtins.str, 'PrivateLinkServiceConnectionStatus']],
-                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None):
+                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The current state of a private endpoint connection
 
@@ -906,26 +906,26 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Actions required for a private endpoint connection
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The description for the current state of a private endpoint connection
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -937,7 +937,7 @@ class SkuArgsDict(TypedDict):
     """
     The SKU name.
     """
-    tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    tier: NotRequired[pulumi.Input[_builtins.str]]
     """
     The SKU tier.
     """
@@ -946,7 +946,7 @@ class SkuArgsDict(TypedDict):
 class SkuArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 tier: pulumi.Input[Optional[_builtins.str]] = None):
+                 tier: Optional[pulumi.Input[_builtins.str]] = None):
         """
         SKU for the resource.
 
@@ -971,14 +971,14 @@ class SkuArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def tier(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The SKU tier.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def tier(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tier", value)
 
 
@@ -986,7 +986,7 @@ class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgsDict(Type
     """
      The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
     """
-    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The Id of the databricks virtual network.
     """
@@ -994,7 +994,7 @@ class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgsDict(Type
 @pulumi.input_type
 class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[Optional[_builtins.str]] = None):
+                 id: Optional[pulumi.Input[_builtins.str]] = None):
         """
          The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 
@@ -1005,14 +1005,14 @@ class VirtualNetworkPeeringPropertiesFormatDatabricksVirtualNetworkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Id of the databricks virtual network.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1020,7 +1020,7 @@ class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgsDict(TypedDic
     """
      The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
     """
-    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The Id of the remote virtual network.
     """
@@ -1028,7 +1028,7 @@ class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgsDict(TypedDic
 @pulumi.input_type
 class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[Optional[_builtins.str]] = None):
+                 id: Optional[pulumi.Input[_builtins.str]] = None):
         """
          The remote virtual network should be in the same region. See here to learn more (https://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering).
 
@@ -1039,14 +1039,14 @@ class VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Id of the remote virtual network.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
 
@@ -1087,63 +1087,63 @@ class WorkspaceCustomParametersArgsDict(TypedDict):
     """
     Custom Parameters used for Cluster Creation.
     """
-    aml_workspace_id: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    aml_workspace_id: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     The ID of a Azure Machine Learning workspace to link with Databricks workspace
     """
-    custom_private_subnet_name: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    custom_private_subnet_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     The name of the Private Subnet within the Virtual Network
     """
-    custom_public_subnet_name: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    custom_public_subnet_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     The name of a Public Subnet within the Virtual Network
     """
-    custom_virtual_network_id: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    custom_virtual_network_id: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     The ID of a Virtual Network where this Databricks Cluster should be created
     """
-    enable_no_public_ip: NotRequired[pulumi.Input[Optional['WorkspaceNoPublicIPBooleanParameterArgs']]]
+    enable_no_public_ip: NotRequired[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgsDict']]
     """
     Boolean indicating whether the public IP should be disabled. Default value is true
     """
-    encryption: NotRequired[pulumi.Input[Optional['WorkspaceEncryptionParameterArgs']]]
+    encryption: NotRequired[pulumi.Input['WorkspaceEncryptionParameterArgsDict']]
     """
     Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
     """
-    load_balancer_backend_pool_name: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    load_balancer_backend_pool_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
     """
-    load_balancer_id: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    load_balancer_id: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
     """
-    nat_gateway_name: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    nat_gateway_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
     """
-    prepare_encryption: NotRequired[pulumi.Input[Optional['WorkspaceCustomBooleanParameterArgs']]]
+    prepare_encryption: NotRequired[pulumi.Input['WorkspaceCustomBooleanParameterArgsDict']]
     """
     Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
     """
-    public_ip_name: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    public_ip_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     Name of the Public IP for No Public IP workspace with managed vNet.
     """
-    require_infrastructure_encryption: NotRequired[pulumi.Input[Optional['WorkspaceCustomBooleanParameterArgs']]]
+    require_infrastructure_encryption: NotRequired[pulumi.Input['WorkspaceCustomBooleanParameterArgsDict']]
     """
     A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
     """
-    storage_account_name: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    storage_account_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     Default DBFS storage account name.
     """
-    storage_account_sku_name: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    storage_account_sku_name: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
     """
-    vnet_address_prefix: NotRequired[pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]]
+    vnet_address_prefix: NotRequired[pulumi.Input['WorkspaceCustomStringParameterArgsDict']]
     """
     Address prefix for Managed virtual network. Default value for this input is 10.139.
     """
@@ -1151,21 +1151,21 @@ class WorkspaceCustomParametersArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceCustomParametersArgs:
     def __init__(__self__, *,
-                 aml_workspace_id: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None,
-                 custom_private_subnet_name: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None,
-                 custom_public_subnet_name: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None,
-                 custom_virtual_network_id: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None,
-                 enable_no_public_ip: pulumi.Input[Optional['WorkspaceNoPublicIPBooleanParameterArgs']] = None,
-                 encryption: pulumi.Input[Optional['WorkspaceEncryptionParameterArgs']] = None,
-                 load_balancer_backend_pool_name: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None,
-                 load_balancer_id: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None,
-                 nat_gateway_name: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None,
-                 prepare_encryption: pulumi.Input[Optional['WorkspaceCustomBooleanParameterArgs']] = None,
-                 public_ip_name: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None,
-                 require_infrastructure_encryption: pulumi.Input[Optional['WorkspaceCustomBooleanParameterArgs']] = None,
-                 storage_account_name: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None,
-                 storage_account_sku_name: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None,
-                 vnet_address_prefix: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']] = None):
+                 aml_workspace_id: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 custom_private_subnet_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 custom_public_subnet_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 custom_virtual_network_id: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 enable_no_public_ip: Optional[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgs']] = None,
+                 encryption: Optional[pulumi.Input['WorkspaceEncryptionParameterArgs']] = None,
+                 load_balancer_backend_pool_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 load_balancer_id: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 nat_gateway_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 prepare_encryption: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']] = None,
+                 public_ip_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 require_infrastructure_encryption: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']] = None,
+                 storage_account_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 storage_account_sku_name: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None,
+                 vnet_address_prefix: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']] = None):
         """
         Custom Parameters used for Cluster Creation.
 
@@ -1218,182 +1218,182 @@ class WorkspaceCustomParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="amlWorkspaceId")
-    def aml_workspace_id(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def aml_workspace_id(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         The ID of a Azure Machine Learning workspace to link with Databricks workspace
         """
         return pulumi.get(self, "aml_workspace_id")
 
     @aml_workspace_id.setter
-    def aml_workspace_id(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def aml_workspace_id(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "aml_workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customPrivateSubnetName")
-    def custom_private_subnet_name(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def custom_private_subnet_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         The name of the Private Subnet within the Virtual Network
         """
         return pulumi.get(self, "custom_private_subnet_name")
 
     @custom_private_subnet_name.setter
-    def custom_private_subnet_name(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def custom_private_subnet_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "custom_private_subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customPublicSubnetName")
-    def custom_public_subnet_name(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def custom_public_subnet_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         The name of a Public Subnet within the Virtual Network
         """
         return pulumi.get(self, "custom_public_subnet_name")
 
     @custom_public_subnet_name.setter
-    def custom_public_subnet_name(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def custom_public_subnet_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "custom_public_subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="customVirtualNetworkId")
-    def custom_virtual_network_id(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def custom_virtual_network_id(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         The ID of a Virtual Network where this Databricks Cluster should be created
         """
         return pulumi.get(self, "custom_virtual_network_id")
 
     @custom_virtual_network_id.setter
-    def custom_virtual_network_id(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def custom_virtual_network_id(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "custom_virtual_network_id", value)
 
     @_builtins.property
     @pulumi.getter(name="enableNoPublicIp")
-    def enable_no_public_ip(self) -> pulumi.Input[Optional['WorkspaceNoPublicIPBooleanParameterArgs']]:
+    def enable_no_public_ip(self) -> Optional[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgs']]:
         """
         Boolean indicating whether the public IP should be disabled. Default value is true
         """
         return pulumi.get(self, "enable_no_public_ip")
 
     @enable_no_public_ip.setter
-    def enable_no_public_ip(self, value: pulumi.Input[Optional['WorkspaceNoPublicIPBooleanParameterArgs']]):
+    def enable_no_public_ip(self, value: Optional[pulumi.Input['WorkspaceNoPublicIPBooleanParameterArgs']]):
         pulumi.set(self, "enable_no_public_ip", value)
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> pulumi.Input[Optional['WorkspaceEncryptionParameterArgs']]:
+    def encryption(self) -> Optional[pulumi.Input['WorkspaceEncryptionParameterArgs']]:
         """
         Contains the encryption details for Customer-Managed Key (CMK) enabled workspace.
         """
         return pulumi.get(self, "encryption")
 
     @encryption.setter
-    def encryption(self, value: pulumi.Input[Optional['WorkspaceEncryptionParameterArgs']]):
+    def encryption(self, value: Optional[pulumi.Input['WorkspaceEncryptionParameterArgs']]):
         pulumi.set(self, "encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerBackendPoolName")
-    def load_balancer_backend_pool_name(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def load_balancer_backend_pool_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP).
         """
         return pulumi.get(self, "load_balancer_backend_pool_name")
 
     @load_balancer_backend_pool_name.setter
-    def load_balancer_backend_pool_name(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def load_balancer_backend_pool_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "load_balancer_backend_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="loadBalancerId")
-    def load_balancer_id(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def load_balancer_id(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace.
         """
         return pulumi.get(self, "load_balancer_id")
 
     @load_balancer_id.setter
-    def load_balancer_id(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def load_balancer_id(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "load_balancer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="natGatewayName")
-    def nat_gateway_name(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def nat_gateway_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets.
         """
         return pulumi.get(self, "nat_gateway_name")
 
     @nat_gateway_name.setter
-    def nat_gateway_name(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def nat_gateway_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "nat_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="prepareEncryption")
-    def prepare_encryption(self) -> pulumi.Input[Optional['WorkspaceCustomBooleanParameterArgs']]:
+    def prepare_encryption(self) -> Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]:
         """
         Prepare the workspace for encryption. Enables the Managed Identity for managed storage account.
         """
         return pulumi.get(self, "prepare_encryption")
 
     @prepare_encryption.setter
-    def prepare_encryption(self, value: pulumi.Input[Optional['WorkspaceCustomBooleanParameterArgs']]):
+    def prepare_encryption(self, value: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]):
         pulumi.set(self, "prepare_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpName")
-    def public_ip_name(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def public_ip_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         Name of the Public IP for No Public IP workspace with managed vNet.
         """
         return pulumi.get(self, "public_ip_name")
 
     @public_ip_name.setter
-    def public_ip_name(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def public_ip_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "public_ip_name", value)
 
     @_builtins.property
     @pulumi.getter(name="requireInfrastructureEncryption")
-    def require_infrastructure_encryption(self) -> pulumi.Input[Optional['WorkspaceCustomBooleanParameterArgs']]:
+    def require_infrastructure_encryption(self) -> Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]:
         """
         A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest.
         """
         return pulumi.get(self, "require_infrastructure_encryption")
 
     @require_infrastructure_encryption.setter
-    def require_infrastructure_encryption(self, value: pulumi.Input[Optional['WorkspaceCustomBooleanParameterArgs']]):
+    def require_infrastructure_encryption(self, value: Optional[pulumi.Input['WorkspaceCustomBooleanParameterArgs']]):
         pulumi.set(self, "require_infrastructure_encryption", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def storage_account_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         Default DBFS storage account name.
         """
         return pulumi.get(self, "storage_account_name")
 
     @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def storage_account_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "storage_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSkuName")
-    def storage_account_sku_name(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def storage_account_sku_name(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs.
         """
         return pulumi.get(self, "storage_account_sku_name")
 
     @storage_account_sku_name.setter
-    def storage_account_sku_name(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def storage_account_sku_name(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "storage_account_sku_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetAddressPrefix")
-    def vnet_address_prefix(self) -> pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]:
+    def vnet_address_prefix(self) -> Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]:
         """
         Address prefix for Managed virtual network. Default value for this input is 10.139.
         """
         return pulumi.get(self, "vnet_address_prefix")
 
     @vnet_address_prefix.setter
-    def vnet_address_prefix(self, value: pulumi.Input[Optional['WorkspaceCustomStringParameterArgs']]):
+    def vnet_address_prefix(self, value: Optional[pulumi.Input['WorkspaceCustomStringParameterArgs']]):
         pulumi.set(self, "vnet_address_prefix", value)
 
 
@@ -1434,7 +1434,7 @@ class WorkspaceEncryptionParameterArgsDict(TypedDict):
     """
     The object that contains details of encryption used on the workspace.
     """
-    value: NotRequired[pulumi.Input[Optional['EncryptionArgs']]]
+    value: NotRequired[pulumi.Input['EncryptionArgsDict']]
     """
     The value which should be used for this field.
     """
@@ -1442,7 +1442,7 @@ class WorkspaceEncryptionParameterArgsDict(TypedDict):
 @pulumi.input_type
 class WorkspaceEncryptionParameterArgs:
     def __init__(__self__, *,
-                 value: pulumi.Input[Optional['EncryptionArgs']] = None):
+                 value: Optional[pulumi.Input['EncryptionArgs']] = None):
         """
         The object that contains details of encryption used on the workspace.
 
@@ -1453,14 +1453,14 @@ class WorkspaceEncryptionParameterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> pulumi.Input[Optional['EncryptionArgs']]:
+    def value(self) -> Optional[pulumi.Input['EncryptionArgs']]:
         """
         The value which should be used for this field.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: pulumi.Input[Optional['EncryptionArgs']]):
+    def value(self, value: Optional[pulumi.Input['EncryptionArgs']]):
         pulumi.set(self, "value", value)
 
 
@@ -1509,7 +1509,7 @@ class WorkspacePropertiesAccessConnectorArgsDict(TypedDict):
     """
     The identity type of the Access Connector Resource.
     """
-    user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The resource ID of the User Assigned Identity associated with the Access Connector Resource. This is required for type 'UserAssigned' and not valid for type 'SystemAssigned'.
     """
@@ -1519,7 +1519,7 @@ class WorkspacePropertiesAccessConnectorArgs:
     def __init__(__self__, *,
                  id: pulumi.Input[_builtins.str],
                  identity_type: pulumi.Input[Union[_builtins.str, 'IdentityType']],
-                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Access Connector Resource that is going to be associated with Databricks Workspace
 
@@ -1558,14 +1558,14 @@ class WorkspacePropertiesAccessConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
-    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The resource ID of the User Assigned Identity associated with the Access Connector Resource. This is required for type 'UserAssigned' and not valid for type 'SystemAssigned'.
         """
         return pulumi.get(self, "user_assigned_identity_id")
 
     @user_assigned_identity_id.setter
-    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def user_assigned_identity_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
 
 

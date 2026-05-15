@@ -120,11 +120,11 @@ export interface DynamicConfigurationVersionArgs {
     /**
      * The name of the DynamicConfigurationVersion
      */
-    dynamicConfigurationVersionName?: pulumi.Input<string | undefined>;
+    dynamicConfigurationVersionName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.DynamicConfigurationVersionPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.edge.DynamicConfigurationVersionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

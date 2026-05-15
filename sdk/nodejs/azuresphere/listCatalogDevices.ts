@@ -89,11 +89,11 @@ export interface ListCatalogDevicesOutputArgs {
     /**
      * Filter the result list using the given expression
      */
-    filter?: pulumi.Input<string | undefined>;
+    filter?: pulumi.Input<string>;
     /**
      * The maximum number of result items per page.
      */
-    maxpagesize?: pulumi.Input<number | undefined>;
+    maxpagesize?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,9 +101,9 @@ export interface ListCatalogDevicesOutputArgs {
     /**
      * The number of result items to skip.
      */
-    skip?: pulumi.Input<number | undefined>;
+    skip?: pulumi.Input<number>;
     /**
      * The number of result items to return.
      */
-    top?: pulumi.Input<number | undefined>;
+    top?: pulumi.Input<number>;
 }

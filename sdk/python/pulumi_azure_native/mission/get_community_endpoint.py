@@ -192,9 +192,9 @@ def get_community_endpoint(community_endpoint_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_community_endpoint_output(community_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  community_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_community_endpoint_output(community_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  community_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCommunityEndpointResult]:
     """
     Get a CommunityEndpointResource

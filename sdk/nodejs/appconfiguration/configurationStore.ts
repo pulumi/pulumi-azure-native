@@ -186,39 +186,39 @@ export interface ConfigurationStoreArgs {
     /**
      * The name of the configuration store.
      */
-    configStoreName?: pulumi.Input<string | undefined>;
+    configStoreName?: pulumi.Input<string>;
     /**
      * Indicates whether the configuration store need to be recovered.
      */
-    createMode?: pulumi.Input<enums.appconfiguration.CreateMode | undefined>;
+    createMode?: pulumi.Input<enums.appconfiguration.CreateMode>;
     /**
      * Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
      */
-    dataPlaneProxy?: pulumi.Input<inputs.appconfiguration.DataPlaneProxyPropertiesArgs | undefined>;
+    dataPlaneProxy?: pulumi.Input<inputs.appconfiguration.DataPlaneProxyPropertiesArgs>;
     /**
      * Disables all authentication methods other than AAD authentication.
      */
-    disableLocalAuth?: pulumi.Input<boolean | undefined>;
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * Property specifying whether protection against purge is enabled for this configuration store.
      */
-    enablePurgeProtection?: pulumi.Input<boolean | undefined>;
+    enablePurgeProtection?: pulumi.Input<boolean>;
     /**
      * The encryption settings of the configuration store.
      */
-    encryption?: pulumi.Input<inputs.appconfiguration.EncryptionPropertiesArgs | undefined>;
+    encryption?: pulumi.Input<inputs.appconfiguration.EncryptionPropertiesArgs>;
     /**
      * The managed identity information, if configured.
      */
-    identity?: pulumi.Input<inputs.appconfiguration.ResourceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.appconfiguration.ResourceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.appconfiguration.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.appconfiguration.PublicNetworkAccess>;
     /**
      * The name of the resource group to which the container registry belongs.
      */
@@ -230,9 +230,9 @@ export interface ConfigurationStoreArgs {
     /**
      * The amount of time in days that the configuration store will be retained when it is soft deleted.
      */
-    softDeleteRetentionInDays?: pulumi.Input<number | undefined>;
+    softDeleteRetentionInDays?: pulumi.Input<number>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

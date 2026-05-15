@@ -99,7 +99,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.hdinsight.clusterCreatePropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.hdinsight.clusterCreatePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["zones"] = args?.zones;
@@ -134,19 +134,19 @@ export interface ClusterArgs {
     /**
      * The name of the cluster.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The identity of the cluster, if configured.
      */
-    identity?: pulumi.Input<inputs.hdinsight.ClusterIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.hdinsight.ClusterIdentityArgs>;
     /**
      * The location of the cluster.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The cluster create parameters.
      */
-    properties?: pulumi.Input<inputs.hdinsight.ClusterCreatePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.hdinsight.ClusterCreatePropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -154,9 +154,9 @@ export interface ClusterArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The availability zones.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

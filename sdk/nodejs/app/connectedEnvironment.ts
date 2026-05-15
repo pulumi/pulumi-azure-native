@@ -152,23 +152,23 @@ export interface ConnectedEnvironmentArgs {
     /**
      * Name of the connectedEnvironment.
      */
-    connectedEnvironmentName?: pulumi.Input<string | undefined>;
+    connectedEnvironmentName?: pulumi.Input<string>;
     /**
      * Custom domain configuration for the environment
      */
-    customDomainConfiguration?: pulumi.Input<inputs.app.CustomDomainConfigurationArgs | undefined>;
+    customDomainConfiguration?: pulumi.Input<inputs.app.CustomDomainConfigurationArgs>;
     /**
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry
      */
-    daprAIConnectionString?: pulumi.Input<string | undefined>;
+    daprAIConnectionString?: pulumi.Input<string>;
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.app.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.app.ExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,9 +176,9 @@ export interface ConnectedEnvironmentArgs {
     /**
      * Static IP of the connectedEnvironment
      */
-    staticIp?: pulumi.Input<string | undefined>;
+    staticIp?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

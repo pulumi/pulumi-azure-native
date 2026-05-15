@@ -235,8 +235,8 @@ def get_multiple_activation_key(multiple_activation_key_name: Optional[_builtins
         support_type=pulumi.get(__ret__, 'support_type'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_multiple_activation_key_output(multiple_activation_key_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_multiple_activation_key_output(multiple_activation_key_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultipleActivationKeyResult]:
     """
     Get a MAK key.

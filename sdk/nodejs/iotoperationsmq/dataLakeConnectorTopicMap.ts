@@ -113,7 +113,7 @@ export class DataLakeConnectorTopicMap extends pulumi.CustomResource {
             resourceInputs["dataLakeConnectorRef"] = args?.dataLakeConnectorRef;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["location"] = args?.location;
-            resourceInputs["mapping"] = args ? pulumi.output(args.mapping).apply(inputs.iotoperationsmq.dataLakeConnectorMapArgsProvideDefaults) : undefined;
+            resourceInputs["mapping"] = args ? (args.mapping ? pulumi.output(args.mapping).apply(inputs.iotoperationsmq.dataLakeConnectorMapArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["mqName"] = args?.mqName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
@@ -161,7 +161,7 @@ export interface DataLakeConnectorTopicMapArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * TopicMap for DataLake connector.
      */
@@ -177,9 +177,9 @@ export interface DataLakeConnectorTopicMapArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of MQ dataLakeConnector/topicMap resource
      */
-    topicMapName?: pulumi.Input<string | undefined>;
+    topicMapName?: pulumi.Input<string>;
 }

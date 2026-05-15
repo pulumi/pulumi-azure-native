@@ -142,10 +142,10 @@ def get_job_private_endpoint(job_agent_name: Optional[_builtins.str] = None,
         private_endpoint_id=pulumi.get(__ret__, 'private_endpoint_id'),
         target_server_azure_resource_id=pulumi.get(__ret__, 'target_server_azure_resource_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_job_private_endpoint_output(job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    server_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_job_private_endpoint_output(job_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    server_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobPrivateEndpointResult]:
     """
     Gets a private endpoint.

@@ -23,8 +23,8 @@ class SuppressionListArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  email_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 list_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 list_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 suppression_list_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SuppressionList resource.
 
@@ -80,26 +80,26 @@ class SuppressionListArgs:
 
     @_builtins.property
     @pulumi.getter(name="listName")
-    def list_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def list_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The the name of the suppression list. This value must match one of the valid sender usernames of the sending domain.
         """
         return pulumi.get(self, "list_name")
 
     @list_name.setter
-    def list_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def list_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "list_name", value)
 
     @_builtins.property
     @pulumi.getter(name="suppressionListName")
-    def suppression_list_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def suppression_list_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the suppression list.
         """
         return pulumi.get(self, "suppression_list_name")
 
     @suppression_list_name.setter
-    def suppression_list_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def suppression_list_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "suppression_list_name", value)
 
 
@@ -109,11 +109,11 @@ class SuppressionList(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 email_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 list_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 list_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 suppression_list_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A class representing a SuppressionList resource.
@@ -160,11 +160,11 @@ class SuppressionList(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 email_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 list_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 list_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 suppression_list_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

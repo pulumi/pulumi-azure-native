@@ -124,7 +124,7 @@ export class Backend extends pulumi.CustomResource {
             resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["title"] = args?.title;
-            resourceInputs["tls"] = args ? pulumi.output(args.tls).apply(v => v === undefined ? undefined : inputs.apimanagement.backendTlsPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.apimanagement.backendTlsPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["type"] = args?.type;
             resourceInputs["url"] = args?.url;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -159,32 +159,32 @@ export interface BackendArgs {
     /**
      * Identifier of the Backend entity. Must be unique in the current API Management service instance.
      */
-    backendId?: pulumi.Input<string | undefined>;
+    backendId?: pulumi.Input<string>;
     /**
      * Backend Circuit Breaker Configuration
      */
-    circuitBreaker?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerArgs | undefined>;
+    circuitBreaker?: pulumi.Input<inputs.apimanagement.BackendCircuitBreakerArgs>;
     /**
      * Backend Credentials Contract Properties
      */
-    credentials?: pulumi.Input<inputs.apimanagement.BackendCredentialsContractArgs | undefined>;
+    credentials?: pulumi.Input<inputs.apimanagement.BackendCredentialsContractArgs>;
     /**
      * Backend Description.
      */
-    description?: pulumi.Input<string | undefined>;
-    pool?: pulumi.Input<inputs.apimanagement.BackendBaseParametersPoolArgs | undefined>;
+    description?: pulumi.Input<string>;
+    pool?: pulumi.Input<inputs.apimanagement.BackendBaseParametersPoolArgs>;
     /**
      * Backend Properties contract
      */
-    properties?: pulumi.Input<inputs.apimanagement.BackendPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.apimanagement.BackendPropertiesArgs>;
     /**
      * Backend communication protocol. Required when backend type is 'Single'.
      */
-    protocol?: pulumi.Input<string | enums.apimanagement.BackendProtocol | undefined>;
+    protocol?: pulumi.Input<string | enums.apimanagement.BackendProtocol>;
     /**
      * Backend gateway Contract Properties
      */
-    proxy?: pulumi.Input<inputs.apimanagement.BackendProxyContractArgs | undefined>;
+    proxy?: pulumi.Input<inputs.apimanagement.BackendProxyContractArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -192,7 +192,7 @@ export interface BackendArgs {
     /**
      * Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
      */
-    resourceId?: pulumi.Input<string | undefined>;
+    resourceId?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
@@ -200,17 +200,17 @@ export interface BackendArgs {
     /**
      * Backend Title.
      */
-    title?: pulumi.Input<string | undefined>;
+    title?: pulumi.Input<string>;
     /**
      * Backend TLS Properties
      */
-    tls?: pulumi.Input<inputs.apimanagement.BackendTlsPropertiesArgs | undefined>;
+    tls?: pulumi.Input<inputs.apimanagement.BackendTlsPropertiesArgs>;
     /**
      * Type of the backend. A backend can be either Single or Pool.
      */
-    type?: pulumi.Input<string | enums.apimanagement.BackendType | undefined>;
+    type?: pulumi.Input<string | enums.apimanagement.BackendType>;
     /**
      * Runtime Url of the Backend. Required when backend type is 'Single'.
      */
-    url?: pulumi.Input<string | undefined>;
+    url?: pulumi.Input<string>;
 }

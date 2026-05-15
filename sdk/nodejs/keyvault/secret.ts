@@ -125,11 +125,11 @@ export interface SecretArgs {
     /**
      * Name of the secret. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
      */
-    secretName?: pulumi.Input<string | undefined>;
+    secretName?: pulumi.Input<string>;
     /**
      * The tags that will be assigned to the secret. 
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the vault
      */

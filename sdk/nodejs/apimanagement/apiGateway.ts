@@ -167,15 +167,15 @@ export interface ApiGatewayArgs {
     /**
      * Information regarding how the gateway should integrate with backend systems.
      */
-    backend?: pulumi.Input<inputs.apimanagement.BackendConfigurationArgs | undefined>;
+    backend?: pulumi.Input<inputs.apimanagement.BackendConfigurationArgs>;
     /**
      * The name of the API Management gateway.
      */
-    gatewayName?: pulumi.Input<string | undefined>;
+    gatewayName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -187,9 +187,9 @@ export interface ApiGatewayArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of VPN in which API Management gateway needs to be configured in. 
      */
-    virtualNetworkType?: pulumi.Input<string | enums.apimanagement.VirtualNetworkType | undefined>;
+    virtualNetworkType?: pulumi.Input<string | enums.apimanagement.VirtualNetworkType>;
 }

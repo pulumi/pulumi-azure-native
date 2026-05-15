@@ -124,7 +124,7 @@ export interface NetworkFunctionDefinitionVersionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network function definition group.
      */
@@ -132,11 +132,11 @@ export interface NetworkFunctionDefinitionVersionArgs {
     /**
      * The name of the network function definition version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
      */
-    networkFunctionDefinitionVersionName?: pulumi.Input<string | undefined>;
+    networkFunctionDefinitionVersionName?: pulumi.Input<string>;
     /**
      * Network function definition version properties.
      */
-    properties?: pulumi.Input<inputs.hybridnetwork.ContainerizedNetworkFunctionDefinitionVersionArgs | inputs.hybridnetwork.VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgs | undefined>;
+    properties?: pulumi.Input<inputs.hybridnetwork.ContainerizedNetworkFunctionDefinitionVersionArgs | inputs.hybridnetwork.VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgs>;
     /**
      * The name of the publisher.
      */
@@ -148,5 +148,5 @@ export interface NetworkFunctionDefinitionVersionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

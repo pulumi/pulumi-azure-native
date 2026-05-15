@@ -125,15 +125,15 @@ export interface FirewallPolicyRuleGroupArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Priority of the Firewall Policy Rule Group resource.
      */
-    priority?: pulumi.Input<number | undefined>;
+    priority?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */
@@ -141,9 +141,9 @@ export interface FirewallPolicyRuleGroupArgs {
     /**
      * The name of the FirewallPolicyRuleGroup.
      */
-    ruleGroupName?: pulumi.Input<string | undefined>;
+    ruleGroupName?: pulumi.Input<string>;
     /**
      * Group of Firewall Policy rules.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyFilterRuleArgs | inputs.network.FirewallPolicyNatRuleArgs>[] | undefined>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyFilterRuleArgs | inputs.network.FirewallPolicyNatRuleArgs>[]>;
 }

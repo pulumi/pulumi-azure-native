@@ -153,9 +153,9 @@ def get_firewall_policy_rule_collection_group_draft(firewall_policy_name: Option
         rule_collections=pulumi.get(__ret__, 'rule_collections'),
         size=pulumi.get(__ret__, 'size'),
         type=pulumi.get(__ret__, 'type'))
-def get_firewall_policy_rule_collection_group_draft_output(firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                           rule_collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_firewall_policy_rule_collection_group_draft_output(firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                           rule_collection_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyRuleCollectionGroupDraftResult]:
     """
     Get Rule Collection Group Draft.

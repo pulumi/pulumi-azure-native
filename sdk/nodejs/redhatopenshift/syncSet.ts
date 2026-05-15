@@ -108,7 +108,7 @@ export interface SyncSetArgs {
     /**
      * The name of the SyncSet resource.
      */
-    childResourceName?: pulumi.Input<string | undefined>;
+    childResourceName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,5 +120,5 @@ export interface SyncSetArgs {
     /**
      * Resources represents the SyncSets configuration.
      */
-    resources?: pulumi.Input<string | undefined>;
+    resources?: pulumi.Input<string>;
 }

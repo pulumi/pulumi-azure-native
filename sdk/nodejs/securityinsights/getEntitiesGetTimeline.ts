@@ -103,11 +103,11 @@ export interface GetEntitiesGetTimelineOutputArgs {
     /**
      * Array of timeline Item kinds.
      */
-    kinds?: pulumi.Input<pulumi.Input<string | enums.securityinsights.EntityTimelineKind>[] | undefined>;
+    kinds?: pulumi.Input<pulumi.Input<string | enums.securityinsights.EntityTimelineKind>[]>;
     /**
      * The number of bucket for timeline queries aggregation.
      */
-    numberOfBucket?: pulumi.Input<number | undefined>;
+    numberOfBucket?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

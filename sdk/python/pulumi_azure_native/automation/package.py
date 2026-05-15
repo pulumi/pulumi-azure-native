@@ -25,8 +25,8 @@ class PackageArgs:
                  content_link: pulumi.Input['ContentLinkArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  runtime_environment_name: pulumi.Input[_builtins.str],
-                 all_of: pulumi.Input[Optional['TrackedResourceArgs']] = None,
-                 package_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 all_of: Optional[pulumi.Input['TrackedResourceArgs']] = None,
+                 package_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Package resource.
 
@@ -96,26 +96,26 @@ class PackageArgs:
 
     @_builtins.property
     @pulumi.getter(name="allOf")
-    def all_of(self) -> pulumi.Input[Optional['TrackedResourceArgs']]:
+    def all_of(self) -> Optional[pulumi.Input['TrackedResourceArgs']]:
         """
         The resource model definition for an Azure Resource Manager tracked top level resource which has 'tags' and a 'location'
         """
         return pulumi.get(self, "all_of")
 
     @all_of.setter
-    def all_of(self, value: pulumi.Input[Optional['TrackedResourceArgs']]):
+    def all_of(self, value: Optional[pulumi.Input['TrackedResourceArgs']]):
         pulumi.set(self, "all_of", value)
 
     @_builtins.property
     @pulumi.getter(name="packageName")
-    def package_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def package_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of Package.
         """
         return pulumi.get(self, "package_name")
 
     @package_name.setter
-    def package_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def package_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "package_name", value)
 
 
@@ -125,12 +125,12 @@ class Package(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_of: pulumi.Input[Optional[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']]] = None,
-                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_link: pulumi.Input[Optional[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
-                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 all_of: Optional[pulumi.Input[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']]] = None,
+                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
+                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of the Package type.
@@ -178,12 +178,12 @@ class Package(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 all_of: pulumi.Input[Optional[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']]] = None,
-                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_link: pulumi.Input[Optional[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
-                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 all_of: Optional[pulumi.Input[Union['TrackedResourceArgs', 'TrackedResourceArgsDict']]] = None,
+                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 content_link: Optional[pulumi.Input[Union['ContentLinkArgs', 'ContentLinkArgsDict']]] = None,
+                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -74,9 +74,9 @@ def list_compute_keys(compute_name: Optional[_builtins.str] = None,
 
     return AwaitableListComputeKeysResult(
         compute_type=pulumi.get(__ret__, 'compute_type'))
-def list_compute_keys_output(compute_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_compute_keys_output(compute_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListComputeKeysResult]:
     """
     Gets secrets related to Machine Learning compute (storage keys, service credentials, etc).

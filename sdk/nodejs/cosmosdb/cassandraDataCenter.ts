@@ -106,11 +106,11 @@ export interface CassandraDataCenterArgs {
     /**
      * Data center name in a managed Cassandra cluster.
      */
-    dataCenterName?: pulumi.Input<string | undefined>;
+    dataCenterName?: pulumi.Input<string>;
     /**
      * Properties of a managed Cassandra data center.
      */
-    properties?: pulumi.Input<inputs.cosmosdb.DataCenterResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.cosmosdb.DataCenterResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

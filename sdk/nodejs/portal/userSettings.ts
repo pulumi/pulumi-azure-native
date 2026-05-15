@@ -87,5 +87,5 @@ export interface UserSettingsArgs {
     /**
      * The name of the user settings
      */
-    userSettingsName?: pulumi.Input<string | undefined>;
+    userSettingsName?: pulumi.Input<string>;
 }

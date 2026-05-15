@@ -128,15 +128,15 @@ export interface FleetManagedNamespaceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the fleet managed namespace resource.
      */
-    managedNamespaceName?: pulumi.Input<string | undefined>;
+    managedNamespaceName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.containerservice.FleetManagedNamespacePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.containerservice.FleetManagedNamespacePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -144,5 +144,5 @@ export interface FleetManagedNamespaceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

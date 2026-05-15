@@ -173,7 +173,7 @@ def get_partner_configuration(resource_group_name: Optional[_builtins.str] = Non
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_partner_configuration_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_partner_configuration_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnerConfigurationResult]:
     """
     Get properties of a partner configuration.

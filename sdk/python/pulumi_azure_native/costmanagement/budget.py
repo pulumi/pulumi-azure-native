@@ -26,11 +26,11 @@ class BudgetArgs:
                  scope: pulumi.Input[_builtins.str],
                  time_grain: pulumi.Input[Union[_builtins.str, 'TimeGrainType']],
                  time_period: pulumi.Input['BudgetTimePeriodArgs'],
-                 amount: pulumi.Input[Optional[_builtins.float]] = None,
-                 budget_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional['BudgetFilterArgs']] = None,
-                 notifications: pulumi.Input[Optional[Mapping[str, pulumi.Input['NotificationArgs']]]] = None):
+                 amount: Optional[pulumi.Input[_builtins.float]] = None,
+                 budget_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter: Optional[pulumi.Input['BudgetFilterArgs']] = None,
+                 notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input['NotificationArgs']]]] = None):
         """
         The set of arguments for constructing a Budget resource.
 
@@ -226,7 +226,7 @@ class BudgetArgs:
 
     @_builtins.property
     @pulumi.getter
-    def amount(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def amount(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         The total amount of cost to track with the budget.
 
@@ -237,36 +237,36 @@ class BudgetArgs:
         return pulumi.get(self, "amount")
 
     @amount.setter
-    def amount(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def amount(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "amount", value)
 
     @_builtins.property
     @pulumi.getter(name="budgetName")
-    def budget_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def budget_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Budget Name.
         """
         return pulumi.get(self, "budget_name")
 
     @budget_name.setter
-    def budget_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def budget_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "budget_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter
-    def filter(self) -> pulumi.Input[Optional['BudgetFilterArgs']]:
+    def filter(self) -> Optional[pulumi.Input['BudgetFilterArgs']]:
         """
         May be used to filter budgets by user-specified dimensions and/or tags.
 
@@ -275,12 +275,12 @@ class BudgetArgs:
         return pulumi.get(self, "filter")
 
     @filter.setter
-    def filter(self, value: pulumi.Input[Optional['BudgetFilterArgs']]):
+    def filter(self, value: Optional[pulumi.Input['BudgetFilterArgs']]):
         pulumi.set(self, "filter", value)
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['NotificationArgs']]]]:
+    def notifications(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['NotificationArgs']]]]:
         """
         Dictionary of notifications associated with the budget.
 
@@ -292,7 +292,7 @@ class BudgetArgs:
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['NotificationArgs']]]]):
+    def notifications(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['NotificationArgs']]]]):
         pulumi.set(self, "notifications", value)
 
 
@@ -302,15 +302,15 @@ class Budget(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amount: pulumi.Input[Optional[_builtins.float]] = None,
-                 budget_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 category: pulumi.Input[Optional[Union[_builtins.str, 'CategoryType']]] = None,
-                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional[Union['BudgetFilterArgs', 'BudgetFilterArgsDict']]] = None,
-                 notifications: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']]]]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_grain: pulumi.Input[Optional[Union[_builtins.str, 'TimeGrainType']]] = None,
-                 time_period: pulumi.Input[Optional[Union['BudgetTimePeriodArgs', 'BudgetTimePeriodArgsDict']]] = None,
+                 amount: Optional[pulumi.Input[_builtins.float]] = None,
+                 budget_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: Optional[pulumi.Input[Union[_builtins.str, 'CategoryType']]] = None,
+                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter: Optional[pulumi.Input[Union['BudgetFilterArgs', 'BudgetFilterArgsDict']]] = None,
+                 notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']]]]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 time_grain: Optional[pulumi.Input[Union[_builtins.str, 'TimeGrainType']]] = None,
+                 time_period: Optional[pulumi.Input[Union['BudgetTimePeriodArgs', 'BudgetTimePeriodArgsDict']]] = None,
                  __props__=None):
         """
         A budget resource.
@@ -425,15 +425,15 @@ class Budget(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 amount: pulumi.Input[Optional[_builtins.float]] = None,
-                 budget_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 category: pulumi.Input[Optional[Union[_builtins.str, 'CategoryType']]] = None,
-                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional[Union['BudgetFilterArgs', 'BudgetFilterArgsDict']]] = None,
-                 notifications: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']]]]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 time_grain: pulumi.Input[Optional[Union[_builtins.str, 'TimeGrainType']]] = None,
-                 time_period: pulumi.Input[Optional[Union['BudgetTimePeriodArgs', 'BudgetTimePeriodArgsDict']]] = None,
+                 amount: Optional[pulumi.Input[_builtins.float]] = None,
+                 budget_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: Optional[pulumi.Input[Union[_builtins.str, 'CategoryType']]] = None,
+                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 filter: Optional[pulumi.Input[Union['BudgetFilterArgs', 'BudgetFilterArgsDict']]] = None,
+                 notifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']]]]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 time_grain: Optional[pulumi.Input[Union[_builtins.str, 'TimeGrainType']]] = None,
+                 time_period: Optional[pulumi.Input[Union['BudgetTimePeriodArgs', 'BudgetTimePeriodArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

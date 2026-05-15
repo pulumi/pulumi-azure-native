@@ -195,7 +195,7 @@ export interface ScheduleArgs {
     /**
      * Gets or sets the AdvancedSchedule.
      */
-    advancedSchedule?: pulumi.Input<inputs.automation.AdvancedScheduleArgs | undefined>;
+    advancedSchedule?: pulumi.Input<inputs.automation.AdvancedScheduleArgs>;
     /**
      * The name of the automation account.
      */
@@ -203,11 +203,11 @@ export interface ScheduleArgs {
     /**
      * Gets or sets the description of the schedule.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Gets or sets the end time of the schedule.
      */
-    expiryTime?: pulumi.Input<string | undefined>;
+    expiryTime?: pulumi.Input<string>;
     /**
      * Gets or sets the frequency of the schedule.
      */
@@ -215,7 +215,7 @@ export interface ScheduleArgs {
     /**
      * Gets or sets the interval of the schedule.
      */
-    interval?: any | undefined;
+    interval?: any;
     /**
      * Gets or sets the name of the Schedule.
      */
@@ -227,7 +227,7 @@ export interface ScheduleArgs {
     /**
      * The schedule name.
      */
-    scheduleName?: pulumi.Input<string | undefined>;
+    scheduleName?: pulumi.Input<string>;
     /**
      * Gets or sets the start time of the schedule.
      */
@@ -235,5 +235,5 @@ export interface ScheduleArgs {
     /**
      * Gets or sets the time zone of the schedule.
      */
-    timeZone?: pulumi.Input<string | undefined>;
+    timeZone?: pulumi.Input<string>;
 }

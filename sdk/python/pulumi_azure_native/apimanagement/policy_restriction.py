@@ -22,9 +22,9 @@ class PolicyRestrictionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 policy_restriction_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 require_base: pulumi.Input[Optional[Union[_builtins.str, 'PolicyRestrictionRequireBase']]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None):
+                 policy_restriction_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 require_base: Optional[pulumi.Input[Union[_builtins.str, 'PolicyRestrictionRequireBase']]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyRestriction resource.
 
@@ -71,38 +71,38 @@ class PolicyRestrictionArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyRestrictionId")
-    def policy_restriction_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def policy_restriction_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Policy restrictions after an entity level
         """
         return pulumi.get(self, "policy_restriction_id")
 
     @policy_restriction_id.setter
-    def policy_restriction_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def policy_restriction_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "policy_restriction_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requireBase")
-    def require_base(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PolicyRestrictionRequireBase']]]:
+    def require_base(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyRestrictionRequireBase']]]:
         """
         Indicates if base policy should be enforced for the policy document.
         """
         return pulumi.get(self, "require_base")
 
     @require_base.setter
-    def require_base(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyRestrictionRequireBase']]]):
+    def require_base(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PolicyRestrictionRequireBase']]]):
         pulumi.set(self, "require_base", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def scope(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Path to the policy document.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def scope(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "scope", value)
 
 
@@ -112,11 +112,11 @@ class PolicyRestriction(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_restriction_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 require_base: pulumi.Input[Optional[Union[_builtins.str, 'PolicyRestrictionRequireBase']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_restriction_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 require_base: Optional[pulumi.Input[Union[_builtins.str, 'PolicyRestrictionRequireBase']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Policy restriction contract details.
@@ -163,11 +163,11 @@ class PolicyRestriction(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 policy_restriction_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 require_base: pulumi.Input[Optional[Union[_builtins.str, 'PolicyRestrictionRequireBase']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_restriction_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 require_base: Optional[pulumi.Input[Union[_builtins.str, 'PolicyRestrictionRequireBase']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

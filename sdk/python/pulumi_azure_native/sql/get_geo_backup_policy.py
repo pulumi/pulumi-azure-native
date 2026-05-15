@@ -168,10 +168,10 @@ def get_geo_backup_policy(database_name: Optional[_builtins.str] = None,
         state=pulumi.get(__ret__, 'state'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_geo_backup_policy_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 geo_backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_geo_backup_policy_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 geo_backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGeoBackupPolicyResult]:
     """
     Gets a Geo backup policy for the given database resource.

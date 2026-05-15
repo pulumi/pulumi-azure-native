@@ -23,8 +23,8 @@ class WebAppDiscoverySiteDataSourcesControllerArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
                  web_app_site_name: pulumi.Input[_builtins.str],
-                 discovery_site_data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 discovery_site_data_source_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppDiscoverySiteDataSourcesController resource.
 
@@ -80,26 +80,26 @@ class WebAppDiscoverySiteDataSourcesControllerArgs:
 
     @_builtins.property
     @pulumi.getter(name="discoverySiteDataSourceName")
-    def discovery_site_data_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def discovery_site_data_source_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Data Source ARM name.
         """
         return pulumi.get(self, "discovery_site_data_source_name")
 
     @discovery_site_data_source_name.setter
-    def discovery_site_data_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def discovery_site_data_source_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "discovery_site_data_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoverySiteId")
-    def discovery_site_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def discovery_site_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Gets or sets the discovery site Id.
         """
         return pulumi.get(self, "discovery_site_id")
 
     @discovery_site_id.setter
-    def discovery_site_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def discovery_site_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "discovery_site_id", value)
 
 
@@ -109,11 +109,11 @@ class WebAppDiscoverySiteDataSourcesController(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 discovery_site_data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 web_app_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_site_data_source_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 web_app_site_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Web app data source web model.
@@ -160,11 +160,11 @@ class WebAppDiscoverySiteDataSourcesController(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 discovery_site_data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 web_app_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 discovery_site_data_source_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 discovery_site_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 web_app_site_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

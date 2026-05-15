@@ -126,11 +126,11 @@ export interface ThroughputPoolAccountArgs {
     /**
      * The location of  global database account in the throughputPool.
      */
-    accountLocation?: pulumi.Input<string | undefined>;
+    accountLocation?: pulumi.Input<string>;
     /**
      * The resource identifier of global database account in the throughputPool.
      */
-    accountResourceIdentifier?: pulumi.Input<string | undefined>;
+    accountResourceIdentifier?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,7 +138,7 @@ export interface ThroughputPoolAccountArgs {
     /**
      * Cosmos DB global database account in a Throughput Pool
      */
-    throughputPoolAccountName?: pulumi.Input<string | undefined>;
+    throughputPoolAccountName?: pulumi.Input<string>;
     /**
      * Cosmos DB Throughput Pool name.
      */

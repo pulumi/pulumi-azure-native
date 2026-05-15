@@ -197,15 +197,15 @@ export interface ModuleArgs {
     /**
      * Gets or sets the location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of module.
      */
-    moduleName?: pulumi.Input<string | undefined>;
+    moduleName?: pulumi.Input<string>;
     /**
      * Gets or sets name of the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
@@ -213,5 +213,5 @@ export interface ModuleArgs {
     /**
      * Gets or sets the tags attached to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

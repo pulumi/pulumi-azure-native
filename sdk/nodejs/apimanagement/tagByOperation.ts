@@ -123,5 +123,5 @@ export interface TagByOperationArgs {
     /**
      * Tag identifier. Must be unique in the current API Management service instance.
      */
-    tagId?: pulumi.Input<string | undefined>;
+    tagId?: pulumi.Input<string>;
 }

@@ -111,7 +111,7 @@ export interface JWTAuthenticatorArgs {
     /**
      * The name of the JWT authenticator.
      */
-    jwtAuthenticatorName?: pulumi.Input<string | undefined>;
+    jwtAuthenticatorName?: pulumi.Input<string>;
     /**
      * The properties of JWTAuthenticator. For details on how to configure the properties of a JWT authenticator, please refer to the Kubernetes documentation: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration. Please note that not all fields available in the Kubernetes documentation are supported by AKS. For troubleshooting, please see https://aka.ms/aks-external-issuers-docs.
      */

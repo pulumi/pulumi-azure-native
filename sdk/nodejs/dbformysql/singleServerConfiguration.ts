@@ -127,7 +127,7 @@ export interface SingleServerConfigurationArgs {
     /**
      * The name of the server configuration.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -139,9 +139,9 @@ export interface SingleServerConfigurationArgs {
     /**
      * Source of the configuration.
      */
-    source?: pulumi.Input<string | undefined>;
+    source?: pulumi.Input<string>;
     /**
      * Value of the configuration.
      */
-    value?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string>;
 }

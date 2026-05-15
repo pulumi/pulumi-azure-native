@@ -133,15 +133,15 @@ export interface HubRouteTableArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * List of labels associated with this route table.
      */
-    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualHub.
      */
@@ -149,11 +149,11 @@ export interface HubRouteTableArgs {
     /**
      * The name of the RouteTable.
      */
-    routeTableName?: pulumi.Input<string | undefined>;
+    routeTableName?: pulumi.Input<string>;
     /**
      * List of all routes.
      */
-    routes?: pulumi.Input<pulumi.Input<inputs.network.HubRouteArgs>[] | undefined>;
+    routes?: pulumi.Input<pulumi.Input<inputs.network.HubRouteArgs>[]>;
     /**
      * The name of the VirtualHub.
      */

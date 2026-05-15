@@ -111,7 +111,7 @@ export interface GetAssessmentOutputArgs {
     /**
      * OData expand. Optional.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The identifier of the resource.
      */

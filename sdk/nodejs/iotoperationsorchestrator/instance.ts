@@ -156,15 +156,15 @@ export interface InstanceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of Instance.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Reconciliation Policy.
      */
-    reconciliationPolicy?: pulumi.Input<inputs.iotoperationsorchestrator.ReconciliationPolicyArgs | undefined>;
+    reconciliationPolicy?: pulumi.Input<inputs.iotoperationsorchestrator.ReconciliationPolicyArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -172,21 +172,21 @@ export interface InstanceArgs {
     /**
      * Deployment scope (such as Kubernetes namespace).
      */
-    scope?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<string>;
     /**
      * Name of the solution.
      */
-    solution?: pulumi.Input<string | undefined>;
+    solution?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Defines the Target the Instance will deploy to.
      */
-    target?: pulumi.Input<inputs.iotoperationsorchestrator.TargetSelectorPropertiesArgs | undefined>;
+    target?: pulumi.Input<inputs.iotoperationsorchestrator.TargetSelectorPropertiesArgs>;
     /**
      * Version of the particular resource.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

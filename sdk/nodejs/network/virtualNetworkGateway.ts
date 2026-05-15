@@ -279,88 +279,88 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * ActiveActive flag.
      */
-    activeActive?: pulumi.Input<boolean | undefined>;
+    activeActive?: pulumi.Input<boolean>;
     /**
      * Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet
      */
-    adminState?: pulumi.Input<string | enums.network.AdminState | undefined>;
+    adminState?: pulumi.Input<string | enums.network.AdminState>;
     /**
      * Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN.
      */
-    allowRemoteVnetTraffic?: pulumi.Input<boolean | undefined>;
+    allowRemoteVnetTraffic?: pulumi.Input<boolean>;
     /**
      * Configures this gateway to accept traffic from remote Virtual WAN networks.
      */
-    allowVirtualWanTraffic?: pulumi.Input<boolean | undefined>;
+    allowVirtualWanTraffic?: pulumi.Input<boolean>;
     /**
      * Autoscale configuration for virutal network gateway
      */
-    autoScaleConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayAutoScaleConfigurationArgs | undefined>;
+    autoScaleConfiguration?: pulumi.Input<inputs.network.VirtualNetworkGatewayAutoScaleConfigurationArgs>;
     /**
      * Virtual network gateway's BGP speaker settings.
      */
-    bgpSettings?: pulumi.Input<inputs.network.BgpSettingsArgs | undefined>;
+    bgpSettings?: pulumi.Input<inputs.network.BgpSettingsArgs>;
     /**
      * The reference to the address space resource which represents the custom routes address space specified by the customer for virtual network gateway and VpnClient.
      */
-    customRoutes?: pulumi.Input<inputs.network.AddressSpaceArgs | undefined>;
+    customRoutes?: pulumi.Input<inputs.network.AddressSpaceArgs>;
     /**
      * disableIPSecReplayProtection flag.
      */
-    disableIPSecReplayProtection?: pulumi.Input<boolean | undefined>;
+    disableIPSecReplayProtection?: pulumi.Input<boolean>;
     /**
      * Whether BGP is enabled for this virtual network gateway or not.
      */
-    enableBgp?: pulumi.Input<boolean | undefined>;
+    enableBgp?: pulumi.Input<boolean>;
     /**
      * EnableBgpRouteTranslationForNat flag.
      */
-    enableBgpRouteTranslationForNat?: pulumi.Input<boolean | undefined>;
+    enableBgpRouteTranslationForNat?: pulumi.Input<boolean>;
     /**
      * Whether dns forwarding is enabled or not.
      */
-    enableDnsForwarding?: pulumi.Input<boolean | undefined>;
+    enableDnsForwarding?: pulumi.Input<boolean>;
     /**
      * Whether private IP needs to be enabled on this gateway for connections or not.
      */
-    enablePrivateIpAddress?: pulumi.Input<boolean | undefined>;
+    enablePrivateIpAddress?: pulumi.Input<boolean>;
     /**
      * The extended location of type local virtual network gateway.
      */
-    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
     /**
      * The reference to the LocalNetworkGateway resource which represents local network site having default routes. Assign Null value in case of removing existing default site setting.
      */
-    gatewayDefaultSite?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    gatewayDefaultSite?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The type of this virtual network gateway.
      */
-    gatewayType?: pulumi.Input<string | enums.network.VirtualNetworkGatewayType | undefined>;
+    gatewayType?: pulumi.Input<string | enums.network.VirtualNetworkGatewayType>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The identity of the virtual network gateway, if configured.
      */
-    identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.network.ManagedServiceIdentityArgs>;
     /**
      * IP configurations for virtual network gateway.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayIPConfigurationArgs>[] | undefined>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * NatRules for virtual network gateway.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    natRules?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleArgs>[] | undefined>;
+    natRules?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayNatRuleArgs>[]>;
     /**
      * Property to indicate if the Express Route Gateway has resiliency model of MultiHomed or SingleHomed
      */
-    resiliencyModel?: pulumi.Input<string | enums.network.ResiliencyModel | undefined>;
+    resiliencyModel?: pulumi.Input<string | enums.network.ResiliencyModel>;
     /**
      * The name of the resource group.
      */
@@ -368,33 +368,33 @@ export interface VirtualNetworkGatewayArgs {
     /**
      * The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway.
      */
-    sku?: pulumi.Input<inputs.network.VirtualNetworkGatewaySkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.network.VirtualNetworkGatewaySkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet.
      */
-    vNetExtendedLocationResourceId?: pulumi.Input<string | undefined>;
+    vNetExtendedLocationResourceId?: pulumi.Input<string>;
     /**
      * The name of the virtual network gateway.
      */
-    virtualNetworkGatewayName?: pulumi.Input<string | undefined>;
+    virtualNetworkGatewayName?: pulumi.Input<string>;
     /**
      * The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway.
      */
-    virtualNetworkGatewayPolicyGroups?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayPolicyGroupArgs>[] | undefined>;
+    virtualNetworkGatewayPolicyGroups?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkGatewayPolicyGroupArgs>[]>;
     /**
      * The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations.
      */
-    vpnClientConfiguration?: pulumi.Input<inputs.network.VpnClientConfigurationArgs | undefined>;
+    vpnClientConfiguration?: pulumi.Input<inputs.network.VpnClientConfigurationArgs>;
     /**
      * The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN.
      */
-    vpnGatewayGeneration?: pulumi.Input<string | enums.network.VpnGatewayGeneration | undefined>;
+    vpnGatewayGeneration?: pulumi.Input<string | enums.network.VpnGatewayGeneration>;
     /**
      * The type of this virtual network gateway.
      */
-    vpnType?: pulumi.Input<string | enums.network.VpnType | undefined>;
+    vpnType?: pulumi.Input<string | enums.network.VpnType>;
 }

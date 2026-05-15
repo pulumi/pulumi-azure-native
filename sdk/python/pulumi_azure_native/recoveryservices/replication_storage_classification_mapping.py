@@ -25,8 +25,8 @@ class ReplicationStorageClassificationMappingArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  storage_classification_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['StorageMappingInputPropertiesArgs']] = None,
-                 storage_classification_mapping_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['StorageMappingInputPropertiesArgs']] = None,
+                 storage_classification_mapping_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationStorageClassificationMapping resource.
 
@@ -96,26 +96,26 @@ class ReplicationStorageClassificationMappingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['StorageMappingInputPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['StorageMappingInputPropertiesArgs']]:
         """
         Storage mapping input properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['StorageMappingInputPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['StorageMappingInputPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="storageClassificationMappingName")
-    def storage_classification_mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def storage_classification_mapping_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Storage classification mapping name.
         """
         return pulumi.get(self, "storage_classification_mapping_name")
 
     @storage_classification_mapping_name.setter
-    def storage_classification_mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def storage_classification_mapping_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "storage_classification_mapping_name", value)
 
 
@@ -125,12 +125,12 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['StorageMappingInputPropertiesArgs', 'StorageMappingInputPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_classification_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_classification_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['StorageMappingInputPropertiesArgs', 'StorageMappingInputPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_classification_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_classification_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Storage mapping object.
@@ -178,12 +178,12 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['StorageMappingInputPropertiesArgs', 'StorageMappingInputPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_classification_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_classification_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['StorageMappingInputPropertiesArgs', 'StorageMappingInputPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_classification_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_classification_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -97,16 +97,16 @@ def get_log_analytic_export_request_rate_by_interval(blob_container_sas_uri: Opt
 
     return AwaitableGetLogAnalyticExportRequestRateByIntervalResult(
         properties=pulumi.get(__ret__, 'properties'))
-def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                                                            from_time: pulumi.Input[Optional[_builtins.str]] = None,
-                                                            group_by_client_application_id: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                                                            group_by_operation_name: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                                                            group_by_resource_name: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                                                            group_by_throttle_policy: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                                                            group_by_user_agent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                                                            interval_length: pulumi.Input[Optional['IntervalInMins']] = None,
-                                                            location: pulumi.Input[Optional[_builtins.str]] = None,
-                                                            to_time: pulumi.Input[Optional[_builtins.str]] = None,
+def get_log_analytic_export_request_rate_by_interval_output(blob_container_sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                                                            from_time: Optional[pulumi.Input[_builtins.str]] = None,
+                                                            group_by_client_application_id: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                                                            group_by_operation_name: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                                                            group_by_resource_name: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                                                            group_by_throttle_policy: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                                                            group_by_user_agent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                                                            interval_length: Optional[pulumi.Input['IntervalInMins']] = None,
+                                                            location: Optional[pulumi.Input[_builtins.str]] = None,
+                                                            to_time: Optional[pulumi.Input[_builtins.str]] = None,
                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAnalyticExportRequestRateByIntervalResult]:
     """
     Export logs that show Api requests made by this subscription in the given time window to show throttling activities.

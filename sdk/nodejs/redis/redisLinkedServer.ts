@@ -134,7 +134,7 @@ export interface RedisLinkedServerArgs {
     /**
      * The name of the linked server that is being added to the Redis cache.
      */
-    linkedServerName?: pulumi.Input<string | undefined>;
+    linkedServerName?: pulumi.Input<string>;
     /**
      * The name of the Redis cache.
      */

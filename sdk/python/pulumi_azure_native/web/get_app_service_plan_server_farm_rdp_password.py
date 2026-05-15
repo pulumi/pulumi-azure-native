@@ -84,8 +84,8 @@ def get_app_service_plan_server_farm_rdp_password(name: Optional[_builtins.str] 
     return AwaitableGetAppServicePlanServerFarmRdpPasswordResult(
         rdp_password=pulumi.get(__ret__, 'rdp_password'),
         rdp_password_expiry=pulumi.get(__ret__, 'rdp_password_expiry'))
-def get_app_service_plan_server_farm_rdp_password_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_app_service_plan_server_farm_rdp_password_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServicePlanServerFarmRdpPasswordResult]:
     """
     Description for Get the RDP password for an IsCustomMode ServerFarm.

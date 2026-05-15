@@ -215,11 +215,11 @@ export class Domain extends pulumi.CustomResource {
  * The set of arguments for constructing a Domain resource.
  */
 export interface DomainArgs {
-    authCode?: pulumi.Input<string | undefined>;
+    authCode?: pulumi.Input<string>;
     /**
      * <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
      */
-    autoRenew?: pulumi.Input<boolean | undefined>;
+    autoRenew?: pulumi.Input<boolean>;
     /**
      * Legal agreement consent.
      */
@@ -243,27 +243,27 @@ export interface DomainArgs {
     /**
      * Current DNS type
      */
-    dnsType?: pulumi.Input<enums.domainregistration.DnsType | undefined>;
+    dnsType?: pulumi.Input<enums.domainregistration.DnsType>;
     /**
      * Azure DNS Zone to use
      */
-    dnsZoneId?: pulumi.Input<string | undefined>;
+    dnsZoneId?: pulumi.Input<string>;
     /**
      * Name of the domain.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName?: pulumi.Input<string>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
      */
-    privacy?: pulumi.Input<boolean | undefined>;
+    privacy?: pulumi.Input<boolean>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -271,9 +271,9 @@ export interface DomainArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Target DNS type (would be used for migration)
      */
-    targetDnsType?: pulumi.Input<enums.domainregistration.DnsType | undefined>;
+    targetDnsType?: pulumi.Input<enums.domainregistration.DnsType>;
 }

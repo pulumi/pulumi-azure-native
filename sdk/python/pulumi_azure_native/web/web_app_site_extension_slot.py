@@ -22,7 +22,7 @@ class WebAppSiteExtensionSlotArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
-                 site_extension_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 site_extension_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppSiteExtensionSlot resource.
 
@@ -75,14 +75,14 @@ class WebAppSiteExtensionSlotArgs:
 
     @_builtins.property
     @pulumi.getter(name="siteExtensionId")
-    def site_extension_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def site_extension_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Site extension name.
         """
         return pulumi.get(self, "site_extension_id")
 
     @site_extension_id.setter
-    def site_extension_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def site_extension_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "site_extension_id", value)
 
 
@@ -92,10 +92,10 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_extension_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 slot: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 site_extension_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 slot: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Site Extension Information.
@@ -141,10 +141,10 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_extension_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 slot: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 site_extension_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 slot: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

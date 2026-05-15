@@ -84,8 +84,8 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[_builtins.
     return AwaitableListOpenShiftClusterCredentialsResult(
         kubeadmin_password=pulumi.get(__ret__, 'kubeadmin_password'),
         kubeadmin_username=pulumi.get(__ret__, 'kubeadmin_username'))
-def list_open_shift_cluster_credentials_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_open_shift_cluster_credentials_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOpenShiftClusterCredentialsResult]:
     """
     The operation returns the credentials.

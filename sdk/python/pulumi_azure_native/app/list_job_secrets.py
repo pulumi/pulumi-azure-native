@@ -72,8 +72,8 @@ def list_job_secrets(job_name: Optional[_builtins.str] = None,
 
     return AwaitableListJobSecretsResult(
         value=pulumi.get(__ret__, 'value'))
-def list_job_secrets_output(job_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_job_secrets_output(job_name: Optional[pulumi.Input[_builtins.str]] = None,
+                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListJobSecretsResult]:
     """
     Container Apps Job Secrets Collection ARM resource.

@@ -120,7 +120,7 @@ export interface PolicyArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the namespace.
      */
@@ -128,11 +128,11 @@ export interface PolicyArgs {
     /**
      * The name of the Policy tracked resource.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string>;
     /**
      * The RP-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.deviceregistry.PolicyPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.deviceregistry.PolicyPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface PolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

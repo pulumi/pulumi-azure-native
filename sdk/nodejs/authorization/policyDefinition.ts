@@ -148,41 +148,41 @@ export interface PolicyDefinitionArgs {
     /**
      * The policy definition description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy definition.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    metadata?: any | undefined;
+    metadata?: any;
     /**
      * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
      */
-    mode?: pulumi.Input<string | undefined>;
+    mode?: pulumi.Input<string>;
     /**
      * The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterDefinitionsValueArgs>} | undefined>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterDefinitionsValueArgs>}>;
     /**
      * The name of the policy definition to create.
      */
-    policyDefinitionName?: pulumi.Input<string | undefined>;
+    policyDefinitionName?: pulumi.Input<string>;
     /**
      * The policy rule.
      */
-    policyRule?: any | undefined;
+    policyRule?: any;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
-    policyType?: pulumi.Input<string | enums.authorization.PolicyType | undefined>;
+    policyType?: pulumi.Input<string | enums.authorization.PolicyType>;
     /**
      * The policy definition version in #.#.# format.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
     /**
      * A list of available versions for this policy definition.
      */
-    versions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    versions?: pulumi.Input<pulumi.Input<string>[]>;
 }

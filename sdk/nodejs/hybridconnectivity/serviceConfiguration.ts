@@ -133,11 +133,11 @@ export interface ServiceConfigurationArgs {
     /**
      * The port on which service is enabled.
      */
-    port?: pulumi.Input<number | undefined>;
+    port?: pulumi.Input<number>;
     /**
      * The resource Id of the connectivity endpoint (optional).
      */
-    resourceId?: pulumi.Input<string | undefined>;
+    resourceId?: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -145,7 +145,7 @@ export interface ServiceConfigurationArgs {
     /**
      * The service name.
      */
-    serviceConfigurationName?: pulumi.Input<string | undefined>;
+    serviceConfigurationName?: pulumi.Input<string>;
     /**
      * Name of the service.
      */

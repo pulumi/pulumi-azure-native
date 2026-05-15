@@ -152,23 +152,23 @@ export interface PrometheusRuleGroupArgs {
     /**
      * Apply rule to data from a specific cluster.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Rule group description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Enable/disable rule group.
      */
-    enabled?: pulumi.Input<boolean | undefined>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The interval in which to run the Prometheus rule group represented in ISO 8601 duration format. Should be between 1 and 15 minutes
      */
-    interval?: pulumi.Input<string | undefined>;
+    interval?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,7 +176,7 @@ export interface PrometheusRuleGroupArgs {
     /**
      * The name of the rule group.
      */
-    ruleGroupName?: pulumi.Input<string | undefined>;
+    ruleGroupName?: pulumi.Input<string>;
     /**
      * Defines the rules in the Prometheus rule group.
      */
@@ -188,5 +188,5 @@ export interface PrometheusRuleGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

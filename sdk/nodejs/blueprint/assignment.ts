@@ -165,19 +165,19 @@ export interface AssignmentArgs {
     /**
      * Name of the blueprint assignment.
      */
-    assignmentName?: pulumi.Input<string | undefined>;
+    assignmentName?: pulumi.Input<string>;
     /**
      * ID of the published version of a blueprint definition.
      */
-    blueprintId?: pulumi.Input<string | undefined>;
+    blueprintId?: pulumi.Input<string>;
     /**
      * Multi-line explain this resource.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * One-liner string explain this resource.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * Managed identity for this blueprint assignment.
      */
@@ -185,11 +185,11 @@ export interface AssignmentArgs {
     /**
      * The location of this blueprint assignment.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Defines how resources deployed by a blueprint assignment are locked.
      */
-    locks?: pulumi.Input<inputs.blueprint.AssignmentLockSettingsArgs | undefined>;
+    locks?: pulumi.Input<inputs.blueprint.AssignmentLockSettingsArgs>;
     /**
      * Blueprint assignment parameter values.
      */
@@ -205,5 +205,5 @@ export interface AssignmentArgs {
     /**
      * The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
      */
-    scope?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<string>;
 }

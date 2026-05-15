@@ -81,7 +81,7 @@ export interface ListActiveSecurityUserRulesOutputArgs {
     /**
      * List of regions.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    regions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group.
      */
@@ -89,5 +89,5 @@ export interface ListActiveSecurityUserRulesOutputArgs {
     /**
      * When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
      */
-    skipToken?: pulumi.Input<string | undefined>;
+    skipToken?: pulumi.Input<string>;
 }

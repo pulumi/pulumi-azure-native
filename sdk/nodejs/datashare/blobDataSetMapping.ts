@@ -198,7 +198,7 @@ export interface BlobDataSetMappingArgs {
     /**
      * The name of the data set mapping to be created.
      */
-    dataSetMappingName?: pulumi.Input<string | undefined>;
+    dataSetMappingName?: pulumi.Input<string>;
     /**
      * File path within the source data set
      */
@@ -211,7 +211,7 @@ export interface BlobDataSetMappingArgs {
     /**
      * File output type
      */
-    outputType?: pulumi.Input<string | enums.datashare.OutputType | undefined>;
+    outputType?: pulumi.Input<string | enums.datashare.OutputType>;
     /**
      * Resource group of storage account.
      */

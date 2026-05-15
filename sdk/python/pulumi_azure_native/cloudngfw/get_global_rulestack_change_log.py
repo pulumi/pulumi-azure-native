@@ -94,7 +94,7 @@ def get_global_rulestack_change_log(global_rulestack_name: Optional[_builtins.st
         changes=pulumi.get(__ret__, 'changes'),
         last_committed=pulumi.get(__ret__, 'last_committed'),
         last_modified=pulumi.get(__ret__, 'last_modified'))
-def get_global_rulestack_change_log_output(global_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_global_rulestack_change_log_output(global_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalRulestackChangeLogResult]:
     """
     Get changelog

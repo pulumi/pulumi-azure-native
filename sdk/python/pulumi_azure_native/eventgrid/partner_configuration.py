@@ -23,10 +23,10 @@ __all__ = ['PartnerConfigurationArgs', 'PartnerConfiguration']
 class PartnerConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 partner_authorization: pulumi.Input[Optional['PartnerAuthorizationArgs']] = None,
-                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerConfigurationProvisioningState']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 partner_authorization: Optional[pulumi.Input['PartnerAuthorizationArgs']] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'PartnerConfigurationProvisioningState']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerConfiguration resource.
 
@@ -60,50 +60,50 @@ class PartnerConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerAuthorization")
-    def partner_authorization(self) -> pulumi.Input[Optional['PartnerAuthorizationArgs']]:
+    def partner_authorization(self) -> Optional[pulumi.Input['PartnerAuthorizationArgs']]:
         """
         The details of authorized partners.
         """
         return pulumi.get(self, "partner_authorization")
 
     @partner_authorization.setter
-    def partner_authorization(self, value: pulumi.Input[Optional['PartnerAuthorizationArgs']]):
+    def partner_authorization(self, value: Optional[pulumi.Input['PartnerAuthorizationArgs']]):
         pulumi.set(self, "partner_authorization", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PartnerConfigurationProvisioningState']]]:
+    def provisioning_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PartnerConfigurationProvisioningState']]]:
         """
         Provisioning state of the partner configuration.
         """
         return pulumi.get(self, "provisioning_state")
 
     @provisioning_state.setter
-    def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PartnerConfigurationProvisioningState']]]):
+    def provisioning_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PartnerConfigurationProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags of the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -113,11 +113,11 @@ class PartnerConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 partner_authorization: pulumi.Input[Optional[Union['PartnerAuthorizationArgs', 'PartnerAuthorizationArgsDict']]] = None,
-                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerConfigurationProvisioningState']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 partner_authorization: Optional[pulumi.Input[Union['PartnerAuthorizationArgs', 'PartnerAuthorizationArgsDict']]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'PartnerConfigurationProvisioningState']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Partner configuration information
@@ -164,11 +164,11 @@ class PartnerConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 partner_authorization: pulumi.Input[Optional[Union['PartnerAuthorizationArgs', 'PartnerAuthorizationArgsDict']]] = None,
-                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerConfigurationProvisioningState']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 partner_authorization: Optional[pulumi.Input[Union['PartnerAuthorizationArgs', 'PartnerAuthorizationArgsDict']]] = None,
+                 provisioning_state: Optional[pulumi.Input[Union[_builtins.str, 'PartnerConfigurationProvisioningState']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

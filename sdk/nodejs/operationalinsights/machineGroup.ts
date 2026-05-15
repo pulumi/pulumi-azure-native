@@ -137,7 +137,7 @@ export interface MachineGroupArgs {
     /**
      * Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
      */
-    count?: pulumi.Input<number | undefined>;
+    count?: pulumi.Input<number>;
     /**
      * User defined name for the group
      */
@@ -145,7 +145,7 @@ export interface MachineGroupArgs {
     /**
      * Type of the machine group
      */
-    groupType?: pulumi.Input<string | enums.operationalinsights.MachineGroupType | undefined>;
+    groupType?: pulumi.Input<string | enums.operationalinsights.MachineGroupType>;
     /**
      * Additional resource type qualifier.
      * Expected value is 'machineGroup'.
@@ -154,11 +154,11 @@ export interface MachineGroupArgs {
     /**
      * Machine Group resource name.
      */
-    machineGroupName?: pulumi.Input<string | undefined>;
+    machineGroupName?: pulumi.Input<string>;
     /**
      * References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
      */
-    machines?: pulumi.Input<pulumi.Input<inputs.operationalinsights.MachineReferenceWithHintsArgs>[] | undefined>;
+    machines?: pulumi.Input<pulumi.Input<inputs.operationalinsights.MachineReferenceWithHintsArgs>[]>;
     /**
      * Resource group name within the specified subscriptionId.
      */

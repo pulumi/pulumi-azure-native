@@ -145,7 +145,7 @@ export interface ManagedClusterApplicationTypeVersionArgs {
     /**
      * Resource location depends on the parent resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -153,9 +153,9 @@ export interface ManagedClusterApplicationTypeVersionArgs {
     /**
      * Azure resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The application type version.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

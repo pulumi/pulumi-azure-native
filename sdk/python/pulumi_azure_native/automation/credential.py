@@ -25,8 +25,8 @@ class CredentialArgs:
                  password: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
-                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None):
+                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Credential resource.
 
@@ -110,26 +110,26 @@ class CredentialArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialName")
-    def credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def credential_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The parameters supplied to the create or update credential operation.
         """
         return pulumi.get(self, "credential_name")
 
     @credential_name.setter
-    def credential_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def credential_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "credential_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Gets or sets the description of the credential.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -139,13 +139,13 @@ class Credential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 password: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 password: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Definition of the credential.
@@ -194,13 +194,13 @@ class Credential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 password: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 password: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

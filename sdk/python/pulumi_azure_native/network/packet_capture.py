@@ -26,15 +26,15 @@ class PacketCaptureArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_location: pulumi.Input['PacketCaptureStorageLocationArgs'],
                  target: pulumi.Input[_builtins.str],
-                 bytes_to_capture_per_packet: pulumi.Input[Optional[_builtins.float]] = None,
-                 capture_settings: pulumi.Input[Optional['PacketCaptureSettingsArgs']] = None,
-                 continuous_capture: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]] = None,
-                 packet_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional['PacketCaptureMachineScopeArgs']] = None,
-                 target_type: pulumi.Input[Optional['PacketCaptureTargetType']] = None,
-                 time_limit_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 total_bytes_per_session: pulumi.Input[Optional[_builtins.float]] = None):
+                 bytes_to_capture_per_packet: Optional[pulumi.Input[_builtins.float]] = None,
+                 capture_settings: Optional[pulumi.Input['PacketCaptureSettingsArgs']] = None,
+                 continuous_capture: Optional[pulumi.Input[_builtins.bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]] = None,
+                 packet_capture_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input['PacketCaptureMachineScopeArgs']] = None,
+                 target_type: Optional[pulumi.Input['PacketCaptureTargetType']] = None,
+                 time_limit_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 total_bytes_per_session: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The set of arguments for constructing a PacketCapture resource.
 
@@ -131,110 +131,110 @@ class PacketCaptureArgs:
 
     @_builtins.property
     @pulumi.getter(name="bytesToCapturePerPacket")
-    def bytes_to_capture_per_packet(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def bytes_to_capture_per_packet(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Number of bytes captured per packet, the remaining bytes are truncated.
         """
         return pulumi.get(self, "bytes_to_capture_per_packet")
 
     @bytes_to_capture_per_packet.setter
-    def bytes_to_capture_per_packet(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def bytes_to_capture_per_packet(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "bytes_to_capture_per_packet", value)
 
     @_builtins.property
     @pulumi.getter(name="captureSettings")
-    def capture_settings(self) -> pulumi.Input[Optional['PacketCaptureSettingsArgs']]:
+    def capture_settings(self) -> Optional[pulumi.Input['PacketCaptureSettingsArgs']]:
         """
         The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
         """
         return pulumi.get(self, "capture_settings")
 
     @capture_settings.setter
-    def capture_settings(self, value: pulumi.Input[Optional['PacketCaptureSettingsArgs']]):
+    def capture_settings(self, value: Optional[pulumi.Input['PacketCaptureSettingsArgs']]):
         pulumi.set(self, "capture_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="continuousCapture")
-    def continuous_capture(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def continuous_capture(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
         """
         return pulumi.get(self, "continuous_capture")
 
     @continuous_capture.setter
-    def continuous_capture(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def continuous_capture(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "continuous_capture", value)
 
     @_builtins.property
     @pulumi.getter
-    def filters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]]:
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]]:
         """
         A list of packet capture filters.
         """
         return pulumi.get(self, "filters")
 
     @filters.setter
-    def filters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]]):
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PacketCaptureFilterArgs']]]]):
         pulumi.set(self, "filters", value)
 
     @_builtins.property
     @pulumi.getter(name="packetCaptureName")
-    def packet_capture_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def packet_capture_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the packet capture session.
         """
         return pulumi.get(self, "packet_capture_name")
 
     @packet_capture_name.setter
-    def packet_capture_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def packet_capture_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "packet_capture_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> pulumi.Input[Optional['PacketCaptureMachineScopeArgs']]:
+    def scope(self) -> Optional[pulumi.Input['PacketCaptureMachineScopeArgs']]:
         """
         A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: pulumi.Input[Optional['PacketCaptureMachineScopeArgs']]):
+    def scope(self, value: Optional[pulumi.Input['PacketCaptureMachineScopeArgs']]):
         pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter(name="targetType")
-    def target_type(self) -> pulumi.Input[Optional['PacketCaptureTargetType']]:
+    def target_type(self) -> Optional[pulumi.Input['PacketCaptureTargetType']]:
         """
         Target type of the resource provided.
         """
         return pulumi.get(self, "target_type")
 
     @target_type.setter
-    def target_type(self, value: pulumi.Input[Optional['PacketCaptureTargetType']]):
+    def target_type(self, value: Optional[pulumi.Input['PacketCaptureTargetType']]):
         pulumi.set(self, "target_type", value)
 
     @_builtins.property
     @pulumi.getter(name="timeLimitInSeconds")
-    def time_limit_in_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def time_limit_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Maximum duration of the capture session in seconds.
         """
         return pulumi.get(self, "time_limit_in_seconds")
 
     @time_limit_in_seconds.setter
-    def time_limit_in_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def time_limit_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "time_limit_in_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="totalBytesPerSession")
-    def total_bytes_per_session(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def total_bytes_per_session(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Maximum size of the capture output.
         """
         return pulumi.get(self, "total_bytes_per_session")
 
     @total_bytes_per_session.setter
-    def total_bytes_per_session(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def total_bytes_per_session(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "total_bytes_per_session", value)
 
 
@@ -244,19 +244,19 @@ class PacketCapture(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bytes_to_capture_per_packet: pulumi.Input[Optional[_builtins.float]] = None,
-                 capture_settings: pulumi.Input[Optional[Union['PacketCaptureSettingsArgs', 'PacketCaptureSettingsArgsDict']]] = None,
-                 continuous_capture: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]]] = None,
-                 network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 packet_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[Union['PacketCaptureMachineScopeArgs', 'PacketCaptureMachineScopeArgsDict']]] = None,
-                 storage_location: pulumi.Input[Optional[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict']]] = None,
-                 target: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_type: pulumi.Input[Optional['PacketCaptureTargetType']] = None,
-                 time_limit_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 total_bytes_per_session: pulumi.Input[Optional[_builtins.float]] = None,
+                 bytes_to_capture_per_packet: Optional[pulumi.Input[_builtins.float]] = None,
+                 capture_settings: Optional[pulumi.Input[Union['PacketCaptureSettingsArgs', 'PacketCaptureSettingsArgsDict']]] = None,
+                 continuous_capture: Optional[pulumi.Input[_builtins.bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]]] = None,
+                 network_watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 packet_capture_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[Union['PacketCaptureMachineScopeArgs', 'PacketCaptureMachineScopeArgsDict']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict']]] = None,
+                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_type: Optional[pulumi.Input['PacketCaptureTargetType']] = None,
+                 time_limit_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 total_bytes_per_session: Optional[pulumi.Input[_builtins.float]] = None,
                  __props__=None):
         """
         Information about packet capture session.
@@ -311,19 +311,19 @@ class PacketCapture(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bytes_to_capture_per_packet: pulumi.Input[Optional[_builtins.float]] = None,
-                 capture_settings: pulumi.Input[Optional[Union['PacketCaptureSettingsArgs', 'PacketCaptureSettingsArgsDict']]] = None,
-                 continuous_capture: pulumi.Input[Optional[_builtins.bool]] = None,
-                 filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]]] = None,
-                 network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 packet_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[Union['PacketCaptureMachineScopeArgs', 'PacketCaptureMachineScopeArgsDict']]] = None,
-                 storage_location: pulumi.Input[Optional[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict']]] = None,
-                 target: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_type: pulumi.Input[Optional['PacketCaptureTargetType']] = None,
-                 time_limit_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 total_bytes_per_session: pulumi.Input[Optional[_builtins.float]] = None,
+                 bytes_to_capture_per_packet: Optional[pulumi.Input[_builtins.float]] = None,
+                 capture_settings: Optional[pulumi.Input[Union['PacketCaptureSettingsArgs', 'PacketCaptureSettingsArgsDict']]] = None,
+                 continuous_capture: Optional[pulumi.Input[_builtins.bool]] = None,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PacketCaptureFilterArgs', 'PacketCaptureFilterArgsDict']]]]] = None,
+                 network_watcher_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 packet_capture_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[Union['PacketCaptureMachineScopeArgs', 'PacketCaptureMachineScopeArgsDict']]] = None,
+                 storage_location: Optional[pulumi.Input[Union['PacketCaptureStorageLocationArgs', 'PacketCaptureStorageLocationArgsDict']]] = None,
+                 target: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_type: Optional[pulumi.Input['PacketCaptureTargetType']] = None,
+                 time_limit_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 total_bytes_per_session: Optional[pulumi.Input[_builtins.float]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

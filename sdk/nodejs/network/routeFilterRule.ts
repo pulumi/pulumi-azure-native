@@ -144,15 +144,15 @@ export interface RouteFilterRuleArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -168,5 +168,5 @@ export interface RouteFilterRuleArgs {
     /**
      * The name of the route filter rule.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName?: pulumi.Input<string>;
 }

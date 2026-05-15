@@ -103,10 +103,10 @@ def list_capacity_pool_cache_peering_passphrases(account_name: Optional[_builtin
         cluster_peering_command=pulumi.get(__ret__, 'cluster_peering_command'),
         cluster_peering_passphrase=pulumi.get(__ret__, 'cluster_peering_passphrase'),
         vserver_peering_command=pulumi.get(__ret__, 'vserver_peering_command'))
-def list_capacity_pool_cache_peering_passphrases_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        cache_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_capacity_pool_cache_peering_passphrases_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        cache_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListCapacityPoolCachePeeringPassphrasesResult]:
     """
     This operation will list the cluster peering command, cluster peering passphrase and the vserver peering command

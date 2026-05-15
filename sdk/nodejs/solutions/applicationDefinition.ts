@@ -215,39 +215,39 @@ export interface ApplicationDefinitionArgs {
     /**
      * The name of the managed application definition.
      */
-    applicationDefinitionName?: pulumi.Input<string | undefined>;
+    applicationDefinitionName?: pulumi.Input<string>;
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */
-    artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.ApplicationDefinitionArtifactArgs>[] | undefined>;
+    artifacts?: pulumi.Input<pulumi.Input<inputs.solutions.ApplicationDefinitionArtifactArgs>[]>;
     /**
      * The managed application provider authorizations.
      */
-    authorizations?: pulumi.Input<pulumi.Input<inputs.solutions.ApplicationAuthorizationArgs>[] | undefined>;
+    authorizations?: pulumi.Input<pulumi.Input<inputs.solutions.ApplicationAuthorizationArgs>[]>;
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
-    createUiDefinition?: any | undefined;
+    createUiDefinition?: any;
     /**
      * The managed application deployment policy.
      */
-    deploymentPolicy?: pulumi.Input<inputs.solutions.ApplicationDeploymentPolicyArgs | undefined>;
+    deploymentPolicy?: pulumi.Input<inputs.solutions.ApplicationDeploymentPolicyArgs>;
     /**
      * The managed application definition description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The managed application definition display name.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * A value indicating whether the package is enabled or not.
      */
-    isEnabled?: pulumi.Input<boolean | undefined>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The managed application lock level.
      */
@@ -255,31 +255,31 @@ export interface ApplicationDefinitionArgs {
     /**
      * The managed application locking policy.
      */
-    lockingPolicy?: pulumi.Input<inputs.solutions.ApplicationPackageLockingPolicyDefinitionArgs | undefined>;
+    lockingPolicy?: pulumi.Input<inputs.solutions.ApplicationPackageLockingPolicyDefinitionArgs>;
     /**
      * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
      */
-    mainTemplate?: any | undefined;
+    mainTemplate?: any;
     /**
      * ID of the resource that manages this resource.
      */
-    managedBy?: pulumi.Input<string | undefined>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The managed application management policy that determines publisher's access to the managed resource group.
      */
-    managementPolicy?: pulumi.Input<inputs.solutions.ApplicationManagementPolicyArgs | undefined>;
+    managementPolicy?: pulumi.Input<inputs.solutions.ApplicationManagementPolicyArgs>;
     /**
      * The managed application notification policy.
      */
-    notificationPolicy?: pulumi.Input<inputs.solutions.ApplicationNotificationPolicyArgs | undefined>;
+    notificationPolicy?: pulumi.Input<inputs.solutions.ApplicationNotificationPolicyArgs>;
     /**
      * The managed application definition package file Uri. Use this element
      */
-    packageFileUri?: pulumi.Input<string | undefined>;
+    packageFileUri?: pulumi.Input<string>;
     /**
      * The managed application provider policies.
      */
-    policies?: pulumi.Input<pulumi.Input<inputs.solutions.ApplicationPolicyArgs>[] | undefined>;
+    policies?: pulumi.Input<pulumi.Input<inputs.solutions.ApplicationPolicyArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -287,13 +287,13 @@ export interface ApplicationDefinitionArgs {
     /**
      * The SKU of the resource.
      */
-    sku?: pulumi.Input<inputs.solutions.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.solutions.SkuArgs>;
     /**
      * The storage account id for bring your own storage scenario.
      */
-    storageAccountId?: pulumi.Input<string | undefined>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

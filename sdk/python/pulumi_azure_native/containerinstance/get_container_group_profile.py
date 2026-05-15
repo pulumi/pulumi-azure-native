@@ -333,8 +333,8 @@ def get_container_group_profile(container_group_profile_name: Optional[_builtins
         type=pulumi.get(__ret__, 'type'),
         volumes=pulumi.get(__ret__, 'volumes'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_container_group_profile_output(container_group_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_container_group_profile_output(container_group_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerGroupProfileResult]:
     """
     Gets the properties of the specified container group profile in the specified subscription and resource group. The operation returns the properties of container group profile including containers, image registry credentials, restart policy, IP address type, OS type, volumes, current revision number, etc.

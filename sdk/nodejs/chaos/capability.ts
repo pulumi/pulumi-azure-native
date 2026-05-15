@@ -120,7 +120,7 @@ export interface CapabilityArgs {
     /**
      * String that represents a Capability resource name.
      */
-    capabilityName?: pulumi.Input<string | undefined>;
+    capabilityName?: pulumi.Input<string>;
     /**
      * String that represents a resource provider namespace.
      */

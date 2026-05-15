@@ -224,11 +224,11 @@ def get_workspace_api_operation(api_id: Optional[_builtins.str] = None,
         template_parameters=pulumi.get(__ret__, 'template_parameters'),
         type=pulumi.get(__ret__, 'type'),
         url_template=pulumi.get(__ret__, 'url_template'))
-def get_workspace_api_operation_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                       operation_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_workspace_api_operation_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                       operation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceApiOperationResult]:
     """
     Gets the details of the API Operation specified by its identifier.

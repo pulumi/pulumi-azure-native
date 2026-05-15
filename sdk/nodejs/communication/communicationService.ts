@@ -161,7 +161,7 @@ export interface CommunicationServiceArgs {
     /**
      * The name of the CommunicationService resource.
      */
-    communicationServiceName?: pulumi.Input<string | undefined>;
+    communicationServiceName?: pulumi.Input<string>;
     /**
      * The location where the communication service stores its data at rest.
      */
@@ -169,15 +169,15 @@ export interface CommunicationServiceArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.communication.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.communication.ManagedServiceIdentityArgs>;
     /**
      * List of email Domain resource Ids.
      */
-    linkedDomains?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    linkedDomains?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -185,5 +185,5 @@ export interface CommunicationServiceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

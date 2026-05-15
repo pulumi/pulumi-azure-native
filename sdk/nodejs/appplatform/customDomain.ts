@@ -116,11 +116,11 @@ export interface CustomDomainArgs {
     /**
      * The name of the custom domain resource.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName?: pulumi.Input<string>;
     /**
      * Properties of the custom domain resource.
      */
-    properties?: pulumi.Input<inputs.appplatform.CustomDomainPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.appplatform.CustomDomainPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

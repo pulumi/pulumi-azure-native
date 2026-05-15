@@ -21,8 +21,8 @@ __all__ = ['TenantConfigurationArgs', 'TenantConfiguration']
 @pulumi.input_type
 class TenantConfigurationArgs:
     def __init__(__self__, *,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['ConfigurationPropertiesArgs']] = None):
+                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['ConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a TenantConfiguration resource.
 
@@ -36,26 +36,26 @@ class TenantConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the Configuration
         """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
-    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['ConfigurationPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ConfigurationPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['ConfigurationPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ConfigurationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -65,8 +65,8 @@ class TenantConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ConfigurationPropertiesArgs', 'ConfigurationPropertiesArgsDict']]] = None,
+                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ConfigurationPropertiesArgs', 'ConfigurationPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         The tenant configuration resource definition.
@@ -110,8 +110,8 @@ class TenantConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ConfigurationPropertiesArgs', 'ConfigurationPropertiesArgsDict']]] = None,
+                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ConfigurationPropertiesArgs', 'ConfigurationPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

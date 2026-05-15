@@ -21,8 +21,8 @@ __all__ = ['ClusterInstanceHybridIdentityMetadatumArgs', 'ClusterInstanceHybridI
 class ClusterInstanceHybridIdentityMetadatumArgs:
     def __init__(__self__, *,
                  connected_cluster_resource_uri: pulumi.Input[_builtins.str],
-                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None):
+                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterInstanceHybridIdentityMetadatum resource.
 
@@ -50,26 +50,26 @@ class ClusterInstanceHybridIdentityMetadatumArgs:
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Onboarding public key for provisioning the Managed identity for the connected cluster.
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUid")
-    def resource_uid(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def resource_uid(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Unique id of the parent provisioned cluster resource.
         """
         return pulumi.get(self, "resource_uid")
 
     @resource_uid.setter
-    def resource_uid(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def resource_uid(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_uid", value)
 
 
@@ -79,9 +79,9 @@ class ClusterInstanceHybridIdentityMetadatum(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connected_cluster_resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_cluster_resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the hybridIdentityMetadata.
@@ -126,9 +126,9 @@ class ClusterInstanceHybridIdentityMetadatum(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connected_cluster_resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_cluster_resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

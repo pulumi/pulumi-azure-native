@@ -170,31 +170,31 @@ export interface OpenShiftClusterArgs {
     /**
      * The cluster API server profile.
      */
-    apiserverProfile?: pulumi.Input<inputs.redhatopenshift.APIServerProfileArgs | undefined>;
+    apiserverProfile?: pulumi.Input<inputs.redhatopenshift.APIServerProfileArgs>;
     /**
      * The cluster profile.
      */
-    clusterProfile?: pulumi.Input<inputs.redhatopenshift.ClusterProfileArgs | undefined>;
+    clusterProfile?: pulumi.Input<inputs.redhatopenshift.ClusterProfileArgs>;
     /**
      * The cluster ingress profiles.
      */
-    ingressProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.IngressProfileArgs>[] | undefined>;
+    ingressProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.IngressProfileArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The cluster master profile.
      */
-    masterProfile?: pulumi.Input<inputs.redhatopenshift.MasterProfileArgs | undefined>;
+    masterProfile?: pulumi.Input<inputs.redhatopenshift.MasterProfileArgs>;
     /**
      * The cluster network profile.
      */
-    networkProfile?: pulumi.Input<inputs.redhatopenshift.NetworkProfileArgs | undefined>;
+    networkProfile?: pulumi.Input<inputs.redhatopenshift.NetworkProfileArgs>;
     /**
      * The cluster provisioning state.
      */
-    provisioningState?: pulumi.Input<string | enums.redhatopenshift.ProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.redhatopenshift.ProvisioningState>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -202,17 +202,17 @@ export interface OpenShiftClusterArgs {
     /**
      * The name of the OpenShift cluster resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The cluster service principal profile.
      */
-    servicePrincipalProfile?: pulumi.Input<inputs.redhatopenshift.ServicePrincipalProfileArgs | undefined>;
+    servicePrincipalProfile?: pulumi.Input<inputs.redhatopenshift.ServicePrincipalProfileArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The cluster worker profiles.
      */
-    workerProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.WorkerProfileArgs>[] | undefined>;
+    workerProfiles?: pulumi.Input<pulumi.Input<inputs.redhatopenshift.WorkerProfileArgs>[]>;
 }

@@ -80,11 +80,11 @@ def get_capacity_pool_volume_group_id_for_ldap_user(account_name: Optional[_buil
 
     return AwaitableGetCapacityPoolVolumeGroupIdForLdapUserResult(
         group_ids_for_ldap_user=pulumi.get(__ret__, 'group_ids_for_ldap_user'))
-def get_capacity_pool_volume_group_id_for_ldap_user_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                           pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                           username: pulumi.Input[Optional[_builtins.str]] = None,
-                                                           volume_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_capacity_pool_volume_group_id_for_ldap_user_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                           pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                           username: Optional[pulumi.Input[_builtins.str]] = None,
+                                                           volume_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolVolumeGroupIdForLdapUserResult]:
     """
     Returns the list of group Ids for a specific LDAP User

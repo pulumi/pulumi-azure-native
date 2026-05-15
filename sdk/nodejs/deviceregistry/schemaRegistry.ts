@@ -158,19 +158,19 @@ export interface SchemaRegistryArgs {
     /**
      * Human-readable description of the schema registry.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Human-readable display name.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.deviceregistry.SystemAssignedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.deviceregistry.SystemAssignedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Schema registry namespace. Uniquely identifies a schema registry within a tenant.
      */
@@ -182,7 +182,7 @@ export interface SchemaRegistryArgs {
     /**
      * Schema registry name parameter.
      */
-    schemaRegistryName?: pulumi.Input<string | undefined>;
+    schemaRegistryName?: pulumi.Input<string>;
     /**
      * The Storage Account's Container URL where schemas will be stored.
      */
@@ -190,5 +190,5 @@ export interface SchemaRegistryArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

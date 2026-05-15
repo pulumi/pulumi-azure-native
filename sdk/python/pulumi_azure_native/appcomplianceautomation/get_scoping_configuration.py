@@ -148,8 +148,8 @@ def get_scoping_configuration(report_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_scoping_configuration_output(report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     scoping_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_scoping_configuration_output(report_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     scoping_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopingConfigurationResult]:
     """
     Get the AppComplianceAutomation scoping configuration of the specific report.

@@ -23,8 +23,8 @@ class SqlPoolTransparentDataEncryptionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  sql_pool_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
-                 transparent_data_encryption_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
+                 transparent_data_encryption_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlPoolTransparentDataEncryption resource.
 
@@ -80,26 +80,26 @@ class SqlPoolTransparentDataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]]:
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']]]:
         """
         The status of the database transparent data encryption.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]]):
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="transparentDataEncryptionName")
-    def transparent_data_encryption_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def transparent_data_encryption_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the transparent data encryption configuration.
         """
         return pulumi.get(self, "transparent_data_encryption_name")
 
     @transparent_data_encryption_name.setter
-    def transparent_data_encryption_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def transparent_data_encryption_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "transparent_data_encryption_name", value)
 
 
@@ -109,11 +109,11 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
-                 transparent_data_encryption_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
+                 transparent_data_encryption_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a Sql pool transparent data encryption configuration.
@@ -160,11 +160,11 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
-                 transparent_data_encryption_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'TransparentDataEncryptionStatus']]] = None,
+                 transparent_data_encryption_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

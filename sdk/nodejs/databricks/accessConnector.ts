@@ -122,15 +122,15 @@ export interface AccessConnectorArgs {
     /**
      * The name of the Azure Databricks Access Connector.
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName?: pulumi.Input<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.databricks.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.databricks.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,5 +138,5 @@ export interface AccessConnectorArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

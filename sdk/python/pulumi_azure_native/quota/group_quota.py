@@ -22,8 +22,8 @@ __all__ = ['GroupQuotaArgs', 'GroupQuota']
 class GroupQuotaArgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[_builtins.str],
-                 group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['GroupQuotasEntityPropertiesArgs']] = None):
+                 group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['GroupQuotasEntityPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GroupQuota resource.
 
@@ -50,23 +50,23 @@ class GroupQuotaArgs:
 
     @_builtins.property
     @pulumi.getter(name="groupQuotaName")
-    def group_quota_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def group_quota_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
         """
         return pulumi.get(self, "group_quota_name")
 
     @group_quota_name.setter
-    def group_quota_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def group_quota_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "group_quota_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['GroupQuotasEntityPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['GroupQuotasEntityPropertiesArgs']]:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['GroupQuotasEntityPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['GroupQuotasEntityPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -76,9 +76,9 @@ class GroupQuota(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['GroupQuotasEntityPropertiesArgs', 'GroupQuotasEntityPropertiesArgsDict']]] = None,
+                 group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['GroupQuotasEntityPropertiesArgs', 'GroupQuotasEntityPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Properties and filters for ShareQuota. The request parameter is optional, if there are no filters specified.
@@ -122,9 +122,9 @@ class GroupQuota(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['GroupQuotasEntityPropertiesArgs', 'GroupQuotasEntityPropertiesArgsDict']]] = None,
+                 group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['GroupQuotasEntityPropertiesArgs', 'GroupQuotasEntityPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

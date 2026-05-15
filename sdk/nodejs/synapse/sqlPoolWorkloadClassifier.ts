@@ -140,19 +140,19 @@ export interface SqlPoolWorkloadClassifierArgs {
     /**
      * The workload classifier context.
      */
-    context?: pulumi.Input<string | undefined>;
+    context?: pulumi.Input<string>;
     /**
      * The workload classifier end time for classification.
      */
-    endTime?: pulumi.Input<string | undefined>;
+    endTime?: pulumi.Input<string>;
     /**
      * The workload classifier importance.
      */
-    importance?: pulumi.Input<string | undefined>;
+    importance?: pulumi.Input<string>;
     /**
      * The workload classifier label.
      */
-    label?: pulumi.Input<string | undefined>;
+    label?: pulumi.Input<string>;
     /**
      * The workload classifier member name.
      */
@@ -168,11 +168,11 @@ export interface SqlPoolWorkloadClassifierArgs {
     /**
      * The workload classifier start time for classification.
      */
-    startTime?: pulumi.Input<string | undefined>;
+    startTime?: pulumi.Input<string>;
     /**
      * The name of the workload classifier.
      */
-    workloadClassifierName?: pulumi.Input<string | undefined>;
+    workloadClassifierName?: pulumi.Input<string>;
     /**
      * The name of the workload group.
      */

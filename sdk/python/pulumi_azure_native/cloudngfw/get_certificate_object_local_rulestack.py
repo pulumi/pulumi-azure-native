@@ -205,9 +205,9 @@ def get_certificate_object_local_rulestack(local_rulestack_name: Optional[_built
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_certificate_object_local_rulestack_output(local_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_certificate_object_local_rulestack_output(local_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateObjectLocalRulestackResult]:
     """
     Get a CertificateObjectLocalRulestackResource

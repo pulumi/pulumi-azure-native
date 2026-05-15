@@ -137,7 +137,7 @@ export interface ServerKeyArgs {
     /**
      * The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
      */
-    keyName?: pulumi.Input<string | undefined>;
+    keyName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -153,5 +153,5 @@ export interface ServerKeyArgs {
     /**
      * The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
      */
-    uri?: pulumi.Input<string | undefined>;
+    uri?: pulumi.Input<string>;
 }

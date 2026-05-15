@@ -132,11 +132,11 @@ export interface WorkloadArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * List of resource group ids.
      */
-    resourceGroupCollection?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    resourceGroupCollection?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -144,7 +144,7 @@ export interface WorkloadArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the enclaveResource Resource
      */
@@ -152,5 +152,5 @@ export interface WorkloadArgs {
     /**
      * The name of the workloadResource Resource
      */
-    workloadName?: pulumi.Input<string | undefined>;
+    workloadName?: pulumi.Input<string>;
 }

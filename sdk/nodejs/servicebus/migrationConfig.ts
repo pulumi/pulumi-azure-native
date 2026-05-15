@@ -144,7 +144,7 @@ export interface MigrationConfigArgs {
     /**
      * The configuration name. Should always be "$default".
      */
-    configName?: pulumi.Input<string | undefined>;
+    configName?: pulumi.Input<string>;
     /**
      * The namespace name
      */

@@ -151,19 +151,19 @@ export interface AccountArgs {
     /**
      * The account's data-plane ID. This can be set only when connecting an existing classic account
      */
-    accountId?: pulumi.Input<string | undefined>;
+    accountId?: pulumi.Input<string>;
     /**
      * The name of the Azure Video Indexer account.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.videoindexer.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.videoindexer.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -171,9 +171,9 @@ export interface AccountArgs {
     /**
      * The storage services details
      */
-    storageServices?: pulumi.Input<inputs.videoindexer.StorageServicesForPutRequestArgs | undefined>;
+    storageServices?: pulumi.Input<inputs.videoindexer.StorageServicesForPutRequestArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

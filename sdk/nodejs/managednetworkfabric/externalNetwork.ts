@@ -134,7 +134,7 @@ export class ExternalNetwork extends pulumi.CustomResource {
             resourceInputs["importRoutePolicyId"] = args?.importRoutePolicyId;
             resourceInputs["l3IsolationDomainName"] = args?.l3IsolationDomainName;
             resourceInputs["networkToNetworkInterconnectId"] = args?.networkToNetworkInterconnectId;
-            resourceInputs["optionAProperties"] = args ? pulumi.output(args.optionAProperties).apply(v => v === undefined ? undefined : inputs.managednetworkfabric.externalNetworkPropertiesOptionAPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["optionAProperties"] = args ? (args.optionAProperties ? pulumi.output(args.optionAProperties).apply(inputs.managednetworkfabric.externalNetworkPropertiesOptionAPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["optionBProperties"] = args?.optionBProperties;
             resourceInputs["peeringOption"] = args?.peeringOption;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -177,27 +177,27 @@ export interface ExternalNetworkArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string | undefined>;
+    annotation?: pulumi.Input<string>;
     /**
      * Export Route Policy either IPv4 or IPv6.
      */
-    exportRoutePolicy?: pulumi.Input<inputs.managednetworkfabric.ExportRoutePolicyArgs | undefined>;
+    exportRoutePolicy?: pulumi.Input<inputs.managednetworkfabric.ExportRoutePolicyArgs>;
     /**
      * ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
      */
-    exportRoutePolicyId?: pulumi.Input<string | undefined>;
+    exportRoutePolicyId?: pulumi.Input<string>;
     /**
      * Name of the External Network.
      */
-    externalNetworkName?: pulumi.Input<string | undefined>;
+    externalNetworkName?: pulumi.Input<string>;
     /**
      * Import Route Policy either IPv4 or IPv6.
      */
-    importRoutePolicy?: pulumi.Input<inputs.managednetworkfabric.ImportRoutePolicyArgs | undefined>;
+    importRoutePolicy?: pulumi.Input<inputs.managednetworkfabric.ImportRoutePolicyArgs>;
     /**
      * ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
      */
-    importRoutePolicyId?: pulumi.Input<string | undefined>;
+    importRoutePolicyId?: pulumi.Input<string>;
     /**
      * Name of the L3 Isolation Domain.
      */
@@ -205,15 +205,15 @@ export interface ExternalNetworkArgs {
     /**
      * ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
      */
-    networkToNetworkInterconnectId?: pulumi.Input<string | undefined>;
+    networkToNetworkInterconnectId?: pulumi.Input<string>;
     /**
      * option A properties object
      */
-    optionAProperties?: pulumi.Input<inputs.managednetworkfabric.ExternalNetworkPropertiesOptionAPropertiesArgs | undefined>;
+    optionAProperties?: pulumi.Input<inputs.managednetworkfabric.ExternalNetworkPropertiesOptionAPropertiesArgs>;
     /**
      * option B properties object
      */
-    optionBProperties?: pulumi.Input<inputs.managednetworkfabric.L3OptionBPropertiesArgs | undefined>;
+    optionBProperties?: pulumi.Input<inputs.managednetworkfabric.L3OptionBPropertiesArgs>;
     /**
      * Peering option list.
      */

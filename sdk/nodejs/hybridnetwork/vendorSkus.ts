@@ -144,35 +144,35 @@ export interface VendorSkusArgs {
     /**
      * The sku deployment mode.
      */
-    deploymentMode?: pulumi.Input<string | enums.hybridnetwork.SkuDeploymentMode | undefined>;
+    deploymentMode?: pulumi.Input<string | enums.hybridnetwork.SkuDeploymentMode>;
     /**
      * The parameters for the managed application to be supplied by the vendor.
      */
-    managedApplicationParameters?: any | undefined;
+    managedApplicationParameters?: any;
     /**
      * The template for the managed application deployment.
      */
-    managedApplicationTemplate?: any | undefined;
+    managedApplicationTemplate?: any;
     /**
      * The template definition of the network function.
      */
-    networkFunctionTemplate?: pulumi.Input<inputs.hybridnetwork.NetworkFunctionTemplateArgs | undefined>;
+    networkFunctionTemplate?: pulumi.Input<inputs.hybridnetwork.NetworkFunctionTemplateArgs>;
     /**
      * The network function type.
      */
-    networkFunctionType?: pulumi.Input<string | enums.hybridnetwork.NetworkFunctionType | undefined>;
+    networkFunctionType?: pulumi.Input<string | enums.hybridnetwork.NetworkFunctionType>;
     /**
      * Indicates if the vendor sku is in preview mode.
      */
-    preview?: pulumi.Input<boolean | undefined>;
+    preview?: pulumi.Input<boolean>;
     /**
      * The name of the sku.
      */
-    skuName?: pulumi.Input<string | undefined>;
+    skuName?: pulumi.Input<string>;
     /**
      * The sku type.
      */
-    skuType?: pulumi.Input<string | enums.hybridnetwork.SkuType | undefined>;
+    skuType?: pulumi.Input<string | enums.hybridnetwork.SkuType>;
     /**
      * The name of the vendor.
      */

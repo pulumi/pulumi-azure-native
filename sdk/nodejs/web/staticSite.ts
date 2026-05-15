@@ -229,51 +229,51 @@ export interface StaticSiteArgs {
     /**
      * <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
      */
-    allowConfigFileUpdates?: pulumi.Input<boolean | undefined>;
+    allowConfigFileUpdates?: pulumi.Input<boolean>;
     /**
      * The target branch in the repository.
      */
-    branch?: pulumi.Input<string | undefined>;
+    branch?: pulumi.Input<string>;
     /**
      * Build properties to configure on the repository.
      */
-    buildProperties?: pulumi.Input<inputs.web.StaticSiteBuildPropertiesArgs | undefined>;
+    buildProperties?: pulumi.Input<inputs.web.StaticSiteBuildPropertiesArgs>;
     /**
      * State indicating the status of the enterprise grade CDN serving traffic to the static web app.
      */
-    enterpriseGradeCdnStatus?: pulumi.Input<string | enums.web.EnterpriseGradeCdnStatus | undefined>;
+    enterpriseGradeCdnStatus?: pulumi.Input<string | enums.web.EnterpriseGradeCdnStatus>;
     /**
      * Managed service identity.
      */
-    identity?: pulumi.Input<inputs.web.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.web.ManagedServiceIdentityArgs>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the static site to create or update.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The provider that submitted the last deployment to the primary environment of the static site.
      */
-    provider?: pulumi.Input<string | undefined>;
+    provider?: pulumi.Input<string>;
     /**
      * State indicating whether public traffic are allowed or not for a static web app. Allowed Values: 'Enabled', 'Disabled' or an empty string.
      */
-    publicNetworkAccess?: pulumi.Input<string | undefined>;
+    publicNetworkAccess?: pulumi.Input<string>;
     /**
      * A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
      */
-    repositoryToken?: pulumi.Input<string | undefined>;
+    repositoryToken?: pulumi.Input<string>;
     /**
      * URL for the repository of the static site.
      */
-    repositoryUrl?: pulumi.Input<string | undefined>;
+    repositoryUrl?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -281,17 +281,17 @@ export interface StaticSiteArgs {
     /**
      * Description of a SKU for a scalable resource.
      */
-    sku?: pulumi.Input<inputs.web.SkuDescriptionArgs | undefined>;
+    sku?: pulumi.Input<inputs.web.SkuDescriptionArgs>;
     /**
      * State indicating whether staging environments are allowed or not allowed for a static web app.
      */
-    stagingEnvironmentPolicy?: pulumi.Input<enums.web.StagingEnvironmentPolicy | undefined>;
+    stagingEnvironmentPolicy?: pulumi.Input<enums.web.StagingEnvironmentPolicy>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Template options for generating a new repository.
      */
-    templateProperties?: pulumi.Input<inputs.web.StaticSiteTemplateOptionsArgs | undefined>;
+    templateProperties?: pulumi.Input<inputs.web.StaticSiteTemplateOptionsArgs>;
 }

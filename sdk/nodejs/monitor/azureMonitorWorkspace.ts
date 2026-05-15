@@ -152,15 +152,15 @@ export interface AzureMonitorWorkspaceArgs {
     /**
      * The name of the Azure Monitor Workspace. The name is case insensitive
      */
-    azureMonitorWorkspaceName?: pulumi.Input<string | undefined>;
+    azureMonitorWorkspaceName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets allow or disallow public network access to Azure Monitor Workspace
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.monitor.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.monitor.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -168,5 +168,5 @@ export interface AzureMonitorWorkspaceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

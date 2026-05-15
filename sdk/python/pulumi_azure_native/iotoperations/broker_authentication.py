@@ -26,8 +26,8 @@ class BrokerAuthenticationArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['BrokerAuthenticationPropertiesArgs']] = None):
+                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['BrokerAuthenticationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BrokerAuthentication resource.
 
@@ -97,26 +97,26 @@ class BrokerAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationName")
-    def authentication_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def authentication_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of Instance broker authentication resource
         """
         return pulumi.get(self, "authentication_name")
 
     @authentication_name.setter
-    def authentication_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def authentication_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "authentication_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['BrokerAuthenticationPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['BrokerAuthenticationPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['BrokerAuthenticationPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['BrokerAuthenticationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -126,12 +126,12 @@ class BrokerAuthentication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BrokerAuthenticationPropertiesArgs', 'BrokerAuthenticationPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['BrokerAuthenticationPropertiesArgs', 'BrokerAuthenticationPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Instance broker authentication resource
@@ -179,12 +179,12 @@ class BrokerAuthentication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BrokerAuthenticationPropertiesArgs', 'BrokerAuthenticationPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['BrokerAuthenticationPropertiesArgs', 'BrokerAuthenticationPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

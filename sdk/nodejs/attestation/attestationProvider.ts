@@ -106,7 +106,7 @@ export class AttestationProvider extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.attestation.attestationServiceCreationSpecificParamsArgsProvideDefaults) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.attestation.attestationServiceCreationSpecificParamsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["providerName"] = args?.providerName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
@@ -148,7 +148,7 @@ export interface AttestationProviderArgs {
     /**
      * The supported Azure location where the attestation provider should be created.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the attestation provider
      */
@@ -156,7 +156,7 @@ export interface AttestationProviderArgs {
     /**
      * Name of the attestation provider.
      */
-    providerName?: pulumi.Input<string | undefined>;
+    providerName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -164,5 +164,5 @@ export interface AttestationProviderArgs {
     /**
      * The tags that will be assigned to the attestation provider.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

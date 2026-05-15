@@ -26,13 +26,13 @@ class SensitivityLabelArgs:
                  schema_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
-                 client_classification_source: pulumi.Input[Optional[Union[_builtins.str, 'ClientClassificationSource']]] = None,
-                 information_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 information_type_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 label_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 label_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rank: pulumi.Input[Optional['SensitivityLabelRank']] = None,
-                 sensitivity_label_source: pulumi.Input[Optional[_builtins.str]] = None):
+                 client_classification_source: Optional[pulumi.Input[Union[_builtins.str, 'ClientClassificationSource']]] = None,
+                 information_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 information_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 label_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 label_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
+                 sensitivity_label_source: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SensitivityLabel resource.
 
@@ -143,80 +143,80 @@ class SensitivityLabelArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientClassificationSource")
-    def client_classification_source(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ClientClassificationSource']]]:
+    def client_classification_source(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ClientClassificationSource']]]:
         return pulumi.get(self, "client_classification_source")
 
     @client_classification_source.setter
-    def client_classification_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ClientClassificationSource']]]):
+    def client_classification_source(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ClientClassificationSource']]]):
         pulumi.set(self, "client_classification_source", value)
 
     @_builtins.property
     @pulumi.getter(name="informationType")
-    def information_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def information_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The information type.
         """
         return pulumi.get(self, "information_type")
 
     @information_type.setter
-    def information_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def information_type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "information_type", value)
 
     @_builtins.property
     @pulumi.getter(name="informationTypeId")
-    def information_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def information_type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The information type ID.
         """
         return pulumi.get(self, "information_type_id")
 
     @information_type_id.setter
-    def information_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def information_type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "information_type_id", value)
 
     @_builtins.property
     @pulumi.getter(name="labelId")
-    def label_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def label_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The label ID.
         """
         return pulumi.get(self, "label_id")
 
     @label_id.setter
-    def label_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def label_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "label_id", value)
 
     @_builtins.property
     @pulumi.getter(name="labelName")
-    def label_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def label_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The label name.
         """
         return pulumi.get(self, "label_name")
 
     @label_name.setter
-    def label_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def label_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "label_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def rank(self) -> pulumi.Input[Optional['SensitivityLabelRank']]:
+    def rank(self) -> Optional[pulumi.Input['SensitivityLabelRank']]:
         return pulumi.get(self, "rank")
 
     @rank.setter
-    def rank(self, value: pulumi.Input[Optional['SensitivityLabelRank']]):
+    def rank(self, value: Optional[pulumi.Input['SensitivityLabelRank']]):
         pulumi.set(self, "rank", value)
 
     @_builtins.property
     @pulumi.getter(name="sensitivityLabelSource")
-    def sensitivity_label_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def sensitivity_label_source(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The source of the sensitivity label.
         """
         return pulumi.get(self, "sensitivity_label_source")
 
     @sensitivity_label_source.setter
-    def sensitivity_label_source(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def sensitivity_label_source(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "sensitivity_label_source", value)
 
 
@@ -226,19 +226,19 @@ class SensitivityLabel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_classification_source: pulumi.Input[Optional[Union[_builtins.str, 'ClientClassificationSource']]] = None,
-                 column_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 information_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 information_type_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 label_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 label_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rank: pulumi.Input[Optional['SensitivityLabelRank']] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sensitivity_label_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_classification_source: Optional[pulumi.Input[Union[_builtins.str, 'ClientClassificationSource']]] = None,
+                 column_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 information_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 information_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 label_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 label_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sensitivity_label_source: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A sensitivity label.
@@ -291,19 +291,19 @@ class SensitivityLabel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 client_classification_source: pulumi.Input[Optional[Union[_builtins.str, 'ClientClassificationSource']]] = None,
-                 column_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 information_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 information_type_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 label_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 label_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rank: pulumi.Input[Optional['SensitivityLabelRank']] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sensitivity_label_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_classification_source: Optional[pulumi.Input[Union[_builtins.str, 'ClientClassificationSource']]] = None,
+                 column_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 information_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 information_type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 label_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 label_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rank: Optional[pulumi.Input['SensitivityLabelRank']] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sensitivity_label_source: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

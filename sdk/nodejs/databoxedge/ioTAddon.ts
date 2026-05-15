@@ -156,7 +156,7 @@ export interface IoTAddonArgs {
     /**
      * The addon name.
      */
-    addonName?: pulumi.Input<string | undefined>;
+    addonName?: pulumi.Input<string>;
     /**
      * The device name.
      */

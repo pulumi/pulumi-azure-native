@@ -208,10 +208,10 @@ def get_hunt_relation(hunt_id: Optional[_builtins.str] = None,
         relation_type=pulumi.get(__ret__, 'relation_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_hunt_relation_output(hunt_id: pulumi.Input[Optional[_builtins.str]] = None,
-                             hunt_relation_id: pulumi.Input[Optional[_builtins.str]] = None,
-                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_hunt_relation_output(hunt_id: Optional[pulumi.Input[_builtins.str]] = None,
+                             hunt_relation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHuntRelationResult]:
     """
     Gets a hunt relation

@@ -155,10 +155,10 @@ def list_disaster_recovery_config_keys(alias: Optional[_builtins.str] = None,
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_disaster_recovery_config_keys_output(alias: pulumi.Input[Optional[_builtins.str]] = None,
-                                              authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_disaster_recovery_config_keys_output(alias: Optional[pulumi.Input[_builtins.str]] = None,
+                                              authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDisasterRecoveryConfigKeysResult]:
     """
     Gets the primary and secondary connection strings for the namespace.

@@ -93,7 +93,7 @@ export interface SupportPlanTypeArgs {
     /**
      * The Canonical support plan type.
      */
-    planTypeName?: pulumi.Input<string | undefined>;
+    planTypeName?: pulumi.Input<string>;
     /**
      * The support plan type. For now the only valid type is "canonical".
      */

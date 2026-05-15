@@ -184,23 +184,23 @@ export interface CapacityPoolArgs {
     /**
      * If enabled (true) the pool can contain cool Access enabled volumes.
      */
-    coolAccess?: pulumi.Input<boolean | undefined>;
+    coolAccess?: pulumi.Input<boolean>;
     /**
      * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
      */
-    encryptionType?: pulumi.Input<string | enums.netapp.EncryptionType | undefined>;
+    encryptionType?: pulumi.Input<string | enums.netapp.EncryptionType>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the capacity pool
      */
-    poolName?: pulumi.Input<string | undefined>;
+    poolName?: pulumi.Input<string>;
     /**
      * The qos type of the pool
      */
-    qosType?: pulumi.Input<string | enums.netapp.QosType | undefined>;
+    qosType?: pulumi.Input<string | enums.netapp.QosType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -216,5 +216,5 @@ export interface CapacityPoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -188,35 +188,35 @@ export interface WorkflowArgs {
     /**
      * The access control configuration.
      */
-    accessControl?: pulumi.Input<inputs.logic.FlowAccessControlConfigurationArgs | undefined>;
+    accessControl?: pulumi.Input<inputs.logic.FlowAccessControlConfigurationArgs>;
     /**
      * The definition.
      */
-    definition?: any | undefined;
+    definition?: any;
     /**
      * The endpoints configuration.
      */
-    endpointsConfiguration?: pulumi.Input<inputs.logic.FlowEndpointsConfigurationArgs | undefined>;
+    endpointsConfiguration?: pulumi.Input<inputs.logic.FlowEndpointsConfigurationArgs>;
     /**
      * Managed service identity properties.
      */
-    identity?: pulumi.Input<inputs.logic.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.logic.ManagedServiceIdentityArgs>;
     /**
      * The integration account.
      */
-    integrationAccount?: pulumi.Input<inputs.logic.ResourceReferenceArgs | undefined>;
+    integrationAccount?: pulumi.Input<inputs.logic.ResourceReferenceArgs>;
     /**
      * The integration service environment.
      */
-    integrationServiceEnvironment?: pulumi.Input<inputs.logic.ResourceReferenceArgs | undefined>;
+    integrationServiceEnvironment?: pulumi.Input<inputs.logic.ResourceReferenceArgs>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The parameters.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.WorkflowParameterArgs>} | undefined>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.logic.WorkflowParameterArgs>}>;
     /**
      * The resource group name.
      */
@@ -224,13 +224,13 @@ export interface WorkflowArgs {
     /**
      * The state.
      */
-    state?: pulumi.Input<string | enums.logic.WorkflowState | undefined>;
+    state?: pulumi.Input<string | enums.logic.WorkflowState>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The workflow name.
      */
-    workflowName?: pulumi.Input<string | undefined>;
+    workflowName?: pulumi.Input<string>;
 }

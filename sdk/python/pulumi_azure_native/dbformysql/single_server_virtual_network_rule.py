@@ -22,8 +22,8 @@ class SingleServerVirtualNetworkRuleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  virtual_network_subnet_id: pulumi.Input[_builtins.str],
-                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
-                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SingleServerVirtualNetworkRule resource.
 
@@ -79,26 +79,26 @@ class SingleServerVirtualNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
-    def ignore_missing_vnet_service_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def ignore_missing_vnet_service_endpoint(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Create firewall rule before the virtual network has vnet service endpoint enabled.
         """
         return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
 
     @ignore_missing_vnet_service_endpoint.setter
-    def ignore_missing_vnet_service_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def ignore_missing_vnet_service_endpoint(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRuleName")
-    def virtual_network_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def virtual_network_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the virtual network rule.
         """
         return pulumi.get(self, "virtual_network_rule_name")
 
     @virtual_network_rule_name.setter
-    def virtual_network_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def virtual_network_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "virtual_network_rule_name", value)
 
 
@@ -108,11 +108,11 @@ class SingleServerVirtualNetworkRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A virtual network rule.
@@ -155,11 +155,11 @@ class SingleServerVirtualNetworkRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ignore_missing_vnet_service_endpoint: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

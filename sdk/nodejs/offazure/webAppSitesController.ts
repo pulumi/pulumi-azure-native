@@ -128,7 +128,7 @@ export interface WebAppSitesControllerArgs {
     /**
      * Gets or sets the discovery scenario.
      */
-    discoveryScenario?: pulumi.Input<string | enums.offazure.WebAppSitePropertiesDiscoveryScenario | undefined>;
+    discoveryScenario?: pulumi.Input<string | enums.offazure.WebAppSitePropertiesDiscoveryScenario>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,7 +138,7 @@ export interface WebAppSitesControllerArgs {
      *            
      * to the appliance.
      */
-    siteAppliancePropertiesCollection?: pulumi.Input<pulumi.Input<inputs.offazure.SiteAppliancePropertiesArgs>[] | undefined>;
+    siteAppliancePropertiesCollection?: pulumi.Input<pulumi.Input<inputs.offazure.SiteAppliancePropertiesArgs>[]>;
     /**
      * Site name
      */
@@ -146,5 +146,5 @@ export interface WebAppSitesControllerArgs {
     /**
      * Web app site name.
      */
-    webAppSiteName?: pulumi.Input<string | undefined>;
+    webAppSiteName?: pulumi.Input<string>;
 }

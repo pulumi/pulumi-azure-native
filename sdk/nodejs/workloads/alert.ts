@@ -142,11 +142,11 @@ export interface AlertArgs {
     /**
      * Name of the SAP monitor alert resource.
      */
-    alertName?: pulumi.Input<string | undefined>;
+    alertName?: pulumi.Input<string>;
     /**
      * Describes the properties of an alert.
      */
-    alertRuleProperties?: pulumi.Input<inputs.workloads.AlertRulePropertiesArgs | undefined>;
+    alertRuleProperties?: pulumi.Input<inputs.workloads.AlertRulePropertiesArgs>;
     /**
      * Name of the SAP monitor resource.
      */
@@ -154,11 +154,11 @@ export interface AlertArgs {
     /**
      * Name of provider instances associated with the alert.
      */
-    providerNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    providerNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The provider type for alert. For example, the value can be SapHana.
      */
-    providerType?: pulumi.Input<string | undefined>;
+    providerType?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -166,5 +166,5 @@ export interface AlertArgs {
     /**
      * Name of the alert template from which it was created.
      */
-    templateName?: pulumi.Input<string | undefined>;
+    templateName?: pulumi.Input<string>;
 }

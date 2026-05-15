@@ -175,11 +175,11 @@ export interface CapacityReservationArgs {
     /**
      * The name of the capacity reservation.
      */
-    capacityReservationName?: pulumi.Input<string | undefined>;
+    capacityReservationName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -191,9 +191,9 @@ export interface CapacityReservationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The availability zones.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -142,15 +142,15 @@ export interface ManagedNetworkGroupArgs {
     /**
      * Responsibility role under which this Managed Network Group will be created
      */
-    kind?: pulumi.Input<string | enums.managednetwork.Kind | undefined>;
+    kind?: pulumi.Input<string | enums.managednetwork.Kind>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Managed Network Group.
      */
-    managedNetworkGroupName?: pulumi.Input<string | undefined>;
+    managedNetworkGroupName?: pulumi.Input<string>;
     /**
      * The name of the Managed Network.
      */
@@ -158,7 +158,7 @@ export interface ManagedNetworkGroupArgs {
     /**
      * The collection of management groups covered by the Managed Network
      */
-    managementGroups?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[] | undefined>;
+    managementGroups?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -166,13 +166,13 @@ export interface ManagedNetworkGroupArgs {
     /**
      * The collection of  subnets covered by the Managed Network
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[] | undefined>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[]>;
     /**
      * The collection of subscriptions covered by the Managed Network
      */
-    subscriptions?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[] | undefined>;
+    subscriptions?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[]>;
     /**
      * The collection of virtual nets covered by the Managed Network
      */
-    virtualNetworks?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[] | undefined>;
+    virtualNetworks?: pulumi.Input<pulumi.Input<inputs.managednetwork.ResourceIdArgs>[]>;
 }

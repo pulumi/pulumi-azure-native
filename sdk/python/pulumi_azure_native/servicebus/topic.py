@@ -23,18 +23,18 @@ class TopicArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_message_time_to_live: pulumi.Input[Optional[_builtins.str]] = None,
-                 duplicate_detection_history_time_window: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_batched_operations: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_express: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_partitioning: pulumi.Input[Optional[_builtins.bool]] = None,
-                 max_message_size_in_kilobytes: pulumi.Input[Optional[_builtins.float]] = None,
-                 max_size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
-                 requires_duplicate_detection: pulumi.Input[Optional[_builtins.bool]] = None,
-                 status: pulumi.Input[Optional['EntityStatus']] = None,
-                 support_ordering: pulumi.Input[Optional[_builtins.bool]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_message_time_to_live: Optional[pulumi.Input[_builtins.str]] = None,
+                 duplicate_detection_history_time_window: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_batched_operations: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_express: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_partitioning: Optional[pulumi.Input[_builtins.bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[_builtins.float]] = None,
+                 max_size_in_megabytes: Optional[pulumi.Input[_builtins.int]] = None,
+                 requires_duplicate_detection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
+                 support_ordering: Optional[pulumi.Input[_builtins.bool]] = None,
+                 topic_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
 
@@ -106,146 +106,146 @@ class TopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoDeleteOnIdle")
-    def auto_delete_on_idle(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def auto_delete_on_idle(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
         """
         return pulumi.get(self, "auto_delete_on_idle")
 
     @auto_delete_on_idle.setter
-    def auto_delete_on_idle(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def auto_delete_on_idle(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "auto_delete_on_idle", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultMessageTimeToLive")
-    def default_message_time_to_live(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def default_message_time_to_live(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         """
         return pulumi.get(self, "default_message_time_to_live")
 
     @default_message_time_to_live.setter
-    def default_message_time_to_live(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def default_message_time_to_live(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "default_message_time_to_live", value)
 
     @_builtins.property
     @pulumi.getter(name="duplicateDetectionHistoryTimeWindow")
-    def duplicate_detection_history_time_window(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def duplicate_detection_history_time_window(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
         """
         return pulumi.get(self, "duplicate_detection_history_time_window")
 
     @duplicate_detection_history_time_window.setter
-    def duplicate_detection_history_time_window(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def duplicate_detection_history_time_window(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "duplicate_detection_history_time_window", value)
 
     @_builtins.property
     @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enable_batched_operations(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Value that indicates whether server-side batched operations are enabled.
         """
         return pulumi.get(self, "enable_batched_operations")
 
     @enable_batched_operations.setter
-    def enable_batched_operations(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enable_batched_operations(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_batched_operations", value)
 
     @_builtins.property
     @pulumi.getter(name="enableExpress")
-    def enable_express(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enable_express(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage.
         """
         return pulumi.get(self, "enable_express")
 
     @enable_express.setter
-    def enable_express(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enable_express(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_express", value)
 
     @_builtins.property
     @pulumi.getter(name="enablePartitioning")
-    def enable_partitioning(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enable_partitioning(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Value that indicates whether the topic to be partitioned across multiple message brokers is enabled.
         """
         return pulumi.get(self, "enable_partitioning")
 
     @enable_partitioning.setter
-    def enable_partitioning(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enable_partitioning(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_partitioning", value)
 
     @_builtins.property
     @pulumi.getter(name="maxMessageSizeInKilobytes")
-    def max_message_size_in_kilobytes(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def max_message_size_in_kilobytes(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024.
         """
         return pulumi.get(self, "max_message_size_in_kilobytes")
 
     @max_message_size_in_kilobytes.setter
-    def max_message_size_in_kilobytes(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def max_message_size_in_kilobytes(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "max_message_size_in_kilobytes", value)
 
     @_builtins.property
     @pulumi.getter(name="maxSizeInMegabytes")
-    def max_size_in_megabytes(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def max_size_in_megabytes(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024.
         """
         return pulumi.get(self, "max_size_in_megabytes")
 
     @max_size_in_megabytes.setter
-    def max_size_in_megabytes(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def max_size_in_megabytes(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "max_size_in_megabytes", value)
 
     @_builtins.property
     @pulumi.getter(name="requiresDuplicateDetection")
-    def requires_duplicate_detection(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def requires_duplicate_detection(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Value indicating if this topic requires duplicate detection.
         """
         return pulumi.get(self, "requires_duplicate_detection")
 
     @requires_duplicate_detection.setter
-    def requires_duplicate_detection(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def requires_duplicate_detection(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "requires_duplicate_detection", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Input[Optional['EntityStatus']]:
+    def status(self) -> Optional[pulumi.Input['EntityStatus']]:
         """
         Enumerates the possible values for the status of a messaging entity.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[Optional['EntityStatus']]):
+    def status(self, value: Optional[pulumi.Input['EntityStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="supportOrdering")
-    def support_ordering(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def support_ordering(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Value that indicates whether the topic supports ordering.
         """
         return pulumi.get(self, "support_ordering")
 
     @support_ordering.setter
-    def support_ordering(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def support_ordering(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "support_ordering", value)
 
     @_builtins.property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The topic name.
         """
         return pulumi.get(self, "topic_name")
 
     @topic_name.setter
-    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "topic_name", value)
 
 
@@ -255,20 +255,20 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_message_time_to_live: pulumi.Input[Optional[_builtins.str]] = None,
-                 duplicate_detection_history_time_window: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_batched_operations: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_express: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_partitioning: pulumi.Input[Optional[_builtins.bool]] = None,
-                 max_message_size_in_kilobytes: pulumi.Input[Optional[_builtins.float]] = None,
-                 max_size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 requires_duplicate_detection: pulumi.Input[Optional[_builtins.bool]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional['EntityStatus']] = None,
-                 support_ordering: pulumi.Input[Optional[_builtins.bool]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_message_time_to_live: Optional[pulumi.Input[_builtins.str]] = None,
+                 duplicate_detection_history_time_window: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_batched_operations: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_express: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_partitioning: Optional[pulumi.Input[_builtins.bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[_builtins.float]] = None,
+                 max_size_in_megabytes: Optional[pulumi.Input[_builtins.int]] = None,
+                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 requires_duplicate_detection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
+                 support_ordering: Optional[pulumi.Input[_builtins.bool]] = None,
+                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Description of topic resource.
@@ -324,20 +324,20 @@ class Topic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_delete_on_idle: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_message_time_to_live: pulumi.Input[Optional[_builtins.str]] = None,
-                 duplicate_detection_history_time_window: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_batched_operations: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_express: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_partitioning: pulumi.Input[Optional[_builtins.bool]] = None,
-                 max_message_size_in_kilobytes: pulumi.Input[Optional[_builtins.float]] = None,
-                 max_size_in_megabytes: pulumi.Input[Optional[_builtins.int]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 requires_duplicate_detection: pulumi.Input[Optional[_builtins.bool]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional['EntityStatus']] = None,
-                 support_ordering: pulumi.Input[Optional[_builtins.bool]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_delete_on_idle: Optional[pulumi.Input[_builtins.str]] = None,
+                 default_message_time_to_live: Optional[pulumi.Input[_builtins.str]] = None,
+                 duplicate_detection_history_time_window: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_batched_operations: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_express: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_partitioning: Optional[pulumi.Input[_builtins.bool]] = None,
+                 max_message_size_in_kilobytes: Optional[pulumi.Input[_builtins.float]] = None,
+                 max_size_in_megabytes: Optional[pulumi.Input[_builtins.int]] = None,
+                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 requires_duplicate_detection: Optional[pulumi.Input[_builtins.bool]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
+                 support_ordering: Optional[pulumi.Input[_builtins.bool]] = None,
+                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

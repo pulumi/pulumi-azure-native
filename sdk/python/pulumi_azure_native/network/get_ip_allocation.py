@@ -244,9 +244,9 @@ def get_ip_allocation(expand: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
-def get_ip_allocation_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                             ip_allocation_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_ip_allocation_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                             ip_allocation_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpAllocationResult]:
     """
     Gets the specified IpAllocation by resource group.

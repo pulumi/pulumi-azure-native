@@ -130,7 +130,7 @@ export interface ConsumerGroupArgs {
     /**
      * The consumer group name
      */
-    consumerGroupName?: pulumi.Input<string | undefined>;
+    consumerGroupName?: pulumi.Input<string>;
     /**
      * The Event Hub name
      */
@@ -146,5 +146,5 @@ export interface ConsumerGroupArgs {
     /**
      * User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
      */
-    userMetadata?: pulumi.Input<string | undefined>;
+    userMetadata?: pulumi.Input<string>;
 }

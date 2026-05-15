@@ -116,19 +116,19 @@ export interface MigrateProjectsControllerMigrateProjectArgs {
     /**
      * For optimistic concurrency control.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Azure location in which project is created.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Migrate project name.
      */
-    migrateProjectName?: pulumi.Input<string | undefined>;
+    migrateProjectName?: pulumi.Input<string>;
     /**
      * Properties of a migrate project.
      */
-    properties?: pulumi.Input<inputs.migrate.MigrateProjectPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.MigrateProjectPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

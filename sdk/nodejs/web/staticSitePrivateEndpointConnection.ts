@@ -122,11 +122,11 @@ export interface StaticSitePrivateEndpointConnectionArgs {
     /**
      * Private IPAddresses mapped to the remote private endpoint
      */
-    ipAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the static site.
      */
@@ -134,11 +134,11 @@ export interface StaticSitePrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * The state of a private link connection
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs | undefined>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */

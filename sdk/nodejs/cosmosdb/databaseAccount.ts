@@ -386,47 +386,47 @@ export interface DatabaseAccountArgs {
     /**
      * Cosmos DB database account name.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string>;
     /**
      * Analytical storage specific properties.
      */
-    analyticalStorageConfiguration?: pulumi.Input<inputs.cosmosdb.AnalyticalStorageConfigurationArgs | undefined>;
+    analyticalStorageConfiguration?: pulumi.Input<inputs.cosmosdb.AnalyticalStorageConfigurationArgs>;
     /**
      * API specific properties. Currently, supported only for MongoDB API.
      */
-    apiProperties?: pulumi.Input<inputs.cosmosdb.ApiPropertiesArgs | undefined>;
+    apiProperties?: pulumi.Input<inputs.cosmosdb.ApiPropertiesArgs>;
     /**
      * The object representing the policy for taking backups on an account.
      */
-    backupPolicy?: pulumi.Input<inputs.cosmosdb.ContinuousModeBackupPolicyArgs | inputs.cosmosdb.PeriodicModeBackupPolicyArgs | undefined>;
+    backupPolicy?: pulumi.Input<inputs.cosmosdb.ContinuousModeBackupPolicyArgs | inputs.cosmosdb.PeriodicModeBackupPolicyArgs>;
     /**
      * List of Cosmos DB capabilities for the account
      */
-    capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.CapabilityArgs>[] | undefined>;
+    capabilities?: pulumi.Input<pulumi.Input<inputs.cosmosdb.CapabilityArgs>[]>;
     /**
      * The object that represents all properties related to capacity enforcement on an account.
      */
-    capacity?: pulumi.Input<inputs.cosmosdb.CapacityArgs | undefined>;
+    capacity?: pulumi.Input<inputs.cosmosdb.CapacityArgs>;
     /**
      * The cassandra connector offer type for the Cosmos DB database C* account.
      */
-    connectorOffer?: pulumi.Input<string | enums.cosmosdb.ConnectorOffer | undefined>;
+    connectorOffer?: pulumi.Input<string | enums.cosmosdb.ConnectorOffer>;
     /**
      * The consistency policy for the Cosmos DB account.
      */
-    consistencyPolicy?: pulumi.Input<inputs.cosmosdb.ConsistencyPolicyArgs | undefined>;
+    consistencyPolicy?: pulumi.Input<inputs.cosmosdb.ConsistencyPolicyArgs>;
     /**
      * The CORS policy for the Cosmos DB database account.
      */
-    cors?: pulumi.Input<pulumi.Input<inputs.cosmosdb.CorsPolicyArgs>[] | undefined>;
+    cors?: pulumi.Input<pulumi.Input<inputs.cosmosdb.CorsPolicyArgs>[]>;
     /**
      * Enum to indicate the mode of account creation.
      */
-    createMode?: pulumi.Input<string | enums.cosmosdb.CreateMode | undefined>;
+    createMode?: pulumi.Input<string | enums.cosmosdb.CreateMode>;
     /**
      * Indicates the status of the Customer Managed Key feature on the account. In case there are errors, the property provides troubleshooting guidance.
      */
-    customerManagedKeyStatus?: pulumi.Input<string | undefined>;
+    customerManagedKeyStatus?: pulumi.Input<string>;
     /**
      * The offer type for the database
      */
@@ -434,79 +434,79 @@ export interface DatabaseAccountArgs {
     /**
      * The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be "FirstPartyIdentity", "SystemAssignedIdentity" and more.
      */
-    defaultIdentity?: pulumi.Input<string | undefined>;
+    defaultIdentity?: pulumi.Input<string>;
     /**
      * Enum to indicate default Priority Level of request for Priority Based Execution.
      */
-    defaultPriorityLevel?: pulumi.Input<string | enums.cosmosdb.DefaultPriorityLevel | undefined>;
+    defaultPriorityLevel?: pulumi.Input<string | enums.cosmosdb.DefaultPriorityLevel>;
     /**
      * Disable write operations on metadata resources (databases, containers, throughput) via account keys
      */
-    disableKeyBasedMetadataWriteAccess?: pulumi.Input<boolean | undefined>;
+    disableKeyBasedMetadataWriteAccess?: pulumi.Input<boolean>;
     /**
      * Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication.
      */
-    disableLocalAuth?: pulumi.Input<boolean | undefined>;
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * Flag to indicate whether to enable storage analytics.
      */
-    enableAnalyticalStorage?: pulumi.Input<boolean | undefined>;
+    enableAnalyticalStorage?: pulumi.Input<boolean>;
     /**
      * Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account.
      */
-    enableAutomaticFailover?: pulumi.Input<boolean | undefined>;
+    enableAutomaticFailover?: pulumi.Input<boolean>;
     /**
      * Flag to indicate enabling/disabling of Burst Capacity feature on the account
      */
-    enableBurstCapacity?: pulumi.Input<boolean | undefined>;
+    enableBurstCapacity?: pulumi.Input<boolean>;
     /**
      * Enables the cassandra connector on the Cosmos DB C* account
      */
-    enableCassandraConnector?: pulumi.Input<boolean | undefined>;
+    enableCassandraConnector?: pulumi.Input<boolean>;
     /**
      * Flag to indicate whether Free Tier is enabled.
      */
-    enableFreeTier?: pulumi.Input<boolean | undefined>;
+    enableFreeTier?: pulumi.Input<boolean>;
     /**
      * Enables the account to write in multiple locations
      */
-    enableMultipleWriteLocations?: pulumi.Input<boolean | undefined>;
+    enableMultipleWriteLocations?: pulumi.Input<boolean>;
     /**
      * Flag to indicate enabling/disabling of Partition Merge feature on the account
      */
-    enablePartitionMerge?: pulumi.Input<boolean | undefined>;
+    enablePartitionMerge?: pulumi.Input<boolean>;
     /**
      * Flag to indicate enabling/disabling of PerRegionPerPartitionAutoscale feature on the account
      */
-    enablePerRegionPerPartitionAutoscale?: pulumi.Input<boolean | undefined>;
+    enablePerRegionPerPartitionAutoscale?: pulumi.Input<boolean>;
     /**
      * Flag to indicate enabling/disabling of Priority Based Execution Preview feature on the account
      */
-    enablePriorityBasedExecution?: pulumi.Input<boolean | undefined>;
+    enablePriorityBasedExecution?: pulumi.Input<boolean>;
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.cosmosdb.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.cosmosdb.ManagedServiceIdentityArgs>;
     /**
      * List of IpRules.
      */
-    ipRules?: pulumi.Input<pulumi.Input<inputs.cosmosdb.IpAddressOrRangeArgs>[] | undefined>;
+    ipRules?: pulumi.Input<pulumi.Input<inputs.cosmosdb.IpAddressOrRangeArgs>[]>;
     /**
      * Flag to indicate whether to enable/disable Virtual Network ACL rules.
      */
-    isVirtualNetworkFilterEnabled?: pulumi.Input<boolean | undefined>;
+    isVirtualNetworkFilterEnabled?: pulumi.Input<boolean>;
     /**
      * The URI of the key vault
      */
-    keyVaultKeyUri?: pulumi.Input<string | undefined>;
+    keyVaultKeyUri?: pulumi.Input<string>;
     /**
      * Indicates the type of database account. This can only be set at database account creation.
      */
-    kind?: pulumi.Input<string | enums.cosmosdb.DatabaseAccountKind | undefined>;
+    kind?: pulumi.Input<string | enums.cosmosdb.DatabaseAccountKind>;
     /**
      * The location of the resource group to which the resource belongs.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * An array that contains the georeplication locations enabled for the Cosmos DB account.
      */
@@ -514,19 +514,19 @@ export interface DatabaseAccountArgs {
     /**
      * Indicates the minimum allowed Tls version. The default value is Tls 1.2. Cassandra and Mongo APIs only work with Tls 1.2.
      */
-    minimalTlsVersion?: pulumi.Input<string | enums.cosmosdb.MinimalTlsVersion | undefined>;
+    minimalTlsVersion?: pulumi.Input<string | enums.cosmosdb.MinimalTlsVersion>;
     /**
      * Indicates what services are allowed to bypass firewall checks.
      */
-    networkAclBypass?: pulumi.Input<enums.cosmosdb.NetworkAclBypass | undefined>;
+    networkAclBypass?: pulumi.Input<enums.cosmosdb.NetworkAclBypass>;
     /**
      * An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account.
      */
-    networkAclBypassResourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    networkAclBypassResourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Whether requests from Public Network are allowed
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.cosmosdb.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.cosmosdb.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -534,13 +534,13 @@ export interface DatabaseAccountArgs {
     /**
      * Parameters to indicate the information about the restore.
      */
-    restoreParameters?: pulumi.Input<inputs.cosmosdb.RestoreParametersArgs | undefined>;
+    restoreParameters?: pulumi.Input<inputs.cosmosdb.RestoreParametersArgs>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of Virtual Network ACL rules configured for the Cosmos DB account.
      */
-    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cosmosdb.VirtualNetworkRuleArgs>[] | undefined>;
+    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.cosmosdb.VirtualNetworkRuleArgs>[]>;
 }

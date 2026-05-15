@@ -67,7 +67,7 @@ def get_report_scoping_questions(report_name: Optional[_builtins.str] = None,
 
     return AwaitableGetReportScopingQuestionsResult(
         questions=pulumi.get(__ret__, 'questions'))
-def get_report_scoping_questions_output(report_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_report_scoping_questions_output(report_name: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportScopingQuestionsResult]:
     """
     Fix the AppComplianceAutomation report error. e.g: App Compliance Automation Tool service unregistered, automation removed.

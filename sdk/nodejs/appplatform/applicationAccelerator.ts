@@ -86,7 +86,7 @@ export class ApplicationAccelerator extends pulumi.CustomResource {
             resourceInputs["applicationAcceleratorName"] = args?.applicationAcceleratorName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
-            resourceInputs["sku"] = args ? pulumi.output(args.sku).apply(v => v === undefined ? undefined : inputs.appplatform.skuArgsProvideDefaults(v)) : undefined;
+            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.skuArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
@@ -114,7 +114,7 @@ export interface ApplicationAcceleratorArgs {
     /**
      * The name of the application accelerator.
      */
-    applicationAcceleratorName?: pulumi.Input<string | undefined>;
+    applicationAcceleratorName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -126,5 +126,5 @@ export interface ApplicationAcceleratorArgs {
     /**
      * Sku of the application accelerator resource
      */
-    sku?: pulumi.Input<inputs.appplatform.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.appplatform.SkuArgs>;
 }

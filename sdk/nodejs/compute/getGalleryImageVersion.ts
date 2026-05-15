@@ -135,7 +135,7 @@ export interface GetGalleryImageVersionOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The name of the gallery image definition to be retrieved.
      */

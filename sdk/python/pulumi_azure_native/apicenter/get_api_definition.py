@@ -175,12 +175,12 @@ def get_api_definition(api_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_definition_output(api_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              version_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_api_definition_output(api_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiDefinitionResult]:
     """
     Returns details of the API definition.

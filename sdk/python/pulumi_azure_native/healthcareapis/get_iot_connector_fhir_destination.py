@@ -195,10 +195,10 @@ def get_iot_connector_fhir_destination(fhir_destination_name: Optional[_builtins
         resource_identity_resolution_type=pulumi.get(__ret__, 'resource_identity_resolution_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_iot_connector_fhir_destination_output(fhir_destination_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              iot_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_iot_connector_fhir_destination_output(fhir_destination_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              iot_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotConnectorFhirDestinationResult]:
     """
     Gets the properties of the specified Iot Connector FHIR destination.

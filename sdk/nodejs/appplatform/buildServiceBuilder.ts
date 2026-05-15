@@ -116,11 +116,11 @@ export interface BuildServiceBuilderArgs {
     /**
      * The name of the builder resource.
      */
-    builderName?: pulumi.Input<string | undefined>;
+    builderName?: pulumi.Input<string>;
     /**
      * Property of the Builder resource.
      */
-    properties?: pulumi.Input<inputs.appplatform.BuilderPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.appplatform.BuilderPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

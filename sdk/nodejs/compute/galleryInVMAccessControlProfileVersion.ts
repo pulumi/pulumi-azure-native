@@ -176,7 +176,7 @@ export interface GalleryInVMAccessControlProfileVersionArgs {
     /**
      * If set to true, Virtual Machines deployed from the latest version of the Resource Profile won't use this Profile version.
      */
-    excludeFromLatest?: pulumi.Input<boolean | undefined>;
+    excludeFromLatest?: pulumi.Input<boolean>;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -188,11 +188,11 @@ export interface GalleryInVMAccessControlProfileVersionArgs {
     /**
      * The name of the gallery inVMAccessControlProfile version to be retrieved.
      */
-    inVMAccessControlProfileVersionName?: pulumi.Input<string | undefined>;
+    inVMAccessControlProfileVersionName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * This property allows you to specify whether the access control rules are in Audit mode, in Enforce mode or Disabled. Possible values are: 'Audit', 'Enforce' or 'Disabled'.
      */
@@ -204,13 +204,13 @@ export interface GalleryInVMAccessControlProfileVersionArgs {
     /**
      * This is the Access Control Rules specification for an inVMAccessControlProfile version.
      */
-    rules?: pulumi.Input<inputs.compute.AccessControlRulesArgs | undefined>;
+    rules?: pulumi.Input<inputs.compute.AccessControlRulesArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The target regions where the Resource Profile version is going to be replicated to. This property is updatable.
      */
-    targetLocations?: pulumi.Input<pulumi.Input<inputs.compute.TargetRegionArgs>[] | undefined>;
+    targetLocations?: pulumi.Input<pulumi.Input<inputs.compute.TargetRegionArgs>[]>;
 }

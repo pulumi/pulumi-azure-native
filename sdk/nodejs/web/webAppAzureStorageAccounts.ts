@@ -106,7 +106,7 @@ export interface WebAppAzureStorageAccountsArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
@@ -114,7 +114,7 @@ export interface WebAppAzureStorageAccountsArgs {
     /**
      * Azure storage accounts.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.AzureStorageInfoValueArgs>} | undefined>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.AzureStorageInfoValueArgs>}>;
     /**
      * Name of the resource group to which the resource belongs.
      */

@@ -158,11 +158,11 @@ export interface SnapshotArgs {
     /**
      * CreationData to be used to specify the source agent pool resource ID to create this snapshot.
      */
-    creationData?: pulumi.Input<inputs.containerservice.CreationDataArgs | undefined>;
+    creationData?: pulumi.Input<inputs.containerservice.CreationDataArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -170,13 +170,13 @@ export interface SnapshotArgs {
     /**
      * The name of the managed cluster resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The type of a snapshot. The default is NodePool.
      */
-    snapshotType?: pulumi.Input<string | enums.containerservice.SnapshotType | undefined>;
+    snapshotType?: pulumi.Input<string | enums.containerservice.SnapshotType>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -226,51 +226,51 @@ export interface SubscriptionArgs {
     /**
      * ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
      */
-    autoDeleteOnIdle?: pulumi.Input<string | undefined>;
+    autoDeleteOnIdle?: pulumi.Input<string>;
     /**
      * Properties specific to client affine subscriptions.
      */
-    clientAffineProperties?: pulumi.Input<inputs.servicebus.SBClientAffinePropertiesArgs | undefined>;
+    clientAffineProperties?: pulumi.Input<inputs.servicebus.SBClientAffinePropertiesArgs>;
     /**
      * Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
      */
-    deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean | undefined>;
+    deadLetteringOnFilterEvaluationExceptions?: pulumi.Input<boolean>;
     /**
      * Value that indicates whether a subscription has dead letter support when a message expires.
      */
-    deadLetteringOnMessageExpiration?: pulumi.Input<boolean | undefined>;
+    deadLetteringOnMessageExpiration?: pulumi.Input<boolean>;
     /**
      * ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      */
-    defaultMessageTimeToLive?: pulumi.Input<string | undefined>;
+    defaultMessageTimeToLive?: pulumi.Input<string>;
     /**
      * ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
      */
-    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string | undefined>;
+    duplicateDetectionHistoryTimeWindow?: pulumi.Input<string>;
     /**
      * Value that indicates whether server-side batched operations are enabled.
      */
-    enableBatchedOperations?: pulumi.Input<boolean | undefined>;
+    enableBatchedOperations?: pulumi.Input<boolean>;
     /**
      * Queue/Topic name to forward the Dead Letter message
      */
-    forwardDeadLetteredMessagesTo?: pulumi.Input<string | undefined>;
+    forwardDeadLetteredMessagesTo?: pulumi.Input<string>;
     /**
      * Queue/Topic name to forward the messages
      */
-    forwardTo?: pulumi.Input<string | undefined>;
+    forwardTo?: pulumi.Input<string>;
     /**
      * Value that indicates whether the subscription has an affinity to the client id.
      */
-    isClientAffine?: pulumi.Input<boolean | undefined>;
+    isClientAffine?: pulumi.Input<boolean>;
     /**
      * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
      */
-    lockDuration?: pulumi.Input<string | undefined>;
+    lockDuration?: pulumi.Input<string>;
     /**
      * Number of maximum deliveries.
      */
-    maxDeliveryCount?: pulumi.Input<number | undefined>;
+    maxDeliveryCount?: pulumi.Input<number>;
     /**
      * The namespace name
      */
@@ -278,7 +278,7 @@ export interface SubscriptionArgs {
     /**
      * Value indicating if a subscription supports the concept of sessions.
      */
-    requiresSession?: pulumi.Input<boolean | undefined>;
+    requiresSession?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -286,11 +286,11 @@ export interface SubscriptionArgs {
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    status?: pulumi.Input<enums.servicebus.EntityStatus | undefined>;
+    status?: pulumi.Input<enums.servicebus.EntityStatus>;
     /**
      * The subscription name.
      */
-    subscriptionName?: pulumi.Input<string | undefined>;
+    subscriptionName?: pulumi.Input<string>;
     /**
      * The topic name.
      */

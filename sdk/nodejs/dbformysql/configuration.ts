@@ -168,11 +168,11 @@ export interface ConfigurationArgs {
     /**
      * The name of the server configuration.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName?: pulumi.Input<string>;
     /**
      * Current value of the configuration.
      */
-    currentValue?: pulumi.Input<string | undefined>;
+    currentValue?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -184,9 +184,9 @@ export interface ConfigurationArgs {
     /**
      * Source of the configuration.
      */
-    source?: pulumi.Input<string | enums.dbformysql.ConfigurationSource | undefined>;
+    source?: pulumi.Input<string | enums.dbformysql.ConfigurationSource>;
     /**
      * Value of the configuration.
      */
-    value?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string>;
 }

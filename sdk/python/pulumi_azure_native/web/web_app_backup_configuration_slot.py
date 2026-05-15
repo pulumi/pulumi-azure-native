@@ -26,11 +26,11 @@ class WebAppBackupConfigurationSlotArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
                  storage_account_url: pulumi.Input[_builtins.str],
-                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 backup_schedule: pulumi.Input[Optional['BackupScheduleArgs']] = None,
-                 databases: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]] = None,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None):
+                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_schedule: Optional[pulumi.Input['BackupScheduleArgs']] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppBackupConfigurationSlot resource.
 
@@ -109,62 +109,62 @@ class WebAppBackupConfigurationSlotArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupName")
-    def backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def backup_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the backup.
         """
         return pulumi.get(self, "backup_name")
 
     @backup_name.setter
-    def backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def backup_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "backup_name", value)
 
     @_builtins.property
     @pulumi.getter(name="backupSchedule")
-    def backup_schedule(self) -> pulumi.Input[Optional['BackupScheduleArgs']]:
+    def backup_schedule(self) -> Optional[pulumi.Input['BackupScheduleArgs']]:
         """
         Schedule for the backup if it is executed periodically.
         """
         return pulumi.get(self, "backup_schedule")
 
     @backup_schedule.setter
-    def backup_schedule(self, value: pulumi.Input[Optional['BackupScheduleArgs']]):
+    def backup_schedule(self, value: Optional[pulumi.Input['BackupScheduleArgs']]):
         pulumi.set(self, "backup_schedule", value)
 
     @_builtins.property
     @pulumi.getter
-    def databases(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]]:
+    def databases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]]:
         """
         Databases included in the backup.
         """
         return pulumi.get(self, "databases")
 
     @databases.setter
-    def databases(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]]):
+    def databases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseBackupSettingArgs']]]]):
         pulumi.set(self, "databases", value)
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
 
@@ -174,15 +174,15 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 backup_schedule: pulumi.Input[Optional[Union['BackupScheduleArgs', 'BackupScheduleArgsDict']]] = None,
-                 databases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatabaseBackupSettingArgs', 'DatabaseBackupSettingArgsDict']]]]] = None,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 slot: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_account_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_schedule: Optional[pulumi.Input[Union['BackupScheduleArgs', 'BackupScheduleArgsDict']]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseBackupSettingArgs', 'DatabaseBackupSettingArgsDict']]]]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 slot: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Description of a backup which will be performed.
@@ -233,15 +233,15 @@ class WebAppBackupConfigurationSlot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 backup_schedule: pulumi.Input[Optional[Union['BackupScheduleArgs', 'BackupScheduleArgsDict']]] = None,
-                 databases: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DatabaseBackupSettingArgs', 'DatabaseBackupSettingArgsDict']]]]] = None,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 slot: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_account_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 backup_schedule: Optional[pulumi.Input[Union['BackupScheduleArgs', 'BackupScheduleArgsDict']]] = None,
+                 databases: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DatabaseBackupSettingArgs', 'DatabaseBackupSettingArgsDict']]]]] = None,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 slot: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_url: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

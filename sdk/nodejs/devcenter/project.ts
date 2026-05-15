@@ -158,35 +158,35 @@ export interface ProjectArgs {
     /**
      * Settings to be used when associating a project with a catalog.
      */
-    catalogSettings?: pulumi.Input<inputs.devcenter.ProjectCatalogSettingsArgs | undefined>;
+    catalogSettings?: pulumi.Input<inputs.devcenter.ProjectCatalogSettingsArgs>;
     /**
      * Description of the project.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Resource Id of an associated DevCenter
      */
-    devCenterId?: pulumi.Input<string | undefined>;
+    devCenterId?: pulumi.Input<string>;
     /**
      * The display name of the project.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * Managed identity properties
      */
-    identity?: pulumi.Input<inputs.devcenter.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.devcenter.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
      */
-    maxDevBoxesPerUser?: pulumi.Input<number | undefined>;
+    maxDevBoxesPerUser?: pulumi.Input<number>;
     /**
      * The name of the project.
      */
-    projectName?: pulumi.Input<string | undefined>;
+    projectName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -194,5 +194,5 @@ export interface ProjectArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

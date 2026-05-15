@@ -69,5 +69,5 @@ export interface ListSecurityAdvisoryImpactedResourceBySubscriptionIdAndEventIdO
     /**
      * The filter to apply on the operation. For more information please see https://docs.microsoft.com/en-us/rest/api/apimanagement/apis?redirectedfrom=MSDN
      */
-    filter?: pulumi.Input<string | undefined>;
+    filter?: pulumi.Input<string>;
 }

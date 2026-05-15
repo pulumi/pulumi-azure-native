@@ -192,9 +192,9 @@ def get_security_policies_interface(resource_group_name: Optional[_builtins.str]
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         waf_policy=pulumi.get(__ret__, 'waf_policy'))
-def get_security_policies_interface_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           traffic_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_security_policies_interface_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           traffic_controller_name: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPoliciesInterfaceResult]:
     """
     Get a SecurityPolicy

@@ -112,7 +112,7 @@ export class Approval extends pulumi.CustomResource {
             resourceInputs["createdAt"] = args?.createdAt;
             resourceInputs["grandparentResourceId"] = args?.grandparentResourceId;
             resourceInputs["parentResourceId"] = args?.parentResourceId;
-            resourceInputs["requestMetadata"] = args ? pulumi.output(args.requestMetadata).apply(inputs.mission.requestMetadataArgsProvideDefaults) : undefined;
+            resourceInputs["requestMetadata"] = args ? (args.requestMetadata ? pulumi.output(args.requestMetadata).apply(inputs.mission.requestMetadataArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["stateChangedAt"] = args?.stateChangedAt;
             resourceInputs["ticketId"] = args?.ticketId;
@@ -149,23 +149,23 @@ export interface ApprovalArgs {
     /**
      * The name of the approvals resource.
      */
-    approvalName?: pulumi.Input<string | undefined>;
+    approvalName?: pulumi.Input<string>;
     /**
      * List of approvers for the approval request
      */
-    approvers?: pulumi.Input<pulumi.Input<inputs.mission.ApproverArgs>[] | undefined>;
+    approvers?: pulumi.Input<pulumi.Input<inputs.mission.ApproverArgs>[]>;
     /**
      * Approval request creation time
      */
-    createdAt?: pulumi.Input<string | undefined>;
+    createdAt?: pulumi.Input<string>;
     /**
      * Parameter for optimizing query results
      */
-    grandparentResourceId?: pulumi.Input<string | undefined>;
+    grandparentResourceId?: pulumi.Input<string>;
     /**
      * Parameter for optimizing query results
      */
-    parentResourceId?: pulumi.Input<string | undefined>;
+    parentResourceId?: pulumi.Input<string>;
     /**
      * Request metadata for the approval request.
      */
@@ -177,9 +177,9 @@ export interface ApprovalArgs {
     /**
      * Approval request state change time, time at which approval request state changed from pending to approved or rejected.
      */
-    stateChangedAt?: pulumi.Input<string | undefined>;
+    stateChangedAt?: pulumi.Input<string>;
     /**
      * Ticket ID for the approval request
      */
-    ticketId?: pulumi.Input<string | undefined>;
+    ticketId?: pulumi.Input<string>;
 }

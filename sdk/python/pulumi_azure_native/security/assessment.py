@@ -25,10 +25,10 @@ class AssessmentArgs:
                  resource_details: pulumi.Input[Union['AzureResourceDetailsArgs', 'OnPremiseResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgs']],
                  resource_id: pulumi.Input[_builtins.str],
                  status: pulumi.Input['AssessmentStatusArgs'],
-                 additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata: pulumi.Input[Optional['SecurityAssessmentMetadataPropertiesArgs']] = None,
-                 partners_data: pulumi.Input[Optional['SecurityAssessmentPartnerDataArgs']] = None):
+                 additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata: Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesArgs']] = None,
+                 partners_data: Optional[pulumi.Input['SecurityAssessmentPartnerDataArgs']] = None):
         """
         The set of arguments for constructing a Assessment resource.
 
@@ -90,50 +90,50 @@ class AssessmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalData")
-    def additional_data(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def additional_data(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Additional data regarding the assessment
         """
         return pulumi.get(self, "additional_data")
 
     @additional_data.setter
-    def additional_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def additional_data(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_data", value)
 
     @_builtins.property
     @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def assessment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Assessment Key - Unique key for the assessment type
         """
         return pulumi.get(self, "assessment_name")
 
     @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def assessment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> pulumi.Input[Optional['SecurityAssessmentMetadataPropertiesArgs']]:
+    def metadata(self) -> Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesArgs']]:
         """
         Describes properties of an assessment metadata.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: pulumi.Input[Optional['SecurityAssessmentMetadataPropertiesArgs']]):
+    def metadata(self, value: Optional[pulumi.Input['SecurityAssessmentMetadataPropertiesArgs']]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="partnersData")
-    def partners_data(self) -> pulumi.Input[Optional['SecurityAssessmentPartnerDataArgs']]:
+    def partners_data(self) -> Optional[pulumi.Input['SecurityAssessmentPartnerDataArgs']]:
         """
         Data regarding 3rd party partner integration
         """
         return pulumi.get(self, "partners_data")
 
     @partners_data.setter
-    def partners_data(self, value: pulumi.Input[Optional['SecurityAssessmentPartnerDataArgs']]):
+    def partners_data(self, value: Optional[pulumi.Input['SecurityAssessmentPartnerDataArgs']]):
         pulumi.set(self, "partners_data", value)
 
 
@@ -143,13 +143,13 @@ class Assessment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata: pulumi.Input[Optional[Union['SecurityAssessmentMetadataPropertiesArgs', 'SecurityAssessmentMetadataPropertiesArgsDict']]] = None,
-                 partners_data: pulumi.Input[Optional[Union['SecurityAssessmentPartnerDataArgs', 'SecurityAssessmentPartnerDataArgsDict']]] = None,
-                 resource_details: pulumi.Input[Optional[Union[Union['AzureResourceDetailsArgs', 'AzureResourceDetailsArgsDict'], Union['OnPremiseResourceDetailsArgs', 'OnPremiseResourceDetailsArgsDict'], Union['OnPremiseSqlResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgsDict']]]] = None,
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
+                 additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata: Optional[pulumi.Input[Union['SecurityAssessmentMetadataPropertiesArgs', 'SecurityAssessmentMetadataPropertiesArgsDict']]] = None,
+                 partners_data: Optional[pulumi.Input[Union['SecurityAssessmentPartnerDataArgs', 'SecurityAssessmentPartnerDataArgsDict']]] = None,
+                 resource_details: Optional[pulumi.Input[Union[Union['AzureResourceDetailsArgs', 'AzureResourceDetailsArgsDict'], Union['OnPremiseResourceDetailsArgs', 'OnPremiseResourceDetailsArgsDict'], Union['OnPremiseSqlResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgsDict']]]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
                  __props__=None):
         """
         Security assessment on a resource - response format
@@ -198,13 +198,13 @@ class Assessment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata: pulumi.Input[Optional[Union['SecurityAssessmentMetadataPropertiesArgs', 'SecurityAssessmentMetadataPropertiesArgsDict']]] = None,
-                 partners_data: pulumi.Input[Optional[Union['SecurityAssessmentPartnerDataArgs', 'SecurityAssessmentPartnerDataArgsDict']]] = None,
-                 resource_details: pulumi.Input[Optional[Union[Union['AzureResourceDetailsArgs', 'AzureResourceDetailsArgsDict'], Union['OnPremiseResourceDetailsArgs', 'OnPremiseResourceDetailsArgsDict'], Union['OnPremiseSqlResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgsDict']]]] = None,
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
+                 additional_data: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata: Optional[pulumi.Input[Union['SecurityAssessmentMetadataPropertiesArgs', 'SecurityAssessmentMetadataPropertiesArgsDict']]] = None,
+                 partners_data: Optional[pulumi.Input[Union['SecurityAssessmentPartnerDataArgs', 'SecurityAssessmentPartnerDataArgsDict']]] = None,
+                 resource_details: Optional[pulumi.Input[Union[Union['AzureResourceDetailsArgs', 'AzureResourceDetailsArgsDict'], Union['OnPremiseResourceDetailsArgs', 'OnPremiseResourceDetailsArgsDict'], Union['OnPremiseSqlResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgsDict']]]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union['AssessmentStatusArgs', 'AssessmentStatusArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -89,9 +89,9 @@ def get_bastion_shareable_link(bastion_host_name: Optional[_builtins.str] = None
     return AwaitableGetBastionShareableLinkResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def get_bastion_shareable_link_output(bastion_host_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      vms: pulumi.Input[Optional[Optional[Sequence[Union['BastionShareableLink', 'BastionShareableLinkDict']]]]] = None,
+def get_bastion_shareable_link_output(bastion_host_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      vms: Optional[pulumi.Input[Optional[Sequence[Union['BastionShareableLink', 'BastionShareableLinkDict']]]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBastionShareableLinkResult]:
     """
     Return the Bastion Shareable Links for all the VMs specified in the request.

@@ -126,11 +126,11 @@ export interface PrivateEndpointConnectionControllerArgs {
     /**
      *  Private link resource name.
      */
-    peConnectionName?: pulumi.Input<string | undefined>;
+    peConnectionName?: pulumi.Input<string>;
     /**
      * private endpoints connection state
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.offazure.PrivateLinkServiceConnectionStateArgs | undefined>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.offazure.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

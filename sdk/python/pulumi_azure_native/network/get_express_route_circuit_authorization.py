@@ -178,9 +178,9 @@ def get_express_route_circuit_authorization(authorization_name: Optional[_builti
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_express_route_circuit_authorization_output(authorization_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                   circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_express_route_circuit_authorization_output(authorization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                   circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteCircuitAuthorizationResult]:
     """
     Gets the specified authorization from the specified express route circuit.

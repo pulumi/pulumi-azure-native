@@ -102,7 +102,7 @@ export interface FunctionArgs {
     /**
      * The name of the function.
      */
-    functionName?: pulumi.Input<string | undefined>;
+    functionName?: pulumi.Input<string>;
     /**
      * The name of the streaming job.
      */
@@ -110,11 +110,11 @@ export interface FunctionArgs {
     /**
      * Resource name
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The properties that are associated with a function.
      */
-    properties?: pulumi.Input<inputs.streamanalytics.AggregateFunctionPropertiesArgs | inputs.streamanalytics.ScalarFunctionPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.streamanalytics.AggregateFunctionPropertiesArgs | inputs.streamanalytics.ScalarFunctionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

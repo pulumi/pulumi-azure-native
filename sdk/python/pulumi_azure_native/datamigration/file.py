@@ -24,8 +24,8 @@ class FileArgs:
                  group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['ProjectFilePropertiesArgs']] = None):
+                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['ProjectFilePropertiesArgs']] = None):
         """
         The set of arguments for constructing a File resource.
 
@@ -81,26 +81,26 @@ class FileArgs:
 
     @_builtins.property
     @pulumi.getter(name="fileName")
-    def file_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def file_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the File
         """
         return pulumi.get(self, "file_name")
 
     @file_name.setter
-    def file_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def file_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "file_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['ProjectFilePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ProjectFilePropertiesArgs']]:
         """
         Custom file properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['ProjectFilePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ProjectFilePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -110,11 +110,11 @@ class File(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ProjectFilePropertiesArgs', 'ProjectFilePropertiesArgsDict']]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ProjectFilePropertiesArgs', 'ProjectFilePropertiesArgsDict']]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A file resource
@@ -161,11 +161,11 @@ class File(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ProjectFilePropertiesArgs', 'ProjectFilePropertiesArgsDict']]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ProjectFilePropertiesArgs', 'ProjectFilePropertiesArgsDict']]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

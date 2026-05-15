@@ -85,7 +85,7 @@ export class StorageDiscoveryWorkspace extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.storagediscovery.storageDiscoveryWorkspacePropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.storagediscovery.storageDiscoveryWorkspacePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["storageDiscoveryWorkspaceName"] = args?.storageDiscoveryWorkspaceName;
             resourceInputs["tags"] = args?.tags;
@@ -116,11 +116,11 @@ export interface StorageDiscoveryWorkspaceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.storagediscovery.StorageDiscoveryWorkspacePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.storagediscovery.StorageDiscoveryWorkspacePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -128,9 +128,9 @@ export interface StorageDiscoveryWorkspaceArgs {
     /**
      * The name of the StorageDiscoveryWorkspace
      */
-    storageDiscoveryWorkspaceName?: pulumi.Input<string | undefined>;
+    storageDiscoveryWorkspaceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

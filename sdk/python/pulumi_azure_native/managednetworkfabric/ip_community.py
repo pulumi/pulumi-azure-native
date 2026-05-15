@@ -24,10 +24,10 @@ class IpCommunityArgs:
     def __init__(__self__, *,
                  ip_community_rules: pulumi.Input[Sequence[pulumi.Input['IpCommunityRuleArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_community_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_community_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IpCommunity resource.
 
@@ -75,50 +75,50 @@ class IpCommunityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def annotation(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def annotation(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Switch configuration description.
         """
         return pulumi.get(self, "annotation")
 
     @annotation.setter
-    def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def annotation(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "annotation", value)
 
     @_builtins.property
     @pulumi.getter(name="ipCommunityName")
-    def ip_community_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def ip_community_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the IP Community.
         """
         return pulumi.get(self, "ip_community_name")
 
     @ip_community_name.setter
-    def ip_community_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def ip_community_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "ip_community_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -128,12 +128,12 @@ class IpCommunity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_community_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_community_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpCommunityRuleArgs', 'IpCommunityRuleArgsDict']]]]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_community_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_community_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpCommunityRuleArgs', 'IpCommunityRuleArgsDict']]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The IP Community resource definition.
@@ -181,12 +181,12 @@ class IpCommunity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_community_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_community_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IpCommunityRuleArgs', 'IpCommunityRuleArgsDict']]]]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 annotation: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_community_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_community_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IpCommunityRuleArgs', 'IpCommunityRuleArgsDict']]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

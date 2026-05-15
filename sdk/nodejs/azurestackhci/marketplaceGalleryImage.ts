@@ -167,31 +167,31 @@ export interface MarketplaceGalleryImageArgs {
     /**
      * Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
      */
-    cloudInitDataSource?: pulumi.Input<string | enums.azurestackhci.CloudInitDataSource | undefined>;
+    cloudInitDataSource?: pulumi.Input<string | enums.azurestackhci.CloudInitDataSource>;
     /**
      * Storage ContainerID of the storage container to be used for marketplace gallery image
      */
-    containerId?: pulumi.Input<string | undefined>;
+    containerId?: pulumi.Input<string>;
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
     /**
      * The hypervisor generation of the Virtual Machine [V1, V2]
      */
-    hyperVGeneration?: pulumi.Input<string | enums.azurestackhci.HyperVGeneration | undefined>;
+    hyperVGeneration?: pulumi.Input<string | enums.azurestackhci.HyperVGeneration>;
     /**
      * This is the gallery image definition identifier.
      */
-    identifier?: pulumi.Input<inputs.azurestackhci.GalleryImageIdentifierArgs | undefined>;
+    identifier?: pulumi.Input<inputs.azurestackhci.GalleryImageIdentifierArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the marketplace gallery image
      */
-    marketplaceGalleryImageName?: pulumi.Input<string | undefined>;
+    marketplaceGalleryImageName?: pulumi.Input<string>;
     /**
      * Operating system type that the gallery image uses [Windows, Linux]
      */
@@ -203,9 +203,9 @@ export interface MarketplaceGalleryImageArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies information about the gallery image version that you want to create or update.
      */
-    version?: pulumi.Input<inputs.azurestackhci.GalleryImageVersionArgs | undefined>;
+    version?: pulumi.Input<inputs.azurestackhci.GalleryImageVersionArgs>;
 }

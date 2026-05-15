@@ -145,7 +145,7 @@ export interface StorageAccountArgs {
     /**
      * Description for the storage Account.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The device name.
      */
@@ -157,13 +157,13 @@ export interface StorageAccountArgs {
     /**
      * Storage Account Credential Id
      */
-    storageAccountCredentialId?: pulumi.Input<string | undefined>;
+    storageAccountCredentialId?: pulumi.Input<string>;
     /**
      * The StorageAccount name.
      */
-    storageAccountName?: pulumi.Input<string | undefined>;
+    storageAccountName?: pulumi.Input<string>;
     /**
      * Current status of the storage account
      */
-    storageAccountStatus?: pulumi.Input<string | enums.databoxedge.StorageAccountStatus | undefined>;
+    storageAccountStatus?: pulumi.Input<string | enums.databoxedge.StorageAccountStatus>;
 }

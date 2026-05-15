@@ -190,45 +190,45 @@ export interface TopicArgs {
     /**
      * Data Residency Boundary of the resource.
      */
-    dataResidencyBoundary?: pulumi.Input<string | enums.eventgrid.DataResidencyBoundary | undefined>;
+    dataResidencyBoundary?: pulumi.Input<string | enums.eventgrid.DataResidencyBoundary>;
     /**
      * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the topic.
      */
-    disableLocalAuth?: pulumi.Input<boolean | undefined>;
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * Event Type Information for the user topic. This information is provided by the publisher and can be used by the 
      * subscriber to view different types of events that are published.
      */
-    eventTypeInfo?: pulumi.Input<inputs.eventgrid.EventTypeInfoArgs | undefined>;
+    eventTypeInfo?: pulumi.Input<inputs.eventgrid.EventTypeInfoArgs>;
     /**
      * Identity information for the resource.
      */
-    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs | undefined>;
+    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[] | undefined>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[]>;
     /**
      * This determines the format that Event Grid should expect for incoming events published to the topic.
      */
-    inputSchema?: pulumi.Input<string | enums.eventgrid.InputSchema | undefined>;
+    inputSchema?: pulumi.Input<string | enums.eventgrid.InputSchema>;
     /**
      * This enables publishing using custom event schemas. An InputSchemaMapping can be specified to map various properties of a source schema to various required properties of the EventGridEvent schema.
      */
-    inputSchemaMapping?: pulumi.Input<inputs.eventgrid.JsonInputSchemaMappingArgs | undefined>;
+    inputSchemaMapping?: pulumi.Input<inputs.eventgrid.JsonInputSchemaMappingArgs>;
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Minimum TLS version of the publisher allowed to publish to this topic
      */
-    minimumTlsVersionAllowed?: pulumi.Input<string | enums.eventgrid.TlsVersion | undefined>;
+    minimumTlsVersionAllowed?: pulumi.Input<string | enums.eventgrid.TlsVersion>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled. 
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.TopicProperties.InboundIpRules" />
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -236,9 +236,9 @@ export interface TopicArgs {
     /**
      * Tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the topic.
      */
-    topicName?: pulumi.Input<string | undefined>;
+    topicName?: pulumi.Input<string>;
 }

@@ -244,9 +244,9 @@ def get_hyperv_cluster_controller_cluster(cluster_name: Optional[_builtins.str] 
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
-def get_hyperv_cluster_controller_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_hyperv_cluster_controller_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHypervClusterControllerClusterResult]:
     """
     Method to get a Hyper-V cluster.

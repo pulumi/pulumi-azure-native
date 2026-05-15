@@ -75,9 +75,9 @@ def get_virtual_network_gateway_advertised_routes(peer: Optional[_builtins.str] 
 
     return AwaitableGetVirtualNetworkGatewayAdvertisedRoutesResult(
         value=pulumi.get(__ret__, 'value'))
-def get_virtual_network_gateway_advertised_routes_output(peer: pulumi.Input[Optional[_builtins.str]] = None,
-                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                         virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_network_gateway_advertised_routes_output(peer: Optional[pulumi.Input[_builtins.str]] = None,
+                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                         virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayAdvertisedRoutesResult]:
     """
     This operation retrieves a list of routes the virtual network gateway is advertising to the specified peer.

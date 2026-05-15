@@ -164,9 +164,9 @@ def get_managed_instance_administrator(administrator_name: Optional[_builtins.st
         sid=pulumi.get(__ret__, 'sid'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_instance_administrator_output(administrator_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_managed_instance_administrator_output(administrator_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedInstanceAdministratorResult]:
     """
     Gets a managed instance administrator.

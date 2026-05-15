@@ -161,8 +161,8 @@ def get_ec2_network_acl(name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_ec2_network_acl_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_ec2_network_acl_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEc2NetworkAclResult]:
     """
     Get a Ec2NetworkAcl

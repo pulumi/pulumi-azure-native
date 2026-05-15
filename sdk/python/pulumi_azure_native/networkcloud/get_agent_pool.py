@@ -358,9 +358,9 @@ def get_agent_pool(agent_pool_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         upgrade_settings=pulumi.get(__ret__, 'upgrade_settings'),
         vm_sku_name=pulumi.get(__ret__, 'vm_sku_name'))
-def get_agent_pool_output(agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          kubernetes_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                          kubernetes_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Get properties of the provided Kubernetes cluster agent pool.

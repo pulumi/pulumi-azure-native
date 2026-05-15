@@ -102,19 +102,19 @@ export interface WorkflowAccessKeyArgs {
     /**
      * The workflow access key name.
      */
-    accessKeyName?: pulumi.Input<string | undefined>;
+    accessKeyName?: pulumi.Input<string>;
     /**
      * Gets or sets the resource id.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Gets or sets the not-after time.
      */
-    notAfter?: pulumi.Input<string | undefined>;
+    notAfter?: pulumi.Input<string>;
     /**
      * Gets or sets the not-before time.
      */
-    notBefore?: pulumi.Input<string | undefined>;
+    notBefore?: pulumi.Input<string>;
     /**
      * The resource group name.
      */

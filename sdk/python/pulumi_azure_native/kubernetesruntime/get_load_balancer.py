@@ -187,8 +187,8 @@ def get_load_balancer(load_balancer_name: Optional[_builtins.str] = None,
         service_selector=pulumi.get(__ret__, 'service_selector'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_load_balancer_output(load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Get a LoadBalancer

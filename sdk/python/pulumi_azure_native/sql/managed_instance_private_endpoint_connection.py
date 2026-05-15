@@ -23,9 +23,9 @@ class ManagedInstancePrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 private_endpoint: pulumi.Input[Optional['ManagedInstancePrivateEndpointPropertyArgs']] = None,
-                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_link_service_connection_state: pulumi.Input[Optional['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']] = None):
+                 private_endpoint: Optional[pulumi.Input['ManagedInstancePrivateEndpointPropertyArgs']] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']] = None):
         """
         The set of arguments for constructing a ManagedInstancePrivateEndpointConnection resource.
 
@@ -69,35 +69,35 @@ class ManagedInstancePrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> pulumi.Input[Optional['ManagedInstancePrivateEndpointPropertyArgs']]:
+    def private_endpoint(self) -> Optional[pulumi.Input['ManagedInstancePrivateEndpointPropertyArgs']]:
         """
         Private endpoint which the connection belongs to.
         """
         return pulumi.get(self, "private_endpoint")
 
     @private_endpoint.setter
-    def private_endpoint(self, value: pulumi.Input[Optional['ManagedInstancePrivateEndpointPropertyArgs']]):
+    def private_endpoint(self, value: Optional[pulumi.Input['ManagedInstancePrivateEndpointPropertyArgs']]):
         pulumi.set(self, "private_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def private_endpoint_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "private_endpoint_connection_name")
 
     @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def private_endpoint_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> pulumi.Input[Optional['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']]:
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']]:
         """
         Connection State of the Private Endpoint Connection.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
     @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: pulumi.Input[Optional['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']]):
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs']]):
         pulumi.set(self, "private_link_service_connection_state", value)
 
 
@@ -107,11 +107,11 @@ class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_endpoint: pulumi.Input[Optional[Union['ManagedInstancePrivateEndpointPropertyArgs', 'ManagedInstancePrivateEndpointPropertyArgsDict']]] = None,
-                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_link_service_connection_state: pulumi.Input[Optional[Union['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs', 'ManagedInstancePrivateLinkServiceConnectionStatePropertyArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_endpoint: Optional[pulumi.Input[Union['ManagedInstancePrivateEndpointPropertyArgs', 'ManagedInstancePrivateEndpointPropertyArgsDict']]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs', 'ManagedInstancePrivateLinkServiceConnectionStatePropertyArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A private endpoint connection
@@ -157,11 +157,11 @@ class ManagedInstancePrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_endpoint: pulumi.Input[Optional[Union['ManagedInstancePrivateEndpointPropertyArgs', 'ManagedInstancePrivateEndpointPropertyArgsDict']]] = None,
-                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_link_service_connection_state: pulumi.Input[Optional[Union['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs', 'ManagedInstancePrivateLinkServiceConnectionStatePropertyArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_endpoint: Optional[pulumi.Input[Union['ManagedInstancePrivateEndpointPropertyArgs', 'ManagedInstancePrivateEndpointPropertyArgsDict']]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input[Union['ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs', 'ManagedInstancePrivateLinkServiceConnectionStatePropertyArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

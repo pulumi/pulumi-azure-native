@@ -25,8 +25,8 @@ class AkriConnectorArgs:
                  akri_connector_template_name: pulumi.Input[_builtins.str],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None):
+                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None):
         """
         The set of arguments for constructing a AkriConnector resource.
 
@@ -82,26 +82,26 @@ class AkriConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorName")
-    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of AkriConnector resource.
         """
         return pulumi.get(self, "connector_name")
 
     @connector_name.setter
-    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
         """
         Edge location of the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
 
@@ -111,11 +111,11 @@ class AkriConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 akri_connector_template_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 akri_connector_template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         AkriConnector resource.
@@ -162,11 +162,11 @@ class AkriConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 akri_connector_template_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 akri_connector_template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

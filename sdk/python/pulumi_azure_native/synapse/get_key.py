@@ -139,9 +139,9 @@ def get_key(key_name: Optional[_builtins.str] = None,
         key_vault_url=pulumi.get(__ret__, 'key_vault_url'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_key_output(key_name: pulumi.Input[Optional[_builtins.str]] = None,
-                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                   workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_key_output(key_name: Optional[pulumi.Input[_builtins.str]] = None,
+                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                   workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyResult]:
     """
     Gets a workspace key

@@ -23,10 +23,10 @@ class SecurityAdminConfigurationArgs:
     def __init__(__self__, *,
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 apply_on_network_intent_policy_based_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]] = None,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_group_address_space_aggregation_option: pulumi.Input[Optional[Union[_builtins.str, 'AddressSpaceAggregationOption']]] = None):
+                 apply_on_network_intent_policy_based_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]] = None,
+                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_group_address_space_aggregation_option: Optional[pulumi.Input[Union[_builtins.str, 'AddressSpaceAggregationOption']]] = None):
         """
         The set of arguments for constructing a SecurityAdminConfiguration resource.
 
@@ -74,50 +74,50 @@ class SecurityAdminConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyOnNetworkIntentPolicyBasedServices")
-    def apply_on_network_intent_policy_based_services(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]]:
+    def apply_on_network_intent_policy_based_services(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]]:
         """
         Enum list of network intent policy based services.
         """
         return pulumi.get(self, "apply_on_network_intent_policy_based_services")
 
     @apply_on_network_intent_policy_based_services.setter
-    def apply_on_network_intent_policy_based_services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]]):
+    def apply_on_network_intent_policy_based_services(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]]):
         pulumi.set(self, "apply_on_network_intent_policy_based_services", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the network manager Security Configuration.
         """
         return pulumi.get(self, "configuration_name")
 
     @configuration_name.setter
-    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         A description of the security configuration.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="networkGroupAddressSpaceAggregationOption")
-    def network_group_address_space_aggregation_option(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AddressSpaceAggregationOption']]]:
+    def network_group_address_space_aggregation_option(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AddressSpaceAggregationOption']]]:
         """
         Determine update behavior for changes to network groups referenced within the rules in this configuration.
         """
         return pulumi.get(self, "network_group_address_space_aggregation_option")
 
     @network_group_address_space_aggregation_option.setter
-    def network_group_address_space_aggregation_option(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AddressSpaceAggregationOption']]]):
+    def network_group_address_space_aggregation_option(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AddressSpaceAggregationOption']]]):
         pulumi.set(self, "network_group_address_space_aggregation_option", value)
 
 
@@ -127,12 +127,12 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_on_network_intent_policy_based_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]] = None,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_group_address_space_aggregation_option: pulumi.Input[Optional[Union[_builtins.str, 'AddressSpaceAggregationOption']]] = None,
-                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 apply_on_network_intent_policy_based_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]] = None,
+                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_group_address_space_aggregation_option: Optional[pulumi.Input[Union[_builtins.str, 'AddressSpaceAggregationOption']]] = None,
+                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the security admin configuration
@@ -180,12 +180,12 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apply_on_network_intent_policy_based_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]] = None,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_group_address_space_aggregation_option: pulumi.Input[Optional[Union[_builtins.str, 'AddressSpaceAggregationOption']]] = None,
-                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 apply_on_network_intent_policy_based_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]] = None,
+                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_group_address_space_aggregation_option: Optional[pulumi.Input[Union[_builtins.str, 'AddressSpaceAggregationOption']]] = None,
+                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

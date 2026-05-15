@@ -254,8 +254,8 @@ def get_order(device_name: Optional[_builtins.str] = None,
         shipping_address=pulumi.get(__ret__, 'shipping_address'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_order_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_order_output(device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrderResult]:
     """
     The order details.

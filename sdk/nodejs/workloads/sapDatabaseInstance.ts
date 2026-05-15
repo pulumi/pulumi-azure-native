@@ -166,11 +166,11 @@ export interface SapDatabaseInstanceArgs {
     /**
      * Database resource name string modeled as parameter for auto generation to work correctly.
      */
-    databaseInstanceName?: pulumi.Input<string | undefined>;
+    databaseInstanceName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -182,5 +182,5 @@ export interface SapDatabaseInstanceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

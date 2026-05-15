@@ -86,9 +86,9 @@ def list_schedule_applicable(lab_name: Optional[_builtins.str] = None,
     return AwaitableListScheduleApplicableResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_schedule_applicable_output(lab_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_schedule_applicable_output(lab_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListScheduleApplicableResult]:
     """
     Lists all applicable schedules

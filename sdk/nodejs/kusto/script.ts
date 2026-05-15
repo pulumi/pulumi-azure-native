@@ -148,7 +148,7 @@ export interface ScriptArgs {
     /**
      * Flag that indicates whether to continue if one of the command fails.
      */
-    continueOnErrors?: pulumi.Input<boolean | undefined>;
+    continueOnErrors?: pulumi.Input<boolean>;
     /**
      * The name of the database in the Kusto cluster.
      */
@@ -156,11 +156,11 @@ export interface ScriptArgs {
     /**
      * A unique string. If changed the script will be applied again.
      */
-    forceUpdateTag?: pulumi.Input<string | undefined>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * Indicates if the permissions for the script caller are kept following completion of the script.
      */
-    principalPermissionsAction?: pulumi.Input<string | enums.kusto.PrincipalPermissionsAction | undefined>;
+    principalPermissionsAction?: pulumi.Input<string | enums.kusto.PrincipalPermissionsAction>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -168,21 +168,21 @@ export interface ScriptArgs {
     /**
      * The script content. This property should be used when the script is provide inline and not through file in a SA. Must not be used together with scriptUrl and scriptUrlSasToken properties.
      */
-    scriptContent?: pulumi.Input<string | undefined>;
+    scriptContent?: pulumi.Input<string>;
     /**
      * Differentiates between the type of script commands included - Database or Cluster. The default is Database.
      */
-    scriptLevel?: pulumi.Input<string | enums.kusto.ScriptLevel | undefined>;
+    scriptLevel?: pulumi.Input<string | enums.kusto.ScriptLevel>;
     /**
      * The name of the Kusto database script.
      */
-    scriptName?: pulumi.Input<string | undefined>;
+    scriptName?: pulumi.Input<string>;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property
      */
-    scriptUrl?: pulumi.Input<string | undefined>;
+    scriptUrl?: pulumi.Input<string>;
     /**
      * The SaS token that provide read access to the file which contain the script. Must be provided when using scriptUrl property.
      */
-    scriptUrlSasToken?: pulumi.Input<string | undefined>;
+    scriptUrlSasToken?: pulumi.Input<string>;
 }

@@ -141,7 +141,7 @@ export interface InventoryItemArgs {
     /**
      * Name of the inventoryItem.
      */
-    inventoryItemName?: pulumi.Input<string | undefined>;
+    inventoryItemName?: pulumi.Input<string>;
     /**
      * They inventory type.
      */
@@ -149,19 +149,19 @@ export interface InventoryItemArgs {
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Gets or sets the tracked resource id corresponding to the inventory resource.
      */
-    managedResourceId?: pulumi.Input<string | undefined>;
+    managedResourceId?: pulumi.Input<string>;
     /**
      * Gets or sets the vCenter Managed Object name for the inventory item.
      */
-    moName?: pulumi.Input<string | undefined>;
+    moName?: pulumi.Input<string>;
     /**
      * Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
      */
-    moRefId?: pulumi.Input<string | undefined>;
+    moRefId?: pulumi.Input<string>;
     /**
      * The Resource Group Name.
      */

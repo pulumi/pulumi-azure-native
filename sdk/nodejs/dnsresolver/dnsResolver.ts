@@ -143,11 +143,11 @@ export interface DnsResolverArgs {
     /**
      * The name of the DNS resolver.
      */
-    dnsResolverName?: pulumi.Input<string | undefined>;
+    dnsResolverName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -155,7 +155,7 @@ export interface DnsResolverArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The reference to the virtual network. This cannot be changed after creation.
      */

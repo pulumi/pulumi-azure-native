@@ -114,15 +114,15 @@ export interface GarnetClusterArgs {
     /**
      * Garnet cache cluster name.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of a Garnet cache cluster.
      */
-    properties?: pulumi.Input<inputs.cosmosdb.GarnetClusterResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.cosmosdb.GarnetClusterResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,5 +130,5 @@ export interface GarnetClusterArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

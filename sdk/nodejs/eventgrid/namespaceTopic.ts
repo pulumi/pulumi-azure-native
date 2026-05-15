@@ -128,11 +128,11 @@ export interface NamespaceTopicArgs {
      * Event retention for the namespace topic expressed in days. The property default value is 1 day.
      * Min event retention duration value is 1 day and max event retention duration value is 1 day.
      */
-    eventRetentionInDays?: pulumi.Input<number | undefined>;
+    eventRetentionInDays?: pulumi.Input<number>;
     /**
      * This determines the format that is expected for incoming events published to the topic.
      */
-    inputSchema?: pulumi.Input<string | enums.eventgrid.EventInputSchema | undefined>;
+    inputSchema?: pulumi.Input<string | enums.eventgrid.EventInputSchema>;
     /**
      * Name of the namespace.
      */
@@ -140,7 +140,7 @@ export interface NamespaceTopicArgs {
     /**
      * Publisher type of the namespace topic.
      */
-    publisherType?: pulumi.Input<string | enums.eventgrid.PublisherType | undefined>;
+    publisherType?: pulumi.Input<string | enums.eventgrid.PublisherType>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -148,5 +148,5 @@ export interface NamespaceTopicArgs {
     /**
      * Name of the namespace topic.
      */
-    topicName?: pulumi.Input<string | undefined>;
+    topicName?: pulumi.Input<string>;
 }

@@ -241,8 +241,8 @@ def get_sql_virtual_machine_group(resource_group_name: Optional[_builtins.str] =
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         wsfc_domain_profile=pulumi.get(__ret__, 'wsfc_domain_profile'))
-def get_sql_virtual_machine_group_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         sql_virtual_machine_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_sql_virtual_machine_group_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         sql_virtual_machine_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlVirtualMachineGroupResult]:
     """
     Gets a SQL virtual machine group.

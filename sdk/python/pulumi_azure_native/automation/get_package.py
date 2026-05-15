@@ -247,10 +247,10 @@ def get_package(automation_account_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_package_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       package_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_package_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       package_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       runtime_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageResult]:
     """
     Retrieve the Package identified by Package name.

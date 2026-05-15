@@ -173,7 +173,7 @@ export interface SourceControlArgs {
     /**
      * A description of the source control
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the source control
      */
@@ -181,11 +181,11 @@ export interface SourceControlArgs {
     /**
      * The id (a Guid) of the source control
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Information regarding the latest deployment for the source control.
      */
-    lastDeploymentInfo?: pulumi.Input<inputs.securityinsights.DeploymentInfoArgs | undefined>;
+    lastDeploymentInfo?: pulumi.Input<inputs.securityinsights.DeploymentInfoArgs>;
     /**
      * The repository type of the source control
      */
@@ -197,7 +197,7 @@ export interface SourceControlArgs {
     /**
      * Information regarding the resources created in user's repository.
      */
-    repositoryResourceInfo?: pulumi.Input<inputs.securityinsights.RepositoryResourceInfoArgs | undefined>;
+    repositoryResourceInfo?: pulumi.Input<inputs.securityinsights.RepositoryResourceInfoArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -205,11 +205,11 @@ export interface SourceControlArgs {
     /**
      * Source control Id
      */
-    sourceControlId?: pulumi.Input<string | undefined>;
+    sourceControlId?: pulumi.Input<string>;
     /**
      * The version number associated with the source control
      */
-    version?: pulumi.Input<string | enums.securityinsights.Version | undefined>;
+    version?: pulumi.Input<string | enums.securityinsights.Version>;
     /**
      * The name of the workspace.
      */

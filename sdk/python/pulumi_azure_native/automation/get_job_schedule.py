@@ -179,9 +179,9 @@ def get_job_schedule(automation_account_name: Optional[_builtins.str] = None,
         runbook=pulumi.get(__ret__, 'runbook'),
         schedule=pulumi.get(__ret__, 'schedule'),
         type=pulumi.get(__ret__, 'type'))
-def get_job_schedule_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            job_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
-                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_job_schedule_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                            job_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
+                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobScheduleResult]:
     """
     Retrieve the job schedule identified by job schedule name.

@@ -25,8 +25,8 @@ class AksAssessmentOperationArgs:
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  settings: pulumi.Input['AKSAssessmentSettingsArgs'],
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional['AssessmentScopeParametersArgs']] = None):
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input['AssessmentScopeParametersArgs']] = None):
         """
         The set of arguments for constructing a AksAssessmentOperation resource.
 
@@ -82,26 +82,26 @@ class AksAssessmentOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def assessment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         AKS Assessment Name.
         """
         return pulumi.get(self, "assessment_name")
 
     @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def assessment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> pulumi.Input[Optional['AssessmentScopeParametersArgs']]:
+    def scope(self) -> Optional[pulumi.Input['AssessmentScopeParametersArgs']]:
         """
         Gets or sets scope parameters to identify inventory items for assessment.
         """
         return pulumi.get(self, "scope")
 
     @scope.setter
-    def scope(self, value: pulumi.Input[Optional['AssessmentScopeParametersArgs']]):
+    def scope(self, value: Optional[pulumi.Input['AssessmentScopeParametersArgs']]):
         pulumi.set(self, "scope", value)
 
 
@@ -111,11 +111,11 @@ class AksAssessmentOperation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']]] = None,
-                 settings: pulumi.Input[Optional[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']]] = None,
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']]] = None,
+                 settings: Optional[pulumi.Input[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']]] = None,
                  __props__=None):
         """
         ARM model of AKS Assessment.
@@ -162,11 +162,11 @@ class AksAssessmentOperation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']]] = None,
-                 settings: pulumi.Input[Optional[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']]] = None,
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[Union['AssessmentScopeParametersArgs', 'AssessmentScopeParametersArgsDict']]] = None,
+                 settings: Optional[pulumi.Input[Union['AKSAssessmentSettingsArgs', 'AKSAssessmentSettingsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

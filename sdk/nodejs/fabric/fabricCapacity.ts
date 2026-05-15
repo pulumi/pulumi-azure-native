@@ -144,11 +144,11 @@ export interface FabricCapacityArgs {
     /**
      * The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    capacityName?: pulumi.Input<string | undefined>;
+    capacityName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,5 +160,5 @@ export interface FabricCapacityArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

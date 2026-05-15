@@ -22,8 +22,8 @@ __all__ = ['ScopingConfigurationArgs', 'ScopingConfiguration']
 class ScopingConfigurationArgs:
     def __init__(__self__, *,
                  report_name: pulumi.Input[_builtins.str],
-                 answers: pulumi.Input[Optional[Sequence[pulumi.Input['ScopingAnswerArgs']]]] = None,
-                 scoping_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 answers: Optional[pulumi.Input[Sequence[pulumi.Input['ScopingAnswerArgs']]]] = None,
+                 scoping_configuration_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScopingConfiguration resource.
 
@@ -51,26 +51,26 @@ class ScopingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def answers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ScopingAnswerArgs']]]]:
+    def answers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ScopingAnswerArgs']]]]:
         """
         List of scoping question answers.
         """
         return pulumi.get(self, "answers")
 
     @answers.setter
-    def answers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ScopingAnswerArgs']]]]):
+    def answers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ScopingAnswerArgs']]]]):
         pulumi.set(self, "answers", value)
 
     @_builtins.property
     @pulumi.getter(name="scopingConfigurationName")
-    def scoping_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def scoping_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The scoping configuration of the specific report.
         """
         return pulumi.get(self, "scoping_configuration_name")
 
     @scoping_configuration_name.setter
-    def scoping_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def scoping_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "scoping_configuration_name", value)
 
 
@@ -80,9 +80,9 @@ class ScopingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopingAnswerArgs', 'ScopingAnswerArgsDict']]]]] = None,
-                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scoping_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 answers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScopingAnswerArgs', 'ScopingAnswerArgsDict']]]]] = None,
+                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scoping_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A class represent an AppComplianceAutomation scoping configuration resource.
@@ -123,9 +123,9 @@ class ScopingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 answers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScopingAnswerArgs', 'ScopingAnswerArgsDict']]]]] = None,
-                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scoping_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 answers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScopingAnswerArgs', 'ScopingAnswerArgsDict']]]]] = None,
+                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scoping_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -140,9 +140,9 @@ def get_private_dns_zone_group(private_dns_zone_group_name: Optional[_builtins.s
         name=pulumi.get(__ret__, 'name'),
         private_dns_zone_configs=pulumi.get(__ret__, 'private_dns_zone_configs'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'))
-def get_private_dns_zone_group_output(private_dns_zone_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_private_dns_zone_group_output(private_dns_zone_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateDnsZoneGroupResult]:
     """
     Gets the private dns zone group resource by specified private dns zone group name.

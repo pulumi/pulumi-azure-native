@@ -158,39 +158,39 @@ export interface CustomLocationArgs {
     /**
      * This is optional input that contains the authentication that should be used to generate the namespace.
      */
-    authentication?: pulumi.Input<inputs.extendedlocation.CustomLocationPropertiesAuthenticationArgs | undefined>;
+    authentication?: pulumi.Input<inputs.extendedlocation.CustomLocationPropertiesAuthenticationArgs>;
     /**
      * Contains the reference to the add-on that contains charts to deploy CRDs and operators.
      */
-    clusterExtensionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    clusterExtensionIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Display name for the Custom Locations location.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
      */
-    hostResourceId?: pulumi.Input<string | undefined>;
+    hostResourceId?: pulumi.Input<string>;
     /**
      * Type of host the Custom Locations is referencing (Kubernetes, etc...).
      */
-    hostType?: pulumi.Input<string | enums.extendedlocation.HostType | undefined>;
+    hostType?: pulumi.Input<string | enums.extendedlocation.HostType>;
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.extendedlocation.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.extendedlocation.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Kubernetes namespace that will be created on the specified cluster.
      */
-    namespace?: pulumi.Input<string | undefined>;
+    namespace?: pulumi.Input<string>;
     /**
      * Provisioning State for the Custom Location.
      */
-    provisioningState?: pulumi.Input<string | undefined>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -198,9 +198,9 @@ export interface CustomLocationArgs {
     /**
      * Custom Locations name.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

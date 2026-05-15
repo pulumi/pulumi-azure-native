@@ -173,11 +173,11 @@ export interface SyncMemberArgs {
     /**
      * Database type of the sync member.
      */
-    databaseType?: pulumi.Input<string | enums.sql.SyncMemberDbType | undefined>;
+    databaseType?: pulumi.Input<string | enums.sql.SyncMemberDbType>;
     /**
      * Password of the member database in the sync member.
      */
-    password?: pulumi.Input<string | undefined>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -189,15 +189,15 @@ export interface SyncMemberArgs {
     /**
      * SQL Server database id of the sync member.
      */
-    sqlServerDatabaseId?: pulumi.Input<string | undefined>;
+    sqlServerDatabaseId?: pulumi.Input<string>;
     /**
      * ARM resource id of the sync agent in the sync member.
      */
-    syncAgentId?: pulumi.Input<string | undefined>;
+    syncAgentId?: pulumi.Input<string>;
     /**
      * Sync direction of the sync member.
      */
-    syncDirection?: pulumi.Input<string | enums.sql.SyncDirection | undefined>;
+    syncDirection?: pulumi.Input<string | enums.sql.SyncDirection>;
     /**
      * The name of the sync group on which the sync member is hosted.
      */
@@ -205,17 +205,17 @@ export interface SyncMemberArgs {
     /**
      * ARM resource id of the sync member logical database, for sync members in Azure.
      */
-    syncMemberAzureDatabaseResourceId?: pulumi.Input<string | undefined>;
+    syncMemberAzureDatabaseResourceId?: pulumi.Input<string>;
     /**
      * The name of the sync member.
      */
-    syncMemberName?: pulumi.Input<string | undefined>;
+    syncMemberName?: pulumi.Input<string>;
     /**
      * Whether to use private link connection.
      */
-    usePrivateLinkConnection?: pulumi.Input<boolean | undefined>;
+    usePrivateLinkConnection?: pulumi.Input<boolean>;
     /**
      * User name of the member database in the sync member.
      */
-    userName?: pulumi.Input<string | undefined>;
+    userName?: pulumi.Input<string>;
 }

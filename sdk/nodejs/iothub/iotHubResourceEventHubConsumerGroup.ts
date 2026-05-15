@@ -118,7 +118,7 @@ export interface IotHubResourceEventHubConsumerGroupArgs {
     /**
      * The name of the consumer group to add.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The EventHub consumer group name.
      */

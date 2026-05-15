@@ -225,67 +225,67 @@ export interface PublicIPAddressArgs {
     /**
      * The DDoS protection custom policy associated with the public IP address.
      */
-    ddosSettings?: pulumi.Input<inputs.network.DdosSettingsArgs | undefined>;
+    ddosSettings?: pulumi.Input<inputs.network.DdosSettingsArgs>;
     /**
      * Specify what happens to the public IP address when the VM using it is deleted
      */
-    deleteOption?: pulumi.Input<string | enums.network.DeleteOptions | undefined>;
+    deleteOption?: pulumi.Input<string | enums.network.DeleteOptions>;
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
-    dnsSettings?: pulumi.Input<inputs.network.PublicIPAddressDnsSettingsArgs | undefined>;
+    dnsSettings?: pulumi.Input<inputs.network.PublicIPAddressDnsSettingsArgs>;
     /**
      * The extended location of the public ip address.
      */
-    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The idle timeout of the public IP address.
      */
-    idleTimeoutInMinutes?: pulumi.Input<number | undefined>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The IP address associated with the public IP address resource.
      */
-    ipAddress?: pulumi.Input<string | undefined>;
+    ipAddress?: pulumi.Input<string>;
     /**
      * The list of tags associated with the public IP address.
      */
-    ipTags?: pulumi.Input<pulumi.Input<inputs.network.IpTagArgs>[] | undefined>;
+    ipTags?: pulumi.Input<pulumi.Input<inputs.network.IpTagArgs>[]>;
     /**
      * The linked public IP address of the public IP address resource.
      */
-    linkedPublicIPAddress?: pulumi.Input<inputs.network.PublicIPAddressArgs | undefined>;
+    linkedPublicIPAddress?: pulumi.Input<inputs.network.PublicIPAddressArgs>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Migration phase of Public IP Address.
      */
-    migrationPhase?: pulumi.Input<string | enums.network.PublicIPAddressMigrationPhase | undefined>;
+    migrationPhase?: pulumi.Input<string | enums.network.PublicIPAddressMigrationPhase>;
     /**
      * The NatGateway for the Public IP address.
      */
-    natGateway?: pulumi.Input<inputs.network.NatGatewayArgs | undefined>;
+    natGateway?: pulumi.Input<inputs.network.NatGatewayArgs>;
     /**
      * The public IP address version.
      */
-    publicIPAddressVersion?: pulumi.Input<string | enums.network.IPVersion | undefined>;
+    publicIPAddressVersion?: pulumi.Input<string | enums.network.IPVersion>;
     /**
      * The public IP address allocation method.
      */
-    publicIPAllocationMethod?: pulumi.Input<string | enums.network.IPAllocationMethod | undefined>;
+    publicIPAllocationMethod?: pulumi.Input<string | enums.network.IPAllocationMethod>;
     /**
      * The Public IP Prefix this Public IP Address should be allocated from.
      */
-    publicIPPrefix?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    publicIPPrefix?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The name of the public IP address.
      */
-    publicIpAddressName?: pulumi.Input<string | undefined>;
+    publicIpAddressName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -293,17 +293,17 @@ export interface PublicIPAddressArgs {
     /**
      * The service public IP address of the public IP address resource.
      */
-    servicePublicIPAddress?: pulumi.Input<inputs.network.PublicIPAddressArgs | undefined>;
+    servicePublicIPAddress?: pulumi.Input<inputs.network.PublicIPAddressArgs>;
     /**
      * The public IP address SKU.
      */
-    sku?: pulumi.Input<inputs.network.PublicIPAddressSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.network.PublicIPAddressSkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones denoting the IP allocated for the resource needs to come from.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

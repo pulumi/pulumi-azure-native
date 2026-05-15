@@ -152,19 +152,19 @@ export interface InternetGatewayArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string | undefined>;
+    annotation?: pulumi.Input<string>;
     /**
      * Name of the Internet Gateway.
      */
-    internetGatewayName?: pulumi.Input<string | undefined>;
+    internetGatewayName?: pulumi.Input<string>;
     /**
      * ARM Resource ID of the Internet Gateway Rule.
      */
-    internetGatewayRuleId?: pulumi.Input<string | undefined>;
+    internetGatewayRuleId?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * ARM Resource ID of the Network Fabric Controller.
      */
@@ -176,7 +176,7 @@ export interface InternetGatewayArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Gateway Type of the resource.
      */

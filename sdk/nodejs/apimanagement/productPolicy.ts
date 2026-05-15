@@ -115,11 +115,11 @@ export interface ProductPolicyArgs {
     /**
      * Format of the policyContent.
      */
-    format?: pulumi.Input<string | enums.apimanagement.PolicyContentFormat | undefined>;
+    format?: pulumi.Input<string | enums.apimanagement.PolicyContentFormat>;
     /**
      * The identifier of the Policy.
      */
-    policyId?: pulumi.Input<string | undefined>;
+    policyId?: pulumi.Input<string>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

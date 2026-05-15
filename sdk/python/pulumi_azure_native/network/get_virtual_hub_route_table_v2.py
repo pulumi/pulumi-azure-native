@@ -153,9 +153,9 @@ def get_virtual_hub_route_table_v2(resource_group_name: Optional[_builtins.str] 
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         routes=pulumi.get(__ret__, 'routes'))
-def get_virtual_hub_route_table_v2_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          route_table_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_hub_route_table_v2_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          route_table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubRouteTableV2Result]:
     """
     Retrieves the details of a VirtualHubRouteTableV2.

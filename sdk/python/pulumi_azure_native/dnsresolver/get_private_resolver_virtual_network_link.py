@@ -179,9 +179,9 @@ def get_private_resolver_virtual_network_link(dns_forwarding_ruleset_name: Optio
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
-def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_private_resolver_virtual_network_link_output(dns_forwarding_ruleset_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                     virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateResolverVirtualNetworkLinkResult]:
     """
     Gets properties of a virtual network link to a DNS forwarding ruleset.

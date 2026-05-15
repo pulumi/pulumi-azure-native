@@ -130,7 +130,7 @@ export interface DeploymentSafeguardArgs {
     /**
      * User defined list of namespaces to exclude from Deployment Safeguards. Deployments in these namespaces will not be checked against any safeguards
      */
-    excludedNamespaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    excludedNamespaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The deployment safeguards level. Possible values are Warn and Enforce
      */

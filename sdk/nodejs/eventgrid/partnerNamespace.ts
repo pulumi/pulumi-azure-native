@@ -167,38 +167,38 @@ export interface PartnerNamespaceArgs {
     /**
      * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
      */
-    disableLocalAuth?: pulumi.Input<boolean | undefined>;
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[] | undefined>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[]>;
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Minimum TLS version of the publisher allowed to publish to this partner namespace
      */
-    minimumTlsVersionAllowed?: pulumi.Input<string | enums.eventgrid.TlsVersion | undefined>;
+    minimumTlsVersionAllowed?: pulumi.Input<string | enums.eventgrid.TlsVersion>;
     /**
      * Name of the partner namespace.
      */
-    partnerNamespaceName?: pulumi.Input<string | undefined>;
+    partnerNamespaceName?: pulumi.Input<string>;
     /**
      * The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
      * /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
      */
-    partnerRegistrationFullyQualifiedId?: pulumi.Input<string | undefined>;
+    partnerRegistrationFullyQualifiedId?: pulumi.Input<string>;
     /**
      * This determines if events published to this partner namespace should use the source attribute in the event payload
      * or use the channel name in the header when matching to the partner topic. If none is specified, source attribute routing will be used to match the partner topic.
      */
-    partnerTopicRoutingMode?: pulumi.Input<string | enums.eventgrid.PartnerTopicRoutingMode | undefined>;
+    partnerTopicRoutingMode?: pulumi.Input<string | enums.eventgrid.PartnerTopicRoutingMode>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -206,5 +206,5 @@ export interface PartnerNamespaceArgs {
     /**
      * Tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

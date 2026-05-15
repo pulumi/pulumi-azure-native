@@ -106,7 +106,7 @@ export interface HeterogeneousAssessmentOperationArgs {
     /**
      * Heterogeneous Assessment ARM name
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */
@@ -114,7 +114,7 @@ export interface HeterogeneousAssessmentOperationArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.migrate.HeterogeneousAssessmentPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.HeterogeneousAssessmentPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

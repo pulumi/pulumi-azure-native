@@ -175,47 +175,47 @@ export interface InboundNatRuleArgs {
     /**
      * A reference to backendAddressPool resource.
      */
-    backendAddressPool?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    backendAddressPool?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The port used for the internal endpoint. Acceptable values range from 1 to 65535.
      */
-    backendPort?: pulumi.Input<number | undefined>;
+    backendPort?: pulumi.Input<number>;
     /**
      * Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
      */
-    enableFloatingIP?: pulumi.Input<boolean | undefined>;
+    enableFloatingIP?: pulumi.Input<boolean>;
     /**
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      */
-    enableTcpReset?: pulumi.Input<boolean | undefined>;
+    enableTcpReset?: pulumi.Input<boolean>;
     /**
      * A reference to frontend IP addresses.
      */
-    frontendIPConfiguration?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    frontendIPConfiguration?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
      */
-    frontendPort?: pulumi.Input<number | undefined>;
+    frontendPort?: pulumi.Input<number>;
     /**
      * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
      */
-    frontendPortRangeEnd?: pulumi.Input<number | undefined>;
+    frontendPortRangeEnd?: pulumi.Input<number>;
     /**
      * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
      */
-    frontendPortRangeStart?: pulumi.Input<number | undefined>;
+    frontendPortRangeStart?: pulumi.Input<number>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
      */
-    idleTimeoutInMinutes?: pulumi.Input<number | undefined>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * The name of the inbound NAT rule.
      */
-    inboundNatRuleName?: pulumi.Input<string | undefined>;
+    inboundNatRuleName?: pulumi.Input<string>;
     /**
      * The name of the load balancer.
      */
@@ -223,11 +223,11 @@ export interface InboundNatRuleArgs {
     /**
      * The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The reference to the transport protocol used by the load balancing rule.
      */
-    protocol?: pulumi.Input<string | enums.network.TransportProtocol | undefined>;
+    protocol?: pulumi.Input<string | enums.network.TransportProtocol>;
     /**
      * The name of the resource group.
      */

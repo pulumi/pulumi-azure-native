@@ -120,7 +120,7 @@ export interface SolutionArgs {
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -128,7 +128,7 @@ export interface SolutionArgs {
     /**
      * Name of the solution
      */
-    solutionName?: pulumi.Input<string | undefined>;
+    solutionName?: pulumi.Input<string>;
     /**
      * Name of the target
      */

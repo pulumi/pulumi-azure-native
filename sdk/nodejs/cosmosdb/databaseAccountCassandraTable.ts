@@ -152,5 +152,5 @@ export interface DatabaseAccountCassandraTableArgs {
     /**
      * Cosmos DB table name.
      */
-    tableName?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string>;
 }

@@ -321,43 +321,43 @@ export interface VirtualMachineArgs {
     /**
      * Indicates whether another user can take ownership of the virtual machine
      */
-    allowClaim?: pulumi.Input<boolean | undefined>;
+    allowClaim?: pulumi.Input<boolean>;
     /**
      * The artifacts to be installed on the virtual machine.
      */
-    artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.ArtifactInstallPropertiesArgs>[] | undefined>;
+    artifacts?: pulumi.Input<pulumi.Input<inputs.devtestlab.ArtifactInstallPropertiesArgs>[]>;
     /**
      * The creation date of the virtual machine.
      */
-    createdDate?: pulumi.Input<string | undefined>;
+    createdDate?: pulumi.Input<string>;
     /**
      * The custom image identifier of the virtual machine.
      */
-    customImageId?: pulumi.Input<string | undefined>;
+    customImageId?: pulumi.Input<string>;
     /**
      * New or existing data disks to attach to the virtual machine after creation
      */
-    dataDiskParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.DataDiskPropertiesArgs>[] | undefined>;
+    dataDiskParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.DataDiskPropertiesArgs>[]>;
     /**
      * Indicates whether the virtual machine is to be created without a public IP address.
      */
-    disallowPublicIpAddress?: pulumi.Input<boolean | undefined>;
+    disallowPublicIpAddress?: pulumi.Input<boolean>;
     /**
      * The resource ID of the environment that contains this virtual machine, if any.
      */
-    environmentId?: pulumi.Input<string | undefined>;
+    environmentId?: pulumi.Input<string>;
     /**
      * The expiration date for VM.
      */
-    expirationDate?: pulumi.Input<string | undefined>;
+    expirationDate?: pulumi.Input<string>;
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
-    galleryImageReference?: pulumi.Input<inputs.devtestlab.GalleryImageReferenceArgs | undefined>;
+    galleryImageReference?: pulumi.Input<inputs.devtestlab.GalleryImageReferenceArgs>;
     /**
      * Indicates whether this virtual machine uses an SSH key for authentication.
      */
-    isAuthenticationWithSshKey?: pulumi.Input<boolean | undefined>;
+    isAuthenticationWithSshKey?: pulumi.Input<boolean>;
     /**
      * The name of the lab.
      */
@@ -365,43 +365,43 @@ export interface VirtualMachineArgs {
     /**
      * The lab subnet name of the virtual machine.
      */
-    labSubnetName?: pulumi.Input<string | undefined>;
+    labSubnetName?: pulumi.Input<string>;
     /**
      * The lab virtual network identifier of the virtual machine.
      */
-    labVirtualNetworkId?: pulumi.Input<string | undefined>;
+    labVirtualNetworkId?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the virtual machine.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The network interface properties.
      */
-    networkInterface?: pulumi.Input<inputs.devtestlab.NetworkInterfacePropertiesArgs | undefined>;
+    networkInterface?: pulumi.Input<inputs.devtestlab.NetworkInterfacePropertiesArgs>;
     /**
      * The notes of the virtual machine.
      */
-    notes?: pulumi.Input<string | undefined>;
+    notes?: pulumi.Input<string>;
     /**
      * The object identifier of the owner of the virtual machine.
      */
-    ownerObjectId?: pulumi.Input<string | undefined>;
+    ownerObjectId?: pulumi.Input<string>;
     /**
      * The user principal name of the virtual machine owner.
      */
-    ownerUserPrincipalName?: pulumi.Input<string | undefined>;
+    ownerUserPrincipalName?: pulumi.Input<string>;
     /**
      * The password of the virtual machine administrator.
      */
-    password?: pulumi.Input<string | undefined>;
+    password?: pulumi.Input<string>;
     /**
      * The id of the plan associated with the virtual machine image
      */
-    planId?: pulumi.Input<string | undefined>;
+    planId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -409,25 +409,25 @@ export interface VirtualMachineArgs {
     /**
      * Virtual Machine schedules to be created
      */
-    scheduleParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.ScheduleCreationParameterArgs>[] | undefined>;
+    scheduleParameters?: pulumi.Input<pulumi.Input<inputs.devtestlab.ScheduleCreationParameterArgs>[]>;
     /**
      * The size of the virtual machine.
      */
-    size?: pulumi.Input<string | undefined>;
+    size?: pulumi.Input<string>;
     /**
      * The SSH key of the virtual machine administrator.
      */
-    sshKey?: pulumi.Input<string | undefined>;
+    sshKey?: pulumi.Input<string>;
     /**
      * Storage type to use for virtual machine (i.e. Standard, Premium).
      */
-    storageType?: pulumi.Input<string | undefined>;
+    storageType?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The user name of the virtual machine.
      */
-    userName?: pulumi.Input<string | undefined>;
+    userName?: pulumi.Input<string>;
 }

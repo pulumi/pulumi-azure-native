@@ -283,9 +283,9 @@ def get_table(resource_group_name: Optional[_builtins.str] = None,
         total_retention_in_days=pulumi.get(__ret__, 'total_retention_in_days'),
         total_retention_in_days_as_default=pulumi.get(__ret__, 'total_retention_in_days_as_default'),
         type=pulumi.get(__ret__, 'type'))
-def get_table_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     table_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_table_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                     table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                     workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Gets a Log Analytics workspace table.

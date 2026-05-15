@@ -111,11 +111,11 @@ export interface PolicyArgs {
     /**
      * Format of the policyContent.
      */
-    format?: pulumi.Input<string | enums.apimanagement.PolicyContentFormat | undefined>;
+    format?: pulumi.Input<string | enums.apimanagement.PolicyContentFormat>;
     /**
      * The identifier of the Policy.
      */
-    policyId?: pulumi.Input<string | undefined>;
+    policyId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

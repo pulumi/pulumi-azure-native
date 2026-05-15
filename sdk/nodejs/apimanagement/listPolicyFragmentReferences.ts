@@ -99,9 +99,9 @@ export interface ListPolicyFragmentReferencesOutputArgs {
     /**
      * Number of records to skip.
      */
-    skip?: pulumi.Input<number | undefined>;
+    skip?: pulumi.Input<number>;
     /**
      * Number of records to return.
      */
-    top?: pulumi.Input<number | undefined>;
+    top?: pulumi.Input<number>;
 }

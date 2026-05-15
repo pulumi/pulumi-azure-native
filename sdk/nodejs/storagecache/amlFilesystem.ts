@@ -144,7 +144,7 @@ export class AmlFilesystem extends pulumi.CustomResource {
             resourceInputs["amlFilesystemName"] = args?.amlFilesystemName;
             resourceInputs["encryptionSettings"] = args?.encryptionSettings;
             resourceInputs["filesystemSubnet"] = args?.filesystemSubnet;
-            resourceInputs["hsm"] = args ? pulumi.output(args.hsm).apply(v => v === undefined ? undefined : inputs.storagecache.amlFilesystemHsmArgsProvideDefaults(v)) : undefined;
+            resourceInputs["hsm"] = args ? (args.hsm ? pulumi.output(args.hsm).apply(inputs.storagecache.amlFilesystemHsmArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
@@ -197,11 +197,11 @@ export interface AmlFilesystemArgs {
     /**
      * Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
      */
-    amlFilesystemName?: pulumi.Input<string | undefined>;
+    amlFilesystemName?: pulumi.Input<string>;
     /**
      * Specifies encryption settings of the AML file system.
      */
-    encryptionSettings?: pulumi.Input<inputs.storagecache.AmlFilesystemEncryptionSettingsArgs | undefined>;
+    encryptionSettings?: pulumi.Input<inputs.storagecache.AmlFilesystemEncryptionSettingsArgs>;
     /**
      * Subnet used for managing the AML file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the VNET's address space.
      */
@@ -209,15 +209,15 @@ export interface AmlFilesystemArgs {
     /**
      * Hydration and archive settings and status
      */
-    hsm?: pulumi.Input<inputs.storagecache.AmlFilesystemHsmArgs | undefined>;
+    hsm?: pulumi.Input<inputs.storagecache.AmlFilesystemHsmArgs>;
     /**
      * The managed identity used by the AML file system, if configured.
      */
-    identity?: pulumi.Input<inputs.storagecache.AmlFilesystemIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.storagecache.AmlFilesystemIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Start time of a 30-minute weekly maintenance window.
      */
@@ -229,11 +229,11 @@ export interface AmlFilesystemArgs {
     /**
      * Specifies root squash settings of the AML file system.
      */
-    rootSquashSettings?: pulumi.Input<inputs.storagecache.AmlFilesystemRootSquashSettingsArgs | undefined>;
+    rootSquashSettings?: pulumi.Input<inputs.storagecache.AmlFilesystemRootSquashSettingsArgs>;
     /**
      * SKU for the resource.
      */
-    sku?: pulumi.Input<inputs.storagecache.SkuNameArgs | undefined>;
+    sku?: pulumi.Input<inputs.storagecache.SkuNameArgs>;
     /**
      * The size of the AML file system, in TiB. This might be rounded up.
      */
@@ -241,9 +241,9 @@ export interface AmlFilesystemArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Availability zones for resources. This field should only contain a single element in the array.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

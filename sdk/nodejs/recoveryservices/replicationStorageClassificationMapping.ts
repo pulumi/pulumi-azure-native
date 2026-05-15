@@ -120,7 +120,7 @@ export interface ReplicationStorageClassificationMappingArgs {
     /**
      * Storage mapping input properties.
      */
-    properties?: pulumi.Input<inputs.recoveryservices.StorageMappingInputPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.recoveryservices.StorageMappingInputPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -132,7 +132,7 @@ export interface ReplicationStorageClassificationMappingArgs {
     /**
      * Storage classification mapping name.
      */
-    storageClassificationMappingName?: pulumi.Input<string | undefined>;
+    storageClassificationMappingName?: pulumi.Input<string>;
     /**
      * Storage classification name.
      */

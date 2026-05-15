@@ -166,9 +166,9 @@ def get_organization_environment_by_id(environment_id: Optional[_builtins.str] =
         stream_governance_config=pulumi.get(__ret__, 'stream_governance_config'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_organization_environment_by_id_output(environment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                              organization_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_organization_environment_by_id_output(environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                              organization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationEnvironmentByIdResult]:
     """
     Get Environment details by environment Id

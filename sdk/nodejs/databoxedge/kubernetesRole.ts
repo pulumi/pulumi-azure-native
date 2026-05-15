@@ -185,7 +185,7 @@ export interface KubernetesRoleArgs {
     /**
      * The role name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */

@@ -254,8 +254,8 @@ def get_private_store_collection(collection_id: Optional[_builtins.str] = None,
         subscriptions_list=pulumi.get(__ret__, 'subscriptions_list'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_store_collection_output(collection_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                        private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_private_store_collection_output(collection_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                        private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateStoreCollectionResult]:
     """
     Gets private store collection

@@ -87,9 +87,9 @@ def list_gateway_keys(gateway_id: Optional[_builtins.str] = None,
     return AwaitableListGatewayKeysResult(
         primary=pulumi.get(__ret__, 'primary'),
         secondary=pulumi.get(__ret__, 'secondary'))
-def list_gateway_keys_output(gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_gateway_keys_output(gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             service_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGatewayKeysResult]:
     """
     Retrieves gateway keys.

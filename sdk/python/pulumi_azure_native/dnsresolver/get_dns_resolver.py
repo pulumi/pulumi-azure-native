@@ -215,8 +215,8 @@ def get_dns_resolver(dns_resolver_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
-def get_dns_resolver_output(dns_resolver_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_dns_resolver_output(dns_resolver_name: Optional[pulumi.Input[_builtins.str]] = None,
+                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsResolverResult]:
     """
     Gets properties of a DNS resolver.

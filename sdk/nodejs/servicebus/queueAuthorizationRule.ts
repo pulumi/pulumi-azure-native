@@ -121,7 +121,7 @@ export interface QueueAuthorizationRuleArgs {
     /**
      * The authorization rule name.
      */
-    authorizationRuleName?: pulumi.Input<string | undefined>;
+    authorizationRuleName?: pulumi.Input<string>;
     /**
      * The namespace name
      */

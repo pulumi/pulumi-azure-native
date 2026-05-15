@@ -270,9 +270,9 @@ def get_vcenter_controller(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'),
         version=pulumi.get(__ret__, 'version'))
-def get_vcenter_controller_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  vcenter_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_vcenter_controller_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  vcenter_name: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVcenterControllerResult]:
     """
     Get a Vcenter

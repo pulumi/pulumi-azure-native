@@ -22,9 +22,9 @@ class TopicSpaceArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_space_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_space_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TopicSpace resource.
 
@@ -73,31 +73,31 @@ class TopicSpaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Description for the Topic Space resource.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="topicSpaceName")
-    def topic_space_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def topic_space_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The topic space name.
         """
         return pulumi.get(self, "topic_space_name")
 
     @topic_space_name.setter
-    def topic_space_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def topic_space_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "topic_space_name", value)
 
     @_builtins.property
     @pulumi.getter(name="topicTemplates")
-    def topic_templates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def topic_templates(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The topic filters in the topic space.
         Example: "topicTemplates": [ 
@@ -108,7 +108,7 @@ class TopicSpaceArgs:
         return pulumi.get(self, "topic_templates")
 
     @topic_templates.setter
-    def topic_templates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def topic_templates(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "topic_templates", value)
 
 
@@ -118,11 +118,11 @@ class TopicSpace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_space_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_space_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The Topic space resource.
@@ -173,11 +173,11 @@ class TopicSpace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_space_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_templates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_space_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_templates: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

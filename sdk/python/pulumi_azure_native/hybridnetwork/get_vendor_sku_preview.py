@@ -138,9 +138,9 @@ def get_vendor_sku_preview(preview_subscription: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_vendor_sku_preview_output(preview_subscription: pulumi.Input[Optional[_builtins.str]] = None,
-                                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  vendor_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_vendor_sku_preview_output(preview_subscription: Optional[pulumi.Input[_builtins.str]] = None,
+                                  sku_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  vendor_name: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVendorSkuPreviewResult]:
     """
     Gets the preview information of a vendor sku.

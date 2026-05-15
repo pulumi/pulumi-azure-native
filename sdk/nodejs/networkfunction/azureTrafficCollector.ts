@@ -132,11 +132,11 @@ export interface AzureTrafficCollectorArgs {
     /**
      * Azure Traffic Collector name
      */
-    azureTrafficCollectorName?: pulumi.Input<string | undefined>;
+    azureTrafficCollectorName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -144,5 +144,5 @@ export interface AzureTrafficCollectorArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

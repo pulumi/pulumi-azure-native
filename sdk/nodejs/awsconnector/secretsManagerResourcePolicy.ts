@@ -113,15 +113,15 @@ export interface SecretsManagerResourcePolicyArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of SecretsManagerResourcePolicy
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.awsconnector.SecretsManagerResourcePolicyPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.awsconnector.SecretsManagerResourcePolicyPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,5 +129,5 @@ export interface SecretsManagerResourcePolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

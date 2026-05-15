@@ -142,23 +142,23 @@ export interface EncryptionSetArgs {
     /**
      * Devbox disk encryption enable or disable status. Indicates if Devbox disks encryption using DevCenter CMK is enabled or not.
      */
-    devboxDisksEncryptionEnableStatus?: pulumi.Input<string | enums.devcenter.DevboxDisksEncryptionEnableStatus | undefined>;
+    devboxDisksEncryptionEnableStatus?: pulumi.Input<string | enums.devcenter.DevboxDisksEncryptionEnableStatus>;
     /**
      * The name of the devcenter encryption set.
      */
-    encryptionSetName?: pulumi.Input<string | undefined>;
+    encryptionSetName?: pulumi.Input<string>;
     /**
      * Managed identity properties
      */
-    identity?: pulumi.Input<inputs.devcenter.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.devcenter.ManagedServiceIdentityArgs>;
     /**
      * Key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
      */
-    keyEncryptionKeyUrl?: pulumi.Input<string | undefined>;
+    keyEncryptionKeyUrl?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -166,5 +166,5 @@ export interface EncryptionSetArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

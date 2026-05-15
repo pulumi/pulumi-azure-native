@@ -131,15 +131,15 @@ export interface ApiTagDescriptionArgs {
     /**
      * Description of the Tag.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Description of the external resources describing the tag.
      */
-    externalDocsDescription?: pulumi.Input<string | undefined>;
+    externalDocsDescription?: pulumi.Input<string>;
     /**
      * Absolute URL of external resources describing the tag.
      */
-    externalDocsUrl?: pulumi.Input<string | undefined>;
+    externalDocsUrl?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -151,5 +151,5 @@ export interface ApiTagDescriptionArgs {
     /**
      * Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
      */
-    tagDescriptionId?: pulumi.Input<string | undefined>;
+    tagDescriptionId?: pulumi.Input<string>;
 }

@@ -147,8 +147,8 @@ def get_resource_type_registration(provider_namespace: Optional[_builtins.str] =
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_type_registration_output(provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                                          resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+def get_resource_type_registration_output(provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                                          resource_type: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceTypeRegistrationResult]:
     """
     Gets a resource type details in the given subscription and provider.

@@ -92,11 +92,11 @@ def get_entity_history(end_at: Optional[_builtins.str] = None,
     return AwaitableGetEntityHistoryResult(
         entity_name=pulumi.get(__ret__, 'entity_name'),
         history=pulumi.get(__ret__, 'history'))
-def get_entity_history_output(end_at: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                              entity_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              start_at: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_entity_history_output(end_at: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                              entity_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              start_at: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityHistoryResult]:
     """
     Retrieve the health state transition history for an entity

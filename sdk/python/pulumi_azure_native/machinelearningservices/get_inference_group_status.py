@@ -99,10 +99,10 @@ def get_inference_group_status(group_name: Optional[_builtins.str] = None,
         actual_capacity_info=pulumi.get(__ret__, 'actual_capacity_info'),
         endpoint_count=pulumi.get(__ret__, 'endpoint_count'),
         requested_capacity=pulumi.get(__ret__, 'requested_capacity'))
-def get_inference_group_status_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_inference_group_status_output(group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceGroupStatusResult]:
     """
     Uses Azure REST API version 2025-01-01-preview.

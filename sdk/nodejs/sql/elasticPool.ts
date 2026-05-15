@@ -198,47 +198,47 @@ export interface ElasticPoolArgs {
     /**
      * Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
      */
-    autoPauseDelay?: pulumi.Input<number | undefined>;
+    autoPauseDelay?: pulumi.Input<number>;
     /**
      * Specifies the availability zone the pool's primary replica is pinned to.
      */
-    availabilityZone?: pulumi.Input<string | enums.sql.AvailabilityZoneType | undefined>;
+    availabilityZone?: pulumi.Input<string | enums.sql.AvailabilityZoneType>;
     /**
      * The name of the elastic pool.
      */
-    elasticPoolName?: pulumi.Input<string | undefined>;
+    elasticPoolName?: pulumi.Input<string>;
     /**
      * The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
      */
-    highAvailabilityReplicaCount?: pulumi.Input<number | undefined>;
+    highAvailabilityReplicaCount?: pulumi.Input<number>;
     /**
      * The license type to apply for this elastic pool.
      */
-    licenseType?: pulumi.Input<string | enums.sql.ElasticPoolLicenseType | undefined>;
+    licenseType?: pulumi.Input<string | enums.sql.ElasticPoolLicenseType>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
      */
-    maintenanceConfigurationId?: pulumi.Input<string | undefined>;
+    maintenanceConfigurationId?: pulumi.Input<string>;
     /**
      * The storage limit for the database elastic pool in bytes.
      */
-    maxSizeBytes?: pulumi.Input<number | undefined>;
+    maxSizeBytes?: pulumi.Input<number>;
     /**
      * Minimal capacity that serverless pool will not shrink below, if not paused
      */
-    minCapacity?: pulumi.Input<number | undefined>;
+    minCapacity?: pulumi.Input<number>;
     /**
      * The per database settings for the elastic pool.
      */
-    perDatabaseSettings?: pulumi.Input<inputs.sql.ElasticPoolPerDatabaseSettingsArgs | undefined>;
+    perDatabaseSettings?: pulumi.Input<inputs.sql.ElasticPoolPerDatabaseSettingsArgs>;
     /**
      * Type of enclave requested on the elastic pool.
      */
-    preferredEnclaveType?: pulumi.Input<string | enums.sql.AlwaysEncryptedEnclaveType | undefined>;
+    preferredEnclaveType?: pulumi.Input<string | enums.sql.AlwaysEncryptedEnclaveType>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -256,13 +256,13 @@ export interface ElasticPoolArgs {
      * az sql elastic-pool list-editions -l <location> -o table
      * ````
      */
-    sku?: pulumi.Input<inputs.sql.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.sql.SkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
      */
-    zoneRedundant?: pulumi.Input<boolean | undefined>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

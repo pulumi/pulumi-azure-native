@@ -162,11 +162,11 @@ export interface HuntArgs {
     /**
      * A list of mitre attack tactics the hunt is associated with
      */
-    attackTactics?: pulumi.Input<pulumi.Input<string | enums.securityinsights.AttackTactic>[] | undefined>;
+    attackTactics?: pulumi.Input<pulumi.Input<string | enums.securityinsights.AttackTactic>[]>;
     /**
      * A list of a mitre attack techniques the hunt is associated with
      */
-    attackTechniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    attackTechniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The description of the hunt
      */
@@ -178,19 +178,19 @@ export interface HuntArgs {
     /**
      * The hunt id (GUID)
      */
-    huntId?: pulumi.Input<string | undefined>;
+    huntId?: pulumi.Input<string>;
     /**
      * The hypothesis status of the hunt.
      */
-    hypothesisStatus?: pulumi.Input<string | enums.securityinsights.HypothesisStatus | undefined>;
+    hypothesisStatus?: pulumi.Input<string | enums.securityinsights.HypothesisStatus>;
     /**
      * List of labels relevant to this hunt 
      */
-    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Describes a user that the hunt is assigned to
      */
-    owner?: pulumi.Input<inputs.securityinsights.HuntOwnerArgs | undefined>;
+    owner?: pulumi.Input<inputs.securityinsights.HuntOwnerArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -198,7 +198,7 @@ export interface HuntArgs {
     /**
      * The status of the hunt.
      */
-    status?: pulumi.Input<string | enums.securityinsights.Status | undefined>;
+    status?: pulumi.Input<string | enums.securityinsights.Status>;
     /**
      * The name of the workspace.
      */

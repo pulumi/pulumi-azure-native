@@ -23,18 +23,18 @@ __all__ = ['CommunityArgs', 'Community']
 class CommunityArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 address_space: pulumi.Input[Optional[_builtins.str]] = None,
-                 approval_settings: pulumi.Input[Optional['ApprovalSettingsArgs']] = None,
-                 community_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 community_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]] = None,
-                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 firewall_sku: pulumi.Input[Optional[Union[_builtins.str, 'FirewallSKU']]] = None,
-                 governed_service_list: pulumi.Input[Optional[Sequence[pulumi.Input['GovernedServiceItemArgs']]]] = None,
-                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_mode_configuration: pulumi.Input[Optional['MaintenanceModeConfigurationModelArgs']] = None,
-                 policy_override: pulumi.Input[Optional[Union[_builtins.str, 'PolicyOverride']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 address_space: Optional[pulumi.Input[_builtins.str]] = None,
+                 approval_settings: Optional[pulumi.Input['ApprovalSettingsArgs']] = None,
+                 community_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 community_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 firewall_sku: Optional[pulumi.Input[Union[_builtins.str, 'FirewallSKU']]] = None,
+                 governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input['GovernedServiceItemArgs']]]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 maintenance_mode_configuration: Optional[pulumi.Input['MaintenanceModeConfigurationModelArgs']] = None,
+                 policy_override: Optional[pulumi.Input[Union[_builtins.str, 'PolicyOverride']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Community resource.
 
@@ -94,146 +94,146 @@ class CommunityArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressSpace")
-    def address_space(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def address_space(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Address Space.
         """
         return pulumi.get(self, "address_space")
 
     @address_space.setter
-    def address_space(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def address_space(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "address_space", value)
 
     @_builtins.property
     @pulumi.getter(name="approvalSettings")
-    def approval_settings(self) -> pulumi.Input[Optional['ApprovalSettingsArgs']]:
+    def approval_settings(self) -> Optional[pulumi.Input['ApprovalSettingsArgs']]:
         """
         Approval requirements for various actions on the community's resources.
         """
         return pulumi.get(self, "approval_settings")
 
     @approval_settings.setter
-    def approval_settings(self, value: pulumi.Input[Optional['ApprovalSettingsArgs']]):
+    def approval_settings(self, value: Optional[pulumi.Input['ApprovalSettingsArgs']]):
         pulumi.set(self, "approval_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="communityName")
-    def community_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def community_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the communityResource Resource
         """
         return pulumi.get(self, "community_name")
 
     @community_name.setter
-    def community_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def community_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "community_name", value)
 
     @_builtins.property
     @pulumi.getter(name="communityRoleAssignments")
-    def community_role_assignments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]:
+    def community_role_assignments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]:
         """
         Community role assignments
         """
         return pulumi.get(self, "community_role_assignments")
 
     @community_role_assignments.setter
-    def community_role_assignments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]):
+    def community_role_assignments(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]]):
         pulumi.set(self, "community_role_assignments", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServers")
-    def dns_servers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         DNS Servers.
         """
         return pulumi.get(self, "dns_servers")
 
     @dns_servers.setter
-    def dns_servers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallSku")
-    def firewall_sku(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FirewallSKU']]]:
+    def firewall_sku(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FirewallSKU']]]:
         """
         SKU of the community's Azure Firewall (Basic, Standard, Premium). Standard is the default
         """
         return pulumi.get(self, "firewall_sku")
 
     @firewall_sku.setter
-    def firewall_sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FirewallSKU']]]):
+    def firewall_sku(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FirewallSKU']]]):
         pulumi.set(self, "firewall_sku", value)
 
     @_builtins.property
     @pulumi.getter(name="governedServiceList")
-    def governed_service_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GovernedServiceItemArgs']]]]:
+    def governed_service_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GovernedServiceItemArgs']]]]:
         """
         List of services governed by a community.
         """
         return pulumi.get(self, "governed_service_list")
 
     @governed_service_list.setter
-    def governed_service_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GovernedServiceItemArgs']]]]):
+    def governed_service_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GovernedServiceItemArgs']]]]):
         pulumi.set(self, "governed_service_list", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceModeConfiguration")
-    def maintenance_mode_configuration(self) -> pulumi.Input[Optional['MaintenanceModeConfigurationModelArgs']]:
+    def maintenance_mode_configuration(self) -> Optional[pulumi.Input['MaintenanceModeConfigurationModelArgs']]:
         """
         Maintenance Mode configuration.
         """
         return pulumi.get(self, "maintenance_mode_configuration")
 
     @maintenance_mode_configuration.setter
-    def maintenance_mode_configuration(self, value: pulumi.Input[Optional['MaintenanceModeConfigurationModelArgs']]):
+    def maintenance_mode_configuration(self, value: Optional[pulumi.Input['MaintenanceModeConfigurationModelArgs']]):
         pulumi.set(self, "maintenance_mode_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="policyOverride")
-    def policy_override(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PolicyOverride']]]:
+    def policy_override(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyOverride']]]:
         """
         Policy override setting for the community. Specifies whether to apply enclave-specific policies or disable policy enforcement.
         """
         return pulumi.get(self, "policy_override")
 
     @policy_override.setter
-    def policy_override(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyOverride']]]):
+    def policy_override(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PolicyOverride']]]):
         pulumi.set(self, "policy_override", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -243,19 +243,19 @@ class Community(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_space: pulumi.Input[Optional[_builtins.str]] = None,
-                 approval_settings: pulumi.Input[Optional[Union['ApprovalSettingsArgs', 'ApprovalSettingsArgsDict']]] = None,
-                 community_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 community_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
-                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 firewall_sku: pulumi.Input[Optional[Union[_builtins.str, 'FirewallSKU']]] = None,
-                 governed_service_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_mode_configuration: pulumi.Input[Optional[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
-                 policy_override: pulumi.Input[Optional[Union[_builtins.str, 'PolicyOverride']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address_space: Optional[pulumi.Input[_builtins.str]] = None,
+                 approval_settings: Optional[pulumi.Input[Union['ApprovalSettingsArgs', 'ApprovalSettingsArgsDict']]] = None,
+                 community_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 community_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 firewall_sku: Optional[pulumi.Input[Union[_builtins.str, 'FirewallSKU']]] = None,
+                 governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 maintenance_mode_configuration: Optional[pulumi.Input[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
+                 policy_override: Optional[pulumi.Input[Union[_builtins.str, 'PolicyOverride']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Community Model Resource
@@ -310,19 +310,19 @@ class Community(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_space: pulumi.Input[Optional[_builtins.str]] = None,
-                 approval_settings: pulumi.Input[Optional[Union['ApprovalSettingsArgs', 'ApprovalSettingsArgsDict']]] = None,
-                 community_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 community_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
-                 dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 firewall_sku: pulumi.Input[Optional[Union[_builtins.str, 'FirewallSKU']]] = None,
-                 governed_service_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_mode_configuration: pulumi.Input[Optional[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
-                 policy_override: pulumi.Input[Optional[Union[_builtins.str, 'PolicyOverride']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 address_space: Optional[pulumi.Input[_builtins.str]] = None,
+                 approval_settings: Optional[pulumi.Input[Union['ApprovalSettingsArgs', 'ApprovalSettingsArgsDict']]] = None,
+                 community_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 community_role_assignments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleAssignmentItemArgs', 'RoleAssignmentItemArgsDict']]]]] = None,
+                 dns_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 firewall_sku: Optional[pulumi.Input[Union[_builtins.str, 'FirewallSKU']]] = None,
+                 governed_service_list: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GovernedServiceItemArgs', 'GovernedServiceItemArgsDict']]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 maintenance_mode_configuration: Optional[pulumi.Input[Union['MaintenanceModeConfigurationModelArgs', 'MaintenanceModeConfigurationModelArgsDict']]] = None,
+                 policy_override: Optional[pulumi.Input[Union[_builtins.str, 'PolicyOverride']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

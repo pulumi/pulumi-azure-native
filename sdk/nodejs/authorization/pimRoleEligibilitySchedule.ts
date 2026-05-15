@@ -206,15 +206,15 @@ export interface PimRoleEligibilityScheduleArgs {
     /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
-    condition?: pulumi.Input<string | undefined>;
+    condition?: pulumi.Input<string>;
     /**
      * Version of the condition. Currently accepted value is '2.0'
      */
-    conditionVersion?: pulumi.Input<string | undefined>;
+    conditionVersion?: pulumi.Input<string>;
     /**
      * Justification for the role eligibility
      */
-    justification?: pulumi.Input<string | undefined>;
+    justification?: pulumi.Input<string>;
     /**
      * The principal ID.
      */
@@ -226,7 +226,7 @@ export interface PimRoleEligibilityScheduleArgs {
     /**
      * Schedule info of the role eligibility schedule
      */
-    scheduleInfo?: pulumi.Input<inputs.authorization.RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs | undefined>;
+    scheduleInfo?: pulumi.Input<inputs.authorization.RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs>;
     /**
      * The scope of the role eligibility schedule request to create. The scope can be any REST resource instance. For example, use '/subscriptions/{subscription-id}/' for a subscription, '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
      */
@@ -234,13 +234,13 @@ export interface PimRoleEligibilityScheduleArgs {
     /**
      * The resultant role eligibility schedule id or the role eligibility schedule id being updated
      */
-    targetRoleEligibilityScheduleId?: pulumi.Input<string | undefined>;
+    targetRoleEligibilityScheduleId?: pulumi.Input<string>;
     /**
      * The role eligibility schedule instance id being updated
      */
-    targetRoleEligibilityScheduleInstanceId?: pulumi.Input<string | undefined>;
+    targetRoleEligibilityScheduleInstanceId?: pulumi.Input<string>;
     /**
      * Ticket Info of the role eligibility
      */
-    ticketInfo?: pulumi.Input<inputs.authorization.RoleEligibilityScheduleRequestPropertiesTicketInfoArgs | undefined>;
+    ticketInfo?: pulumi.Input<inputs.authorization.RoleEligibilityScheduleRequestPropertiesTicketInfoArgs>;
 }

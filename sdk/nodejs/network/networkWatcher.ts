@@ -114,15 +114,15 @@ export interface NetworkWatcherArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network watcher.
      */
-    networkWatcherName?: pulumi.Input<string | undefined>;
+    networkWatcherName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -130,5 +130,5 @@ export interface NetworkWatcherArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

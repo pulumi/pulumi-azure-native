@@ -179,7 +179,7 @@ export interface SqlDWTableDataSetMappingArgs {
     /**
      * The name of the data set mapping to be created.
      */
-    dataSetMappingName?: pulumi.Input<string | undefined>;
+    dataSetMappingName?: pulumi.Input<string>;
     /**
      * DataWarehouse name of the source data set
      */

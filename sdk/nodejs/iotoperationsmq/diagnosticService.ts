@@ -178,11 +178,11 @@ export interface DiagnosticServiceArgs {
     /**
      * The frequency at which the data will be exported.
      */
-    dataExportFrequencySeconds?: pulumi.Input<number | undefined>;
+    dataExportFrequencySeconds?: pulumi.Input<number>;
     /**
      * Name of MQ diagnostic resource
      */
-    diagnosticServiceName?: pulumi.Input<string | undefined>;
+    diagnosticServiceName?: pulumi.Input<string>;
     /**
      * Extended Location
      */
@@ -194,23 +194,23 @@ export interface DiagnosticServiceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The format for the logs generated.
      */
-    logFormat?: pulumi.Input<string | undefined>;
+    logFormat?: pulumi.Input<string>;
     /**
      * The format for the logs generated.
      */
-    logLevel?: pulumi.Input<string | undefined>;
+    logLevel?: pulumi.Input<string>;
     /**
      * The maximum data stored in MiB.
      */
-    maxDataStorageSize?: pulumi.Input<number | undefined>;
+    maxDataStorageSize?: pulumi.Input<number>;
     /**
      * The port at which metrics is exposed.
      */
-    metricsPort?: pulumi.Input<number | undefined>;
+    metricsPort?: pulumi.Input<number>;
     /**
      * Name of MQ resource
      */
@@ -218,7 +218,7 @@ export interface DiagnosticServiceArgs {
     /**
      * The destination to collect traces. Diagnostic service will push traces to this endpoint
      */
-    openTelemetryTracesCollectorAddr?: pulumi.Input<string | undefined>;
+    openTelemetryTracesCollectorAddr?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -226,9 +226,9 @@ export interface DiagnosticServiceArgs {
     /**
      * Metric inactivity timeout.
      */
-    staleDataTimeoutSeconds?: pulumi.Input<number | undefined>;
+    staleDataTimeoutSeconds?: pulumi.Input<number>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

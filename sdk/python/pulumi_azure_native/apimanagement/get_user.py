@@ -218,9 +218,9 @@ def get_user(resource_group_name: Optional[_builtins.str] = None,
         registration_date=pulumi.get(__ret__, 'registration_date'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-def get_user_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                    service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                    user_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_user_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                    service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                    user_id: Optional[pulumi.Input[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Gets the details of the user specified by its identifier.

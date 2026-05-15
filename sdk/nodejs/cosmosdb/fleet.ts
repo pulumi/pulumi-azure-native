@@ -116,11 +116,11 @@ export interface FleetArgs {
     /**
      * Cosmos DB fleet name. Needs to be unique under a subscription.
      */
-    fleetName?: pulumi.Input<string | undefined>;
+    fleetName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -128,5 +128,5 @@ export interface FleetArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

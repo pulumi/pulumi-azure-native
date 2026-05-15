@@ -125,11 +125,11 @@ export interface StaticSiteCustomDomainArgs {
     /**
      * The custom domain to create.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the static site.
      */
@@ -141,5 +141,5 @@ export interface StaticSiteCustomDomainArgs {
     /**
      * Validation method for adding a custom domain
      */
-    validationMethod?: pulumi.Input<string | undefined>;
+    validationMethod?: pulumi.Input<string>;
 }

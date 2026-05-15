@@ -106,7 +106,7 @@ export interface ImportSqlCollectorOperationArgs {
     /**
      * Import SQL Collector arm name.
      */
-    importSqlCollectorsName?: pulumi.Input<string | undefined>;
+    importSqlCollectorsName?: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */
@@ -114,7 +114,7 @@ export interface ImportSqlCollectorOperationArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.migrate.ImportSqlCollectorPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.ImportSqlCollectorPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

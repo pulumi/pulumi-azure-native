@@ -117,7 +117,7 @@ export interface ManagedPrivateEndpointArgs {
     /**
      * Managed private endpoint name
      */
-    managedPrivateEndpointName?: pulumi.Input<string | undefined>;
+    managedPrivateEndpointName?: pulumi.Input<string>;
     /**
      * Managed virtual network name
      */

@@ -119,25 +119,25 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
  * The set of arguments for constructing a WebAppRelayServiceConnectionSlot resource.
  */
 export interface WebAppRelayServiceConnectionSlotArgs {
-    biztalkUri?: pulumi.Input<string | undefined>;
-    entityConnectionString?: pulumi.Input<string | undefined>;
-    entityName?: pulumi.Input<string | undefined>;
-    hostname?: pulumi.Input<string | undefined>;
+    biztalkUri?: pulumi.Input<string>;
+    entityConnectionString?: pulumi.Input<string>;
+    entityName?: pulumi.Input<string>;
+    hostname?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
     name: pulumi.Input<string>;
-    port?: pulumi.Input<number | undefined>;
-    resourceConnectionString?: pulumi.Input<string | undefined>;
+    port?: pulumi.Input<number>;
+    resourceConnectionString?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
     resourceGroupName: pulumi.Input<string>;
-    resourceType?: pulumi.Input<string | undefined>;
+    resourceType?: pulumi.Input<string>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
      */

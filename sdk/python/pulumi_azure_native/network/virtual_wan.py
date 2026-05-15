@@ -21,14 +21,14 @@ __all__ = ['VirtualWanArgs', 'VirtualWan']
 class VirtualWanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
-                 allow_vnet_to_vnet_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
-                 disable_vpn_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_wan_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 allow_branch_to_branch_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_vnet_to_vnet_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disable_vpn_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_wan_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualWan resource.
 
@@ -74,98 +74,98 @@ class VirtualWanArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowBranchToBranchTraffic")
-    def allow_branch_to_branch_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def allow_branch_to_branch_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         True if branch to branch traffic is allowed.
         """
         return pulumi.get(self, "allow_branch_to_branch_traffic")
 
     @allow_branch_to_branch_traffic.setter
-    def allow_branch_to_branch_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def allow_branch_to_branch_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "allow_branch_to_branch_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="allowVnetToVnetTraffic")
-    def allow_vnet_to_vnet_traffic(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def allow_vnet_to_vnet_traffic(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         True if Vnet to Vnet traffic is allowed.
         """
         return pulumi.get(self, "allow_vnet_to_vnet_traffic")
 
     @allow_vnet_to_vnet_traffic.setter
-    def allow_vnet_to_vnet_traffic(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def allow_vnet_to_vnet_traffic(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "allow_vnet_to_vnet_traffic", value)
 
     @_builtins.property
     @pulumi.getter(name="disableVpnEncryption")
-    def disable_vpn_encryption(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def disable_vpn_encryption(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Vpn encryption to be disabled or not.
         """
         return pulumi.get(self, "disable_vpn_encryption")
 
     @disable_vpn_encryption.setter
-    def disable_vpn_encryption(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def disable_vpn_encryption(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "disable_vpn_encryption", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The type of the VirtualWAN.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualWANName")
-    def virtual_wan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def virtual_wan_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the VirtualWAN being created or updated.
         """
         return pulumi.get(self, "virtual_wan_name")
 
     @virtual_wan_name.setter
-    def virtual_wan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def virtual_wan_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "virtual_wan_name", value)
 
 
@@ -175,15 +175,15 @@ class VirtualWan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
-                 allow_vnet_to_vnet_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
-                 disable_vpn_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_wan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_branch_to_branch_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_vnet_to_vnet_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disable_vpn_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_wan_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         VirtualWAN Resource.
@@ -234,15 +234,15 @@ class VirtualWan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
-                 allow_vnet_to_vnet_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
-                 disable_vpn_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_wan_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 allow_branch_to_branch_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 allow_vnet_to_vnet_traffic: Optional[pulumi.Input[_builtins.bool]] = None,
+                 disable_vpn_encryption: Optional[pulumi.Input[_builtins.bool]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_wan_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

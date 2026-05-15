@@ -212,9 +212,9 @@ def get_schema_registry(namespace_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         updated_at_utc=pulumi.get(__ret__, 'updated_at_utc'))
-def get_schema_registry_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               schema_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_schema_registry_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               schema_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaRegistryResult]:
     """
     Gets the details of an EventHub schema group.

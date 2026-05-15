@@ -204,9 +204,9 @@ def get_policy_assignment_artifact(artifact_name: Optional[_builtins.str] = None
         policy_definition_id=pulumi.get(__ret__, 'policy_definition_id'),
         resource_group=pulumi.get(__ret__, 'resource_group'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_assignment_artifact_output(artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
+def get_policy_assignment_artifact_output(artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssignmentArtifactResult]:
     """
     Get a blueprint artifact.

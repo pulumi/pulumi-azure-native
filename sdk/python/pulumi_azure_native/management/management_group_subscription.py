@@ -47,7 +47,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The details of subscription under management group.
@@ -90,7 +90,7 @@ class ManagementGroupSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

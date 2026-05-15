@@ -24,12 +24,12 @@ class ConfigurationPolicyGroupArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  vpn_server_configuration_name: pulumi.Input[_builtins.str],
-                 configuration_policy_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_members: pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupMemberArgs']]]] = None,
-                 priority: pulumi.Input[Optional[_builtins.int]] = None):
+                 configuration_policy_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_members: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupMemberArgs']]]] = None,
+                 priority: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a ConfigurationPolicyGroup resource.
 
@@ -83,74 +83,74 @@ class ConfigurationPolicyGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationPolicyGroupName")
-    def configuration_policy_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def configuration_policy_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the ConfigurationPolicyGroup.
         """
         return pulumi.get(self, "configuration_policy_group_name")
 
     @configuration_policy_group_name.setter
-    def configuration_policy_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def configuration_policy_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "configuration_policy_group_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="isDefault")
-    def is_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def is_default(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Shows if this is a Default VpnServerConfigurationPolicyGroup or not.
         """
         return pulumi.get(self, "is_default")
 
     @is_default.setter
-    def is_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def is_default(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "is_default", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyMembers")
-    def policy_members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupMemberArgs']]]]:
+    def policy_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupMemberArgs']]]]:
         """
         Multiple PolicyMembers for VpnServerConfigurationPolicyGroup.
         """
         return pulumi.get(self, "policy_members")
 
     @policy_members.setter
-    def policy_members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupMemberArgs']]]]):
+    def policy_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpnServerConfigurationPolicyGroupMemberArgs']]]]):
         pulumi.set(self, "policy_members", value)
 
     @_builtins.property
     @pulumi.getter
-    def priority(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def priority(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Priority for VpnServerConfigurationPolicyGroup.
         """
         return pulumi.get(self, "priority")
 
     @priority.setter
-    def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def priority(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "priority", value)
 
 
@@ -160,14 +160,14 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_policy_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupMemberArgs', 'VpnServerConfigurationPolicyGroupMemberArgsDict']]]]] = None,
-                 priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_policy_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupMemberArgs', 'VpnServerConfigurationPolicyGroupMemberArgsDict']]]]] = None,
+                 priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 vpn_server_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         VpnServerConfigurationPolicyGroup Resource.
@@ -217,14 +217,14 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_policy_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 is_default: pulumi.Input[Optional[_builtins.bool]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupMemberArgs', 'VpnServerConfigurationPolicyGroupMemberArgsDict']]]]] = None,
-                 priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_policy_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_default: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpnServerConfigurationPolicyGroupMemberArgs', 'VpnServerConfigurationPolicyGroupMemberArgsDict']]]]] = None,
+                 priority: Optional[pulumi.Input[_builtins.int]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 vpn_server_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

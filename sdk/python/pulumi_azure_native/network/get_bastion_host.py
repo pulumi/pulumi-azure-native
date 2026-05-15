@@ -355,8 +355,8 @@ def get_bastion_host(bastion_host_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_bastion_host_output(bastion_host_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_bastion_host_output(bastion_host_name: Optional[pulumi.Input[_builtins.str]] = None,
+                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBastionHostResult]:
     """
     Gets the specified Bastion Host.

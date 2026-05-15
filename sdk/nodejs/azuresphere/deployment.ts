@@ -136,15 +136,15 @@ export interface DeploymentArgs {
     /**
      * Images deployed
      */
-    deployedImages?: pulumi.Input<pulumi.Input<inputs.azuresphere.ImageArgs>[] | undefined>;
+    deployedImages?: pulumi.Input<pulumi.Input<inputs.azuresphere.ImageArgs>[]>;
     /**
      * Deployment ID
      */
-    deploymentId?: pulumi.Input<string | undefined>;
+    deploymentId?: pulumi.Input<string>;
     /**
      * Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName?: pulumi.Input<string>;
     /**
      * Name of device group.
      */

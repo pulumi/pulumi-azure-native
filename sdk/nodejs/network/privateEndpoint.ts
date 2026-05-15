@@ -131,7 +131,7 @@ export class PrivateEndpoint extends pulumi.CustomResource {
             resourceInputs["privateEndpointName"] = args?.privateEndpointName;
             resourceInputs["privateLinkServiceConnections"] = args?.privateLinkServiceConnections;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["subnet"] = args ? pulumi.output(args.subnet).apply(v => v === undefined ? undefined : inputs.network.subnetArgsProvideDefaults(v)) : undefined;
+            resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.subnetArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -171,43 +171,43 @@ export interface PrivateEndpointArgs {
     /**
      * Application security groups in which the private endpoint IP configuration is included.
      */
-    applicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.ApplicationSecurityGroupArgs>[] | undefined>;
+    applicationSecurityGroups?: pulumi.Input<pulumi.Input<inputs.network.ApplicationSecurityGroupArgs>[]>;
     /**
      * An array of custom dns configurations.
      */
-    customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.network.CustomDnsConfigPropertiesFormatArgs>[] | undefined>;
+    customDnsConfigs?: pulumi.Input<pulumi.Input<inputs.network.CustomDnsConfigPropertiesFormatArgs>[]>;
     /**
      * The custom name of the network interface attached to the private endpoint.
      */
-    customNetworkInterfaceName?: pulumi.Input<string | undefined>;
+    customNetworkInterfaceName?: pulumi.Input<string>;
     /**
      * The extended location of the load balancer.
      */
-    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.PrivateEndpointIPConfigurationArgs>[] | undefined>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.PrivateEndpointIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
      */
-    manualPrivateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.PrivateLinkServiceConnectionArgs>[] | undefined>;
+    manualPrivateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.PrivateLinkServiceConnectionArgs>[]>;
     /**
      * The name of the private endpoint.
      */
-    privateEndpointName?: pulumi.Input<string | undefined>;
+    privateEndpointName?: pulumi.Input<string>;
     /**
      * A grouping of information about the connection to the remote resource.
      */
-    privateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.PrivateLinkServiceConnectionArgs>[] | undefined>;
+    privateLinkServiceConnections?: pulumi.Input<pulumi.Input<inputs.network.PrivateLinkServiceConnectionArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -215,9 +215,9 @@ export interface PrivateEndpointArgs {
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    subnet?: pulumi.Input<inputs.network.SubnetArgs | undefined>;
+    subnet?: pulumi.Input<inputs.network.SubnetArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

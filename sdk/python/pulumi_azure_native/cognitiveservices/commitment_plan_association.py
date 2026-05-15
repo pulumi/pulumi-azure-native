@@ -22,9 +22,9 @@ class CommitmentPlanAssociationArgs:
     def __init__(__self__, *,
                  commitment_plan_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 commitment_plan_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 commitment_plan_association_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommitmentPlanAssociation resource.
 
@@ -69,38 +69,38 @@ class CommitmentPlanAssociationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountId")
-    def account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Azure resource id of the account.
         """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
-    def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="commitmentPlanAssociationName")
-    def commitment_plan_association_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def commitment_plan_association_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the commitment plan association with the Cognitive Services Account
         """
         return pulumi.get(self, "commitment_plan_association_name")
 
     @commitment_plan_association_name.setter
-    def commitment_plan_association_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def commitment_plan_association_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "commitment_plan_association_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -110,11 +110,11 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 commitment_plan_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 commitment_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 commitment_plan_association_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 commitment_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The commitment plan association.
@@ -161,11 +161,11 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 commitment_plan_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 commitment_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 commitment_plan_association_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 commitment_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

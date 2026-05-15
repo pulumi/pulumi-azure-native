@@ -174,9 +174,9 @@ def get_action_request(action_request_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_action_request_output(action_request_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_action_request_output(action_request_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionRequestResult]:
     """
     Get the action request under the specified test base account.

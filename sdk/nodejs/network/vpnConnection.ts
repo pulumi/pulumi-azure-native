@@ -211,27 +211,27 @@ export interface VpnConnectionArgs {
     /**
      * Expected bandwidth in MBPS.
      */
-    connectionBandwidth?: pulumi.Input<number | undefined>;
+    connectionBandwidth?: pulumi.Input<number>;
     /**
      * The name of the connection.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName?: pulumi.Input<string>;
     /**
      * DPD timeout in seconds for vpn connection.
      */
-    dpdTimeoutSeconds?: pulumi.Input<number | undefined>;
+    dpdTimeoutSeconds?: pulumi.Input<number>;
     /**
      * EnableBgp flag.
      */
-    enableBgp?: pulumi.Input<boolean | undefined>;
+    enableBgp?: pulumi.Input<boolean>;
     /**
      * Enable internet security.
      */
-    enableInternetSecurity?: pulumi.Input<boolean | undefined>;
+    enableInternetSecurity?: pulumi.Input<boolean>;
     /**
      * EnableBgp flag.
      */
-    enableRateLimiting?: pulumi.Input<boolean | undefined>;
+    enableRateLimiting?: pulumi.Input<boolean>;
     /**
      * The name of the gateway.
      */
@@ -239,19 +239,19 @@ export interface VpnConnectionArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyArgs>[] | undefined>;
+    ipsecPolicies?: pulumi.Input<pulumi.Input<inputs.network.IpsecPolicyArgs>[]>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Id of the connected vpn site.
      */
-    remoteVpnSite?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    remoteVpnSite?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The resource group name of the VpnGateway.
      */
@@ -259,33 +259,33 @@ export interface VpnConnectionArgs {
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs | undefined>;
+    routingConfiguration?: pulumi.Input<inputs.network.RoutingConfigurationArgs>;
     /**
      * Routing weight for vpn connection.
      */
-    routingWeight?: pulumi.Input<number | undefined>;
+    routingWeight?: pulumi.Input<number>;
     /**
      * SharedKey for the vpn connection.
      */
-    sharedKey?: pulumi.Input<string | undefined>;
+    sharedKey?: pulumi.Input<string>;
     /**
      * The Traffic Selector Policies to be considered by this connection.
      */
-    trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.TrafficSelectorPolicyArgs>[] | undefined>;
+    trafficSelectorPolicies?: pulumi.Input<pulumi.Input<inputs.network.TrafficSelectorPolicyArgs>[]>;
     /**
      * Use local azure ip to initiate connection.
      */
-    useLocalAzureIpAddress?: pulumi.Input<boolean | undefined>;
+    useLocalAzureIpAddress?: pulumi.Input<boolean>;
     /**
      * Enable policy-based traffic selectors.
      */
-    usePolicyBasedTrafficSelectors?: pulumi.Input<boolean | undefined>;
+    usePolicyBasedTrafficSelectors?: pulumi.Input<boolean>;
     /**
      * Connection protocol used for this connection.
      */
-    vpnConnectionProtocolType?: pulumi.Input<string | enums.network.VirtualNetworkGatewayConnectionProtocol | undefined>;
+    vpnConnectionProtocolType?: pulumi.Input<string | enums.network.VirtualNetworkGatewayConnectionProtocol>;
     /**
      * List of all vpn site link connections to the gateway.
      */
-    vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLinkConnectionArgs>[] | undefined>;
+    vpnLinkConnections?: pulumi.Input<pulumi.Input<inputs.network.VpnSiteLinkConnectionArgs>[]>;
 }

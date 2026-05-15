@@ -179,44 +179,44 @@ export interface WorkspaceArgs {
     /**
      * List of applicationGroup resource Ids.
      */
-    applicationGroupReferences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    applicationGroupReferences?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Description of Workspace.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Friendly name of Workspace.
      */
-    friendlyName?: pulumi.Input<string | undefined>;
-    identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs | undefined>;
+    friendlyName?: pulumi.Input<string>;
+    identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    managedBy?: pulumi.Input<string | undefined>;
-    plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs | undefined>;
+    managedBy?: pulumi.Input<string>;
+    plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.desktopvirtualization.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.desktopvirtualization.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace
      */
-    workspaceName?: pulumi.Input<string | undefined>;
+    workspaceName?: pulumi.Input<string>;
 }

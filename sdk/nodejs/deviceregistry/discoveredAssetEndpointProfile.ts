@@ -171,11 +171,11 @@ export interface DiscoveredAssetEndpointProfileArgs {
     /**
      * Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
      */
-    additionalConfiguration?: pulumi.Input<string | undefined>;
+    additionalConfiguration?: pulumi.Input<string>;
     /**
      * Discovered Asset Endpoint Profile name parameter.
      */
-    discoveredAssetEndpointProfileName?: pulumi.Input<string | undefined>;
+    discoveredAssetEndpointProfileName?: pulumi.Input<string>;
     /**
      * Identifier used to detect changes in the asset endpoint profile.
      */
@@ -191,7 +191,7 @@ export interface DiscoveredAssetEndpointProfileArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -199,11 +199,11 @@ export interface DiscoveredAssetEndpointProfileArgs {
     /**
      * List of supported authentication methods supported by the target server.
      */
-    supportedAuthenticationMethods?: pulumi.Input<pulumi.Input<string | enums.deviceregistry.AuthenticationMethod>[] | undefined>;
+    supportedAuthenticationMethods?: pulumi.Input<pulumi.Input<string | enums.deviceregistry.AuthenticationMethod>[]>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
      */

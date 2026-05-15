@@ -182,10 +182,10 @@ def list_endpoint_ingress_gateway_credentials(endpoint_name: Optional[_builtins.
         server_id=pulumi.get(__ret__, 'server_id'),
         service_configuration_token=pulumi.get(__ret__, 'service_configuration_token'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'))
-def list_endpoint_ingress_gateway_credentials_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     expiresin: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
-                                                     resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     service_name: pulumi.Input[Optional[Optional[Union[_builtins.str, 'ServiceName']]]] = None,
+def list_endpoint_ingress_gateway_credentials_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                     expiresin: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+                                                     resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                                                     service_name: Optional[pulumi.Input[Optional[Union[_builtins.str, 'ServiceName']]]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointIngressGatewayCredentialsResult]:
     """
     Gets the ingress gateway endpoint credentials

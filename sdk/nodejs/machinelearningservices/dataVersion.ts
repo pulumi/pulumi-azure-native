@@ -126,7 +126,7 @@ export interface DataVersionArgs {
     /**
      * Version identifier.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */

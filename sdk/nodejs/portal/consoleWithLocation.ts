@@ -84,7 +84,7 @@ export interface ConsoleWithLocationArgs {
     /**
      * The name of the console
      */
-    consoleName?: pulumi.Input<string | undefined>;
+    consoleName?: pulumi.Input<string>;
     /**
      * The provider location
      */

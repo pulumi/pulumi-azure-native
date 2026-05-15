@@ -22,8 +22,8 @@ __all__ = ['InsightArgs', 'Insight']
 class InsightArgs:
     def __init__(__self__, *,
                  workload_impact_name: pulumi.Input[_builtins.str],
-                 insight_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['InsightPropertiesArgs']] = None):
+                 insight_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['InsightPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Insight resource.
 
@@ -51,26 +51,26 @@ class InsightArgs:
 
     @_builtins.property
     @pulumi.getter(name="insightName")
-    def insight_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def insight_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the insight
         """
         return pulumi.get(self, "insight_name")
 
     @insight_name.setter
-    def insight_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def insight_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "insight_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['InsightPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['InsightPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['InsightPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['InsightPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -80,9 +80,9 @@ class Insight(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 insight_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['InsightPropertiesArgs', 'InsightPropertiesArgsDict']]] = None,
-                 workload_impact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 insight_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['InsightPropertiesArgs', 'InsightPropertiesArgsDict']]] = None,
+                 workload_impact_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Insight resource
@@ -123,9 +123,9 @@ class Insight(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 insight_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['InsightPropertiesArgs', 'InsightPropertiesArgsDict']]] = None,
-                 workload_impact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 insight_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['InsightPropertiesArgs', 'InsightPropertiesArgsDict']]] = None,
+                 workload_impact_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

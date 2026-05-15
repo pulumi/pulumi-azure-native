@@ -194,9 +194,9 @@ def get_permission_binding(namespace_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         topic_space_name=pulumi.get(__ret__, 'topic_space_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_permission_binding_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  permission_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_permission_binding_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  permission_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionBindingResult]:
     """
     Get properties of a permission binding.

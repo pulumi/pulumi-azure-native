@@ -171,39 +171,39 @@ export interface UpdateSummaryArgs {
     /**
      * Current OEM Version.
      */
-    currentOemVersion?: pulumi.Input<string | undefined>;
+    currentOemVersion?: pulumi.Input<string>;
     /**
      * Current Sbe version of the stamp.
      */
-    currentSbeVersion?: pulumi.Input<string | undefined>;
+    currentSbeVersion?: pulumi.Input<string>;
     /**
      * Current Solution Bundle version of the stamp.
      */
-    currentVersion?: pulumi.Input<string | undefined>;
+    currentVersion?: pulumi.Input<string>;
     /**
      * Name of the hardware model.
      */
-    hardwareModel?: pulumi.Input<string | undefined>;
+    hardwareModel?: pulumi.Input<string>;
     /**
      * Last time the package-specific checks were run.
      */
-    healthCheckDate?: pulumi.Input<string | undefined>;
+    healthCheckDate?: pulumi.Input<string>;
     /**
      * Last time the update service successfully checked for updates
      */
-    lastChecked?: pulumi.Input<string | undefined>;
+    lastChecked?: pulumi.Input<string>;
     /**
      * Last time an update installation completed successfully.
      */
-    lastUpdated?: pulumi.Input<string | undefined>;
+    lastUpdated?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * OEM family name.
      */
-    oemFamily?: pulumi.Input<string | undefined>;
+    oemFamily?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -211,5 +211,5 @@ export interface UpdateSummaryArgs {
     /**
      * Overall update state of the stamp.
      */
-    state?: pulumi.Input<string | enums.azurestackhci.UpdateSummariesPropertiesState | undefined>;
+    state?: pulumi.Input<string | enums.azurestackhci.UpdateSummariesPropertiesState>;
 }

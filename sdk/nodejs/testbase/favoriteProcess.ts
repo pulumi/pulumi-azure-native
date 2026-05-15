@@ -119,7 +119,7 @@ export interface FavoriteProcessArgs {
     /**
      * The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
      */
-    favoriteProcessResourceName?: pulumi.Input<string | undefined>;
+    favoriteProcessResourceName?: pulumi.Input<string>;
     /**
      * The resource name of the Test Base Package.
      */

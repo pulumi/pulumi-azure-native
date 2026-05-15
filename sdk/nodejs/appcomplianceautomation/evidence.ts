@@ -137,19 +137,19 @@ export interface EvidenceArgs {
     /**
      * Control id.
      */
-    controlId?: pulumi.Input<string | undefined>;
+    controlId?: pulumi.Input<string>;
     /**
      * The evidence name.
      */
-    evidenceName?: pulumi.Input<string | undefined>;
+    evidenceName?: pulumi.Input<string>;
     /**
      * Evidence type.
      */
-    evidenceType?: pulumi.Input<string | enums.appcomplianceautomation.EvidenceType | undefined>;
+    evidenceType?: pulumi.Input<string | enums.appcomplianceautomation.EvidenceType>;
     /**
      * Extra data considered as evidence.
      */
-    extraData?: pulumi.Input<string | undefined>;
+    extraData?: pulumi.Input<string>;
     /**
      * The path of the file in storage.
      */
@@ -157,11 +157,11 @@ export interface EvidenceArgs {
     /**
      * The offerGuid which mapping to the reports.
      */
-    offerGuid?: pulumi.Input<string | undefined>;
+    offerGuid?: pulumi.Input<string>;
     /**
      * The tenant id of the report creator.
      */
-    reportCreatorTenantId?: pulumi.Input<string | undefined>;
+    reportCreatorTenantId?: pulumi.Input<string>;
     /**
      * Report Name.
      */
@@ -169,5 +169,5 @@ export interface EvidenceArgs {
     /**
      * Responsibility id.
      */
-    responsibilityId?: pulumi.Input<string | undefined>;
+    responsibilityId?: pulumi.Input<string>;
 }

@@ -108,11 +108,11 @@ export interface PolicyRestrictionArgs {
     /**
      * Policy restrictions after an entity level
      */
-    policyRestrictionId?: pulumi.Input<string | undefined>;
+    policyRestrictionId?: pulumi.Input<string>;
     /**
      * Indicates if base policy should be enforced for the policy document.
      */
-    requireBase?: pulumi.Input<string | enums.apimanagement.PolicyRestrictionRequireBase | undefined>;
+    requireBase?: pulumi.Input<string | enums.apimanagement.PolicyRestrictionRequireBase>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,7 +120,7 @@ export interface PolicyRestrictionArgs {
     /**
      * Path to the policy document.
      */
-    scope?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */

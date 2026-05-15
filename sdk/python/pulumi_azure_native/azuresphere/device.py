@@ -24,8 +24,8 @@ class DeviceArgs:
                  device_group_name: pulumi.Input[_builtins.str],
                  product_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Device resource.
 
@@ -95,26 +95,26 @@ class DeviceArgs:
 
     @_builtins.property
     @pulumi.getter(name="deviceId")
-    def device_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def device_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Device ID
         """
         return pulumi.get(self, "device_id")
 
     @device_id.setter
-    def device_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def device_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "device_id", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceName")
-    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def device_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Device name
         """
         return pulumi.get(self, "device_name")
 
     @device_name.setter
-    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def device_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "device_name", value)
 
 
@@ -124,12 +124,12 @@ class Device(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 product_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         An device resource belonging to a device group resource.
@@ -173,12 +173,12 @@ class Device(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 product_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

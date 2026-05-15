@@ -107,15 +107,15 @@ export interface ApplicationArgs {
     /**
      * The security Application key - unique key for the standard application
      */
-    applicationId?: pulumi.Input<string | undefined>;
+    applicationId?: pulumi.Input<string>;
     /**
      * description of the application
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * display name of the application
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The application source, what it affects, e.g. Assessments
      */

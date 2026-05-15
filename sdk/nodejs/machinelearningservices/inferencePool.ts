@@ -102,7 +102,7 @@ export class InferencePool extends pulumi.CustomResource {
             }
             resourceInputs["identity"] = args?.identity;
             resourceInputs["inferencePoolName"] = args?.inferencePoolName;
-            resourceInputs["inferencePoolProperties"] = args ? pulumi.output(args.inferencePoolProperties).apply(inputs.machinelearningservices.inferencePoolArgsProvideDefaults) : undefined;
+            resourceInputs["inferencePoolProperties"] = args ? (args.inferencePoolProperties ? pulumi.output(args.inferencePoolProperties).apply(inputs.machinelearningservices.inferencePoolArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -139,11 +139,11 @@ export interface InferencePoolArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
     /**
      * Name of InferencePool
      */
-    inferencePoolName?: pulumi.Input<string | undefined>;
+    inferencePoolName?: pulumi.Input<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
@@ -151,11 +151,11 @@ export interface InferencePoolArgs {
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -163,11 +163,11 @@ export interface InferencePoolArgs {
     /**
      * Sku details required for ARM contract for Autoscaling.
      */
-    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of Azure Machine Learning workspace.
      */

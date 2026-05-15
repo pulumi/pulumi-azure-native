@@ -100,13 +100,13 @@ def get_entity_insights(add_default_extended_time_range: Optional[_builtins.bool
     return AwaitableGetEntityInsightsResult(
         meta_data=pulumi.get(__ret__, 'meta_data'),
         value=pulumi.get(__ret__, 'value'))
-def get_entity_insights_output(add_default_extended_time_range: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                               end_time: pulumi.Input[Optional[_builtins.str]] = None,
-                               entity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                               insight_query_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_entity_insights_output(add_default_extended_time_range: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                               end_time: Optional[pulumi.Input[_builtins.str]] = None,
+                               entity_id: Optional[pulumi.Input[_builtins.str]] = None,
+                               insight_query_ids: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               start_time: Optional[pulumi.Input[_builtins.str]] = None,
+                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityInsightsResult]:
     """
     Execute Insights for an entity.

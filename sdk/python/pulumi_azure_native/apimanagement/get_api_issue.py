@@ -197,11 +197,11 @@ def get_api_issue(api_id: Optional[_builtins.str] = None,
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'),
         user_id=pulumi.get(__ret__, 'user_id'))
-def get_api_issue_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
-                         expand_comments_attachments: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                         issue_id: pulumi.Input[Optional[_builtins.str]] = None,
-                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_api_issue_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                         expand_comments_attachments: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                         issue_id: Optional[pulumi.Input[_builtins.str]] = None,
+                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                         service_name: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiIssueResult]:
     """
     Gets the details of the Issue for an API specified by its identifier.

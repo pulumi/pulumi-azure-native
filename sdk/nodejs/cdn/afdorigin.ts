@@ -180,27 +180,27 @@ export interface AFDOriginArgs {
     /**
      * Resource reference to the Azure origin resource.
      */
-    azureOrigin?: pulumi.Input<inputs.cdn.ResourceReferenceArgs | undefined>;
+    azureOrigin?: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
     /**
      * Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
      */
-    enabledState?: pulumi.Input<string | enums.cdn.EnabledState | undefined>;
+    enabledState?: pulumi.Input<string | enums.cdn.EnabledState>;
     /**
      * Whether to enable certificate name check at origin level
      */
-    enforceCertificateNameCheck?: pulumi.Input<boolean | undefined>;
+    enforceCertificateNameCheck?: pulumi.Input<boolean>;
     /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
-    hostName?: pulumi.Input<string | undefined>;
+    hostName?: pulumi.Input<string>;
     /**
      * The value of the HTTP port. Must be between 1 and 65535.
      */
-    httpPort?: pulumi.Input<number | undefined>;
+    httpPort?: pulumi.Input<number>;
     /**
      * The value of the HTTPS port. Must be between 1 and 65535.
      */
-    httpsPort?: pulumi.Input<number | undefined>;
+    httpsPort?: pulumi.Input<number>;
     /**
      * Name of the origin group which is unique within the endpoint.
      */
@@ -208,15 +208,15 @@ export interface AFDOriginArgs {
     /**
      * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
-    originHostHeader?: pulumi.Input<string | undefined>;
+    originHostHeader?: pulumi.Input<string>;
     /**
      * Name of the origin which is unique within the profile.
      */
-    originName?: pulumi.Input<string | undefined>;
+    originName?: pulumi.Input<string>;
     /**
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
      */
-    priority?: pulumi.Input<number | undefined>;
+    priority?: pulumi.Input<number>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -228,9 +228,9 @@ export interface AFDOriginArgs {
     /**
      * The properties of the private link resource for private origin.
      */
-    sharedPrivateLinkResource?: pulumi.Input<inputs.cdn.SharedPrivateLinkResourcePropertiesArgs | undefined>;
+    sharedPrivateLinkResource?: pulumi.Input<inputs.cdn.SharedPrivateLinkResourcePropertiesArgs>;
     /**
      * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
      */
-    weight?: pulumi.Input<number | undefined>;
+    weight?: pulumi.Input<number>;
 }

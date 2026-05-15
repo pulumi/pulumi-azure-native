@@ -98,9 +98,9 @@ export interface ManagedOpArgs {
     /**
      * Name of the resource.
      */
-    managedOpsName?: pulumi.Input<string | undefined>;
+    managedOpsName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.managedops.ManagedOpsPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.managedops.ManagedOpsPropertiesArgs>;
 }

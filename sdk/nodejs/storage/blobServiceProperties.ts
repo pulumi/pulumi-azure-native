@@ -160,39 +160,39 @@ export interface BlobServicePropertiesArgs {
     /**
      * Deprecated in favor of isVersioningEnabled property.
      */
-    automaticSnapshotPolicyEnabled?: pulumi.Input<boolean | undefined>;
+    automaticSnapshotPolicyEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
      */
-    blobServicesName?: pulumi.Input<string | undefined>;
+    blobServicesName?: pulumi.Input<string>;
     /**
      * The blob service properties for change feed events.
      */
-    changeFeed?: pulumi.Input<inputs.storage.ChangeFeedArgs | undefined>;
+    changeFeed?: pulumi.Input<inputs.storage.ChangeFeedArgs>;
     /**
      * The blob service properties for container soft delete.
      */
-    containerDeleteRetentionPolicy?: pulumi.Input<inputs.storage.DeleteRetentionPolicyArgs | undefined>;
+    containerDeleteRetentionPolicy?: pulumi.Input<inputs.storage.DeleteRetentionPolicyArgs>;
     /**
      * Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
      */
-    cors?: pulumi.Input<inputs.storage.CorsRulesArgs | undefined>;
+    cors?: pulumi.Input<inputs.storage.CorsRulesArgs>;
     /**
      * DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
      */
-    defaultServiceVersion?: pulumi.Input<string | undefined>;
+    defaultServiceVersion?: pulumi.Input<string>;
     /**
      * The blob service properties for blob soft delete.
      */
-    deleteRetentionPolicy?: pulumi.Input<inputs.storage.DeleteRetentionPolicyArgs | undefined>;
+    deleteRetentionPolicy?: pulumi.Input<inputs.storage.DeleteRetentionPolicyArgs>;
     /**
      * Versioning is enabled if set to true.
      */
-    isVersioningEnabled?: pulumi.Input<boolean | undefined>;
+    isVersioningEnabled?: pulumi.Input<boolean>;
     /**
      * The blob service property to configure last access time based tracking policy.
      */
-    lastAccessTimeTrackingPolicy?: pulumi.Input<inputs.storage.LastAccessTimeTrackingPolicyArgs | undefined>;
+    lastAccessTimeTrackingPolicy?: pulumi.Input<inputs.storage.LastAccessTimeTrackingPolicyArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -200,5 +200,5 @@ export interface BlobServicePropertiesArgs {
     /**
      * The blob service properties for blob restore policy.
      */
-    restorePolicy?: pulumi.Input<inputs.storage.RestorePolicyPropertiesArgs | undefined>;
+    restorePolicy?: pulumi.Input<inputs.storage.RestorePolicyPropertiesArgs>;
 }

@@ -396,19 +396,19 @@ export interface DatabaseArgs {
     /**
      * Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
      */
-    autoPauseDelay?: pulumi.Input<number | undefined>;
+    autoPauseDelay?: pulumi.Input<number>;
     /**
      * Specifies the availability zone the database is pinned to.
      */
-    availabilityZone?: pulumi.Input<string | enums.sql.AvailabilityZoneType | undefined>;
+    availabilityZone?: pulumi.Input<string | enums.sql.AvailabilityZoneType>;
     /**
      * Collation of the metadata catalog.
      */
-    catalogCollation?: pulumi.Input<string | enums.sql.CatalogCollationType | undefined>;
+    catalogCollation?: pulumi.Input<string | enums.sql.CatalogCollationType>;
     /**
      * The collation of the database.
      */
-    collation?: pulumi.Input<string | undefined>;
+    collation?: pulumi.Input<string>;
     /**
      * Specifies the mode of database creation.
      * 
@@ -428,27 +428,27 @@ export interface DatabaseArgs {
      * 
      * Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
      */
-    createMode?: pulumi.Input<string | enums.sql.CreateMode | undefined>;
+    createMode?: pulumi.Input<string | enums.sql.CreateMode>;
     /**
      * The name of the database.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The resource identifier of the elastic pool containing this database.
      */
-    elasticPoolId?: pulumi.Input<string | undefined>;
+    elasticPoolId?: pulumi.Input<string>;
     /**
      * The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
      */
-    encryptionProtector?: pulumi.Input<string | undefined>;
+    encryptionProtector?: pulumi.Input<string>;
     /**
      * The flag to enable or disable auto rotation of database encryption protector AKV key.
      */
-    encryptionProtectorAutoRotation?: pulumi.Input<boolean | undefined>;
+    encryptionProtectorAutoRotation?: pulumi.Input<boolean>;
     /**
      * The Client id used for cross tenant per database CMK scenario
      */
-    federatedClientId?: pulumi.Input<string | undefined>;
+    federatedClientId?: pulumi.Input<string>;
     /**
      * Specifies the behavior when monthly free limits are exhausted for the free database.
      * 
@@ -456,39 +456,39 @@ export interface DatabaseArgs {
      * 
      * BillForUsage: The database will continue to be online upon exhaustion of free limits and any overage will be billed.
      */
-    freeLimitExhaustionBehavior?: pulumi.Input<string | enums.sql.FreeLimitExhaustionBehavior | undefined>;
+    freeLimitExhaustionBehavior?: pulumi.Input<string | enums.sql.FreeLimitExhaustionBehavior>;
     /**
      * The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition database that are used to provide high availability. Not applicable to a Hyperscale database within an elastic pool.
      */
-    highAvailabilityReplicaCount?: pulumi.Input<number | undefined>;
+    highAvailabilityReplicaCount?: pulumi.Input<number>;
     /**
      * The Azure Active Directory identity of the database.
      */
-    identity?: pulumi.Input<inputs.sql.DatabaseIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.sql.DatabaseIdentityArgs>;
     /**
      * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
      */
-    isLedgerOn?: pulumi.Input<boolean | undefined>;
+    isLedgerOn?: pulumi.Input<boolean>;
     /**
      * The resource ids of the user assigned identities to use
      */
-    keys?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    keys?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The license type to apply for this database. `LicenseIncluded` if you need a license, or `BasePrice` if you have a license and are eligible for the Azure Hybrid Benefit.
      */
-    licenseType?: pulumi.Input<string | enums.sql.DatabaseLicenseType | undefined>;
+    licenseType?: pulumi.Input<string | enums.sql.DatabaseLicenseType>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource identifier of the long term retention backup associated with create operation of this database.
      */
-    longTermRetentionBackupResourceId?: pulumi.Input<string | undefined>;
+    longTermRetentionBackupResourceId?: pulumi.Input<string>;
     /**
      * Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
      */
-    maintenanceConfigurationId?: pulumi.Input<string | undefined>;
+    maintenanceConfigurationId?: pulumi.Input<string>;
     /**
      * Whether or not customer controlled manual cutover needs to be done during Update Database operation to Hyperscale tier.
      * 
@@ -498,15 +498,15 @@ export interface DatabaseArgs {
      * 
      * To trigger cutover, please provide 'performCutover' parameter when the Scaling operation is in Waiting state.
      */
-    manualCutover?: pulumi.Input<boolean | undefined>;
+    manualCutover?: pulumi.Input<boolean>;
     /**
      * The max size of the database expressed in bytes.
      */
-    maxSizeBytes?: pulumi.Input<number | undefined>;
+    maxSizeBytes?: pulumi.Input<number>;
     /**
      * Minimal capacity that database will always have allocated, if not paused
      */
-    minCapacity?: pulumi.Input<number | undefined>;
+    minCapacity?: pulumi.Input<number>;
     /**
      * To trigger customer controlled manual cutover during the wait state while Scaling operation is in progress.
      * 
@@ -516,27 +516,27 @@ export interface DatabaseArgs {
      * 
      * When performCutover is specified, the scaling operation will trigger cutover and perform role-change to Hyperscale database.
      */
-    performCutover?: pulumi.Input<boolean | undefined>;
+    performCutover?: pulumi.Input<boolean>;
     /**
      * Type of enclave requested on the database i.e. Default or VBS enclaves.
      */
-    preferredEnclaveType?: pulumi.Input<string | enums.sql.AlwaysEncryptedEnclaveType | undefined>;
+    preferredEnclaveType?: pulumi.Input<string | enums.sql.AlwaysEncryptedEnclaveType>;
     /**
      * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
-    readScale?: pulumi.Input<string | enums.sql.DatabaseReadScale | undefined>;
+    readScale?: pulumi.Input<string | enums.sql.DatabaseReadScale>;
     /**
      * The resource identifier of the recoverable database associated with create operation of this database.
      */
-    recoverableDatabaseId?: pulumi.Input<string | undefined>;
+    recoverableDatabaseId?: pulumi.Input<string>;
     /**
      * The resource identifier of the recovery point associated with create operation of this database.
      */
-    recoveryServicesRecoveryPointId?: pulumi.Input<string | undefined>;
+    recoveryServicesRecoveryPointId?: pulumi.Input<string>;
     /**
      * The storage account type to be used to store backups for this database.
      */
-    requestedBackupStorageRedundancy?: pulumi.Input<string | enums.sql.BackupStorageRedundancy | undefined>;
+    requestedBackupStorageRedundancy?: pulumi.Input<string | enums.sql.BackupStorageRedundancy>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -544,19 +544,19 @@ export interface DatabaseArgs {
     /**
      * The resource identifier of the restorable dropped database associated with create operation of this database.
      */
-    restorableDroppedDatabaseId?: pulumi.Input<string | undefined>;
+    restorableDroppedDatabaseId?: pulumi.Input<string>;
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
      */
-    restorePointInTime?: pulumi.Input<string | undefined>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * The name of the sample schema to apply when creating this database.
      */
-    sampleName?: pulumi.Input<string | enums.sql.SampleName | undefined>;
+    sampleName?: pulumi.Input<string | enums.sql.SampleName>;
     /**
      * The secondary type of the database if it is a secondary.  Valid values are Geo, Named and Standby.
      */
-    secondaryType?: pulumi.Input<string | enums.sql.SecondaryType | undefined>;
+    secondaryType?: pulumi.Input<string | enums.sql.SecondaryType>;
     /**
      * The name of the server.
      */
@@ -574,15 +574,15 @@ export interface DatabaseArgs {
      * Get-AzSqlServerServiceObjective -Location <location>
      * ````
      */
-    sku?: pulumi.Input<inputs.sql.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.sql.SkuArgs>;
     /**
      * Specifies the time that the database was deleted.
      */
-    sourceDatabaseDeletionDate?: pulumi.Input<string | undefined>;
+    sourceDatabaseDeletionDate?: pulumi.Input<string>;
     /**
      * The resource identifier of the source database associated with create operation of this database.
      */
-    sourceDatabaseId?: pulumi.Input<string | undefined>;
+    sourceDatabaseId?: pulumi.Input<string>;
     /**
      * The resource identifier of the source associated with the create operation of this database.
      * 
@@ -598,17 +598,17 @@ export interface DatabaseArgs {
      * 
      * When source subscription belongs to a different tenant than target subscription, “x-ms-authorization-auxiliary” header must contain authentication token for the source tenant. For more details about “x-ms-authorization-auxiliary” header see https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/authenticate-multi-tenant 
      */
-    sourceResourceId?: pulumi.Input<string | undefined>;
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not the database uses free monthly limits. Allowed on one database in a subscription.
      */
-    useFreeLimit?: pulumi.Input<boolean | undefined>;
+    useFreeLimit?: pulumi.Input<boolean>;
     /**
      * Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
      */
-    zoneRedundant?: pulumi.Input<boolean | undefined>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

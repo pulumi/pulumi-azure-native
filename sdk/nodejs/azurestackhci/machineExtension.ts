@@ -159,19 +159,19 @@ export interface MachineExtensionArgs {
     /**
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
-    autoUpgradeMinorVersion?: pulumi.Input<boolean | undefined>;
+    autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
      * The name of the machine extension.
      */
-    extensionName?: pulumi.Input<string | undefined>;
+    extensionName?: pulumi.Input<string>;
     /**
      * How the extension handler should be forced to update even if the extension configuration has not changed.
      */
-    forceUpdateTag?: pulumi.Input<string | undefined>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * The location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the machine where the extension should be created or updated.
      */
@@ -179,11 +179,11 @@ export interface MachineExtensionArgs {
     /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    protectedSettings?: any | undefined;
+    protectedSettings?: any;
     /**
      * The name of the extension handler publisher.
      */
-    publisher?: pulumi.Input<string | undefined>;
+    publisher?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -191,17 +191,17 @@ export interface MachineExtensionArgs {
     /**
      * Json formatted public settings for the extension.
      */
-    settings?: any | undefined;
+    settings?: any;
     /**
      * The Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the type of the extension; an example is "CustomScriptExtension".
      */
-    type?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string>;
     /**
      * Specifies the version of the script handler.
      */
-    typeHandlerVersion?: pulumi.Input<string | undefined>;
+    typeHandlerVersion?: pulumi.Input<string>;
 }

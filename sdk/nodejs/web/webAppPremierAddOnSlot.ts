@@ -144,19 +144,19 @@ export interface WebAppPremierAddOnSlotArgs {
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Premier add on Marketplace offer.
      */
-    marketplaceOffer?: pulumi.Input<string | undefined>;
+    marketplaceOffer?: pulumi.Input<string>;
     /**
      * Premier add on Marketplace publisher.
      */
-    marketplacePublisher?: pulumi.Input<string | undefined>;
+    marketplacePublisher?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
@@ -164,11 +164,11 @@ export interface WebAppPremierAddOnSlotArgs {
     /**
      * Add-on name.
      */
-    premierAddOnName?: pulumi.Input<string | undefined>;
+    premierAddOnName?: pulumi.Input<string>;
     /**
      * Premier add on Product.
      */
-    product?: pulumi.Input<string | undefined>;
+    product?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -176,7 +176,7 @@ export interface WebAppPremierAddOnSlotArgs {
     /**
      * Premier add on SKU.
      */
-    sku?: pulumi.Input<string | undefined>;
+    sku?: pulumi.Input<string>;
     /**
      * Name of the deployment slot. If a slot is not specified, the API will update the named add-on for the production slot.
      */
@@ -184,9 +184,9 @@ export interface WebAppPremierAddOnSlotArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Premier add on Vendor.
      */
-    vendor?: pulumi.Input<string | undefined>;
+    vendor?: pulumi.Input<string>;
 }

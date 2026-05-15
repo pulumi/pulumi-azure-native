@@ -128,11 +128,11 @@ export interface CodeSigningAccountArgs {
     /**
      * Artifact Signing account name.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,9 +140,9 @@ export interface CodeSigningAccountArgs {
     /**
      * SKU of the artifact signing account.
      */
-    sku?: pulumi.Input<inputs.codesigning.AccountSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.codesigning.AccountSkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

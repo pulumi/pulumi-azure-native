@@ -143,7 +143,7 @@ export interface GetVirtualMachineScaleSetVMExtensionOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The instance ID of the virtual machine.
      */

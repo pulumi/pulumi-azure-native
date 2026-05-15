@@ -116,11 +116,11 @@ export interface LoadTestMappingArgs {
     /**
      * Mapped Azure Load Test resource Id.
      */
-    azureLoadTestingResourceId?: pulumi.Input<string | undefined>;
+    azureLoadTestingResourceId?: pulumi.Input<string>;
     /**
      * Load Test Mapping name
      */
-    loadTestMappingName?: pulumi.Input<string | undefined>;
+    loadTestMappingName?: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -128,9 +128,9 @@ export interface LoadTestMappingArgs {
     /**
      * Mapped source resource Id.
      */
-    sourceResourceId?: pulumi.Input<string | undefined>;
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * Mapped Azure Load Test resource test-id.
      */
-    testId?: pulumi.Input<string | undefined>;
+    testId?: pulumi.Input<string>;
 }

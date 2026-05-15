@@ -25,7 +25,7 @@ class PatchScheduleArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  schedule_entries: pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]],
-                 default: pulumi.Input[Optional[_builtins.str]] = None):
+                 default: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PatchSchedule resource.
 
@@ -78,14 +78,14 @@ class PatchScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def default(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def default(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the RedisPatchSchedule
         """
         return pulumi.get(self, "default")
 
     @default.setter
-    def default(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def default(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "default", value)
 
 
@@ -95,10 +95,10 @@ class PatchSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]]] = None,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]]] = None,
                  __props__=None):
         """
         Response to put/get patch schedules for Redis cache.
@@ -144,10 +144,10 @@ class PatchSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 default: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule_entries: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]]] = None,
+                 default: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schedule_entries: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

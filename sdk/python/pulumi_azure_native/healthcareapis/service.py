@@ -24,11 +24,11 @@ class ServiceArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input['Kind'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: pulumi.Input[Optional['ServicesResourceIdentityArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['ServicesPropertiesArgs']] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: Optional[pulumi.Input['ServicesResourceIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['ServicesPropertiesArgs']] = None,
+                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -79,62 +79,62 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['ServicesResourceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ServicesResourceIdentityArgs']]:
         """
         Setting indicating whether the service has a managed identity associated with it.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['ServicesResourceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ServicesResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['ServicesPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ServicesPropertiesArgs']]:
         """
         The common properties of a service.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['ServicesPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ServicesPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the service instance.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         The resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,13 +144,13 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['ServicesResourceIdentityArgs', 'ServicesResourceIdentityArgsDict']]] = None,
-                 kind: pulumi.Input[Optional['Kind']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ServicesPropertiesArgs', 'ServicesPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ServicesResourceIdentityArgs', 'ServicesResourceIdentityArgsDict']]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ServicesPropertiesArgs', 'ServicesPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The description of the service.
@@ -199,13 +199,13 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['ServicesResourceIdentityArgs', 'ServicesResourceIdentityArgsDict']]] = None,
-                 kind: pulumi.Input[Optional['Kind']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ServicesPropertiesArgs', 'ServicesPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ServicesResourceIdentityArgs', 'ServicesResourceIdentityArgsDict']]] = None,
+                 kind: Optional[pulumi.Input['Kind']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ServicesPropertiesArgs', 'ServicesPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

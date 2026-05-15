@@ -143,11 +143,11 @@ export interface NetworkRackArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string | undefined>;
+    annotation?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * ARM resource ID of the Network Fabric.
      */
@@ -155,11 +155,11 @@ export interface NetworkRackArgs {
     /**
      * Name of the Network Rack.
      */
-    networkRackName?: pulumi.Input<string | undefined>;
+    networkRackName?: pulumi.Input<string>;
     /**
      * Network Rack SKU name.
      */
-    networkRackType?: pulumi.Input<string | enums.managednetworkfabric.NetworkRackType | undefined>;
+    networkRackType?: pulumi.Input<string | enums.managednetworkfabric.NetworkRackType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -167,5 +167,5 @@ export interface NetworkRackArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

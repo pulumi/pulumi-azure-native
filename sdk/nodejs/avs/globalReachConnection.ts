@@ -143,21 +143,21 @@ export interface GlobalReachConnectionArgs {
      * Authorization key from the peer express route used for the global reach
      * connection
      */
-    authorizationKey?: pulumi.Input<string | undefined>;
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the
      * global reach connection
      */
-    expressRouteId?: pulumi.Input<string | undefined>;
+    expressRouteId?: pulumi.Input<string>;
     /**
      * Name of the global reach connection
      */
-    globalReachConnectionName?: pulumi.Input<string | undefined>;
+    globalReachConnectionName?: pulumi.Input<string>;
     /**
      * Identifier of the ExpressRoute Circuit to peer with in the global reach
      * connection
      */
-    peerExpressRouteCircuit?: pulumi.Input<string | undefined>;
+    peerExpressRouteCircuit?: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */

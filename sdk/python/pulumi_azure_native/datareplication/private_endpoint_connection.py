@@ -24,8 +24,8 @@ class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['PrivateEndpointConnectionResponsePropertiesArgs']] = None):
+                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['PrivateEndpointConnectionResponsePropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
@@ -67,26 +67,26 @@ class PrivateEndpointConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def private_endpoint_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The private endpoint connection name.
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
     @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def private_endpoint_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['PrivateEndpointConnectionResponsePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['PrivateEndpointConnectionResponsePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['PrivateEndpointConnectionResponsePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['PrivateEndpointConnectionResponsePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['PrivateEndpointConnectionResponsePropertiesArgs', 'PrivateEndpointConnectionResponsePropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['PrivateEndpointConnectionResponsePropertiesArgs', 'PrivateEndpointConnectionResponsePropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Represents private endpoint connection.
@@ -141,10 +141,10 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['PrivateEndpointConnectionResponsePropertiesArgs', 'PrivateEndpointConnectionResponsePropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['PrivateEndpointConnectionResponsePropertiesArgs', 'PrivateEndpointConnectionResponsePropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -80,7 +80,7 @@ export class ConfigurationService extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             resourceInputs["configurationServiceName"] = args?.configurationServiceName;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.appplatform.configurationServicePropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.configurationServicePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -108,11 +108,11 @@ export interface ConfigurationServiceArgs {
     /**
      * The name of Application Configuration Service.
      */
-    configurationServiceName?: pulumi.Input<string | undefined>;
+    configurationServiceName?: pulumi.Input<string>;
     /**
      * Application Configuration Service properties payload
      */
-    properties?: pulumi.Input<inputs.appplatform.ConfigurationServicePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.appplatform.ConfigurationServicePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

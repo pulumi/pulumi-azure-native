@@ -184,15 +184,15 @@ export interface IntegrationServiceEnvironmentManagedApiArgs {
     /**
      * The api name.
      */
-    apiName?: pulumi.Input<string | undefined>;
+    apiName?: pulumi.Input<string>;
     /**
      * The integration service environment managed api deployment parameters.
      */
-    deploymentParameters?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs | undefined>;
+    deploymentParameters?: pulumi.Input<inputs.logic.IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs>;
     /**
      * The integration service environment reference.
      */
-    integrationServiceEnvironment?: pulumi.Input<inputs.logic.ResourceReferenceArgs | undefined>;
+    integrationServiceEnvironment?: pulumi.Input<inputs.logic.ResourceReferenceArgs>;
     /**
      * The integration service environment name.
      */
@@ -200,7 +200,7 @@ export interface IntegrationServiceEnvironmentManagedApiArgs {
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
@@ -208,5 +208,5 @@ export interface IntegrationServiceEnvironmentManagedApiArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

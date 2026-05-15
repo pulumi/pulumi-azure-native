@@ -85,8 +85,8 @@ def list_skus_by_project(project_name: Optional[_builtins.str] = None,
     return AwaitableListSkusByProjectResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_skus_by_project_output(project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_skus_by_project_output(project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSkusByProjectResult]:
     """
     Lists SKUs available to the project

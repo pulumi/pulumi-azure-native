@@ -157,11 +157,11 @@ export interface UserArgs {
     /**
      * Determines the type of application which send the create user request. Default is legacy portal.
      */
-    appType?: pulumi.Input<string | enums.apimanagement.AppType | undefined>;
+    appType?: pulumi.Input<string | enums.apimanagement.AppType>;
     /**
      * Determines the type of confirmation e-mail that will be sent to the newly created user.
      */
-    confirmation?: pulumi.Input<string | enums.apimanagement.Confirmation | undefined>;
+    confirmation?: pulumi.Input<string | enums.apimanagement.Confirmation>;
     /**
      * Email address. Must not be empty and must be unique within the service instance.
      */
@@ -173,7 +173,7 @@ export interface UserArgs {
     /**
      * Collection of user identities.
      */
-    identities?: pulumi.Input<pulumi.Input<inputs.apimanagement.UserIdentityContractArgs>[] | undefined>;
+    identities?: pulumi.Input<pulumi.Input<inputs.apimanagement.UserIdentityContractArgs>[]>;
     /**
      * Last name.
      */
@@ -181,15 +181,15 @@ export interface UserArgs {
     /**
      * Optional note about a user set by the administrator.
      */
-    note?: pulumi.Input<string | undefined>;
+    note?: pulumi.Input<string>;
     /**
      * Send an Email notification to the User.
      */
-    notify?: pulumi.Input<boolean | undefined>;
+    notify?: pulumi.Input<boolean>;
     /**
      * User Password. If no value is provided, a default password is generated.
      */
-    password?: pulumi.Input<string | undefined>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -201,9 +201,9 @@ export interface UserArgs {
     /**
      * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
      */
-    state?: pulumi.Input<string | enums.apimanagement.UserState | undefined>;
+    state?: pulumi.Input<string | enums.apimanagement.UserState>;
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */
-    userId?: pulumi.Input<string | undefined>;
+    userId?: pulumi.Input<string>;
 }

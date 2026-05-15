@@ -111,11 +111,11 @@ export interface AccountArgs {
     /**
      * Account Name
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string>;
     /**
      * The location of the resource
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Group Name
      */
@@ -127,5 +127,5 @@ export interface AccountArgs {
     /**
      * The tags of the resource
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -143,11 +143,11 @@ export interface GraphQueryArgs {
     /**
      * The description of a graph query.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The location of the resource
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * KQL query that will be graph.
      */
@@ -159,9 +159,9 @@ export interface GraphQueryArgs {
     /**
      * The name of the Graph Query resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

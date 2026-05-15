@@ -120,11 +120,11 @@ export interface SpaceArgs {
     /**
      * The description of the resource.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,9 +132,9 @@ export interface SpaceArgs {
     /**
      * The name of the space
      */
-    spaceName?: pulumi.Input<string | undefined>;
+    spaceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

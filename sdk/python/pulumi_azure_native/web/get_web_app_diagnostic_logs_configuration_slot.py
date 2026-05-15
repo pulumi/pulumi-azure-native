@@ -179,9 +179,9 @@ def get_web_app_diagnostic_logs_configuration_slot(name: Optional[_builtins.str]
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_diagnostic_logs_configuration_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          slot: pulumi.Input[Optional[_builtins.str]] = None,
+def get_web_app_diagnostic_logs_configuration_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                          slot: Optional[pulumi.Input[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppDiagnosticLogsConfigurationSlotResult]:
     """
     Description for Gets the logging configuration of an app.

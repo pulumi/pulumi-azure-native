@@ -190,9 +190,9 @@ def get_governance_assignment(assessment_name: Optional[_builtins.str] = None,
         remediation_due_date=pulumi.get(__ret__, 'remediation_due_date'),
         remediation_eta=pulumi.get(__ret__, 'remediation_eta'),
         type=pulumi.get(__ret__, 'type'))
-def get_governance_assignment_output(assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     assignment_key: pulumi.Input[Optional[_builtins.str]] = None,
-                                     scope: pulumi.Input[Optional[_builtins.str]] = None,
+def get_governance_assignment_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     assignment_key: Optional[pulumi.Input[_builtins.str]] = None,
+                                     scope: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGovernanceAssignmentResult]:
     """
     Get a specific governanceAssignment for the requested scope by AssignmentKey

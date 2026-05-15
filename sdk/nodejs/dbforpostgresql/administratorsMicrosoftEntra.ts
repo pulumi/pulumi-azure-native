@@ -125,15 +125,15 @@ export interface AdministratorsMicrosoftEntraArgs {
     /**
      * Object identifier of the Microsoft Entra principal.
      */
-    objectId?: pulumi.Input<string | undefined>;
+    objectId?: pulumi.Input<string>;
     /**
      * Name of the Microsoft Entra principal.
      */
-    principalName?: pulumi.Input<string | undefined>;
+    principalName?: pulumi.Input<string>;
     /**
      * Type of Microsoft Entra principal to which the server administrator is associated.
      */
-    principalType?: pulumi.Input<string | enums.dbforpostgresql.PrincipalType | undefined>;
+    principalType?: pulumi.Input<string | enums.dbforpostgresql.PrincipalType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -145,5 +145,5 @@ export interface AdministratorsMicrosoftEntraArgs {
     /**
      * Identifier of the tenant in which the Microsoft Entra principal exists.
      */
-    tenantId?: pulumi.Input<string | undefined>;
+    tenantId?: pulumi.Input<string>;
 }

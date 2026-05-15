@@ -151,7 +151,7 @@ export class Task extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["taskName"] = args?.taskName;
             resourceInputs["timeout"] = (args?.timeout) ?? 3600;
-            resourceInputs["trigger"] = args ? pulumi.output(args.trigger).apply(v => v === undefined ? undefined : inputs.containerregistry.triggerPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["trigger"] = args ? (args.trigger ? pulumi.output(args.trigger).apply(inputs.containerregistry.triggerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -193,35 +193,35 @@ export interface TaskArgs {
     /**
      * The machine configuration of the run agent.
      */
-    agentConfiguration?: pulumi.Input<inputs.containerregistry.AgentPropertiesArgs | undefined>;
+    agentConfiguration?: pulumi.Input<inputs.containerregistry.AgentPropertiesArgs>;
     /**
      * The dedicated agent pool for the task.
      */
-    agentPoolName?: pulumi.Input<string | undefined>;
+    agentPoolName?: pulumi.Input<string>;
     /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
-    credentials?: pulumi.Input<inputs.containerregistry.CredentialsArgs | undefined>;
+    credentials?: pulumi.Input<inputs.containerregistry.CredentialsArgs>;
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs | undefined>;
+    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
     /**
      * The value of this property indicates whether the task resource is system task or not.
      */
-    isSystemTask?: pulumi.Input<boolean | undefined>;
+    isSystemTask?: pulumi.Input<boolean>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The template that describes the repository and tag information for run log artifact.
      */
-    logTemplate?: pulumi.Input<string | undefined>;
+    logTemplate?: pulumi.Input<string>;
     /**
      * The platform properties against which the run has to happen.
      */
-    platform?: pulumi.Input<inputs.containerregistry.PlatformPropertiesArgs | undefined>;
+    platform?: pulumi.Input<inputs.containerregistry.PlatformPropertiesArgs>;
     /**
      * The name of the container registry.
      */
@@ -233,25 +233,25 @@ export interface TaskArgs {
     /**
      * The current status of task.
      */
-    status?: pulumi.Input<string | enums.containerregistry.TaskStatus | undefined>;
+    status?: pulumi.Input<string | enums.containerregistry.TaskStatus>;
     /**
      * The properties of a task step.
      */
-    step?: pulumi.Input<inputs.containerregistry.DockerBuildStepArgs | inputs.containerregistry.EncodedTaskStepArgs | inputs.containerregistry.FileTaskStepArgs | undefined>;
+    step?: pulumi.Input<inputs.containerregistry.DockerBuildStepArgs | inputs.containerregistry.EncodedTaskStepArgs | inputs.containerregistry.FileTaskStepArgs>;
     /**
      * The tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the container registry task.
      */
-    taskName?: pulumi.Input<string | undefined>;
+    taskName?: pulumi.Input<string>;
     /**
      * Run timeout in seconds.
      */
-    timeout?: pulumi.Input<number | undefined>;
+    timeout?: pulumi.Input<number>;
     /**
      * The properties that describe all triggers for the task.
      */
-    trigger?: pulumi.Input<inputs.containerregistry.TriggerPropertiesArgs | undefined>;
+    trigger?: pulumi.Input<inputs.containerregistry.TriggerPropertiesArgs>;
 }

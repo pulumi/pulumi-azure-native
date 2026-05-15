@@ -269,64 +269,64 @@ export interface AppServicePlanArgs {
      * If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
      * If <code>false</code>, this App Service Plan will only attempt sync scaling.
      */
-    asyncScalingEnabled?: pulumi.Input<boolean | undefined>;
+    asyncScalingEnabled?: pulumi.Input<boolean>;
     /**
      * ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
      */
-    elasticScaleEnabled?: pulumi.Input<boolean | undefined>;
+    elasticScaleEnabled?: pulumi.Input<boolean>;
     /**
      * Extended Location.
      */
-    extendedLocation?: pulumi.Input<inputs.web.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.web.ExtendedLocationArgs>;
     /**
      * The time when the server farm free offer expires.
      */
-    freeOfferExpirationTime?: pulumi.Input<string | undefined>;
+    freeOfferExpirationTime?: pulumi.Input<string>;
     /**
      * Specification for the App Service Environment to use for the App Service plan.
      */
-    hostingEnvironmentProfile?: pulumi.Input<inputs.web.HostingEnvironmentProfileArgs | undefined>;
+    hostingEnvironmentProfile?: pulumi.Input<inputs.web.HostingEnvironmentProfileArgs>;
     /**
      * If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
      */
-    hyperV?: pulumi.Input<boolean | undefined>;
+    hyperV?: pulumi.Input<boolean>;
     /**
      * If <code>true</code>, this App Service Plan owns spot instances.
      */
-    isSpot?: pulumi.Input<boolean | undefined>;
+    isSpot?: pulumi.Input<boolean>;
     /**
      * Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
      */
-    isXenon?: pulumi.Input<boolean | undefined>;
+    isXenon?: pulumi.Input<boolean>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Specification for the Kubernetes Environment to use for the App Service plan.
      */
-    kubeEnvironmentProfile?: pulumi.Input<inputs.web.KubeEnvironmentProfileArgs | undefined>;
+    kubeEnvironmentProfile?: pulumi.Input<inputs.web.KubeEnvironmentProfileArgs>;
     /**
      * Resource Location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
      */
-    maximumElasticWorkerCount?: pulumi.Input<number | undefined>;
+    maximumElasticWorkerCount?: pulumi.Input<number>;
     /**
      * Name of the App Service plan.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
      * If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
      */
-    perSiteScaling?: pulumi.Input<boolean | undefined>;
+    perSiteScaling?: pulumi.Input<boolean>;
     /**
      * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
      */
-    reserved?: pulumi.Input<boolean | undefined>;
+    reserved?: pulumi.Input<boolean>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -334,30 +334,30 @@ export interface AppServicePlanArgs {
     /**
      * Description of a SKU for a scalable resource.
      */
-    sku?: pulumi.Input<inputs.web.SkuDescriptionArgs | undefined>;
+    sku?: pulumi.Input<inputs.web.SkuDescriptionArgs>;
     /**
      * The time when the server farm expires. Valid only if it is a spot server farm.
      */
-    spotExpirationTime?: pulumi.Input<string | undefined>;
+    spotExpirationTime?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Scaling worker count.
      */
-    targetWorkerCount?: pulumi.Input<number | undefined>;
+    targetWorkerCount?: pulumi.Input<number>;
     /**
      * Scaling worker size ID.
      */
-    targetWorkerSizeId?: pulumi.Input<number | undefined>;
+    targetWorkerSizeId?: pulumi.Input<number>;
     /**
      * Target worker tier assigned to the App Service plan.
      */
-    workerTierName?: pulumi.Input<string | undefined>;
+    workerTierName?: pulumi.Input<string>;
     /**
      * If <code>true</code>, this App Service Plan will perform availability zone balancing.
      * If <code>false</code>, this App Service Plan will not perform availability zone balancing.
      */
-    zoneRedundant?: pulumi.Input<boolean | undefined>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

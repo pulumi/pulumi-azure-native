@@ -188,37 +188,37 @@ export interface ScalingPlanArgs {
     /**
      * Description of scaling plan.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Exclusion tag for scaling plan.
      */
-    exclusionTag?: pulumi.Input<string | undefined>;
+    exclusionTag?: pulumi.Input<string>;
     /**
      * User friendly name of scaling plan.
      */
-    friendlyName?: pulumi.Input<string | undefined>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * List of ScalingHostPoolReference definitions.
      */
-    hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingHostPoolReferenceArgs>[] | undefined>;
+    hostPoolReferences?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingHostPoolReferenceArgs>[]>;
     /**
      * HostPool type for desktop.
      */
-    hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.ScalingHostPoolType | undefined>;
-    identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs | undefined>;
+    hostPoolType?: pulumi.Input<string | enums.desktopvirtualization.ScalingHostPoolType>;
+    identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    managedBy?: pulumi.Input<string | undefined>;
-    plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs | undefined>;
+    managedBy?: pulumi.Input<string>;
+    plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -226,16 +226,16 @@ export interface ScalingPlanArgs {
     /**
      * The name of the scaling plan.
      */
-    scalingPlanName?: pulumi.Input<string | undefined>;
+    scalingPlanName?: pulumi.Input<string>;
     /**
      * List of ScalingPlanPooledSchedule definitions.
      */
-    schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingScheduleArgs>[] | undefined>;
-    sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs | undefined>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.ScalingScheduleArgs>[]>;
+    sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Timezone of the scaling plan.
      */

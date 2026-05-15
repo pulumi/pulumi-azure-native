@@ -144,19 +144,19 @@ export interface RuleArgs {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.DeliveryRuleRouteConfigurationOverrideActionArgs | inputs.cdn.OriginGroupOverrideActionArgs | inputs.cdn.UrlRedirectActionArgs | inputs.cdn.UrlRewriteActionArgs | inputs.cdn.UrlSigningActionArgs>[] | undefined>;
+    actions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.DeliveryRuleRouteConfigurationOverrideActionArgs | inputs.cdn.OriginGroupOverrideActionArgs | inputs.cdn.UrlRedirectActionArgs | inputs.cdn.UrlRewriteActionArgs | inputs.cdn.UrlSigningActionArgs>[]>;
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleClientPortConditionArgs | inputs.cdn.DeliveryRuleCookiesConditionArgs | inputs.cdn.DeliveryRuleHostNameConditionArgs | inputs.cdn.DeliveryRuleHttpVersionConditionArgs | inputs.cdn.DeliveryRuleIsDeviceConditionArgs | inputs.cdn.DeliveryRulePostArgsConditionArgs | inputs.cdn.DeliveryRuleQueryStringConditionArgs | inputs.cdn.DeliveryRuleRemoteAddressConditionArgs | inputs.cdn.DeliveryRuleRequestBodyConditionArgs | inputs.cdn.DeliveryRuleRequestHeaderConditionArgs | inputs.cdn.DeliveryRuleRequestMethodConditionArgs | inputs.cdn.DeliveryRuleRequestSchemeConditionArgs | inputs.cdn.DeliveryRuleRequestUriConditionArgs | inputs.cdn.DeliveryRuleServerPortConditionArgs | inputs.cdn.DeliveryRuleSocketAddrConditionArgs | inputs.cdn.DeliveryRuleSslProtocolConditionArgs | inputs.cdn.DeliveryRuleUrlFileExtensionConditionArgs | inputs.cdn.DeliveryRuleUrlFileNameConditionArgs | inputs.cdn.DeliveryRuleUrlPathConditionArgs>[] | undefined>;
+    conditions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleClientPortConditionArgs | inputs.cdn.DeliveryRuleCookiesConditionArgs | inputs.cdn.DeliveryRuleHostNameConditionArgs | inputs.cdn.DeliveryRuleHttpVersionConditionArgs | inputs.cdn.DeliveryRuleIsDeviceConditionArgs | inputs.cdn.DeliveryRulePostArgsConditionArgs | inputs.cdn.DeliveryRuleQueryStringConditionArgs | inputs.cdn.DeliveryRuleRemoteAddressConditionArgs | inputs.cdn.DeliveryRuleRequestBodyConditionArgs | inputs.cdn.DeliveryRuleRequestHeaderConditionArgs | inputs.cdn.DeliveryRuleRequestMethodConditionArgs | inputs.cdn.DeliveryRuleRequestSchemeConditionArgs | inputs.cdn.DeliveryRuleRequestUriConditionArgs | inputs.cdn.DeliveryRuleServerPortConditionArgs | inputs.cdn.DeliveryRuleSocketAddrConditionArgs | inputs.cdn.DeliveryRuleSslProtocolConditionArgs | inputs.cdn.DeliveryRuleUrlFileExtensionConditionArgs | inputs.cdn.DeliveryRuleUrlFileNameConditionArgs | inputs.cdn.DeliveryRuleUrlPathConditionArgs>[]>;
     /**
      * If this rule is a match should the rules engine continue running the remaining rules or stop. If not present, defaults to Continue.
      */
-    matchProcessingBehavior?: pulumi.Input<string | enums.cdn.MatchProcessingBehavior | undefined>;
+    matchProcessingBehavior?: pulumi.Input<string | enums.cdn.MatchProcessingBehavior>;
     /**
      * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
      */
-    order?: pulumi.Input<number | undefined>;
+    order?: pulumi.Input<number>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -168,7 +168,7 @@ export interface RuleArgs {
     /**
      * Name of the delivery rule which is unique within the endpoint.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName?: pulumi.Input<string>;
     /**
      * Name of the rule set under the profile which is unique globally.
      */

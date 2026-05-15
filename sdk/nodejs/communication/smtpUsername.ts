@@ -141,7 +141,7 @@ export interface SmtpUsernameArgs {
     /**
      * The name of the SmtpUsernameResource.
      */
-    smtpUsername?: pulumi.Input<string | undefined>;
+    smtpUsername?: pulumi.Input<string>;
     /**
      * The tenant of the linked Entra Application.
      */

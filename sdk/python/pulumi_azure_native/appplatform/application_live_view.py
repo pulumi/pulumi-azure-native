@@ -22,7 +22,7 @@ class ApplicationLiveViewArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 application_live_view_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 application_live_view_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApplicationLiveView resource.
 
@@ -61,14 +61,14 @@ class ApplicationLiveViewArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationLiveViewName")
-    def application_live_view_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def application_live_view_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of Application Live View.
         """
         return pulumi.get(self, "application_live_view_name")
 
     @application_live_view_name.setter
-    def application_live_view_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def application_live_view_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "application_live_view_name", value)
 
 
@@ -78,9 +78,9 @@ class ApplicationLiveView(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_live_view_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_live_view_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Application Live View resource
@@ -125,9 +125,9 @@ class ApplicationLiveView(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_live_view_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_live_view_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -293,14 +293,14 @@ export class AgentPool extends pulumi.CustomResource {
             resourceInputs["enableFIPS"] = args?.enableFIPS;
             resourceInputs["enableNodePublicIP"] = args?.enableNodePublicIP;
             resourceInputs["enableUltraSSD"] = args?.enableUltraSSD;
-            resourceInputs["gatewayProfile"] = args ? pulumi.output(args.gatewayProfile).apply(v => v === undefined ? undefined : inputs.containerservice.agentPoolGatewayProfileArgsProvideDefaults(v)) : undefined;
+            resourceInputs["gatewayProfile"] = args ? (args.gatewayProfile ? pulumi.output(args.gatewayProfile).apply(inputs.containerservice.agentPoolGatewayProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["gpuInstanceProfile"] = args?.gpuInstanceProfile;
             resourceInputs["gpuProfile"] = args?.gpuProfile;
             resourceInputs["hostGroupID"] = args?.hostGroupID;
             resourceInputs["kubeletConfig"] = args?.kubeletConfig;
             resourceInputs["kubeletDiskType"] = args?.kubeletDiskType;
             resourceInputs["linuxOSConfig"] = args?.linuxOSConfig;
-            resourceInputs["localDNSProfile"] = args ? pulumi.output(args.localDNSProfile).apply(v => v === undefined ? undefined : inputs.containerservice.localDNSProfileArgsProvideDefaults(v)) : undefined;
+            resourceInputs["localDNSProfile"] = args ? (args.localDNSProfile ? pulumi.output(args.localDNSProfile).apply(inputs.containerservice.localDNSProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["maxCount"] = args?.maxCount;
             resourceInputs["maxPods"] = args?.maxPods;
             resourceInputs["messageOfTheDay"] = args?.messageOfTheDay;
@@ -414,147 +414,147 @@ export interface AgentPoolArgs {
     /**
      * The name of the agent pool.
      */
-    agentPoolName?: pulumi.Input<string | undefined>;
+    agentPoolName?: pulumi.Input<string>;
     /**
      * The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * AKS will associate the specified agent pool with the Capacity Reservation Group.
      */
-    capacityReservationGroupID?: pulumi.Input<string | undefined>;
+    capacityReservationGroupID?: pulumi.Input<string>;
     /**
      * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
      */
-    count?: pulumi.Input<number | undefined>;
+    count?: pulumi.Input<number>;
     /**
      * CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
      */
-    creationData?: pulumi.Input<inputs.containerservice.CreationDataArgs | undefined>;
+    creationData?: pulumi.Input<inputs.containerservice.CreationDataArgs>;
     /**
      * Whether to enable auto-scaler
      */
-    enableAutoScaling?: pulumi.Input<boolean | undefined>;
+    enableAutoScaling?: pulumi.Input<boolean>;
     /**
      * Whether to enable host based OS and data drive encryption. This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
      */
-    enableEncryptionAtHost?: pulumi.Input<boolean | undefined>;
+    enableEncryptionAtHost?: pulumi.Input<boolean>;
     /**
      * Whether to use a FIPS-enabled OS. See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
      */
-    enableFIPS?: pulumi.Input<boolean | undefined>;
+    enableFIPS?: pulumi.Input<boolean>;
     /**
      * Whether each node is allocated its own public IP. Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
      */
-    enableNodePublicIP?: pulumi.Input<boolean | undefined>;
+    enableNodePublicIP?: pulumi.Input<boolean>;
     /**
      * Whether to enable UltraSSD
      */
-    enableUltraSSD?: pulumi.Input<boolean | undefined>;
+    enableUltraSSD?: pulumi.Input<boolean>;
     /**
      * Profile specific to a managed agent pool in Gateway mode. This field cannot be set if agent pool mode is not Gateway.
      */
-    gatewayProfile?: pulumi.Input<inputs.containerservice.AgentPoolGatewayProfileArgs | undefined>;
+    gatewayProfile?: pulumi.Input<inputs.containerservice.AgentPoolGatewayProfileArgs>;
     /**
      * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
      */
-    gpuInstanceProfile?: pulumi.Input<string | enums.containerservice.GPUInstanceProfile | undefined>;
+    gpuInstanceProfile?: pulumi.Input<string | enums.containerservice.GPUInstanceProfile>;
     /**
      * GPU settings for the Agent Pool.
      */
-    gpuProfile?: pulumi.Input<inputs.containerservice.GPUProfileArgs | undefined>;
+    gpuProfile?: pulumi.Input<inputs.containerservice.GPUProfileArgs>;
     /**
      * The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from, used only in creation scenario and not allowed to changed once set. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
      */
-    hostGroupID?: pulumi.Input<string | undefined>;
+    hostGroupID?: pulumi.Input<string>;
     /**
      * The Kubelet configuration on the agent pool nodes.
      */
-    kubeletConfig?: pulumi.Input<inputs.containerservice.KubeletConfigArgs | undefined>;
+    kubeletConfig?: pulumi.Input<inputs.containerservice.KubeletConfigArgs>;
     /**
      * Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
      */
-    kubeletDiskType?: pulumi.Input<string | enums.containerservice.KubeletDiskType | undefined>;
+    kubeletDiskType?: pulumi.Input<string | enums.containerservice.KubeletDiskType>;
     /**
      * The OS configuration of Linux agent nodes.
      */
-    linuxOSConfig?: pulumi.Input<inputs.containerservice.LinuxOSConfigArgs | undefined>;
+    linuxOSConfig?: pulumi.Input<inputs.containerservice.LinuxOSConfigArgs>;
     /**
      * Configures the per-node local DNS, with VnetDNS and KubeDNS overrides. LocalDNS helps improve performance and reliability of DNS resolution in an AKS cluster. For more details see aka.ms/aks/localdns.
      */
-    localDNSProfile?: pulumi.Input<inputs.containerservice.LocalDNSProfileArgs | undefined>;
+    localDNSProfile?: pulumi.Input<inputs.containerservice.LocalDNSProfileArgs>;
     /**
      * The maximum number of nodes for auto-scaling
      */
-    maxCount?: pulumi.Input<number | undefined>;
+    maxCount?: pulumi.Input<number>;
     /**
      * The maximum number of pods that can run on a node.
      */
-    maxPods?: pulumi.Input<number | undefined>;
+    maxPods?: pulumi.Input<number>;
     /**
      * Message of the day for Linux nodes, base64-encoded. A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
      */
-    messageOfTheDay?: pulumi.Input<string | undefined>;
+    messageOfTheDay?: pulumi.Input<string>;
     /**
      * The minimum number of nodes for auto-scaling
      */
-    minCount?: pulumi.Input<number | undefined>;
+    minCount?: pulumi.Input<number>;
     /**
      * The mode of an agent pool. A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
      */
-    mode?: pulumi.Input<string | enums.containerservice.AgentPoolMode | undefined>;
+    mode?: pulumi.Input<string | enums.containerservice.AgentPoolMode>;
     /**
      * Network-related settings of an agent pool.
      */
-    networkProfile?: pulumi.Input<inputs.containerservice.AgentPoolNetworkProfileArgs | undefined>;
+    networkProfile?: pulumi.Input<inputs.containerservice.AgentPoolNetworkProfileArgs>;
     /**
      * The node labels to be persisted across all nodes in agent pool.
      */
-    nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    nodeLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The public IP prefix ID which VM nodes should use IPs from. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
      */
-    nodePublicIPPrefixID?: pulumi.Input<string | undefined>;
+    nodePublicIPPrefixID?: pulumi.Input<string>;
     /**
      * The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */
-    nodeTaints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The version of Kubernetes specified by the user. Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
      */
-    orchestratorVersion?: pulumi.Input<string | undefined>;
+    orchestratorVersion?: pulumi.Input<string>;
     /**
      * OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
      */
-    osDiskSizeGB?: pulumi.Input<number | undefined>;
+    osDiskSizeGB?: pulumi.Input<number>;
     /**
      * The OS disk type to be used for machines in the agent pool. The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
      */
-    osDiskType?: pulumi.Input<string | enums.containerservice.OSDiskType | undefined>;
+    osDiskType?: pulumi.Input<string | enums.containerservice.OSDiskType>;
     /**
      * Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
      */
-    osSKU?: pulumi.Input<string | enums.containerservice.OSSKU | undefined>;
+    osSKU?: pulumi.Input<string | enums.containerservice.OSSKU>;
     /**
      * The operating system type. The default is Linux.
      */
-    osType?: pulumi.Input<string | enums.containerservice.OSType | undefined>;
+    osType?: pulumi.Input<string | enums.containerservice.OSType>;
     /**
      * Pod IP Allocation Mode. The IP allocation mode for pods in the agent pool. Must be used with podSubnetId. The default is 'DynamicIndividual'.
      */
-    podIPAllocationMode?: pulumi.Input<string | enums.containerservice.PodIPAllocationMode | undefined>;
+    podIPAllocationMode?: pulumi.Input<string | enums.containerservice.PodIPAllocationMode>;
     /**
      * The ID of the subnet which pods will join when launched. If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
      */
-    podSubnetID?: pulumi.Input<string | undefined>;
+    podSubnetID?: pulumi.Input<string>;
     /**
      * Whether the Agent Pool is running or stopped. When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
      */
-    powerState?: pulumi.Input<inputs.containerservice.PowerStateArgs | undefined>;
+    powerState?: pulumi.Input<inputs.containerservice.PowerStateArgs>;
     /**
      * The ID for Proximity Placement Group.
      */
-    proximityPlacementGroupID?: pulumi.Input<string | undefined>;
+    proximityPlacementGroupID?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -566,57 +566,57 @@ export interface AgentPoolArgs {
     /**
      * The scale down mode to use when scaling the Agent Pool. This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
      */
-    scaleDownMode?: pulumi.Input<string | enums.containerservice.ScaleDownMode | undefined>;
+    scaleDownMode?: pulumi.Input<string | enums.containerservice.ScaleDownMode>;
     /**
      * The Virtual Machine Scale Set eviction policy to use. This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
      */
-    scaleSetEvictionPolicy?: pulumi.Input<string | enums.containerservice.ScaleSetEvictionPolicy | undefined>;
+    scaleSetEvictionPolicy?: pulumi.Input<string | enums.containerservice.ScaleSetEvictionPolicy>;
     /**
      * The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
      */
-    scaleSetPriority?: pulumi.Input<string | enums.containerservice.ScaleSetPriority | undefined>;
+    scaleSetPriority?: pulumi.Input<string | enums.containerservice.ScaleSetPriority>;
     /**
      * The security settings of an agent pool.
      */
-    securityProfile?: pulumi.Input<inputs.containerservice.AgentPoolSecurityProfileArgs | undefined>;
+    securityProfile?: pulumi.Input<inputs.containerservice.AgentPoolSecurityProfileArgs>;
     /**
      * The max price (in US Dollars) you are willing to pay for spot instances. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand. Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
      */
-    spotMaxPrice?: pulumi.Input<number | undefined>;
+    spotMaxPrice?: pulumi.Input<number>;
     /**
      * The tags to be persisted on the agent pool virtual machine scale set.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of Agent Pool.
      */
-    type?: pulumi.Input<string | enums.containerservice.AgentPoolType | undefined>;
+    type?: pulumi.Input<string | enums.containerservice.AgentPoolType>;
     /**
      * Settings for upgrading the agentpool
      */
-    upgradeSettings?: pulumi.Input<inputs.containerservice.AgentPoolUpgradeSettingsArgs | undefined>;
+    upgradeSettings?: pulumi.Input<inputs.containerservice.AgentPoolUpgradeSettingsArgs>;
     /**
      * The status of nodes in a VirtualMachines agent pool.
      */
-    virtualMachineNodesStatus?: pulumi.Input<pulumi.Input<inputs.containerservice.VirtualMachineNodesArgs>[] | undefined>;
+    virtualMachineNodesStatus?: pulumi.Input<pulumi.Input<inputs.containerservice.VirtualMachineNodesArgs>[]>;
     /**
      * Specifications on VirtualMachines agent pool.
      */
-    virtualMachinesProfile?: pulumi.Input<inputs.containerservice.VirtualMachinesProfileArgs | undefined>;
+    virtualMachinesProfile?: pulumi.Input<inputs.containerservice.VirtualMachinesProfileArgs>;
     /**
      * The size of the agent pool VMs. VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
      */
-    vmSize?: pulumi.Input<string | undefined>;
+    vmSize?: pulumi.Input<string>;
     /**
      * The ID of the subnet which agent pool nodes and optionally pods will join on startup. If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
      */
-    vnetSubnetID?: pulumi.Input<string | undefined>;
+    vnetSubnetID?: pulumi.Input<string>;
     /**
      * The Windows agent pool's specific profile.
      */
-    windowsProfile?: pulumi.Input<inputs.containerservice.AgentPoolWindowsProfileArgs | undefined>;
+    windowsProfile?: pulumi.Input<inputs.containerservice.AgentPoolWindowsProfileArgs>;
     /**
      * Determines the type of workload a node can run.
      */
-    workloadRuntime?: pulumi.Input<string | enums.containerservice.WorkloadRuntime | undefined>;
+    workloadRuntime?: pulumi.Input<string | enums.containerservice.WorkloadRuntime>;
 }

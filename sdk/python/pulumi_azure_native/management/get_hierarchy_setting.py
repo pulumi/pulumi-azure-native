@@ -160,7 +160,7 @@ def get_hierarchy_setting(group_id: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_hierarchy_setting_output(group_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_hierarchy_setting_output(group_id: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHierarchySettingResult]:
     """
     Gets the hierarchy settings defined at the Management Group level. Settings can only be set on the root Management Group of the hierarchy.

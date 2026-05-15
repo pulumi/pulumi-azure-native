@@ -141,7 +141,7 @@ export interface GetCustomImageOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=vm)'
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */

@@ -79,7 +79,7 @@ def list_saas_resource_access_token(resource_id: Optional[_builtins.str] = None,
     return AwaitableListSaasResourceAccessTokenResult(
         publisher_offer_base_uri=pulumi.get(__ret__, 'publisher_offer_base_uri'),
         token=pulumi.get(__ret__, 'token'))
-def list_saas_resource_access_token_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+def list_saas_resource_access_token_output(resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSaasResourceAccessTokenResult]:
     """
     Gets the ISV access token for a SaaS resource.

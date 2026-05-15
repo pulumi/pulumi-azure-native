@@ -88,9 +88,9 @@ def list_node_type_fault_simulation(cluster_name: Optional[_builtins.str] = None
     return AwaitableListNodeTypeFaultSimulationResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_node_type_fault_simulation_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           node_type_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_node_type_fault_simulation_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           node_type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNodeTypeFaultSimulationResult]:
     """
     Gets the list of recent fault simulations for the node type.

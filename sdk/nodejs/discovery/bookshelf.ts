@@ -114,15 +114,15 @@ export interface BookshelfArgs {
     /**
      * The name of the Bookshelf
      */
-    bookshelfName?: pulumi.Input<string | undefined>;
+    bookshelfName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.discovery.BookshelfPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.discovery.BookshelfPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,5 +130,5 @@ export interface BookshelfArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

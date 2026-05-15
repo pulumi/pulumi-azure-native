@@ -196,7 +196,7 @@ export interface CosmosDbDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName?: pulumi.Input<string | undefined>;
+    dataConnectionName?: pulumi.Input<string>;
     /**
      * The name of the database in the Kusto cluster.
      */
@@ -209,7 +209,7 @@ export interface CosmosDbDataConnectionArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB.
      */
@@ -217,7 +217,7 @@ export interface CosmosDbDataConnectionArgs {
     /**
      * The name of an existing mapping rule to use when ingesting the retrieved data.
      */
-    mappingRuleName?: pulumi.Input<string | undefined>;
+    mappingRuleName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -225,7 +225,7 @@ export interface CosmosDbDataConnectionArgs {
     /**
      * Optional. If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date.
      */
-    retrievalStartDate?: pulumi.Input<string | undefined>;
+    retrievalStartDate?: pulumi.Input<string>;
     /**
      * The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table.
      */

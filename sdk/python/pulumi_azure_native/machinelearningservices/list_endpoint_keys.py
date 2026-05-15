@@ -70,9 +70,9 @@ def list_endpoint_keys(endpoint_name: Optional[_builtins.str] = None,
 
     return AwaitableListEndpointKeysResult(
         keys=pulumi.get(__ret__, 'keys'))
-def list_endpoint_keys_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_endpoint_keys_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointKeysResult]:
     """
     Uses Azure REST API version 2025-01-01-preview.

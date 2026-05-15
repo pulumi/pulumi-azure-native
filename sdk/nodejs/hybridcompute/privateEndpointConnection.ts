@@ -108,11 +108,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Resource properties.
      */
-    properties?: pulumi.Input<inputs.hybridcompute.PrivateEndpointConnectionPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.hybridcompute.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -243,9 +243,9 @@ def get_io_t_role(device_name: Optional[_builtins.str] = None,
         share_mappings=pulumi.get(__ret__, 'share_mappings'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_io_t_role_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         name: pulumi.Input[Optional[_builtins.str]] = None,
-                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_io_t_role_output(device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                         name: Optional[pulumi.Input[_builtins.str]] = None,
+                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIoTRoleResult]:
     """
     Gets a specific role by name.

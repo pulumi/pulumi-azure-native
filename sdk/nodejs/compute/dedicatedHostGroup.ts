@@ -149,15 +149,15 @@ export interface DedicatedHostGroupArgs {
     /**
      * Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
      */
-    additionalCapabilities?: pulumi.Input<inputs.compute.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs | undefined>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs>;
     /**
      * The name of the dedicated host group.
      */
-    hostGroupName?: pulumi.Input<string | undefined>;
+    hostGroupName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Number of fault domains that the host group can span.
      */
@@ -169,13 +169,13 @@ export interface DedicatedHostGroupArgs {
     /**
      * Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
      */
-    supportAutomaticPlacement?: pulumi.Input<boolean | undefined>;
+    supportAutomaticPlacement?: pulumi.Input<boolean>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The availability zones.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

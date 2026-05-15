@@ -25,7 +25,7 @@ class WebPubSubHubArgs:
                  properties: pulumi.Input['WebPubSubHubPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 hub_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 hub_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebPubSubHub resource.
 
@@ -78,14 +78,14 @@ class WebPubSubHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="hubName")
-    def hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The hub name.
         """
         return pulumi.get(self, "hub_name")
 
     @hub_name.setter
-    def hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def hub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "hub_name", value)
 
 
@@ -95,10 +95,10 @@ class WebPubSubHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['WebPubSubHubPropertiesArgs', 'WebPubSubHubPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['WebPubSubHubPropertiesArgs', 'WebPubSubHubPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A hub setting
@@ -144,10 +144,10 @@ class WebPubSubHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['WebPubSubHubPropertiesArgs', 'WebPubSubHubPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['WebPubSubHubPropertiesArgs', 'WebPubSubHubPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

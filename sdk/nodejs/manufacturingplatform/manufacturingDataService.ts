@@ -93,7 +93,7 @@ export class ManufacturingDataService extends pulumi.CustomResource {
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["mdsResourceName"] = args?.mdsResourceName;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.manufacturingplatform.mdsResourcePropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.manufacturingplatform.mdsResourcePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
@@ -126,19 +126,19 @@ export interface ManufacturingDataServiceArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.manufacturingplatform.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.manufacturingplatform.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name.
      */
-    mdsResourceName?: pulumi.Input<string | undefined>;
+    mdsResourceName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.manufacturingplatform.MdsResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.manufacturingplatform.MdsResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -146,9 +146,9 @@ export interface ManufacturingDataServiceArgs {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    sku?: pulumi.Input<inputs.manufacturingplatform.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.manufacturingplatform.SkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

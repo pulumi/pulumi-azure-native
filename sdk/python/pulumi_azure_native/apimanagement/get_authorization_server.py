@@ -348,9 +348,9 @@ def get_authorization_server(authsid: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_in_api_documentation=pulumi.get(__ret__, 'use_in_api_documentation'),
         use_in_test_console=pulumi.get(__ret__, 'use_in_test_console'))
-def get_authorization_server_output(authsid: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_authorization_server_output(authsid: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationServerResult]:
     """
     Gets the details of the authorization server specified by its identifier.

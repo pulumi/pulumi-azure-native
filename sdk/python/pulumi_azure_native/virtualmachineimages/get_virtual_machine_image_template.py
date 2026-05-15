@@ -358,8 +358,8 @@ def get_virtual_machine_image_template(image_template_name: Optional[_builtins.s
         type=pulumi.get(__ret__, 'type'),
         validate=pulumi.get(__ret__, 'validate'),
         vm_profile=pulumi.get(__ret__, 'vm_profile'))
-def get_virtual_machine_image_template_output(image_template_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_machine_image_template_output(image_template_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineImageTemplateResult]:
     """
     Get information about a virtual machine image template

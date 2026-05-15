@@ -189,39 +189,39 @@ export interface NotificationHubArgs {
     /**
      * Description of a NotificationHub AdmCredential.
      */
-    admCredential?: pulumi.Input<inputs.notificationhubs.AdmCredentialArgs | undefined>;
+    admCredential?: pulumi.Input<inputs.notificationhubs.AdmCredentialArgs>;
     /**
      * Description of a NotificationHub ApnsCredential.
      */
-    apnsCredential?: pulumi.Input<inputs.notificationhubs.ApnsCredentialArgs | undefined>;
+    apnsCredential?: pulumi.Input<inputs.notificationhubs.ApnsCredentialArgs>;
     /**
      * Description of a NotificationHub BaiduCredential.
      */
-    baiduCredential?: pulumi.Input<inputs.notificationhubs.BaiduCredentialArgs | undefined>;
+    baiduCredential?: pulumi.Input<inputs.notificationhubs.BaiduCredentialArgs>;
     /**
      * Description of a NotificationHub BrowserCredential.
      */
-    browserCredential?: pulumi.Input<inputs.notificationhubs.BrowserCredentialArgs | undefined>;
+    browserCredential?: pulumi.Input<inputs.notificationhubs.BrowserCredentialArgs>;
     /**
      * Description of a NotificationHub FcmV1Credential.
      */
-    fcmV1Credential?: pulumi.Input<inputs.notificationhubs.FcmV1CredentialArgs | undefined>;
+    fcmV1Credential?: pulumi.Input<inputs.notificationhubs.FcmV1CredentialArgs>;
     /**
      * Description of a NotificationHub GcmCredential.
      */
-    gcmCredential?: pulumi.Input<inputs.notificationhubs.GcmCredentialArgs | undefined>;
+    gcmCredential?: pulumi.Input<inputs.notificationhubs.GcmCredentialArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Description of a NotificationHub MpnsCredential.
      */
-    mpnsCredential?: pulumi.Input<inputs.notificationhubs.MpnsCredentialArgs | undefined>;
+    mpnsCredential?: pulumi.Input<inputs.notificationhubs.MpnsCredentialArgs>;
     /**
      * Gets or sets the NotificationHub name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Namespace name
      */
@@ -229,11 +229,11 @@ export interface NotificationHubArgs {
     /**
      * Notification Hub name
      */
-    notificationHubName?: pulumi.Input<string | undefined>;
+    notificationHubName?: pulumi.Input<string>;
     /**
      * Gets or sets the RegistrationTtl of the created NotificationHub
      */
-    registrationTtl?: pulumi.Input<string | undefined>;
+    registrationTtl?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -241,17 +241,17 @@ export interface NotificationHubArgs {
     /**
      * The Sku description for a namespace
      */
-    sku?: pulumi.Input<inputs.notificationhubs.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.notificationhubs.SkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Description of a NotificationHub WnsCredential.
      */
-    wnsCredential?: pulumi.Input<inputs.notificationhubs.WnsCredentialArgs | undefined>;
+    wnsCredential?: pulumi.Input<inputs.notificationhubs.WnsCredentialArgs>;
     /**
      * Description of a NotificationHub XiaomiCredential.
      */
-    xiaomiCredential?: pulumi.Input<inputs.notificationhubs.XiaomiCredentialArgs | undefined>;
+    xiaomiCredential?: pulumi.Input<inputs.notificationhubs.XiaomiCredentialArgs>;
 }

@@ -465,9 +465,9 @@ def get_migration(migration_name: Optional[_builtins.str] = None,
         target_db_server_resource_id=pulumi.get(__ret__, 'target_db_server_resource_id'),
         trigger_cutover=pulumi.get(__ret__, 'trigger_cutover'),
         type=pulumi.get(__ret__, 'type'))
-def get_migration_output(migration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         server_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_migration_output(migration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                         server_name: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationResult]:
     """
     Gets information about a migration.

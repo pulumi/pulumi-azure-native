@@ -146,7 +146,7 @@ export interface ShareArgs {
     /**
      * Share description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
@@ -154,13 +154,13 @@ export interface ShareArgs {
     /**
      * Share kind.
      */
-    shareKind?: pulumi.Input<string | enums.datashare.ShareKind | undefined>;
+    shareKind?: pulumi.Input<string | enums.datashare.ShareKind>;
     /**
      * The name of the share.
      */
-    shareName?: pulumi.Input<string | undefined>;
+    shareName?: pulumi.Input<string>;
     /**
      * Share terms.
      */
-    terms?: pulumi.Input<string | undefined>;
+    terms?: pulumi.Input<string>;
 }

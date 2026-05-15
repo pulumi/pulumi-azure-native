@@ -169,19 +169,19 @@ export interface RoleAssignmentArgs {
     /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
-    condition?: pulumi.Input<string | undefined>;
+    condition?: pulumi.Input<string>;
     /**
      * Version of the condition. Currently the only accepted value is '2.0'
      */
-    conditionVersion?: pulumi.Input<string | undefined>;
+    conditionVersion?: pulumi.Input<string>;
     /**
      * Id of the delegated managed identity resource
      */
-    delegatedManagedIdentityResourceId?: pulumi.Input<string | undefined>;
+    delegatedManagedIdentityResourceId?: pulumi.Input<string>;
     /**
      * Description of role assignment
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The principal ID.
      */
@@ -189,11 +189,11 @@ export interface RoleAssignmentArgs {
     /**
      * The principal type of the assigned principal ID.
      */
-    principalType?: pulumi.Input<string | enums.authorization.PrincipalType | undefined>;
+    principalType?: pulumi.Input<string | enums.authorization.PrincipalType>;
     /**
      * The name of the role assignment. It can be any valid GUID.
      */
-    roleAssignmentName?: pulumi.Input<string | undefined>;
+    roleAssignmentName?: pulumi.Input<string>;
     /**
      * The role definition ID.
      */

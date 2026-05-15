@@ -159,7 +159,7 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * The name of the attached database configuration.
      */
-    attachedDatabaseConfigurationName?: pulumi.Input<string | undefined>;
+    attachedDatabaseConfigurationName?: pulumi.Input<string>;
     /**
      * The name of the Kusto cluster.
      */
@@ -175,11 +175,11 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * Overrides the original database name. Relevant only when attaching to a specific database.
      */
-    databaseNameOverride?: pulumi.Input<string | undefined>;
+    databaseNameOverride?: pulumi.Input<string>;
     /**
      * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
      */
-    databaseNamePrefix?: pulumi.Input<string | undefined>;
+    databaseNamePrefix?: pulumi.Input<string>;
     /**
      * The default principals modification kind
      */
@@ -187,7 +187,7 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -195,5 +195,5 @@ export interface AttachedDatabaseConfigurationArgs {
     /**
      * Table level sharing specifications
      */
-    tableLevelSharingProperties?: pulumi.Input<inputs.kusto.TableLevelSharingPropertiesArgs | undefined>;
+    tableLevelSharingProperties?: pulumi.Input<inputs.kusto.TableLevelSharingPropertiesArgs>;
 }

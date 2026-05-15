@@ -100,9 +100,9 @@ def list_authorization_server_secrets(authsid: Optional[_builtins.str] = None,
         client_secret=pulumi.get(__ret__, 'client_secret'),
         resource_owner_password=pulumi.get(__ret__, 'resource_owner_password'),
         resource_owner_username=pulumi.get(__ret__, 'resource_owner_username'))
-def list_authorization_server_secrets_output(authsid: pulumi.Input[Optional[_builtins.str]] = None,
-                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_authorization_server_secrets_output(authsid: Optional[pulumi.Input[_builtins.str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAuthorizationServerSecretsResult]:
     """
     Gets the client secret details of the authorization server.

@@ -24,11 +24,11 @@ class ConnectorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_resource_id: pulumi.Input[_builtins.str],
-                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional['UserAssignedServiceIdentityArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_resource_group_configuration: pulumi.Input[Optional['ManagedRGConfigurationArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input['UserAssignedServiceIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input['ManagedRGConfigurationArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
@@ -79,62 +79,62 @@ class ConnectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectorName")
-    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def connector_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the connector resource
         """
         return pulumi.get(self, "connector_name")
 
     @connector_name.setter
-    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def connector_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['UserAssignedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['UserAssignedServiceIdentityArgs']]:
         """
         Managed service identity (user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['UserAssignedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['UserAssignedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupConfiguration")
-    def managed_resource_group_configuration(self) -> pulumi.Input[Optional['ManagedRGConfigurationArgs']]:
+    def managed_resource_group_configuration(self) -> Optional[pulumi.Input['ManagedRGConfigurationArgs']]:
         """
         Managed resource group configuration
         """
         return pulumi.get(self, "managed_resource_group_configuration")
 
     @managed_resource_group_configuration.setter
-    def managed_resource_group_configuration(self, value: pulumi.Input[Optional['ManagedRGConfigurationArgs']]):
+    def managed_resource_group_configuration(self, value: Optional[pulumi.Input['ManagedRGConfigurationArgs']]):
         pulumi.set(self, "managed_resource_group_configuration", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,13 +144,13 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['UserAssignedServiceIdentityArgs', 'UserAssignedServiceIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_resource_group_configuration: pulumi.Input[Optional[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['UserAssignedServiceIdentityArgs', 'UserAssignedServiceIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Define the connector resource.
@@ -195,13 +195,13 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['UserAssignedServiceIdentityArgs', 'UserAssignedServiceIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_resource_group_configuration: pulumi.Input[Optional[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['UserAssignedServiceIdentityArgs', 'UserAssignedServiceIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_resource_group_configuration: Optional[pulumi.Input[Union['ManagedRGConfigurationArgs', 'ManagedRGConfigurationArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

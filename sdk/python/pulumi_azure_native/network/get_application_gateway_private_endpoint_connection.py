@@ -179,9 +179,9 @@ def get_application_gateway_private_endpoint_connection(application_gateway_name
         private_link_service_connection_state=pulumi.get(__ret__, 'private_link_service_connection_state'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_application_gateway_private_endpoint_connection_output(application_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                               connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_application_gateway_private_endpoint_connection_output(application_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                               connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationGatewayPrivateEndpointConnectionResult]:
     """
     Gets the specified private endpoint connection on application gateway.

@@ -130,11 +130,11 @@ export interface DeploymentArgs {
     /**
      * The name of the deployment associated with the Cognitive Services Account
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName?: pulumi.Input<string>;
     /**
      * Properties of Cognitive Services account deployment.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.DeploymentPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.cognitiveservices.DeploymentPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -142,9 +142,9 @@ export interface DeploymentArgs {
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.cognitiveservices.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.cognitiveservices.SkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

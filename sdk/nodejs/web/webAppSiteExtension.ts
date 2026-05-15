@@ -223,5 +223,5 @@ export interface WebAppSiteExtensionArgs {
     /**
      * Site extension name.
      */
-    siteExtensionId?: pulumi.Input<string | undefined>;
+    siteExtensionId?: pulumi.Input<string>;
 }

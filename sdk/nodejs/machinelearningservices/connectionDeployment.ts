@@ -115,12 +115,12 @@ export interface ConnectionDeploymentArgs {
     /**
      * Name of the deployment resource
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName?: pulumi.Input<string>;
     properties: pulumi.Input<inputs.machinelearningservices.ContentSafetyEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.ManagedOnlineEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.OpenAIEndpointDeploymentResourcePropertiesArgs | inputs.machinelearningservices.SpeechEndpointDeploymentResourcePropertiesArgs>;
     /**
      * Api version used by proxy call
      */
-    proxyApiVersion?: pulumi.Input<string | undefined>;
+    proxyApiVersion?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

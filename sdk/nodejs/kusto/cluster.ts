@@ -227,7 +227,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["trustedExternalTenants"] = args?.trustedExternalTenants;
             resourceInputs["virtualClusterGraduationProperties"] = args?.virtualClusterGraduationProperties;
-            resourceInputs["virtualNetworkConfiguration"] = args ? pulumi.output(args.virtualNetworkConfiguration).apply(v => v === undefined ? undefined : inputs.kusto.virtualNetworkConfigurationArgsProvideDefaults(v)) : undefined;
+            resourceInputs["virtualNetworkConfiguration"] = args ? (args.virtualNetworkConfiguration ? pulumi.output(args.virtualNetworkConfiguration).apply(inputs.kusto.virtualNetworkConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
@@ -294,75 +294,75 @@ export interface ClusterArgs {
     /**
      * The cluster's accepted audiences.
      */
-    acceptedAudiences?: pulumi.Input<pulumi.Input<inputs.kusto.AcceptedAudiencesArgs>[] | undefined>;
+    acceptedAudiences?: pulumi.Input<pulumi.Input<inputs.kusto.AcceptedAudiencesArgs>[]>;
     /**
      * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
      */
-    allowedFqdnList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    allowedFqdnList?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The list of ips in the format of CIDR allowed to connect to the cluster.
      */
-    allowedIpRangeList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    allowedIpRangeList?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of callout policies for egress from Cluster.
      */
-    calloutPolicies?: pulumi.Input<pulumi.Input<inputs.kusto.CalloutPolicyArgs>[] | undefined>;
+    calloutPolicies?: pulumi.Input<pulumi.Input<inputs.kusto.CalloutPolicyArgs>[]>;
     /**
      * The name of the Kusto cluster.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName?: pulumi.Input<string>;
     /**
      * A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
      */
-    enableAutoStop?: pulumi.Input<boolean | undefined>;
+    enableAutoStop?: pulumi.Input<boolean>;
     /**
      * A boolean value that indicates if the cluster's disks are encrypted.
      */
-    enableDiskEncryption?: pulumi.Input<boolean | undefined>;
+    enableDiskEncryption?: pulumi.Input<boolean>;
     /**
      * A boolean value that indicates if double encryption is enabled.
      */
-    enableDoubleEncryption?: pulumi.Input<boolean | undefined>;
+    enableDoubleEncryption?: pulumi.Input<boolean>;
     /**
      * A boolean value that indicates if the purge operations are enabled.
      */
-    enablePurge?: pulumi.Input<boolean | undefined>;
+    enablePurge?: pulumi.Input<boolean>;
     /**
      * A boolean value that indicates if the streaming ingest is enabled.
      */
-    enableStreamingIngest?: pulumi.Input<boolean | undefined>;
+    enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * The engine type
      */
-    engineType?: pulumi.Input<string | enums.kusto.EngineType | undefined>;
+    engineType?: pulumi.Input<string | enums.kusto.EngineType>;
     /**
      * The identity of the cluster, if configured.
      */
-    identity?: pulumi.Input<inputs.kusto.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.kusto.IdentityArgs>;
     /**
      * KeyVault properties for the cluster encryption.
      */
-    keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultPropertiesArgs | undefined>;
+    keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultPropertiesArgs>;
     /**
      * List of the cluster's language extensions.
      */
-    languageExtensions?: pulumi.Input<inputs.kusto.LanguageExtensionsListArgs | undefined>;
+    languageExtensions?: pulumi.Input<inputs.kusto.LanguageExtensionsListArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Optimized auto scale definition.
      */
-    optimizedAutoscale?: pulumi.Input<inputs.kusto.OptimizedAutoscaleArgs | undefined>;
+    optimizedAutoscale?: pulumi.Input<inputs.kusto.OptimizedAutoscaleArgs>;
     /**
      * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
      */
-    publicIPType?: pulumi.Input<string | enums.kusto.PublicIPType | undefined>;
+    publicIPType?: pulumi.Input<string | enums.kusto.PublicIPType>;
     /**
      * Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.kusto.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.kusto.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -370,7 +370,7 @@ export interface ClusterArgs {
     /**
      * Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    restrictOutboundNetworkAccess?: pulumi.Input<string | enums.kusto.ClusterNetworkAccessFlag | undefined>;
+    restrictOutboundNetworkAccess?: pulumi.Input<string | enums.kusto.ClusterNetworkAccessFlag>;
     /**
      * The SKU of the cluster.
      */
@@ -378,21 +378,21 @@ export interface ClusterArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The cluster's external tenants.
      */
-    trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.TrustedExternalTenantArgs>[] | undefined>;
+    trustedExternalTenants?: pulumi.Input<pulumi.Input<inputs.kusto.TrustedExternalTenantArgs>[]>;
     /**
      * Virtual Cluster graduation properties
      */
-    virtualClusterGraduationProperties?: pulumi.Input<string | undefined>;
+    virtualClusterGraduationProperties?: pulumi.Input<string>;
     /**
      * Virtual network definition.
      */
-    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.VirtualNetworkConfigurationArgs | undefined>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.kusto.VirtualNetworkConfigurationArgs>;
     /**
      * The availability zones of the cluster.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

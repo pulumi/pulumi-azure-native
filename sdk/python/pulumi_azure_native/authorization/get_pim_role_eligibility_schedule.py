@@ -330,8 +330,8 @@ def get_pim_role_eligibility_schedule(role_eligibility_schedule_request_name: Op
         target_role_eligibility_schedule_instance_id=pulumi.get(__ret__, 'target_role_eligibility_schedule_instance_id'),
         ticket_info=pulumi.get(__ret__, 'ticket_info'),
         type=pulumi.get(__ret__, 'type'))
-def get_pim_role_eligibility_schedule_output(role_eligibility_schedule_request_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             scope: pulumi.Input[Optional[_builtins.str]] = None,
+def get_pim_role_eligibility_schedule_output(role_eligibility_schedule_request_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             scope: Optional[pulumi.Input[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPimRoleEligibilityScheduleResult]:
     """
     Get the specified role eligibility schedule request.

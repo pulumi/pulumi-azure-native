@@ -23,7 +23,7 @@ class MonitoringSettingArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['MonitoringSettingPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['MonitoringSettingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a MonitoringSetting resource.
 
@@ -62,14 +62,14 @@ class MonitoringSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['MonitoringSettingPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['MonitoringSettingPropertiesArgs']]:
         """
         Properties of the Monitoring Setting resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['MonitoringSettingPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['MonitoringSettingPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -79,9 +79,9 @@ class MonitoringSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['MonitoringSettingPropertiesArgs', 'MonitoringSettingPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['MonitoringSettingPropertiesArgs', 'MonitoringSettingPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Monitoring Setting resource
@@ -126,9 +126,9 @@ class MonitoringSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['MonitoringSettingPropertiesArgs', 'MonitoringSettingPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['MonitoringSettingPropertiesArgs', 'MonitoringSettingPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

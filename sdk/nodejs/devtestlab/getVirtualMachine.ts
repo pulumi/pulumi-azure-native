@@ -233,7 +233,7 @@ export interface GetVirtualMachineOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($expand=artifacts,computeVm,networkInterface,applicableSchedule)'
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */

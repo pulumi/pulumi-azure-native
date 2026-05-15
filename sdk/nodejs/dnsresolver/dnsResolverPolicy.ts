@@ -128,11 +128,11 @@ export interface DnsResolverPolicyArgs {
     /**
      * The name of the DNS resolver policy.
      */
-    dnsResolverPolicyName?: pulumi.Input<string | undefined>;
+    dnsResolverPolicyName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface DnsResolverPolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

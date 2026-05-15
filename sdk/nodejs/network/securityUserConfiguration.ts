@@ -126,11 +126,11 @@ export interface SecurityUserConfigurationArgs {
     /**
      * The name of the network manager Security Configuration.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName?: pulumi.Input<string>;
     /**
      * A description of the security user configuration.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */

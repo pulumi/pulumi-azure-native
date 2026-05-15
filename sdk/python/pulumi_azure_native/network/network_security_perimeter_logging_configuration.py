@@ -23,8 +23,8 @@ class NetworkSecurityPerimeterLoggingConfigurationArgs:
     def __init__(__self__, *,
                  network_security_perimeter_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 logging_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['NspLoggingConfigurationPropertiesArgs']] = None):
+                 logging_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['NspLoggingConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeterLoggingConfiguration resource.
 
@@ -66,26 +66,26 @@ class NetworkSecurityPerimeterLoggingConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="loggingConfigurationName")
-    def logging_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def logging_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the NSP logging configuration. Accepts 'instance' as name.
         """
         return pulumi.get(self, "logging_configuration_name")
 
     @logging_configuration_name.setter
-    def logging_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def logging_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "logging_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['NspLoggingConfigurationPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['NspLoggingConfigurationPropertiesArgs']]:
         """
         Properties of the NSP logging configuration.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['NspLoggingConfigurationPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['NspLoggingConfigurationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class NetworkSecurityPerimeterLoggingConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_security_perimeter_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['NspLoggingConfigurationPropertiesArgs', 'NspLoggingConfigurationPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_security_perimeter_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['NspLoggingConfigurationPropertiesArgs', 'NspLoggingConfigurationPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The NSP logging configuration
@@ -144,10 +144,10 @@ class NetworkSecurityPerimeterLoggingConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 logging_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_security_perimeter_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['NspLoggingConfigurationPropertiesArgs', 'NspLoggingConfigurationPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 logging_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_security_perimeter_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['NspLoggingConfigurationPropertiesArgs', 'NspLoggingConfigurationPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -118,15 +118,15 @@ export interface ProjectArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Project
      */
-    projectName?: pulumi.Input<string | undefined>;
+    projectName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.discovery.ProjectPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.discovery.ProjectPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -134,7 +134,7 @@ export interface ProjectArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Workspace
      */

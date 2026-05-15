@@ -21,10 +21,10 @@ __all__ = ['LoadTestProfileMappingArgs', 'LoadTestProfileMapping']
 class LoadTestProfileMappingArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 azure_load_testing_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_test_profile_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 test_profile_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 azure_load_testing_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 load_test_profile_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 test_profile_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadTestProfileMapping resource.
 
@@ -58,50 +58,50 @@ class LoadTestProfileMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="azureLoadTestingResourceId")
-    def azure_load_testing_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def azure_load_testing_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Mapped Azure Load Test resource Id.
         """
         return pulumi.get(self, "azure_load_testing_resource_id")
 
     @azure_load_testing_resource_id.setter
-    def azure_load_testing_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def azure_load_testing_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "azure_load_testing_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="loadTestProfileMappingName")
-    def load_test_profile_mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def load_test_profile_mapping_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Load Test Profile Mapping name
         """
         return pulumi.get(self, "load_test_profile_mapping_name")
 
     @load_test_profile_mapping_name.setter
-    def load_test_profile_mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def load_test_profile_mapping_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "load_test_profile_mapping_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
-    def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def source_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Mapped source resource Id.
         """
         return pulumi.get(self, "source_resource_id")
 
     @source_resource_id.setter
-    def source_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def source_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "source_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="testProfileId")
-    def test_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def test_profile_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Mapped Azure Load Test resource test-profile-id.
         """
         return pulumi.get(self, "test_profile_id")
 
     @test_profile_id.setter
-    def test_profile_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def test_profile_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "test_profile_id", value)
 
 
@@ -111,11 +111,11 @@ class LoadTestProfileMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_load_testing_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_test_profile_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 test_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_load_testing_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 load_test_profile_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 test_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         LoadTest profile mapping resource details
@@ -162,11 +162,11 @@ class LoadTestProfileMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 azure_load_testing_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_test_profile_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 test_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_load_testing_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 load_test_profile_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 test_profile_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

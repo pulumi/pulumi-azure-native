@@ -143,10 +143,10 @@ def get_replication_recovery_services_provider(fabric_name: Optional[_builtins.s
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_replication_recovery_services_provider_output(fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                      provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                      resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_replication_recovery_services_provider_output(fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                      provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                      resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationRecoveryServicesProviderResult]:
     """
     Gets the details of registered recovery services provider.

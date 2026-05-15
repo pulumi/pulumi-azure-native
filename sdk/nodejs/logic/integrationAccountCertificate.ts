@@ -138,7 +138,7 @@ export interface IntegrationAccountCertificateArgs {
     /**
      * The integration account certificate name.
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName?: pulumi.Input<string>;
     /**
      * The integration account name.
      */
@@ -146,19 +146,19 @@ export interface IntegrationAccountCertificateArgs {
     /**
      * The key details in the key vault.
      */
-    key?: pulumi.Input<inputs.logic.KeyVaultKeyReferenceArgs | undefined>;
+    key?: pulumi.Input<inputs.logic.KeyVaultKeyReferenceArgs>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The metadata.
      */
-    metadata?: any | undefined;
+    metadata?: any;
     /**
      * The public certificate.
      */
-    publicCertificate?: pulumi.Input<string | undefined>;
+    publicCertificate?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
@@ -166,5 +166,5 @@ export interface IntegrationAccountCertificateArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

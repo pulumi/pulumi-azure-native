@@ -25,10 +25,10 @@ class ExportPipelineArgs:
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target: pulumi.Input['ExportPipelineTargetPropertiesArgs'],
-                 export_pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None):
+                 export_pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input['IdentityPropertiesArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None):
         """
         The set of arguments for constructing a ExportPipeline resource.
 
@@ -90,50 +90,50 @@ class ExportPipelineArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportPipelineName")
-    def export_pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def export_pipeline_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the export pipeline.
         """
         return pulumi.get(self, "export_pipeline_name")
 
     @export_pipeline_name.setter
-    def export_pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def export_pipeline_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "export_pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['IdentityPropertiesArgs']]:
+    def identity(self) -> Optional[pulumi.Input['IdentityPropertiesArgs']]:
         """
         The identity of the export pipeline.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['IdentityPropertiesArgs']]):
+    def identity(self, value: Optional[pulumi.Input['IdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The location of the export pipeline.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]]:
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]]:
         """
         The list of all options configured for the pipeline.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]]):
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]]):
         pulumi.set(self, "options", value)
 
 
@@ -143,13 +143,13 @@ class ExportPipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 export_pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 target: pulumi.Input[Optional[Union['ExportPipelineTargetPropertiesArgs', 'ExportPipelineTargetPropertiesArgsDict']]] = None,
+                 export_pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 target: Optional[pulumi.Input[Union['ExportPipelineTargetPropertiesArgs', 'ExportPipelineTargetPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         An object that represents an export pipeline for a container registry.
@@ -198,13 +198,13 @@ class ExportPipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 export_pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 target: pulumi.Input[Optional[Union['ExportPipelineTargetPropertiesArgs', 'ExportPipelineTargetPropertiesArgsDict']]] = None,
+                 export_pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityPropertiesArgs', 'IdentityPropertiesArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 target: Optional[pulumi.Input[Union['ExportPipelineTargetPropertiesArgs', 'ExportPipelineTargetPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -231,9 +231,9 @@ def get_software_update_configuration_by_name(automation_account_name: Optional[
         tasks=pulumi.get(__ret__, 'tasks'),
         type=pulumi.get(__ret__, 'type'),
         update_configuration=pulumi.get(__ret__, 'update_configuration'))
-def get_software_update_configuration_by_name_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     software_update_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_software_update_configuration_by_name_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                     software_update_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwareUpdateConfigurationByNameResult]:
     """
     Get a single software update configuration by name.

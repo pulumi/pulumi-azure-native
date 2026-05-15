@@ -115,7 +115,7 @@ export interface SecretValueArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource group name
      */
@@ -127,13 +127,13 @@ export interface SecretValueArgs {
     /**
      * The name of the secret resource value which is typically the version identifier for the value.
      */
-    secretValueResourceName?: pulumi.Input<string | undefined>;
+    secretValueResourceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The actual value of the secret.
      */
-    value?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string>;
 }

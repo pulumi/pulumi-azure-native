@@ -75,9 +75,9 @@ def get_open_ai_status(integration_name: Optional[_builtins.str] = None,
 
     return AwaitableGetOpenAIStatusResult(
         properties=pulumi.get(__ret__, 'properties'))
-def get_open_ai_status_output(integration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_open_ai_status_output(integration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOpenAIStatusResult]:
     """
     Status of the OpenAI Integration

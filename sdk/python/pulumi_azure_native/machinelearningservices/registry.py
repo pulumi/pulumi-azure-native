@@ -23,20 +23,20 @@ __all__ = ['RegistryArgs', 'Registry']
 class RegistryArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
-                 intellectual_property_publisher: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_resource_group: pulumi.Input[Optional['ArmResourceIdArgs']] = None,
-                 managed_resource_group_settings: pulumi.Input[Optional['ManagedResourceGroupSettingsArgs']] = None,
-                 ml_flow_registry_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
-                 region_details: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 registry_private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]] = None,
-                 sku: pulumi.Input[Optional['SkuArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 discovery_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 intellectual_property_publisher: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_resource_group: Optional[pulumi.Input['ArmResourceIdArgs']] = None,
+                 managed_resource_group_settings: Optional[pulumi.Input['ManagedResourceGroupSettingsArgs']] = None,
+                 ml_flow_registry_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 region_details: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 registry_private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Registry resource.
 
@@ -101,103 +101,103 @@ class RegistryArgs:
 
     @_builtins.property
     @pulumi.getter(name="discoveryUrl")
-    def discovery_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def discovery_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Discovery URL for the Registry
         """
         return pulumi.get(self, "discovery_url")
 
     @discovery_url.setter
-    def discovery_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def discovery_url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "discovery_url", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="intellectualPropertyPublisher")
-    def intellectual_property_publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def intellectual_property_publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         IntellectualPropertyPublisher for the registry
         """
         return pulumi.get(self, "intellectual_property_publisher")
 
     @intellectual_property_publisher.setter
-    def intellectual_property_publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def intellectual_property_publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "intellectual_property_publisher", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroup")
-    def managed_resource_group(self) -> pulumi.Input[Optional['ArmResourceIdArgs']]:
+    def managed_resource_group(self) -> Optional[pulumi.Input['ArmResourceIdArgs']]:
         """
         ResourceId of the managed RG if the registry has system created resources
         """
         return pulumi.get(self, "managed_resource_group")
 
     @managed_resource_group.setter
-    def managed_resource_group(self, value: pulumi.Input[Optional['ArmResourceIdArgs']]):
+    def managed_resource_group(self, value: Optional[pulumi.Input['ArmResourceIdArgs']]):
         pulumi.set(self, "managed_resource_group", value)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupSettings")
-    def managed_resource_group_settings(self) -> pulumi.Input[Optional['ManagedResourceGroupSettingsArgs']]:
+    def managed_resource_group_settings(self) -> Optional[pulumi.Input['ManagedResourceGroupSettingsArgs']]:
         """
         Managed resource group specific settings
         """
         return pulumi.get(self, "managed_resource_group_settings")
 
     @managed_resource_group_settings.setter
-    def managed_resource_group_settings(self, value: pulumi.Input[Optional['ManagedResourceGroupSettingsArgs']]):
+    def managed_resource_group_settings(self, value: Optional[pulumi.Input['ManagedResourceGroupSettingsArgs']]):
         pulumi.set(self, "managed_resource_group_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="mlFlowRegistryUri")
-    def ml_flow_registry_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def ml_flow_registry_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         MLFlow Registry URI for the Registry
         """
         return pulumi.get(self, "ml_flow_registry_uri")
 
     @ml_flow_registry_uri.setter
-    def ml_flow_registry_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def ml_flow_registry_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "ml_flow_registry_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def public_network_access(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Is the Registry accessible from the internet?
         Possible values: "Enabled" or "Disabled"
@@ -205,67 +205,67 @@ class RegistryArgs:
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def public_network_access(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
     @pulumi.getter(name="regionDetails")
-    def region_details(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]]:
+    def region_details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]]:
         """
         Details of each region the registry is in
         """
         return pulumi.get(self, "region_details")
 
     @region_details.setter
-    def region_details(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]]):
+    def region_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]]):
         pulumi.set(self, "region_details", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
-    def registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def registry_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of Azure Machine Learning registry. This is case-insensitive
         """
         return pulumi.get(self, "registry_name")
 
     @registry_name.setter
-    def registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def registry_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "registry_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registryPrivateEndpointConnections")
-    def registry_private_endpoint_connections(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]]:
+    def registry_private_endpoint_connections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]]:
         """
         Private endpoint connections info used for pending connections in private link portal
         """
         return pulumi.get(self, "registry_private_endpoint_connections")
 
     @registry_private_endpoint_connections.setter
-    def registry_private_endpoint_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]]):
+    def registry_private_endpoint_connections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]]):
         pulumi.set(self, "registry_private_endpoint_connections", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
         Sku details required for ARM contract for Autoscaling.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -275,21 +275,21 @@ class Registry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 intellectual_property_publisher: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_resource_group: pulumi.Input[Optional[Union['ArmResourceIdArgs', 'ArmResourceIdArgsDict']]] = None,
-                 managed_resource_group_settings: pulumi.Input[Optional[Union['ManagedResourceGroupSettingsArgs', 'ManagedResourceGroupSettingsArgsDict']]] = None,
-                 ml_flow_registry_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
-                 region_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryRegionArmDetailsArgs', 'RegistryRegionArmDetailsArgsDict']]]]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 registry_private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryPrivateEndpointConnectionArgs', 'RegistryPrivateEndpointConnectionArgsDict']]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 discovery_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 intellectual_property_publisher: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_resource_group: Optional[pulumi.Input[Union['ArmResourceIdArgs', 'ArmResourceIdArgsDict']]] = None,
+                 managed_resource_group_settings: Optional[pulumi.Input[Union['ManagedResourceGroupSettingsArgs', 'ManagedResourceGroupSettingsArgsDict']]] = None,
+                 ml_flow_registry_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 region_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryRegionArmDetailsArgs', 'RegistryRegionArmDetailsArgsDict']]]]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 registry_private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryPrivateEndpointConnectionArgs', 'RegistryPrivateEndpointConnectionArgsDict']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
@@ -347,21 +347,21 @@ class Registry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 discovery_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 intellectual_property_publisher: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_resource_group: pulumi.Input[Optional[Union['ArmResourceIdArgs', 'ArmResourceIdArgsDict']]] = None,
-                 managed_resource_group_settings: pulumi.Input[Optional[Union['ManagedResourceGroupSettingsArgs', 'ManagedResourceGroupSettingsArgsDict']]] = None,
-                 ml_flow_registry_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
-                 region_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryRegionArmDetailsArgs', 'RegistryRegionArmDetailsArgsDict']]]]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 registry_private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryPrivateEndpointConnectionArgs', 'RegistryPrivateEndpointConnectionArgsDict']]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 discovery_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 intellectual_property_publisher: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_resource_group: Optional[pulumi.Input[Union['ArmResourceIdArgs', 'ArmResourceIdArgsDict']]] = None,
+                 managed_resource_group_settings: Optional[pulumi.Input[Union['ManagedResourceGroupSettingsArgs', 'ManagedResourceGroupSettingsArgsDict']]] = None,
+                 ml_flow_registry_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_network_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 region_details: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryRegionArmDetailsArgs', 'RegistryRegionArmDetailsArgsDict']]]]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 registry_private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RegistryPrivateEndpointConnectionArgs', 'RegistryPrivateEndpointConnectionArgsDict']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

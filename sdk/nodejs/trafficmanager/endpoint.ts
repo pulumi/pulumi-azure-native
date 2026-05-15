@@ -185,27 +185,27 @@ export interface EndpointArgs {
     /**
      * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
      */
-    alwaysServe?: pulumi.Input<string | enums.trafficmanager.AlwaysServe | undefined>;
+    alwaysServe?: pulumi.Input<string | enums.trafficmanager.AlwaysServe>;
     /**
      * List of custom headers.
      */
-    customHeaders?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointPropertiesCustomHeadersItemArgs>[] | undefined>;
+    customHeaders?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointPropertiesCustomHeadersItemArgs>[]>;
     /**
      * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
      */
-    endpointLocation?: pulumi.Input<string | undefined>;
+    endpointLocation?: pulumi.Input<string>;
     /**
      * The monitoring status of the endpoint.
      */
-    endpointMonitorStatus?: pulumi.Input<string | enums.trafficmanager.EndpointMonitorStatus | undefined>;
+    endpointMonitorStatus?: pulumi.Input<string | enums.trafficmanager.EndpointMonitorStatus>;
     /**
      * The name of the Traffic Manager endpoint.
      */
-    endpointName?: pulumi.Input<string | undefined>;
+    endpointName?: pulumi.Input<string>;
     /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */
-    endpointStatus?: pulumi.Input<string | enums.trafficmanager.EndpointStatus | undefined>;
+    endpointStatus?: pulumi.Input<string | enums.trafficmanager.EndpointStatus>;
     /**
      * The type of the Traffic Manager endpoint.
      */
@@ -213,31 +213,31 @@ export interface EndpointArgs {
     /**
      * The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
      */
-    geoMapping?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    geoMapping?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
-    minChildEndpoints?: pulumi.Input<number | undefined>;
+    minChildEndpoints?: pulumi.Input<number>;
     /**
      * The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
-    minChildEndpointsIPv4?: pulumi.Input<number | undefined>;
+    minChildEndpointsIPv4?: pulumi.Input<number>;
     /**
      * The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
-    minChildEndpointsIPv6?: pulumi.Input<number | undefined>;
+    minChildEndpointsIPv6?: pulumi.Input<number>;
     /**
      * The name of the resource
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
      */
-    priority?: pulumi.Input<number | undefined>;
+    priority?: pulumi.Input<number>;
     /**
      * The name of the Traffic Manager profile.
      */
@@ -249,21 +249,21 @@ export interface EndpointArgs {
     /**
      * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointPropertiesSubnetsItemArgs>[] | undefined>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointPropertiesSubnetsItemArgs>[]>;
     /**
      * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
      */
-    target?: pulumi.Input<string | undefined>;
+    target?: pulumi.Input<string>;
     /**
      * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
      */
-    targetResourceId?: pulumi.Input<string | undefined>;
+    targetResourceId?: pulumi.Input<string>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
-    type?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string>;
     /**
      * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
      */
-    weight?: pulumi.Input<number | undefined>;
+    weight?: pulumi.Input<number>;
 }

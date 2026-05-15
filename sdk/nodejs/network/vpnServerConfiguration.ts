@@ -117,19 +117,19 @@ export interface VpnServerConfigurationArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Properties of the P2SVpnServer configuration.
      */
-    properties?: pulumi.Input<inputs.network.VpnServerConfigurationPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.network.VpnServerConfigurationPropertiesArgs>;
     /**
      * The resource group name of the VpnServerConfiguration.
      */
@@ -137,9 +137,9 @@ export interface VpnServerConfigurationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the VpnServerConfiguration being created or updated.
      */
-    vpnServerConfigurationName?: pulumi.Input<string | undefined>;
+    vpnServerConfigurationName?: pulumi.Input<string>;
 }

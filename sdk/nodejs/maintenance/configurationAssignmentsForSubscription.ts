@@ -118,21 +118,21 @@ export interface ConfigurationAssignmentsForSubscriptionArgs {
     /**
      * The name of the ConfigurationAssignment
      */
-    configurationAssignmentName?: pulumi.Input<string | undefined>;
+    configurationAssignmentName?: pulumi.Input<string>;
     /**
      * Properties of the configuration assignment
      */
-    filter?: pulumi.Input<inputs.maintenance.ConfigurationAssignmentFilterPropertiesArgs | undefined>;
+    filter?: pulumi.Input<inputs.maintenance.ConfigurationAssignmentFilterPropertiesArgs>;
     /**
      * Location of the resource
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The maintenance configuration Id
      */
-    maintenanceConfigurationId?: pulumi.Input<string | undefined>;
+    maintenanceConfigurationId?: pulumi.Input<string>;
     /**
      * The unique resourceId
      */
-    resourceId?: pulumi.Input<string | undefined>;
+    resourceId?: pulumi.Input<string>;
 }

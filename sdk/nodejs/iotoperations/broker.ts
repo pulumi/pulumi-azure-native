@@ -89,7 +89,7 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["brokerName"] = args?.brokerName;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["instanceName"] = args?.instanceName;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.iotoperations.brokerPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.iotoperations.brokerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -117,7 +117,7 @@ export interface BrokerArgs {
     /**
      * Name of broker.
      */
-    brokerName?: pulumi.Input<string | undefined>;
+    brokerName?: pulumi.Input<string>;
     /**
      * Edge location of the resource.
      */
@@ -129,7 +129,7 @@ export interface BrokerArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.iotoperations.BrokerPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.iotoperations.BrokerPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

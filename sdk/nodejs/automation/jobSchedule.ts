@@ -135,11 +135,11 @@ export interface JobScheduleArgs {
     /**
      * The job schedule name.
      */
-    jobScheduleId?: pulumi.Input<string | undefined>;
+    jobScheduleId?: pulumi.Input<string>;
     /**
      * Gets or sets a list of job properties.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of an Azure Resource group.
      */
@@ -147,7 +147,7 @@ export interface JobScheduleArgs {
     /**
      * Gets or sets the hybrid worker group that the scheduled job should run on.
      */
-    runOn?: pulumi.Input<string | undefined>;
+    runOn?: pulumi.Input<string>;
     /**
      * Gets or sets the runbook.
      */

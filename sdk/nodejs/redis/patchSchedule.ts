@@ -116,7 +116,7 @@ export interface PatchScheduleArgs {
     /**
      * The name of the RedisPatchSchedule
      */
-    default?: pulumi.Input<string | undefined>;
+    default?: pulumi.Input<string>;
     /**
      * The name of the redis cache.
      */

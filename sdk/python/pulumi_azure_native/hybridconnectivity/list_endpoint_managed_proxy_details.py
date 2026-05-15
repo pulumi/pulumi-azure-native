@@ -94,11 +94,11 @@ def list_endpoint_managed_proxy_details(endpoint_name: Optional[_builtins.str] =
     return AwaitableListEndpointManagedProxyDetailsResult(
         expires_on=pulumi.get(__ret__, 'expires_on'),
         proxy=pulumi.get(__ret__, 'proxy'))
-def list_endpoint_managed_proxy_details_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               hostname: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                               resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                                               service: pulumi.Input[Optional[_builtins.str]] = None,
-                                               service_name: pulumi.Input[Optional[Optional[Union[_builtins.str, 'ServiceName']]]] = None,
+def list_endpoint_managed_proxy_details_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               hostname: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                               resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                                               service: Optional[pulumi.Input[_builtins.str]] = None,
+                                               service_name: Optional[pulumi.Input[Optional[Union[_builtins.str, 'ServiceName']]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEndpointManagedProxyDetailsResult]:
     """
     Fetches the managed proxy details

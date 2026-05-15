@@ -140,17 +140,17 @@ export interface SecuritySettingArgs {
     /**
      * Secured Core Compliance Assignment
      */
-    securedCoreComplianceAssignment?: pulumi.Input<string | enums.azurestackhci.ComplianceAssignmentType | undefined>;
+    securedCoreComplianceAssignment?: pulumi.Input<string | enums.azurestackhci.ComplianceAssignmentType>;
     /**
      * Name of security setting
      */
-    securitySettingsName?: pulumi.Input<string | undefined>;
+    securitySettingsName?: pulumi.Input<string>;
     /**
      * SMB encryption for intra-cluster traffic Compliance Assignment
      */
-    smbEncryptionForIntraClusterTrafficComplianceAssignment?: pulumi.Input<string | enums.azurestackhci.ComplianceAssignmentType | undefined>;
+    smbEncryptionForIntraClusterTrafficComplianceAssignment?: pulumi.Input<string | enums.azurestackhci.ComplianceAssignmentType>;
     /**
      * WDAC Compliance Assignment
      */
-    wdacComplianceAssignment?: pulumi.Input<string | enums.azurestackhci.ComplianceAssignmentType | undefined>;
+    wdacComplianceAssignment?: pulumi.Input<string | enums.azurestackhci.ComplianceAssignmentType>;
 }

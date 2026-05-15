@@ -133,7 +133,7 @@ export interface PeriodicTimerEventTriggerArgs {
     /**
      * A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
      */
-    customContextTag?: pulumi.Input<string | undefined>;
+    customContextTag?: pulumi.Input<string>;
     /**
      * Creates or updates a trigger
      */
@@ -146,7 +146,7 @@ export interface PeriodicTimerEventTriggerArgs {
     /**
      * The trigger name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */

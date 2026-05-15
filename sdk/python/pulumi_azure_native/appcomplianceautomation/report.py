@@ -25,9 +25,9 @@ class ReportArgs:
                  resources: pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]],
                  time_zone: pulumi.Input[_builtins.str],
                  trigger_time: pulumi.Input[_builtins.str],
-                 offer_guid: pulumi.Input[Optional[_builtins.str]] = None,
-                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_info: pulumi.Input[Optional['StorageInfoArgs']] = None):
+                 offer_guid: Optional[pulumi.Input[_builtins.str]] = None,
+                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_info: Optional[pulumi.Input['StorageInfoArgs']] = None):
         """
         The set of arguments for constructing a Report resource.
 
@@ -88,38 +88,38 @@ class ReportArgs:
 
     @_builtins.property
     @pulumi.getter(name="offerGuid")
-    def offer_guid(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def offer_guid(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
         """
         return pulumi.get(self, "offer_guid")
 
     @offer_guid.setter
-    def offer_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def offer_guid(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "offer_guid", value)
 
     @_builtins.property
     @pulumi.getter(name="reportName")
-    def report_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def report_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Report Name.
         """
         return pulumi.get(self, "report_name")
 
     @report_name.setter
-    def report_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def report_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "report_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageInfo")
-    def storage_info(self) -> pulumi.Input[Optional['StorageInfoArgs']]:
+    def storage_info(self) -> Optional[pulumi.Input['StorageInfoArgs']]:
         """
         The information of 'bring your own storage' binding to the report
         """
         return pulumi.get(self, "storage_info")
 
     @storage_info.setter
-    def storage_info(self, value: pulumi.Input[Optional['StorageInfoArgs']]):
+    def storage_info(self, value: Optional[pulumi.Input['StorageInfoArgs']]):
         pulumi.set(self, "storage_info", value)
 
 
@@ -129,12 +129,12 @@ class Report(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 offer_guid: pulumi.Input[Optional[_builtins.str]] = None,
-                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceMetadataArgs', 'ResourceMetadataArgsDict']]]]] = None,
-                 storage_info: pulumi.Input[Optional[Union['StorageInfoArgs', 'StorageInfoArgsDict']]] = None,
-                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 trigger_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer_guid: Optional[pulumi.Input[_builtins.str]] = None,
+                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceMetadataArgs', 'ResourceMetadataArgsDict']]]]] = None,
+                 storage_info: Optional[pulumi.Input[Union['StorageInfoArgs', 'StorageInfoArgsDict']]] = None,
+                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 trigger_time: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A class represent an AppComplianceAutomation report resource.
@@ -183,12 +183,12 @@ class Report(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 offer_guid: pulumi.Input[Optional[_builtins.str]] = None,
-                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResourceMetadataArgs', 'ResourceMetadataArgsDict']]]]] = None,
-                 storage_info: pulumi.Input[Optional[Union['StorageInfoArgs', 'StorageInfoArgsDict']]] = None,
-                 time_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 trigger_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 offer_guid: Optional[pulumi.Input[_builtins.str]] = None,
+                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ResourceMetadataArgs', 'ResourceMetadataArgsDict']]]]] = None,
+                 storage_info: Optional[pulumi.Input[Union['StorageInfoArgs', 'StorageInfoArgsDict']]] = None,
+                 time_zone: Optional[pulumi.Input[_builtins.str]] = None,
+                 trigger_time: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -114,12 +114,12 @@ export class ServiceGateway extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["routeTargetAddress"] = args ? pulumi.output(args.routeTargetAddress).apply(v => v === undefined ? undefined : inputs.network.routeTargetAddressPropertiesFormatArgsProvideDefaults(v)) : undefined;
-            resourceInputs["routeTargetAddressV6"] = args ? pulumi.output(args.routeTargetAddressV6).apply(v => v === undefined ? undefined : inputs.network.routeTargetAddressPropertiesFormatArgsProvideDefaults(v)) : undefined;
+            resourceInputs["routeTargetAddress"] = args ? (args.routeTargetAddress ? pulumi.output(args.routeTargetAddress).apply(inputs.network.routeTargetAddressPropertiesFormatArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["routeTargetAddressV6"] = args ? (args.routeTargetAddressV6 ? pulumi.output(args.routeTargetAddressV6).apply(inputs.network.routeTargetAddressPropertiesFormatArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["serviceGatewayName"] = args?.serviceGatewayName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["virtualNetwork"] = args ? pulumi.output(args.virtualNetwork).apply(v => v === undefined ? undefined : inputs.network.virtualNetworkArgsProvideDefaults(v)) : undefined;
+            resourceInputs["virtualNetwork"] = args ? (args.virtualNetwork ? pulumi.output(args.virtualNetwork).apply(inputs.network.virtualNetworkArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -158,7 +158,7 @@ export interface ServiceGatewayArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -166,31 +166,31 @@ export interface ServiceGatewayArgs {
     /**
      * Route Target address of Service gateway
      */
-    routeTargetAddress?: pulumi.Input<inputs.network.RouteTargetAddressPropertiesFormatArgs | undefined>;
+    routeTargetAddress?: pulumi.Input<inputs.network.RouteTargetAddressPropertiesFormatArgs>;
     /**
      * Route Target address V6 of Service gateway
      */
-    routeTargetAddressV6?: pulumi.Input<inputs.network.RouteTargetAddressPropertiesFormatArgs | undefined>;
+    routeTargetAddressV6?: pulumi.Input<inputs.network.RouteTargetAddressPropertiesFormatArgs>;
     /**
      * The name of the service gateway.
      */
-    serviceGatewayName?: pulumi.Input<string | undefined>;
+    serviceGatewayName?: pulumi.Input<string>;
     /**
      * The service gateway SKU.
      */
-    sku?: pulumi.Input<inputs.network.ServiceGatewaySkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.network.ServiceGatewaySkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Reference to an existing virtual network.
      */
-    virtualNetwork?: pulumi.Input<inputs.network.VirtualNetworkArgs | undefined>;
+    virtualNetwork?: pulumi.Input<inputs.network.VirtualNetworkArgs>;
     /**
      * A list of availability zones denoting the zone in which service gateway should be deployed. 
      *
      * - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

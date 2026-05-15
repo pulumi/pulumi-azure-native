@@ -118,7 +118,7 @@ export interface WaveArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.migrate.WavePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.WavePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -126,5 +126,5 @@ export interface WaveArgs {
     /**
      * Migration Wave Resource
      */
-    waveName?: pulumi.Input<string | undefined>;
+    waveName?: pulumi.Input<string>;
 }

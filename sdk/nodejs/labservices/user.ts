@@ -159,7 +159,7 @@ export interface UserArgs {
     /**
      * The amount of usage quota time the user gets in addition to the lab usage quota.
      */
-    additionalUsageQuota?: pulumi.Input<string | undefined>;
+    additionalUsageQuota?: pulumi.Input<string>;
     /**
      * Email address of the user.
      */
@@ -175,5 +175,5 @@ export interface UserArgs {
     /**
      * The name of the user that uniquely identifies it within containing lab. Used in resource URIs.
      */
-    userName?: pulumi.Input<string | undefined>;
+    userName?: pulumi.Input<string>;
 }

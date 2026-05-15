@@ -155,7 +155,7 @@ export class AgentPool extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vmSkuName'");
             }
             resourceInputs["administratorConfiguration"] = args?.administratorConfiguration;
-            resourceInputs["agentOptions"] = args ? pulumi.output(args.agentOptions).apply(v => v === undefined ? undefined : inputs.networkcloud.agentOptionsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["agentOptions"] = args ? (args.agentOptions ? pulumi.output(args.agentOptions).apply(inputs.networkcloud.agentOptionsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["agentPoolName"] = args?.agentPoolName;
             resourceInputs["attachedNetworkConfiguration"] = args?.attachedNetworkConfiguration;
             resourceInputs["availabilityZones"] = args?.availabilityZones;
@@ -217,23 +217,23 @@ export interface AgentPoolArgs {
     /**
      * The administrator credentials to be used for the nodes in this agent pool.
      */
-    administratorConfiguration?: pulumi.Input<inputs.networkcloud.AdministratorConfigurationArgs | undefined>;
+    administratorConfiguration?: pulumi.Input<inputs.networkcloud.AdministratorConfigurationArgs>;
     /**
      * The configurations that will be applied to each agent in this agent pool.
      */
-    agentOptions?: pulumi.Input<inputs.networkcloud.AgentOptionsArgs | undefined>;
+    agentOptions?: pulumi.Input<inputs.networkcloud.AgentOptionsArgs>;
     /**
      * The name of the Kubernetes cluster agent pool.
      */
-    agentPoolName?: pulumi.Input<string | undefined>;
+    agentPoolName?: pulumi.Input<string>;
     /**
      * The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
      */
-    attachedNetworkConfiguration?: pulumi.Input<inputs.networkcloud.AttachedNetworkConfigurationArgs | undefined>;
+    attachedNetworkConfiguration?: pulumi.Input<inputs.networkcloud.AttachedNetworkConfigurationArgs>;
     /**
      * The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The number of virtual machines that use this configuration.
      */
@@ -241,7 +241,7 @@ export interface AgentPoolArgs {
     /**
      * The extended location of the cluster associated with the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
     /**
      * The name of the Kubernetes cluster.
      */
@@ -249,11 +249,11 @@ export interface AgentPoolArgs {
     /**
      * The labels applied to the nodes in this agent pool.
      */
-    labels?: pulumi.Input<pulumi.Input<inputs.networkcloud.KubernetesLabelArgs>[] | undefined>;
+    labels?: pulumi.Input<pulumi.Input<inputs.networkcloud.KubernetesLabelArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
      */
@@ -265,15 +265,15 @@ export interface AgentPoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The taints applied to the nodes in this agent pool.
      */
-    taints?: pulumi.Input<pulumi.Input<inputs.networkcloud.KubernetesLabelArgs>[] | undefined>;
+    taints?: pulumi.Input<pulumi.Input<inputs.networkcloud.KubernetesLabelArgs>[]>;
     /**
      * The configuration of the agent pool.
      */
-    upgradeSettings?: pulumi.Input<inputs.networkcloud.AgentPoolUpgradeSettingsArgs | undefined>;
+    upgradeSettings?: pulumi.Input<inputs.networkcloud.AgentPoolUpgradeSettingsArgs>;
     /**
      * The name of the VM SKU that determines the size of resources allocated for node VMs.
      */

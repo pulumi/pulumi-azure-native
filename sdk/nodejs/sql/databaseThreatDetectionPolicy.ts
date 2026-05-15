@@ -160,19 +160,19 @@ export interface DatabaseThreatDetectionPolicyArgs {
     /**
      * Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
      */
-    disabledAlerts?: pulumi.Input<string | undefined>;
+    disabledAlerts?: pulumi.Input<string>;
     /**
      * Specifies that the alert is sent to the account administrators.
      */
-    emailAccountAdmins?: pulumi.Input<string | enums.sql.SecurityAlertPolicyEmailAccountAdmins | undefined>;
+    emailAccountAdmins?: pulumi.Input<string | enums.sql.SecurityAlertPolicyEmailAccountAdmins>;
     /**
      * Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
      */
-    emailAddresses?: pulumi.Input<string | undefined>;
+    emailAddresses?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -180,11 +180,11 @@ export interface DatabaseThreatDetectionPolicyArgs {
     /**
      * Specifies the number of days to keep in the Threat Detection audit logs.
      */
-    retentionDays?: pulumi.Input<number | undefined>;
+    retentionDays?: pulumi.Input<number>;
     /**
      * The name of the security alert policy.
      */
-    securityAlertPolicyName?: pulumi.Input<string | undefined>;
+    securityAlertPolicyName?: pulumi.Input<string>;
     /**
      * The name of the server.
      */
@@ -196,13 +196,13 @@ export interface DatabaseThreatDetectionPolicyArgs {
     /**
      * Specifies the identifier key of the Threat Detection audit storage account. If state is Enabled, storageAccountAccessKey is required.
      */
-    storageAccountAccessKey?: pulumi.Input<string | undefined>;
+    storageAccountAccessKey?: pulumi.Input<string>;
     /**
      * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
      */
-    storageEndpoint?: pulumi.Input<string | undefined>;
+    storageEndpoint?: pulumi.Input<string>;
     /**
      * Specifies whether to use the default server policy.
      */
-    useServerDefault?: pulumi.Input<string | enums.sql.SecurityAlertPolicyUseServerDefault | undefined>;
+    useServerDefault?: pulumi.Input<string | enums.sql.SecurityAlertPolicyUseServerDefault>;
 }

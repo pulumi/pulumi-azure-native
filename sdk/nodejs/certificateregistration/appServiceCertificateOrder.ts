@@ -233,35 +233,35 @@ export interface AppServiceCertificateOrderArgs {
     /**
      * <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
      */
-    autoRenew?: pulumi.Input<boolean | undefined>;
+    autoRenew?: pulumi.Input<boolean>;
     /**
      * Name of the certificate order.
      */
-    certificateOrderName?: pulumi.Input<string | undefined>;
+    certificateOrderName?: pulumi.Input<string>;
     /**
      * State of the Key Vault secret.
      */
-    certificates?: pulumi.Input<{[key: string]: pulumi.Input<inputs.certificateregistration.AppServiceCertificateArgs>} | undefined>;
+    certificates?: pulumi.Input<{[key: string]: pulumi.Input<inputs.certificateregistration.AppServiceCertificateArgs>}>;
     /**
      * Last CSR that was created for this order.
      */
-    csr?: pulumi.Input<string | undefined>;
+    csr?: pulumi.Input<string>;
     /**
      * Certificate distinguished name.
      */
-    distinguishedName?: pulumi.Input<string | undefined>;
+    distinguishedName?: pulumi.Input<string>;
     /**
      * Certificate key size.
      */
-    keySize?: pulumi.Input<number | undefined>;
+    keySize?: pulumi.Input<number>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Certificate product type.
      */
@@ -273,9 +273,9 @@ export interface AppServiceCertificateOrderArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Duration in years (must be 1).
      */
-    validityInYears?: pulumi.Input<number | undefined>;
+    validityInYears?: pulumi.Input<number>;
 }

@@ -143,7 +143,7 @@ export interface NeighborGroupArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string | undefined>;
+    annotation?: pulumi.Input<string>;
     /**
      * An array of destination IPv4 Addresses or IPv6 Addresses.
      */
@@ -151,11 +151,11 @@ export interface NeighborGroupArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the Neighbor Group.
      */
-    neighborGroupName?: pulumi.Input<string | undefined>;
+    neighborGroupName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -163,5 +163,5 @@ export interface NeighborGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

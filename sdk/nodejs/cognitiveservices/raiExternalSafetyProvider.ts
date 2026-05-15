@@ -110,13 +110,13 @@ export interface RaiExternalSafetyProviderArgs {
     /**
      * Properties of Cognitive Services Rai External Safety provider.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.RaiExternalSafetyProviderSchemaPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.cognitiveservices.RaiExternalSafetyProviderSchemaPropertiesArgs>;
     /**
      * The name of the Rai External Safety Provider associated with the Cognitive Services Account
      */
-    safetyProviderName?: pulumi.Input<string | undefined>;
+    safetyProviderName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

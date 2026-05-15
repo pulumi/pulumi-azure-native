@@ -54,5 +54,5 @@ export interface GetOrganizationApiKeyOutputArgs {
     /**
      * The User email Id
      */
-    emailId?: pulumi.Input<string | undefined>;
+    emailId?: pulumi.Input<string>;
 }

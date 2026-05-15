@@ -103,7 +103,7 @@ export class DaprSubscription extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bulkSubscribe"] = args ? pulumi.output(args.bulkSubscribe).apply(v => v === undefined ? undefined : inputs.app.daprSubscriptionBulkSubscribeOptionsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["bulkSubscribe"] = args ? (args.bulkSubscribe ? pulumi.output(args.bulkSubscribe).apply(inputs.app.daprSubscriptionBulkSubscribeOptionsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["deadLetterTopic"] = args?.deadLetterTopic;
             resourceInputs["environmentName"] = args?.environmentName;
             resourceInputs["metadata"] = args?.metadata;
@@ -143,11 +143,11 @@ export interface DaprSubscriptionArgs {
     /**
      * Bulk subscription options
      */
-    bulkSubscribe?: pulumi.Input<inputs.app.DaprSubscriptionBulkSubscribeOptionsArgs | undefined>;
+    bulkSubscribe?: pulumi.Input<inputs.app.DaprSubscriptionBulkSubscribeOptionsArgs>;
     /**
      * Deadletter topic name
      */
-    deadLetterTopic?: pulumi.Input<string | undefined>;
+    deadLetterTopic?: pulumi.Input<string>;
     /**
      * Name of the Managed Environment.
      */
@@ -155,15 +155,15 @@ export interface DaprSubscriptionArgs {
     /**
      * Subscription metadata
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the Dapr subscription.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Dapr PubSub component name
      */
-    pubsubName?: pulumi.Input<string | undefined>;
+    pubsubName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -171,13 +171,13 @@ export interface DaprSubscriptionArgs {
     /**
      * Subscription routes
      */
-    routes?: pulumi.Input<inputs.app.DaprSubscriptionRoutesArgs | undefined>;
+    routes?: pulumi.Input<inputs.app.DaprSubscriptionRoutesArgs>;
     /**
      * Application scopes to restrict the subscription to specific apps.
      */
-    scopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Topic name
      */
-    topic?: pulumi.Input<string | undefined>;
+    topic?: pulumi.Input<string>;
 }

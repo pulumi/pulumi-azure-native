@@ -128,11 +128,11 @@ export interface AppServicePlanRouteForVnetArgs {
     /**
      * The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
      */
-    endAddress?: pulumi.Input<string | undefined>;
+    endAddress?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the App Service plan.
      */
@@ -144,7 +144,7 @@ export interface AppServicePlanRouteForVnetArgs {
     /**
      * Name of the Virtual Network route.
      */
-    routeName?: pulumi.Input<string | undefined>;
+    routeName?: pulumi.Input<string>;
     /**
      * The type of route this is:
      * DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
@@ -153,11 +153,11 @@ export interface AppServicePlanRouteForVnetArgs {
      *
      * These values will be used for syncing an app's routes with those from a Virtual Network.
      */
-    routeType?: pulumi.Input<string | enums.web.RouteType | undefined>;
+    routeType?: pulumi.Input<string | enums.web.RouteType>;
     /**
      * The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
      */
-    startAddress?: pulumi.Input<string | undefined>;
+    startAddress?: pulumi.Input<string>;
     /**
      * Name of the Virtual Network.
      */

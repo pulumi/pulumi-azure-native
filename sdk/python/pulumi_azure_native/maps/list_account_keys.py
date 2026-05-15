@@ -110,8 +110,8 @@ def list_account_keys(account_name: Optional[_builtins.str] = None,
         primary_key_last_updated=pulumi.get(__ret__, 'primary_key_last_updated'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'),
         secondary_key_last_updated=pulumi.get(__ret__, 'secondary_key_last_updated'))
-def list_account_keys_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_account_keys_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccountKeysResult]:
     """
     Get the keys to use with the Maps APIs. A key is used to authenticate and authorize access to the Maps REST APIs. Only one key is needed at a time; two are given to provide seamless key regeneration.

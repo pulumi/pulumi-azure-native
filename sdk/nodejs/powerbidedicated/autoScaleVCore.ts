@@ -135,15 +135,15 @@ export interface AutoScaleVCoreArgs {
     /**
      * The maximum capacity of an auto scale v-core resource.
      */
-    capacityLimit?: pulumi.Input<number | undefined>;
+    capacityLimit?: pulumi.Input<number>;
     /**
      * The object ID of the capacity resource associated with the auto scale v-core resource.
      */
-    capacityObjectId?: pulumi.Input<string | undefined>;
+    capacityObjectId?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -155,9 +155,9 @@ export interface AutoScaleVCoreArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    vcoreName?: pulumi.Input<string | undefined>;
+    vcoreName?: pulumi.Input<string>;
 }

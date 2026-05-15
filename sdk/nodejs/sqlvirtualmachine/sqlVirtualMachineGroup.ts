@@ -152,7 +152,7 @@ export interface SqlVirtualMachineGroupArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,21 +160,21 @@ export interface SqlVirtualMachineGroupArgs {
     /**
      * SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
      */
-    sqlImageOffer?: pulumi.Input<string | undefined>;
+    sqlImageOffer?: pulumi.Input<string>;
     /**
      * SQL image sku.
      */
-    sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.SqlVmGroupImageSku | undefined>;
+    sqlImageSku?: pulumi.Input<string | enums.sqlvirtualmachine.SqlVmGroupImageSku>;
     /**
      * Name of the SQL virtual machine group.
      */
-    sqlVirtualMachineGroupName?: pulumi.Input<string | undefined>;
+    sqlVirtualMachineGroupName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Cluster Active Directory domain profile.
      */
-    wsfcDomainProfile?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainProfileArgs | undefined>;
+    wsfcDomainProfile?: pulumi.Input<inputs.sqlvirtualmachine.WsfcDomainProfileArgs>;
 }

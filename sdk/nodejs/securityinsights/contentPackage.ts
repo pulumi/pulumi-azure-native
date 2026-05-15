@@ -261,11 +261,11 @@ export interface ContentPackageArgs {
     /**
      * The author of the package
      */
-    author?: pulumi.Input<inputs.securityinsights.MetadataAuthorArgs | undefined>;
+    author?: pulumi.Input<inputs.securityinsights.MetadataAuthorArgs>;
     /**
      * The categories of the package
      */
-    categories?: pulumi.Input<inputs.securityinsights.MetadataCategoriesArgs | undefined>;
+    categories?: pulumi.Input<inputs.securityinsights.MetadataCategoriesArgs>;
     /**
      * The content id of the package
      */
@@ -281,15 +281,15 @@ export interface ContentPackageArgs {
     /**
      * The version of the content schema.
      */
-    contentSchemaVersion?: pulumi.Input<string | undefined>;
+    contentSchemaVersion?: pulumi.Input<string>;
     /**
      * The support tier of the package
      */
-    dependencies?: pulumi.Input<inputs.securityinsights.MetadataDependenciesArgs | undefined>;
+    dependencies?: pulumi.Input<inputs.securityinsights.MetadataDependenciesArgs>;
     /**
      * The description of the package
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the package
      */
@@ -297,43 +297,43 @@ export interface ContentPackageArgs {
     /**
      * first publish date package item
      */
-    firstPublishDate?: pulumi.Input<string | undefined>;
+    firstPublishDate?: pulumi.Input<string>;
     /**
      * the icon identifier. this id can later be fetched from the content metadata
      */
-    icon?: pulumi.Input<string | undefined>;
+    icon?: pulumi.Input<string>;
     /**
      * Flag indicates if this template is deprecated
      */
-    isDeprecated?: pulumi.Input<string | enums.securityinsights.Flag | undefined>;
+    isDeprecated?: pulumi.Input<string | enums.securityinsights.Flag>;
     /**
      * Flag indicates if this package is among the featured list.
      */
-    isFeatured?: pulumi.Input<string | enums.securityinsights.Flag | undefined>;
+    isFeatured?: pulumi.Input<string | enums.securityinsights.Flag>;
     /**
      * Flag indicates if this is a newly published package.
      */
-    isNew?: pulumi.Input<string | enums.securityinsights.Flag | undefined>;
+    isNew?: pulumi.Input<string | enums.securityinsights.Flag>;
     /**
      * Flag indicates if this package is in preview.
      */
-    isPreview?: pulumi.Input<string | enums.securityinsights.Flag | undefined>;
+    isPreview?: pulumi.Input<string | enums.securityinsights.Flag>;
     /**
      * last publish date for the package item
      */
-    lastPublishDate?: pulumi.Input<string | undefined>;
+    lastPublishDate?: pulumi.Input<string>;
     /**
      * package Id
      */
-    packageId?: pulumi.Input<string | undefined>;
+    packageId?: pulumi.Input<string>;
     /**
      * Providers for the package item
      */
-    providers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    providers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The publisher display name of the package
      */
-    publisherDisplayName?: pulumi.Input<string | undefined>;
+    publisherDisplayName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -341,19 +341,19 @@ export interface ContentPackageArgs {
     /**
      * The source of the package
      */
-    source?: pulumi.Input<inputs.securityinsights.MetadataSourceArgs | undefined>;
+    source?: pulumi.Input<inputs.securityinsights.MetadataSourceArgs>;
     /**
      * The support tier of the package
      */
-    support?: pulumi.Input<inputs.securityinsights.MetadataSupportArgs | undefined>;
+    support?: pulumi.Input<inputs.securityinsights.MetadataSupportArgs>;
     /**
      * the tactics the resource covers
      */
-    threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * the techniques the resource covers, these have to be aligned with the tactics being used
      */
-    threatAnalysisTechniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    threatAnalysisTechniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * the latest version number of the package
      */

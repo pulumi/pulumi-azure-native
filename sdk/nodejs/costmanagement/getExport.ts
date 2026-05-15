@@ -119,7 +119,7 @@ export interface GetExportOutputArgs {
     /**
      * May be used to expand the properties within an export. Currently only 'runHistory' is supported and will return information for the last 10 runs of the export.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * Export Name.
      */

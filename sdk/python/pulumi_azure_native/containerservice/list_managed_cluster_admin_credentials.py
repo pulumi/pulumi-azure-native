@@ -75,9 +75,9 @@ def list_managed_cluster_admin_credentials(resource_group_name: Optional[_builti
 
     return AwaitableListManagedClusterAdminCredentialsResult(
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-def list_managed_cluster_admin_credentials_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  server_fqdn: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def list_managed_cluster_admin_credentials_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  server_fqdn: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManagedClusterAdminCredentialsResult]:
     """
     The list credential result response.

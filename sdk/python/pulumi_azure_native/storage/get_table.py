@@ -140,9 +140,9 @@ def get_table(account_name: Optional[_builtins.str] = None,
         signed_identifiers=pulumi.get(__ret__, 'signed_identifiers'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_table_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     table_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_table_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                     table_name: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Gets the table with the specified table name, under the specified account if it exists.

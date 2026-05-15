@@ -118,25 +118,25 @@ export interface SecurityContactArgs {
     /**
      * List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
      */
-    emails?: pulumi.Input<string | undefined>;
+    emails?: pulumi.Input<string>;
     /**
      * Indicates whether the security contact is enabled.
      */
-    isEnabled?: pulumi.Input<boolean | undefined>;
+    isEnabled?: pulumi.Input<boolean>;
     /**
      * Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
      */
-    notificationsByRole?: pulumi.Input<inputs.security.SecurityContactPropertiesNotificationsByRoleArgs | undefined>;
+    notificationsByRole?: pulumi.Input<inputs.security.SecurityContactPropertiesNotificationsByRoleArgs>;
     /**
      * A collection of sources types which evaluate the email notification.
      */
-    notificationsSources?: pulumi.Input<pulumi.Input<inputs.security.NotificationsSourceAlertArgs | inputs.security.NotificationsSourceAttackPathArgs>[] | undefined>;
+    notificationsSources?: pulumi.Input<pulumi.Input<inputs.security.NotificationsSourceAlertArgs | inputs.security.NotificationsSourceAttackPathArgs>[]>;
     /**
      * The security contact's phone number
      */
-    phone?: pulumi.Input<string | undefined>;
+    phone?: pulumi.Input<string>;
     /**
      * Name of the security contact object
      */
-    securityContactName?: pulumi.Input<string | undefined>;
+    securityContactName?: pulumi.Input<string>;
 }

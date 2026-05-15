@@ -174,31 +174,31 @@ export interface NetworkConnectionArgs {
     /**
      * Active Directory domain name
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName?: pulumi.Input<string>;
     /**
      * The password for the account used to join domain
      */
-    domainPassword?: pulumi.Input<string | undefined>;
+    domainPassword?: pulumi.Input<string>;
     /**
      * The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com.
      */
-    domainUsername?: pulumi.Input<string | undefined>;
+    domainUsername?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the Network Connection that can be applied to a Pool.
      */
-    networkConnectionName?: pulumi.Input<string | undefined>;
+    networkConnectionName?: pulumi.Input<string>;
     /**
      * The name for resource group where NICs will be placed.
      */
-    networkingResourceGroupName?: pulumi.Input<string | undefined>;
+    networkingResourceGroupName?: pulumi.Input<string>;
     /**
      * Active Directory domain Organization Unit (OU)
      */
-    organizationUnit?: pulumi.Input<string | undefined>;
+    organizationUnit?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -210,5 +210,5 @@ export interface NetworkConnectionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

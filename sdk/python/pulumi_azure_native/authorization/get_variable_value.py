@@ -137,8 +137,8 @@ def get_variable_value(variable_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         values=pulumi.get(__ret__, 'values'))
-def get_variable_value_output(variable_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              variable_value_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_variable_value_output(variable_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              variable_value_name: Optional[pulumi.Input[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableValueResult]:
     """
     This operation retrieves a single variable value; given its name, subscription it was created at and the variable it's created for.

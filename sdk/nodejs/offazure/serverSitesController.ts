@@ -154,19 +154,19 @@ export interface ServerSitesControllerArgs {
     /**
      * Gets or sets the on-premises agent details.
      */
-    agentDetails?: pulumi.Input<inputs.offazure.SiteAgentPropertiesArgs | undefined>;
+    agentDetails?: pulumi.Input<inputs.offazure.SiteAgentPropertiesArgs>;
     /**
      * Gets or sets the Appliance Name.
      */
-    applianceName?: pulumi.Input<string | undefined>;
+    applianceName?: pulumi.Input<string>;
     /**
      * Gets or sets the ARM ID of migration hub solution for SDS.
      */
-    discoverySolutionId?: pulumi.Input<string | undefined>;
+    discoverySolutionId?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,13 +176,13 @@ export interface ServerSitesControllerArgs {
      * communication
      *             to the service.
      */
-    servicePrincipalIdentityDetails?: pulumi.Input<inputs.offazure.SiteSpnPropertiesArgs | undefined>;
+    servicePrincipalIdentityDetails?: pulumi.Input<inputs.offazure.SiteSpnPropertiesArgs>;
     /**
      * Site name
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

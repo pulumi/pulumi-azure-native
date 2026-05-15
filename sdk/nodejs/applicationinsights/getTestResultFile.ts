@@ -88,7 +88,7 @@ export interface GetTestResultFileOutputArgs {
     /**
      * The continuation token.
      */
-    continuationToken?: pulumi.Input<string | undefined>;
+    continuationToken?: pulumi.Input<string>;
     /**
      * The format to use when returning the webtest result.
      */
@@ -104,7 +104,7 @@ export interface GetTestResultFileOutputArgs {
     /**
      * The success state criteria for the webtest result.
      */
-    testSuccessfulCriteria?: pulumi.Input<boolean | undefined>;
+    testSuccessfulCriteria?: pulumi.Input<boolean>;
     /**
      * The posix (epoch) time stamp for the webtest result.
      */

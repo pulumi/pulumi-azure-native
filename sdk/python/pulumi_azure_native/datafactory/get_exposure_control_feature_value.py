@@ -85,9 +85,9 @@ def get_exposure_control_feature_value(feature_name: Optional[_builtins.str] = N
     return AwaitableGetExposureControlFeatureValueResult(
         feature_name=pulumi.get(__ret__, 'feature_name'),
         value=pulumi.get(__ret__, 'value'))
-def get_exposure_control_feature_value_output(feature_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                              feature_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                              location_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_exposure_control_feature_value_output(feature_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                              feature_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                              location_id: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExposureControlFeatureValueResult]:
     """
     Get exposure control feature for specific location.

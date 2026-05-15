@@ -114,11 +114,11 @@ export interface BackupInstanceArgs {
     /**
      * The name of the backup instance.
      */
-    backupInstanceName?: pulumi.Input<string | undefined>;
+    backupInstanceName?: pulumi.Input<string>;
     /**
      * BackupInstanceResource properties
      */
-    properties?: pulumi.Input<inputs.dataprotection.BackupInstanceArgs | undefined>;
+    properties?: pulumi.Input<inputs.dataprotection.BackupInstanceArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -126,7 +126,7 @@ export interface BackupInstanceArgs {
     /**
      * Proxy Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the backup vault.
      */

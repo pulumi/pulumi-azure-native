@@ -155,7 +155,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["administratorLogin"] = args?.administratorLogin;
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
             resourceInputs["availabilityZone"] = args?.availabilityZone;
-            resourceInputs["backup"] = args ? pulumi.output(args.backup).apply(v => v === undefined ? undefined : inputs.dbformysql.backupArgsProvideDefaults(v)) : undefined;
+            resourceInputs["backup"] = args ? (args.backup ? pulumi.output(args.backup).apply(inputs.dbformysql.backupArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["createMode"] = args?.createMode;
             resourceInputs["dataEncryption"] = args?.dataEncryption;
             resourceInputs["highAvailability"] = args?.highAvailability;
@@ -170,7 +170,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["serverName"] = args?.serverName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["sourceServerResourceId"] = args?.sourceServerResourceId;
-            resourceInputs["storage"] = args ? pulumi.output(args.storage).apply(v => v === undefined ? undefined : inputs.dbformysql.storageArgsProvideDefaults(v)) : undefined;
+            resourceInputs["storage"] = args ? (args.storage ? pulumi.output(args.storage).apply(inputs.dbformysql.storageArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -221,55 +221,55 @@ export interface ServerArgs {
     /**
      * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
      */
-    administratorLogin?: pulumi.Input<string | undefined>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The password of the administrator login (required for server creation).
      */
-    administratorLoginPassword?: pulumi.Input<string | undefined>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * availability Zone information of the server.
      */
-    availabilityZone?: pulumi.Input<string | undefined>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * Backup related properties of a server.
      */
-    backup?: pulumi.Input<inputs.dbformysql.BackupArgs | undefined>;
+    backup?: pulumi.Input<inputs.dbformysql.BackupArgs>;
     /**
      * The mode to create a new MySQL server.
      */
-    createMode?: pulumi.Input<string | enums.dbformysql.CreateMode | undefined>;
+    createMode?: pulumi.Input<string | enums.dbformysql.CreateMode>;
     /**
      * The Data Encryption for CMK.
      */
-    dataEncryption?: pulumi.Input<inputs.dbformysql.DataEncryptionArgs | undefined>;
+    dataEncryption?: pulumi.Input<inputs.dbformysql.DataEncryptionArgs>;
     /**
      * High availability related properties of a server.
      */
-    highAvailability?: pulumi.Input<inputs.dbformysql.HighAvailabilityArgs | undefined>;
+    highAvailability?: pulumi.Input<inputs.dbformysql.HighAvailabilityArgs>;
     /**
      * The cmk identity for the server.
      */
-    identity?: pulumi.Input<inputs.dbformysql.MySQLServerIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.dbformysql.MySQLServerIdentityArgs>;
     /**
      * Source properties for import from storage.
      */
-    importSourceProperties?: pulumi.Input<inputs.dbformysql.ImportSourcePropertiesArgs | undefined>;
+    importSourceProperties?: pulumi.Input<inputs.dbformysql.ImportSourcePropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Maintenance window of a server.
      */
-    maintenanceWindow?: pulumi.Input<inputs.dbformysql.MaintenanceWindowArgs | undefined>;
+    maintenanceWindow?: pulumi.Input<inputs.dbformysql.MaintenanceWindowArgs>;
     /**
      * Network related properties of a server.
      */
-    network?: pulumi.Input<inputs.dbformysql.NetworkArgs | undefined>;
+    network?: pulumi.Input<inputs.dbformysql.NetworkArgs>;
     /**
      * The replication role.
      */
-    replicationRole?: pulumi.Input<string | enums.dbformysql.ReplicationRole | undefined>;
+    replicationRole?: pulumi.Input<string | enums.dbformysql.ReplicationRole>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -277,29 +277,29 @@ export interface ServerArgs {
     /**
      * Restore point creation time (ISO8601 format), specifying the time to restore from.
      */
-    restorePointInTime?: pulumi.Input<string | undefined>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * The name of the server.
      */
-    serverName?: pulumi.Input<string | undefined>;
+    serverName?: pulumi.Input<string>;
     /**
      * The SKU (pricing tier) of the server.
      */
-    sku?: pulumi.Input<inputs.dbformysql.MySQLServerSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.dbformysql.MySQLServerSkuArgs>;
     /**
      * The source MySQL server id.
      */
-    sourceServerResourceId?: pulumi.Input<string | undefined>;
+    sourceServerResourceId?: pulumi.Input<string>;
     /**
      * Storage related properties of a server.
      */
-    storage?: pulumi.Input<inputs.dbformysql.StorageArgs | undefined>;
+    storage?: pulumi.Input<inputs.dbformysql.StorageArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Server version.
      */
-    version?: pulumi.Input<string | enums.dbformysql.ServerVersion | undefined>;
+    version?: pulumi.Input<string | enums.dbformysql.ServerVersion>;
 }

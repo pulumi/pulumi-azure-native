@@ -182,10 +182,10 @@ def get_management_group(expand: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_management_group_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                recurse: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+def get_management_group_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                recurse: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupResult]:
     """
     Get the details of the management group.

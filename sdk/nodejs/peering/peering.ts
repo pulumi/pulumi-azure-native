@@ -146,11 +146,11 @@ export interface PeeringArgs {
     /**
      * The properties that define a direct peering.
      */
-    direct?: pulumi.Input<inputs.peering.PeeringPropertiesDirectArgs | undefined>;
+    direct?: pulumi.Input<inputs.peering.PeeringPropertiesDirectArgs>;
     /**
      * The properties that define an exchange peering.
      */
-    exchange?: pulumi.Input<inputs.peering.PeeringPropertiesExchangeArgs | undefined>;
+    exchange?: pulumi.Input<inputs.peering.PeeringPropertiesExchangeArgs>;
     /**
      * The kind of the peering.
      */
@@ -158,15 +158,15 @@ export interface PeeringArgs {
     /**
      * The location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The location of the peering.
      */
-    peeringLocation?: pulumi.Input<string | undefined>;
+    peeringLocation?: pulumi.Input<string>;
     /**
      * The name of the peering.
      */
-    peeringName?: pulumi.Input<string | undefined>;
+    peeringName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -178,5 +178,5 @@ export interface PeeringArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

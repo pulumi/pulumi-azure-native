@@ -530,9 +530,9 @@ def get_virtual_machine_scale_set(expand: Optional[_builtins.str] = None,
         zonal_platform_fault_domain_align_mode=pulumi.get(__ret__, 'zonal_platform_fault_domain_align_mode'),
         zone_balance=pulumi.get(__ret__, 'zone_balance'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_virtual_machine_scale_set_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         vm_scale_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_machine_scale_set_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         vm_scale_set_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetResult]:
     """
     Display information about a virtual machine scale set.

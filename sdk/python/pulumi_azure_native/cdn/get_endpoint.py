@@ -413,9 +413,9 @@ def get_endpoint(endpoint_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         url_signing_keys=pulumi.get(__ret__, 'url_signing_keys'),
         web_application_firewall_policy_link=pulumi.get(__ret__, 'web_application_firewall_policy_link'))
-def get_endpoint_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_endpoint_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Gets an existing CDN endpoint with the specified endpoint name under the specified subscription, resource group and profile.

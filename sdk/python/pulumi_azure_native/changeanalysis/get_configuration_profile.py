@@ -158,7 +158,7 @@ def get_configuration_profile(profile_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_configuration_profile_output(profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_configuration_profile_output(profile_name: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
     A profile object that contains change analysis configuration, such as notification settings, for this subscription

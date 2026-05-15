@@ -201,7 +201,7 @@ export interface WorkbookArgs {
     /**
      * The description of the workbook.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The user-defined name (display name) of the workbook.
      */
@@ -209,15 +209,15 @@ export interface WorkbookArgs {
     /**
      * Identity used for BYOS
      */
-    identity?: pulumi.Input<inputs.applicationinsights.WorkbookResourceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.applicationinsights.WorkbookResourceIdentityArgs>;
     /**
      * The kind of workbook. Only valid value is shared.
      */
-    kind?: pulumi.Input<string | enums.applicationinsights.WorkbookSharedTypeKind | undefined>;
+    kind?: pulumi.Input<string | enums.applicationinsights.WorkbookSharedTypeKind>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -225,7 +225,7 @@ export interface WorkbookArgs {
     /**
      * The name of the workbook resource. The value must be an UUID.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Configuration of this particular workbook. Configuration data is a string containing valid JSON
      */
@@ -233,17 +233,17 @@ export interface WorkbookArgs {
     /**
      * ResourceId for a source resource.
      */
-    sourceId?: pulumi.Input<string | undefined>;
+    sourceId?: pulumi.Input<string>;
     /**
      * The resourceId to the storage account when bring your own storage is used
      */
-    storageUri?: pulumi.Input<string | undefined>;
+    storageUri?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Workbook schema version format, like 'Notebook/1.0', which should match the workbook in serializedData
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

@@ -162,27 +162,27 @@ export interface ProjectEnvironmentTypeArgs {
     /**
      * The role definition assigned to the environment creator on backing resources.
      */
-    creatorRoleAssignment?: pulumi.Input<inputs.devcenter.ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs | undefined>;
+    creatorRoleAssignment?: pulumi.Input<inputs.devcenter.ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs>;
     /**
      * Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
      */
-    deploymentTargetId?: pulumi.Input<string | undefined>;
+    deploymentTargetId?: pulumi.Input<string>;
     /**
      * The display name of the project environment type.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the environment type.
      */
-    environmentTypeName?: pulumi.Input<string | undefined>;
+    environmentTypeName?: pulumi.Input<string>;
     /**
      * Managed identity properties
      */
-    identity?: pulumi.Input<inputs.devcenter.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.devcenter.ManagedServiceIdentityArgs>;
     /**
      * The geo-location for the environment type
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the project.
      */
@@ -194,13 +194,13 @@ export interface ProjectEnvironmentTypeArgs {
     /**
      * Defines whether this Environment Type can be used in this Project.
      */
-    status?: pulumi.Input<string | enums.devcenter.EnvironmentTypeEnableStatus | undefined>;
+    status?: pulumi.Input<string | enums.devcenter.EnvironmentTypeEnableStatus>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.
      */
-    userRoleAssignments?: pulumi.Input<{[key: string]: pulumi.Input<inputs.devcenter.UserRoleAssignmentArgs>} | undefined>;
+    userRoleAssignments?: pulumi.Input<{[key: string]: pulumi.Input<inputs.devcenter.UserRoleAssignmentArgs>}>;
 }

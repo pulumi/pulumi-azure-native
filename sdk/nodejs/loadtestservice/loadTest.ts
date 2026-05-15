@@ -140,23 +140,23 @@ export interface LoadTestArgs {
     /**
      * Description of the resource.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * CMK Encryption property.
      */
-    encryption?: pulumi.Input<inputs.loadtestservice.EncryptionPropertiesArgs | undefined>;
+    encryption?: pulumi.Input<inputs.loadtestservice.EncryptionPropertiesArgs>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.loadtestservice.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.loadtestservice.ManagedServiceIdentityArgs>;
     /**
      * Load Test name
      */
-    loadTestName?: pulumi.Input<string | undefined>;
+    loadTestName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -164,5 +164,5 @@ export interface LoadTestArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

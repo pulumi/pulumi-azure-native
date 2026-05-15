@@ -126,7 +126,7 @@ export interface GetRecoveryPointAccessTokenOutputArgs {
     /**
      * Optional ETag.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Fabric name associated with the container.
      */
@@ -134,11 +134,11 @@ export interface GetRecoveryPointAccessTokenOutputArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * AADPropertiesResource properties
      */
-    properties?: pulumi.Input<inputs.recoveryservices.AADPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.recoveryservices.AADPropertiesArgs>;
     /**
      * Name of the Protected Item.
      */
@@ -154,7 +154,7 @@ export interface GetRecoveryPointAccessTokenOutputArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */

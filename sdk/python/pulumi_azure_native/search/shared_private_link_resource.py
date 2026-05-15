@@ -24,8 +24,8 @@ class SharedPrivateLinkResourceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  search_service_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SharedPrivateLinkResourcePropertiesArgs']] = None,
-                 shared_private_link_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']] = None,
+                 shared_private_link_resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedPrivateLinkResource resource.
 
@@ -67,26 +67,26 @@ class SharedPrivateLinkResourceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['SharedPrivateLinkResourcePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]:
         """
         Describes the properties of a shared private link resource managed by the Azure AI Search service.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['SharedPrivateLinkResourcePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['SharedPrivateLinkResourcePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedPrivateLinkResourceName")
-    def shared_private_link_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def shared_private_link_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the shared private link resource managed by the Azure AI Search service within the specified resource group.
         """
         return pulumi.get(self, "shared_private_link_resource_name")
 
     @shared_private_link_resource_name.setter
-    def shared_private_link_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def shared_private_link_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "shared_private_link_resource_name", value)
 
 
@@ -96,10 +96,10 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['SharedPrivateLinkResourcePropertiesArgs', 'SharedPrivateLinkResourcePropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 search_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 shared_private_link_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['SharedPrivateLinkResourcePropertiesArgs', 'SharedPrivateLinkResourcePropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 search_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 shared_private_link_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Describes a shared private link resource managed by the Azure AI Search service.
@@ -145,10 +145,10 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['SharedPrivateLinkResourcePropertiesArgs', 'SharedPrivateLinkResourcePropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 search_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 shared_private_link_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['SharedPrivateLinkResourcePropertiesArgs', 'SharedPrivateLinkResourcePropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 search_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 shared_private_link_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -218,9 +218,9 @@ def get_build(build_name: Optional[_builtins.str] = None,
         token_endpoint=pulumi.get(__ret__, 'token_endpoint'),
         type=pulumi.get(__ret__, 'type'),
         upload_endpoint=pulumi.get(__ret__, 'upload_endpoint'))
-def get_build_output(build_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     builder_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_build_output(build_name: Optional[pulumi.Input[_builtins.str]] = None,
+                     builder_name: Optional[pulumi.Input[_builtins.str]] = None,
+                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildResult]:
     """
     Get a BuildResource

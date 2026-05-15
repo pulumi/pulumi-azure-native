@@ -99,7 +99,7 @@ export interface AssociationArgs {
     /**
      * The name of the association.
      */
-    associationName?: pulumi.Input<string | undefined>;
+    associationName?: pulumi.Input<string>;
     /**
      * The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.
      */
@@ -107,5 +107,5 @@ export interface AssociationArgs {
     /**
      * The REST resource instance of the target resource for this association.
      */
-    targetResourceId?: pulumi.Input<string | undefined>;
+    targetResourceId?: pulumi.Input<string>;
 }

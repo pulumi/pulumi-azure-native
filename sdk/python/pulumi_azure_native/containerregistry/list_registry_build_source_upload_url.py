@@ -84,8 +84,8 @@ def list_registry_build_source_upload_url(registry_name: Optional[_builtins.str]
     return AwaitableListRegistryBuildSourceUploadUrlResult(
         relative_path=pulumi.get(__ret__, 'relative_path'),
         upload_url=pulumi.get(__ret__, 'upload_url'))
-def list_registry_build_source_upload_url_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_registry_build_source_upload_url_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRegistryBuildSourceUploadUrlResult]:
     """
     Get the upload location for the user to be able to upload the source.

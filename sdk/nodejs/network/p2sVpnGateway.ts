@@ -159,27 +159,27 @@ export interface P2sVpnGatewayArgs {
     /**
      * List of all customer specified DNS servers IP addresses.
      */
-    customDnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    customDnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the gateway.
      */
-    gatewayName?: pulumi.Input<string | undefined>;
+    gatewayName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
      */
-    isRoutingPreferenceInternet?: pulumi.Input<boolean | undefined>;
+    isRoutingPreferenceInternet?: pulumi.Input<boolean>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * List of all p2s connection configurations of the gateway.
      */
-    p2SConnectionConfigurations?: pulumi.Input<pulumi.Input<inputs.network.P2SConnectionConfigurationArgs>[] | undefined>;
+    p2SConnectionConfigurations?: pulumi.Input<pulumi.Input<inputs.network.P2SConnectionConfigurationArgs>[]>;
     /**
      * The resource group name of the P2SVpnGateway.
      */
@@ -187,17 +187,17 @@ export interface P2sVpnGatewayArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VirtualHub to which the gateway belongs.
      */
-    virtualHub?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    virtualHub?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The scale unit for this p2s vpn gateway.
      */
-    vpnGatewayScaleUnit?: pulumi.Input<number | undefined>;
+    vpnGatewayScaleUnit?: pulumi.Input<number>;
     /**
      * The VpnServerConfiguration to which the p2sVpnGateway is attached to.
      */
-    vpnServerConfiguration?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    vpnServerConfiguration?: pulumi.Input<inputs.network.SubResourceArgs>;
 }

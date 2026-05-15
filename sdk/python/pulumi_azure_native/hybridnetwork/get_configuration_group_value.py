@@ -163,8 +163,8 @@ def get_configuration_group_value(configuration_group_value_name: Optional[_buil
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_configuration_group_value_output(configuration_group_value_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_configuration_group_value_output(configuration_group_value_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationGroupValueResult]:
     """
     Gets information about the specified hybrid configuration group values.

@@ -118,7 +118,7 @@ export interface ServerCommunicationLinkArgs {
     /**
      * The name of the server communication link.
      */
-    communicationLinkName?: pulumi.Input<string | undefined>;
+    communicationLinkName?: pulumi.Input<string>;
     /**
      * The name of the partner server.
      */

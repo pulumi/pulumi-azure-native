@@ -122,19 +122,19 @@ export interface AccountArgs {
     /**
      * The name of the RecommendationsService Account resource.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string>;
     /**
      * The identity used for the resource.
      */
-    identity?: pulumi.Input<inputs.recommendationsservice.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.recommendationsservice.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Account resource properties.
      */
-    properties?: pulumi.Input<inputs.recommendationsservice.AccountResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.recommendationsservice.AccountResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -142,5 +142,5 @@ export interface AccountArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

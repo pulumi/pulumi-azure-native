@@ -24,7 +24,7 @@ class RegistryComponentContainerArgs:
                  properties: pulumi.Input['ComponentContainerPropertiesArgs'],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 component_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 component_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryComponentContainer resource.
 
@@ -77,14 +77,14 @@ class RegistryComponentContainerArgs:
 
     @_builtins.property
     @pulumi.getter(name="componentName")
-    def component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def component_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Container name.
         """
         return pulumi.get(self, "component_name")
 
     @component_name.setter
-    def component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def component_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "component_name", value)
 
 
@@ -94,10 +94,10 @@ class RegistryComponentContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ComponentContainerPropertiesArgs', 'ComponentContainerPropertiesArgsDict']]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ComponentContainerPropertiesArgs', 'ComponentContainerPropertiesArgsDict']]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Azure Resource Manager resource envelope.
@@ -143,10 +143,10 @@ class RegistryComponentContainer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ComponentContainerPropertiesArgs', 'ComponentContainerPropertiesArgsDict']]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 component_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ComponentContainerPropertiesArgs', 'ComponentContainerPropertiesArgsDict']]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

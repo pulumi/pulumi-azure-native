@@ -108,7 +108,7 @@ export interface SharedPrivateLinkResourceArgs {
     /**
      * Describes the properties of a shared private link resource managed by the Azure AI Search service.
      */
-    properties?: pulumi.Input<inputs.search.SharedPrivateLinkResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.search.SharedPrivateLinkResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,5 +120,5 @@ export interface SharedPrivateLinkResourceArgs {
     /**
      * The name of the shared private link resource managed by the Azure AI Search service within the specified resource group.
      */
-    sharedPrivateLinkResourceName?: pulumi.Input<string | undefined>;
+    sharedPrivateLinkResourceName?: pulumi.Input<string>;
 }

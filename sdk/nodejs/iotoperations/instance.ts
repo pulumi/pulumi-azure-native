@@ -135,19 +135,19 @@ export interface InstanceArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.iotoperations.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.iotoperations.ManagedServiceIdentityArgs>;
     /**
      * Name of instance.
      */
-    instanceName?: pulumi.Input<string | undefined>;
+    instanceName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.iotoperations.InstancePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.iotoperations.InstancePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -155,5 +155,5 @@ export interface InstanceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

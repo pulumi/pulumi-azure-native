@@ -117,7 +117,7 @@ export interface IntegrationAccountAssemblyArgs {
     /**
      * The assembly artifact name.
      */
-    assemblyArtifactName?: pulumi.Input<string | undefined>;
+    assemblyArtifactName?: pulumi.Input<string>;
     /**
      * The integration account name.
      */
@@ -125,7 +125,7 @@ export interface IntegrationAccountAssemblyArgs {
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The assembly properties.
      */
@@ -137,5 +137,5 @@ export interface IntegrationAccountAssemblyArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

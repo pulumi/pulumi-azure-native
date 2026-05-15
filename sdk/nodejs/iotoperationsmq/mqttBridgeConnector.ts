@@ -137,14 +137,14 @@ export class MqttBridgeConnector extends pulumi.CustomResource {
             resourceInputs["clientIdPrefix"] = args?.clientIdPrefix;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["image"] = args?.image;
-            resourceInputs["localBrokerConnection"] = args ? pulumi.output(args.localBrokerConnection).apply(v => v === undefined ? undefined : inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults(v)) : undefined;
+            resourceInputs["localBrokerConnection"] = args ? (args.localBrokerConnection ? pulumi.output(args.localBrokerConnection).apply(inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["logLevel"] = args?.logLevel;
             resourceInputs["mqName"] = args?.mqName;
             resourceInputs["mqttBridgeConnectorName"] = args?.mqttBridgeConnectorName;
             resourceInputs["nodeTolerations"] = args?.nodeTolerations;
             resourceInputs["protocol"] = args?.protocol;
-            resourceInputs["remoteBrokerConnection"] = args ? pulumi.output(args.remoteBrokerConnection).apply(inputs.iotoperationsmq.mqttBridgeRemoteBrokerConnectionSpecArgsProvideDefaults) : undefined;
+            resourceInputs["remoteBrokerConnection"] = args ? (args.remoteBrokerConnection ? pulumi.output(args.remoteBrokerConnection).apply(inputs.iotoperationsmq.mqttBridgeRemoteBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -184,11 +184,11 @@ export interface MqttBridgeConnectorArgs {
     /**
      * The number of instances to deploy for a bridge rollout.
      */
-    bridgeInstances?: pulumi.Input<number | undefined>;
+    bridgeInstances?: pulumi.Input<number>;
     /**
      * The client id prefix of the dynamically generated client ids.
      */
-    clientIdPrefix?: pulumi.Input<string | undefined>;
+    clientIdPrefix?: pulumi.Input<string>;
     /**
      * Extended Location
      */
@@ -200,15 +200,15 @@ export interface MqttBridgeConnectorArgs {
     /**
      * The details for connecting with Local Broker.
      */
-    localBrokerConnection?: pulumi.Input<inputs.iotoperationsmq.LocalBrokerConnectionSpecArgs | undefined>;
+    localBrokerConnection?: pulumi.Input<inputs.iotoperationsmq.LocalBrokerConnectionSpecArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The log level of the Bridge Connector instances.
      */
-    logLevel?: pulumi.Input<string | undefined>;
+    logLevel?: pulumi.Input<string>;
     /**
      * Name of MQ resource
      */
@@ -216,11 +216,11 @@ export interface MqttBridgeConnectorArgs {
     /**
      * Name of MQ mqttBridgeConnector resource
      */
-    mqttBridgeConnectorName?: pulumi.Input<string | undefined>;
+    mqttBridgeConnectorName?: pulumi.Input<string>;
     /**
      * The Node Tolerations for the Bridge Connector pods.
      */
-    nodeTolerations?: pulumi.Input<inputs.iotoperationsmq.NodeTolerationsArgs | undefined>;
+    nodeTolerations?: pulumi.Input<inputs.iotoperationsmq.NodeTolerationsArgs>;
     /**
      * The protocol to use for connecting with Brokers.
      */
@@ -236,5 +236,5 @@ export interface MqttBridgeConnectorArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

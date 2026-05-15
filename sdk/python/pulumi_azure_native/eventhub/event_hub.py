@@ -24,13 +24,13 @@ class EventHubArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 capture_description: pulumi.Input[Optional['CaptureDescriptionArgs']] = None,
-                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 message_retention_in_days: pulumi.Input[Optional[_builtins.float]] = None,
-                 partition_count: pulumi.Input[Optional[_builtins.float]] = None,
-                 retention_description: pulumi.Input[Optional['RetentionDescriptionArgs']] = None,
-                 status: pulumi.Input[Optional['EntityStatus']] = None,
-                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None):
+                 capture_description: Optional[pulumi.Input['CaptureDescriptionArgs']] = None,
+                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 message_retention_in_days: Optional[pulumi.Input[_builtins.float]] = None,
+                 partition_count: Optional[pulumi.Input[_builtins.float]] = None,
+                 retention_description: Optional[pulumi.Input['RetentionDescriptionArgs']] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
+                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventHub resource.
 
@@ -87,86 +87,86 @@ class EventHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="captureDescription")
-    def capture_description(self) -> pulumi.Input[Optional['CaptureDescriptionArgs']]:
+    def capture_description(self) -> Optional[pulumi.Input['CaptureDescriptionArgs']]:
         """
         Properties of capture description
         """
         return pulumi.get(self, "capture_description")
 
     @capture_description.setter
-    def capture_description(self, value: pulumi.Input[Optional['CaptureDescriptionArgs']]):
+    def capture_description(self, value: Optional[pulumi.Input['CaptureDescriptionArgs']]):
         pulumi.set(self, "capture_description", value)
 
     @_builtins.property
     @pulumi.getter(name="eventHubName")
-    def event_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def event_hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Event Hub name
         """
         return pulumi.get(self, "event_hub_name")
 
     @event_hub_name.setter
-    def event_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def event_hub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "event_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="messageRetentionInDays")
-    def message_retention_in_days(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def message_retention_in_days(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Number of days to retain the events for this Event Hub, value should be 1 to 7 days
         """
         return pulumi.get(self, "message_retention_in_days")
 
     @message_retention_in_days.setter
-    def message_retention_in_days(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def message_retention_in_days(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "message_retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def partition_count(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
         """
         return pulumi.get(self, "partition_count")
 
     @partition_count.setter
-    def partition_count(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def partition_count(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "partition_count", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDescription")
-    def retention_description(self) -> pulumi.Input[Optional['RetentionDescriptionArgs']]:
+    def retention_description(self) -> Optional[pulumi.Input['RetentionDescriptionArgs']]:
         """
         Event Hub retention settings
         """
         return pulumi.get(self, "retention_description")
 
     @retention_description.setter
-    def retention_description(self, value: pulumi.Input[Optional['RetentionDescriptionArgs']]):
+    def retention_description(self, value: Optional[pulumi.Input['RetentionDescriptionArgs']]):
         pulumi.set(self, "retention_description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Input[Optional['EntityStatus']]:
+    def status(self) -> Optional[pulumi.Input['EntityStatus']]:
         """
         Enumerates the possible values for the status of the Event Hub.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[Optional['EntityStatus']]):
+    def status(self, value: Optional[pulumi.Input['EntityStatus']]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="userMetadata")
-    def user_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def user_metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Gets and Sets Metadata of User.
         """
         return pulumi.get(self, "user_metadata")
 
     @user_metadata.setter
-    def user_metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def user_metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "user_metadata", value)
 
 
@@ -176,15 +176,15 @@ class EventHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture_description: pulumi.Input[Optional[Union['CaptureDescriptionArgs', 'CaptureDescriptionArgsDict']]] = None,
-                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 message_retention_in_days: pulumi.Input[Optional[_builtins.float]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_count: pulumi.Input[Optional[_builtins.float]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_description: pulumi.Input[Optional[Union['RetentionDescriptionArgs', 'RetentionDescriptionArgsDict']]] = None,
-                 status: pulumi.Input[Optional['EntityStatus']] = None,
-                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 capture_description: Optional[pulumi.Input[Union['CaptureDescriptionArgs', 'CaptureDescriptionArgsDict']]] = None,
+                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 message_retention_in_days: Optional[pulumi.Input[_builtins.float]] = None,
+                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 partition_count: Optional[pulumi.Input[_builtins.float]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 retention_description: Optional[pulumi.Input[Union['RetentionDescriptionArgs', 'RetentionDescriptionArgsDict']]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
+                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Single item in List or Get Event Hub operation
@@ -235,15 +235,15 @@ class EventHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capture_description: pulumi.Input[Optional[Union['CaptureDescriptionArgs', 'CaptureDescriptionArgsDict']]] = None,
-                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 message_retention_in_days: pulumi.Input[Optional[_builtins.float]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partition_count: pulumi.Input[Optional[_builtins.float]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 retention_description: pulumi.Input[Optional[Union['RetentionDescriptionArgs', 'RetentionDescriptionArgsDict']]] = None,
-                 status: pulumi.Input[Optional['EntityStatus']] = None,
-                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 capture_description: Optional[pulumi.Input[Union['CaptureDescriptionArgs', 'CaptureDescriptionArgsDict']]] = None,
+                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 message_retention_in_days: Optional[pulumi.Input[_builtins.float]] = None,
+                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 partition_count: Optional[pulumi.Input[_builtins.float]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 retention_description: Optional[pulumi.Input[Union['RetentionDescriptionArgs', 'RetentionDescriptionArgsDict']]] = None,
+                 status: Optional[pulumi.Input['EntityStatus']] = None,
+                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

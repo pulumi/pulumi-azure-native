@@ -114,11 +114,11 @@ export interface StorageContainerArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.discovery.StorageContainerPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.discovery.StorageContainerPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -126,9 +126,9 @@ export interface StorageContainerArgs {
     /**
      * The name of the StorageContainer
      */
-    storageContainerName?: pulumi.Input<string | undefined>;
+    storageContainerName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

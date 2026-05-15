@@ -193,9 +193,9 @@ def list_task_run_details(registry_name: Optional[_builtins.str] = None,
         run_result=pulumi.get(__ret__, 'run_result'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def list_task_run_details_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 task_run_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_task_run_details_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 task_run_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListTaskRunDetailsResult]:
     """
     Gets the detailed information for a given task run that includes all secrets.

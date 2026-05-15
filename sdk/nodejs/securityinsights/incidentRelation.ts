@@ -147,7 +147,7 @@ export interface IncidentRelationArgs {
     /**
      * Relation Name
      */
-    relationName?: pulumi.Input<string | undefined>;
+    relationName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

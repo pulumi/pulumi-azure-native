@@ -111,7 +111,7 @@ export interface JobArgs {
     /**
      * The name and identifier for the Job. This is case-sensitive.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * [Required] Additional attributes of the entity.
      */

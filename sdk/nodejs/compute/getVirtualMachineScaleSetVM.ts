@@ -201,7 +201,7 @@ export interface GetVirtualMachineScaleSetVMOutputArgs {
     /**
      * The expand expression to apply on the operation. 'InstanceView' will retrieve the instance view of the virtual machine. 'UserData' will retrieve the UserData of the virtual machine.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The instance ID of the virtual machine.
      */

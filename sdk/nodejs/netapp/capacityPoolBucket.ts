@@ -148,15 +148,15 @@ export interface CapacityPoolBucketArgs {
     /**
      * The name of the bucket
      */
-    bucketName?: pulumi.Input<string | undefined>;
+    bucketName?: pulumi.Input<string>;
     /**
      * File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
      */
-    fileSystemUser?: pulumi.Input<inputs.netapp.FileSystemUserArgs | undefined>;
+    fileSystemUser?: pulumi.Input<inputs.netapp.FileSystemUserArgs>;
     /**
      * The volume path mounted inside the bucket. The default is the root path '/' if no value is provided when the bucket is created.
      */
-    path?: pulumi.Input<string | undefined>;
+    path?: pulumi.Input<string>;
     /**
      * The name of the capacity pool
      */
@@ -168,7 +168,7 @@ export interface CapacityPoolBucketArgs {
     /**
      * Properties of the server managing the lifecycle of volume buckets
      */
-    server?: pulumi.Input<inputs.netapp.BucketServerPropertiesArgs | undefined>;
+    server?: pulumi.Input<inputs.netapp.BucketServerPropertiesArgs>;
     /**
      * The name of the volume
      */

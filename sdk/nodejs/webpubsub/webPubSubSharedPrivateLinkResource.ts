@@ -146,7 +146,7 @@ export interface WebPubSubSharedPrivateLinkResourceArgs {
     /**
      * The request message for requesting approval of the shared private link resource
      */
-    requestMessage?: pulumi.Input<string | undefined>;
+    requestMessage?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -158,5 +158,5 @@ export interface WebPubSubSharedPrivateLinkResourceArgs {
     /**
      * The name of the shared private link resource.
      */
-    sharedPrivateLinkResourceName?: pulumi.Input<string | undefined>;
+    sharedPrivateLinkResourceName?: pulumi.Input<string>;
 }

@@ -126,11 +126,11 @@ export interface ImportCollectorsOperationArgs {
     /**
      * Gets the discovery site id.
      */
-    discoverySiteId?: pulumi.Input<string | undefined>;
+    discoverySiteId?: pulumi.Input<string>;
     /**
      * Import collector ARM name
      */
-    importCollectorName?: pulumi.Input<string | undefined>;
+    importCollectorName?: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */
@@ -138,7 +138,7 @@ export interface ImportCollectorsOperationArgs {
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

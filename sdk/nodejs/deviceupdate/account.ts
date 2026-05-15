@@ -156,28 +156,28 @@ export interface AccountArgs {
     /**
      * Account name.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string>;
     /**
      * CMK encryption at rest properties
      */
-    encryption?: pulumi.Input<inputs.deviceupdate.EncryptionArgs | undefined>;
+    encryption?: pulumi.Input<inputs.deviceupdate.EncryptionArgs>;
     /**
      * The type of identity used for the resource.
      */
-    identity?: pulumi.Input<inputs.deviceupdate.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.deviceupdate.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * List of private endpoint connections associated with the account.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.deviceupdate.PrivateEndpointConnectionArgs>[] | undefined>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.deviceupdate.PrivateEndpointConnectionArgs>[]>;
     /**
      * Whether or not public network access is allowed for the account.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.deviceupdate.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.deviceupdate.PublicNetworkAccess>;
     /**
      * The resource group name.
      */
@@ -185,9 +185,9 @@ export interface AccountArgs {
     /**
      * Device Update Sku
      */
-    sku?: pulumi.Input<string | enums.deviceupdate.SKU | undefined>;
+    sku?: pulumi.Input<string | enums.deviceupdate.SKU>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

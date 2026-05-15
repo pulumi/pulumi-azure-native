@@ -23,7 +23,7 @@ class GalleryArgs:
                  dev_center_name: pulumi.Input[_builtins.str],
                  gallery_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Gallery resource.
 
@@ -76,14 +76,14 @@ class GalleryArgs:
 
     @_builtins.property
     @pulumi.getter(name="galleryName")
-    def gallery_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def gallery_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the gallery.
         """
         return pulumi.get(self, "gallery_name")
 
     @gallery_name.setter
-    def gallery_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def gallery_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "gallery_name", value)
 
 
@@ -93,10 +93,10 @@ class Gallery(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 gallery_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gallery_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a gallery.
@@ -142,10 +142,10 @@ class Gallery(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 gallery_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gallery_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

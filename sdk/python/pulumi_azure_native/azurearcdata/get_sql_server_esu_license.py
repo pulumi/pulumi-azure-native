@@ -163,8 +163,8 @@ def get_sql_server_esu_license(resource_group_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_server_esu_license_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      sql_server_esu_license_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_sql_server_esu_license_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      sql_server_esu_license_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerEsuLicenseResult]:
     """
     Retrieves a SQL Server ESU license resource

@@ -152,23 +152,23 @@ export interface ProximityPlacementGroupArgs {
     /**
      * Describes colocation status of the Proximity Placement Group.
      */
-    colocationStatus?: pulumi.Input<inputs.compute.InstanceViewStatusArgs | undefined>;
+    colocationStatus?: pulumi.Input<inputs.compute.InstanceViewStatusArgs>;
     /**
      * Specifies the user intent of the proximity placement group.
      */
-    intent?: pulumi.Input<inputs.compute.ProximityPlacementGroupPropertiesIntentArgs | undefined>;
+    intent?: pulumi.Input<inputs.compute.ProximityPlacementGroupPropertiesIntentArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the proximity placement group.
      */
-    proximityPlacementGroupName?: pulumi.Input<string | undefined>;
+    proximityPlacementGroupName?: pulumi.Input<string>;
     /**
      * Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
      */
-    proximityPlacementGroupType?: pulumi.Input<string | enums.compute.ProximityPlacementGroupType | undefined>;
+    proximityPlacementGroupType?: pulumi.Input<string | enums.compute.ProximityPlacementGroupType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,9 +176,9 @@ export interface ProximityPlacementGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The availability zones.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -83,7 +83,7 @@ export class Entity extends pulumi.CustomResource {
             resourceInputs["azureMonitorWorkspaceName"] = args?.azureMonitorWorkspaceName;
             resourceInputs["entityName"] = args?.entityName;
             resourceInputs["healthModelName"] = args?.healthModelName;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.monitor.entityPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.monitor.entityPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -114,7 +114,7 @@ export interface EntityArgs {
     /**
      * Name of the entity. Must be unique within a health model.
      */
-    entityName?: pulumi.Input<string | undefined>;
+    entityName?: pulumi.Input<string>;
     /**
      * Name of health model resource
      */
@@ -122,7 +122,7 @@ export interface EntityArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.monitor.EntityPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.monitor.EntityPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

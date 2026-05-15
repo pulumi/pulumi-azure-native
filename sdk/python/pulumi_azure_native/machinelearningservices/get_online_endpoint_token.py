@@ -113,9 +113,9 @@ def get_online_endpoint_token(endpoint_name: Optional[_builtins.str] = None,
         expiry_time_utc=pulumi.get(__ret__, 'expiry_time_utc'),
         refresh_after_time_utc=pulumi.get(__ret__, 'refresh_after_time_utc'),
         token_type=pulumi.get(__ret__, 'token_type'))
-def get_online_endpoint_token_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_online_endpoint_token_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineEndpointTokenResult]:
     """
     Retrieve a valid AML token for an Endpoint using AMLToken-based authentication.

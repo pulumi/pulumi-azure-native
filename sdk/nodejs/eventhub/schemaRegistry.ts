@@ -138,7 +138,7 @@ export interface SchemaRegistryArgs {
     /**
      * dictionary object for SchemaGroup group properties
      */
-    groupProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    groupProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Namespace name
      */
@@ -147,10 +147,10 @@ export interface SchemaRegistryArgs {
      * Name of the resource group within the azure subscription.
      */
     resourceGroupName: pulumi.Input<string>;
-    schemaCompatibility?: pulumi.Input<string | enums.eventhub.SchemaCompatibility | undefined>;
+    schemaCompatibility?: pulumi.Input<string | enums.eventhub.SchemaCompatibility>;
     /**
      * The Schema Group name 
      */
-    schemaGroupName?: pulumi.Input<string | undefined>;
-    schemaType?: pulumi.Input<string | enums.eventhub.SchemaType | undefined>;
+    schemaGroupName?: pulumi.Input<string>;
+    schemaType?: pulumi.Input<string | enums.eventhub.SchemaType>;
 }

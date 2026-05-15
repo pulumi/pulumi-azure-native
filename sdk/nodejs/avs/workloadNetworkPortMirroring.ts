@@ -144,19 +144,19 @@ export interface WorkloadNetworkPortMirroringArgs {
     /**
      * Destination VM Group.
      */
-    destination?: pulumi.Input<string | undefined>;
+    destination?: pulumi.Input<string>;
     /**
      * Direction of port mirroring profile.
      */
-    direction?: pulumi.Input<string | enums.avs.PortMirroringDirectionEnum | undefined>;
+    direction?: pulumi.Input<string | enums.avs.PortMirroringDirectionEnum>;
     /**
      * Display name of the port mirroring profile.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * ID of the NSX port mirroring profile.
      */
-    portMirroringId?: pulumi.Input<string | undefined>;
+    portMirroringId?: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */
@@ -168,9 +168,9 @@ export interface WorkloadNetworkPortMirroringArgs {
     /**
      * NSX revision number.
      */
-    revision?: pulumi.Input<number | undefined>;
+    revision?: pulumi.Input<number>;
     /**
      * Source VM Group.
      */
-    source?: pulumi.Input<string | undefined>;
+    source?: pulumi.Input<string>;
 }

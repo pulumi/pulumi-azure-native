@@ -146,11 +146,11 @@ def get_replication_protection_container_mapping(fabric_name: Optional[_builtins
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_replication_protection_container_mapping_output(fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_replication_protection_container_mapping_output(fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationProtectionContainerMappingResult]:
     """
     Gets the details of a protection container mapping.

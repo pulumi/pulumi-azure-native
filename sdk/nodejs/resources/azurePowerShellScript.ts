@@ -220,7 +220,7 @@ export interface AzurePowerShellScriptArgs {
     /**
      * Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
      */
-    arguments?: pulumi.Input<string | undefined>;
+    arguments?: pulumi.Input<string>;
     /**
      * Azure PowerShell module version to be used.
      */
@@ -228,23 +228,23 @@ export interface AzurePowerShellScriptArgs {
     /**
      * The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
      */
-    cleanupPreference?: pulumi.Input<string | enums.resources.CleanupOptions | undefined>;
+    cleanupPreference?: pulumi.Input<string | enums.resources.CleanupOptions>;
     /**
      * Container settings.
      */
-    containerSettings?: pulumi.Input<inputs.resources.ContainerConfigurationArgs | undefined>;
+    containerSettings?: pulumi.Input<inputs.resources.ContainerConfigurationArgs>;
     /**
      * The environment variables to pass over to the script.
      */
-    environmentVariables?: pulumi.Input<pulumi.Input<inputs.resources.EnvironmentVariableArgs>[] | undefined>;
+    environmentVariables?: pulumi.Input<pulumi.Input<inputs.resources.EnvironmentVariableArgs>[]>;
     /**
      * Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
      */
-    forceUpdateTag?: pulumi.Input<string | undefined>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
      */
-    identity?: pulumi.Input<inputs.resources.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.resources.ManagedServiceIdentityArgs>;
     /**
      * Type of the script.
      * Expected value is 'AzurePowerShell'.
@@ -253,11 +253,11 @@ export interface AzurePowerShellScriptArgs {
     /**
      * The location of the ACI and the storage account for the deployment script.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Uri for the script. This is the entry point for the external script.
      */
-    primaryScriptUri?: pulumi.Input<string | undefined>;
+    primaryScriptUri?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -269,25 +269,25 @@ export interface AzurePowerShellScriptArgs {
     /**
      * Script body.
      */
-    scriptContent?: pulumi.Input<string | undefined>;
+    scriptContent?: pulumi.Input<string>;
     /**
      * Name of the deployment script.
      */
-    scriptName?: pulumi.Input<string | undefined>;
+    scriptName?: pulumi.Input<string>;
     /**
      * Storage Account settings.
      */
-    storageAccountSettings?: pulumi.Input<inputs.resources.StorageAccountConfigurationArgs | undefined>;
+    storageAccountSettings?: pulumi.Input<inputs.resources.StorageAccountConfigurationArgs>;
     /**
      * Supporting files for the external script.
      */
-    supportingScriptUris?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    supportingScriptUris?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
      */
-    timeout?: pulumi.Input<string | undefined>;
+    timeout?: pulumi.Input<string>;
 }

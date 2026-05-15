@@ -136,15 +136,15 @@ export interface ElasticCapacityPoolArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the ElasticCapacityPool
      */
-    poolName?: pulumi.Input<string | undefined>;
+    poolName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.netapp.ElasticCapacityPoolPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.netapp.ElasticCapacityPoolPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -152,9 +152,9 @@ export interface ElasticCapacityPoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The availability zones.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

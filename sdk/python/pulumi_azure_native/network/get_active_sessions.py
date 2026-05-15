@@ -85,8 +85,8 @@ def get_active_sessions(bastion_host_name: Optional[_builtins.str] = None,
     return AwaitableGetActiveSessionsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def get_active_sessions_output(bastion_host_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_active_sessions_output(bastion_host_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActiveSessionsResult]:
     """
     Returns the list of currently active sessions on the Bastion.

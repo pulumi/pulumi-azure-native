@@ -153,11 +153,11 @@ export interface RoutingRuleCollectionArgs {
     /**
      * A description of the routing rule collection.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Determines whether BGP route propagation is enabled. Defaults to true.
      */
-    disableBgpRoutePropagation?: pulumi.Input<string | enums.network.DisableBgpRoutePropagation | undefined>;
+    disableBgpRoutePropagation?: pulumi.Input<string | enums.network.DisableBgpRoutePropagation>;
     /**
      * The name of the network manager.
      */
@@ -169,5 +169,5 @@ export interface RoutingRuleCollectionArgs {
     /**
      * The name of the network manager routing Configuration rule collection.
      */
-    ruleCollectionName?: pulumi.Input<string | undefined>;
+    ruleCollectionName?: pulumi.Input<string>;
 }

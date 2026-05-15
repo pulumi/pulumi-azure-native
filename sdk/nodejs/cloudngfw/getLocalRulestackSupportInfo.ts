@@ -108,7 +108,7 @@ export interface GetLocalRulestackSupportInfoOutputArgs {
     /**
      * email address on behalf of which this API called
      */
-    email?: pulumi.Input<string | undefined>;
+    email?: pulumi.Input<string>;
     /**
      * LocalRulestack resource name
      */

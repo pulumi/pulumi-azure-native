@@ -133,7 +133,7 @@ export interface GatewayHostnameConfigurationArgs {
     /**
      * Identifier of Certificate entity that will be used for TLS connection establishment
      */
-    certificateId?: pulumi.Input<string | undefined>;
+    certificateId?: pulumi.Input<string>;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
@@ -141,19 +141,19 @@ export interface GatewayHostnameConfigurationArgs {
     /**
      * Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
      */
-    hcId?: pulumi.Input<string | undefined>;
+    hcId?: pulumi.Input<string>;
     /**
      * Hostname value. Supports valid domain name, partial or full wildcard
      */
-    hostname?: pulumi.Input<string | undefined>;
+    hostname?: pulumi.Input<string>;
     /**
      * Specifies if HTTP/2.0 is supported
      */
-    http2Enabled?: pulumi.Input<boolean | undefined>;
+    http2Enabled?: pulumi.Input<boolean>;
     /**
      * Determines whether gateway requests client certificate
      */
-    negotiateClientCertificate?: pulumi.Input<boolean | undefined>;
+    negotiateClientCertificate?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -165,9 +165,9 @@ export interface GatewayHostnameConfigurationArgs {
     /**
      * Specifies if TLS 1.0 is supported
      */
-    tls10Enabled?: pulumi.Input<boolean | undefined>;
+    tls10Enabled?: pulumi.Input<boolean>;
     /**
      * Specifies if TLS 1.1 is supported
      */
-    tls11Enabled?: pulumi.Input<boolean | undefined>;
+    tls11Enabled?: pulumi.Input<boolean>;
 }

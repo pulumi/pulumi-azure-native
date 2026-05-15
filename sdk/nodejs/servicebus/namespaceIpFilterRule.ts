@@ -112,19 +112,19 @@ export interface NamespaceIpFilterRuleArgs {
     /**
      * The IP Filter Action
      */
-    action?: pulumi.Input<string | enums.servicebus.IPAction | undefined>;
+    action?: pulumi.Input<string | enums.servicebus.IPAction>;
     /**
      * IP Filter name
      */
-    filterName?: pulumi.Input<string | undefined>;
+    filterName?: pulumi.Input<string>;
     /**
      * The IP Filter Rule name.
      */
-    ipFilterRuleName?: pulumi.Input<string | undefined>;
+    ipFilterRuleName?: pulumi.Input<string>;
     /**
      * IP Mask
      */
-    ipMask?: pulumi.Input<string | undefined>;
+    ipMask?: pulumi.Input<string>;
     /**
      * The namespace name
      */

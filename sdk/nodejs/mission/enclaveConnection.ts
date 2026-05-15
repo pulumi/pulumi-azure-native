@@ -169,11 +169,11 @@ export interface EnclaveConnectionArgs {
     /**
      * The name of the Enclave Connection Resource
      */
-    enclaveConnectionName?: pulumi.Input<string | undefined>;
+    enclaveConnectionName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -181,7 +181,7 @@ export interface EnclaveConnectionArgs {
     /**
      * Source CIDR.
      */
-    sourceCidr?: pulumi.Input<string | undefined>;
+    sourceCidr?: pulumi.Input<string>;
     /**
      * Source Resource Id.
      */
@@ -189,5 +189,5 @@ export interface EnclaveConnectionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

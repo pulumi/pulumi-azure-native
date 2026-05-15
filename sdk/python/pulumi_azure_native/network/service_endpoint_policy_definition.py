@@ -21,13 +21,13 @@ class ServiceEndpointPolicyDefinitionInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_endpoint_policy_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_endpoint_policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_endpoint_policy_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointPolicyDefinition resource.
 
@@ -84,86 +84,86 @@ class ServiceEndpointPolicyDefinitionInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         A description for this rule. Restricted to 140 chars.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def service(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def service(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Service endpoint name.
         """
         return pulumi.get(self, "service")
 
     @service.setter
-    def service(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def service(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "service", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpointPolicyDefinitionName")
-    def service_endpoint_policy_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def service_endpoint_policy_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the service endpoint policy definition name.
         """
         return pulumi.get(self, "service_endpoint_policy_definition_name")
 
     @service_endpoint_policy_definition_name.setter
-    def service_endpoint_policy_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def service_endpoint_policy_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "service_endpoint_policy_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceResources")
-    def service_resources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_resources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of service resources.
         """
         return pulumi.get(self, "service_resources")
 
     @service_resources.setter
-    def service_resources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_resources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "service_resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The type of the resource.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -173,15 +173,15 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_endpoint_policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_endpoint_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_endpoint_policy_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_endpoint_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Service Endpoint policy definitions.
@@ -232,15 +232,15 @@ class ServiceEndpointPolicyDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_endpoint_policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_endpoint_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_resources: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_endpoint_policy_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_endpoint_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_resources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

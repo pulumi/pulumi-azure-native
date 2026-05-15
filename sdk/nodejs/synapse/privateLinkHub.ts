@@ -116,15 +116,15 @@ export interface PrivateLinkHubArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the privateLinkHub
      */
-    privateLinkHubName?: pulumi.Input<string | undefined>;
+    privateLinkHubName?: pulumi.Input<string>;
     /**
      * PrivateLinkHub provisioning state
      */
-    provisioningState?: pulumi.Input<string | undefined>;
+    provisioningState?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,5 +132,5 @@ export interface PrivateLinkHubArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

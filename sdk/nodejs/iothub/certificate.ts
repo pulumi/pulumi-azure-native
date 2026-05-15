@@ -108,11 +108,11 @@ export interface CertificateArgs {
     /**
      * The name of the certificate
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName?: pulumi.Input<string>;
     /**
      * The description of an X509 CA Certificate.
      */
-    properties?: pulumi.Input<inputs.iothub.CertificatePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.iothub.CertificatePropertiesArgs>;
     /**
      * The name of the resource group that contains the IoT hub.
      */

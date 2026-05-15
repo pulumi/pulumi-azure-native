@@ -148,35 +148,35 @@ export interface KafkaConfigurationArgs {
     /**
      * Consumer group for hook event hub.
      */
-    consumerGroup?: pulumi.Input<string | undefined>;
+    consumerGroup?: pulumi.Input<string>;
     /**
      * Credentials to access the event streaming service attached to the purview account.
      */
-    credentials?: pulumi.Input<inputs.purview.CredentialsArgs | undefined>;
+    credentials?: pulumi.Input<inputs.purview.CredentialsArgs>;
     /**
      * Optional partition Id for notification event hub. If not set, all partitions will be leveraged.
      */
-    eventHubPartitionId?: pulumi.Input<string | undefined>;
+    eventHubPartitionId?: pulumi.Input<string>;
     /**
      * A type definition that refers the id to an Azure Resource Manager resource.
      */
-    eventHubResourceId?: pulumi.Input<string | undefined>;
+    eventHubResourceId?: pulumi.Input<string>;
     /**
      * The event hub type.
      */
-    eventHubType?: pulumi.Input<string | enums.purview.EventHubType | undefined>;
+    eventHubType?: pulumi.Input<string | enums.purview.EventHubType>;
     /**
      * The state of the event streaming service
      */
-    eventStreamingState?: pulumi.Input<string | enums.purview.EventStreamingState | undefined>;
+    eventStreamingState?: pulumi.Input<string | enums.purview.EventStreamingState>;
     /**
      * The event streaming service type
      */
-    eventStreamingType?: pulumi.Input<string | enums.purview.EventStreamingType | undefined>;
+    eventStreamingType?: pulumi.Input<string | enums.purview.EventStreamingType>;
     /**
      * Name of kafka configuration.
      */
-    kafkaConfigurationName?: pulumi.Input<string | undefined>;
+    kafkaConfigurationName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

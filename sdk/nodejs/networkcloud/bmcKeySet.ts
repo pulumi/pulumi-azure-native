@@ -197,7 +197,7 @@ export interface BmcKeySetArgs {
     /**
      * The name of the baseboard management controller key set.
      */
-    bmcKeySetName?: pulumi.Input<string | undefined>;
+    bmcKeySetName?: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */
@@ -213,7 +213,7 @@ export interface BmcKeySetArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The access level allowed for the users in this key set.
      */
@@ -225,7 +225,7 @@ export interface BmcKeySetArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The unique list of permitted users.
      */

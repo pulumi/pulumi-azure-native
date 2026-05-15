@@ -254,9 +254,9 @@ def get_afd_custom_domain(custom_domain_name: Optional[_builtins.str] = None,
         tls_settings=pulumi.get(__ret__, 'tls_settings'),
         type=pulumi.get(__ret__, 'type'),
         validation_properties=pulumi.get(__ret__, 'validation_properties'))
-def get_afd_custom_domain_output(custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_afd_custom_domain_output(custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAFDCustomDomainResult]:
     """
     Gets an existing AzureFrontDoor domain with the specified domain name under the specified subscription, resource group and profile.

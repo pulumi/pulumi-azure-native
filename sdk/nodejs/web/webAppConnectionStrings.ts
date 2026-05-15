@@ -106,7 +106,7 @@ export interface WebAppConnectionStringsArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
@@ -114,7 +114,7 @@ export interface WebAppConnectionStringsArgs {
     /**
      * Connection strings.
      */
-    properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.ConnStringValueTypePairArgs>} | undefined>;
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.web.ConnStringValueTypePairArgs>}>;
     /**
      * Name of the resource group to which the resource belongs.
      */

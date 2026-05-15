@@ -91,11 +91,11 @@ def list_local_rulestack_advanced_security_objects(local_rulestack_name: Optiona
     return AwaitableListLocalRulestackAdvancedSecurityObjectsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_local_rulestack_advanced_security_objects_output(local_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          skip: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                          top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
-                                                          type: pulumi.Input[Optional[_builtins.str]] = None,
+def list_local_rulestack_advanced_security_objects_output(local_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                          skip: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                                          top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+                                                          type: Optional[pulumi.Input[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLocalRulestackAdvancedSecurityObjectsResult]:
     """
     Get the list of advanced security objects

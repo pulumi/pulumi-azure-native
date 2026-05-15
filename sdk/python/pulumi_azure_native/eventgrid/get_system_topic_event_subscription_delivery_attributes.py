@@ -75,9 +75,9 @@ def get_system_topic_event_subscription_delivery_attributes(event_subscription_n
 
     return AwaitableGetSystemTopicEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__ret__, 'value'))
-def get_system_topic_event_subscription_delivery_attributes_output(event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                   system_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_system_topic_event_subscription_delivery_attributes_output(event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                   system_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription.

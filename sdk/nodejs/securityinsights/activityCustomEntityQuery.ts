@@ -182,27 +182,27 @@ export interface ActivityCustomEntityQueryArgs {
     /**
      * The entity query content to display in timeline
      */
-    content?: pulumi.Input<string | undefined>;
+    content?: pulumi.Input<string>;
     /**
      * The entity query description
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Determines whether this activity is enabled or disabled.
      */
-    enabled?: pulumi.Input<boolean | undefined>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The query applied only to entities matching to all filters
      */
-    entitiesFilter?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>} | undefined>;
+    entitiesFilter?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<string>[]>}>;
     /**
      * entity query ID
      */
-    entityQueryId?: pulumi.Input<string | undefined>;
+    entityQueryId?: pulumi.Input<string>;
     /**
      * The type of the query's source entity
      */
-    inputEntityType?: pulumi.Input<string | enums.securityinsights.EntityType | undefined>;
+    inputEntityType?: pulumi.Input<string | enums.securityinsights.EntityType>;
     /**
      * The kind of the entity query that supports put request.
      * Expected value is 'Activity'.
@@ -211,11 +211,11 @@ export interface ActivityCustomEntityQueryArgs {
     /**
      * The Activity query definitions
      */
-    queryDefinitions?: pulumi.Input<inputs.securityinsights.ActivityEntityQueriesPropertiesQueryDefinitionsArgs | undefined>;
+    queryDefinitions?: pulumi.Input<inputs.securityinsights.ActivityEntityQueriesPropertiesQueryDefinitionsArgs>;
     /**
      * List of the fields of the source entity that are required to run the query
      */
-    requiredInputFieldsSets?: pulumi.Input<pulumi.Input<pulumi.Input<string>[]>[] | undefined>;
+    requiredInputFieldsSets?: pulumi.Input<pulumi.Input<pulumi.Input<string>[]>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -223,11 +223,11 @@ export interface ActivityCustomEntityQueryArgs {
     /**
      * The template id this activity was created from
      */
-    templateName?: pulumi.Input<string | undefined>;
+    templateName?: pulumi.Input<string>;
     /**
      * The entity query title
      */
-    title?: pulumi.Input<string | undefined>;
+    title?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

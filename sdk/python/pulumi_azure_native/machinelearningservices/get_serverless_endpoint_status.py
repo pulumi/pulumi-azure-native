@@ -69,9 +69,9 @@ def get_serverless_endpoint_status(name: Optional[_builtins.str] = None,
 
     return AwaitableGetServerlessEndpointStatusResult(
         metrics=pulumi.get(__ret__, 'metrics'))
-def get_serverless_endpoint_status_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_serverless_endpoint_status_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerlessEndpointStatusResult]:
     """
     Uses Azure REST API version 2024-01-01-preview.

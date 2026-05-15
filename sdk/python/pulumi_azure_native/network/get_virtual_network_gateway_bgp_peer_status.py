@@ -75,9 +75,9 @@ def get_virtual_network_gateway_bgp_peer_status(peer: Optional[_builtins.str] = 
 
     return AwaitableGetVirtualNetworkGatewayBgpPeerStatusResult(
         value=pulumi.get(__ret__, 'value'))
-def get_virtual_network_gateway_bgp_peer_status_output(peer: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                       virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_network_gateway_bgp_peer_status_output(peer: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                       virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayBgpPeerStatusResult]:
     """
     The GetBgpPeerStatus operation retrieves the status of all BGP peers.

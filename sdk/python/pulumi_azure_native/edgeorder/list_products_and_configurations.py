@@ -90,9 +90,9 @@ def list_products_and_configurations(configuration_filter: Optional[Union['Confi
     return AwaitableListProductsAndConfigurationsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_products_and_configurations_output(configuration_filter: pulumi.Input[Optional[Optional[Union['ConfigurationFilter', 'ConfigurationFilterDict']]]] = None,
-                                            customer_subscription_details: pulumi.Input[Optional[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
-                                            skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def list_products_and_configurations_output(configuration_filter: Optional[pulumi.Input[Optional[Union['ConfigurationFilter', 'ConfigurationFilterDict']]]] = None,
+                                            customer_subscription_details: Optional[pulumi.Input[Optional[Union['CustomerSubscriptionDetails', 'CustomerSubscriptionDetailsDict']]]] = None,
+                                            skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProductsAndConfigurationsResult]:
     """
     List configurations for the given product family, product line and product for the given subscription.

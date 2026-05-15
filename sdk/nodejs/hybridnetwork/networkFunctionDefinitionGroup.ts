@@ -120,15 +120,15 @@ export interface NetworkFunctionDefinitionGroupArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network function definition group.
      */
-    networkFunctionDefinitionGroupName?: pulumi.Input<string | undefined>;
+    networkFunctionDefinitionGroupName?: pulumi.Input<string>;
     /**
      * Network function definition group properties.
      */
-    properties?: pulumi.Input<inputs.hybridnetwork.NetworkFunctionDefinitionGroupPropertiesFormatArgs | undefined>;
+    properties?: pulumi.Input<inputs.hybridnetwork.NetworkFunctionDefinitionGroupPropertiesFormatArgs>;
     /**
      * The name of the publisher.
      */
@@ -140,5 +140,5 @@ export interface NetworkFunctionDefinitionGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

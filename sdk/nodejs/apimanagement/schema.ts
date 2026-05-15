@@ -115,7 +115,7 @@ export interface SchemaArgs {
     /**
      * Free-form schema entity description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -123,7 +123,7 @@ export interface SchemaArgs {
     /**
      * Schema id identifier. Must be unique in the current API Management service instance.
      */
-    schemaId?: pulumi.Input<string | undefined>;
+    schemaId?: pulumi.Input<string>;
     /**
      * Schema Type. Immutable.
      */
@@ -135,5 +135,5 @@ export interface SchemaArgs {
     /**
      * Json-encoded string for non json-based schema.
      */
-    value?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string>;
 }

@@ -218,9 +218,9 @@ def get_web_app_source_control_slot(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         repo_url=pulumi.get(__ret__, 'repo_url'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_source_control_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           slot: pulumi.Input[Optional[_builtins.str]] = None,
+def get_web_app_source_control_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           slot: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSourceControlSlotResult]:
     """
     Description for Gets the source control configuration of an app.

@@ -75,5 +75,5 @@ export interface ListListFlowsByPipelineOutputArgs {
     /**
      * Connection ID to target
      */
-    value?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    value?: pulumi.Input<pulumi.Input<string>[]>;
 }

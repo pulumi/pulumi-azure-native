@@ -204,71 +204,71 @@ export interface ScalingPlanPooledScheduleArgs {
     /**
      * Set of days of the week on which this schedule is active.
      */
-    daysOfWeek?: pulumi.Input<pulumi.Input<string | enums.desktopvirtualization.DayOfWeek>[] | undefined>;
+    daysOfWeek?: pulumi.Input<pulumi.Input<string | enums.desktopvirtualization.DayOfWeek>[]>;
     /**
      * Load balancing algorithm for off-peak period.
      */
-    offPeakLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.SessionHostLoadBalancingAlgorithm | undefined>;
+    offPeakLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.SessionHostLoadBalancingAlgorithm>;
     /**
      * Starting time for off-peak period.
      */
-    offPeakStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs | undefined>;
+    offPeakStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs>;
     /**
      * Load balancing algorithm for peak period.
      */
-    peakLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.SessionHostLoadBalancingAlgorithm | undefined>;
+    peakLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.SessionHostLoadBalancingAlgorithm>;
     /**
      * Starting time for peak period.
      */
-    peakStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs | undefined>;
+    peakStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs>;
     /**
      * Capacity threshold for ramp down period.
      */
-    rampDownCapacityThresholdPct?: pulumi.Input<number | undefined>;
+    rampDownCapacityThresholdPct?: pulumi.Input<number>;
     /**
      * Should users be logged off forcefully from hosts.
      */
-    rampDownForceLogoffUsers?: pulumi.Input<boolean | undefined>;
+    rampDownForceLogoffUsers?: pulumi.Input<boolean>;
     /**
      * Load balancing algorithm for ramp down period.
      */
-    rampDownLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.SessionHostLoadBalancingAlgorithm | undefined>;
+    rampDownLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.SessionHostLoadBalancingAlgorithm>;
     /**
      * Minimum host percentage for ramp down period.
      */
-    rampDownMinimumHostsPct?: pulumi.Input<number | undefined>;
+    rampDownMinimumHostsPct?: pulumi.Input<number>;
     /**
      * Notification message for users during ramp down period.
      */
-    rampDownNotificationMessage?: pulumi.Input<string | undefined>;
+    rampDownNotificationMessage?: pulumi.Input<string>;
     /**
      * Starting time for ramp down period.
      */
-    rampDownStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs | undefined>;
+    rampDownStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs>;
     /**
      * Specifies when to stop hosts during ramp down period.
      */
-    rampDownStopHostsWhen?: pulumi.Input<string | enums.desktopvirtualization.StopHostsWhen | undefined>;
+    rampDownStopHostsWhen?: pulumi.Input<string | enums.desktopvirtualization.StopHostsWhen>;
     /**
      * Number of minutes to wait to stop hosts during ramp down period.
      */
-    rampDownWaitTimeMinutes?: pulumi.Input<number | undefined>;
+    rampDownWaitTimeMinutes?: pulumi.Input<number>;
     /**
      * Capacity threshold for ramp up period.
      */
-    rampUpCapacityThresholdPct?: pulumi.Input<number | undefined>;
+    rampUpCapacityThresholdPct?: pulumi.Input<number>;
     /**
      * Load balancing algorithm for ramp up period.
      */
-    rampUpLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.SessionHostLoadBalancingAlgorithm | undefined>;
+    rampUpLoadBalancingAlgorithm?: pulumi.Input<string | enums.desktopvirtualization.SessionHostLoadBalancingAlgorithm>;
     /**
      * Minimum host percentage for ramp up period.
      */
-    rampUpMinimumHostsPct?: pulumi.Input<number | undefined>;
+    rampUpMinimumHostsPct?: pulumi.Input<number>;
     /**
      * Starting time for ramp up period.
      */
-    rampUpStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs | undefined>;
+    rampUpStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -280,5 +280,5 @@ export interface ScalingPlanPooledScheduleArgs {
     /**
      * The name of the ScalingPlanSchedule
      */
-    scalingPlanScheduleName?: pulumi.Input<string | undefined>;
+    scalingPlanScheduleName?: pulumi.Input<string>;
 }

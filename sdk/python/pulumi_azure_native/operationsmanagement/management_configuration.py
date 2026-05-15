@@ -22,9 +22,9 @@ __all__ = ['ManagementConfigurationArgs', 'ManagementConfiguration']
 class ManagementConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['ManagementConfigurationPropertiesArgs']] = None):
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['ManagementConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ManagementConfiguration resource.
 
@@ -55,38 +55,38 @@ class ManagementConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managementConfigurationName")
-    def management_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def management_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         User Management Configuration Name.
         """
         return pulumi.get(self, "management_configuration_name")
 
     @management_configuration_name.setter
-    def management_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def management_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "management_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['ManagementConfigurationPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ManagementConfigurationPropertiesArgs']]:
         """
         Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['ManagementConfigurationPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ManagementConfigurationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class ManagementConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ManagementConfigurationPropertiesArgs', 'ManagementConfigurationPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagementConfigurationPropertiesArgs', 'ManagementConfigurationPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The container for solution.
@@ -141,10 +141,10 @@ class ManagementConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ManagementConfigurationPropertiesArgs', 'ManagementConfigurationPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagementConfigurationPropertiesArgs', 'ManagementConfigurationPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

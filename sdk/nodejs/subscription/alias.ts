@@ -100,9 +100,9 @@ export interface AliasArgs {
     /**
      * AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
      */
-    aliasName?: pulumi.Input<string | undefined>;
+    aliasName?: pulumi.Input<string>;
     /**
      * Put alias request properties.
      */
-    properties?: pulumi.Input<inputs.subscription.PutAliasRequestPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.subscription.PutAliasRequestPropertiesArgs>;
 }

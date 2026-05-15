@@ -100,7 +100,7 @@ export class Datastore extends pulumi.CustomResource {
             }
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["datastoreName"] = args?.datastoreName;
-            resourceInputs["diskPoolVolume"] = args ? pulumi.output(args.diskPoolVolume).apply(v => v === undefined ? undefined : inputs.avs.diskPoolVolumeArgsProvideDefaults(v)) : undefined;
+            resourceInputs["diskPoolVolume"] = args ? (args.diskPoolVolume ? pulumi.output(args.diskPoolVolume).apply(inputs.avs.diskPoolVolumeArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["elasticSanVolume"] = args?.elasticSanVolume;
             resourceInputs["netAppVolume"] = args?.netAppVolume;
             resourceInputs["privateCloudName"] = args?.privateCloudName;
@@ -140,19 +140,19 @@ export interface DatastoreArgs {
     /**
      * Name of the datastore
      */
-    datastoreName?: pulumi.Input<string | undefined>;
+    datastoreName?: pulumi.Input<string>;
     /**
      * An iSCSI volume
      */
-    diskPoolVolume?: pulumi.Input<inputs.avs.DiskPoolVolumeArgs | undefined>;
+    diskPoolVolume?: pulumi.Input<inputs.avs.DiskPoolVolumeArgs>;
     /**
      * An Elastic SAN volume
      */
-    elasticSanVolume?: pulumi.Input<inputs.avs.ElasticSanVolumeArgs | undefined>;
+    elasticSanVolume?: pulumi.Input<inputs.avs.ElasticSanVolumeArgs>;
     /**
      * An Azure NetApp Files volume
      */
-    netAppVolume?: pulumi.Input<inputs.avs.NetAppVolumeArgs | undefined>;
+    netAppVolume?: pulumi.Input<inputs.avs.NetAppVolumeArgs>;
     /**
      * Name of the private cloud
      */

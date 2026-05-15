@@ -112,7 +112,7 @@ export interface GatewayCustomDomainArgs {
     /**
      * The name of the Spring Cloud Gateway custom domain.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName?: pulumi.Input<string>;
     /**
      * The name of Spring Cloud Gateway.
      */
@@ -120,7 +120,7 @@ export interface GatewayCustomDomainArgs {
     /**
      * The properties of custom domain for Spring Cloud Gateway
      */
-    properties?: pulumi.Input<inputs.appplatform.GatewayCustomDomainPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.appplatform.GatewayCustomDomainPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

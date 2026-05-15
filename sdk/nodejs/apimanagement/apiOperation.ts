@@ -161,7 +161,7 @@ export interface ApiOperationArgs {
     /**
      * Description of the operation. May include HTML formatting tags.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Operation Name.
      */
@@ -173,15 +173,15 @@ export interface ApiOperationArgs {
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
-    operationId?: pulumi.Input<string | undefined>;
+    operationId?: pulumi.Input<string>;
     /**
      * Operation Policies
      */
-    policies?: pulumi.Input<string | undefined>;
+    policies?: pulumi.Input<string>;
     /**
      * An entity containing request details.
      */
-    request?: pulumi.Input<inputs.apimanagement.RequestContractArgs | undefined>;
+    request?: pulumi.Input<inputs.apimanagement.RequestContractArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -189,7 +189,7 @@ export interface ApiOperationArgs {
     /**
      * Array of Operation responses.
      */
-    responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ResponseContractArgs>[] | undefined>;
+    responses?: pulumi.Input<pulumi.Input<inputs.apimanagement.ResponseContractArgs>[]>;
     /**
      * The name of the API Management service.
      */
@@ -197,7 +197,7 @@ export interface ApiOperationArgs {
     /**
      * Collection of URL template parameters.
      */
-    templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ParameterContractArgs>[] | undefined>;
+    templateParameters?: pulumi.Input<pulumi.Input<inputs.apimanagement.ParameterContractArgs>[]>;
     /**
      * Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
      */

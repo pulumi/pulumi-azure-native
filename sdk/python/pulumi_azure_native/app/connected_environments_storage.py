@@ -24,8 +24,8 @@ class ConnectedEnvironmentsStorageArgs:
     def __init__(__self__, *,
                  connected_environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['ConnectedEnvironmentStoragePropertiesArgs']] = None,
-                 storage_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['ConnectedEnvironmentStoragePropertiesArgs']] = None,
+                 storage_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectedEnvironmentsStorage resource.
 
@@ -67,26 +67,26 @@ class ConnectedEnvironmentsStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['ConnectedEnvironmentStoragePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ConnectedEnvironmentStoragePropertiesArgs']]:
         """
         Storage properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['ConnectedEnvironmentStoragePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ConnectedEnvironmentStoragePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="storageName")
-    def storage_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def storage_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the storage.
         """
         return pulumi.get(self, "storage_name")
 
     @storage_name.setter
-    def storage_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def storage_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "storage_name", value)
 
 
@@ -96,10 +96,10 @@ class ConnectedEnvironmentsStorage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connected_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ConnectedEnvironmentStoragePropertiesArgs', 'ConnectedEnvironmentStoragePropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ConnectedEnvironmentStoragePropertiesArgs', 'ConnectedEnvironmentStoragePropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Storage resource for connectedEnvironment.
@@ -145,10 +145,10 @@ class ConnectedEnvironmentsStorage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connected_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ConnectedEnvironmentStoragePropertiesArgs', 'ConnectedEnvironmentStoragePropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 connected_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ConnectedEnvironmentStoragePropertiesArgs', 'ConnectedEnvironmentStoragePropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

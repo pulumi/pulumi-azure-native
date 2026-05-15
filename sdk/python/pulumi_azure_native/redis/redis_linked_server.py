@@ -25,7 +25,7 @@ class RedisLinkedServerArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_role: pulumi.Input['ReplicationRole'],
-                 linked_server_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 linked_server_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RedisLinkedServer resource.
 
@@ -106,14 +106,14 @@ class RedisLinkedServerArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkedServerName")
-    def linked_server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def linked_server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the linked server that is being added to the Redis cache.
         """
         return pulumi.get(self, "linked_server_name")
 
     @linked_server_name.setter
-    def linked_server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def linked_server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "linked_server_name", value)
 
 
@@ -123,12 +123,12 @@ class RedisLinkedServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 linked_redis_cache_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 linked_server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_role: pulumi.Input[Optional['ReplicationRole']] = None,
+                 linked_redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_redis_cache_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_role: Optional[pulumi.Input['ReplicationRole']] = None,
                  __props__=None):
         """
         Response to put/get linked server (with properties) for Redis cache.
@@ -172,12 +172,12 @@ class RedisLinkedServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 linked_redis_cache_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 linked_redis_cache_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 linked_server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_role: pulumi.Input[Optional['ReplicationRole']] = None,
+                 linked_redis_cache_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_redis_cache_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 linked_server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_role: Optional[pulumi.Input['ReplicationRole']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

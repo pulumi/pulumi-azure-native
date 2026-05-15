@@ -162,35 +162,35 @@ export interface VirtualMachineScaleSetExtensionArgs {
     /**
      * Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
      */
-    autoUpgradeMinorVersion?: pulumi.Input<boolean | undefined>;
+    autoUpgradeMinorVersion?: pulumi.Input<boolean>;
     /**
      * Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
      */
-    enableAutomaticUpgrade?: pulumi.Input<boolean | undefined>;
+    enableAutomaticUpgrade?: pulumi.Input<boolean>;
     /**
      * If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
      */
-    forceUpdateTag?: pulumi.Input<string | undefined>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * Resource name
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
      */
-    protectedSettings?: any | undefined;
+    protectedSettings?: any;
     /**
      * The extensions protected settings that are passed by reference, and consumed from key vault
      */
-    protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.KeyVaultSecretReferenceArgs | undefined>;
+    protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.KeyVaultSecretReferenceArgs>;
     /**
      * Collection of extension names after which this extension needs to be provisioned.
      */
-    provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    provisionAfterExtensions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the extension handler publisher.
      */
-    publisher?: pulumi.Input<string | undefined>;
+    publisher?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -198,19 +198,19 @@ export interface VirtualMachineScaleSetExtensionArgs {
     /**
      * Json formatted public settings for the extension.
      */
-    settings?: any | undefined;
+    settings?: any;
     /**
      * Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
      */
-    suppressFailures?: pulumi.Input<boolean | undefined>;
+    suppressFailures?: pulumi.Input<boolean>;
     /**
      * Specifies the type of the extension; an example is "CustomScriptExtension".
      */
-    type?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string>;
     /**
      * Specifies the version of the script handler.
      */
-    typeHandlerVersion?: pulumi.Input<string | undefined>;
+    typeHandlerVersion?: pulumi.Input<string>;
     /**
      * The name of the VM scale set.
      */
@@ -218,5 +218,5 @@ export interface VirtualMachineScaleSetExtensionArgs {
     /**
      * The name of the VM scale set extension.
      */
-    vmssExtensionName?: pulumi.Input<string | undefined>;
+    vmssExtensionName?: pulumi.Input<string>;
 }

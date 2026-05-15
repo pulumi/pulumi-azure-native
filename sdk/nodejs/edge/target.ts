@@ -128,15 +128,15 @@ export interface TargetArgs {
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.edge.AzureResourceManagerCommonTypesExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.TargetPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.edge.TargetPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -144,9 +144,9 @@ export interface TargetArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the target
      */
-    targetName?: pulumi.Input<string | undefined>;
+    targetName?: pulumi.Input<string>;
 }

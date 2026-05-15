@@ -25,7 +25,7 @@ class ContainerArgs:
                  device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
-                 container_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 container_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Container resource.
 
@@ -92,14 +92,14 @@ class ContainerArgs:
 
     @_builtins.property
     @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The container name.
         """
         return pulumi.get(self, "container_name")
 
     @container_name.setter
-    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "container_name", value)
 
 
@@ -109,11 +109,11 @@ class Container(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_format: pulumi.Input[Optional[Union[_builtins.str, 'AzureContainerDataFormat']]] = None,
-                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_format: Optional[pulumi.Input[Union[_builtins.str, 'AzureContainerDataFormat']]] = None,
+                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
@@ -160,11 +160,11 @@ class Container(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_format: pulumi.Input[Optional[Union[_builtins.str, 'AzureContainerDataFormat']]] = None,
-                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_format: Optional[pulumi.Input[Union[_builtins.str, 'AzureContainerDataFormat']]] = None,
+                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

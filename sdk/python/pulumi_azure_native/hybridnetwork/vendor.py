@@ -20,7 +20,7 @@ __all__ = ['VendorArgs', 'Vendor']
 @pulumi.input_type
 class VendorArgs:
     def __init__(__self__, *,
-                 vendor_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 vendor_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Vendor resource.
 
@@ -31,14 +31,14 @@ class VendorArgs:
 
     @_builtins.property
     @pulumi.getter(name="vendorName")
-    def vendor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def vendor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the vendor.
         """
         return pulumi.get(self, "vendor_name")
 
     @vendor_name.setter
-    def vendor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def vendor_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "vendor_name", value)
 
 
@@ -48,7 +48,7 @@ class Vendor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 vendor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vendor_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Vendor resource.
@@ -87,7 +87,7 @@ class Vendor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 vendor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 vendor_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

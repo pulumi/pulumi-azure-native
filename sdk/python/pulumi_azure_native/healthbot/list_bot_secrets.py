@@ -72,8 +72,8 @@ def list_bot_secrets(bot_name: Optional[_builtins.str] = None,
 
     return AwaitableListBotSecretsResult(
         secrets=pulumi.get(__ret__, 'secrets'))
-def list_bot_secrets_output(bot_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_bot_secrets_output(bot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBotSecretsResult]:
     """
     List all secrets of a HealthBot.

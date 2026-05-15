@@ -112,19 +112,19 @@ export class ModernizeProject extends pulumi.CustomResource {
  * The set of arguments for constructing a ModernizeProject resource.
  */
 export interface ModernizeProjectArgs {
-    identity?: pulumi.Input<inputs.migrate.ResourceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.migrate.ResourceIdentityArgs>;
     /**
      * Gets or sets the location of the modernizeProject.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * ModernizeProject Name.
      */
-    modernizeProjectName?: pulumi.Input<string | undefined>;
+    modernizeProjectName?: pulumi.Input<string>;
     /**
      * ModernizeProject properties.
      */
-    properties?: pulumi.Input<inputs.migrate.ModernizeProjectModelPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.ModernizeProjectModelPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
@@ -132,9 +132,9 @@ export interface ModernizeProjectArgs {
     /**
      * Azure Subscription Id in which project was created.
      */
-    subscriptionId?: pulumi.Input<string | undefined>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * Gets or sets the resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -117,14 +117,14 @@ def get_sql_server_instance_telemetry(aggregation_type: Optional[Union[_builtins
         columns=pulumi.get(__ret__, 'columns'),
         next_link=pulumi.get(__ret__, 'next_link'),
         rows=pulumi.get(__ret__, 'rows'))
-def get_sql_server_instance_telemetry_output(aggregation_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'AggregationType']]]] = None,
-                                             database_names: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
-                                             dataset_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             end_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                             interval: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             sql_server_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             start_time: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_sql_server_instance_telemetry_output(aggregation_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'AggregationType']]]] = None,
+                                             database_names: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+                                             dataset_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             end_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                             interval: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             sql_server_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             start_time: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerInstanceTelemetryResult]:
     """
     Retrieves SQL Server instance telemetry

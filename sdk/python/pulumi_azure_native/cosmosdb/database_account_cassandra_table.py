@@ -26,7 +26,7 @@ class DatabaseAccountCassandraTableArgs:
                  options: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  resource: pulumi.Input['CassandraTableResourceArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 table_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 table_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabaseAccountCassandraTable resource.
 
@@ -107,14 +107,14 @@ class DatabaseAccountCassandraTableArgs:
 
     @_builtins.property
     @pulumi.getter(name="tableName")
-    def table_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Cosmos DB table name.
         """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
-    def table_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def table_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "table_name", value)
 
 
@@ -124,12 +124,12 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource: pulumi.Input[Optional[Union['CassandraTableResourceArgs', 'CassandraTableResourceArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource: Optional[pulumi.Input[Union['CassandraTableResourceArgs', 'CassandraTableResourceArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         An Azure Cosmos DB Cassandra table.
@@ -177,12 +177,12 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource: pulumi.Input[Optional[Union['CassandraTableResourceArgs', 'CassandraTableResourceArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 table_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource: Optional[pulumi.Input[Union['CassandraTableResourceArgs', 'CassandraTableResourceArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 table_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

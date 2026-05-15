@@ -501,8 +501,8 @@ def get_managed_environment(environment_name: Optional[_builtins.str] = None,
         vnet_configuration=pulumi.get(__ret__, 'vnet_configuration'),
         workload_profiles=pulumi.get(__ret__, 'workload_profiles'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-def get_managed_environment_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_managed_environment_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
     """
     Get the properties of a Managed Environment used to host container apps.

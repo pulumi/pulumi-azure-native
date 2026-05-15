@@ -718,11 +718,11 @@ def get_database(database_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         use_free_limit=pulumi.get(__ret__, 'use_free_limit'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-def get_database_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                        filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        server_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_database_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                        filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        server_name: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Gets a database.

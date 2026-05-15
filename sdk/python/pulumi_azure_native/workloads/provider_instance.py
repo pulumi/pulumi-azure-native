@@ -24,8 +24,8 @@ class ProviderInstanceArgs:
     def __init__(__self__, *,
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 provider_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider_settings: pulumi.Input[Optional[Union['Db2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']]] = None):
+                 provider_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 provider_settings: Optional[pulumi.Input[Union['Db2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']]] = None):
         """
         The set of arguments for constructing a ProviderInstance resource.
 
@@ -67,26 +67,26 @@ class ProviderInstanceArgs:
 
     @_builtins.property
     @pulumi.getter(name="providerInstanceName")
-    def provider_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def provider_instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the provider instance.
         """
         return pulumi.get(self, "provider_instance_name")
 
     @provider_instance_name.setter
-    def provider_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def provider_instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "provider_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerSettings")
-    def provider_settings(self) -> pulumi.Input[Optional[Union['Db2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']]]:
+    def provider_settings(self) -> Optional[pulumi.Input[Union['Db2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']]]:
         """
         Defines the provider specific properties.
         """
         return pulumi.get(self, "provider_settings")
 
     @provider_settings.setter
-    def provider_settings(self, value: pulumi.Input[Optional[Union['Db2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']]]):
+    def provider_settings(self, value: Optional[pulumi.Input[Union['Db2ProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgs']]]):
         pulumi.set(self, "provider_settings", value)
 
 
@@ -96,10 +96,10 @@ class ProviderInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider_settings: pulumi.Input[Optional[Union[Union['Db2ProviderInstancePropertiesArgs', 'Db2ProviderInstancePropertiesArgsDict'], Union['HanaDbProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgsDict'], Union['MsSqlServerProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgsDict'], Union['OracleProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgsDict'], Union['PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgsDict'], Union['PrometheusOsProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgsDict'], Union['SapNetWeaverProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgsDict']]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 provider_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 provider_settings: Optional[pulumi.Input[Union[Union['Db2ProviderInstancePropertiesArgs', 'Db2ProviderInstancePropertiesArgsDict'], Union['HanaDbProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgsDict'], Union['MsSqlServerProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgsDict'], Union['OracleProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgsDict'], Union['PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgsDict'], Union['PrometheusOsProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgsDict'], Union['SapNetWeaverProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgsDict']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A provider instance associated with SAP monitor.
@@ -145,10 +145,10 @@ class ProviderInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider_settings: pulumi.Input[Optional[Union[Union['Db2ProviderInstancePropertiesArgs', 'Db2ProviderInstancePropertiesArgsDict'], Union['HanaDbProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgsDict'], Union['MsSqlServerProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgsDict'], Union['OracleProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgsDict'], Union['PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgsDict'], Union['PrometheusOsProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgsDict'], Union['SapNetWeaverProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgsDict']]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 provider_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 provider_settings: Optional[pulumi.Input[Union[Union['Db2ProviderInstancePropertiesArgs', 'Db2ProviderInstancePropertiesArgsDict'], Union['HanaDbProviderInstancePropertiesArgs', 'HanaDbProviderInstancePropertiesArgsDict'], Union['MsSqlServerProviderInstancePropertiesArgs', 'MsSqlServerProviderInstancePropertiesArgsDict'], Union['OracleProviderInstancePropertiesArgs', 'OracleProviderInstancePropertiesArgsDict'], Union['PrometheusHaClusterProviderInstancePropertiesArgs', 'PrometheusHaClusterProviderInstancePropertiesArgsDict'], Union['PrometheusOsProviderInstancePropertiesArgs', 'PrometheusOsProviderInstancePropertiesArgsDict'], Union['SapNetWeaverProviderInstancePropertiesArgs', 'SapNetWeaverProviderInstancePropertiesArgsDict']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

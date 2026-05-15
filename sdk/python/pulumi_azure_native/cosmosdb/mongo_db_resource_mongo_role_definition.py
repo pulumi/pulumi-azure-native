@@ -24,12 +24,12 @@ class MongoDBResourceMongoRoleDefinitionArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 mongo_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input['PrivilegeArgs']]]] = None,
-                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 roles: pulumi.Input[Optional[Sequence[pulumi.Input['RoleArgs']]]] = None,
-                 type: pulumi.Input[Optional['MongoRoleDefinitionType']] = None):
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mongo_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input['PrivilegeArgs']]]] = None,
+                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]] = None,
+                 type: Optional[pulumi.Input['MongoRoleDefinitionType']] = None):
         """
         The set of arguments for constructing a MongoDBResourceMongoRoleDefinition resource.
 
@@ -83,74 +83,74 @@ class MongoDBResourceMongoRoleDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The database name for which access is being granted for this Role Definition.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mongoRoleDefinitionId")
-    def mongo_role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def mongo_role_definition_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ID for the Role Definition {dbName.roleName}.
         """
         return pulumi.get(self, "mongo_role_definition_id")
 
     @mongo_role_definition_id.setter
-    def mongo_role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def mongo_role_definition_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "mongo_role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def privileges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PrivilegeArgs']]]]:
+    def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PrivilegeArgs']]]]:
         """
         A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.
         """
         return pulumi.get(self, "privileges")
 
     @privileges.setter
-    def privileges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivilegeArgs']]]]):
+    def privileges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PrivilegeArgs']]]]):
         pulumi.set(self, "privileges", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
-    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def role_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         A user-friendly name for the Role Definition. Must be unique for the database account.
         """
         return pulumi.get(self, "role_name")
 
     @role_name.setter
-    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def role_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "role_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def roles(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['RoleArgs']]]]:
+    def roles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]]:
         """
         The set of roles inherited by this Role Definition.
         """
         return pulumi.get(self, "roles")
 
     @roles.setter
-    def roles(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['RoleArgs']]]]):
+    def roles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoleArgs']]]]):
         pulumi.set(self, "roles", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Optional['MongoRoleDefinitionType']]:
+    def type(self) -> Optional[pulumi.Input['MongoRoleDefinitionType']]:
         """
         Indicates whether the Role Definition was built-in or user created.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Optional['MongoRoleDefinitionType']]):
+    def type(self, value: Optional[pulumi.Input['MongoRoleDefinitionType']]):
         pulumi.set(self, "type", value)
 
 
@@ -160,14 +160,14 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 mongo_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivilegeArgs', 'PrivilegeArgsDict']]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleArgs', 'RoleArgsDict']]]]] = None,
-                 type: pulumi.Input[Optional['MongoRoleDefinitionType']] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mongo_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivilegeArgs', 'PrivilegeArgsDict']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleArgs', 'RoleArgsDict']]]]] = None,
+                 type: Optional[pulumi.Input['MongoRoleDefinitionType']] = None,
                  __props__=None):
         """
         An Azure Cosmos DB Mongo Role Definition.
@@ -217,14 +217,14 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 mongo_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 privileges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PrivilegeArgs', 'PrivilegeArgsDict']]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RoleArgs', 'RoleArgsDict']]]]] = None,
-                 type: pulumi.Input[Optional['MongoRoleDefinitionType']] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mongo_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 privileges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PrivilegeArgs', 'PrivilegeArgsDict']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 role_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 roles: Optional[pulumi.Input[Sequence[pulumi.Input[Union['RoleArgs', 'RoleArgsDict']]]]] = None,
+                 type: Optional[pulumi.Input['MongoRoleDefinitionType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

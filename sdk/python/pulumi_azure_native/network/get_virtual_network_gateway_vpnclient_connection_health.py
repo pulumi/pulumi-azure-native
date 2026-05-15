@@ -72,8 +72,8 @@ def get_virtual_network_gateway_vpnclient_connection_health(resource_group_name:
 
     return AwaitableGetVirtualNetworkGatewayVpnclientConnectionHealthResult(
         value=pulumi.get(__ret__, 'value'))
-def get_virtual_network_gateway_vpnclient_connection_health_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                   virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_network_gateway_vpnclient_connection_health_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                   virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayVpnclientConnectionHealthResult]:
     """
     Get VPN client connection health detail per P2S client connection of the virtual network gateway in the specified resource group.

@@ -23,9 +23,9 @@ class VirtualEndpointArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 endpoint_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualEndpointType']]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 endpoint_type: Optional[pulumi.Input[Union[_builtins.str, 'VirtualEndpointType']]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 virtual_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualEndpoint resource.
 
@@ -70,38 +70,38 @@ class VirtualEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointType")
-    def endpoint_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VirtualEndpointType']]]:
+    def endpoint_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'VirtualEndpointType']]]:
         """
         Type of endpoint for the virtual endpoints.
         """
         return pulumi.get(self, "endpoint_type")
 
     @endpoint_type.setter
-    def endpoint_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'VirtualEndpointType']]]):
+    def endpoint_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'VirtualEndpointType']]]):
         pulumi.set(self, "endpoint_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of servers that one of the virtual endpoints can refer to.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "members", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualEndpointName")
-    def virtual_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def virtual_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Base name of the virtual endpoints.
         """
         return pulumi.get(self, "virtual_endpoint_name")
 
     @virtual_endpoint_name.setter
-    def virtual_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def virtual_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "virtual_endpoint_name", value)
 
 
@@ -111,11 +111,11 @@ class VirtualEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualEndpointType']]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_type: Optional[pulumi.Input[Union[_builtins.str, 'VirtualEndpointType']]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Pair of virtual endpoints for a server.
@@ -162,11 +162,11 @@ class VirtualEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualEndpointType']]] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 endpoint_type: Optional[pulumi.Input[Union[_builtins.str, 'VirtualEndpointType']]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

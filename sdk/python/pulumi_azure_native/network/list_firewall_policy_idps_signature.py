@@ -102,13 +102,13 @@ def list_firewall_policy_idps_signature(filters: Optional[Sequence[Union['Filter
     return AwaitableListFirewallPolicyIdpsSignatureResult(
         matching_records_count=pulumi.get(__ret__, 'matching_records_count'),
         signatures=pulumi.get(__ret__, 'signatures'))
-def list_firewall_policy_idps_signature_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['FilterItems', 'FilterItemsDict']]]]] = None,
-                                               firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               order_by: pulumi.Input[Optional[Optional[Union['OrderBy', 'OrderByDict']]]] = None,
-                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               results_per_page: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
-                                               search: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                               skip: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Optional[Sequence[Union['FilterItems', 'FilterItemsDict']]]]] = None,
+                                               firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               order_by: Optional[pulumi.Input[Optional[Union['OrderBy', 'OrderByDict']]]] = None,
+                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               results_per_page: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+                                               search: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                               skip: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFirewallPolicyIdpsSignatureResult]:
     """
     Retrieves the current status of IDPS signatures for the relevant policy. Maximal amount of returned signatures is 1000.

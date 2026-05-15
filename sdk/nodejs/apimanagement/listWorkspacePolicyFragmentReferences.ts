@@ -105,11 +105,11 @@ export interface ListWorkspacePolicyFragmentReferencesOutputArgs {
     /**
      * Number of records to skip.
      */
-    skip?: pulumi.Input<number | undefined>;
+    skip?: pulumi.Input<number>;
     /**
      * Number of records to return.
      */
-    top?: pulumi.Input<number | undefined>;
+    top?: pulumi.Input<number>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

@@ -125,7 +125,7 @@ export interface TargetArgs {
     /**
      * Location of the target resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * String that represents a resource provider namespace.
      */
@@ -149,5 +149,5 @@ export interface TargetArgs {
     /**
      * String that represents a Target resource name.
      */
-    targetName?: pulumi.Input<string | undefined>;
+    targetName?: pulumi.Input<string>;
 }

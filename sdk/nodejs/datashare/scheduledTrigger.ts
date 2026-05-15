@@ -183,7 +183,7 @@ export interface ScheduledTriggerArgs {
     /**
      * Synchronization mode
      */
-    synchronizationMode?: pulumi.Input<string | enums.datashare.SynchronizationMode | undefined>;
+    synchronizationMode?: pulumi.Input<string | enums.datashare.SynchronizationMode>;
     /**
      * Synchronization time
      */
@@ -191,5 +191,5 @@ export interface ScheduledTriggerArgs {
     /**
      * The name of the trigger.
      */
-    triggerName?: pulumi.Input<string | undefined>;
+    triggerName?: pulumi.Input<string>;
 }

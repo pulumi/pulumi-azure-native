@@ -20,10 +20,10 @@ __all__ = ['AssessmentArgs', 'Assessment']
 @pulumi.input_type
 class AssessmentArgs:
     def __init__(__self__, *,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 locale: pulumi.Input[Optional[_builtins.str]] = None,
-                 type_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 workload_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None,
+                 type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 workload_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Assessment resource.
 
@@ -43,50 +43,50 @@ class AssessmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def assessment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Advisor assessment name.
         """
         return pulumi.get(self, "assessment_name")
 
     @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def assessment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def locale(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def locale(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Assessment Type Locale.
         """
         return pulumi.get(self, "locale")
 
     @locale.setter
-    def locale(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def locale(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "locale", value)
 
     @_builtins.property
     @pulumi.getter(name="typeId")
-    def type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def type_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Assessment Type Id.
         """
         return pulumi.get(self, "type_id")
 
     @type_id.setter
-    def type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def type_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadId")
-    def workload_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def workload_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Workload Id.
         """
         return pulumi.get(self, "workload_id")
 
     @workload_id.setter
-    def workload_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def workload_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "workload_id", value)
 
 
@@ -96,10 +96,10 @@ class Assessment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 locale: pulumi.Input[Optional[_builtins.str]] = None,
-                 type_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 workload_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None,
+                 type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 workload_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The Advisor assessment result data structure.
@@ -145,10 +145,10 @@ class Assessment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 locale: pulumi.Input[Optional[_builtins.str]] = None,
-                 type_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 workload_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 locale: Optional[pulumi.Input[_builtins.str]] = None,
+                 type_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 workload_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

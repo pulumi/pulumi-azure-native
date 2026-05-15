@@ -24,17 +24,17 @@ class ClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 aad_application_object_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 aad_client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 aad_service_principal_object_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 aad_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 cloud_management_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 desired_properties: pulumi.Input[Optional['ClusterDesiredPropertiesArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 software_assurance_properties: pulumi.Input[Optional['SoftwareAssurancePropertiesArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 aad_application_object_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aad_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aad_service_principal_object_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aad_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_management_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 desired_properties: Optional[pulumi.Input['ClusterDesiredPropertiesArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 software_assurance_properties: Optional[pulumi.Input['SoftwareAssurancePropertiesArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
@@ -103,134 +103,134 @@ class ClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="aadApplicationObjectId")
-    def aad_application_object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def aad_application_object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Object id of cluster AAD identity.
         """
         return pulumi.get(self, "aad_application_object_id")
 
     @aad_application_object_id.setter
-    def aad_application_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def aad_application_object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "aad_application_object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="aadClientId")
-    def aad_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def aad_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         App id of cluster AAD identity.
         """
         return pulumi.get(self, "aad_client_id")
 
     @aad_client_id.setter
-    def aad_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def aad_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "aad_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="aadServicePrincipalObjectId")
-    def aad_service_principal_object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def aad_service_principal_object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Id of cluster identity service principal.
         """
         return pulumi.get(self, "aad_service_principal_object_id")
 
     @aad_service_principal_object_id.setter
-    def aad_service_principal_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def aad_service_principal_object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "aad_service_principal_object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="aadTenantId")
-    def aad_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def aad_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Tenant id of cluster AAD identity.
         """
         return pulumi.get(self, "aad_tenant_id")
 
     @aad_tenant_id.setter
-    def aad_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def aad_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "aad_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudManagementEndpoint")
-    def cloud_management_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def cloud_management_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Endpoint configured for management from the Azure portal.
         """
         return pulumi.get(self, "cloud_management_endpoint")
 
     @cloud_management_endpoint.setter
-    def cloud_management_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def cloud_management_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "cloud_management_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def cluster_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the cluster.
         """
         return pulumi.get(self, "cluster_name")
 
     @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="desiredProperties")
-    def desired_properties(self) -> pulumi.Input[Optional['ClusterDesiredPropertiesArgs']]:
+    def desired_properties(self) -> Optional[pulumi.Input['ClusterDesiredPropertiesArgs']]:
         """
         Desired properties of the cluster.
         """
         return pulumi.get(self, "desired_properties")
 
     @desired_properties.setter
-    def desired_properties(self, value: pulumi.Input[Optional['ClusterDesiredPropertiesArgs']]):
+    def desired_properties(self, value: Optional[pulumi.Input['ClusterDesiredPropertiesArgs']]):
         pulumi.set(self, "desired_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="softwareAssuranceProperties")
-    def software_assurance_properties(self) -> pulumi.Input[Optional['SoftwareAssurancePropertiesArgs']]:
+    def software_assurance_properties(self) -> Optional[pulumi.Input['SoftwareAssurancePropertiesArgs']]:
         """
         Software Assurance properties of the cluster.
         """
         return pulumi.get(self, "software_assurance_properties")
 
     @software_assurance_properties.setter
-    def software_assurance_properties(self, value: pulumi.Input[Optional['SoftwareAssurancePropertiesArgs']]):
+    def software_assurance_properties(self, value: Optional[pulumi.Input['SoftwareAssurancePropertiesArgs']]):
         pulumi.set(self, "software_assurance_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -240,19 +240,19 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_application_object_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 aad_client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 aad_service_principal_object_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 aad_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 cloud_management_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 desired_properties: pulumi.Input[Optional[Union['ClusterDesiredPropertiesArgs', 'ClusterDesiredPropertiesArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 software_assurance_properties: pulumi.Input[Optional[Union['SoftwareAssurancePropertiesArgs', 'SoftwareAssurancePropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None,
-                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aad_application_object_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aad_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aad_service_principal_object_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aad_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_management_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 desired_properties: Optional[pulumi.Input[Union['ClusterDesiredPropertiesArgs', 'ClusterDesiredPropertiesArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 software_assurance_properties: Optional[pulumi.Input[Union['SoftwareAssurancePropertiesArgs', 'SoftwareAssurancePropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Cluster details.
@@ -307,19 +307,19 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aad_application_object_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 aad_client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 aad_service_principal_object_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 aad_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 cloud_management_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 desired_properties: pulumi.Input[Optional[Union['ClusterDesiredPropertiesArgs', 'ClusterDesiredPropertiesArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 software_assurance_properties: pulumi.Input[Optional[Union['SoftwareAssurancePropertiesArgs', 'SoftwareAssurancePropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None,
-                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 aad_application_object_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aad_client_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aad_service_principal_object_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 aad_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_management_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 desired_properties: Optional[pulumi.Input[Union['ClusterDesiredPropertiesArgs', 'ClusterDesiredPropertiesArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 software_assurance_properties: Optional[pulumi.Input[Union['SoftwareAssurancePropertiesArgs', 'SoftwareAssurancePropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']]] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

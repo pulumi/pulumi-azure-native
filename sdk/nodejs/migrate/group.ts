@@ -109,11 +109,11 @@ export interface GroupArgs {
     /**
      * For optimistic concurrency control.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Unique name of a group within a project.
      */
-    groupName?: pulumi.Input<string | undefined>;
+    groupName?: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */

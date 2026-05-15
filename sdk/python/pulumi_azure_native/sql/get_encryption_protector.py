@@ -217,9 +217,9 @@ def get_encryption_protector(encryption_protector_name: Optional[_builtins.str] 
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'),
         uri=pulumi.get(__ret__, 'uri'))
-def get_encryption_protector_output(encryption_protector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    server_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_encryption_protector_output(encryption_protector_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    server_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEncryptionProtectorResult]:
     """
     Gets a server encryption protector.

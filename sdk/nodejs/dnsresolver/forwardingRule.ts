@@ -152,15 +152,15 @@ export interface ForwardingRuleArgs {
     /**
      * The name of the forwarding rule.
      */
-    forwardingRuleName?: pulumi.Input<string | undefined>;
+    forwardingRuleName?: pulumi.Input<string>;
     /**
      * The state of forwarding rule.
      */
-    forwardingRuleState?: pulumi.Input<string | enums.dnsresolver.ForwardingRuleState | undefined>;
+    forwardingRuleState?: pulumi.Input<string | enums.dnsresolver.ForwardingRuleState>;
     /**
      * Metadata attached to the forwarding rule.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

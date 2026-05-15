@@ -108,11 +108,11 @@ export interface BackupPolicyArgs {
     /**
      * Name of the policy
      */
-    backupPolicyName?: pulumi.Input<string | undefined>;
+    backupPolicyName?: pulumi.Input<string>;
     /**
      * BaseBackupPolicyResource properties
      */
-    properties?: pulumi.Input<inputs.dataprotection.BackupPolicyArgs | undefined>;
+    properties?: pulumi.Input<inputs.dataprotection.BackupPolicyArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

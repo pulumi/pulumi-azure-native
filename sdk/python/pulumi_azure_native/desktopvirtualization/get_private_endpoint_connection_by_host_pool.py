@@ -179,9 +179,9 @@ def get_private_endpoint_connection_by_host_pool(host_pool_name: Optional[_built
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_by_host_pool_output(host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_private_endpoint_connection_by_host_pool_output(host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        private_endpoint_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionByHostPoolResult]:
     """
     Get a private endpoint connection.

@@ -121,7 +121,7 @@ export interface ListAccountSasOutputArgs {
     /**
      * Optional, allows control of which region locations are permitted access to Azure Maps REST APIs with the SAS token. Example: "eastus", "westus2". Omitting this parameter will allow all region locations to be accessible.
      */
-    regions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    regions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

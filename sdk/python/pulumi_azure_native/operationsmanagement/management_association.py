@@ -25,9 +25,9 @@ class ManagementAssociationArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['ManagementAssociationPropertiesArgs']] = None):
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_association_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['ManagementAssociationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ManagementAssociation resource.
 
@@ -100,38 +100,38 @@ class ManagementAssociationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource location
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managementAssociationName")
-    def management_association_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def management_association_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         User ManagementAssociation Name.
         """
         return pulumi.get(self, "management_association_name")
 
     @management_association_name.setter
-    def management_association_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def management_association_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "management_association_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['ManagementAssociationPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ManagementAssociationPropertiesArgs']]:
         """
         Properties for ManagementAssociation object supported by the OperationsManagement resource provider.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['ManagementAssociationPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ManagementAssociationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -141,13 +141,13 @@ class ManagementAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ManagementAssociationPropertiesArgs', 'ManagementAssociationPropertiesArgsDict']]] = None,
-                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_association_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagementAssociationPropertiesArgs', 'ManagementAssociationPropertiesArgsDict']]] = None,
+                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The container for solution.
@@ -192,13 +192,13 @@ class ManagementAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ManagementAssociationPropertiesArgs', 'ManagementAssociationPropertiesArgsDict']]] = None,
-                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_association_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ManagementAssociationPropertiesArgs', 'ManagementAssociationPropertiesArgsDict']]] = None,
+                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

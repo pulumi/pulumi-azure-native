@@ -27,9 +27,9 @@ class InstanceFailoverGroupArgs:
                  partner_regions: pulumi.Input[Sequence[pulumi.Input['PartnerRegionInfoArgs']]],
                  read_write_endpoint: pulumi.Input['InstanceFailoverGroupReadWriteEndpointArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 failover_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 read_only_endpoint: pulumi.Input[Optional['InstanceFailoverGroupReadOnlyEndpointArgs']] = None,
-                 secondary_type: pulumi.Input[Optional[Union[_builtins.str, 'SecondaryInstanceType']]] = None):
+                 failover_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 read_only_endpoint: Optional[pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs']] = None,
+                 secondary_type: Optional[pulumi.Input[Union[_builtins.str, 'SecondaryInstanceType']]] = None):
         """
         The set of arguments for constructing a InstanceFailoverGroup resource.
 
@@ -116,38 +116,38 @@ class InstanceFailoverGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="failoverGroupName")
-    def failover_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def failover_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the failover group.
         """
         return pulumi.get(self, "failover_group_name")
 
     @failover_group_name.setter
-    def failover_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def failover_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "failover_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="readOnlyEndpoint")
-    def read_only_endpoint(self) -> pulumi.Input[Optional['InstanceFailoverGroupReadOnlyEndpointArgs']]:
+    def read_only_endpoint(self) -> Optional[pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs']]:
         """
         Read-only endpoint of the failover group instance.
         """
         return pulumi.get(self, "read_only_endpoint")
 
     @read_only_endpoint.setter
-    def read_only_endpoint(self, value: pulumi.Input[Optional['InstanceFailoverGroupReadOnlyEndpointArgs']]):
+    def read_only_endpoint(self, value: Optional[pulumi.Input['InstanceFailoverGroupReadOnlyEndpointArgs']]):
         pulumi.set(self, "read_only_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="secondaryType")
-    def secondary_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SecondaryInstanceType']]]:
+    def secondary_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'SecondaryInstanceType']]]:
         """
         Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
         """
         return pulumi.get(self, "secondary_type")
 
     @secondary_type.setter
-    def secondary_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SecondaryInstanceType']]]):
+    def secondary_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'SecondaryInstanceType']]]):
         pulumi.set(self, "secondary_type", value)
 
 
@@ -157,14 +157,14 @@ class InstanceFailoverGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failover_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_instance_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstancePairInfoArgs', 'ManagedInstancePairInfoArgsDict']]]]] = None,
-                 partner_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerRegionInfoArgs', 'PartnerRegionInfoArgsDict']]]]] = None,
-                 read_only_endpoint: pulumi.Input[Optional[Union['InstanceFailoverGroupReadOnlyEndpointArgs', 'InstanceFailoverGroupReadOnlyEndpointArgsDict']]] = None,
-                 read_write_endpoint: pulumi.Input[Optional[Union['InstanceFailoverGroupReadWriteEndpointArgs', 'InstanceFailoverGroupReadWriteEndpointArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 secondary_type: pulumi.Input[Optional[Union[_builtins.str, 'SecondaryInstanceType']]] = None,
+                 failover_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_instance_pairs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstancePairInfoArgs', 'ManagedInstancePairInfoArgsDict']]]]] = None,
+                 partner_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerRegionInfoArgs', 'PartnerRegionInfoArgsDict']]]]] = None,
+                 read_only_endpoint: Optional[pulumi.Input[Union['InstanceFailoverGroupReadOnlyEndpointArgs', 'InstanceFailoverGroupReadOnlyEndpointArgsDict']]] = None,
+                 read_write_endpoint: Optional[pulumi.Input[Union['InstanceFailoverGroupReadWriteEndpointArgs', 'InstanceFailoverGroupReadWriteEndpointArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 secondary_type: Optional[pulumi.Input[Union[_builtins.str, 'SecondaryInstanceType']]] = None,
                  __props__=None):
         """
         An instance failover group.
@@ -214,14 +214,14 @@ class InstanceFailoverGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failover_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_instance_pairs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedInstancePairInfoArgs', 'ManagedInstancePairInfoArgsDict']]]]] = None,
-                 partner_regions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PartnerRegionInfoArgs', 'PartnerRegionInfoArgsDict']]]]] = None,
-                 read_only_endpoint: pulumi.Input[Optional[Union['InstanceFailoverGroupReadOnlyEndpointArgs', 'InstanceFailoverGroupReadOnlyEndpointArgsDict']]] = None,
-                 read_write_endpoint: pulumi.Input[Optional[Union['InstanceFailoverGroupReadWriteEndpointArgs', 'InstanceFailoverGroupReadWriteEndpointArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 secondary_type: pulumi.Input[Optional[Union[_builtins.str, 'SecondaryInstanceType']]] = None,
+                 failover_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_instance_pairs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ManagedInstancePairInfoArgs', 'ManagedInstancePairInfoArgsDict']]]]] = None,
+                 partner_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PartnerRegionInfoArgs', 'PartnerRegionInfoArgsDict']]]]] = None,
+                 read_only_endpoint: Optional[pulumi.Input[Union['InstanceFailoverGroupReadOnlyEndpointArgs', 'InstanceFailoverGroupReadOnlyEndpointArgsDict']]] = None,
+                 read_write_endpoint: Optional[pulumi.Input[Union['InstanceFailoverGroupReadWriteEndpointArgs', 'InstanceFailoverGroupReadWriteEndpointArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 secondary_type: Optional[pulumi.Input[Union[_builtins.str, 'SecondaryInstanceType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

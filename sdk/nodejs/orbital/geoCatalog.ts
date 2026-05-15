@@ -91,7 +91,7 @@ export class GeoCatalog extends pulumi.CustomResource {
             resourceInputs["catalogName"] = args?.catalogName;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.orbital.geoCatalogPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.orbital.geoCatalogPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -122,19 +122,19 @@ export interface GeoCatalogArgs {
     /**
      * The name of the catalog
      */
-    catalogName?: pulumi.Input<string | undefined>;
+    catalogName?: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.orbital.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.orbital.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.orbital.GeoCatalogPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.orbital.GeoCatalogPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -142,5 +142,5 @@ export interface GeoCatalogArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

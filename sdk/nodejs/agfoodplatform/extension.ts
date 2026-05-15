@@ -142,7 +142,7 @@ export interface ExtensionArgs {
     /**
      * Additional Api Properties.
      */
-    additionalApiProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.agfoodplatform.ApiPropertiesArgs>} | undefined>;
+    additionalApiProperties?: pulumi.Input<{[key: string]: pulumi.Input<inputs.agfoodplatform.ApiPropertiesArgs>}>;
     /**
      * DataManagerForAgriculture resource name.
      */
@@ -150,11 +150,11 @@ export interface ExtensionArgs {
     /**
      * Id of extension resource.
      */
-    extensionId?: pulumi.Input<string | undefined>;
+    extensionId?: pulumi.Input<string>;
     /**
      * Extension Version.
      */
-    extensionVersion?: pulumi.Input<string | undefined>;
+    extensionVersion?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

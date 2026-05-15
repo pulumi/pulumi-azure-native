@@ -270,38 +270,38 @@ export interface PrivateCloudArgs {
     /**
      * Properties describing how the cloud is distributed across availability zones
      */
-    availability?: pulumi.Input<inputs.avs.AvailabilityPropertiesArgs | undefined>;
+    availability?: pulumi.Input<inputs.avs.AvailabilityPropertiesArgs>;
     /**
      * The type of DNS zone to use.
      */
-    dnsZoneType?: pulumi.Input<string | enums.avs.DnsZoneType | undefined>;
+    dnsZoneType?: pulumi.Input<string | enums.avs.DnsZoneType>;
     /**
      * Customer managed key encryption, can be enabled or disabled
      */
-    encryption?: pulumi.Input<inputs.avs.EncryptionArgs | undefined>;
+    encryption?: pulumi.Input<inputs.avs.EncryptionArgs>;
     /**
      * Array of additional networks noncontiguous with networkBlock. Networks must be
      * unique and non-overlapping across VNet in your subscription, on-premise, and
      * this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
      * (A.B.C.D/X).
      */
-    extendedNetworkBlocks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    extendedNetworkBlocks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.avs.SystemAssignedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.avs.SystemAssignedServiceIdentityArgs>;
     /**
      * vCenter Single Sign On Identity Sources
      */
-    identitySources?: pulumi.Input<pulumi.Input<inputs.avs.IdentitySourceArgs>[] | undefined>;
+    identitySources?: pulumi.Input<pulumi.Input<inputs.avs.IdentitySourceArgs>[]>;
     /**
      * Connectivity to internet is enabled or disabled
      */
-    internet?: pulumi.Input<string | enums.avs.InternetEnum | undefined>;
+    internet?: pulumi.Input<string | enums.avs.InternetEnum>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The default cluster used for management
      */
@@ -315,11 +315,11 @@ export interface PrivateCloudArgs {
     /**
      * Optionally, set the NSX-T Manager password when the private cloud is created
      */
-    nsxtPassword?: pulumi.Input<string | undefined>;
+    nsxtPassword?: pulumi.Input<string>;
     /**
      * Name of the private cloud
      */
-    privateCloudName?: pulumi.Input<string | undefined>;
+    privateCloudName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -331,13 +331,13 @@ export interface PrivateCloudArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Optionally, set the vCenter admin password when the private cloud is created
      */
-    vcenterPassword?: pulumi.Input<string | undefined>;
+    vcenterPassword?: pulumi.Input<string>;
     /**
      * Azure resource ID of the virtual network
      */
-    virtualNetworkId?: pulumi.Input<string | undefined>;
+    virtualNetworkId?: pulumi.Input<string>;
 }

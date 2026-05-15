@@ -239,35 +239,35 @@ export interface SiteCertificateArgs {
     /**
      * CNAME of the certificate to be issued via free certificate
      */
-    canonicalName?: pulumi.Input<string | undefined>;
+    canonicalName?: pulumi.Input<string>;
     /**
      * Name of the certificate.
      */
-    certificateName?: pulumi.Input<string | undefined>;
+    certificateName?: pulumi.Input<string>;
     /**
      * Method of domain validation for free cert
      */
-    domainValidationMethod?: pulumi.Input<string | undefined>;
+    domainValidationMethod?: pulumi.Input<string>;
     /**
      * Host names the certificate applies to.
      */
-    hostNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    hostNames?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Azure Key Vault Csm resource Id.
      */
-    keyVaultId?: pulumi.Input<string | undefined>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * Azure Key Vault secret name.
      */
-    keyVaultSecretName?: pulumi.Input<string | undefined>;
+    keyVaultSecretName?: pulumi.Input<string>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the site.
      */
@@ -275,11 +275,11 @@ export interface SiteCertificateArgs {
     /**
      * Certificate password.
      */
-    password?: pulumi.Input<string | undefined>;
+    password?: pulumi.Input<string>;
     /**
      * Pfx blob.
      */
-    pfxBlob?: pulumi.Input<string | undefined>;
+    pfxBlob?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -287,9 +287,9 @@ export interface SiteCertificateArgs {
     /**
      * Resource ID of the associated App Service plan.
      */
-    serverFarmId?: pulumi.Input<string | undefined>;
+    serverFarmId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -178,9 +178,9 @@ def get_asc_data_connector(data_connector_id: Optional[_builtins.str] = None,
         subscription_id=pulumi.get(__ret__, 'subscription_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_asc_data_connector_output(data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_asc_data_connector_output(data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetASCDataConnectorResult]:
     """
     Gets a data connector.

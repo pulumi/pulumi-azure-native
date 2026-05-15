@@ -197,7 +197,7 @@ export interface Python2PackageArgs {
     /**
      * The name of python package.
      */
-    packageName?: pulumi.Input<string | undefined>;
+    packageName?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
@@ -205,5 +205,5 @@ export interface Python2PackageArgs {
     /**
      * Gets or sets the tags attached to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

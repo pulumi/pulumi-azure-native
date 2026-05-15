@@ -192,9 +192,9 @@ def get_hub_route_table(resource_group_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         routes=pulumi.get(__ret__, 'routes'),
         type=pulumi.get(__ret__, 'type'))
-def get_hub_route_table_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               route_table_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_hub_route_table_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               route_table_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               virtual_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHubRouteTableResult]:
     """
     Retrieves the details of a RouteTable.

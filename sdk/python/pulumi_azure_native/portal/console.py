@@ -23,7 +23,7 @@ __all__ = ['ConsoleArgs', 'Console']
 class ConsoleArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['ConsoleCreatePropertiesArgs'],
-                 console_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 console_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Console resource.
 
@@ -48,14 +48,14 @@ class ConsoleArgs:
 
     @_builtins.property
     @pulumi.getter(name="consoleName")
-    def console_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def console_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the console
         """
         return pulumi.get(self, "console_name")
 
     @console_name.setter
-    def console_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def console_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "console_name", value)
 
 
@@ -65,8 +65,8 @@ class Console(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 console_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ConsoleCreatePropertiesArgs', 'ConsoleCreatePropertiesArgsDict']]] = None,
+                 console_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ConsoleCreatePropertiesArgs', 'ConsoleCreatePropertiesArgsDict']]] = None,
                  __props__=None):
         """
         Cloud shell console
@@ -106,8 +106,8 @@ class Console(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 console_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ConsoleCreatePropertiesArgs', 'ConsoleCreatePropertiesArgsDict']]] = None,
+                 console_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ConsoleCreatePropertiesArgs', 'ConsoleCreatePropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

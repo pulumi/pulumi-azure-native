@@ -135,15 +135,15 @@ export interface ConnectionMonitorTestArgs {
     /**
      * The name of the connection monitor test
      */
-    connectionMonitorTestName?: pulumi.Input<string | undefined>;
+    connectionMonitorTestName?: pulumi.Input<string>;
     /**
      * The Connection Monitor test destination
      */
-    destination?: pulumi.Input<string | undefined>;
+    destination?: pulumi.Input<string>;
     /**
      * The Connection Monitor test destination port
      */
-    destinationPort?: pulumi.Input<number | undefined>;
+    destinationPort?: pulumi.Input<number>;
     /**
      * The name of the peering service.
      */
@@ -155,9 +155,9 @@ export interface ConnectionMonitorTestArgs {
     /**
      * The Connection Monitor test source agent
      */
-    sourceAgent?: pulumi.Input<string | undefined>;
+    sourceAgent?: pulumi.Input<string>;
     /**
      * The Connection Monitor test frequency in seconds
      */
-    testFrequencyInSec?: pulumi.Input<number | undefined>;
+    testFrequencyInSec?: pulumi.Input<number>;
 }

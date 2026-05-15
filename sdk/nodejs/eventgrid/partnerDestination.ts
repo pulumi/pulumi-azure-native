@@ -153,36 +153,36 @@ export interface PartnerDestinationArgs {
     /**
      * Activation state of the partner destination.
      */
-    activationState?: pulumi.Input<string | enums.eventgrid.PartnerDestinationActivationState | undefined>;
+    activationState?: pulumi.Input<string | enums.eventgrid.PartnerDestinationActivationState>;
     /**
      * Endpoint Base URL of the partner destination
      */
-    endpointBaseUrl?: pulumi.Input<string | undefined>;
+    endpointBaseUrl?: pulumi.Input<string>;
     /**
      * Endpoint context associated with this partner destination.
      */
-    endpointServiceContext?: pulumi.Input<string | undefined>;
+    endpointServiceContext?: pulumi.Input<string>;
     /**
      * Expiration time of the partner destination. If this timer expires and the partner destination was never activated,
      * the partner destination and corresponding channel are deleted.
      */
-    expirationTimeIfNotActivatedUtc?: pulumi.Input<string | undefined>;
+    expirationTimeIfNotActivatedUtc?: pulumi.Input<string>;
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Context or helpful message that can be used during the approval process.
      */
-    messageForActivation?: pulumi.Input<string | undefined>;
+    messageForActivation?: pulumi.Input<string>;
     /**
      * Name of the partner destination.
      */
-    partnerDestinationName?: pulumi.Input<string | undefined>;
+    partnerDestinationName?: pulumi.Input<string>;
     /**
      * The immutable Id of the corresponding partner registration.
      */
-    partnerRegistrationImmutableId?: pulumi.Input<string | undefined>;
+    partnerRegistrationImmutableId?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -190,5 +190,5 @@ export interface PartnerDestinationArgs {
     /**
      * Tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

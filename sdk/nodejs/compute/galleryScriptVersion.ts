@@ -130,15 +130,15 @@ export interface GalleryScriptVersionArgs {
     /**
      * The name of the gallery Script Version to be retrieved.
      */
-    galleryScriptVersionName?: pulumi.Input<string | undefined>;
+    galleryScriptVersionName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Describes the properties of a gallery Script Version.
      */
-    properties?: pulumi.Input<inputs.compute.GalleryScriptVersionPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.compute.GalleryScriptVersionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -146,5 +146,5 @@ export interface GalleryScriptVersionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

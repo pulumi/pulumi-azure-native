@@ -109,7 +109,7 @@ export interface CredentialOperationArgs {
     /**
      * Credential name
      */
-    credentialName?: pulumi.Input<string | undefined>;
+    credentialName?: pulumi.Input<string>;
     /**
      * The factory name.
      */

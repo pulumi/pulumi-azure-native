@@ -258,107 +258,107 @@ export interface ScalingPlanPersonalScheduleArgs {
     /**
      * Set of days of the week on which this schedule is active.
      */
-    daysOfWeek?: pulumi.Input<pulumi.Input<string | enums.desktopvirtualization.DayOfWeek>[] | undefined>;
+    daysOfWeek?: pulumi.Input<pulumi.Input<string | enums.desktopvirtualization.DayOfWeek>[]>;
     /**
      * Action to be taken after a user disconnect during the off-peak period.
      */
-    offPeakActionOnDisconnect?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation | undefined>;
+    offPeakActionOnDisconnect?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation>;
     /**
      * Action to be taken after a logoff during the off-peak period.
      */
-    offPeakActionOnLogoff?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation | undefined>;
+    offPeakActionOnLogoff?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation>;
     /**
      * The time in minutes to wait before performing the desired session handling action when a user disconnects during the off-peak period.
      */
-    offPeakMinutesToWaitOnDisconnect?: pulumi.Input<number | undefined>;
+    offPeakMinutesToWaitOnDisconnect?: pulumi.Input<number>;
     /**
      * The time in minutes to wait before performing the desired session handling action when a user logs off during the off-peak period.
      */
-    offPeakMinutesToWaitOnLogoff?: pulumi.Input<number | undefined>;
+    offPeakMinutesToWaitOnLogoff?: pulumi.Input<number>;
     /**
      * Starting time for off-peak period.
      */
-    offPeakStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs | undefined>;
+    offPeakStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs>;
     /**
      * The desired configuration of Start VM On Connect for the hostpool during the off-peak phase.
      */
-    offPeakStartVMOnConnect?: pulumi.Input<string | enums.desktopvirtualization.SetStartVMOnConnect | undefined>;
+    offPeakStartVMOnConnect?: pulumi.Input<string | enums.desktopvirtualization.SetStartVMOnConnect>;
     /**
      * Action to be taken after a user disconnect during the peak period.
      */
-    peakActionOnDisconnect?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation | undefined>;
+    peakActionOnDisconnect?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation>;
     /**
      * Action to be taken after a logoff during the peak period.
      */
-    peakActionOnLogoff?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation | undefined>;
+    peakActionOnLogoff?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation>;
     /**
      * The time in minutes to wait before performing the desired session handling action when a user disconnects during the peak period.
      */
-    peakMinutesToWaitOnDisconnect?: pulumi.Input<number | undefined>;
+    peakMinutesToWaitOnDisconnect?: pulumi.Input<number>;
     /**
      * The time in minutes to wait before performing the desired session handling action when a user logs off during the peak period.
      */
-    peakMinutesToWaitOnLogoff?: pulumi.Input<number | undefined>;
+    peakMinutesToWaitOnLogoff?: pulumi.Input<number>;
     /**
      * Starting time for peak period.
      */
-    peakStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs | undefined>;
+    peakStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs>;
     /**
      * The desired configuration of Start VM On Connect for the hostpool during the peak phase.
      */
-    peakStartVMOnConnect?: pulumi.Input<string | enums.desktopvirtualization.SetStartVMOnConnect | undefined>;
+    peakStartVMOnConnect?: pulumi.Input<string | enums.desktopvirtualization.SetStartVMOnConnect>;
     /**
      * Action to be taken after a user disconnect during the ramp down period.
      */
-    rampDownActionOnDisconnect?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation | undefined>;
+    rampDownActionOnDisconnect?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation>;
     /**
      * Action to be taken after a logoff during the ramp down period.
      */
-    rampDownActionOnLogoff?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation | undefined>;
+    rampDownActionOnLogoff?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation>;
     /**
      * The time in minutes to wait before performing the desired session handling action when a user disconnects during the ramp down period.
      */
-    rampDownMinutesToWaitOnDisconnect?: pulumi.Input<number | undefined>;
+    rampDownMinutesToWaitOnDisconnect?: pulumi.Input<number>;
     /**
      * The time in minutes to wait before performing the desired session handling action when a user logs off during the ramp down period.
      */
-    rampDownMinutesToWaitOnLogoff?: pulumi.Input<number | undefined>;
+    rampDownMinutesToWaitOnLogoff?: pulumi.Input<number>;
     /**
      * Starting time for ramp down period.
      */
-    rampDownStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs | undefined>;
+    rampDownStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs>;
     /**
      * The desired configuration of Start VM On Connect for the hostpool during the ramp down phase.
      */
-    rampDownStartVMOnConnect?: pulumi.Input<string | enums.desktopvirtualization.SetStartVMOnConnect | undefined>;
+    rampDownStartVMOnConnect?: pulumi.Input<string | enums.desktopvirtualization.SetStartVMOnConnect>;
     /**
      * Action to be taken after a user disconnect during the ramp up period.
      */
-    rampUpActionOnDisconnect?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation | undefined>;
+    rampUpActionOnDisconnect?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation>;
     /**
      * Action to be taken after a logoff during the ramp up period.
      */
-    rampUpActionOnLogoff?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation | undefined>;
+    rampUpActionOnLogoff?: pulumi.Input<string | enums.desktopvirtualization.SessionHandlingOperation>;
     /**
      * The desired startup behavior during the ramp up period for personal vms in the hostpool.
      */
-    rampUpAutoStartHosts?: pulumi.Input<string | enums.desktopvirtualization.StartupBehavior | undefined>;
+    rampUpAutoStartHosts?: pulumi.Input<string | enums.desktopvirtualization.StartupBehavior>;
     /**
      * The time in minutes to wait before performing the desired session handling action when a user disconnects during the ramp up period.
      */
-    rampUpMinutesToWaitOnDisconnect?: pulumi.Input<number | undefined>;
+    rampUpMinutesToWaitOnDisconnect?: pulumi.Input<number>;
     /**
      * The time in minutes to wait before performing the desired session handling action when a user logs off during the ramp up period.
      */
-    rampUpMinutesToWaitOnLogoff?: pulumi.Input<number | undefined>;
+    rampUpMinutesToWaitOnLogoff?: pulumi.Input<number>;
     /**
      * Starting time for ramp up period.
      */
-    rampUpStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs | undefined>;
+    rampUpStartTime?: pulumi.Input<inputs.desktopvirtualization.TimeArgs>;
     /**
      * The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
      */
-    rampUpStartVMOnConnect?: pulumi.Input<string | enums.desktopvirtualization.SetStartVMOnConnect | undefined>;
+    rampUpStartVMOnConnect?: pulumi.Input<string | enums.desktopvirtualization.SetStartVMOnConnect>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -370,5 +370,5 @@ export interface ScalingPlanPersonalScheduleArgs {
     /**
      * The name of the ScalingPlanSchedule
      */
-    scalingPlanScheduleName?: pulumi.Input<string | undefined>;
+    scalingPlanScheduleName?: pulumi.Input<string>;
 }

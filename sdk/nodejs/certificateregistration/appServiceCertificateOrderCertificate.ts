@@ -132,23 +132,23 @@ export interface AppServiceCertificateOrderCertificateArgs {
     /**
      * Key Vault resource Id.
      */
-    keyVaultId?: pulumi.Input<string | undefined>;
+    keyVaultId?: pulumi.Input<string>;
     /**
      * Key Vault secret name.
      */
-    keyVaultSecretName?: pulumi.Input<string | undefined>;
+    keyVaultSecretName?: pulumi.Input<string>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the certificate.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -156,5 +156,5 @@ export interface AppServiceCertificateOrderCertificateArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

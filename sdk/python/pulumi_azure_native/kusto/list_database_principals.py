@@ -75,9 +75,9 @@ def list_database_principals(cluster_name: Optional[_builtins.str] = None,
 
     return AwaitableListDatabasePrincipalsResult(
         value=pulumi.get(__ret__, 'value'))
-def list_database_principals_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_database_principals_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDatabasePrincipalsResult]:
     """
     Returns a list of database principals of the given Kusto cluster and database.

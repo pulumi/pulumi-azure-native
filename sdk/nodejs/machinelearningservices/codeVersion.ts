@@ -86,7 +86,7 @@ export class CodeVersion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'workspaceName'");
             }
             resourceInputs["name"] = args?.name;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.machinelearningservices.codeVersionPropertiesArgsProvideDefaults) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.machinelearningservices.codeVersionPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["version"] = args?.version;
             resourceInputs["workspaceName"] = args?.workspaceName;
@@ -126,7 +126,7 @@ export interface CodeVersionArgs {
     /**
      * Version identifier. This is case-sensitive.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
     /**
      * Name of Azure Machine Learning workspace.
      */

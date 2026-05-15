@@ -84,8 +84,8 @@ def list_redis_keys(name: Optional[_builtins.str] = None,
     return AwaitableListRedisKeysResult(
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_redis_keys_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_redis_keys_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRedisKeysResult]:
     """
     Retrieve a Redis cache's access keys. This operation requires write permission to the cache resource.

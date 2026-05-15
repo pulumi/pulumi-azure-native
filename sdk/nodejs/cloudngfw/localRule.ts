@@ -221,39 +221,39 @@ export interface LocalRuleArgs {
     /**
      * rule action
      */
-    actionType?: pulumi.Input<string | enums.cloudngfw.ActionEnum | undefined>;
+    actionType?: pulumi.Input<string | enums.cloudngfw.ActionEnum>;
     /**
      * array of rule applications
      */
-    applications?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    applications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * rule comment
      */
-    auditComment?: pulumi.Input<string | undefined>;
+    auditComment?: pulumi.Input<string>;
     /**
      * rule category
      */
-    category?: pulumi.Input<inputs.cloudngfw.CategoryArgs | undefined>;
+    category?: pulumi.Input<inputs.cloudngfw.CategoryArgs>;
     /**
      * enable or disable decryption
      */
-    decryptionRuleType?: pulumi.Input<string | enums.cloudngfw.DecryptionRuleTypeEnum | undefined>;
+    decryptionRuleType?: pulumi.Input<string | enums.cloudngfw.DecryptionRuleTypeEnum>;
     /**
      * rule description
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * destination address
      */
-    destination?: pulumi.Input<inputs.cloudngfw.DestinationAddrArgs | undefined>;
+    destination?: pulumi.Input<inputs.cloudngfw.DestinationAddrArgs>;
     /**
      * enable or disable logging
      */
-    enableLogging?: pulumi.Input<string | enums.cloudngfw.StateEnum | undefined>;
+    enableLogging?: pulumi.Input<string | enums.cloudngfw.StateEnum>;
     /**
      * inbound Inspection Certificate
      */
-    inboundInspectionCertificate?: pulumi.Input<string | undefined>;
+    inboundInspectionCertificate?: pulumi.Input<string>;
     /**
      * LocalRulestack resource name
      */
@@ -261,23 +261,23 @@ export interface LocalRuleArgs {
     /**
      * cidr should not be 'any'
      */
-    negateDestination?: pulumi.Input<string | enums.cloudngfw.BooleanEnum | undefined>;
+    negateDestination?: pulumi.Input<string | enums.cloudngfw.BooleanEnum>;
     /**
      * cidr should not be 'any'
      */
-    negateSource?: pulumi.Input<string | enums.cloudngfw.BooleanEnum | undefined>;
+    negateSource?: pulumi.Input<string | enums.cloudngfw.BooleanEnum>;
     /**
      * Local Rule priority
      */
-    priority?: pulumi.Input<string | undefined>;
+    priority?: pulumi.Input<string>;
     /**
      * any, application-default, TCP:number, UDP:number
      */
-    protocol?: pulumi.Input<string | undefined>;
+    protocol?: pulumi.Input<string>;
     /**
      * prot port list
      */
-    protocolPortList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    protocolPortList?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -289,13 +289,13 @@ export interface LocalRuleArgs {
     /**
      * state of this rule
      */
-    ruleState?: pulumi.Input<string | enums.cloudngfw.StateEnum | undefined>;
+    ruleState?: pulumi.Input<string | enums.cloudngfw.StateEnum>;
     /**
      * source address
      */
-    source?: pulumi.Input<inputs.cloudngfw.SourceAddrArgs | undefined>;
+    source?: pulumi.Input<inputs.cloudngfw.SourceAddrArgs>;
     /**
      * tag for rule
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.cloudngfw.TagInfoArgs>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.cloudngfw.TagInfoArgs>[]>;
 }

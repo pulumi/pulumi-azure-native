@@ -140,19 +140,19 @@ export interface ImageArgs {
     /**
      * The extended location of the Image.
      */
-    extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.compute.ExtendedLocationArgs>;
     /**
      * Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
      */
-    hyperVGeneration?: pulumi.Input<string | enums.compute.HyperVGenerationTypes | undefined>;
+    hyperVGeneration?: pulumi.Input<string | enums.compute.HyperVGenerationTypes>;
     /**
      * The name of the image.
      */
-    imageName?: pulumi.Input<string | undefined>;
+    imageName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,13 +160,13 @@ export interface ImageArgs {
     /**
      * The source virtual machine from which Image is created.
      */
-    sourceVirtualMachine?: pulumi.Input<inputs.compute.SubResourceArgs | undefined>;
+    sourceVirtualMachine?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
      * Specifies the storage settings for the virtual machine disks.
      */
-    storageProfile?: pulumi.Input<inputs.compute.ImageStorageProfileArgs | undefined>;
+    storageProfile?: pulumi.Input<inputs.compute.ImageStorageProfileArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

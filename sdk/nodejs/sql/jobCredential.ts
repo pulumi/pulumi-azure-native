@@ -110,7 +110,7 @@ export interface JobCredentialArgs {
     /**
      * The name of the credential.
      */
-    credentialName?: pulumi.Input<string | undefined>;
+    credentialName?: pulumi.Input<string>;
     /**
      * The name of the job agent.
      */

@@ -244,9 +244,9 @@ def get_service_endpoint_policy(expand: Optional[_builtins.str] = None,
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_service_endpoint_policy_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       service_endpoint_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_service_endpoint_policy_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       service_endpoint_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceEndpointPolicyResult]:
     """
     Gets the specified service Endpoint Policies in a specified resource group.

@@ -143,10 +143,10 @@ def list_workflow_trigger_callback_url(name: Optional[_builtins.str] = None,
         relative_path=pulumi.get(__ret__, 'relative_path'),
         relative_path_parameters=pulumi.get(__ret__, 'relative_path_parameters'),
         value=pulumi.get(__ret__, 'value'))
-def list_workflow_trigger_callback_url_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_workflow_trigger_callback_url_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              workflow_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkflowTriggerCallbackUrlResult]:
     """
     Get the callback URL for a workflow trigger.

@@ -228,8 +228,8 @@ def get_network_packet_broker(network_packet_broker_name: Optional[_builtins.str
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_packet_broker_output(network_packet_broker_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_network_packet_broker_output(network_packet_broker_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkPacketBrokerResult]:
     """
     Retrieves details of this Network Packet Broker.

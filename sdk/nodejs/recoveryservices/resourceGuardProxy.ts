@@ -118,24 +118,24 @@ export interface ResourceGuardProxyArgs {
     /**
      * Optional ETag.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * ResourceGuardProxyBaseResource properties
      */
-    properties?: pulumi.Input<inputs.recoveryservices.ResourceGuardProxyBaseArgs | undefined>;
+    properties?: pulumi.Input<inputs.recoveryservices.ResourceGuardProxyBaseArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
     resourceGroupName: pulumi.Input<string>;
-    resourceGuardProxyName?: pulumi.Input<string | undefined>;
+    resourceGuardProxyName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */

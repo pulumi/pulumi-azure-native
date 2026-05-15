@@ -270,9 +270,9 @@ def get_machine_extension(extension_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
-def get_machine_extension_output(extension_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_machine_extension_output(extension_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineExtensionResult]:
     """
     The operation to get the extension.

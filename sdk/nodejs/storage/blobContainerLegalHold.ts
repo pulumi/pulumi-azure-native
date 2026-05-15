@@ -106,7 +106,7 @@ export interface BlobContainerLegalHoldArgs {
     /**
      * When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
      */
-    allowProtectedAppendWritesAll?: pulumi.Input<boolean | undefined>;
+    allowProtectedAppendWritesAll?: pulumi.Input<boolean>;
     /**
      * Name of the Blob Container.
      */

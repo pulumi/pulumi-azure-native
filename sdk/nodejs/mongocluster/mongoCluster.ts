@@ -116,15 +116,15 @@ export interface MongoClusterArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the mongo cluster.
      */
-    mongoClusterName?: pulumi.Input<string | undefined>;
+    mongoClusterName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.mongocluster.MongoClusterPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.mongocluster.MongoClusterPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,5 +132,5 @@ export interface MongoClusterArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

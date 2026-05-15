@@ -110,7 +110,7 @@ export interface AuthenticationSettingArgs {
     /**
      * Name of the authentication setting. Must be unique within a health model.
      */
-    authenticationSettingName?: pulumi.Input<string | undefined>;
+    authenticationSettingName?: pulumi.Input<string>;
     /**
      * The name of the Azure Monitor Workspace. The name is case insensitive
      */
@@ -122,7 +122,7 @@ export interface AuthenticationSettingArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.monitor.ManagedIdentityAuthenticationSettingPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.monitor.ManagedIdentityAuthenticationSettingPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

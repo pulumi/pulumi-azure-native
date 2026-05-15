@@ -173,11 +173,11 @@ export interface ReplicationLinkArgs {
      * The name of the database.
      */
     databaseName: pulumi.Input<string>;
-    linkId?: pulumi.Input<string | undefined>;
+    linkId?: pulumi.Input<string>;
     /**
      * Link type (GEO, NAMED, STANDBY). Update operation does not support NAMED.
      */
-    linkType?: pulumi.Input<string | enums.sql.ReplicationLinkType | undefined>;
+    linkType?: pulumi.Input<string | enums.sql.ReplicationLinkType>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

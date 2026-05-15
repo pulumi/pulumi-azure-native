@@ -418,47 +418,47 @@ export interface AvsAssessmentsOperationArgs {
     /**
      * AVS Assessment ARM name
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * AVS Assessment Scenario.
      */
-    avsAssessmentScenario?: pulumi.Input<string | enums.migrate.AvsAssessmentScenario | undefined>;
+    avsAssessmentScenario?: pulumi.Input<string | enums.migrate.AvsAssessmentScenario>;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
-    azureLocation?: pulumi.Input<string | enums.migrate.AzureLocation | undefined>;
+    azureLocation?: pulumi.Input<string | enums.migrate.AzureLocation>;
     /**
      * Azure Offer code according to which cost estimation is done.
      */
-    azureOfferCode?: pulumi.Input<string | enums.migrate.AzureOfferCode | undefined>;
+    azureOfferCode?: pulumi.Input<string | enums.migrate.AzureOfferCode>;
     /**
      * Percentage of CPU capacity reserved for processing additional workloads.
      */
-    cpuHeadroom?: pulumi.Input<number | undefined>;
+    cpuHeadroom?: pulumi.Input<number>;
     /**
      * Currency in which prices should be reported.
      */
-    currency?: pulumi.Input<string | enums.migrate.AzureCurrency | undefined>;
+    currency?: pulumi.Input<string | enums.migrate.AzureCurrency>;
     /**
      * De-duplication compression.
      */
-    dedupeCompression?: pulumi.Input<number | undefined>;
+    dedupeCompression?: pulumi.Input<number>;
     /**
      * Custom discount percentage.
      */
-    discountPercentage?: pulumi.Input<number | undefined>;
+    discountPercentage?: pulumi.Input<number>;
     /**
      * List of AVS external storage types.
      */
-    externalStorageTypes?: pulumi.Input<pulumi.Input<string | enums.migrate.ExternalStorageType>[] | undefined>;
+    externalStorageTypes?: pulumi.Input<pulumi.Input<string | enums.migrate.ExternalStorageType>[]>;
     /**
      * Failures to tolerate and RAID level in a common property.
      */
-    failuresToTolerateAndRaidLevel?: pulumi.Input<string | enums.migrate.FttAndRaidLevel | undefined>;
+    failuresToTolerateAndRaidLevel?: pulumi.Input<string | enums.migrate.FttAndRaidLevel>;
     /**
      * List of Failures to tolerate and RAID levels in a common property.
      */
-    failuresToTolerateAndRaidLevelList?: pulumi.Input<pulumi.Input<string | enums.migrate.FttAndRaidLevel>[] | undefined>;
+    failuresToTolerateAndRaidLevelList?: pulumi.Input<pulumi.Input<string | enums.migrate.FttAndRaidLevel>[]>;
     /**
      * Group ARM name
      */
@@ -466,36 +466,36 @@ export interface AvsAssessmentsOperationArgs {
     /**
      * Is Stretch Cluster Enabled.
      */
-    isStretchClusterEnabled?: pulumi.Input<boolean | undefined>;
+    isStretchClusterEnabled?: pulumi.Input<boolean>;
     /**
      * Is VCF license applied
      */
-    isVcfByolEnabled?: pulumi.Input<boolean | undefined>;
+    isVcfByolEnabled?: pulumi.Input<boolean>;
     /**
      * Memory overcommit.
      */
-    memOvercommit?: pulumi.Input<number | undefined>;
+    memOvercommit?: pulumi.Input<number>;
     /**
      * AVS node type.
      */
-    nodeType?: pulumi.Input<string | enums.migrate.AzureAvsNodeType | undefined>;
+    nodeType?: pulumi.Input<string | enums.migrate.AzureAvsNodeType>;
     /**
      * AVS node types.
      */
-    nodeTypes?: pulumi.Input<pulumi.Input<string | enums.migrate.AzureAvsNodeType>[] | undefined>;
+    nodeTypes?: pulumi.Input<pulumi.Input<string | enums.migrate.AzureAvsNodeType>[]>;
     /**
      * Percentile of the utilization data values to be considered while assessing
      * machines.
      */
-    percentile?: pulumi.Input<string | enums.migrate.Percentile | undefined>;
+    percentile?: pulumi.Input<string | enums.migrate.Percentile>;
     /**
      * Gets or sets the end time to consider performance data for assessment.
      */
-    perfDataEndTime?: pulumi.Input<string | undefined>;
+    perfDataEndTime?: pulumi.Input<string>;
     /**
      * Gets or sets the start time to consider performance data for assessment.
      */
-    perfDataStartTime?: pulumi.Input<string | undefined>;
+    perfDataStartTime?: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */
@@ -503,11 +503,11 @@ export interface AvsAssessmentsOperationArgs {
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState>;
     /**
      * Reserved instance.
      */
-    reservedInstance?: pulumi.Input<string | enums.migrate.AzureReservedInstance | undefined>;
+    reservedInstance?: pulumi.Input<string | enums.migrate.AzureReservedInstance>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -516,18 +516,18 @@ export interface AvsAssessmentsOperationArgs {
      * Percentage of buffer that user wants on performance metrics when recommending
      * Azure sizes.
      */
-    scalingFactor?: pulumi.Input<number | undefined>;
+    scalingFactor?: pulumi.Input<number>;
     /**
      * Assessment sizing criterion.
      */
-    sizingCriterion?: pulumi.Input<string | enums.migrate.AssessmentSizingCriterion | undefined>;
+    sizingCriterion?: pulumi.Input<string | enums.migrate.AssessmentSizingCriterion>;
     /**
      * Time Range for which the historic utilization data should be considered for
      * assessment.
      */
-    timeRange?: pulumi.Input<string | enums.migrate.TimeRange | undefined>;
+    timeRange?: pulumi.Input<string | enums.migrate.TimeRange>;
     /**
      * VCPU over subscription.
      */
-    vcpuOversubscription?: pulumi.Input<number | undefined>;
+    vcpuOversubscription?: pulumi.Input<number>;
 }

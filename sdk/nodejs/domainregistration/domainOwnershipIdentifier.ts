@@ -108,15 +108,15 @@ export interface DomainOwnershipIdentifierArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of identifier.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Ownership Id.
      */
-    ownershipId?: pulumi.Input<string | undefined>;
+    ownershipId?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

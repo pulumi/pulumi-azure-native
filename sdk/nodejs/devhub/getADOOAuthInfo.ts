@@ -66,5 +66,5 @@ export interface GetADOOAuthInfoOutputArgs {
     /**
      * The URL the client will redirect to on successful authentication. If empty, no redirect will occur.
      */
-    redirectUrl?: pulumi.Input<string | undefined>;
+    redirectUrl?: pulumi.Input<string>;
 }

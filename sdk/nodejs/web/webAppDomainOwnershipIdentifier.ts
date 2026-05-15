@@ -104,11 +104,11 @@ export interface WebAppDomainOwnershipIdentifierArgs {
     /**
      * Name of domain ownership identifier.
      */
-    domainOwnershipIdentifierName?: pulumi.Input<string | undefined>;
+    domainOwnershipIdentifierName?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
@@ -120,5 +120,5 @@ export interface WebAppDomainOwnershipIdentifierArgs {
     /**
      * String representation of the identity.
      */
-    value?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string>;
 }

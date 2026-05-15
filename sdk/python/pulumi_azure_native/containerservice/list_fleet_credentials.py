@@ -72,8 +72,8 @@ def list_fleet_credentials(fleet_name: Optional[_builtins.str] = None,
 
     return AwaitableListFleetCredentialsResult(
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-def list_fleet_credentials_output(fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_fleet_credentials_output(fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFleetCredentialsResult]:
     """
     Lists the user credentials of a Fleet.

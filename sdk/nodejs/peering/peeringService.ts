@@ -146,27 +146,27 @@ export interface PeeringServiceArgs {
     /**
      * The location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The location (state/province) of the customer.
      */
-    peeringServiceLocation?: pulumi.Input<string | undefined>;
+    peeringServiceLocation?: pulumi.Input<string>;
     /**
      * The name of the peering service.
      */
-    peeringServiceName?: pulumi.Input<string | undefined>;
+    peeringServiceName?: pulumi.Input<string>;
     /**
      * The name of the service provider.
      */
-    peeringServiceProvider?: pulumi.Input<string | undefined>;
+    peeringServiceProvider?: pulumi.Input<string>;
     /**
      * The backup peering (Microsoft/service provider) location to be used for customer traffic.
      */
-    providerBackupPeeringLocation?: pulumi.Input<string | undefined>;
+    providerBackupPeeringLocation?: pulumi.Input<string>;
     /**
      * The primary peering (Microsoft/service provider) location to be used for customer traffic.
      */
-    providerPrimaryPeeringLocation?: pulumi.Input<string | undefined>;
+    providerPrimaryPeeringLocation?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -174,9 +174,9 @@ export interface PeeringServiceArgs {
     /**
      * The SKU that defines the type of the peering service.
      */
-    sku?: pulumi.Input<inputs.peering.PeeringServiceSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.peering.PeeringServiceSkuArgs>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

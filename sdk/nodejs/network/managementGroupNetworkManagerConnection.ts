@@ -116,7 +116,7 @@ export interface ManagementGroupNetworkManagerConnectionArgs {
     /**
      * A description of the network manager connection.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The management group Id which uniquely identify the Microsoft Azure management group.
      */
@@ -124,9 +124,9 @@ export interface ManagementGroupNetworkManagerConnectionArgs {
     /**
      * Name for the network manager connection.
      */
-    networkManagerConnectionName?: pulumi.Input<string | undefined>;
+    networkManagerConnectionName?: pulumi.Input<string>;
     /**
      * Network Manager Id.
      */
-    networkManagerId?: pulumi.Input<string | undefined>;
+    networkManagerId?: pulumi.Input<string>;
 }

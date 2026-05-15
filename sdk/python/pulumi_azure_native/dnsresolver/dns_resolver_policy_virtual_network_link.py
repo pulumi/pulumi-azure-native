@@ -24,9 +24,9 @@ class DnsResolverPolicyVirtualNetworkLinkArgs:
                  dns_resolver_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network: pulumi.Input['SubResourceArgs'],
-                 dns_resolver_policy_virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 dns_resolver_policy_virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DnsResolverPolicyVirtualNetworkLink resource.
 
@@ -85,38 +85,38 @@ class DnsResolverPolicyVirtualNetworkLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsResolverPolicyVirtualNetworkLinkName")
-    def dns_resolver_policy_virtual_network_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def dns_resolver_policy_virtual_network_link_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the DNS resolver policy virtual network link for the DNS resolver policy.
         """
         return pulumi.get(self, "dns_resolver_policy_virtual_network_link_name")
 
     @dns_resolver_policy_virtual_network_link_name.setter
-    def dns_resolver_policy_virtual_network_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def dns_resolver_policy_virtual_network_link_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dns_resolver_policy_virtual_network_link_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -126,12 +126,12 @@ class DnsResolverPolicyVirtualNetworkLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_resolver_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_resolver_policy_virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 dns_resolver_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns_resolver_policy_virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         """
         Describes a DNS resolver policy virtual network link.
@@ -179,12 +179,12 @@ class DnsResolverPolicyVirtualNetworkLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_resolver_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_resolver_policy_virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 dns_resolver_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns_resolver_policy_virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

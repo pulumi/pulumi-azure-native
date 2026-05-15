@@ -120,15 +120,15 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The resource of private endpoint.
      */
-    privateEndpoint?: pulumi.Input<inputs.containerregistry.PrivateEndpointArgs | undefined>;
+    privateEndpoint?: pulumi.Input<inputs.containerregistry.PrivateEndpointArgs>;
     /**
      * The name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.containerregistry.PrivateLinkServiceConnectionStateArgs | undefined>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.containerregistry.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the container registry.
      */

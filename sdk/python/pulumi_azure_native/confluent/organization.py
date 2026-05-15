@@ -25,10 +25,10 @@ class OrganizationArgs:
                  offer_detail: pulumi.Input['OfferDetailArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_detail: pulumi.Input['UserDetailArgs'],
-                 link_organization: pulumi.Input[Optional['LinkOrganizationArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 link_organization: Optional[pulumi.Input['LinkOrganizationArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Organization resource.
 
@@ -90,50 +90,50 @@ class OrganizationArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkOrganization")
-    def link_organization(self) -> pulumi.Input[Optional['LinkOrganizationArgs']]:
+    def link_organization(self) -> Optional[pulumi.Input['LinkOrganizationArgs']]:
         """
         Link an existing Confluent organization
         """
         return pulumi.get(self, "link_organization")
 
     @link_organization.setter
-    def link_organization(self, value: pulumi.Input[Optional['LinkOrganizationArgs']]):
+    def link_organization(self, value: Optional[pulumi.Input['LinkOrganizationArgs']]):
         pulumi.set(self, "link_organization", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationName")
-    def organization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def organization_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Organization resource name
         """
         return pulumi.get(self, "organization_name")
 
     @organization_name.setter
-    def organization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def organization_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "organization_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,13 +143,13 @@ class Organization(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 link_organization: pulumi.Input[Optional[Union['LinkOrganizationArgs', 'LinkOrganizationArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 offer_detail: pulumi.Input[Optional[Union['OfferDetailArgs', 'OfferDetailArgsDict']]] = None,
-                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_detail: pulumi.Input[Optional[Union['UserDetailArgs', 'UserDetailArgsDict']]] = None,
+                 link_organization: Optional[pulumi.Input[Union['LinkOrganizationArgs', 'LinkOrganizationArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 offer_detail: Optional[pulumi.Input[Union['OfferDetailArgs', 'OfferDetailArgsDict']]] = None,
+                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_detail: Optional[pulumi.Input[Union['UserDetailArgs', 'UserDetailArgsDict']]] = None,
                  __props__=None):
         """
         Organization resource.
@@ -198,13 +198,13 @@ class Organization(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 link_organization: pulumi.Input[Optional[Union['LinkOrganizationArgs', 'LinkOrganizationArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 offer_detail: pulumi.Input[Optional[Union['OfferDetailArgs', 'OfferDetailArgsDict']]] = None,
-                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 user_detail: pulumi.Input[Optional[Union['UserDetailArgs', 'UserDetailArgsDict']]] = None,
+                 link_organization: Optional[pulumi.Input[Union['LinkOrganizationArgs', 'LinkOrganizationArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 offer_detail: Optional[pulumi.Input[Union['OfferDetailArgs', 'OfferDetailArgsDict']]] = None,
+                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 user_detail: Optional[pulumi.Input[Union['UserDetailArgs', 'UserDetailArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -124,7 +124,7 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args?.databaseName;
             resourceInputs["graphName"] = args?.graphName;
             resourceInputs["options"] = args?.options;
-            resourceInputs["resource"] = args ? pulumi.output(args.resource).apply(inputs.cosmosdb.gremlinGraphResourceArgsProvideDefaults) : undefined;
+            resourceInputs["resource"] = args ? (args.resource ? pulumi.output(args.resource).apply(inputs.cosmosdb.gremlinGraphResourceArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["conflictResolutionPolicy"] = undefined /*out*/;
@@ -176,7 +176,7 @@ export interface DatabaseAccountGremlinGraphArgs {
     /**
      * Cosmos DB graph name.
      */
-    graphName?: pulumi.Input<string | undefined>;
+    graphName?: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

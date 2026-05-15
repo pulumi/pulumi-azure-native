@@ -85,8 +85,8 @@ def list_appliance_cluster_user_credential(resource_group_name: Optional[_builti
     return AwaitableListApplianceClusterUserCredentialResult(
         hybrid_connection_config=pulumi.get(__ret__, 'hybrid_connection_config'),
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-def list_appliance_cluster_user_credential_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_appliance_cluster_user_credential_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceClusterUserCredentialResult]:
     """
     Returns the cluster user credentials for the dedicated appliance.

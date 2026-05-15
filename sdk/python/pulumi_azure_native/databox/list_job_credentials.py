@@ -85,8 +85,8 @@ def list_job_credentials(job_name: Optional[_builtins.str] = None,
     return AwaitableListJobCredentialsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_job_credentials_output(job_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_job_credentials_output(job_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListJobCredentialsResult]:
     """
     This method gets the unencrypted secrets related to the job.

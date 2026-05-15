@@ -235,39 +235,39 @@ export interface NamespaceArgs {
     /**
      * Deprecated.
      */
-    dataCenter?: pulumi.Input<string | undefined>;
+    dataCenter?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Namespace name
      */
-    namespaceName?: pulumi.Input<string | undefined>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * Defines values for NamespaceType.
      */
-    namespaceType?: pulumi.Input<string | enums.notificationhubs.NamespaceType | undefined>;
+    namespaceType?: pulumi.Input<string | enums.notificationhubs.NamespaceType>;
     /**
      * A collection of network authorization rules.
      */
-    networkAcls?: pulumi.Input<inputs.notificationhubs.NetworkAclsArgs | undefined>;
+    networkAcls?: pulumi.Input<inputs.notificationhubs.NetworkAclsArgs>;
     /**
      * Collection of Notification Hub or Notification Hub Namespace PNS credentials.
      */
-    pnsCredentials?: pulumi.Input<inputs.notificationhubs.PnsCredentialsArgs | undefined>;
+    pnsCredentials?: pulumi.Input<inputs.notificationhubs.PnsCredentialsArgs>;
     /**
      * Defines values for OperationProvisioningState.
      */
-    provisioningState?: pulumi.Input<string | enums.notificationhubs.OperationProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.notificationhubs.OperationProvisioningState>;
     /**
      * Type of public network access.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.notificationhubs.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.notificationhubs.PublicNetworkAccess>;
     /**
      * Allowed replication region
      */
-    replicationRegion?: pulumi.Input<string | enums.notificationhubs.ReplicationRegion | undefined>;
+    replicationRegion?: pulumi.Input<string | enums.notificationhubs.ReplicationRegion>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -275,7 +275,7 @@ export interface NamespaceArgs {
     /**
      * Gets or sets scaleUnit where the namespace gets created
      */
-    scaleUnit?: pulumi.Input<string | undefined>;
+    scaleUnit?: pulumi.Input<string>;
     /**
      * The Sku description for a namespace
      */
@@ -283,13 +283,13 @@ export interface NamespaceArgs {
     /**
      * Namespace status.
      */
-    status?: pulumi.Input<string | enums.notificationhubs.NamespaceStatus | undefined>;
+    status?: pulumi.Input<string | enums.notificationhubs.NamespaceStatus>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Namespace SKU name.
      */
-    zoneRedundancy?: pulumi.Input<string | enums.notificationhubs.ZoneRedundancyPreference | undefined>;
+    zoneRedundancy?: pulumi.Input<string | enums.notificationhubs.ZoneRedundancyPreference>;
 }

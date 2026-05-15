@@ -73,5 +73,5 @@ export interface GetSubscriptionTarDirectoryOutputArgs {
     /**
      * Subscription Id.
      */
-    subscriptionId?: pulumi.Input<string | undefined>;
+    subscriptionId?: pulumi.Input<string>;
 }

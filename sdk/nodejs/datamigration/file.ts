@@ -118,7 +118,7 @@ export interface FileArgs {
     /**
      * Name of the File
      */
-    fileName?: pulumi.Input<string | undefined>;
+    fileName?: pulumi.Input<string>;
     /**
      * Name of the resource group
      */
@@ -130,7 +130,7 @@ export interface FileArgs {
     /**
      * Custom file properties
      */
-    properties?: pulumi.Input<inputs.datamigration.ProjectFilePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.datamigration.ProjectFilePropertiesArgs>;
     /**
      * Name of the service
      */

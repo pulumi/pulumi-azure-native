@@ -150,8 +150,8 @@ def list_deployment_info(monitor_name: Optional[_builtins.str] = None,
         memory_capacity=pulumi.get(__ret__, 'memory_capacity'),
         status=pulumi.get(__ret__, 'status'),
         version=pulumi.get(__ret__, 'version'))
-def list_deployment_info_output(monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_deployment_info_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDeploymentInfoResult]:
     """
     The properties of deployment in Elastic cloud corresponding to the Elastic monitor resource.

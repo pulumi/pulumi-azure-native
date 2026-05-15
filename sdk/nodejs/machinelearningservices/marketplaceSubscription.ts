@@ -110,7 +110,7 @@ export interface MarketplaceSubscriptionArgs {
     /**
      * Container name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * [Required] Additional attributes of the entity.
      */

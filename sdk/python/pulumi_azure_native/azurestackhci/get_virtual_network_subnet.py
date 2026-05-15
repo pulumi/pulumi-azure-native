@@ -153,9 +153,9 @@ def get_virtual_network_subnet(resource_group_name: Optional[_builtins.str] = No
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_virtual_network_subnet_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_network_subnet_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkSubnetResult]:
     """
     The operation to get a virtual network subnet.

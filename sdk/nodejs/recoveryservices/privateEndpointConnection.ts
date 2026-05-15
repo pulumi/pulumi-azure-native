@@ -120,19 +120,19 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Optional ETag.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * PrivateEndpointConnectionResource properties
      */
-    properties?: pulumi.Input<inputs.recoveryservices.PrivateEndpointConnectionArgs | undefined>;
+    properties?: pulumi.Input<inputs.recoveryservices.PrivateEndpointConnectionArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -140,7 +140,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */

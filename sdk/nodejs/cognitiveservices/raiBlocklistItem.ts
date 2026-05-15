@@ -128,11 +128,11 @@ export interface RaiBlocklistItemArgs {
     /**
      * Properties of Cognitive Services RaiBlocklist Item.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.RaiBlocklistItemPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.cognitiveservices.RaiBlocklistItemPropertiesArgs>;
     /**
      * The name of the RaiBlocklist Item associated with the custom blocklist
      */
-    raiBlocklistItemName?: pulumi.Input<string | undefined>;
+    raiBlocklistItemName?: pulumi.Input<string>;
     /**
      * The name of the RaiBlocklist associated with the Cognitive Services Account
      */
@@ -144,5 +144,5 @@ export interface RaiBlocklistItemArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -83,7 +83,7 @@ export class Supercomputer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.discovery.supercomputerPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.discovery.supercomputerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["supercomputerName"] = args?.supercomputerName;
             resourceInputs["tags"] = args?.tags;
@@ -114,11 +114,11 @@ export interface SupercomputerArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.discovery.SupercomputerPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.discovery.SupercomputerPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -126,9 +126,9 @@ export interface SupercomputerArgs {
     /**
      * The name of the Supercomputer
      */
-    supercomputerName?: pulumi.Input<string | undefined>;
+    supercomputerName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -114,11 +114,11 @@ export interface ProjectArgs {
     /**
      * A description for the Project.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the Project resource.
      */
-    projectName?: pulumi.Input<string | undefined>;
+    projectName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

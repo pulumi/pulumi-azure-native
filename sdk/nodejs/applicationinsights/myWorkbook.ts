@@ -194,23 +194,23 @@ export interface MyWorkbookArgs {
     /**
      * Azure resource Id
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Identity used for BYOS
      */
-    identity?: pulumi.Input<inputs.applicationinsights.MyWorkbookManagedIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.applicationinsights.MyWorkbookManagedIdentityArgs>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    kind?: pulumi.Input<string | enums.applicationinsights.Kind | undefined>;
+    kind?: pulumi.Input<string | enums.applicationinsights.Kind>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource name
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -218,7 +218,7 @@ export interface MyWorkbookArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Configuration of this particular private workbook. Configuration data is a string containing valid JSON
      */
@@ -226,21 +226,21 @@ export interface MyWorkbookArgs {
     /**
      * Optional resourceId for a source resource.
      */
-    sourceId?: pulumi.Input<string | undefined>;
+    sourceId?: pulumi.Input<string>;
     /**
      * BYOS Storage Account URI
      */
-    storageUri?: pulumi.Input<string | undefined>;
+    storageUri?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Azure resource type
      */
-    type?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string>;
     /**
      * This instance's version of the data model. This can change as new features are added that can be marked private workbook.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

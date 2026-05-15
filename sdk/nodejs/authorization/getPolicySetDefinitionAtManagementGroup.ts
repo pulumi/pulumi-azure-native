@@ -119,7 +119,7 @@ export interface GetPolicySetDefinitionAtManagementGroupOutputArgs {
     /**
      * Comma-separated list of additional properties to be included in the response. Supported values are 'LatestDefinitionVersion, EffectiveDefinitionVersion'.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The ID of the management group.
      */

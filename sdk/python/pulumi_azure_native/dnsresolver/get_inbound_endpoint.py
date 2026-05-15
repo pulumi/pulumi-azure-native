@@ -205,9 +205,9 @@ def get_inbound_endpoint(dns_resolver_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_inbound_endpoint_output(dns_resolver_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                inbound_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_inbound_endpoint_output(dns_resolver_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                inbound_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInboundEndpointResult]:
     """
     Gets properties of an inbound endpoint for a DNS resolver.

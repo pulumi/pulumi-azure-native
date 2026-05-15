@@ -136,15 +136,15 @@ export interface EncryptionScopeArgs {
     /**
      * The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    encryptionScopeName?: pulumi.Input<string | undefined>;
+    encryptionScopeName?: pulumi.Input<string>;
     /**
      * The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
      */
-    keyVaultProperties?: pulumi.Input<inputs.storage.EncryptionScopeKeyVaultPropertiesArgs | undefined>;
+    keyVaultProperties?: pulumi.Input<inputs.storage.EncryptionScopeKeyVaultPropertiesArgs>;
     /**
      * A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
      */
-    requireInfrastructureEncryption?: pulumi.Input<boolean | undefined>;
+    requireInfrastructureEncryption?: pulumi.Input<boolean>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -152,9 +152,9 @@ export interface EncryptionScopeArgs {
     /**
      * The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
      */
-    source?: pulumi.Input<string | enums.storage.EncryptionScopeSource | undefined>;
+    source?: pulumi.Input<string | enums.storage.EncryptionScopeSource>;
     /**
      * The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
      */
-    state?: pulumi.Input<string | enums.storage.EncryptionScopeState | undefined>;
+    state?: pulumi.Input<string | enums.storage.EncryptionScopeState>;
 }

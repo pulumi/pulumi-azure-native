@@ -137,7 +137,7 @@ export interface DnsResolverDomainListArgs {
     /**
      * The name of the DNS resolver domain list.
      */
-    dnsResolverDomainListName?: pulumi.Input<string | undefined>;
+    dnsResolverDomainListName?: pulumi.Input<string>;
     /**
      * The domains in the domain list.
      */
@@ -145,7 +145,7 @@ export interface DnsResolverDomainListArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -153,5 +153,5 @@ export interface DnsResolverDomainListArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

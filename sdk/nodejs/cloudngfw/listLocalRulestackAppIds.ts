@@ -68,8 +68,8 @@ export function listLocalRulestackAppIdsOutput(args: ListLocalRulestackAppIdsOut
 }
 
 export interface ListLocalRulestackAppIdsOutputArgs {
-    appIdVersion?: pulumi.Input<string | undefined>;
-    appPrefix?: pulumi.Input<string | undefined>;
+    appIdVersion?: pulumi.Input<string>;
+    appPrefix?: pulumi.Input<string>;
     /**
      * LocalRulestack resource name
      */
@@ -78,6 +78,6 @@ export interface ListLocalRulestackAppIdsOutputArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    skip?: pulumi.Input<string | undefined>;
-    top?: pulumi.Input<number | undefined>;
+    skip?: pulumi.Input<string>;
+    top?: pulumi.Input<number>;
 }

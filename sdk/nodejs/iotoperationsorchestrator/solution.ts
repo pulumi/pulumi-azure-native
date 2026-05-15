@@ -134,7 +134,7 @@ export interface SolutionArgs {
     /**
      * A list of components
      */
-    components?: pulumi.Input<pulumi.Input<inputs.iotoperationsorchestrator.ComponentPropertiesArgs>[] | undefined>;
+    components?: pulumi.Input<pulumi.Input<inputs.iotoperationsorchestrator.ComponentPropertiesArgs>[]>;
     /**
      * Edge location of the resource.
      */
@@ -142,11 +142,11 @@ export interface SolutionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of solution.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -154,9 +154,9 @@ export interface SolutionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version of the particular resource.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

@@ -173,31 +173,31 @@ export interface PolicyArgs {
     /**
      * Describes custom rules inside the policy.
      */
-    customRules?: pulumi.Input<inputs.cdn.CustomRuleListArgs | undefined>;
+    customRules?: pulumi.Input<inputs.cdn.CustomRuleListArgs>;
     /**
      * Key-Value pair representing additional properties for Web Application Firewall policy.
      */
-    extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Describes managed rules inside the policy.
      */
-    managedRules?: pulumi.Input<inputs.cdn.ManagedRuleSetListArgs | undefined>;
+    managedRules?: pulumi.Input<inputs.cdn.ManagedRuleSetListArgs>;
     /**
      * The name of the CdnWebApplicationFirewallPolicy.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string>;
     /**
      * Describes  policySettings for policy
      */
-    policySettings?: pulumi.Input<inputs.cdn.PolicySettingsArgs | undefined>;
+    policySettings?: pulumi.Input<inputs.cdn.PolicySettingsArgs>;
     /**
      * Describes rate limit rules inside the policy.
      */
-    rateLimitRules?: pulumi.Input<inputs.cdn.RateLimitRuleListArgs | undefined>;
+    rateLimitRules?: pulumi.Input<inputs.cdn.RateLimitRuleListArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -209,5 +209,5 @@ export interface PolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

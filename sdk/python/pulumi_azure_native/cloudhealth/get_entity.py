@@ -140,9 +140,9 @@ def get_entity(entity_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_entity_output(entity_name: pulumi.Input[Optional[_builtins.str]] = None,
-                      health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
-                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_entity_output(entity_name: Optional[pulumi.Input[_builtins.str]] = None,
+                      health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
+                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityResult]:
     """
     Get a Entity

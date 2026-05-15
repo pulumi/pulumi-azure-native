@@ -108,12 +108,12 @@ def get_entity_signal_history(end_at: Optional[_builtins.str] = None,
         entity_name=pulumi.get(__ret__, 'entity_name'),
         history=pulumi.get(__ret__, 'history'),
         signal_name=pulumi.get(__ret__, 'signal_name'))
-def get_entity_signal_history_output(end_at: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                     entity_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     signal_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     start_at: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_entity_signal_history_output(end_at: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                     entity_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     signal_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     start_at: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntitySignalHistoryResult]:
     """
     Retrieve the time series history for a signal on an entity

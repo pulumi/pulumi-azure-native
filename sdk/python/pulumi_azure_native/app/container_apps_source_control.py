@@ -23,10 +23,10 @@ class ContainerAppsSourceControlArgs:
     def __init__(__self__, *,
                  container_app_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 branch: pulumi.Input[Optional[_builtins.str]] = None,
-                 github_action_configuration: pulumi.Input[Optional['GithubActionConfigurationArgs']] = None,
-                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_control_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 github_action_configuration: Optional[pulumi.Input['GithubActionConfigurationArgs']] = None,
+                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_control_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerAppsSourceControl resource.
 
@@ -76,19 +76,19 @@ class ContainerAppsSourceControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def branch(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The branch which will trigger the auto deployment
         """
         return pulumi.get(self, "branch")
 
     @branch.setter
-    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def branch(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "branch", value)
 
     @_builtins.property
     @pulumi.getter(name="githubActionConfiguration")
-    def github_action_configuration(self) -> pulumi.Input[Optional['GithubActionConfigurationArgs']]:
+    def github_action_configuration(self) -> Optional[pulumi.Input['GithubActionConfigurationArgs']]:
         """
         Container App Revision Template with all possible settings and the
         defaults if user did not provide them. The defaults are populated
@@ -97,31 +97,31 @@ class ContainerAppsSourceControlArgs:
         return pulumi.get(self, "github_action_configuration")
 
     @github_action_configuration.setter
-    def github_action_configuration(self, value: pulumi.Input[Optional['GithubActionConfigurationArgs']]):
+    def github_action_configuration(self, value: Optional[pulumi.Input['GithubActionConfigurationArgs']]):
         pulumi.set(self, "github_action_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="repoUrl")
-    def repo_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def repo_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The repo url which will be integrated to ContainerApp.
         """
         return pulumi.get(self, "repo_url")
 
     @repo_url.setter
-    def repo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def repo_url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "repo_url", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceControlName")
-    def source_control_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def source_control_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the Container App SourceControl.
         """
         return pulumi.get(self, "source_control_name")
 
     @source_control_name.setter
-    def source_control_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def source_control_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "source_control_name", value)
 
 
@@ -131,12 +131,12 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch: pulumi.Input[Optional[_builtins.str]] = None,
-                 container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 github_action_configuration: pulumi.Input[Optional[Union['GithubActionConfigurationArgs', 'GithubActionConfigurationArgsDict']]] = None,
-                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_control_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 github_action_configuration: Optional[pulumi.Input[Union['GithubActionConfigurationArgs', 'GithubActionConfigurationArgsDict']]] = None,
+                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_control_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Container App SourceControl.
@@ -186,12 +186,12 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 branch: pulumi.Input[Optional[_builtins.str]] = None,
-                 container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 github_action_configuration: pulumi.Input[Optional[Union['GithubActionConfigurationArgs', 'GithubActionConfigurationArgsDict']]] = None,
-                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_control_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 branch: Optional[pulumi.Input[_builtins.str]] = None,
+                 container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 github_action_configuration: Optional[pulumi.Input[Union['GithubActionConfigurationArgs', 'GithubActionConfigurationArgsDict']]] = None,
+                 repo_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_control_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

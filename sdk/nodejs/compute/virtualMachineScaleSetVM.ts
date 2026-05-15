@@ -269,59 +269,59 @@ export interface VirtualMachineScaleSetVMArgs {
     /**
      * Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
      */
-    additionalCapabilities?: pulumi.Input<inputs.compute.AdditionalCapabilitiesArgs | undefined>;
+    additionalCapabilities?: pulumi.Input<inputs.compute.AdditionalCapabilitiesArgs>;
     /**
      * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
      */
-    availabilitySet?: pulumi.Input<inputs.compute.SubResourceArgs | undefined>;
+    availabilitySet?: pulumi.Input<inputs.compute.SubResourceArgs>;
     /**
      * Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
      */
-    diagnosticsProfile?: pulumi.Input<inputs.compute.DiagnosticsProfileArgs | undefined>;
+    diagnosticsProfile?: pulumi.Input<inputs.compute.DiagnosticsProfileArgs>;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
-    hardwareProfile?: pulumi.Input<inputs.compute.HardwareProfileArgs | undefined>;
+    hardwareProfile?: pulumi.Input<inputs.compute.HardwareProfileArgs>;
     /**
      * The identity of the virtual machine, if configured.
      */
-    identity?: pulumi.Input<inputs.compute.VirtualMachineIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.compute.VirtualMachineIdentityArgs>;
     /**
      * The instance ID of the virtual machine.
      */
-    instanceId?: pulumi.Input<string | undefined>;
+    instanceId?: pulumi.Input<string>;
     /**
      * Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
      */
-    licenseType?: pulumi.Input<string | undefined>;
+    licenseType?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the network interfaces of the virtual machine.
      */
-    networkProfile?: pulumi.Input<inputs.compute.NetworkProfileArgs | undefined>;
+    networkProfile?: pulumi.Input<inputs.compute.NetworkProfileArgs>;
     /**
      * Specifies the network profile configuration of the virtual machine.
      */
-    networkProfileConfiguration?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMNetworkProfileConfigurationArgs | undefined>;
+    networkProfileConfiguration?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMNetworkProfileConfigurationArgs>;
     /**
      * Specifies the operating system settings for the virtual machine.
      */
-    osProfile?: pulumi.Input<inputs.compute.OSProfileArgs | undefined>;
+    osProfile?: pulumi.Input<inputs.compute.OSProfileArgs>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    plan?: pulumi.Input<inputs.compute.PlanArgs | undefined>;
+    plan?: pulumi.Input<inputs.compute.PlanArgs>;
     /**
      * Specifies the protection policy of the virtual machine.
      */
-    protectionPolicy?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMProtectionPolicyArgs | undefined>;
+    protectionPolicy?: pulumi.Input<inputs.compute.VirtualMachineScaleSetVMProtectionPolicyArgs>;
     /**
      * Specifies the resilient VM deletion status for the virtual machine.
      */
-    resilientVMDeletionStatus?: pulumi.Input<string | enums.compute.ResilientVMDeletionStatus | undefined>;
+    resilientVMDeletionStatus?: pulumi.Input<string | enums.compute.ResilientVMDeletionStatus>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -329,19 +329,19 @@ export interface VirtualMachineScaleSetVMArgs {
     /**
      * Specifies the Security related profile settings for the virtual machine.
      */
-    securityProfile?: pulumi.Input<inputs.compute.SecurityProfileArgs | undefined>;
+    securityProfile?: pulumi.Input<inputs.compute.SecurityProfileArgs>;
     /**
      * Specifies the storage settings for the virtual machine disks.
      */
-    storageProfile?: pulumi.Input<inputs.compute.StorageProfileArgs | undefined>;
+    storageProfile?: pulumi.Input<inputs.compute.StorageProfileArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
      */
-    userData?: pulumi.Input<string | undefined>;
+    userData?: pulumi.Input<string>;
     /**
      * The name of the VM scale set.
      */

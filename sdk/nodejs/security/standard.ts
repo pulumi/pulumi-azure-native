@@ -156,27 +156,27 @@ export interface StandardArgs {
     /**
      * category of the standard provided
      */
-    category?: pulumi.Input<string | undefined>;
+    category?: pulumi.Input<string>;
     /**
      * List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
      */
-    components?: pulumi.Input<pulumi.Input<inputs.security.StandardComponentPropertiesArgs>[] | undefined>;
+    components?: pulumi.Input<pulumi.Input<inputs.security.StandardComponentPropertiesArgs>[]>;
     /**
      * description of the standard
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * display name of the standard, equivalent to the standardId
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * Kind of the resource
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Location where the resource is stored
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -184,13 +184,13 @@ export interface StandardArgs {
     /**
      * The Security Standard key - unique key for the standard type
      */
-    standardId?: pulumi.Input<string | undefined>;
+    standardId?: pulumi.Input<string>;
     /**
      * List of all standard supported clouds.
      */
-    supportedClouds?: pulumi.Input<pulumi.Input<enums.security.StandardSupportedClouds>[] | undefined>;
+    supportedClouds?: pulumi.Input<pulumi.Input<enums.security.StandardSupportedClouds>[]>;
     /**
      * A list of key value pairs that describe the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

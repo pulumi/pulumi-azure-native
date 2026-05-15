@@ -128,11 +128,11 @@ export interface ServiceArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.apicenter.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.apicenter.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,13 +140,13 @@ export interface ServiceArgs {
     /**
      * Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
      */
-    restore?: pulumi.Input<boolean | undefined>;
+    restore?: pulumi.Input<boolean>;
     /**
      * The name of Azure API Center service.
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

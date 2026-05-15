@@ -132,7 +132,7 @@ export interface SecurityPoliciesInterfaceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,11 +140,11 @@ export interface SecurityPoliciesInterfaceArgs {
     /**
      * SecurityPolicy
      */
-    securityPolicyName?: pulumi.Input<string | undefined>;
+    securityPolicyName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * traffic controller name for path
      */
@@ -152,5 +152,5 @@ export interface SecurityPoliciesInterfaceArgs {
     /**
      * Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
      */
-    wafPolicy?: pulumi.Input<inputs.servicenetworking.WafPolicyArgs | undefined>;
+    wafPolicy?: pulumi.Input<inputs.servicenetworking.WafPolicyArgs>;
 }

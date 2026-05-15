@@ -174,19 +174,19 @@ export interface WebhookArgs {
     /**
      * content type
      */
-    contentType?: pulumi.Input<string | enums.appcomplianceautomation.ContentType | undefined>;
+    contentType?: pulumi.Input<string | enums.appcomplianceautomation.ContentType>;
     /**
      * whether to enable ssl verification
      */
-    enableSslVerification?: pulumi.Input<string | enums.appcomplianceautomation.EnableSslVerification | undefined>;
+    enableSslVerification?: pulumi.Input<string | enums.appcomplianceautomation.EnableSslVerification>;
     /**
      * under which event notification should be sent.
      */
-    events?: pulumi.Input<pulumi.Input<string | enums.appcomplianceautomation.NotificationEvent>[] | undefined>;
+    events?: pulumi.Input<pulumi.Input<string | enums.appcomplianceautomation.NotificationEvent>[]>;
     /**
      * webhook payload url
      */
-    payloadUrl?: pulumi.Input<string | undefined>;
+    payloadUrl?: pulumi.Input<string>;
     /**
      * Report Name.
      */
@@ -194,21 +194,21 @@ export interface WebhookArgs {
     /**
      * whether to send notification under any event.
      */
-    sendAllEvents?: pulumi.Input<string | enums.appcomplianceautomation.SendAllEvents | undefined>;
+    sendAllEvents?: pulumi.Input<string | enums.appcomplianceautomation.SendAllEvents>;
     /**
      * Webhook status.
      */
-    status?: pulumi.Input<string | enums.appcomplianceautomation.WebhookStatus | undefined>;
+    status?: pulumi.Input<string | enums.appcomplianceautomation.WebhookStatus>;
     /**
      * whether to update webhookKey.
      */
-    updateWebhookKey?: pulumi.Input<string | enums.appcomplianceautomation.UpdateWebhookKey | undefined>;
+    updateWebhookKey?: pulumi.Input<string | enums.appcomplianceautomation.UpdateWebhookKey>;
     /**
      * webhook secret token. If not set, this field value is null; otherwise, please set a string value.
      */
-    webhookKey?: pulumi.Input<string | undefined>;
+    webhookKey?: pulumi.Input<string>;
     /**
      * Webhook Name.
      */
-    webhookName?: pulumi.Input<string | undefined>;
+    webhookName?: pulumi.Input<string>;
 }

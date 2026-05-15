@@ -328,9 +328,9 @@ def get_elastic_pool(elastic_pool_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-def get_elastic_pool_output(elastic_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            server_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_elastic_pool_output(elastic_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                            server_name: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticPoolResult]:
     """
     Gets an elastic pool.

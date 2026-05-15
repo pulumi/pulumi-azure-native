@@ -135,19 +135,19 @@ export interface NetworkProfileArgs {
     /**
      * List of chid container network interface configurations.
      */
-    containerNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ContainerNetworkInterfaceConfigurationArgs>[] | undefined>;
+    containerNetworkInterfaceConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ContainerNetworkInterfaceConfigurationArgs>[]>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network profile.
      */
-    networkProfileName?: pulumi.Input<string | undefined>;
+    networkProfileName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -155,5 +155,5 @@ export interface NetworkProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

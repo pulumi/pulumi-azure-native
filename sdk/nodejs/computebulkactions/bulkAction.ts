@@ -129,7 +129,7 @@ export interface BulkActionArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.computebulkactions.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.computebulkactions.ManagedServiceIdentityArgs>;
     /**
      * The location name.
      */
@@ -137,15 +137,15 @@ export interface BulkActionArgs {
     /**
      * The name of the LaunchBulkInstancesOperation.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Details of the resource plan.
      */
-    plan?: pulumi.Input<inputs.computebulkactions.PlanArgs | undefined>;
+    plan?: pulumi.Input<inputs.computebulkactions.PlanArgs>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.computebulkactions.LaunchBulkInstancesOperationPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.computebulkactions.LaunchBulkInstancesOperationPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -153,9 +153,9 @@ export interface BulkActionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Zones in which the LaunchBulkInstancesOperation is available
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

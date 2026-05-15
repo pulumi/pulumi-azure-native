@@ -121,11 +121,11 @@ export interface GuestAgentArgs {
     /**
      * Username / Password Credentials to provision guest agent.
      */
-    credentials?: pulumi.Input<inputs.azurestackhci.GuestCredentialArgs | undefined>;
+    credentials?: pulumi.Input<inputs.azurestackhci.GuestCredentialArgs>;
     /**
      * The guest agent provisioning action.
      */
-    provisioningAction?: pulumi.Input<string | enums.azurestackhci.ProvisioningAction | undefined>;
+    provisioningAction?: pulumi.Input<string | enums.azurestackhci.ProvisioningAction>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

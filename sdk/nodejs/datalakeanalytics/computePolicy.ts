@@ -128,15 +128,15 @@ export interface ComputePolicyArgs {
     /**
      * The name of the compute policy to create or update.
      */
-    computePolicyName?: pulumi.Input<string | undefined>;
+    computePolicyName?: pulumi.Input<string>;
     /**
      * The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
      */
-    maxDegreeOfParallelismPerJob?: pulumi.Input<number | undefined>;
+    maxDegreeOfParallelismPerJob?: pulumi.Input<number>;
     /**
      * The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
      */
-    minPriorityPerJob?: pulumi.Input<number | undefined>;
+    minPriorityPerJob?: pulumi.Input<number>;
     /**
      * The AAD object identifier for the entity to create a policy for.
      */

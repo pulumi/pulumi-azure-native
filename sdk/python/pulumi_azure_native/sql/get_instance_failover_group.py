@@ -205,9 +205,9 @@ def get_instance_failover_group(failover_group_name: Optional[_builtins.str] = N
         replication_state=pulumi.get(__ret__, 'replication_state'),
         secondary_type=pulumi.get(__ret__, 'secondary_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_instance_failover_group_output(failover_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       location_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_instance_failover_group_output(failover_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       location_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceFailoverGroupResult]:
     """
     Gets a failover group.

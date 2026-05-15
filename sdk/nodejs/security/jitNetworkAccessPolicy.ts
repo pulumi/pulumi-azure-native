@@ -126,12 +126,12 @@ export interface JitNetworkAccessPolicyArgs {
     /**
      * Name of a Just-in-Time access configuration policy.
      */
-    jitNetworkAccessPolicyName?: pulumi.Input<string | undefined>;
+    jitNetworkAccessPolicyName?: pulumi.Input<string>;
     /**
      * Kind of the resource
      */
-    kind?: pulumi.Input<string | undefined>;
-    requests?: pulumi.Input<pulumi.Input<inputs.security.JitNetworkAccessRequestArgs>[] | undefined>;
+    kind?: pulumi.Input<string>;
+    requests?: pulumi.Input<pulumi.Input<inputs.security.JitNetworkAccessRequestArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

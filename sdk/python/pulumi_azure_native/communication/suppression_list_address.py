@@ -25,10 +25,10 @@ class SuppressionListAddressArgs:
                  email_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  suppression_list_name: pulumi.Input[_builtins.str],
-                 address_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notes: pulumi.Input[Optional[_builtins.str]] = None):
+                 address_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 notes: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SuppressionListAddress resource.
 
@@ -118,50 +118,50 @@ class SuppressionListAddressArgs:
 
     @_builtins.property
     @pulumi.getter(name="addressId")
-    def address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def address_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The id of the address in a suppression list.
         """
         return pulumi.get(self, "address_id")
 
     @address_id.setter
-    def address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def address_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
-    def first_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def first_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The first name of the email recipient.
         """
         return pulumi.get(self, "first_name")
 
     @first_name.setter
-    def first_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def first_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "first_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastName")
-    def last_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def last_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The last name of the email recipient.
         """
         return pulumi.get(self, "last_name")
 
     @last_name.setter
-    def last_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def last_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "last_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def notes(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def notes(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         An optional property to provide contextual notes or a description for an address.
         """
         return pulumi.get(self, "notes")
 
     @notes.setter
-    def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def notes(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "notes", value)
 
 
@@ -171,15 +171,15 @@ class SuppressionListAddress(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 email: pulumi.Input[Optional[_builtins.str]] = None,
-                 email_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notes: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 email: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 notes: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 suppression_list_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A object that represents a SuppressionList record.
@@ -230,15 +230,15 @@ class SuppressionListAddress(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 address_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 email: pulumi.Input[Optional[_builtins.str]] = None,
-                 email_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 first_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 last_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notes: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 address_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 email: Optional[pulumi.Input[_builtins.str]] = None,
+                 email_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 first_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 notes: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 suppression_list_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

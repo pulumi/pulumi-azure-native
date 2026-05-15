@@ -77,11 +77,11 @@ def get_network_virtual_appliance_boot_diagnostic_logs(console_screenshot_storag
 
     return AwaitableGetNetworkVirtualApplianceBootDiagnosticLogsResult(
         instance_id=pulumi.get(__ret__, 'instance_id'))
-def get_network_virtual_appliance_boot_diagnostic_logs_output(console_screenshot_storage_sas_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                              instance_id: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
-                                                              network_virtual_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                              serial_console_storage_sas_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_network_virtual_appliance_boot_diagnostic_logs_output(console_screenshot_storage_sas_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                                              instance_id: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+                                                              network_virtual_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                              serial_console_storage_sas_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkVirtualApplianceBootDiagnosticLogsResult]:
     """
     Retrieves the boot diagnostic logs for a VM instance belonging to the specified Network Virtual Appliance.

@@ -259,55 +259,55 @@ export interface MigrationArgs {
     /**
      * Indicates if cancel must be triggered for the entire migration.
      */
-    cancel?: pulumi.Input<string | enums.dbforpostgresql.Cancel | undefined>;
+    cancel?: pulumi.Input<string | enums.dbforpostgresql.Cancel>;
     /**
      * When you want to trigger cancel for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
      */
-    dbsToCancelMigrationOn?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    dbsToCancelMigrationOn?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Names of databases to migrate.
      */
-    dbsToMigrate?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    dbsToMigrate?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * When you want to trigger cutover for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
      */
-    dbsToTriggerCutoverOn?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    dbsToTriggerCutoverOn?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Indicates if roles and permissions must be migrated.
      */
-    migrateRoles?: pulumi.Input<string | enums.dbforpostgresql.MigrateRolesAndPermissions | undefined>;
+    migrateRoles?: pulumi.Input<string | enums.dbforpostgresql.MigrateRolesAndPermissions>;
     /**
      * Identifier of the private endpoint migration instance.
      */
-    migrationInstanceResourceId?: pulumi.Input<string | undefined>;
+    migrationInstanceResourceId?: pulumi.Input<string>;
     /**
      * Mode used to perform the migration: Online or Offline.
      */
-    migrationMode?: pulumi.Input<string | enums.dbforpostgresql.MigrationMode | undefined>;
+    migrationMode?: pulumi.Input<string | enums.dbforpostgresql.MigrationMode>;
     /**
      * Name of migration.
      */
-    migrationName?: pulumi.Input<string | undefined>;
+    migrationName?: pulumi.Input<string>;
     /**
      * Supported option for a migration.
      */
-    migrationOption?: pulumi.Input<string | enums.dbforpostgresql.MigrationOption | undefined>;
+    migrationOption?: pulumi.Input<string | enums.dbforpostgresql.MigrationOption>;
     /**
      * End time (UTC) for migration window.
      */
-    migrationWindowEndTimeInUtc?: pulumi.Input<string | undefined>;
+    migrationWindowEndTimeInUtc?: pulumi.Input<string>;
     /**
      * Start time (UTC) for migration window.
      */
-    migrationWindowStartTimeInUtc?: pulumi.Input<string | undefined>;
+    migrationWindowStartTimeInUtc?: pulumi.Input<string>;
     /**
      * Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
      */
-    overwriteDbsInTarget?: pulumi.Input<string | enums.dbforpostgresql.OverwriteDatabasesOnTargetServer | undefined>;
+    overwriteDbsInTarget?: pulumi.Input<string | enums.dbforpostgresql.OverwriteDatabasesOnTargetServer>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -315,7 +315,7 @@ export interface MigrationArgs {
     /**
      * Migration secret parameters.
      */
-    secretParameters?: pulumi.Input<inputs.dbforpostgresql.MigrationSecretParametersArgs | undefined>;
+    secretParameters?: pulumi.Input<inputs.dbforpostgresql.MigrationSecretParametersArgs>;
     /**
      * The name of the server.
      */
@@ -323,37 +323,37 @@ export interface MigrationArgs {
     /**
      * Indicates whether to setup logical replication on source server, if needed.
      */
-    setupLogicalReplicationOnSourceDbIfNeeded?: pulumi.Input<string | enums.dbforpostgresql.LogicalReplicationOnSourceServer | undefined>;
+    setupLogicalReplicationOnSourceDbIfNeeded?: pulumi.Input<string | enums.dbforpostgresql.LogicalReplicationOnSourceServer>;
     /**
      * Fully qualified domain name (FQDN) or IP address of the source server. This property is optional. When provided, the migration service will always use it to connect to the source server.
      */
-    sourceDbServerFullyQualifiedDomainName?: pulumi.Input<string | undefined>;
+    sourceDbServerFullyQualifiedDomainName?: pulumi.Input<string>;
     /**
      * Identifier of the source database server resource, when 'sourceType' is 'PostgreSQLSingleServer'. For other source types this must be set to ipaddress:port@username or hostname:port@username.
      */
-    sourceDbServerResourceId?: pulumi.Input<string | undefined>;
+    sourceDbServerResourceId?: pulumi.Input<string>;
     /**
      * Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
      */
-    sourceType?: pulumi.Input<string | enums.dbforpostgresql.SourceType | undefined>;
+    sourceType?: pulumi.Input<string | enums.dbforpostgresql.SourceType>;
     /**
      * SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
      */
-    sslMode?: pulumi.Input<string | enums.dbforpostgresql.SslMode | undefined>;
+    sslMode?: pulumi.Input<string | enums.dbforpostgresql.SslMode>;
     /**
      * Indicates if data migration must start right away.
      */
-    startDataMigration?: pulumi.Input<string | enums.dbforpostgresql.StartDataMigration | undefined>;
+    startDataMigration?: pulumi.Input<string | enums.dbforpostgresql.StartDataMigration>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Fully qualified domain name (FQDN) or IP address of the target server. This property is optional. When provided, the migration service will always use it to connect to the target server.
      */
-    targetDbServerFullyQualifiedDomainName?: pulumi.Input<string | undefined>;
+    targetDbServerFullyQualifiedDomainName?: pulumi.Input<string>;
     /**
      * Indicates if cutover must be triggered for the entire migration.
      */
-    triggerCutover?: pulumi.Input<string | enums.dbforpostgresql.TriggerCutover | undefined>;
+    triggerCutover?: pulumi.Input<string | enums.dbforpostgresql.TriggerCutover>;
 }

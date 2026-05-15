@@ -146,11 +146,11 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[_builti
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_replication_storage_classification_mapping_output(fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          storage_classification_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          storage_classification_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_replication_storage_classification_mapping_output(fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                          resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                          storage_classification_mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                          storage_classification_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationStorageClassificationMappingResult]:
     """
     Gets the details of the specified storage classification mapping.

@@ -200,27 +200,27 @@ export interface ActionGroupArgs {
     /**
      * The name of the action group.
      */
-    actionGroupName?: pulumi.Input<string | undefined>;
+    actionGroupName?: pulumi.Input<string>;
     /**
      * The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
      */
-    armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.ArmRoleReceiverArgs>[] | undefined>;
+    armRoleReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.ArmRoleReceiverArgs>[]>;
     /**
      * The list of AutomationRunbook receivers that are part of this action group.
      */
-    automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.AutomationRunbookReceiverArgs>[] | undefined>;
+    automationRunbookReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.AutomationRunbookReceiverArgs>[]>;
     /**
      * The list of AzureAppPush receivers that are part of this action group.
      */
-    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.AzureAppPushReceiverArgs>[] | undefined>;
+    azureAppPushReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.AzureAppPushReceiverArgs>[]>;
     /**
      * The list of azure function receivers that are part of this action group.
      */
-    azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.AzureFunctionReceiverArgs>[] | undefined>;
+    azureFunctionReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.AzureFunctionReceiverArgs>[]>;
     /**
      * The list of email receivers that are part of this action group.
      */
-    emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.EmailReceiverArgs>[] | undefined>;
+    emailReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.EmailReceiverArgs>[]>;
     /**
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
@@ -228,7 +228,7 @@ export interface ActionGroupArgs {
     /**
      * The list of event hub receivers that are part of this action group.
      */
-    eventHubReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.EventHubReceiverArgs>[] | undefined>;
+    eventHubReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.EventHubReceiverArgs>[]>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */
@@ -236,23 +236,23 @@ export interface ActionGroupArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.monitor.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.monitor.ManagedServiceIdentityArgs>;
     /**
      * The list of incident receivers that are part of this action group.
      */
-    incidentReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.IncidentReceiverArgs>[] | undefined>;
+    incidentReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.IncidentReceiverArgs>[]>;
     /**
      * The list of ITSM receivers that are part of this action group.
      */
-    itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.ItsmReceiverArgs>[] | undefined>;
+    itsmReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.ItsmReceiverArgs>[]>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The list of logic app receivers that are part of this action group.
      */
-    logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.LogicAppReceiverArgs>[] | undefined>;
+    logicAppReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.LogicAppReceiverArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -260,17 +260,17 @@ export interface ActionGroupArgs {
     /**
      * The list of SMS receivers that are part of this action group.
      */
-    smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.SmsReceiverArgs>[] | undefined>;
+    smsReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.SmsReceiverArgs>[]>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of voice receivers that are part of this action group.
      */
-    voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.VoiceReceiverArgs>[] | undefined>;
+    voiceReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.VoiceReceiverArgs>[]>;
     /**
      * The list of webhook receivers that are part of this action group.
      */
-    webhookReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.WebhookReceiverArgs>[] | undefined>;
+    webhookReceivers?: pulumi.Input<pulumi.Input<inputs.monitor.WebhookReceiverArgs>[]>;
 }

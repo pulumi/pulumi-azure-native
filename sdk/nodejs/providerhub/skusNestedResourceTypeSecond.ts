@@ -118,7 +118,7 @@ export interface SkusNestedResourceTypeSecondArgs {
      * The second child resource type.
      */
     nestedResourceTypeSecond: pulumi.Input<string>;
-    properties?: pulumi.Input<inputs.providerhub.SkuResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.providerhub.SkuResourcePropertiesArgs>;
     /**
      * The name of the resource provider hosted within ProviderHub.
      */
@@ -130,5 +130,5 @@ export interface SkusNestedResourceTypeSecondArgs {
     /**
      * The SKU.
      */
-    sku?: pulumi.Input<string | undefined>;
+    sku?: pulumi.Input<string>;
 }

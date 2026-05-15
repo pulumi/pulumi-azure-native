@@ -105,15 +105,15 @@ export interface IPv6FirewallRuleArgs {
     /**
      * The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpv6Address.
      */
-    endIPv6Address?: pulumi.Input<string | undefined>;
+    endIPv6Address?: pulumi.Input<string>;
     /**
      * The name of the firewall rule.
      */
-    firewallRuleName?: pulumi.Input<string | undefined>;
+    firewallRuleName?: pulumi.Input<string>;
     /**
      * Resource name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -125,5 +125,5 @@ export interface IPv6FirewallRuleArgs {
     /**
      * The start IP address of the firewall rule. Must be IPv6 format.
      */
-    startIPv6Address?: pulumi.Input<string | undefined>;
+    startIPv6Address?: pulumi.Input<string>;
 }

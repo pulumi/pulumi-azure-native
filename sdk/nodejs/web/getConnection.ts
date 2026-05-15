@@ -100,5 +100,5 @@ export interface GetConnectionOutputArgs {
     /**
      * Subscription Id
      */
-    subscriptionId?: pulumi.Input<string | undefined>;
+    subscriptionId?: pulumi.Input<string>;
 }

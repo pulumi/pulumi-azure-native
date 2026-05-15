@@ -116,11 +116,11 @@ export interface ChannelArgs {
     /**
      * The functions to be enabled for the channel
      */
-    channelFunctions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    channelFunctions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Channel Name
      */
-    channelName?: pulumi.Input<string | undefined>;
+    channelName?: pulumi.Input<string>;
     /**
      * The channel type
      */
@@ -128,7 +128,7 @@ export interface ChannelArgs {
     /**
      * The channel credentials
      */
-    credentials?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    credentials?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource Group Name
      */

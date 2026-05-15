@@ -108,15 +108,15 @@ export interface GatewayArgs {
     /**
      * Gateway description
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
-    gatewayId?: pulumi.Input<string | undefined>;
+    gatewayId?: pulumi.Input<string>;
     /**
      * Gateway location.
      */
-    locationData?: pulumi.Input<inputs.apimanagement.ResourceLocationDataContractArgs | undefined>;
+    locationData?: pulumi.Input<inputs.apimanagement.ResourceLocationDataContractArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

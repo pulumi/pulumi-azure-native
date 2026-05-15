@@ -118,17 +118,17 @@ export interface PeerAsnArgs {
     /**
      * The Autonomous System Number (ASN) of the peer.
      */
-    peerAsn?: pulumi.Input<number | undefined>;
+    peerAsn?: pulumi.Input<number>;
     /**
      * The peer ASN name.
      */
-    peerAsnName?: pulumi.Input<string | undefined>;
+    peerAsnName?: pulumi.Input<string>;
     /**
      * The contact details of the peer.
      */
-    peerContactDetail?: pulumi.Input<pulumi.Input<inputs.peering.ContactDetailArgs>[] | undefined>;
+    peerContactDetail?: pulumi.Input<pulumi.Input<inputs.peering.ContactDetailArgs>[]>;
     /**
      * The name of the peer.
      */
-    peerName?: pulumi.Input<string | undefined>;
+    peerName?: pulumi.Input<string>;
 }

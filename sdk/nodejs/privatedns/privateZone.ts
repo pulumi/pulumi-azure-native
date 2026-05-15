@@ -164,11 +164,11 @@ export interface PrivateZoneArgs {
     /**
      * The Azure Region where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
-    privateZoneName?: pulumi.Input<string | undefined>;
+    privateZoneName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,5 +176,5 @@ export interface PrivateZoneArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

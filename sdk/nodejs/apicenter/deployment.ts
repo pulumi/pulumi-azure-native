@@ -156,23 +156,23 @@ export interface DeploymentArgs {
     /**
      * The custom metadata defined for API catalog entities.
      */
-    customProperties?: any | undefined;
+    customProperties?: any;
     /**
      * API center-scoped definition resource ID.
      */
-    definitionId?: pulumi.Input<string | undefined>;
+    definitionId?: pulumi.Input<string>;
     /**
      * The name of the API deployment.
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName?: pulumi.Input<string>;
     /**
      * Description of the deployment.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * API center-scoped environment resource ID.
      */
-    environmentId?: pulumi.Input<string | undefined>;
+    environmentId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -180,7 +180,7 @@ export interface DeploymentArgs {
     /**
      * The deployment server
      */
-    server?: pulumi.Input<inputs.apicenter.DeploymentServerArgs | undefined>;
+    server?: pulumi.Input<inputs.apicenter.DeploymentServerArgs>;
     /**
      * The name of Azure API Center service.
      */
@@ -188,11 +188,11 @@ export interface DeploymentArgs {
     /**
      * State of API deployment.
      */
-    state?: pulumi.Input<string | enums.apicenter.DeploymentState | undefined>;
+    state?: pulumi.Input<string | enums.apicenter.DeploymentState>;
     /**
      * API deployment title
      */
-    title?: pulumi.Input<string | undefined>;
+    title?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

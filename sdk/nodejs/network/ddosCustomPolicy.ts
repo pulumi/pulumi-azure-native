@@ -120,15 +120,15 @@ export interface DdosCustomPolicyArgs {
     /**
      * The name of the DDoS custom policy.
      */
-    ddosCustomPolicyName?: pulumi.Input<string | undefined>;
+    ddosCustomPolicyName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -136,5 +136,5 @@ export interface DdosCustomPolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

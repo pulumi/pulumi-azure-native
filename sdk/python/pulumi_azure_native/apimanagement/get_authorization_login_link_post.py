@@ -80,11 +80,11 @@ def get_authorization_login_link_post(authorization_id: Optional[_builtins.str] 
 
     return AwaitableGetAuthorizationLoginLinkPostResult(
         login_link=pulumi.get(__ret__, 'login_link'))
-def get_authorization_login_link_post_output(authorization_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                             authorization_provider_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                             post_login_redirect_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_authorization_login_link_post_output(authorization_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                             authorization_provider_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                             post_login_redirect_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizationLoginLinkPostResult]:
     """
     Gets authorization login links.

@@ -166,9 +166,9 @@ def get_workspace_manager_member(resource_group_name: Optional[_builtins.str] = 
         target_workspace_resource_id=pulumi.get(__ret__, 'target_workspace_resource_id'),
         target_workspace_tenant_id=pulumi.get(__ret__, 'target_workspace_tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_workspace_manager_member_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        workspace_manager_member_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_workspace_manager_member_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        workspace_manager_member_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceManagerMemberResult]:
     """
     Gets a workspace manager member

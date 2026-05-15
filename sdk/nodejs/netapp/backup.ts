@@ -179,7 +179,7 @@ export interface BackupArgs {
     /**
      * The name of the backup
      */
-    backupName?: pulumi.Input<string | undefined>;
+    backupName?: pulumi.Input<string>;
     /**
      * The name of the Backup Vault
      */
@@ -187,7 +187,7 @@ export interface BackupArgs {
     /**
      * Label for backup
      */
-    label?: pulumi.Input<string | undefined>;
+    label?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -195,11 +195,11 @@ export interface BackupArgs {
     /**
      * The name of the snapshot
      */
-    snapshotName?: pulumi.Input<string | undefined>;
+    snapshotName?: pulumi.Input<string>;
     /**
      * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
      */
-    useExistingSnapshot?: pulumi.Input<boolean | undefined>;
+    useExistingSnapshot?: pulumi.Input<boolean>;
     /**
      * ResourceId used to identify the Volume
      */

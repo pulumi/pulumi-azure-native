@@ -107,7 +107,7 @@ export interface RetentionPolicyArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.durabletask.RetentionPolicyPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.durabletask.RetentionPolicyPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -119,9 +119,9 @@ export interface ClusterInstanceHybridIdentityMetadatumArgs {
     /**
      * Onboarding public key for provisioning the Managed identity for the connected cluster.
      */
-    publicKey?: pulumi.Input<string | undefined>;
+    publicKey?: pulumi.Input<string>;
     /**
      * Unique id of the parent provisioned cluster resource.
      */
-    resourceUid?: pulumi.Input<string | undefined>;
+    resourceUid?: pulumi.Input<string>;
 }

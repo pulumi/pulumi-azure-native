@@ -122,15 +122,15 @@ export interface CloudServiceArgs {
     /**
      * Name of the cloud service.
      */
-    cloudServiceName?: pulumi.Input<string | undefined>;
+    cloudServiceName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Cloud service properties
      */
-    properties?: pulumi.Input<inputs.compute.CloudServicePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.compute.CloudServicePropertiesArgs>;
     /**
      * Name of the resource group.
      */
@@ -138,9 +138,9 @@ export interface CloudServiceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of logical availability zone of the resource. List should contain only 1 zone where cloud service should be provisioned. This field is optional.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

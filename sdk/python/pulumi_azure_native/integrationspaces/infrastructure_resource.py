@@ -24,7 +24,7 @@ class InfrastructureResourceArgs:
                  resource_id: pulumi.Input[_builtins.str],
                  resource_type: pulumi.Input[_builtins.str],
                  space_name: pulumi.Input[_builtins.str],
-                 infrastructure_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 infrastructure_resource_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a InfrastructureResource resource.
 
@@ -91,14 +91,14 @@ class InfrastructureResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="infrastructureResourceName")
-    def infrastructure_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def infrastructure_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the infrastructure resource in the space.
         """
         return pulumi.get(self, "infrastructure_resource_name")
 
     @infrastructure_resource_name.setter
-    def infrastructure_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def infrastructure_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "infrastructure_resource_name", value)
 
 
@@ -108,11 +108,11 @@ class InfrastructureResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 infrastructure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 space_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 space_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         An infrastructure resource under Space.
@@ -155,11 +155,11 @@ class InfrastructureResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 infrastructure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 space_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 infrastructure_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_type: Optional[pulumi.Input[_builtins.str]] = None,
+                 space_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

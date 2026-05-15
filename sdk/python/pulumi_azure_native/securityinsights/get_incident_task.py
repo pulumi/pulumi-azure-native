@@ -234,10 +234,10 @@ def get_incident_task(incident_id: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-def get_incident_task_output(incident_id: pulumi.Input[Optional[_builtins.str]] = None,
-                             incident_task_id: pulumi.Input[Optional[_builtins.str]] = None,
-                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_incident_task_output(incident_id: Optional[pulumi.Input[_builtins.str]] = None,
+                             incident_task_id: Optional[pulumi.Input[_builtins.str]] = None,
+                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIncidentTaskResult]:
     """
     Gets an incident task.

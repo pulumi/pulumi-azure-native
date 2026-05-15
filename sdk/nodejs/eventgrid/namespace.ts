@@ -136,7 +136,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["topicSpacesConfiguration"] = args ? pulumi.output(args.topicSpacesConfiguration).apply(v => v === undefined ? undefined : inputs.eventgrid.topicSpacesConfigurationArgsProvideDefaults(v)) : undefined;
+            resourceInputs["topicSpacesConfiguration"] = args ? (args.topicSpacesConfiguration ? pulumi.output(args.topicSpacesConfiguration).apply(inputs.eventgrid.topicSpacesConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["topicsConfiguration"] = args?.topicsConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -175,11 +175,11 @@ export interface NamespaceArgs {
     /**
      * Identity information for the Namespace resource.
      */
-    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs | undefined>;
+    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[] | undefined>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[]>;
     /**
      * This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
      * property is not specified explicitly by the user, its default value depends on the following conditions:
@@ -187,28 +187,28 @@ export interface NamespaceArgs {
      *     b. For non-Availability Zones enabled regions - The default property value would be false.
      * Once specified, this property cannot be updated.
      */
-    isZoneRedundant?: pulumi.Input<boolean | undefined>;
+    isZoneRedundant?: pulumi.Input<boolean>;
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
      */
-    minimumTlsVersionAllowed?: pulumi.Input<string | enums.eventgrid.TlsVersion | undefined>;
+    minimumTlsVersionAllowed?: pulumi.Input<string | enums.eventgrid.TlsVersion>;
     /**
      * Name of the namespace.
      */
-    namespaceName?: pulumi.Input<string | undefined>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * List of private endpoint connections.
      */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.PrivateEndpointConnectionArgs>[] | undefined>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.eventgrid.PrivateEndpointConnectionArgs>[]>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PubSub.NamespaceProperties.InboundIpRules" />
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -216,17 +216,17 @@ export interface NamespaceArgs {
     /**
      * Represents available Sku pricing tiers.
      */
-    sku?: pulumi.Input<inputs.eventgrid.NamespaceSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.eventgrid.NamespaceSkuArgs>;
     /**
      * Tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Topic spaces configuration information for the namespace resource
      */
-    topicSpacesConfiguration?: pulumi.Input<inputs.eventgrid.TopicSpacesConfigurationArgs | undefined>;
+    topicSpacesConfiguration?: pulumi.Input<inputs.eventgrid.TopicSpacesConfigurationArgs>;
     /**
      * Topics configuration information for the namespace resource
      */
-    topicsConfiguration?: pulumi.Input<inputs.eventgrid.TopicsConfigurationArgs | undefined>;
+    topicsConfiguration?: pulumi.Input<inputs.eventgrid.TopicsConfigurationArgs>;
 }

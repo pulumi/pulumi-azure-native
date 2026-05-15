@@ -157,7 +157,7 @@ export interface SourceControlArgs {
     /**
      * The auto async of the source control. Default is false.
      */
-    autoSync?: pulumi.Input<boolean | undefined>;
+    autoSync?: pulumi.Input<boolean>;
     /**
      * The name of the automation account.
      */
@@ -165,23 +165,23 @@ export interface SourceControlArgs {
     /**
      * The repo branch of the source control. Include branch as empty string for VsoTfvc.
      */
-    branch?: pulumi.Input<string | undefined>;
+    branch?: pulumi.Input<string>;
     /**
      * The user description of the source control.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The folder path of the source control. Path must be relative.
      */
-    folderPath?: pulumi.Input<string | undefined>;
+    folderPath?: pulumi.Input<string>;
     /**
      * The auto publish of the source control. Default is true.
      */
-    publishRunbook?: pulumi.Input<boolean | undefined>;
+    publishRunbook?: pulumi.Input<boolean>;
     /**
      * The repo url of the source control.
      */
-    repoUrl?: pulumi.Input<string | undefined>;
+    repoUrl?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
@@ -189,13 +189,13 @@ export interface SourceControlArgs {
     /**
      * The authorization token for the repo of the source control.
      */
-    securityToken?: pulumi.Input<inputs.automation.SourceControlSecurityTokenPropertiesArgs | undefined>;
+    securityToken?: pulumi.Input<inputs.automation.SourceControlSecurityTokenPropertiesArgs>;
     /**
      * The source control name.
      */
-    sourceControlName?: pulumi.Input<string | undefined>;
+    sourceControlName?: pulumi.Input<string>;
     /**
      * The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
      */
-    sourceType?: pulumi.Input<string | enums.automation.SourceType | undefined>;
+    sourceType?: pulumi.Input<string | enums.automation.SourceType>;
 }

@@ -154,7 +154,7 @@ export interface KustoTableDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string | undefined>;
+    dataSetName?: pulumi.Input<string>;
     /**
      * Kind of data set.
      * Expected value is 'KustoTable'.

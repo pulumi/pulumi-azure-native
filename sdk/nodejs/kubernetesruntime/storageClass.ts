@@ -171,39 +171,39 @@ export interface StorageClassArgs {
     /**
      * The access mode: [ReadWriteOnce, ReadWriteMany] or [ReadWriteOnce]
      */
-    accessModes?: pulumi.Input<pulumi.Input<string | enums.kubernetesruntime.AccessMode>[] | undefined>;
+    accessModes?: pulumi.Input<pulumi.Input<string | enums.kubernetesruntime.AccessMode>[]>;
     /**
      * Volume can be expanded or not
      */
-    allowVolumeExpansion?: pulumi.Input<string | enums.kubernetesruntime.VolumeExpansion | undefined>;
+    allowVolumeExpansion?: pulumi.Input<string | enums.kubernetesruntime.VolumeExpansion>;
     /**
      * Allow single data node failure
      */
-    dataResilience?: pulumi.Input<string | enums.kubernetesruntime.DataResilienceTier | undefined>;
+    dataResilience?: pulumi.Input<string | enums.kubernetesruntime.DataResilienceTier>;
     /**
      * Failover speed: NA, Slow, Fast
      */
-    failoverSpeed?: pulumi.Input<string | enums.kubernetesruntime.FailoverTier | undefined>;
+    failoverSpeed?: pulumi.Input<string | enums.kubernetesruntime.FailoverTier>;
     /**
      * Limitations of the storage class
      */
-    limitations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    limitations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Additional mount options
      */
-    mountOptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    mountOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Performance tier
      */
-    performance?: pulumi.Input<string | enums.kubernetesruntime.PerformanceTier | undefined>;
+    performance?: pulumi.Input<string | enums.kubernetesruntime.PerformanceTier>;
     /**
      * Selection priority when multiple storage classes meet the criteria. 0: Highest, -1: Never use
      */
-    priority?: pulumi.Input<number | undefined>;
+    priority?: pulumi.Input<number>;
     /**
      * Provisioner name
      */
-    provisioner?: pulumi.Input<string | undefined>;
+    provisioner?: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -211,7 +211,7 @@ export interface StorageClassArgs {
     /**
      * The name of the the storage class
      */
-    storageClassName?: pulumi.Input<string | undefined>;
+    storageClassName?: pulumi.Input<string>;
     /**
      * Properties of the StorageClass
      */
@@ -219,5 +219,5 @@ export interface StorageClassArgs {
     /**
      * Binding mode of volumes: Immediate, WaitForFirstConsumer
      */
-    volumeBindingMode?: pulumi.Input<string | enums.kubernetesruntime.VolumeBindingMode | undefined>;
+    volumeBindingMode?: pulumi.Input<string | enums.kubernetesruntime.VolumeBindingMode>;
 }

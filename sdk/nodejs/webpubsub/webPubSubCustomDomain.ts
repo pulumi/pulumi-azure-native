@@ -133,7 +133,7 @@ export interface WebPubSubCustomDomainArgs {
     /**
      * Custom domain name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

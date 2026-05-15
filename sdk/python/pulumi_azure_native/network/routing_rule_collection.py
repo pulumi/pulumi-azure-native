@@ -26,9 +26,9 @@ class RoutingRuleCollectionArgs:
                  configuration_name: pulumi.Input[_builtins.str],
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 disable_bgp_route_propagation: pulumi.Input[Optional[Union[_builtins.str, 'DisableBgpRoutePropagation']]] = None,
-                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_bgp_route_propagation: Optional[pulumi.Input[Union[_builtins.str, 'DisableBgpRoutePropagation']]] = None,
+                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoutingRuleCollection resource.
 
@@ -101,38 +101,38 @@ class RoutingRuleCollectionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         A description of the routing rule collection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="disableBgpRoutePropagation")
-    def disable_bgp_route_propagation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DisableBgpRoutePropagation']]]:
+    def disable_bgp_route_propagation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DisableBgpRoutePropagation']]]:
         """
         Determines whether BGP route propagation is enabled. Defaults to true.
         """
         return pulumi.get(self, "disable_bgp_route_propagation")
 
     @disable_bgp_route_propagation.setter
-    def disable_bgp_route_propagation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DisableBgpRoutePropagation']]]):
+    def disable_bgp_route_propagation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DisableBgpRoutePropagation']]]):
         pulumi.set(self, "disable_bgp_route_propagation", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleCollectionName")
-    def rule_collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rule_collection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the network manager routing Configuration rule collection.
         """
         return pulumi.get(self, "rule_collection_name")
 
     @rule_collection_name.setter
-    def rule_collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rule_collection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "rule_collection_name", value)
 
 
@@ -142,13 +142,13 @@ class RoutingRuleCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerRoutingGroupItemArgs', 'NetworkManagerRoutingGroupItemArgsDict']]]]] = None,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 disable_bgp_route_propagation: pulumi.Input[Optional[Union[_builtins.str, 'DisableBgpRoutePropagation']]] = None,
-                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 applies_to: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerRoutingGroupItemArgs', 'NetworkManagerRoutingGroupItemArgsDict']]]]] = None,
+                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_bgp_route_propagation: Optional[pulumi.Input[Union[_builtins.str, 'DisableBgpRoutePropagation']]] = None,
+                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the routing rule collection.
@@ -197,13 +197,13 @@ class RoutingRuleCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 applies_to: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NetworkManagerRoutingGroupItemArgs', 'NetworkManagerRoutingGroupItemArgsDict']]]]] = None,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 disable_bgp_route_propagation: pulumi.Input[Optional[Union[_builtins.str, 'DisableBgpRoutePropagation']]] = None,
-                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 applies_to: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagerRoutingGroupItemArgs', 'NetworkManagerRoutingGroupItemArgsDict']]]]] = None,
+                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 disable_bgp_route_propagation: Optional[pulumi.Input[Union[_builtins.str, 'DisableBgpRoutePropagation']]] = None,
+                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

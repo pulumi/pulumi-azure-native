@@ -155,31 +155,31 @@ export interface WebAppHostNameBindingArgs {
     /**
      * Azure resource name.
      */
-    azureResourceName?: pulumi.Input<string | undefined>;
+    azureResourceName?: pulumi.Input<string>;
     /**
      * Azure resource type.
      */
-    azureResourceType?: pulumi.Input<enums.web.AzureResourceType | undefined>;
+    azureResourceType?: pulumi.Input<enums.web.AzureResourceType>;
     /**
      * Custom DNS record type.
      */
-    customHostNameDnsRecordType?: pulumi.Input<enums.web.CustomHostNameDnsRecordType | undefined>;
+    customHostNameDnsRecordType?: pulumi.Input<enums.web.CustomHostNameDnsRecordType>;
     /**
      * Fully qualified ARM domain resource URI.
      */
-    domainId?: pulumi.Input<string | undefined>;
+    domainId?: pulumi.Input<string>;
     /**
      * Hostname in the hostname binding.
      */
-    hostName?: pulumi.Input<string | undefined>;
+    hostName?: pulumi.Input<string>;
     /**
      * Hostname type.
      */
-    hostNameType?: pulumi.Input<enums.web.HostNameType | undefined>;
+    hostNameType?: pulumi.Input<enums.web.HostNameType>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
@@ -191,13 +191,13 @@ export interface WebAppHostNameBindingArgs {
     /**
      * App Service app name.
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName?: pulumi.Input<string>;
     /**
      * SSL type
      */
-    sslState?: pulumi.Input<enums.web.SslState | undefined>;
+    sslState?: pulumi.Input<enums.web.SslState>;
     /**
      * SSL certificate thumbprint
      */
-    thumbprint?: pulumi.Input<string | undefined>;
+    thumbprint?: pulumi.Input<string>;
 }

@@ -147,27 +147,27 @@ export interface FavoriteArgs {
     /**
      * Favorite category, as defined by the user at creation time.
      */
-    category?: pulumi.Input<string | undefined>;
+    category?: pulumi.Input<string>;
     /**
      * Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
      */
-    config?: pulumi.Input<string | undefined>;
+    config?: pulumi.Input<string>;
     /**
      * The Id of a specific favorite defined in the Application Insights component
      */
-    favoriteId?: pulumi.Input<string | undefined>;
+    favoriteId?: pulumi.Input<string>;
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    favoriteType?: pulumi.Input<enums.applicationinsights.FavoriteType | undefined>;
+    favoriteType?: pulumi.Input<enums.applicationinsights.FavoriteType>;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */
-    isGeneratedFromTemplate?: pulumi.Input<boolean | undefined>;
+    isGeneratedFromTemplate?: pulumi.Input<boolean>;
     /**
      * The user-defined name of the favorite.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -179,13 +179,13 @@ export interface FavoriteArgs {
     /**
      * The source of the favorite definition.
      */
-    sourceType?: pulumi.Input<string | undefined>;
+    sourceType?: pulumi.Input<string>;
     /**
      * A list of 0 or more tags that are associated with this favorite definition
      */
-    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

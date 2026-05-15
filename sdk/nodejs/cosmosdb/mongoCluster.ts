@@ -155,27 +155,27 @@ export interface MongoClusterArgs {
     /**
      * The administrator's login for the mongo cluster.
      */
-    administratorLogin?: pulumi.Input<string | undefined>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The password of the administrator login.
      */
-    administratorLoginPassword?: pulumi.Input<string | undefined>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * The mode to create a mongo cluster.
      */
-    createMode?: pulumi.Input<string | enums.cosmosdb.MongoClusterCreateMode | undefined>;
+    createMode?: pulumi.Input<string | enums.cosmosdb.MongoClusterCreateMode>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the mongo cluster.
      */
-    mongoClusterName?: pulumi.Input<string | undefined>;
+    mongoClusterName?: pulumi.Input<string>;
     /**
      * The list of node group specs in the cluster.
      */
-    nodeGroupSpecs?: pulumi.Input<pulumi.Input<inputs.cosmosdb.NodeGroupSpecArgs>[] | undefined>;
+    nodeGroupSpecs?: pulumi.Input<pulumi.Input<inputs.cosmosdb.NodeGroupSpecArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -183,13 +183,13 @@ export interface MongoClusterArgs {
     /**
      * Parameters used for restore operations
      */
-    restoreParameters?: pulumi.Input<inputs.cosmosdb.MongoClusterRestoreParametersArgs | undefined>;
+    restoreParameters?: pulumi.Input<inputs.cosmosdb.MongoClusterRestoreParametersArgs>;
     /**
      * The Mongo DB server version. Defaults to the latest available version if not specified.
      */
-    serverVersion?: pulumi.Input<string | undefined>;
+    serverVersion?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

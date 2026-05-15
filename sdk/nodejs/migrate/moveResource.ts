@@ -112,11 +112,11 @@ export interface MoveResourceArgs {
     /**
      * The Move Resource Name.
      */
-    moveResourceName?: pulumi.Input<string | undefined>;
+    moveResourceName?: pulumi.Input<string>;
     /**
      * Defines the move resource properties.
      */
-    properties?: pulumi.Input<inputs.migrate.MoveResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.MoveResourcePropertiesArgs>;
     /**
      * The Resource Group Name.
      */

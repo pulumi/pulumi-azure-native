@@ -159,11 +159,11 @@ def get_archive_version(archive_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_archive_version_output(archive_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               archive_version_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               package_type: pulumi.Input[Optional[_builtins.str]] = None,
-                               registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_archive_version_output(archive_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               archive_version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               package_type: Optional[pulumi.Input[_builtins.str]] = None,
+                               registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArchiveVersionResult]:
     """
     Gets the properties of the archive version.

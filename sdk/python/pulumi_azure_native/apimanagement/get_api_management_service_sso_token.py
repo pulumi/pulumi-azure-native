@@ -71,8 +71,8 @@ def get_api_management_service_sso_token(resource_group_name: Optional[_builtins
 
     return AwaitableGetApiManagementServiceSsoTokenResult(
         redirect_uri=pulumi.get(__ret__, 'redirect_uri'))
-def get_api_management_service_sso_token_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_api_management_service_sso_token_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiManagementServiceSsoTokenResult]:
     """
     Gets the Single-Sign-On token for the API Management Service which is valid for 5 Minutes.

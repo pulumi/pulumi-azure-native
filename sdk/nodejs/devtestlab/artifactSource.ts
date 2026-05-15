@@ -177,19 +177,19 @@ export interface ArtifactSourceArgs {
     /**
      * The folder containing Azure Resource Manager templates.
      */
-    armTemplateFolderPath?: pulumi.Input<string | undefined>;
+    armTemplateFolderPath?: pulumi.Input<string>;
     /**
      * The artifact source's branch reference.
      */
-    branchRef?: pulumi.Input<string | undefined>;
+    branchRef?: pulumi.Input<string>;
     /**
      * The artifact source's display name.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The folder containing artifacts.
      */
-    folderPath?: pulumi.Input<string | undefined>;
+    folderPath?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
@@ -197,11 +197,11 @@ export interface ArtifactSourceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the artifact source.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -209,21 +209,21 @@ export interface ArtifactSourceArgs {
     /**
      * The security token to authenticate to the artifact source.
      */
-    securityToken?: pulumi.Input<string | undefined>;
+    securityToken?: pulumi.Input<string>;
     /**
      * The artifact source's type.
      */
-    sourceType?: pulumi.Input<string | enums.devtestlab.SourceControlType | undefined>;
+    sourceType?: pulumi.Input<string | enums.devtestlab.SourceControlType>;
     /**
      * Indicates if the artifact source is enabled (values: Enabled, Disabled).
      */
-    status?: pulumi.Input<string | enums.devtestlab.EnableStatus | undefined>;
+    status?: pulumi.Input<string | enums.devtestlab.EnableStatus>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The artifact source's URI.
      */
-    uri?: pulumi.Input<string | undefined>;
+    uri?: pulumi.Input<string>;
 }

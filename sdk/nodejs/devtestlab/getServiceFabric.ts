@@ -119,7 +119,7 @@ export interface GetServiceFabricOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($expand=applicableSchedule)'
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */

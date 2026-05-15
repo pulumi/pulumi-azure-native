@@ -199,11 +199,11 @@ export interface BudgetArgs {
      *
      *  Required for CategoryType(s): Cost.
      */
-    amount?: pulumi.Input<number | undefined>;
+    amount?: pulumi.Input<number>;
     /**
      * Budget Name.
      */
-    budgetName?: pulumi.Input<string | undefined>;
+    budgetName?: pulumi.Input<string>;
     /**
      * The category of the budget.
      * - 'Cost' defines a Budget.
@@ -213,13 +213,13 @@ export interface BudgetArgs {
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * May be used to filter budgets by user-specified dimensions and/or tags.
      *
      *  Supported for CategoryType(s): Cost, ReservationUtilization.
      */
-    filter?: pulumi.Input<inputs.costmanagement.BudgetFilterArgs | undefined>;
+    filter?: pulumi.Input<inputs.costmanagement.BudgetFilterArgs>;
     /**
      * Dictionary of notifications associated with the budget.
      *
@@ -228,7 +228,7 @@ export interface BudgetArgs {
      * - Constraints for **CategoryType: Cost** - Budget can have up to 5 notifications with thresholdType: Actual and 5 notifications with thresholdType: Forecasted.
      * - Constraints for **CategoryType: ReservationUtilization** - Only one notification allowed. thresholdType is not applicable.
      */
-    notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.costmanagement.NotificationArgs>} | undefined>;
+    notifications?: pulumi.Input<{[key: string]: pulumi.Input<inputs.costmanagement.NotificationArgs>}>;
     /**
      * The scope associated with budget operations.
      *

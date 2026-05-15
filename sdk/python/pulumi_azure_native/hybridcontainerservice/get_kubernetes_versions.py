@@ -144,7 +144,7 @@ def get_kubernetes_versions(custom_location_resource_uri: Optional[_builtins.str
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_kubernetes_versions_output(custom_location_resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+def get_kubernetes_versions_output(custom_location_resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKubernetesVersionsResult]:
     """
     Lists the supported kubernetes versions for the specified custom location

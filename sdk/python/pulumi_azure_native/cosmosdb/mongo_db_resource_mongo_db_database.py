@@ -25,10 +25,10 @@ class MongoDBResourceMongoDBDatabaseArgs:
                  account_name: pulumi.Input[_builtins.str],
                  resource: pulumi.Input['MongoDBDatabaseResourceArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional['CreateUpdateOptionsArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input['CreateUpdateOptionsArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MongoDBResourceMongoDBDatabase resource.
 
@@ -90,50 +90,50 @@ class MongoDBResourceMongoDBDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Cosmos DB database name.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The location of the resource group to which the resource belongs.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> pulumi.Input[Optional['CreateUpdateOptionsArgs']]:
+    def options(self) -> Optional[pulumi.Input['CreateUpdateOptionsArgs']]:
         """
         A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: pulumi.Input[Optional['CreateUpdateOptionsArgs']]):
+    def options(self, value: Optional[pulumi.Input['CreateUpdateOptionsArgs']]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -143,13 +143,13 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['CreateUpdateOptionsArgs', 'CreateUpdateOptionsArgsDict']]] = None,
-                 resource: pulumi.Input[Optional[Union['MongoDBDatabaseResourceArgs', 'MongoDBDatabaseResourceArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Union['CreateUpdateOptionsArgs', 'CreateUpdateOptionsArgsDict']]] = None,
+                 resource: Optional[pulumi.Input[Union['MongoDBDatabaseResourceArgs', 'MongoDBDatabaseResourceArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         An Azure Cosmos DB MongoDB database.
@@ -198,13 +198,13 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Union['CreateUpdateOptionsArgs', 'CreateUpdateOptionsArgsDict']]] = None,
-                 resource: pulumi.Input[Optional[Union['MongoDBDatabaseResourceArgs', 'MongoDBDatabaseResourceArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Union['CreateUpdateOptionsArgs', 'CreateUpdateOptionsArgsDict']]] = None,
+                 resource: Optional[pulumi.Input[Union['MongoDBDatabaseResourceArgs', 'MongoDBDatabaseResourceArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -110,17 +110,17 @@ export interface ServiceGroupArgs {
     /**
      * The kind of the serviceGroup.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * ServiceGroup creation request body parameters.
      */
-    properties?: pulumi.Input<inputs.management.ServiceGroupPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.management.ServiceGroupPropertiesArgs>;
     /**
      * ServiceGroup Name.
      */
-    serviceGroupName?: pulumi.Input<string | undefined>;
+    serviceGroupName?: pulumi.Input<string>;
     /**
      * The serviceGroup tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

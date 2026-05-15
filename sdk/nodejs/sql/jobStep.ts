@@ -107,12 +107,12 @@ export class JobStep extends pulumi.CustomResource {
             if (args?.targetGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetGroup'");
             }
-            resourceInputs["action"] = args ? pulumi.output(args.action).apply(inputs.sql.jobStepActionArgsProvideDefaults) : undefined;
+            resourceInputs["action"] = args ? (args.action ? pulumi.output(args.action).apply(inputs.sql.jobStepActionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["credential"] = args?.credential;
-            resourceInputs["executionOptions"] = args ? pulumi.output(args.executionOptions).apply(v => v === undefined ? undefined : inputs.sql.jobStepExecutionOptionsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["executionOptions"] = args ? (args.executionOptions ? pulumi.output(args.executionOptions).apply(inputs.sql.jobStepExecutionOptionsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["jobAgentName"] = args?.jobAgentName;
             resourceInputs["jobName"] = args?.jobName;
-            resourceInputs["output"] = args ? pulumi.output(args.output).apply(v => v === undefined ? undefined : inputs.sql.jobStepOutputArgsProvideDefaults(v)) : undefined;
+            resourceInputs["output"] = args ? (args.output ? pulumi.output(args.output).apply(inputs.sql.jobStepOutputArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serverName"] = args?.serverName;
             resourceInputs["stepId"] = args?.stepId;
@@ -150,11 +150,11 @@ export interface JobStepArgs {
     /**
      * The resource ID of the job credential that will be used to connect to the targets.
      */
-    credential?: pulumi.Input<string | undefined>;
+    credential?: pulumi.Input<string>;
     /**
      * Execution options for the job step.
      */
-    executionOptions?: pulumi.Input<inputs.sql.JobStepExecutionOptionsArgs | undefined>;
+    executionOptions?: pulumi.Input<inputs.sql.JobStepExecutionOptionsArgs>;
     /**
      * The name of the job agent.
      */
@@ -166,7 +166,7 @@ export interface JobStepArgs {
     /**
      * Output destination properties of the job step.
      */
-    output?: pulumi.Input<inputs.sql.JobStepOutputArgs | undefined>;
+    output?: pulumi.Input<inputs.sql.JobStepOutputArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -178,11 +178,11 @@ export interface JobStepArgs {
     /**
      * The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
      */
-    stepId?: pulumi.Input<number | undefined>;
+    stepId?: pulumi.Input<number>;
     /**
      * The name of the job step.
      */
-    stepName?: pulumi.Input<string | undefined>;
+    stepName?: pulumi.Input<string>;
     /**
      * The resource ID of the target group that the job step will be executed on.
      */

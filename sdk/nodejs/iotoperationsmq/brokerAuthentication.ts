@@ -153,7 +153,7 @@ export interface BrokerAuthenticationArgs {
     /**
      * Name of MQ broker/authentication resource
      */
-    authenticationName?: pulumi.Input<string | undefined>;
+    authenticationName?: pulumi.Input<string>;
     /**
      * Name of MQ broker resource
      */
@@ -169,7 +169,7 @@ export interface BrokerAuthenticationArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of MQ resource
      */
@@ -181,5 +181,5 @@ export interface BrokerAuthenticationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

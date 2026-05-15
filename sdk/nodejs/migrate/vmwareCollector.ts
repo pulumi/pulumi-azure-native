@@ -89,12 +89,12 @@ export class VMwareCollector extends pulumi.CustomResource {
  * The set of arguments for constructing a VMwareCollector resource.
  */
 export interface VMwareCollectorArgs {
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */
     projectName: pulumi.Input<string>;
-    properties?: pulumi.Input<inputs.migrate.CollectorPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.CollectorPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
@@ -102,5 +102,5 @@ export interface VMwareCollectorArgs {
     /**
      * Unique name of a VMware collector within a project.
      */
-    vmWareCollectorName?: pulumi.Input<string | undefined>;
+    vmWareCollectorName?: pulumi.Input<string>;
 }

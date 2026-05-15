@@ -73,8 +73,8 @@ def get_file_share_provisioning_recommendation(location: Optional[_builtins.str]
 
     return AwaitableGetFileShareProvisioningRecommendationResult(
         properties=pulumi.get(__ret__, 'properties'))
-def get_file_share_provisioning_recommendation_output(location: pulumi.Input[Optional[_builtins.str]] = None,
-                                                      properties: pulumi.Input[Optional[Union['FileShareProvisioningRecommendationInput', 'FileShareProvisioningRecommendationInputDict']]] = None,
+def get_file_share_provisioning_recommendation_output(location: Optional[pulumi.Input[_builtins.str]] = None,
+                                                      properties: Optional[pulumi.Input[Union['FileShareProvisioningRecommendationInput', 'FileShareProvisioningRecommendationInputDict']]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileShareProvisioningRecommendationResult]:
     """
     Get file shares provisioning parameters recommendation.

@@ -25,9 +25,9 @@ class ObjectReplicationPolicyArgs:
                  destination_account: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_account: pulumi.Input[_builtins.str],
-                 metrics: pulumi.Input[Optional['ObjectReplicationPolicyPropertiesMetricsArgs']] = None,
-                 object_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]] = None):
+                 metrics: Optional[pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs']] = None,
+                 object_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]] = None):
         """
         The set of arguments for constructing a ObjectReplicationPolicy resource.
 
@@ -100,38 +100,38 @@ class ObjectReplicationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def metrics(self) -> pulumi.Input[Optional['ObjectReplicationPolicyPropertiesMetricsArgs']]:
+    def metrics(self) -> Optional[pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs']]:
         """
         Optional. The object replication policy metrics feature options.
         """
         return pulumi.get(self, "metrics")
 
     @metrics.setter
-    def metrics(self, value: pulumi.Input[Optional['ObjectReplicationPolicyPropertiesMetricsArgs']]):
+    def metrics(self, value: Optional[pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs']]):
         pulumi.set(self, "metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="objectReplicationPolicyId")
-    def object_replication_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def object_replication_policy_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         """
         return pulumi.get(self, "object_replication_policy_id")
 
     @object_replication_policy_id.setter
-    def object_replication_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def object_replication_policy_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "object_replication_policy_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]]:
         """
         The storage account object replication rules.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -141,13 +141,13 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_account: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']]] = None,
-                 object_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
-                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_account: Optional[pulumi.Input[_builtins.str]] = None,
+                 metrics: Optional[pulumi.Input[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']]] = None,
+                 object_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
+                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The replication policy between two storage accounts. Multiple rules can be defined in one policy.
@@ -196,13 +196,13 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_account: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']]] = None,
-                 object_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
-                 source_account: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination_account: Optional[pulumi.Input[_builtins.str]] = None,
+                 metrics: Optional[pulumi.Input[Union['ObjectReplicationPolicyPropertiesMetricsArgs', 'ObjectReplicationPolicyPropertiesMetricsArgsDict']]] = None,
+                 object_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationPolicyRuleArgs', 'ObjectReplicationPolicyRuleArgsDict']]]]] = None,
+                 source_account: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

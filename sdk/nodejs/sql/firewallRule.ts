@@ -105,15 +105,15 @@ export interface FirewallRuleArgs {
     /**
      * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
      */
-    endIpAddress?: pulumi.Input<string | undefined>;
+    endIpAddress?: pulumi.Input<string>;
     /**
      * The name of the firewall rule.
      */
-    firewallRuleName?: pulumi.Input<string | undefined>;
+    firewallRuleName?: pulumi.Input<string>;
     /**
      * Resource name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -125,5 +125,5 @@ export interface FirewallRuleArgs {
     /**
      * The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
      */
-    startIpAddress?: pulumi.Input<string | undefined>;
+    startIpAddress?: pulumi.Input<string>;
 }

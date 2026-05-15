@@ -137,7 +137,7 @@ export interface GetInboundNatRuleOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The name of the inbound NAT rule.
      */

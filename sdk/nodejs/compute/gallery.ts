@@ -152,19 +152,19 @@ export interface GalleryArgs {
     /**
      * The description of this Shared Image Gallery resource. This property is updatable.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery.
      */
-    galleryName?: pulumi.Input<string | undefined>;
+    galleryName?: pulumi.Input<string>;
     /**
      * The identity of the gallery, if configured.
      */
-    identity?: pulumi.Input<inputs.compute.GalleryIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.compute.GalleryIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -172,13 +172,13 @@ export interface GalleryArgs {
     /**
      * Profile for gallery sharing to subscription or tenant
      */
-    sharingProfile?: pulumi.Input<inputs.compute.SharingProfileArgs | undefined>;
+    sharingProfile?: pulumi.Input<inputs.compute.SharingProfileArgs>;
     /**
      * Contains information about the soft deletion policy of the gallery.
      */
-    softDeletePolicy?: pulumi.Input<inputs.compute.SoftDeletePolicyArgs | undefined>;
+    softDeletePolicy?: pulumi.Input<inputs.compute.SoftDeletePolicyArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

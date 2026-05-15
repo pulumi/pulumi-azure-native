@@ -153,19 +153,19 @@ export interface EnterprisePolicyArgs {
     /**
      * The encryption settings for a configuration store.
      */
-    encryption?: pulumi.Input<inputs.powerplatform.PropertiesEncryptionArgs | undefined>;
+    encryption?: pulumi.Input<inputs.powerplatform.PropertiesEncryptionArgs>;
     /**
      * Name of the EnterprisePolicy.
      */
-    enterprisePolicyName?: pulumi.Input<string | undefined>;
+    enterprisePolicyName?: pulumi.Input<string>;
     /**
      * The health status of the resource.
      */
-    healthStatus?: pulumi.Input<string | enums.powerplatform.HealthStatus | undefined>;
+    healthStatus?: pulumi.Input<string | enums.powerplatform.HealthStatus>;
     /**
      * The identity of the EnterprisePolicy.
      */
-    identity?: pulumi.Input<inputs.powerplatform.EnterprisePolicyIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.powerplatform.EnterprisePolicyIdentityArgs>;
     /**
      * The kind (type) of Enterprise Policy.
      */
@@ -173,15 +173,15 @@ export interface EnterprisePolicyArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Settings concerning lockbox.
      */
-    lockbox?: pulumi.Input<inputs.powerplatform.PropertiesLockboxArgs | undefined>;
+    lockbox?: pulumi.Input<inputs.powerplatform.PropertiesLockboxArgs>;
     /**
      * Settings concerning network injection.
      */
-    networkInjection?: pulumi.Input<inputs.powerplatform.PropertiesNetworkInjectionArgs | undefined>;
+    networkInjection?: pulumi.Input<inputs.powerplatform.PropertiesNetworkInjectionArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -189,5 +189,5 @@ export interface EnterprisePolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -154,11 +154,11 @@ export interface SpacecraftArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * NORAD ID of the spacecraft.
      */
-    noradId?: pulumi.Input<string | undefined>;
+    noradId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -166,11 +166,11 @@ export interface SpacecraftArgs {
     /**
      * Spacecraft ID.
      */
-    spacecraftName?: pulumi.Input<string | undefined>;
+    spacecraftName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Title line of the two-line element set (TLE).
      */

@@ -133,7 +133,7 @@ export class FrontDoor extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["backendPools"] = args?.backendPools;
-            resourceInputs["backendPoolsSettings"] = args ? pulumi.output(args.backendPoolsSettings).apply(v => v === undefined ? undefined : inputs.frontdoor.backendPoolsSettingsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["backendPoolsSettings"] = args ? (args.backendPoolsSettings ? pulumi.output(args.backendPoolsSettings).apply(inputs.frontdoor.backendPoolsSettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["enabledState"] = args?.enabledState;
             resourceInputs["friendlyName"] = args?.friendlyName;
             resourceInputs["frontDoorName"] = args?.frontDoorName;
@@ -188,39 +188,39 @@ export interface FrontDoorArgs {
     /**
      * Backend pools available to routing rules.
      */
-    backendPools?: pulumi.Input<pulumi.Input<inputs.frontdoor.BackendPoolArgs>[] | undefined>;
+    backendPools?: pulumi.Input<pulumi.Input<inputs.frontdoor.BackendPoolArgs>[]>;
     /**
      * Settings for all backendPools
      */
-    backendPoolsSettings?: pulumi.Input<inputs.frontdoor.BackendPoolsSettingsArgs | undefined>;
+    backendPoolsSettings?: pulumi.Input<inputs.frontdoor.BackendPoolsSettingsArgs>;
     /**
      * Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
      */
-    enabledState?: pulumi.Input<string | enums.frontdoor.FrontDoorEnabledState | undefined>;
+    enabledState?: pulumi.Input<string | enums.frontdoor.FrontDoorEnabledState>;
     /**
      * A friendly name for the frontDoor
      */
-    friendlyName?: pulumi.Input<string | undefined>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Name of the Front Door which is globally unique.
      */
-    frontDoorName?: pulumi.Input<string | undefined>;
+    frontDoorName?: pulumi.Input<string>;
     /**
      * Frontend endpoints available to routing rules.
      */
-    frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontendEndpointArgs>[] | undefined>;
+    frontendEndpoints?: pulumi.Input<pulumi.Input<inputs.frontdoor.FrontendEndpointArgs>[]>;
     /**
      * Health probe settings associated with this Front Door instance.
      */
-    healthProbeSettings?: pulumi.Input<pulumi.Input<inputs.frontdoor.HealthProbeSettingsModelArgs>[] | undefined>;
+    healthProbeSettings?: pulumi.Input<pulumi.Input<inputs.frontdoor.HealthProbeSettingsModelArgs>[]>;
     /**
      * Load balancing settings associated with this Front Door instance.
      */
-    loadBalancingSettings?: pulumi.Input<pulumi.Input<inputs.frontdoor.LoadBalancingSettingsModelArgs>[] | undefined>;
+    loadBalancingSettings?: pulumi.Input<pulumi.Input<inputs.frontdoor.LoadBalancingSettingsModelArgs>[]>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -228,9 +228,9 @@ export interface FrontDoorArgs {
     /**
      * Routing rules associated with this Front Door.
      */
-    routingRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.RoutingRuleArgs>[] | undefined>;
+    routingRules?: pulumi.Input<pulumi.Input<inputs.frontdoor.RoutingRuleArgs>[]>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

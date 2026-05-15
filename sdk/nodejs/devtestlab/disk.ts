@@ -181,23 +181,23 @@ export interface DiskArgs {
     /**
      * When backed by a blob, the name of the VHD blob without extension.
      */
-    diskBlobName?: pulumi.Input<string | undefined>;
+    diskBlobName?: pulumi.Input<string>;
     /**
      * The size of the disk in Gibibytes.
      */
-    diskSizeGiB?: pulumi.Input<number | undefined>;
+    diskSizeGiB?: pulumi.Input<number>;
     /**
      * The storage type for the disk (i.e. Standard, Premium).
      */
-    diskType?: pulumi.Input<string | enums.devtestlab.StorageType | undefined>;
+    diskType?: pulumi.Input<string | enums.devtestlab.StorageType>;
     /**
      * When backed by a blob, the URI of underlying blob.
      */
-    diskUri?: pulumi.Input<string | undefined>;
+    diskUri?: pulumi.Input<string>;
     /**
      * The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
      */
-    hostCaching?: pulumi.Input<string | undefined>;
+    hostCaching?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
@@ -205,19 +205,19 @@ export interface DiskArgs {
     /**
      * The resource ID of the VM to which this disk is leased.
      */
-    leasedByLabVmId?: pulumi.Input<string | undefined>;
+    leasedByLabVmId?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * When backed by managed disk, this is the ID of the compute disk resource.
      */
-    managedDiskId?: pulumi.Input<string | undefined>;
+    managedDiskId?: pulumi.Input<string>;
     /**
      * The name of the disk.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -225,11 +225,11 @@ export interface DiskArgs {
     /**
      * When backed by a blob, the storage account where the blob is.
      */
-    storageAccountId?: pulumi.Input<string | undefined>;
+    storageAccountId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the user profile.
      */

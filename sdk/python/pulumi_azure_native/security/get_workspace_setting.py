@@ -131,7 +131,7 @@ def get_workspace_setting(workspace_setting_name: Optional[_builtins.str] = None
         scope=pulumi.get(__ret__, 'scope'),
         type=pulumi.get(__ret__, 'type'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_workspace_setting_output(workspace_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_workspace_setting_output(workspace_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceSettingResult]:
     """
     Settings about where we should store your security data and logs. If the result is empty, it means that no custom-workspace configuration was set

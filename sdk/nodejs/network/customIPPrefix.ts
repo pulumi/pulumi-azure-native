@@ -213,55 +213,55 @@ export interface CustomIPPrefixArgs {
     /**
      * The ASN for CIDR advertising. Should be an integer as string.
      */
-    asn?: pulumi.Input<string | undefined>;
+    asn?: pulumi.Input<string>;
     /**
      * Authorization message for WAN validation.
      */
-    authorizationMessage?: pulumi.Input<string | undefined>;
+    authorizationMessage?: pulumi.Input<string>;
     /**
      * The prefix range in CIDR notation. Should include the start address and the prefix length.
      */
-    cidr?: pulumi.Input<string | undefined>;
+    cidr?: pulumi.Input<string>;
     /**
      * The commissioned state of the Custom IP Prefix.
      */
-    commissionedState?: pulumi.Input<string | enums.network.CommissionedState | undefined>;
+    commissionedState?: pulumi.Input<string | enums.network.CommissionedState>;
     /**
      * The name of the custom IP prefix.
      */
-    customIpPrefixName?: pulumi.Input<string | undefined>;
+    customIpPrefixName?: pulumi.Input<string>;
     /**
      * The Parent CustomIpPrefix for IPv6 /64 CustomIpPrefix.
      */
-    customIpPrefixParent?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    customIpPrefixParent?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * Whether to do express route advertise.
      */
-    expressRouteAdvertise?: pulumi.Input<boolean | undefined>;
+    expressRouteAdvertise?: pulumi.Input<boolean>;
     /**
      * The extended location of the custom IP prefix.
      */
-    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
     /**
      * The Geo for CIDR advertising. Should be an Geo code.
      */
-    geo?: pulumi.Input<string | enums.network.Geo | undefined>;
+    geo?: pulumi.Input<string | enums.network.Geo>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Whether to Advertise the range to Internet.
      */
-    noInternetAdvertise?: pulumi.Input<boolean | undefined>;
+    noInternetAdvertise?: pulumi.Input<boolean>;
     /**
      * Type of custom IP prefix. Should be Singular, Parent, or Child.
      */
-    prefixType?: pulumi.Input<string | enums.network.CustomIpPrefixType | undefined>;
+    prefixType?: pulumi.Input<string | enums.network.CustomIpPrefixType>;
     /**
      * The name of the resource group.
      */
@@ -269,13 +269,13 @@ export interface CustomIPPrefixArgs {
     /**
      * Signed message for WAN validation.
      */
-    signedMessage?: pulumi.Input<string | undefined>;
+    signedMessage?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones denoting the IP allocated for the resource needs to come from.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

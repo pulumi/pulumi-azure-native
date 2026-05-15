@@ -316,7 +316,7 @@ def get_view(view_name: Optional[_builtins.str] = None,
         time_period=pulumi.get(__ret__, 'time_period'),
         timeframe=pulumi.get(__ret__, 'timeframe'),
         type=pulumi.get(__ret__, 'type'))
-def get_view_output(view_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_view_output(view_name: Optional[pulumi.Input[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewResult]:
     """
     Gets the view by view name.

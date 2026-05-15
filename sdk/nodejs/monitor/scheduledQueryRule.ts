@@ -251,15 +251,15 @@ export interface ScheduledQueryRuleArgs {
     /**
      * Actions to invoke when the alert fires.
      */
-    actions?: pulumi.Input<inputs.monitor.ActionsArgs | undefined>;
+    actions?: pulumi.Input<inputs.monitor.ActionsArgs>;
     /**
      * The flag that indicates whether the alert should be automatically resolved or not. The default is true. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
      */
-    autoMitigate?: pulumi.Input<boolean | undefined>;
+    autoMitigate?: pulumi.Input<boolean>;
     /**
      * The flag which indicates whether this scheduled query rule should be stored in the customer's storage. The default is false. Relevant only for rules of the kind LogAlert.
      */
-    checkWorkspaceAlertsStorageConfigured?: pulumi.Input<boolean | undefined>;
+    checkWorkspaceAlertsStorageConfigured?: pulumi.Input<boolean>;
     /**
      * The rule criteria that defines the conditions of the scheduled query rule.
      */
@@ -267,11 +267,11 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The description of the scheduled query rule.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the alert rule
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The flag which indicates whether this scheduled query rule is enabled. Value should be true or false
      */
@@ -279,31 +279,31 @@ export interface ScheduledQueryRuleArgs {
     /**
      * How often the scheduled query rule is evaluated represented in ISO 8601 duration format. Relevant and required only for rules of the kind LogAlert.
      */
-    evaluationFrequency?: pulumi.Input<string | undefined>;
+    evaluationFrequency?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.monitor.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.monitor.IdentityArgs>;
     /**
      * Indicates the type of scheduled query rule. The default is LogAlert.
      */
-    kind?: pulumi.Input<string | enums.monitor.Kind | undefined>;
+    kind?: pulumi.Input<string | enums.monitor.Kind>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Mute actions for the chosen period of time (in ISO 8601 duration format) after the alert is fired. Relevant only for rules of the kind LogAlert.
      */
-    muteActionsDuration?: pulumi.Input<string | undefined>;
+    muteActionsDuration?: pulumi.Input<string>;
     /**
      * If specified then overrides the query time range (default is WindowSize*NumberOfEvaluationPeriods). Relevant only for rules of the kind LogAlert.
      */
-    overrideQueryTimeRange?: pulumi.Input<string | undefined>;
+    overrideQueryTimeRange?: pulumi.Input<string>;
     /**
      * Defines the configuration for resolving fired alerts. Relevant only for rules of kinds LogAlert and SimpleLogAlert.
      */
-    resolveConfiguration?: pulumi.Input<inputs.monitor.RuleResolveConfigurationArgs | undefined>;
+    resolveConfiguration?: pulumi.Input<inputs.monitor.RuleResolveConfigurationArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -311,7 +311,7 @@ export interface ScheduledQueryRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName?: pulumi.Input<string>;
     /**
      * The list of resource id's that this scheduled query rule is scoped to.
      */
@@ -319,21 +319,21 @@ export interface ScheduledQueryRuleArgs {
     /**
      * Severity of the alert. Should be an integer between [0-4]. Value of 0 is severest. Relevant and required only for rules of the kind LogAlert.
      */
-    severity?: pulumi.Input<number | undefined>;
+    severity?: pulumi.Input<number>;
     /**
      * The flag which indicates whether the provided query should be validated or not. The default is false. Relevant only for rules of the kind LogAlert.
      */
-    skipQueryValidation?: pulumi.Input<boolean | undefined>;
+    skipQueryValidation?: pulumi.Input<boolean>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of resource type of the target resource(s) on which the alert is created/updated. For example if the scope is a resource group and targetResourceTypes is Microsoft.Compute/virtualMachines, then a different alert will be fired for each virtual machine in the resource group which meet the alert criteria. Relevant only for rules of the kind LogAlert
      */
-    targetResourceTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    targetResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The period of time (in ISO 8601 duration format) on which the Alert query will be executed (bin size). Relevant and required only for rules of the kind LogAlert.
      */
-    windowSize?: pulumi.Input<string | undefined>;
+    windowSize?: pulumi.Input<string>;
 }

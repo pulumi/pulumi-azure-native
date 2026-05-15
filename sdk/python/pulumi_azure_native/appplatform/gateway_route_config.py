@@ -25,8 +25,8 @@ class GatewayRouteConfigArgs:
                  gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['GatewayRouteConfigPropertiesArgs']] = None,
-                 route_config_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['GatewayRouteConfigPropertiesArgs']] = None,
+                 route_config_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a GatewayRouteConfig resource.
 
@@ -82,26 +82,26 @@ class GatewayRouteConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['GatewayRouteConfigPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['GatewayRouteConfigPropertiesArgs']]:
         """
         API route config of the Spring Cloud Gateway
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['GatewayRouteConfigPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['GatewayRouteConfigPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="routeConfigName")
-    def route_config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def route_config_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the Spring Cloud Gateway route config.
         """
         return pulumi.get(self, "route_config_name")
 
     @route_config_name.setter
-    def route_config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def route_config_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "route_config_name", value)
 
 
@@ -111,11 +111,11 @@ class GatewayRouteConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['GatewayRouteConfigPropertiesArgs', 'GatewayRouteConfigPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['GatewayRouteConfigPropertiesArgs', 'GatewayRouteConfigPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_config_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Spring Cloud Gateway route config resource
@@ -162,11 +162,11 @@ class GatewayRouteConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['GatewayRouteConfigPropertiesArgs', 'GatewayRouteConfigPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['GatewayRouteConfigPropertiesArgs', 'GatewayRouteConfigPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_config_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

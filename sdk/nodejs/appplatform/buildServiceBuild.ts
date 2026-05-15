@@ -84,7 +84,7 @@ export class BuildServiceBuild extends pulumi.CustomResource {
             }
             resourceInputs["buildName"] = args?.buildName;
             resourceInputs["buildServiceName"] = args?.buildServiceName;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.appplatform.buildPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.buildPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -112,7 +112,7 @@ export interface BuildServiceBuildArgs {
     /**
      * The name of the build resource.
      */
-    buildName?: pulumi.Input<string | undefined>;
+    buildName?: pulumi.Input<string>;
     /**
      * The name of the build service resource.
      */
@@ -120,7 +120,7 @@ export interface BuildServiceBuildArgs {
     /**
      * Properties of the build resource
      */
-    properties?: pulumi.Input<inputs.appplatform.BuildPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.appplatform.BuildPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

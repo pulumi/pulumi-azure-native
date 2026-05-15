@@ -122,19 +122,19 @@ export interface PipelineGroupArgs {
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.monitor.AzureResourceManagerCommonTypesExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.monitor.AzureResourceManagerCommonTypesExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of pipeline group. The name is case insensitive.
      */
-    pipelineGroupName?: pulumi.Input<string | undefined>;
+    pipelineGroupName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.monitor.PipelineGroupPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.monitor.PipelineGroupPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -142,5 +142,5 @@ export interface PipelineGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

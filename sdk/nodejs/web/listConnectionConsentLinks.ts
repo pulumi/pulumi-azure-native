@@ -77,7 +77,7 @@ export interface ListConnectionConsentLinksOutputArgs {
     /**
      * Collection of resources
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.web.ConsentLinkParameterDefinitionArgs>[] | undefined>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.web.ConsentLinkParameterDefinitionArgs>[]>;
     /**
      * The resource group
      */
@@ -85,5 +85,5 @@ export interface ListConnectionConsentLinksOutputArgs {
     /**
      * Subscription Id
      */
-    subscriptionId?: pulumi.Input<string | undefined>;
+    subscriptionId?: pulumi.Input<string>;
 }

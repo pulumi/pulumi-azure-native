@@ -132,15 +132,15 @@ export interface SqlCollectorOperationArgs {
     /**
      * Gets or sets the collector agent properties.
      */
-    agentProperties?: pulumi.Input<inputs.migrate.CollectorAgentPropertiesBaseArgs | undefined>;
+    agentProperties?: pulumi.Input<inputs.migrate.CollectorAgentPropertiesBaseArgs>;
     /**
      * Sql collector ARM name.
      */
-    collectorName?: pulumi.Input<string | undefined>;
+    collectorName?: pulumi.Input<string>;
     /**
      * Gets the discovery site id.
      */
-    discoverySiteId?: pulumi.Input<string | undefined>;
+    discoverySiteId?: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */
@@ -148,7 +148,7 @@ export interface SqlCollectorOperationArgs {
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

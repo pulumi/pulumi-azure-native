@@ -241,8 +241,8 @@ def get_n_group(ngroups_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         update_profile=pulumi.get(__ret__, 'update_profile'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_n_group_output(ngroups_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_n_group_output(ngroups_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNGroupResult]:
     """
     Get the properties of the specified NGroups resource.

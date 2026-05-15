@@ -82,8 +82,8 @@ def list_saas_subscription_level_access_token(resource_group_name: Optional[_bui
     return AwaitableListSaasSubscriptionLevelAccessTokenResult(
         publisher_offer_base_uri=pulumi.get(__ret__, 'publisher_offer_base_uri'),
         token=pulumi.get(__ret__, 'token'))
-def list_saas_subscription_level_access_token_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_saas_subscription_level_access_token_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                     resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSaasSubscriptionLevelAccessTokenResult]:
     """
     Gets the ISV access token for a specified Subscription Level SaaS.

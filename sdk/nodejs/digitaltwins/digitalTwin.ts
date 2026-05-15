@@ -150,20 +150,20 @@ export interface DigitalTwinArgs {
     /**
      * The managed identity for the DigitalTwinsInstance.
      */
-    identity?: pulumi.Input<inputs.digitaltwins.DigitalTwinsIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.digitaltwins.DigitalTwinsIdentityArgs>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The private endpoint connections.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.digitaltwins.PrivateEndpointConnectionArgs>[] | undefined>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.digitaltwins.PrivateEndpointConnectionArgs>[]>;
     /**
      * Public network access for the DigitalTwinsInstance.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.digitaltwins.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.digitaltwins.PublicNetworkAccess>;
     /**
      * The name of the resource group that contains the DigitalTwinsInstance.
      */
@@ -171,9 +171,9 @@ export interface DigitalTwinArgs {
     /**
      * The name of the DigitalTwinsInstance.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

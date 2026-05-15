@@ -162,35 +162,35 @@ export interface FactoryArgs {
     /**
      * Properties to enable Customer Managed Key for the factory.
      */
-    encryption?: pulumi.Input<inputs.datafactory.EncryptionConfigurationArgs | undefined>;
+    encryption?: pulumi.Input<inputs.datafactory.EncryptionConfigurationArgs>;
     /**
      * The factory name.
      */
-    factoryName?: pulumi.Input<string | undefined>;
+    factoryName?: pulumi.Input<string>;
     /**
      * List of parameters for factory.
      */
-    globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.GlobalParameterSpecificationArgs>} | undefined>;
+    globalParameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.GlobalParameterSpecificationArgs>}>;
     /**
      * Managed service identity of the factory.
      */
-    identity?: pulumi.Input<inputs.datafactory.FactoryIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.datafactory.FactoryIdentityArgs>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Whether or not public network access is allowed for the data factory.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.datafactory.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.datafactory.PublicNetworkAccess>;
     /**
      * Purview information of the factory.
      */
-    purviewConfiguration?: pulumi.Input<inputs.datafactory.PurviewConfigurationArgs | undefined>;
+    purviewConfiguration?: pulumi.Input<inputs.datafactory.PurviewConfigurationArgs>;
     /**
      * Git repo information of the factory.
      */
-    repoConfiguration?: pulumi.Input<inputs.datafactory.FactoryGitHubConfigurationArgs | inputs.datafactory.FactoryVSTSConfigurationArgs | undefined>;
+    repoConfiguration?: pulumi.Input<inputs.datafactory.FactoryGitHubConfigurationArgs | inputs.datafactory.FactoryVSTSConfigurationArgs>;
     /**
      * The resource group name.
      */
@@ -198,5 +198,5 @@ export interface FactoryArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

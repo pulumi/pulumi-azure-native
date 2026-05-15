@@ -163,39 +163,39 @@ export interface AzureLargeInstanceArgs {
     /**
      * Specifies the Azure Large Instance unique ID.
      */
-    azureLargeInstanceId?: pulumi.Input<string | undefined>;
+    azureLargeInstanceId?: pulumi.Input<string>;
     /**
      * Name of the AzureLargeInstance.
      */
-    azureLargeInstanceName?: pulumi.Input<string | undefined>;
+    azureLargeInstanceName?: pulumi.Input<string>;
     /**
      * Specifies the hardware settings for the Azure Large Instance.
      */
-    hardwareProfile?: pulumi.Input<inputs.azurelargeinstance.HardwareProfileArgs | undefined>;
+    hardwareProfile?: pulumi.Input<inputs.azurelargeinstance.HardwareProfileArgs>;
     /**
      * Hardware revision of an Azure Large Instance
      */
-    hwRevision?: pulumi.Input<string | undefined>;
+    hwRevision?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the network settings for the Azure Large Instance.
      */
-    networkProfile?: pulumi.Input<inputs.azurelargeinstance.NetworkProfileArgs | undefined>;
+    networkProfile?: pulumi.Input<inputs.azurelargeinstance.NetworkProfileArgs>;
     /**
      * Specifies the operating system settings for the Azure Large Instance.
      */
-    osProfile?: pulumi.Input<inputs.azurelargeinstance.OsProfileArgs | undefined>;
+    osProfile?: pulumi.Input<inputs.azurelargeinstance.OsProfileArgs>;
     /**
      * Resource power state
      */
-    powerState?: pulumi.Input<string | enums.azurelargeinstance.AzureLargeInstancePowerStateEnum | undefined>;
+    powerState?: pulumi.Input<string | enums.azurelargeinstance.AzureLargeInstancePowerStateEnum>;
     /**
      * Resource proximity placement group
      */
-    proximityPlacementGroup?: pulumi.Input<string | undefined>;
+    proximityPlacementGroup?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -203,9 +203,9 @@ export interface AzureLargeInstanceArgs {
     /**
      * Specifies the storage settings for the Azure Large Instance disks.
      */
-    storageProfile?: pulumi.Input<inputs.azurelargeinstance.StorageProfileArgs | undefined>;
+    storageProfile?: pulumi.Input<inputs.azurelargeinstance.StorageProfileArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

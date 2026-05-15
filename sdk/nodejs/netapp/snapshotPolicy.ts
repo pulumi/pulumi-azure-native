@@ -160,23 +160,23 @@ export interface SnapshotPolicyArgs {
     /**
      * Schedule for daily snapshots
      */
-    dailySchedule?: pulumi.Input<inputs.netapp.DailyScheduleArgs | undefined>;
+    dailySchedule?: pulumi.Input<inputs.netapp.DailyScheduleArgs>;
     /**
      * The property to decide policy is enabled or not
      */
-    enabled?: pulumi.Input<boolean | undefined>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Schedule for hourly snapshots
      */
-    hourlySchedule?: pulumi.Input<inputs.netapp.HourlyScheduleArgs | undefined>;
+    hourlySchedule?: pulumi.Input<inputs.netapp.HourlyScheduleArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Schedule for monthly snapshots
      */
-    monthlySchedule?: pulumi.Input<inputs.netapp.MonthlyScheduleArgs | undefined>;
+    monthlySchedule?: pulumi.Input<inputs.netapp.MonthlyScheduleArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -184,13 +184,13 @@ export interface SnapshotPolicyArgs {
     /**
      * The name of the snapshot policy
      */
-    snapshotPolicyName?: pulumi.Input<string | undefined>;
+    snapshotPolicyName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Schedule for weekly snapshots
      */
-    weeklySchedule?: pulumi.Input<inputs.netapp.WeeklyScheduleArgs | undefined>;
+    weeklySchedule?: pulumi.Input<inputs.netapp.WeeklyScheduleArgs>;
 }

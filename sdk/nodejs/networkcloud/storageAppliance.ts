@@ -254,7 +254,7 @@ export interface StorageApplianceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource ID of the rack where this storage appliance resides.
      */
@@ -274,7 +274,7 @@ export interface StorageApplianceArgs {
     /**
      * The name of the storage appliance.
      */
-    storageApplianceName?: pulumi.Input<string | undefined>;
+    storageApplianceName?: pulumi.Input<string>;
     /**
      * The SKU for the storage appliance.
      */
@@ -282,5 +282,5 @@ export interface StorageApplianceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

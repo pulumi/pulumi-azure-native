@@ -120,15 +120,15 @@ export interface NetworkServiceDesignGroupArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network service design group.
      */
-    networkServiceDesignGroupName?: pulumi.Input<string | undefined>;
+    networkServiceDesignGroupName?: pulumi.Input<string>;
     /**
      * network service design group properties.
      */
-    properties?: pulumi.Input<inputs.hybridnetwork.NetworkServiceDesignGroupPropertiesFormatArgs | undefined>;
+    properties?: pulumi.Input<inputs.hybridnetwork.NetworkServiceDesignGroupPropertiesFormatArgs>;
     /**
      * The name of the publisher.
      */
@@ -140,5 +140,5 @@ export interface NetworkServiceDesignGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

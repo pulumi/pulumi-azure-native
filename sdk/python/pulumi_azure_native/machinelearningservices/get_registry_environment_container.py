@@ -140,9 +140,9 @@ def get_registry_environment_container(environment_name: Optional[_builtins.str]
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_registry_environment_container_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_registry_environment_container_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryEnvironmentContainerResult]:
     """
     Get container.

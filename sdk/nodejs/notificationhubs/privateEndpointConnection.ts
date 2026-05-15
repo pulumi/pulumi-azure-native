@@ -112,11 +112,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Private Endpoint Connection Name
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Private Endpoint Connection properties.
      */
-    properties?: pulumi.Input<inputs.notificationhubs.PrivateEndpointConnectionPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.notificationhubs.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -151,11 +151,11 @@ export interface FailoverGroupArgs {
     /**
      * List of databases in the failover group.
      */
-    databases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    databases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the failover group.
      */
-    failoverGroupName?: pulumi.Input<string | undefined>;
+    failoverGroupName?: pulumi.Input<string>;
     /**
      * List of partner server information for the failover group.
      */
@@ -163,7 +163,7 @@ export interface FailoverGroupArgs {
     /**
      * Read-only endpoint of the failover group instance.
      */
-    readOnlyEndpoint?: pulumi.Input<inputs.sql.FailoverGroupReadOnlyEndpointArgs | undefined>;
+    readOnlyEndpoint?: pulumi.Input<inputs.sql.FailoverGroupReadOnlyEndpointArgs>;
     /**
      * Read-write endpoint of the failover group instance.
      */
@@ -175,7 +175,7 @@ export interface FailoverGroupArgs {
     /**
      * Databases secondary type on partner server.
      */
-    secondaryType?: pulumi.Input<string | enums.sql.FailoverGroupDatabasesSecondaryType | undefined>;
+    secondaryType?: pulumi.Input<string | enums.sql.FailoverGroupDatabasesSecondaryType>;
     /**
      * The name of the server containing the failover group.
      */
@@ -183,5 +183,5 @@ export interface FailoverGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

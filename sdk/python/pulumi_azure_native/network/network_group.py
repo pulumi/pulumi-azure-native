@@ -23,9 +23,9 @@ class NetworkGroupArgs:
     def __init__(__self__, *,
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupMemberType']]] = None,
-                 network_group_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 member_type: Optional[pulumi.Input[Union[_builtins.str, 'GroupMemberType']]] = None,
+                 network_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkGroup resource.
 
@@ -70,38 +70,38 @@ class NetworkGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         A description of the network group.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="memberType")
-    def member_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'GroupMemberType']]]:
+    def member_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GroupMemberType']]]:
         """
         The type of the group member.
         """
         return pulumi.get(self, "member_type")
 
     @member_type.setter
-    def member_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GroupMemberType']]]):
+    def member_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GroupMemberType']]]):
         pulumi.set(self, "member_type", value)
 
     @_builtins.property
     @pulumi.getter(name="networkGroupName")
-    def network_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def network_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the network group.
         """
         return pulumi.get(self, "network_group_name")
 
     @network_group_name.setter
-    def network_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def network_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "network_group_name", value)
 
 
@@ -111,11 +111,11 @@ class NetworkGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupMemberType']]] = None,
-                 network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 member_type: Optional[pulumi.Input[Union[_builtins.str, 'GroupMemberType']]] = None,
+                 network_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The network group resource
@@ -162,11 +162,11 @@ class NetworkGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupMemberType']]] = None,
-                 network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 member_type: Optional[pulumi.Input[Union[_builtins.str, 'GroupMemberType']]] = None,
+                 network_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

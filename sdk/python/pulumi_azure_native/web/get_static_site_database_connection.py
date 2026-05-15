@@ -192,9 +192,9 @@ def get_static_site_database_connection(database_connection_name: Optional[_buil
         region=pulumi.get(__ret__, 'region'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_static_site_database_connection_output(database_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_static_site_database_connection_output(database_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteDatabaseConnectionResult]:
     """
     Static Site Database Connection resource.

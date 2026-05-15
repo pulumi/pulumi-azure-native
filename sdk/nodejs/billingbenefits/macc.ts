@@ -257,31 +257,31 @@ export interface MaccArgs {
     /**
      * Setting this to true means multi-entity.
      */
-    allowContributors?: pulumi.Input<boolean | undefined>;
+    allowContributors?: pulumi.Input<boolean>;
     /**
      * Setting this to 'Enable' enables automatic shortfall charging when commitment is not met.
      */
-    automaticShortfall?: pulumi.Input<string | enums.billingbenefits.EnablementMode | undefined>;
+    automaticShortfall?: pulumi.Input<string | enums.billingbenefits.EnablementMode>;
     /**
      * Optional field to record suppression reason for automatic shortfall.
      */
-    automaticShortfallSuppressReason?: pulumi.Input<inputs.billingbenefits.AutomaticShortfallSuppressReasonArgs | undefined>;
+    automaticShortfallSuppressReason?: pulumi.Input<inputs.billingbenefits.AutomaticShortfallSuppressReasonArgs>;
     /**
      * Fully-qualified identifier of the billing account where the MACC is applied. Present only for Enterprise Agreement customers. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}
      */
-    billingAccountResourceId?: pulumi.Input<string | undefined>;
+    billingAccountResourceId?: pulumi.Input<string>;
     /**
      * Commitment towards the benefit.
      */
-    commitment?: pulumi.Input<inputs.billingbenefits.CommitmentArgs | undefined>;
+    commitment?: pulumi.Input<inputs.billingbenefits.CommitmentArgs>;
     /**
      * Display name
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * Must be end of month. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
      */
-    endAt?: pulumi.Input<string | undefined>;
+    endAt?: pulumi.Input<string>;
     /**
      * Represents type of the object being operated on. Possible values are primary or contributor.
      */
@@ -289,43 +289,43 @@ export interface MaccArgs {
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of primary MACC.
      */
-    maccName?: pulumi.Input<string | undefined>;
+    maccName?: pulumi.Input<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    managedBy?: pulumi.Input<string | undefined>;
+    managedBy?: pulumi.Input<string>;
     /**
      * List of milestones associated with this MACC.
      */
-    milestones?: pulumi.Input<pulumi.Input<inputs.billingbenefits.MaccMilestoneArgs>[] | undefined>;
+    milestones?: pulumi.Input<pulumi.Input<inputs.billingbenefits.MaccMilestoneArgs>[]>;
     /**
      * Plan for the resource.
      */
-    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs | undefined>;
+    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs>;
     /**
      * Fully-qualified billing account resource identifier of the primary MACC. Format must be Azure Resource ID: /providers/Microsoft.Billing/billingAccounts/{acctId:orgId}.
      */
-    primaryBillingAccountResourceId?: pulumi.Input<string | undefined>;
+    primaryBillingAccountResourceId?: pulumi.Input<string>;
     /**
      * Fully-qualified resource identifier of the primary MACC. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/maccs/{maccName}.
      */
-    primaryResourceId?: pulumi.Input<string | undefined>;
+    primaryResourceId?: pulumi.Input<string>;
     /**
      * Represents catalog UPN.
      */
-    productCode?: pulumi.Input<string | undefined>;
+    productCode?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -333,29 +333,29 @@ export interface MaccArgs {
     /**
      * This is the resource identifier of either the primary MACC or the contributor. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/maccs/{maccName}.
      */
-    resourceId?: pulumi.Input<string | undefined>;
+    resourceId?: pulumi.Input<string>;
     /**
      * MACC shortfall
      */
-    shortfall?: pulumi.Input<inputs.billingbenefits.ShortfallArgs | undefined>;
+    shortfall?: pulumi.Input<inputs.billingbenefits.ShortfallArgs>;
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs>;
     /**
      * Must be start of month. Timestamp must be in the ISO date format YYYY-MM-DDT00:00:00Z.
      */
-    startAt?: pulumi.Input<string | undefined>;
+    startAt?: pulumi.Input<string>;
     /**
      * Represents the current status of the MACC.
      */
-    status?: pulumi.Input<string | enums.billingbenefits.MaccStatus | undefined>;
+    status?: pulumi.Input<string | enums.billingbenefits.MaccStatus>;
     /**
      * This is the globally unique identifier of the MACC which will not change for the lifetime of the MACC.
      */
-    systemId?: pulumi.Input<string | undefined>;
+    systemId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

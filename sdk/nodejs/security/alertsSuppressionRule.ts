@@ -141,15 +141,15 @@ export interface AlertsSuppressionRuleArgs {
     /**
      * The unique name of the suppression alert rule
      */
-    alertsSuppressionRuleName?: pulumi.Input<string | undefined>;
+    alertsSuppressionRuleName?: pulumi.Input<string>;
     /**
      * Any comment regarding the rule
      */
-    comment?: pulumi.Input<string | undefined>;
+    comment?: pulumi.Input<string>;
     /**
      * Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
      */
-    expirationDateUtc?: pulumi.Input<string | undefined>;
+    expirationDateUtc?: pulumi.Input<string>;
     /**
      * The reason for dismissing the alert
      */
@@ -161,5 +161,5 @@ export interface AlertsSuppressionRuleArgs {
     /**
      * The suppression conditions
      */
-    suppressionAlertsScope?: pulumi.Input<inputs.security.SuppressionAlertsScopeArgs | undefined>;
+    suppressionAlertsScope?: pulumi.Input<inputs.security.SuppressionAlertsScopeArgs>;
 }

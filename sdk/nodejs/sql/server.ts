@@ -217,47 +217,47 @@ export interface ServerArgs {
     /**
      * Administrator username for the server. Once created it cannot be changed.
      */
-    administratorLogin?: pulumi.Input<string | undefined>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The administrator login password (required for server creation).
      */
-    administratorLoginPassword?: pulumi.Input<string | undefined>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
-    administrators?: pulumi.Input<inputs.sql.ServerExternalAdministratorArgs | undefined>;
+    administrators?: pulumi.Input<inputs.sql.ServerExternalAdministratorArgs>;
     /**
      * The Client id used for cross tenant CMK scenario
      */
-    federatedClientId?: pulumi.Input<string | undefined>;
+    federatedClientId?: pulumi.Input<string>;
     /**
      * The Azure Active Directory identity of the server.
      */
-    identity?: pulumi.Input<inputs.sql.ResourceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.sql.ResourceIdentityArgs>;
     /**
      * Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    isIPv6Enabled?: pulumi.Input<string | enums.sql.ServerNetworkAccessFlag | undefined>;
+    isIPv6Enabled?: pulumi.Input<string | enums.sql.ServerNetworkAccessFlag>;
     /**
      * A CMK URI of the key to use for encryption.
      */
-    keyId?: pulumi.Input<string | undefined>;
+    keyId?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
      */
-    minimalTlsVersion?: pulumi.Input<string | enums.sql.MinimalTlsVersion | undefined>;
+    minimalTlsVersion?: pulumi.Input<string | enums.sql.MinimalTlsVersion>;
     /**
      * The resource id of a user assigned identity to be used by default.
      */
-    primaryUserAssignedIdentityId?: pulumi.Input<string | undefined>;
+    primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**
      * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.sql.ServerPublicNetworkAccessFlag | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.sql.ServerPublicNetworkAccessFlag>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -265,17 +265,17 @@ export interface ServerArgs {
     /**
      * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    restrictOutboundNetworkAccess?: pulumi.Input<string | enums.sql.ServerNetworkAccessFlag | undefined>;
+    restrictOutboundNetworkAccess?: pulumi.Input<string | enums.sql.ServerNetworkAccessFlag>;
     /**
      * The name of the server.
      */
-    serverName?: pulumi.Input<string | undefined>;
+    serverName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The version of the server.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

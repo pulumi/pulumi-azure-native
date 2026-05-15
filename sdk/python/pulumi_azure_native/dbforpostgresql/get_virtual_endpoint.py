@@ -166,9 +166,9 @@ def get_virtual_endpoint(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         virtual_endpoints=pulumi.get(__ret__, 'virtual_endpoints'))
-def get_virtual_endpoint_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                virtual_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_endpoint_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                virtual_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualEndpointResult]:
     """
     Gets information about a pair of virtual endpoints.

@@ -123,7 +123,7 @@ export interface CacheArgs {
     /**
      * Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
      */
-    cacheId?: pulumi.Input<string | undefined>;
+    cacheId?: pulumi.Input<string>;
     /**
      * Runtime connection string to cache
      */
@@ -131,7 +131,7 @@ export interface CacheArgs {
     /**
      * Cache description
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -139,7 +139,7 @@ export interface CacheArgs {
     /**
      * Original uri of entity in external system cache points to
      */
-    resourceId?: pulumi.Input<string | undefined>;
+    resourceId?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */

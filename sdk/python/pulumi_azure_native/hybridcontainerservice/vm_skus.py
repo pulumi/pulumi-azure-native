@@ -23,7 +23,7 @@ __all__ = ['VMSkusArgs', 'VMSkus']
 class VMSkusArgs:
     def __init__(__self__, *,
                  custom_location_resource_uri: pulumi.Input[_builtins.str],
-                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None):
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None):
         """
         The set of arguments for constructing a VMSkus resource.
 
@@ -48,14 +48,14 @@ class VMSkusArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
         """
         Extended location pointing to the underlying infrastructure
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
 
@@ -65,8 +65,8 @@ class VMSkus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_location_resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 custom_location_resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  __props__=None):
         """
         The list of supported VM SKUs.
@@ -110,8 +110,8 @@ class VMSkus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_location_resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 custom_location_resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

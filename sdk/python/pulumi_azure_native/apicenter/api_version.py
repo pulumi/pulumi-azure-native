@@ -27,7 +27,7 @@ class ApiVersionArgs:
                  service_name: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 version_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 version_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiVersion resource.
 
@@ -122,14 +122,14 @@ class ApiVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="versionName")
-    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the API version.
         """
         return pulumi.get(self, "version_name")
 
     @version_name.setter
-    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "version_name", value)
 
 
@@ -139,13 +139,13 @@ class ApiVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 lifecycle_stage: pulumi.Input[Optional[Union[_builtins.str, 'LifecycleStage']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 title: pulumi.Input[Optional[_builtins.str]] = None,
-                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 lifecycle_stage: Optional[pulumi.Input[Union[_builtins.str, 'LifecycleStage']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         API version entity.
@@ -194,13 +194,13 @@ class ApiVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 lifecycle_stage: pulumi.Input[Optional[Union[_builtins.str, 'LifecycleStage']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 title: pulumi.Input[Optional[_builtins.str]] = None,
-                 version_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 lifecycle_stage: Optional[pulumi.Input[Union[_builtins.str, 'LifecycleStage']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 title: Optional[pulumi.Input[_builtins.str]] = None,
+                 version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

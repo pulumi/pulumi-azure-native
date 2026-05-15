@@ -112,7 +112,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Private link resource name.
      */
-    peConnectionName?: pulumi.Input<string | undefined>;
+    peConnectionName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

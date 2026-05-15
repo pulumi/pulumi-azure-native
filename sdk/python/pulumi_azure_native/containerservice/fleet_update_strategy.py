@@ -24,7 +24,7 @@ class FleetUpdateStrategyArgs:
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  strategy: pulumi.Input['UpdateRunStrategyArgs'],
-                 update_strategy_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 update_strategy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetUpdateStrategy resource.
 
@@ -77,14 +77,14 @@ class FleetUpdateStrategyArgs:
 
     @_builtins.property
     @pulumi.getter(name="updateStrategyName")
-    def update_strategy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def update_strategy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the UpdateStrategy resource.
         """
         return pulumi.get(self, "update_strategy_name")
 
     @update_strategy_name.setter
-    def update_strategy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def update_strategy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "update_strategy_name", value)
 
 
@@ -94,10 +94,10 @@ class FleetUpdateStrategy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 strategy: pulumi.Input[Optional[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
-                 update_strategy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
+                 update_strategy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Defines a multi-stage process to perform update operations across members of a Fleet.
@@ -143,10 +143,10 @@ class FleetUpdateStrategy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 strategy: pulumi.Input[Optional[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
-                 update_strategy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 strategy: Optional[pulumi.Input[Union['UpdateRunStrategyArgs', 'UpdateRunStrategyArgsDict']]] = None,
+                 update_strategy_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

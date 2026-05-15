@@ -138,19 +138,19 @@ export interface SapDiscoverySiteArgs {
     /**
      * The extended location definition.
      */
-    extendedLocation?: pulumi.Input<inputs.workloads.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.workloads.ExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The master site ID from Azure Migrate.
      */
-    masterSiteId?: pulumi.Input<string | undefined>;
+    masterSiteId?: pulumi.Input<string>;
     /**
      * The migrate project ID from Azure Migrate.
      */
-    migrateProjectId?: pulumi.Input<string | undefined>;
+    migrateProjectId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -158,9 +158,9 @@ export interface SapDiscoverySiteArgs {
     /**
      * The name of the discovery site resource for SAP Migration.
      */
-    sapDiscoverySiteName?: pulumi.Input<string | undefined>;
+    sapDiscoverySiteName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

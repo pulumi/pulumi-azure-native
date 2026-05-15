@@ -88,9 +88,9 @@ def get_integration_runtime_status(integration_runtime_name: Optional[_builtins.
     return AwaitableGetIntegrationRuntimeStatusResult(
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'))
-def get_integration_runtime_status_output(integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_integration_runtime_status_output(integration_runtime_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationRuntimeStatusResult]:
     """
     Get the integration runtime status

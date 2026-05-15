@@ -21,11 +21,11 @@ class VirtualRouterPeeringArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_router_name: pulumi.Input[_builtins.str],
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 peer_asn: pulumi.Input[Optional[_builtins.float]] = None,
-                 peer_ip: pulumi.Input[Optional[_builtins.str]] = None,
-                 peering_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 peer_asn: Optional[pulumi.Input[_builtins.float]] = None,
+                 peer_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 peering_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualRouterPeering resource.
 
@@ -76,62 +76,62 @@ class VirtualRouterPeeringArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the virtual router peering that is unique within a virtual router.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="peerAsn")
-    def peer_asn(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def peer_asn(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Peer ASN.
         """
         return pulumi.get(self, "peer_asn")
 
     @peer_asn.setter
-    def peer_asn(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def peer_asn(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "peer_asn", value)
 
     @_builtins.property
     @pulumi.getter(name="peerIp")
-    def peer_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def peer_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Peer IP.
         """
         return pulumi.get(self, "peer_ip")
 
     @peer_ip.setter
-    def peer_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def peer_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "peer_ip", value)
 
     @_builtins.property
     @pulumi.getter(name="peeringName")
-    def peering_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def peering_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the Virtual Router Peering.
         """
         return pulumi.get(self, "peering_name")
 
     @peering_name.setter
-    def peering_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def peering_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "peering_name", value)
 
 
@@ -141,13 +141,13 @@ class VirtualRouterPeering(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 peer_asn: pulumi.Input[Optional[_builtins.float]] = None,
-                 peer_ip: pulumi.Input[Optional[_builtins.str]] = None,
-                 peering_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_router_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 peer_asn: Optional[pulumi.Input[_builtins.float]] = None,
+                 peer_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 peering_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_router_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Virtual Router Peering resource.
@@ -196,13 +196,13 @@ class VirtualRouterPeering(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 peer_asn: pulumi.Input[Optional[_builtins.float]] = None,
-                 peer_ip: pulumi.Input[Optional[_builtins.str]] = None,
-                 peering_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_router_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 peer_asn: Optional[pulumi.Input[_builtins.float]] = None,
+                 peer_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 peering_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_router_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

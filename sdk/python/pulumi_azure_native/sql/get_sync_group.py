@@ -273,10 +273,10 @@ def get_sync_group(database_name: Optional[_builtins.str] = None,
         sync_state=pulumi.get(__ret__, 'sync_state'),
         type=pulumi.get(__ret__, 'type'),
         use_private_link_connection=pulumi.get(__ret__, 'use_private_link_connection'))
-def get_sync_group_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_sync_group_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                          server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                          sync_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
     Gets a sync group.

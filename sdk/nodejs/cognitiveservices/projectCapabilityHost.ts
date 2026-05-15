@@ -113,7 +113,7 @@ export interface ProjectCapabilityHostArgs {
     /**
      * The name of the capability host associated with the Cognitive Services Resource
      */
-    capabilityHostName?: pulumi.Input<string | undefined>;
+    capabilityHostName?: pulumi.Input<string>;
     /**
      * [Required] Additional attributes of the entity.
      */

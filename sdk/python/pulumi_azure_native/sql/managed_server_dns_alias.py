@@ -21,8 +21,8 @@ class ManagedServerDnsAliasArgs:
     def __init__(__self__, *,
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 create_dns_record: pulumi.Input[Optional[_builtins.bool]] = None,
-                 dns_alias_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 create_dns_record: Optional[pulumi.Input[_builtins.bool]] = None,
+                 dns_alias_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedServerDnsAlias resource.
 
@@ -65,23 +65,23 @@ class ManagedServerDnsAliasArgs:
 
     @_builtins.property
     @pulumi.getter(name="createDnsRecord")
-    def create_dns_record(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def create_dns_record(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Whether or not DNS record should be created for this alias.
         """
         return pulumi.get(self, "create_dns_record")
 
     @create_dns_record.setter
-    def create_dns_record(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def create_dns_record(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "create_dns_record", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsAliasName")
-    def dns_alias_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def dns_alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "dns_alias_name")
 
     @dns_alias_name.setter
-    def dns_alias_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def dns_alias_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dns_alias_name", value)
 
 
@@ -91,10 +91,10 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_dns_record: pulumi.Input[Optional[_builtins.bool]] = None,
-                 dns_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_dns_record: Optional[pulumi.Input[_builtins.bool]] = None,
+                 dns_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A managed server DNS alias.
@@ -139,10 +139,10 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_dns_record: pulumi.Input[Optional[_builtins.bool]] = None,
-                 dns_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_dns_record: Optional[pulumi.Input[_builtins.bool]] = None,
+                 dns_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

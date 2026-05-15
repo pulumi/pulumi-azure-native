@@ -146,7 +146,7 @@ export class Namespace extends pulumi.CustomResource {
             }
             resourceInputs["alternateName"] = args?.alternateName;
             resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
-            resourceInputs["encryption"] = args ? pulumi.output(args.encryption).apply(v => v === undefined ? undefined : inputs.servicebus.encryptionArgsProvideDefaults(v)) : undefined;
+            resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.servicebus.encryptionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
@@ -206,44 +206,44 @@ export interface NamespaceArgs {
     /**
      * Alternate name for namespace
      */
-    alternateName?: pulumi.Input<string | undefined>;
+    alternateName?: pulumi.Input<string>;
     /**
      * This property disables SAS authentication for the Service Bus namespace.
      */
-    disableLocalAuth?: pulumi.Input<boolean | undefined>;
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * Properties of BYOK Encryption description
      */
-    encryption?: pulumi.Input<inputs.servicebus.EncryptionArgs | undefined>;
+    encryption?: pulumi.Input<inputs.servicebus.EncryptionArgs>;
     /**
      * Properties of BYOK Identity description
      */
-    identity?: pulumi.Input<inputs.servicebus.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.servicebus.IdentityArgs>;
     /**
      * The Geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The minimum TLS version for the cluster to support, e.g. '1.2'
      */
-    minimumTlsVersion?: pulumi.Input<string | enums.servicebus.TlsVersion | undefined>;
+    minimumTlsVersion?: pulumi.Input<string | enums.servicebus.TlsVersion>;
     /**
      * The namespace name.
      */
-    namespaceName?: pulumi.Input<string | undefined>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
      */
-    premiumMessagingPartitions?: pulumi.Input<number | undefined>;
+    premiumMessagingPartitions?: pulumi.Input<number>;
     /**
      * List of private endpoint connections.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.servicebus.PrivateEndpointConnectionArgs>[] | undefined>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.servicebus.PrivateEndpointConnectionArgs>[]>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.servicebus.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.servicebus.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -251,13 +251,13 @@ export interface NamespaceArgs {
     /**
      * Properties of SKU
      */
-    sku?: pulumi.Input<inputs.servicebus.SBSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.servicebus.SBSkuArgs>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
      */
-    zoneRedundant?: pulumi.Input<boolean | undefined>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

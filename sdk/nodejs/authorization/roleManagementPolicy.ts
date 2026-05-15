@@ -145,23 +145,23 @@ export interface RoleManagementPolicyArgs {
     /**
      * The role management policy description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The role management policy display name.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The role management policy is default policy.
      */
-    isOrganizationDefault?: pulumi.Input<boolean | undefined>;
+    isOrganizationDefault?: pulumi.Input<boolean>;
     /**
      * The name (guid) of the role management policy to upsert.
      */
-    roleManagementPolicyName?: pulumi.Input<string | undefined>;
+    roleManagementPolicyName?: pulumi.Input<string>;
     /**
      * The rule applied to the policy.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.authorization.RoleManagementPolicyApprovalRuleArgs | inputs.authorization.RoleManagementPolicyAuthenticationContextRuleArgs | inputs.authorization.RoleManagementPolicyEnablementRuleArgs | inputs.authorization.RoleManagementPolicyExpirationRuleArgs | inputs.authorization.RoleManagementPolicyNotificationRuleArgs | inputs.authorization.RoleManagementPolicyPimOnlyModeRuleArgs>[] | undefined>;
+    rules?: pulumi.Input<pulumi.Input<inputs.authorization.RoleManagementPolicyApprovalRuleArgs | inputs.authorization.RoleManagementPolicyAuthenticationContextRuleArgs | inputs.authorization.RoleManagementPolicyEnablementRuleArgs | inputs.authorization.RoleManagementPolicyExpirationRuleArgs | inputs.authorization.RoleManagementPolicyNotificationRuleArgs | inputs.authorization.RoleManagementPolicyPimOnlyModeRuleArgs>[]>;
     /**
      * The role management policy scope.
      */

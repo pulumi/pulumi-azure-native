@@ -100,9 +100,9 @@ def list_web_app_host_keys_slot(name: Optional[_builtins.str] = None,
         function_keys=pulumi.get(__ret__, 'function_keys'),
         master_key=pulumi.get(__ret__, 'master_key'),
         system_keys=pulumi.get(__ret__, 'system_keys'))
-def list_web_app_host_keys_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       slot: pulumi.Input[Optional[_builtins.str]] = None,
+def list_web_app_host_keys_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       slot: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppHostKeysSlotResult]:
     """
     Description for Get host secrets for a function app.

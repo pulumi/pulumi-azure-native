@@ -141,19 +141,19 @@ export interface ConnectorArgs {
     /**
      * The name of the connector resource
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName?: pulumi.Input<string>;
     /**
      * Managed service identity (user assigned identities)
      */
-    identity?: pulumi.Input<inputs.workloads.UserAssignedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.workloads.UserAssignedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Managed resource group configuration
      */
-    managedResourceGroupConfiguration?: pulumi.Input<inputs.workloads.ManagedRGConfigurationArgs | undefined>;
+    managedResourceGroupConfiguration?: pulumi.Input<inputs.workloads.ManagedRGConfigurationArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -165,5 +165,5 @@ export interface ConnectorArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

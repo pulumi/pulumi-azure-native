@@ -23,10 +23,10 @@ class CertificateArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault: pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']] = None,
-                 password: pulumi.Input[Optional[_builtins.str]] = None):
+                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault: Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']] = None,
+                 password: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
@@ -74,50 +74,50 @@ class CertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateId")
-    def certificate_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def certificate_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Identifier of the certificate entity. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "certificate_id")
 
     @certificate_id.setter
-    def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def certificate_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def data(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def data(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Base 64 encoded certificate using the application/x-pkcs12 representation.
         """
         return pulumi.get(self, "data")
 
     @data.setter
-    def data(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def data(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "data", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']]:
+    def key_vault(self) -> Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']]:
         """
         KeyVault location details of the certificate.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: pulumi.Input[Optional['KeyVaultContractCreatePropertiesArgs']]):
+    def key_vault(self, value: Optional[pulumi.Input['KeyVaultContractCreatePropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Password for the Certificate
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "password", value)
 
 
@@ -127,12 +127,12 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault: pulumi.Input[Optional[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
-                 password: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault: Optional[pulumi.Input[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
+                 password: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Certificate details.
@@ -180,12 +180,12 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 data: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault: pulumi.Input[Optional[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
-                 password: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 data: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault: Optional[pulumi.Input[Union['KeyVaultContractCreatePropertiesArgs', 'KeyVaultContractCreatePropertiesArgsDict']]] = None,
+                 password: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

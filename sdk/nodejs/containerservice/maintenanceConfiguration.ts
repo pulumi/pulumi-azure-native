@@ -88,7 +88,7 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceName'");
             }
             resourceInputs["configName"] = args?.configName;
-            resourceInputs["maintenanceWindow"] = args ? pulumi.output(args.maintenanceWindow).apply(v => v === undefined ? undefined : inputs.containerservice.maintenanceWindowArgsProvideDefaults(v)) : undefined;
+            resourceInputs["maintenanceWindow"] = args ? (args.maintenanceWindow ? pulumi.output(args.maintenanceWindow).apply(inputs.containerservice.maintenanceWindowArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["notAllowedTime"] = args?.notAllowedTime;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
@@ -120,15 +120,15 @@ export interface MaintenanceConfigurationArgs {
     /**
      * The name of the maintenance configuration.
      */
-    configName?: pulumi.Input<string | undefined>;
+    configName?: pulumi.Input<string>;
     /**
      * Maintenance window for the maintenance configuration.
      */
-    maintenanceWindow?: pulumi.Input<inputs.containerservice.MaintenanceWindowArgs | undefined>;
+    maintenanceWindow?: pulumi.Input<inputs.containerservice.MaintenanceWindowArgs>;
     /**
      * Time slots on which upgrade is not allowed.
      */
-    notAllowedTime?: pulumi.Input<pulumi.Input<inputs.containerservice.TimeSpanArgs>[] | undefined>;
+    notAllowedTime?: pulumi.Input<pulumi.Input<inputs.containerservice.TimeSpanArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface MaintenanceConfigurationArgs {
     /**
      * Time slots during the week when planned maintenance is allowed to proceed. If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
      */
-    timeInWeek?: pulumi.Input<pulumi.Input<inputs.containerservice.TimeInWeekArgs>[] | undefined>;
+    timeInWeek?: pulumi.Input<pulumi.Input<inputs.containerservice.TimeInWeekArgs>[]>;
 }

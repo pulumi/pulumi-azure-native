@@ -105,7 +105,7 @@ export interface ProductWikiArgs {
     /**
      * Collection wiki documents included into this wiki.
      */
-    documents?: pulumi.Input<pulumi.Input<inputs.apimanagement.WikiDocumentationContractArgs>[] | undefined>;
+    documents?: pulumi.Input<pulumi.Input<inputs.apimanagement.WikiDocumentationContractArgs>[]>;
     /**
      * Product identifier. Must be unique in the current API Management service instance.
      */

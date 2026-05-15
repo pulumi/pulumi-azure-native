@@ -156,23 +156,23 @@ export interface FirmwareArgs {
     /**
      * User-specified description of the firmware.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * File name for a firmware that user uploaded.
      */
-    fileName?: pulumi.Input<string | undefined>;
+    fileName?: pulumi.Input<string>;
     /**
      * File size of the uploaded firmware image.
      */
-    fileSize?: pulumi.Input<number | undefined>;
+    fileSize?: pulumi.Input<number>;
     /**
      * The id of the firmware.
      */
-    firmwareId?: pulumi.Input<string | undefined>;
+    firmwareId?: pulumi.Input<string>;
     /**
      * Firmware model.
      */
-    model?: pulumi.Input<string | undefined>;
+    model?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -180,19 +180,19 @@ export interface FirmwareArgs {
     /**
      * The status of firmware scan.
      */
-    status?: pulumi.Input<string | enums.iotfirmwaredefense.Status | undefined>;
+    status?: pulumi.Input<string | enums.iotfirmwaredefense.Status>;
     /**
      * A list of errors or other messages generated during firmware analysis
      */
-    statusMessages?: pulumi.Input<pulumi.Input<inputs.iotfirmwaredefense.StatusMessageArgs>[] | undefined>;
+    statusMessages?: pulumi.Input<pulumi.Input<inputs.iotfirmwaredefense.StatusMessageArgs>[]>;
     /**
      * Firmware vendor.
      */
-    vendor?: pulumi.Input<string | undefined>;
+    vendor?: pulumi.Input<string>;
     /**
      * Firmware version.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
     /**
      * The name of the firmware analysis workspace.
      */

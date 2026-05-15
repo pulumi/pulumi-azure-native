@@ -26,7 +26,7 @@ class ServerTrustGroupArgs:
                  location_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  trust_scopes: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]],
-                 server_trust_group_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 server_trust_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerTrustGroup resource.
 
@@ -93,14 +93,14 @@ class ServerTrustGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="serverTrustGroupName")
-    def server_trust_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def server_trust_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the server trust group.
         """
         return pulumi.get(self, "server_trust_group_name")
 
     @server_trust_group_name.setter
-    def server_trust_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def server_trust_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "server_trust_group_name", value)
 
 
@@ -110,11 +110,11 @@ class ServerTrustGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerInfoArgs', 'ServerInfoArgsDict']]]]] = None,
-                 location_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_trust_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 trust_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]] = None,
+                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerInfoArgs', 'ServerInfoArgsDict']]]]] = None,
+                 location_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_trust_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]] = None,
                  __props__=None):
         """
         A server trust group.
@@ -161,11 +161,11 @@ class ServerTrustGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServerInfoArgs', 'ServerInfoArgsDict']]]]] = None,
-                 location_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_trust_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 trust_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]] = None,
+                 group_members: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ServerInfoArgs', 'ServerInfoArgsDict']]]]] = None,
+                 location_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_trust_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 trust_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -124,9 +124,9 @@ export interface SerialPortArgs {
     /**
      * The name of the serial port to create.
      */
-    serialPort?: pulumi.Input<string | undefined>;
+    serialPort?: pulumi.Input<string>;
     /**
      * Specifies whether the port is enabled for a serial console connection.
      */
-    state?: pulumi.Input<enums.serialconsole.SerialPortState | undefined>;
+    state?: pulumi.Input<enums.serialconsole.SerialPortState>;
 }

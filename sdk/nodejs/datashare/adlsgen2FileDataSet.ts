@@ -169,7 +169,7 @@ export interface ADLSGen2FileDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string | undefined>;
+    dataSetName?: pulumi.Input<string>;
     /**
      * File path within the file system.
      */

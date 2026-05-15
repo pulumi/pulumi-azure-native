@@ -102,7 +102,7 @@ export interface MonitoredSubscriptionArgs {
     /**
      * The configuration name. Only 'default' value is supported.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName?: pulumi.Input<string>;
     /**
      * Monitor resource name
      */
@@ -110,7 +110,7 @@ export interface MonitoredSubscriptionArgs {
     /**
      * The request to update subscriptions needed to be monitored by the Datadog monitor resource.
      */
-    properties?: pulumi.Input<inputs.datadog.SubscriptionListArgs | undefined>;
+    properties?: pulumi.Input<inputs.datadog.SubscriptionListArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

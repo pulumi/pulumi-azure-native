@@ -232,31 +232,31 @@ export interface ServerEndpointArgs {
     /**
      * Cloud Tiering.
      */
-    cloudTiering?: pulumi.Input<string | enums.storagesync.FeatureStatus | undefined>;
+    cloudTiering?: pulumi.Input<string | enums.storagesync.FeatureStatus>;
     /**
      * Friendly Name
      */
-    friendlyName?: pulumi.Input<string | undefined>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * Policy for how namespace and files are recalled during FastDr.
      */
-    initialDownloadPolicy?: pulumi.Input<string | enums.storagesync.InitialDownloadPolicy | undefined>;
+    initialDownloadPolicy?: pulumi.Input<string | enums.storagesync.InitialDownloadPolicy>;
     /**
      * Policy for how the initial upload sync session is performed.
      */
-    initialUploadPolicy?: pulumi.Input<string | enums.storagesync.InitialUploadPolicy | undefined>;
+    initialUploadPolicy?: pulumi.Input<string | enums.storagesync.InitialUploadPolicy>;
     /**
      * Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
      */
-    localCacheMode?: pulumi.Input<string | enums.storagesync.LocalCacheMode | undefined>;
+    localCacheMode?: pulumi.Input<string | enums.storagesync.LocalCacheMode>;
     /**
      * Offline data transfer
      */
-    offlineDataTransfer?: pulumi.Input<string | enums.storagesync.FeatureStatus | undefined>;
+    offlineDataTransfer?: pulumi.Input<string | enums.storagesync.FeatureStatus>;
     /**
      * Offline data transfer share name
      */
-    offlineDataTransferShareName?: pulumi.Input<string | undefined>;
+    offlineDataTransferShareName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -264,15 +264,15 @@ export interface ServerEndpointArgs {
     /**
      * Name of Server Endpoint object.
      */
-    serverEndpointName?: pulumi.Input<string | undefined>;
+    serverEndpointName?: pulumi.Input<string>;
     /**
      * Server Local path.
      */
-    serverLocalPath?: pulumi.Input<string | undefined>;
+    serverLocalPath?: pulumi.Input<string>;
     /**
      * Server Resource Id.
      */
-    serverResourceId?: pulumi.Input<string | undefined>;
+    serverResourceId?: pulumi.Input<string>;
     /**
      * Name of Storage Sync Service resource.
      */
@@ -284,9 +284,9 @@ export interface ServerEndpointArgs {
     /**
      * Tier files older than days.
      */
-    tierFilesOlderThanDays?: pulumi.Input<number | undefined>;
+    tierFilesOlderThanDays?: pulumi.Input<number>;
     /**
      * Level of free space to be maintained by Cloud Tiering if it is enabled.
      */
-    volumeFreeSpacePercent?: pulumi.Input<number | undefined>;
+    volumeFreeSpacePercent?: pulumi.Input<number>;
 }

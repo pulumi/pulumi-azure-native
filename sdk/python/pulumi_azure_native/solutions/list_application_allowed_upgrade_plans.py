@@ -72,8 +72,8 @@ def list_application_allowed_upgrade_plans(application_name: Optional[_builtins.
 
     return AwaitableListApplicationAllowedUpgradePlansResult(
         value=pulumi.get(__ret__, 'value'))
-def list_application_allowed_upgrade_plans_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_application_allowed_upgrade_plans_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplicationAllowedUpgradePlansResult]:
     """
     List allowed upgrade plans for application.

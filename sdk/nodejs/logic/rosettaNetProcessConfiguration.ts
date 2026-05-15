@@ -188,7 +188,7 @@ export interface RosettaNetProcessConfigurationArgs {
     /**
      * The integration account RosettaNet ProcessConfiguration properties.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The RosettaNet initiator role settings.
      */
@@ -200,11 +200,11 @@ export interface RosettaNetProcessConfigurationArgs {
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The metadata.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The integration account RosettaNet process code.
      */
@@ -228,9 +228,9 @@ export interface RosettaNetProcessConfigurationArgs {
     /**
      * The integration account RosettaNet ProcessConfiguration name.
      */
-    rosettaNetProcessConfigurationName?: pulumi.Input<string | undefined>;
+    rosettaNetProcessConfigurationName?: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

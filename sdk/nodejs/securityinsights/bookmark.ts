@@ -192,15 +192,15 @@ export interface BookmarkArgs {
     /**
      * Bookmark ID
      */
-    bookmarkId?: pulumi.Input<string | undefined>;
+    bookmarkId?: pulumi.Input<string>;
     /**
      * The time the bookmark was created
      */
-    created?: pulumi.Input<string | undefined>;
+    created?: pulumi.Input<string>;
     /**
      * Describes a user that created the bookmark
      */
-    createdBy?: pulumi.Input<inputs.securityinsights.UserInfoArgs | undefined>;
+    createdBy?: pulumi.Input<inputs.securityinsights.UserInfoArgs>;
     /**
      * The display name of the bookmark
      */
@@ -208,19 +208,19 @@ export interface BookmarkArgs {
     /**
      * The bookmark event time
      */
-    eventTime?: pulumi.Input<string | undefined>;
+    eventTime?: pulumi.Input<string>;
     /**
      * Describes an incident that relates to bookmark
      */
-    incidentInfo?: pulumi.Input<inputs.securityinsights.IncidentInfoArgs | undefined>;
+    incidentInfo?: pulumi.Input<inputs.securityinsights.IncidentInfoArgs>;
     /**
      * List of labels relevant to this bookmark
      */
-    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    labels?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The notes of the bookmark
      */
-    notes?: pulumi.Input<string | undefined>;
+    notes?: pulumi.Input<string>;
     /**
      * The query of the bookmark.
      */
@@ -228,15 +228,15 @@ export interface BookmarkArgs {
     /**
      * The end time for the query
      */
-    queryEndTime?: pulumi.Input<string | undefined>;
+    queryEndTime?: pulumi.Input<string>;
     /**
      * The query result of the bookmark.
      */
-    queryResult?: pulumi.Input<string | undefined>;
+    queryResult?: pulumi.Input<string>;
     /**
      * The start time for the query
      */
-    queryStartTime?: pulumi.Input<string | undefined>;
+    queryStartTime?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -244,11 +244,11 @@ export interface BookmarkArgs {
     /**
      * The last time the bookmark was updated
      */
-    updated?: pulumi.Input<string | undefined>;
+    updated?: pulumi.Input<string>;
     /**
      * Describes a user that updated the bookmark
      */
-    updatedBy?: pulumi.Input<inputs.securityinsights.UserInfoArgs | undefined>;
+    updatedBy?: pulumi.Input<inputs.securityinsights.UserInfoArgs>;
     /**
      * The name of the workspace.
      */

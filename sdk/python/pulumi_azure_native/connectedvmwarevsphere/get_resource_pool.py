@@ -442,8 +442,8 @@ def get_resource_pool(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         v_center_id=pulumi.get(__ret__, 'v_center_id'))
-def get_resource_pool_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             resource_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_resource_pool_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             resource_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePoolResult]:
     """
     Implements resourcePool GET method.

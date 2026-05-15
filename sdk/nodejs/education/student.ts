@@ -224,13 +224,13 @@ export interface StudentArgs {
     /**
      * Student alias.
      */
-    studentAlias?: pulumi.Input<string | undefined>;
+    studentAlias?: pulumi.Input<string>;
     /**
      * Subscription alias
      */
-    subscriptionAlias?: pulumi.Input<string | undefined>;
+    subscriptionAlias?: pulumi.Input<string>;
     /**
      * subscription invite last sent date
      */
-    subscriptionInviteLastSentDate?: pulumi.Input<string | undefined>;
+    subscriptionInviteLastSentDate?: pulumi.Input<string>;
 }

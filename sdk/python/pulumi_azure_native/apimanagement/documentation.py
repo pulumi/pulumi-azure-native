@@ -21,9 +21,9 @@ class DocumentationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 content: pulumi.Input[Optional[_builtins.str]] = None,
-                 documentation_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 title: pulumi.Input[Optional[_builtins.str]] = None):
+                 content: Optional[pulumi.Input[_builtins.str]] = None,
+                 documentation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 title: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Documentation resource.
 
@@ -68,38 +68,38 @@ class DocumentationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def content(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Markdown documentation content.
         """
         return pulumi.get(self, "content")
 
     @content.setter
-    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def content(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "content", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationId")
-    def documentation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def documentation_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Documentation identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "documentation_id")
 
     @documentation_id.setter
-    def documentation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def documentation_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "documentation_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def title(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def title(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         documentation title.
         """
         return pulumi.get(self, "title")
 
     @title.setter
-    def title(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def title(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "title", value)
 
 
@@ -109,11 +109,11 @@ class Documentation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: pulumi.Input[Optional[_builtins.str]] = None,
-                 documentation_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: Optional[pulumi.Input[_builtins.str]] = None,
+                 documentation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 title: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Markdown documentation details.
@@ -160,11 +160,11 @@ class Documentation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: pulumi.Input[Optional[_builtins.str]] = None,
-                 documentation_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 title: pulumi.Input[Optional[_builtins.str]] = None,
+                 content: Optional[pulumi.Input[_builtins.str]] = None,
+                 documentation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 title: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

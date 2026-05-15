@@ -137,11 +137,11 @@ export interface KubernetesVersionArgs {
     /**
      * The name of the Kubernetes version resource.
      */
-    kubernetesVersionName?: pulumi.Input<string | undefined>;
+    kubernetesVersionName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -149,5 +149,5 @@ export interface KubernetesVersionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

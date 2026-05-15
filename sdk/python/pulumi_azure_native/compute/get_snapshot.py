@@ -488,8 +488,8 @@ def get_snapshot(resource_group_name: Optional[_builtins.str] = None,
         time_created=pulumi.get(__ret__, 'time_created'),
         type=pulumi.get(__ret__, 'type'),
         unique_id=pulumi.get(__ret__, 'unique_id'))
-def get_snapshot_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_snapshot_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Gets information about a snapshot.

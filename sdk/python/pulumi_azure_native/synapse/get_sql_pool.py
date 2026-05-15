@@ -270,9 +270,9 @@ def get_sql_pool(resource_group_name: Optional[_builtins.str] = None,
         storage_account_type=pulumi.get(__ret__, 'storage_account_type'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_pool_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_sql_pool_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolResult]:
     """
     Get SQL pool properties

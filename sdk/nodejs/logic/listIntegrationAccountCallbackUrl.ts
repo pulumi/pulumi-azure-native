@@ -77,11 +77,11 @@ export interface ListIntegrationAccountCallbackUrlOutputArgs {
     /**
      * The key type.
      */
-    keyType?: pulumi.Input<string | enums.logic.KeyType | undefined>;
+    keyType?: pulumi.Input<string | enums.logic.KeyType>;
     /**
      * The expiry time.
      */
-    notAfter?: pulumi.Input<string | undefined>;
+    notAfter?: pulumi.Input<string>;
     /**
      * The resource group name.
      */

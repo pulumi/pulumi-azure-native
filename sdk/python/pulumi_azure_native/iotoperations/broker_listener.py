@@ -26,8 +26,8 @@ class BrokerListenerArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 listener_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['BrokerListenerPropertiesArgs']] = None):
+                 listener_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['BrokerListenerPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BrokerListener resource.
 
@@ -97,26 +97,26 @@ class BrokerListenerArgs:
 
     @_builtins.property
     @pulumi.getter(name="listenerName")
-    def listener_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def listener_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of Instance broker listener resource
         """
         return pulumi.get(self, "listener_name")
 
     @listener_name.setter
-    def listener_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def listener_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "listener_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['BrokerListenerPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['BrokerListenerPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['BrokerListenerPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['BrokerListenerPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -126,12 +126,12 @@ class BrokerListener(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 listener_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BrokerListenerPropertiesArgs', 'BrokerListenerPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 listener_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['BrokerListenerPropertiesArgs', 'BrokerListenerPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Instance broker resource
@@ -179,12 +179,12 @@ class BrokerListener(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 listener_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BrokerListenerPropertiesArgs', 'BrokerListenerPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 broker_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 listener_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['BrokerListenerPropertiesArgs', 'BrokerListenerPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

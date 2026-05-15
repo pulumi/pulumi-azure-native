@@ -202,11 +202,11 @@ def get_capacity_pool_bucket(account_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_capacity_pool_bucket_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    volume_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_capacity_pool_bucket_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    volume_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolBucketResult]:
     """
     Get the details of the specified volume's bucket. A bucket allows additional services, such as AI services, connect to the volume data contained in those buckets.

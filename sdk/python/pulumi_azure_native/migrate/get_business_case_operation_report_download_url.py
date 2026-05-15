@@ -87,9 +87,9 @@ def get_business_case_operation_report_download_url(business_case_name: Optional
     return AwaitableGetBusinessCaseOperationReportDownloadUrlResult(
         business_case_report_url=pulumi.get(__ret__, 'business_case_report_url'),
         expiration_time=pulumi.get(__ret__, 'expiration_time'))
-def get_business_case_operation_report_download_url_output(business_case_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                           project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_business_case_operation_report_download_url_output(business_case_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                           project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBusinessCaseOperationReportDownloadUrlResult]:
     """
     Get the URL for downloading the business case in a report format.

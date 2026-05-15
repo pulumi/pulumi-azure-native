@@ -200,7 +200,7 @@ export interface FirewallArgs {
     /**
      * Associated Rulestack
      */
-    associatedRulestack?: pulumi.Input<inputs.cloudngfw.RulestackDetailsArgs | undefined>;
+    associatedRulestack?: pulumi.Input<inputs.cloudngfw.RulestackDetailsArgs>;
     /**
      * DNS settings for Firewall
      */
@@ -208,27 +208,27 @@ export interface FirewallArgs {
     /**
      * Firewall resource name
      */
-    firewallName?: pulumi.Input<string | undefined>;
+    firewallName?: pulumi.Input<string>;
     /**
      * Frontend settings for Firewall
      */
-    frontEndSettings?: pulumi.Input<pulumi.Input<inputs.cloudngfw.FrontendSettingArgs>[] | undefined>;
+    frontEndSettings?: pulumi.Input<pulumi.Input<inputs.cloudngfw.FrontendSettingArgs>[]>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.cloudngfw.AzureResourceManagerManagedIdentityPropertiesArgs | undefined>;
+    identity?: pulumi.Input<inputs.cloudngfw.AzureResourceManagerManagedIdentityPropertiesArgs>;
     /**
      * Panorama Managed: Default is False. Default will be CloudSec managed
      */
-    isPanoramaManaged?: pulumi.Input<string | enums.cloudngfw.BooleanEnum | undefined>;
+    isPanoramaManaged?: pulumi.Input<string | enums.cloudngfw.BooleanEnum>;
     /**
      * Strata Cloud Managed: Default is False. Default will be CloudSec managed
      */
-    isStrataCloudManaged?: pulumi.Input<string | enums.cloudngfw.BooleanEnum | undefined>;
+    isStrataCloudManaged?: pulumi.Input<string | enums.cloudngfw.BooleanEnum>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Marketplace details
      */
@@ -240,11 +240,11 @@ export interface FirewallArgs {
     /**
      * panEtag info
      */
-    panEtag?: pulumi.Input<string | undefined>;
+    panEtag?: pulumi.Input<string>;
     /**
      * Panorama Configuration
      */
-    panoramaConfig?: pulumi.Input<inputs.cloudngfw.PanoramaConfigArgs | undefined>;
+    panoramaConfig?: pulumi.Input<inputs.cloudngfw.PanoramaConfigArgs>;
     /**
      * Billing plan information.
      */
@@ -256,9 +256,9 @@ export interface FirewallArgs {
     /**
      * Strata Cloud Manager Configuration, only applicable if Strata Cloud Manager is selected.
      */
-    strataCloudManagerConfig?: pulumi.Input<inputs.cloudngfw.StrataCloudManagerConfigArgs | undefined>;
+    strataCloudManagerConfig?: pulumi.Input<inputs.cloudngfw.StrataCloudManagerConfigArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

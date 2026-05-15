@@ -156,7 +156,7 @@ export interface RoutingRuleArgs {
     /**
      * A description for this rule.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Indicates the destination for this particular rule.
      */
@@ -180,5 +180,5 @@ export interface RoutingRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName?: pulumi.Input<string>;
 }

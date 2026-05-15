@@ -189,7 +189,7 @@ export interface GovernanceRuleArgs {
     /**
      * Description of the governance rule
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Display name of the governance rule
      */
@@ -197,23 +197,23 @@ export interface GovernanceRuleArgs {
     /**
      * Excluded scopes, filter out the descendants of the scope (on management scopes)
      */
-    excludedScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    excludedScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
      */
-    governanceEmailNotification?: pulumi.Input<inputs.security.GovernanceRuleEmailNotificationArgs | undefined>;
+    governanceEmailNotification?: pulumi.Input<inputs.security.GovernanceRuleEmailNotificationArgs>;
     /**
      * Defines whether the rule is management scope rule (master connector as a single scope or management scope)
      */
-    includeMemberScopes?: pulumi.Input<boolean | undefined>;
+    includeMemberScopes?: pulumi.Input<boolean>;
     /**
      * Defines whether the rule is active/inactive
      */
-    isDisabled?: pulumi.Input<boolean | undefined>;
+    isDisabled?: pulumi.Input<boolean>;
     /**
      * Defines whether there is a grace period on the governance rule
      */
-    isGracePeriod?: pulumi.Input<boolean | undefined>;
+    isGracePeriod?: pulumi.Input<boolean>;
     /**
      * The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
      */
@@ -221,11 +221,11 @@ export interface GovernanceRuleArgs {
     /**
      * Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
      */
-    remediationTimeframe?: pulumi.Input<string | undefined>;
+    remediationTimeframe?: pulumi.Input<string>;
     /**
      * The governance rule key - unique key for the standard governance rule (GUID)
      */
-    ruleId?: pulumi.Input<string | undefined>;
+    ruleId?: pulumi.Input<string>;
     /**
      * The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
      */

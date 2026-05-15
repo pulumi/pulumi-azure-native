@@ -210,15 +210,15 @@ export interface LicenseProfileArgs {
     /**
      * The resource id of the license.
      */
-    assignedLicense?: pulumi.Input<string | undefined>;
+    assignedLicense?: pulumi.Input<string>;
     /**
      * The name of the license profile.
      */
-    licenseProfileName?: pulumi.Input<string | undefined>;
+    licenseProfileName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the hybrid machine.
      */
@@ -226,11 +226,11 @@ export interface LicenseProfileArgs {
     /**
      * The list of product features.
      */
-    productFeatures?: pulumi.Input<pulumi.Input<inputs.hybridcompute.ProductFeatureArgs>[] | undefined>;
+    productFeatures?: pulumi.Input<pulumi.Input<inputs.hybridcompute.ProductFeatureArgs>[]>;
     /**
      * Indicates the product type of the license.
      */
-    productType?: pulumi.Input<string | enums.hybridcompute.LicenseProfileProductType | undefined>;
+    productType?: pulumi.Input<string | enums.hybridcompute.LicenseProfileProductType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -238,13 +238,13 @@ export interface LicenseProfileArgs {
     /**
      * Specifies if this machine is licensed as part of a Software Assurance agreement.
      */
-    softwareAssuranceCustomer?: pulumi.Input<boolean | undefined>;
+    softwareAssuranceCustomer?: pulumi.Input<boolean>;
     /**
      * Indicates the subscription status of the product.
      */
-    subscriptionStatus?: pulumi.Input<string | enums.hybridcompute.LicenseProfileSubscriptionStatus | undefined>;
+    subscriptionStatus?: pulumi.Input<string | enums.hybridcompute.LicenseProfileSubscriptionStatus>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -23,14 +23,14 @@ __all__ = ['ApplianceArgs', 'Appliance']
 class ApplianceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 distro: pulumi.Input[Optional[Union[_builtins.str, 'Distro']]] = None,
-                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
-                 infrastructure_config: pulumi.Input[Optional['AppliancePropertiesInfrastructureConfigArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: pulumi.Input[Optional[_builtins.str]] = None):
+                 distro: Optional[pulumi.Input[Union[_builtins.str, 'Distro']]] = None,
+                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
+                 infrastructure_config: Optional[pulumi.Input['AppliancePropertiesInfrastructureConfigArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Appliance resource.
 
@@ -78,98 +78,98 @@ class ApplianceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def distro(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Distro']]]:
+    def distro(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Distro']]]:
         """
         Represents a supported Fabric/Infra. (AKSEdge etc...).
         """
         return pulumi.get(self, "distro")
 
     @distro.setter
-    def distro(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Distro']]]):
+    def distro(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Distro']]]):
         pulumi.set(self, "distro", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
         """
         Identity for the resource.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="infrastructureConfig")
-    def infrastructure_config(self) -> pulumi.Input[Optional['AppliancePropertiesInfrastructureConfigArgs']]:
+    def infrastructure_config(self) -> Optional[pulumi.Input['AppliancePropertiesInfrastructureConfigArgs']]:
         """
         Contains infrastructure information about the Appliance
         """
         return pulumi.get(self, "infrastructure_config")
 
     @infrastructure_config.setter
-    def infrastructure_config(self, value: pulumi.Input[Optional['AppliancePropertiesInfrastructureConfigArgs']]):
+    def infrastructure_config(self, value: Optional[pulumi.Input['AppliancePropertiesInfrastructureConfigArgs']]):
         pulumi.set(self, "infrastructure_config", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Certificates pair used to download MSI certificate from HIS. Can only be set once.
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Appliances name.
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Version of the Appliance
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -179,15 +179,15 @@ class Appliance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 distro: pulumi.Input[Optional[Union[_builtins.str, 'Distro']]] = None,
-                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 infrastructure_config: pulumi.Input[Optional[Union['AppliancePropertiesInfrastructureConfigArgs', 'AppliancePropertiesInfrastructureConfigArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 distro: Optional[pulumi.Input[Union[_builtins.str, 'Distro']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 infrastructure_config: Optional[pulumi.Input[Union['AppliancePropertiesInfrastructureConfigArgs', 'AppliancePropertiesInfrastructureConfigArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Appliances definition.
@@ -238,15 +238,15 @@ class Appliance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 distro: pulumi.Input[Optional[Union[_builtins.str, 'Distro']]] = None,
-                 identity: pulumi.Input[Optional[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
-                 infrastructure_config: pulumi.Input[Optional[Union['AppliancePropertiesInfrastructureConfigArgs', 'AppliancePropertiesInfrastructureConfigArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 distro: Optional[pulumi.Input[Union[_builtins.str, 'Distro']]] = None,
+                 identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
+                 infrastructure_config: Optional[pulumi.Input[Union['AppliancePropertiesInfrastructureConfigArgs', 'AppliancePropertiesInfrastructureConfigArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

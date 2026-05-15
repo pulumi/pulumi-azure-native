@@ -158,11 +158,11 @@ def get_api_issue_attachment(api_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_issue_attachment_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                    attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                    issue_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_api_issue_attachment_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                    attachment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                    issue_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiIssueAttachmentResult]:
     """
     Gets the details of the issue Attachment for an API specified by its identifier.

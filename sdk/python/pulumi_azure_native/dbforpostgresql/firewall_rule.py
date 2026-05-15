@@ -24,7 +24,7 @@ class FirewallRuleArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  start_ip_address: pulumi.Input[_builtins.str],
-                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
 
@@ -91,14 +91,14 @@ class FirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="firewallRuleName")
-    def firewall_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def firewall_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the firewall rule.
         """
         return pulumi.get(self, "firewall_rule_name")
 
     @firewall_rule_name.setter
-    def firewall_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def firewall_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "firewall_rule_name", value)
 
 
@@ -108,11 +108,11 @@ class FirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Firewall rule.
@@ -159,11 +159,11 @@ class FirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 firewall_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -124,7 +124,7 @@ export interface NetworkServiceDesignVersionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network service design group.
      */
@@ -132,11 +132,11 @@ export interface NetworkServiceDesignVersionArgs {
     /**
      * The name of the network service design version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
      */
-    networkServiceDesignVersionName?: pulumi.Input<string | undefined>;
+    networkServiceDesignVersionName?: pulumi.Input<string>;
     /**
      * network service design version properties.
      */
-    properties?: pulumi.Input<inputs.hybridnetwork.NetworkServiceDesignVersionPropertiesFormatArgs | undefined>;
+    properties?: pulumi.Input<inputs.hybridnetwork.NetworkServiceDesignVersionPropertiesFormatArgs>;
     /**
      * The name of the publisher.
      */
@@ -148,5 +148,5 @@ export interface NetworkServiceDesignVersionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

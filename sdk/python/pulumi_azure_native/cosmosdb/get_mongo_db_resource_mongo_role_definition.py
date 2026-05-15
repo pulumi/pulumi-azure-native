@@ -166,9 +166,9 @@ def get_mongo_db_resource_mongo_role_definition(account_name: Optional[_builtins
         role_name=pulumi.get(__ret__, 'role_name'),
         roles=pulumi.get(__ret__, 'roles'),
         type=pulumi.get(__ret__, 'type'))
-def get_mongo_db_resource_mongo_role_definition_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                       mongo_role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_mongo_db_resource_mongo_role_definition_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                       mongo_role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMongoDBResourceMongoRoleDefinitionResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB Mongo Role Definition with the given Id.

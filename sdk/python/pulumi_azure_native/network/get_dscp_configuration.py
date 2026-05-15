@@ -293,8 +293,8 @@ def get_dscp_configuration(dscp_configuration_name: Optional[_builtins.str] = No
         source_port_ranges=pulumi.get(__ret__, 'source_port_ranges'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_dscp_configuration_output(dscp_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_dscp_configuration_output(dscp_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDscpConfigurationResult]:
     """
     Gets a DSCP Configuration.

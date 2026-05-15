@@ -71,8 +71,8 @@ def list_order_dc_access_code(device_name: Optional[_builtins.str] = None,
 
     return AwaitableListOrderDCAccessCodeResult(
         auth_code=pulumi.get(__ret__, 'auth_code'))
-def list_order_dc_access_code_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_order_dc_access_code_output(device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOrderDCAccessCodeResult]:
     """
     DC Access code in the case of Self Managed Shipping.

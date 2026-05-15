@@ -138,13 +138,13 @@ export interface ReportByBillingAccountArgs {
     /**
      * The format of the report being delivered.
      */
-    format?: pulumi.Input<string | enums.costmanagement.FormatType | undefined>;
+    format?: pulumi.Input<string | enums.costmanagement.FormatType>;
     /**
      * Report Name.
      */
-    reportName?: pulumi.Input<string | undefined>;
+    reportName?: pulumi.Input<string>;
     /**
      * Has schedule information for the report.
      */
-    schedule?: pulumi.Input<inputs.costmanagement.ReportScheduleArgs | undefined>;
+    schedule?: pulumi.Input<inputs.costmanagement.ReportScheduleArgs>;
 }

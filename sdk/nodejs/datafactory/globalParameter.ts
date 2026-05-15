@@ -113,7 +113,7 @@ export interface GlobalParameterArgs {
     /**
      * The global parameter name.
      */
-    globalParameterName?: pulumi.Input<string | undefined>;
+    globalParameterName?: pulumi.Input<string>;
     /**
      * Properties of the global parameter.
      */

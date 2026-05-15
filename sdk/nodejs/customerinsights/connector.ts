@@ -165,7 +165,7 @@ export interface ConnectorArgs {
     /**
      * Name of the connector.
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName?: pulumi.Input<string>;
     /**
      * The connector properties.
      */
@@ -177,11 +177,11 @@ export interface ConnectorArgs {
     /**
      * Description of the connector.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Display name of the connector.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the hub.
      */
@@ -189,7 +189,7 @@ export interface ConnectorArgs {
     /**
      * If this is an internal connector.
      */
-    isInternal?: pulumi.Input<boolean | undefined>;
+    isInternal?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */

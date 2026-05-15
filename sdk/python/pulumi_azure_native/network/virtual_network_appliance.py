@@ -23,12 +23,12 @@ __all__ = ['VirtualNetworkApplianceArgs', 'VirtualNetworkAppliance']
 class VirtualNetworkApplianceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 bandwidth_in_gbps: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional['SubnetArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_appliance_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 bandwidth_in_gbps: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet: Optional[pulumi.Input['SubnetArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_appliance_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkAppliance resource.
 
@@ -68,74 +68,74 @@ class VirtualNetworkApplianceArgs:
 
     @_builtins.property
     @pulumi.getter(name="bandwidthInGbps")
-    def bandwidth_in_gbps(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def bandwidth_in_gbps(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Bandwidth of the VirtualNetworkAppliance resource in Gbps.
         """
         return pulumi.get(self, "bandwidth_in_gbps")
 
     @bandwidth_in_gbps.setter
-    def bandwidth_in_gbps(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def bandwidth_in_gbps(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "bandwidth_in_gbps", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> pulumi.Input[Optional['SubnetArgs']]:
+    def subnet(self) -> Optional[pulumi.Input['SubnetArgs']]:
         """
         The reference to the subnet resource.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: pulumi.Input[Optional['SubnetArgs']]):
+    def subnet(self, value: Optional[pulumi.Input['SubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkApplianceName")
-    def virtual_network_appliance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def virtual_network_appliance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the virtual network appliance.
         """
         return pulumi.get(self, "virtual_network_appliance_name")
 
     @virtual_network_appliance_name.setter
-    def virtual_network_appliance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def virtual_network_appliance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "virtual_network_appliance_name", value)
 
 
@@ -145,13 +145,13 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth_in_gbps: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A virtual network appliance in a resource group.
@@ -196,13 +196,13 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth_in_gbps: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet: Optional[pulumi.Input[Union['SubnetArgs', 'SubnetArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_appliance_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

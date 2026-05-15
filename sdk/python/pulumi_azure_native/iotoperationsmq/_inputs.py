@@ -224,11 +224,11 @@ class AuthorizationConfigArgsDict(TypedDict):
     """
     Broker AuthorizationConfig properties
     """
-    enable_cache: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    enable_cache: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Enable caching of the authorization rules.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AuthorizationBasicRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['AuthorizationBasicRuleArgsDict']]]]
     """
     Authorization Rules to be used. If no rule is set, but Authorization Resource is used that would mean DenyAll.
     """
@@ -236,8 +236,8 @@ class AuthorizationConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AuthorizationConfigArgs:
     def __init__(__self__, *,
-                 enable_cache: pulumi.Input[Optional[_builtins.bool]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['AuthorizationBasicRuleArgs']]]] = None):
+                 enable_cache: Optional[pulumi.Input[_builtins.bool]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationBasicRuleArgs']]]] = None):
         """
         Broker AuthorizationConfig properties
 
@@ -253,26 +253,26 @@ class AuthorizationConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableCache")
-    def enable_cache(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enable_cache(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Enable caching of the authorization rules.
         """
         return pulumi.get(self, "enable_cache")
 
     @enable_cache.setter
-    def enable_cache(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enable_cache(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_cache", value)
 
     @_builtins.property
     @pulumi.getter
-    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AuthorizationBasicRuleArgs']]]]:
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationBasicRuleArgs']]]]:
         """
         Authorization Rules to be used. If no rule is set, but Authorization Resource is used that would mean DenyAll.
         """
         return pulumi.get(self, "rules")
 
     @rules.setter
-    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthorizationBasicRuleArgs']]]]):
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AuthorizationBasicRuleArgs']]]]):
         pulumi.set(self, "rules", value)
 
 
@@ -284,27 +284,27 @@ class AutomaticCertMethodArgsDict(TypedDict):
     """
     cert-manager issuerRef.
     """
-    duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    duration: NotRequired[pulumi.Input[_builtins.str]]
     """
     Lifetime of automatically-managed certificate.
     """
-    private_key: NotRequired[pulumi.Input[Optional['CertManagerPrivateKeyArgs']]]
+    private_key: NotRequired[pulumi.Input['CertManagerPrivateKeyArgsDict']]
     """
     Cert Manager private key.
     """
-    renew_before: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    renew_before: NotRequired[pulumi.Input[_builtins.str]]
     """
     When to begin renewing automatically-managed certificate.
     """
-    san: NotRequired[pulumi.Input[Optional['SanForCertArgs']]]
+    san: NotRequired[pulumi.Input['SanForCertArgsDict']]
     """
     Additional SANs to include in the certificate.
     """
-    secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Secret for storing server certificate. Any existing data will be overwritten.
     """
-    secret_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_namespace: NotRequired[pulumi.Input[_builtins.str]]
     """
     Certificate K8S namespace. Omit to use default namespace.
     """
@@ -313,12 +313,12 @@ class AutomaticCertMethodArgsDict(TypedDict):
 class AutomaticCertMethodArgs:
     def __init__(__self__, *,
                  issuer_ref: pulumi.Input['CertManagerIssuerRefArgs'],
-                 duration: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_key: pulumi.Input[Optional['CertManagerPrivateKeyArgs']] = None,
-                 renew_before: pulumi.Input[Optional[_builtins.str]] = None,
-                 san: pulumi.Input[Optional['SanForCertArgs']] = None,
-                 secret_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 secret_namespace: pulumi.Input[Optional[_builtins.str]] = None):
+                 duration: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_key: Optional[pulumi.Input['CertManagerPrivateKeyArgs']] = None,
+                 renew_before: Optional[pulumi.Input[_builtins.str]] = None,
+                 san: Optional[pulumi.Input['SanForCertArgs']] = None,
+                 secret_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 secret_namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Automatic TLS server certificate management with cert-manager
 
@@ -362,74 +362,74 @@ class AutomaticCertMethodArgs:
 
     @_builtins.property
     @pulumi.getter
-    def duration(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def duration(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Lifetime of automatically-managed certificate.
         """
         return pulumi.get(self, "duration")
 
     @duration.setter
-    def duration(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def duration(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "duration", value)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
-    def private_key(self) -> pulumi.Input[Optional['CertManagerPrivateKeyArgs']]:
+    def private_key(self) -> Optional[pulumi.Input['CertManagerPrivateKeyArgs']]:
         """
         Cert Manager private key.
         """
         return pulumi.get(self, "private_key")
 
     @private_key.setter
-    def private_key(self, value: pulumi.Input[Optional['CertManagerPrivateKeyArgs']]):
+    def private_key(self, value: Optional[pulumi.Input['CertManagerPrivateKeyArgs']]):
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
     @pulumi.getter(name="renewBefore")
-    def renew_before(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def renew_before(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         When to begin renewing automatically-managed certificate.
         """
         return pulumi.get(self, "renew_before")
 
     @renew_before.setter
-    def renew_before(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def renew_before(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "renew_before", value)
 
     @_builtins.property
     @pulumi.getter
-    def san(self) -> pulumi.Input[Optional['SanForCertArgs']]:
+    def san(self) -> Optional[pulumi.Input['SanForCertArgs']]:
         """
         Additional SANs to include in the certificate.
         """
         return pulumi.get(self, "san")
 
     @san.setter
-    def san(self, value: pulumi.Input[Optional['SanForCertArgs']]):
+    def san(self, value: Optional[pulumi.Input['SanForCertArgs']]):
         pulumi.set(self, "san", value)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Secret for storing server certificate. Any existing data will be overwritten.
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
     @_builtins.property
     @pulumi.getter(name="secretNamespace")
-    def secret_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def secret_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Certificate K8S namespace. Omit to use default namespace.
         """
         return pulumi.get(self, "secret_namespace")
 
     @secret_namespace.setter
-    def secret_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def secret_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_namespace", value)
 
 
@@ -445,27 +445,27 @@ class BackendChainArgsDict(TypedDict):
     """
     Redundancy Factor is desired numbers of broker instances in one chain.
     """
-    temporary_disk_transfer_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    temporary_disk_transfer_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Defines whether disk transfer is enabled or not.
     """
-    temporary_disk_transfer_high_watermark_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    temporary_disk_transfer_high_watermark_percent: NotRequired[pulumi.Input[_builtins.int]]
     """
     Defines the percentage usage of buffer pool above which disk transfer will start.
     """
-    temporary_disk_transfer_low_watermark_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    temporary_disk_transfer_low_watermark_percent: NotRequired[pulumi.Input[_builtins.int]]
     """
     Defines the percentage usage of buffer pool below which disk transfer will stop.
     """
-    temporary_max_backend_mem_usage_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    temporary_max_backend_mem_usage_percent: NotRequired[pulumi.Input[_builtins.int]]
     """
     Defines the limits for memory usage percent of the backend instances of the MQTT broker.
     """
-    temporary_resource_limits: NotRequired[pulumi.Input[Optional['TemporaryResourceLimitsConfigArgs']]]
+    temporary_resource_limits: NotRequired[pulumi.Input['TemporaryResourceLimitsConfigArgsDict']]
     """
     Defines the limits for resources of the backend instances of the MQTT broker.
     """
-    workers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    workers: NotRequired[pulumi.Input[_builtins.int]]
     """
     Number of logical backend workers per pod.
     """
@@ -475,12 +475,12 @@ class BackendChainArgs:
     def __init__(__self__, *,
                  partitions: pulumi.Input[_builtins.int],
                  redundancy_factor: pulumi.Input[_builtins.int],
-                 temporary_disk_transfer_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 temporary_disk_transfer_high_watermark_percent: pulumi.Input[Optional[_builtins.int]] = None,
-                 temporary_disk_transfer_low_watermark_percent: pulumi.Input[Optional[_builtins.int]] = None,
-                 temporary_max_backend_mem_usage_percent: pulumi.Input[Optional[_builtins.int]] = None,
-                 temporary_resource_limits: pulumi.Input[Optional['TemporaryResourceLimitsConfigArgs']] = None,
-                 workers: pulumi.Input[Optional[_builtins.int]] = None):
+                 temporary_disk_transfer_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 temporary_disk_transfer_high_watermark_percent: Optional[pulumi.Input[_builtins.int]] = None,
+                 temporary_disk_transfer_low_watermark_percent: Optional[pulumi.Input[_builtins.int]] = None,
+                 temporary_max_backend_mem_usage_percent: Optional[pulumi.Input[_builtins.int]] = None,
+                 temporary_resource_limits: Optional[pulumi.Input['TemporaryResourceLimitsConfigArgs']] = None,
+                 workers: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Desired properties of the Frontend Instances of the DMQTT Broker
 
@@ -536,74 +536,74 @@ class BackendChainArgs:
 
     @_builtins.property
     @pulumi.getter(name="temporaryDiskTransferEnabled")
-    def temporary_disk_transfer_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def temporary_disk_transfer_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Defines whether disk transfer is enabled or not.
         """
         return pulumi.get(self, "temporary_disk_transfer_enabled")
 
     @temporary_disk_transfer_enabled.setter
-    def temporary_disk_transfer_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def temporary_disk_transfer_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "temporary_disk_transfer_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="temporaryDiskTransferHighWatermarkPercent")
-    def temporary_disk_transfer_high_watermark_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def temporary_disk_transfer_high_watermark_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Defines the percentage usage of buffer pool above which disk transfer will start.
         """
         return pulumi.get(self, "temporary_disk_transfer_high_watermark_percent")
 
     @temporary_disk_transfer_high_watermark_percent.setter
-    def temporary_disk_transfer_high_watermark_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def temporary_disk_transfer_high_watermark_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "temporary_disk_transfer_high_watermark_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="temporaryDiskTransferLowWatermarkPercent")
-    def temporary_disk_transfer_low_watermark_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def temporary_disk_transfer_low_watermark_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Defines the percentage usage of buffer pool below which disk transfer will stop.
         """
         return pulumi.get(self, "temporary_disk_transfer_low_watermark_percent")
 
     @temporary_disk_transfer_low_watermark_percent.setter
-    def temporary_disk_transfer_low_watermark_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def temporary_disk_transfer_low_watermark_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "temporary_disk_transfer_low_watermark_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="temporaryMaxBackendMemUsagePercent")
-    def temporary_max_backend_mem_usage_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def temporary_max_backend_mem_usage_percent(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Defines the limits for memory usage percent of the backend instances of the MQTT broker.
         """
         return pulumi.get(self, "temporary_max_backend_mem_usage_percent")
 
     @temporary_max_backend_mem_usage_percent.setter
-    def temporary_max_backend_mem_usage_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def temporary_max_backend_mem_usage_percent(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "temporary_max_backend_mem_usage_percent", value)
 
     @_builtins.property
     @pulumi.getter(name="temporaryResourceLimits")
-    def temporary_resource_limits(self) -> pulumi.Input[Optional['TemporaryResourceLimitsConfigArgs']]:
+    def temporary_resource_limits(self) -> Optional[pulumi.Input['TemporaryResourceLimitsConfigArgs']]:
         """
         Defines the limits for resources of the backend instances of the MQTT broker.
         """
         return pulumi.get(self, "temporary_resource_limits")
 
     @temporary_resource_limits.setter
-    def temporary_resource_limits(self, value: pulumi.Input[Optional['TemporaryResourceLimitsConfigArgs']]):
+    def temporary_resource_limits(self, value: Optional[pulumi.Input['TemporaryResourceLimitsConfigArgs']]):
         pulumi.set(self, "temporary_resource_limits", value)
 
     @_builtins.property
     @pulumi.getter
-    def workers(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def workers(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Number of logical backend workers per pod.
         """
         return pulumi.get(self, "workers")
 
     @workers.setter
-    def workers(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def workers(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "workers", value)
 
 
@@ -611,11 +611,11 @@ class BrokerAuthenticatorCustomAuthX509ArgsDict(TypedDict):
     """
     X509 Custom Authentication properties. NOTE - Enum only authenticator type supported at a time.
     """
-    key_vault: NotRequired[pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]]
+    key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
     """
     Keyvault X509 secret properties.
     """
-    secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Secret where cert details are stored.
     """
@@ -623,8 +623,8 @@ class BrokerAuthenticatorCustomAuthX509ArgsDict(TypedDict):
 @pulumi.input_type
 class BrokerAuthenticatorCustomAuthX509Args:
     def __init__(__self__, *,
-                 key_vault: pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']] = None,
-                 secret_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_vault: Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']] = None,
+                 secret_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         X509 Custom Authentication properties. NOTE - Enum only authenticator type supported at a time.
 
@@ -638,26 +638,26 @@ class BrokerAuthenticatorCustomAuthX509Args:
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]:
+    def key_vault(self) -> Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']]:
         """
         Keyvault X509 secret properties.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]):
+    def key_vault(self, value: Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Secret where cert details are stored.
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
 
@@ -702,15 +702,15 @@ class BrokerAuthenticatorMethodCustomArgsDict(TypedDict):
     """
     Endpoint to connect to.
     """
-    auth: NotRequired[pulumi.Input[Optional['BrokerAuthenticatorCustomAuthArgs']]]
+    auth: NotRequired[pulumi.Input['BrokerAuthenticatorCustomAuthArgsDict']]
     """
     Custom Broker Authentication Method.
     """
-    ca_cert_config_map: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    ca_cert_config_map: NotRequired[pulumi.Input[_builtins.str]]
     """
     CA cert config map to use.
     """
-    headers: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    headers: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Configuration Headers to use.
     """
@@ -719,9 +719,9 @@ class BrokerAuthenticatorMethodCustomArgsDict(TypedDict):
 class BrokerAuthenticatorMethodCustomArgs:
     def __init__(__self__, *,
                  endpoint: pulumi.Input[_builtins.str],
-                 auth: pulumi.Input[Optional['BrokerAuthenticatorCustomAuthArgs']] = None,
-                 ca_cert_config_map: pulumi.Input[Optional[_builtins.str]] = None,
-                 headers: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 auth: Optional[pulumi.Input['BrokerAuthenticatorCustomAuthArgs']] = None,
+                 ca_cert_config_map: Optional[pulumi.Input[_builtins.str]] = None,
+                 headers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Custom method for BrokerAuthentication
 
@@ -752,38 +752,38 @@ class BrokerAuthenticatorMethodCustomArgs:
 
     @_builtins.property
     @pulumi.getter
-    def auth(self) -> pulumi.Input[Optional['BrokerAuthenticatorCustomAuthArgs']]:
+    def auth(self) -> Optional[pulumi.Input['BrokerAuthenticatorCustomAuthArgs']]:
         """
         Custom Broker Authentication Method.
         """
         return pulumi.get(self, "auth")
 
     @auth.setter
-    def auth(self, value: pulumi.Input[Optional['BrokerAuthenticatorCustomAuthArgs']]):
+    def auth(self, value: Optional[pulumi.Input['BrokerAuthenticatorCustomAuthArgs']]):
         pulumi.set(self, "auth", value)
 
     @_builtins.property
     @pulumi.getter(name="caCertConfigMap")
-    def ca_cert_config_map(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def ca_cert_config_map(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         CA cert config map to use.
         """
         return pulumi.get(self, "ca_cert_config_map")
 
     @ca_cert_config_map.setter
-    def ca_cert_config_map(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def ca_cert_config_map(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "ca_cert_config_map", value)
 
     @_builtins.property
     @pulumi.getter
-    def headers(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def headers(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Configuration Headers to use.
         """
         return pulumi.get(self, "headers")
 
     @headers.setter
-    def headers(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def headers(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "headers", value)
 
 
@@ -828,11 +828,11 @@ class BrokerAuthenticatorMethodSvidArgsDict(TypedDict):
     """
     Mounted socket path for spiffe agent.
     """
-    identity_max_retry: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    identity_max_retry: NotRequired[pulumi.Input[_builtins.float]]
     """
     Maximum number of re-tries to fetch identity.
     """
-    identity_wait_retry_ms: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    identity_wait_retry_ms: NotRequired[pulumi.Input[_builtins.float]]
     """
     Maximum time to wait before fetching identity again.
     """
@@ -841,8 +841,8 @@ class BrokerAuthenticatorMethodSvidArgsDict(TypedDict):
 class BrokerAuthenticatorMethodSvidArgs:
     def __init__(__self__, *,
                  agent_socket_path: pulumi.Input[_builtins.str],
-                 identity_max_retry: pulumi.Input[Optional[_builtins.float]] = None,
-                 identity_wait_retry_ms: pulumi.Input[Optional[_builtins.float]] = None):
+                 identity_max_retry: Optional[pulumi.Input[_builtins.float]] = None,
+                 identity_wait_retry_ms: Optional[pulumi.Input[_builtins.float]] = None):
         """
         SVID for BrokerAuthentication
 
@@ -874,26 +874,26 @@ class BrokerAuthenticatorMethodSvidArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityMaxRetry")
-    def identity_max_retry(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def identity_max_retry(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Maximum number of re-tries to fetch identity.
         """
         return pulumi.get(self, "identity_max_retry")
 
     @identity_max_retry.setter
-    def identity_max_retry(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def identity_max_retry(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "identity_max_retry", value)
 
     @_builtins.property
     @pulumi.getter(name="identityWaitRetryMs")
-    def identity_wait_retry_ms(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def identity_wait_retry_ms(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Maximum time to wait before fetching identity again.
         """
         return pulumi.get(self, "identity_wait_retry_ms")
 
     @identity_wait_retry_ms.setter
-    def identity_wait_retry_ms(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def identity_wait_retry_ms(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "identity_wait_retry_ms", value)
 
 
@@ -901,11 +901,11 @@ class BrokerAuthenticatorMethodUsernamePasswordArgsDict(TypedDict):
     """
     UsernamePassword for BrokerAuthentication
     """
-    key_vault: NotRequired[pulumi.Input[Optional['KeyVaultSecretPropertiesArgs']]]
+    key_vault: NotRequired[pulumi.Input['KeyVaultSecretPropertiesArgsDict']]
     """
     Keyvault username password secret properties.
     """
-    secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Secret where username and password are stored.
     """
@@ -913,8 +913,8 @@ class BrokerAuthenticatorMethodUsernamePasswordArgsDict(TypedDict):
 @pulumi.input_type
 class BrokerAuthenticatorMethodUsernamePasswordArgs:
     def __init__(__self__, *,
-                 key_vault: pulumi.Input[Optional['KeyVaultSecretPropertiesArgs']] = None,
-                 secret_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_vault: Optional[pulumi.Input['KeyVaultSecretPropertiesArgs']] = None,
+                 secret_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         UsernamePassword for BrokerAuthentication
 
@@ -928,26 +928,26 @@ class BrokerAuthenticatorMethodUsernamePasswordArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> pulumi.Input[Optional['KeyVaultSecretPropertiesArgs']]:
+    def key_vault(self) -> Optional[pulumi.Input['KeyVaultSecretPropertiesArgs']]:
         """
         Keyvault username password secret properties.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: pulumi.Input[Optional['KeyVaultSecretPropertiesArgs']]):
+    def key_vault(self, value: Optional[pulumi.Input['KeyVaultSecretPropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Secret where username and password are stored.
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
 
@@ -955,11 +955,11 @@ class BrokerAuthenticatorMethodX509AttributesArgsDict(TypedDict):
     """
     BrokerAuthenticatorMethodX509Attributes properties. NOTE - Enum only type supported at a time.
     """
-    key_vault: NotRequired[pulumi.Input[Optional['KeyVaultSecretPropertiesArgs']]]
+    key_vault: NotRequired[pulumi.Input['KeyVaultSecretPropertiesArgsDict']]
     """
     Keyvault x509 attributes secret properties.
     """
-    secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Secret where x509 attributes are stored.
     """
@@ -967,8 +967,8 @@ class BrokerAuthenticatorMethodX509AttributesArgsDict(TypedDict):
 @pulumi.input_type
 class BrokerAuthenticatorMethodX509AttributesArgs:
     def __init__(__self__, *,
-                 key_vault: pulumi.Input[Optional['KeyVaultSecretPropertiesArgs']] = None,
-                 secret_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_vault: Optional[pulumi.Input['KeyVaultSecretPropertiesArgs']] = None,
+                 secret_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         BrokerAuthenticatorMethodX509Attributes properties. NOTE - Enum only type supported at a time.
 
@@ -982,26 +982,26 @@ class BrokerAuthenticatorMethodX509AttributesArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> pulumi.Input[Optional['KeyVaultSecretPropertiesArgs']]:
+    def key_vault(self) -> Optional[pulumi.Input['KeyVaultSecretPropertiesArgs']]:
         """
         Keyvault x509 attributes secret properties.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: pulumi.Input[Optional['KeyVaultSecretPropertiesArgs']]):
+    def key_vault(self, value: Optional[pulumi.Input['KeyVaultSecretPropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Secret where x509 attributes are stored.
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
 
@@ -1009,11 +1009,11 @@ class BrokerAuthenticatorMethodX509ArgsDict(TypedDict):
     """
     X509 for BrokerAuthentication.
     """
-    attributes: NotRequired[pulumi.Input[Optional['BrokerAuthenticatorMethodX509AttributesArgs']]]
+    attributes: NotRequired[pulumi.Input['BrokerAuthenticatorMethodX509AttributesArgsDict']]
     """
     K8S Secret name to mount for username and password.
     """
-    trusted_client_ca_cert_config_map: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    trusted_client_ca_cert_config_map: NotRequired[pulumi.Input[_builtins.str]]
     """
     Trusted client ca cert config map.
     """
@@ -1021,8 +1021,8 @@ class BrokerAuthenticatorMethodX509ArgsDict(TypedDict):
 @pulumi.input_type
 class BrokerAuthenticatorMethodX509Args:
     def __init__(__self__, *,
-                 attributes: pulumi.Input[Optional['BrokerAuthenticatorMethodX509AttributesArgs']] = None,
-                 trusted_client_ca_cert_config_map: pulumi.Input[Optional[_builtins.str]] = None):
+                 attributes: Optional[pulumi.Input['BrokerAuthenticatorMethodX509AttributesArgs']] = None,
+                 trusted_client_ca_cert_config_map: Optional[pulumi.Input[_builtins.str]] = None):
         """
         X509 for BrokerAuthentication.
 
@@ -1038,26 +1038,26 @@ class BrokerAuthenticatorMethodX509Args:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> pulumi.Input[Optional['BrokerAuthenticatorMethodX509AttributesArgs']]:
+    def attributes(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodX509AttributesArgs']]:
         """
         K8S Secret name to mount for username and password.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: pulumi.Input[Optional['BrokerAuthenticatorMethodX509AttributesArgs']]):
+    def attributes(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodX509AttributesArgs']]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedClientCaCertConfigMap")
-    def trusted_client_ca_cert_config_map(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def trusted_client_ca_cert_config_map(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Trusted client ca cert config map.
         """
         return pulumi.get(self, "trusted_client_ca_cert_config_map")
 
     @trusted_client_ca_cert_config_map.setter
-    def trusted_client_ca_cert_config_map(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def trusted_client_ca_cert_config_map(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "trusted_client_ca_cert_config_map", value)
 
 
@@ -1065,23 +1065,23 @@ class BrokerAuthenticatorMethodsArgsDict(TypedDict):
     """
     Collection of different CrdAuthenticator methods of Broker Resource. NOTE Enum - Only one method is supported for each entry.
     """
-    custom: NotRequired[pulumi.Input[Optional['BrokerAuthenticatorMethodCustomArgs']]]
+    custom: NotRequired[pulumi.Input['BrokerAuthenticatorMethodCustomArgsDict']]
     """
     Custom Authentication Method.
     """
-    sat: NotRequired[pulumi.Input[Optional['BrokerAuthenticatorMethodSatArgs']]]
+    sat: NotRequired[pulumi.Input['BrokerAuthenticatorMethodSatArgsDict']]
     """
     Service Account Token Method.
     """
-    svid: NotRequired[pulumi.Input[Optional['BrokerAuthenticatorMethodSvidArgs']]]
+    svid: NotRequired[pulumi.Input['BrokerAuthenticatorMethodSvidArgsDict']]
     """
     Service Account Token Method.
     """
-    username_password: NotRequired[pulumi.Input[Optional['BrokerAuthenticatorMethodUsernamePasswordArgs']]]
+    username_password: NotRequired[pulumi.Input['BrokerAuthenticatorMethodUsernamePasswordArgsDict']]
     """
     UsernamePassword Method.
     """
-    x509: NotRequired[pulumi.Input[Optional['BrokerAuthenticatorMethodX509Args']]]
+    x509: NotRequired[pulumi.Input['BrokerAuthenticatorMethodX509ArgsDict']]
     """
     X509 Method.
     """
@@ -1089,11 +1089,11 @@ class BrokerAuthenticatorMethodsArgsDict(TypedDict):
 @pulumi.input_type
 class BrokerAuthenticatorMethodsArgs:
     def __init__(__self__, *,
-                 custom: pulumi.Input[Optional['BrokerAuthenticatorMethodCustomArgs']] = None,
-                 sat: pulumi.Input[Optional['BrokerAuthenticatorMethodSatArgs']] = None,
-                 svid: pulumi.Input[Optional['BrokerAuthenticatorMethodSvidArgs']] = None,
-                 username_password: pulumi.Input[Optional['BrokerAuthenticatorMethodUsernamePasswordArgs']] = None,
-                 x509: pulumi.Input[Optional['BrokerAuthenticatorMethodX509Args']] = None):
+                 custom: Optional[pulumi.Input['BrokerAuthenticatorMethodCustomArgs']] = None,
+                 sat: Optional[pulumi.Input['BrokerAuthenticatorMethodSatArgs']] = None,
+                 svid: Optional[pulumi.Input['BrokerAuthenticatorMethodSvidArgs']] = None,
+                 username_password: Optional[pulumi.Input['BrokerAuthenticatorMethodUsernamePasswordArgs']] = None,
+                 x509: Optional[pulumi.Input['BrokerAuthenticatorMethodX509Args']] = None):
         """
         Collection of different CrdAuthenticator methods of Broker Resource. NOTE Enum - Only one method is supported for each entry.
 
@@ -1116,62 +1116,62 @@ class BrokerAuthenticatorMethodsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def custom(self) -> pulumi.Input[Optional['BrokerAuthenticatorMethodCustomArgs']]:
+    def custom(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodCustomArgs']]:
         """
         Custom Authentication Method.
         """
         return pulumi.get(self, "custom")
 
     @custom.setter
-    def custom(self, value: pulumi.Input[Optional['BrokerAuthenticatorMethodCustomArgs']]):
+    def custom(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodCustomArgs']]):
         pulumi.set(self, "custom", value)
 
     @_builtins.property
     @pulumi.getter
-    def sat(self) -> pulumi.Input[Optional['BrokerAuthenticatorMethodSatArgs']]:
+    def sat(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodSatArgs']]:
         """
         Service Account Token Method.
         """
         return pulumi.get(self, "sat")
 
     @sat.setter
-    def sat(self, value: pulumi.Input[Optional['BrokerAuthenticatorMethodSatArgs']]):
+    def sat(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodSatArgs']]):
         pulumi.set(self, "sat", value)
 
     @_builtins.property
     @pulumi.getter
-    def svid(self) -> pulumi.Input[Optional['BrokerAuthenticatorMethodSvidArgs']]:
+    def svid(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodSvidArgs']]:
         """
         Service Account Token Method.
         """
         return pulumi.get(self, "svid")
 
     @svid.setter
-    def svid(self, value: pulumi.Input[Optional['BrokerAuthenticatorMethodSvidArgs']]):
+    def svid(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodSvidArgs']]):
         pulumi.set(self, "svid", value)
 
     @_builtins.property
     @pulumi.getter(name="usernamePassword")
-    def username_password(self) -> pulumi.Input[Optional['BrokerAuthenticatorMethodUsernamePasswordArgs']]:
+    def username_password(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodUsernamePasswordArgs']]:
         """
         UsernamePassword Method.
         """
         return pulumi.get(self, "username_password")
 
     @username_password.setter
-    def username_password(self, value: pulumi.Input[Optional['BrokerAuthenticatorMethodUsernamePasswordArgs']]):
+    def username_password(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodUsernamePasswordArgs']]):
         pulumi.set(self, "username_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def x509(self) -> pulumi.Input[Optional['BrokerAuthenticatorMethodX509Args']]:
+    def x509(self) -> Optional[pulumi.Input['BrokerAuthenticatorMethodX509Args']]:
         """
         X509 Method.
         """
         return pulumi.get(self, "x509")
 
     @x509.setter
-    def x509(self, value: pulumi.Input[Optional['BrokerAuthenticatorMethodX509Args']]):
+    def x509(self, value: Optional[pulumi.Input['BrokerAuthenticatorMethodX509Args']]):
         pulumi.set(self, "x509", value)
 
 
@@ -1179,59 +1179,59 @@ class BrokerDiagnosticsArgsDict(TypedDict):
     """
     Diagnostics setting specific to Broker
     """
-    diagnostic_service_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    diagnostic_service_endpoint: NotRequired[pulumi.Input[_builtins.str]]
     """
     Diagnostic Service endpoint
     """
-    enable_metrics: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    enable_metrics: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Knob to enable/disable metrics. Default = true
     """
-    enable_self_check: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    enable_self_check: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Enable self check on Broker via Probe.
     """
-    enable_self_tracing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    enable_self_tracing: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Enable self tracing on the Broker so that every selfCheckFrequencySeconds a random message is traced even if it didn't have trace context.
     """
-    enable_tracing: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    enable_tracing: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Knob to enable/disable entire tracing infrastructure.
     """
-    log_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    log_format: NotRequired[pulumi.Input[_builtins.str]]
     """
     Format for the logs generated.
     """
-    log_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    log_level: NotRequired[pulumi.Input[_builtins.str]]
     """
     Log level for the Broker.
     """
-    max_cell_map_lifetime: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    max_cell_map_lifetime: NotRequired[pulumi.Input[_builtins.float]]
     """
     Maximum time for the CellMap to live.
     """
-    metric_update_frequency_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    metric_update_frequency_seconds: NotRequired[pulumi.Input[_builtins.float]]
     """
     Metric update frequency in seconds.
     """
-    probe_image: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    probe_image: NotRequired[pulumi.Input[_builtins.str]]
     """
     Probe Image to run.
     """
-    self_check_frequency_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    self_check_frequency_seconds: NotRequired[pulumi.Input[_builtins.float]]
     """
     Frequency for the self check to run.
     """
-    self_check_timeout_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    self_check_timeout_seconds: NotRequired[pulumi.Input[_builtins.float]]
     """
     Time out period of the self check.
     """
-    self_trace_frequency_seconds: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    self_trace_frequency_seconds: NotRequired[pulumi.Input[_builtins.float]]
     """
     The frequency at which selfTrace should run.
     """
-    span_channel_capacity: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    span_channel_capacity: NotRequired[pulumi.Input[_builtins.float]]
     """
     The number of the spans generated by the Tracing.
     """
@@ -1239,20 +1239,20 @@ class BrokerDiagnosticsArgsDict(TypedDict):
 @pulumi.input_type
 class BrokerDiagnosticsArgs:
     def __init__(__self__, *,
-                 diagnostic_service_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_self_check: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_self_tracing: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_tracing: pulumi.Input[Optional[_builtins.bool]] = None,
-                 log_format: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_level: pulumi.Input[Optional[_builtins.str]] = None,
-                 max_cell_map_lifetime: pulumi.Input[Optional[_builtins.float]] = None,
-                 metric_update_frequency_seconds: pulumi.Input[Optional[_builtins.float]] = None,
-                 probe_image: pulumi.Input[Optional[_builtins.str]] = None,
-                 self_check_frequency_seconds: pulumi.Input[Optional[_builtins.float]] = None,
-                 self_check_timeout_seconds: pulumi.Input[Optional[_builtins.float]] = None,
-                 self_trace_frequency_seconds: pulumi.Input[Optional[_builtins.float]] = None,
-                 span_channel_capacity: pulumi.Input[Optional[_builtins.float]] = None):
+                 diagnostic_service_endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_metrics: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_self_check: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_self_tracing: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_tracing: Optional[pulumi.Input[_builtins.bool]] = None,
+                 log_format: Optional[pulumi.Input[_builtins.str]] = None,
+                 log_level: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_cell_map_lifetime: Optional[pulumi.Input[_builtins.float]] = None,
+                 metric_update_frequency_seconds: Optional[pulumi.Input[_builtins.float]] = None,
+                 probe_image: Optional[pulumi.Input[_builtins.str]] = None,
+                 self_check_frequency_seconds: Optional[pulumi.Input[_builtins.float]] = None,
+                 self_check_timeout_seconds: Optional[pulumi.Input[_builtins.float]] = None,
+                 self_trace_frequency_seconds: Optional[pulumi.Input[_builtins.float]] = None,
+                 span_channel_capacity: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Diagnostics setting specific to Broker
 
@@ -1328,170 +1328,170 @@ class BrokerDiagnosticsArgs:
 
     @_builtins.property
     @pulumi.getter(name="diagnosticServiceEndpoint")
-    def diagnostic_service_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def diagnostic_service_endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Diagnostic Service endpoint
         """
         return pulumi.get(self, "diagnostic_service_endpoint")
 
     @diagnostic_service_endpoint.setter
-    def diagnostic_service_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def diagnostic_service_endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "diagnostic_service_endpoint", value)
 
     @_builtins.property
     @pulumi.getter(name="enableMetrics")
-    def enable_metrics(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enable_metrics(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Knob to enable/disable metrics. Default = true
         """
         return pulumi.get(self, "enable_metrics")
 
     @enable_metrics.setter
-    def enable_metrics(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enable_metrics(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSelfCheck")
-    def enable_self_check(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enable_self_check(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Enable self check on Broker via Probe.
         """
         return pulumi.get(self, "enable_self_check")
 
     @enable_self_check.setter
-    def enable_self_check(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enable_self_check(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_self_check", value)
 
     @_builtins.property
     @pulumi.getter(name="enableSelfTracing")
-    def enable_self_tracing(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enable_self_tracing(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Enable self tracing on the Broker so that every selfCheckFrequencySeconds a random message is traced even if it didn't have trace context.
         """
         return pulumi.get(self, "enable_self_tracing")
 
     @enable_self_tracing.setter
-    def enable_self_tracing(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enable_self_tracing(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_self_tracing", value)
 
     @_builtins.property
     @pulumi.getter(name="enableTracing")
-    def enable_tracing(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enable_tracing(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Knob to enable/disable entire tracing infrastructure.
         """
         return pulumi.get(self, "enable_tracing")
 
     @enable_tracing.setter
-    def enable_tracing(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enable_tracing(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_tracing", value)
 
     @_builtins.property
     @pulumi.getter(name="logFormat")
-    def log_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def log_format(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Format for the logs generated.
         """
         return pulumi.get(self, "log_format")
 
     @log_format.setter
-    def log_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def log_format(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "log_format", value)
 
     @_builtins.property
     @pulumi.getter(name="logLevel")
-    def log_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def log_level(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Log level for the Broker.
         """
         return pulumi.get(self, "log_level")
 
     @log_level.setter
-    def log_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def log_level(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "log_level", value)
 
     @_builtins.property
     @pulumi.getter(name="maxCellMapLifetime")
-    def max_cell_map_lifetime(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def max_cell_map_lifetime(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Maximum time for the CellMap to live.
         """
         return pulumi.get(self, "max_cell_map_lifetime")
 
     @max_cell_map_lifetime.setter
-    def max_cell_map_lifetime(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def max_cell_map_lifetime(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "max_cell_map_lifetime", value)
 
     @_builtins.property
     @pulumi.getter(name="metricUpdateFrequencySeconds")
-    def metric_update_frequency_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def metric_update_frequency_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Metric update frequency in seconds.
         """
         return pulumi.get(self, "metric_update_frequency_seconds")
 
     @metric_update_frequency_seconds.setter
-    def metric_update_frequency_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def metric_update_frequency_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "metric_update_frequency_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="probeImage")
-    def probe_image(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def probe_image(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Probe Image to run.
         """
         return pulumi.get(self, "probe_image")
 
     @probe_image.setter
-    def probe_image(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def probe_image(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "probe_image", value)
 
     @_builtins.property
     @pulumi.getter(name="selfCheckFrequencySeconds")
-    def self_check_frequency_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def self_check_frequency_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Frequency for the self check to run.
         """
         return pulumi.get(self, "self_check_frequency_seconds")
 
     @self_check_frequency_seconds.setter
-    def self_check_frequency_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def self_check_frequency_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "self_check_frequency_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="selfCheckTimeoutSeconds")
-    def self_check_timeout_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def self_check_timeout_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Time out period of the self check.
         """
         return pulumi.get(self, "self_check_timeout_seconds")
 
     @self_check_timeout_seconds.setter
-    def self_check_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def self_check_timeout_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "self_check_timeout_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="selfTraceFrequencySeconds")
-    def self_trace_frequency_seconds(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def self_trace_frequency_seconds(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         The frequency at which selfTrace should run.
         """
         return pulumi.get(self, "self_trace_frequency_seconds")
 
     @self_trace_frequency_seconds.setter
-    def self_trace_frequency_seconds(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def self_trace_frequency_seconds(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "self_trace_frequency_seconds", value)
 
     @_builtins.property
     @pulumi.getter(name="spanChannelCapacity")
-    def span_channel_capacity(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def span_channel_capacity(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         The number of the spans generated by the Tracing.
         """
         return pulumi.get(self, "span_channel_capacity")
 
     @span_channel_capacity.setter
-    def span_channel_capacity(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def span_channel_capacity(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "span_channel_capacity", value)
 
 
@@ -1567,9 +1567,9 @@ class CertManagerCertOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class CertManagerCertOptionsArgs:
     def __init__(__self__, *,
-                 duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 duration: Optional[pulumi.Input[_builtins.str]] = None,
                  private_key: pulumi.Input['CertManagerPrivateKeyArgs'],
-                 renew_before: pulumi.Input[Optional[_builtins.str]] = None):
+                 renew_before: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Cert Manager CA Cert properties
 
@@ -1642,7 +1642,7 @@ class CertManagerIssuerRefArgsDict(TypedDict):
 @pulumi.input_type
 class CertManagerIssuerRefArgs:
     def __init__(__self__, *,
-                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: Optional[pulumi.Input[_builtins.str]] = None,
                  kind: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str]):
         """
@@ -1715,9 +1715,9 @@ class CertManagerPrivateKeyArgsDict(TypedDict):
 @pulumi.input_type
 class CertManagerPrivateKeyArgs:
     def __init__(__self__, *,
-                 algorithm: pulumi.Input[Optional[_builtins.str]] = None,
-                 rotation_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 size: pulumi.Input[Optional[_builtins.int]] = None):
+                 algorithm: Optional[pulumi.Input[_builtins.str]] = None,
+                 rotation_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 size: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Cert Manager private key properties
 
@@ -1784,11 +1784,11 @@ class ContainerImageArgsDict(TypedDict):
     """
     The Docker  image tag.
     """
-    pull_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pull_policy: NotRequired[pulumi.Input[_builtins.str]]
     """
     Image pull policy.
     """
-    pull_secrets: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    pull_secrets: NotRequired[pulumi.Input[_builtins.str]]
     """
     Image pull secrets.
     """
@@ -1798,8 +1798,8 @@ class ContainerImageArgs:
     def __init__(__self__, *,
                  repository: pulumi.Input[_builtins.str],
                  tag: pulumi.Input[_builtins.str],
-                 pull_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 pull_secrets: pulumi.Input[Optional[_builtins.str]] = None):
+                 pull_policy: Optional[pulumi.Input[_builtins.str]] = None,
+                 pull_secrets: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Defines the Docker image details
 
@@ -1841,26 +1841,26 @@ class ContainerImageArgs:
 
     @_builtins.property
     @pulumi.getter(name="pullPolicy")
-    def pull_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def pull_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Image pull policy.
         """
         return pulumi.get(self, "pull_policy")
 
     @pull_policy.setter
-    def pull_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def pull_policy(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "pull_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="pullSecrets")
-    def pull_secrets(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def pull_secrets(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Image pull secrets.
         """
         return pulumi.get(self, "pull_secrets")
 
     @pull_secrets.setter
-    def pull_secrets(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def pull_secrets(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "pull_secrets", value)
 
 
@@ -1892,7 +1892,7 @@ class DataLakeConnectorMapArgsDict(TypedDict):
     """
     Delta table properties to use.
     """
-    qos: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    qos: NotRequired[pulumi.Input[_builtins.int]]
     """
     Quality of Service.
     """
@@ -1906,7 +1906,7 @@ class DataLakeConnectorMapArgs:
                  message_payload_type: pulumi.Input[_builtins.str],
                  mqtt_source_topic: pulumi.Input[_builtins.str],
                  table: pulumi.Input['DeltaTableArgs'],
-                 qos: pulumi.Input[Optional[_builtins.int]] = None):
+                 qos: Optional[pulumi.Input[_builtins.int]] = None):
         """
         DataLake connector map route properties
 
@@ -2003,14 +2003,14 @@ class DataLakeConnectorMapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def qos(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def qos(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Quality of Service.
         """
         return pulumi.get(self, "qos")
 
     @qos.setter
-    def qos(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def qos(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "qos", value)
 
 
@@ -2063,11 +2063,11 @@ class DataLakeFabricStorageArgsDict(TypedDict):
     """
     Fabric path type to use.
     """
-    guids: NotRequired[pulumi.Input[Optional['FabricGuidsArgs']]]
+    guids: NotRequired[pulumi.Input['FabricGuidsArgsDict']]
     """
     Fabric one lake Guids.
     """
-    names: NotRequired[pulumi.Input[Optional['FabricNamesArgs']]]
+    names: NotRequired[pulumi.Input['FabricNamesArgsDict']]
     """
     Fabric one lake Names.
     """
@@ -2078,8 +2078,8 @@ class DataLakeFabricStorageArgs:
                  authentication: pulumi.Input['DataLakeFabricStorageAuthenticationArgs'],
                  endpoint: pulumi.Input[_builtins.str],
                  fabric_path: pulumi.Input[Union[_builtins.str, 'FabricPathType']],
-                 guids: pulumi.Input[Optional['FabricGuidsArgs']] = None,
-                 names: pulumi.Input[Optional['FabricNamesArgs']] = None):
+                 guids: Optional[pulumi.Input['FabricGuidsArgs']] = None,
+                 names: Optional[pulumi.Input['FabricNamesArgs']] = None):
         """
         DataLake Fabric Storage details.
 
@@ -2135,26 +2135,26 @@ class DataLakeFabricStorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def guids(self) -> pulumi.Input[Optional['FabricGuidsArgs']]:
+    def guids(self) -> Optional[pulumi.Input['FabricGuidsArgs']]:
         """
         Fabric one lake Guids.
         """
         return pulumi.get(self, "guids")
 
     @guids.setter
-    def guids(self, value: pulumi.Input[Optional['FabricGuidsArgs']]):
+    def guids(self, value: Optional[pulumi.Input['FabricGuidsArgs']]):
         pulumi.set(self, "guids", value)
 
     @_builtins.property
     @pulumi.getter
-    def names(self) -> pulumi.Input[Optional['FabricNamesArgs']]:
+    def names(self) -> Optional[pulumi.Input['FabricNamesArgs']]:
         """
         Fabric one lake Names.
         """
         return pulumi.get(self, "names")
 
     @names.setter
-    def names(self, value: pulumi.Input[Optional['FabricNamesArgs']]):
+    def names(self, value: Optional[pulumi.Input['FabricNamesArgs']]):
         pulumi.set(self, "names", value)
 
 
@@ -2195,11 +2195,11 @@ class DataLakeServiceStorageAuthenticationArgsDict(TypedDict):
     """
     DataLake Service Storage authentication details. NOTE - Enum only one method is supported.
     """
-    access_token_secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    access_token_secret_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Access token secret name.
     """
-    system_assigned_managed_identity: NotRequired[pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']]]
+    system_assigned_managed_identity: NotRequired[pulumi.Input['ManagedIdentityAuthenticationArgsDict']]
     """
     Configuration for managed identity authentication.
     """
@@ -2207,8 +2207,8 @@ class DataLakeServiceStorageAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class DataLakeServiceStorageAuthenticationArgs:
     def __init__(__self__, *,
-                 access_token_secret_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 system_assigned_managed_identity: pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']] = None):
+                 access_token_secret_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 system_assigned_managed_identity: Optional[pulumi.Input['ManagedIdentityAuthenticationArgs']] = None):
         """
         DataLake Service Storage authentication details. NOTE - Enum only one method is supported.
 
@@ -2222,26 +2222,26 @@ class DataLakeServiceStorageAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessTokenSecretName")
-    def access_token_secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def access_token_secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Access token secret name.
         """
         return pulumi.get(self, "access_token_secret_name")
 
     @access_token_secret_name.setter
-    def access_token_secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def access_token_secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "access_token_secret_name", value)
 
     @_builtins.property
     @pulumi.getter(name="systemAssignedManagedIdentity")
-    def system_assigned_managed_identity(self) -> pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']]:
+    def system_assigned_managed_identity(self) -> Optional[pulumi.Input['ManagedIdentityAuthenticationArgs']]:
         """
         Configuration for managed identity authentication.
         """
         return pulumi.get(self, "system_assigned_managed_identity")
 
     @system_assigned_managed_identity.setter
-    def system_assigned_managed_identity(self, value: pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']]):
+    def system_assigned_managed_identity(self, value: Optional[pulumi.Input['ManagedIdentityAuthenticationArgs']]):
         pulumi.set(self, "system_assigned_managed_identity", value)
 
 
@@ -2301,15 +2301,15 @@ class DataLakeTargetStorageArgsDict(TypedDict):
     """
     Target storage for the DataLake. NOTE - Enum only storage is supported at a time.
     """
-    datalake_storage: NotRequired[pulumi.Input[Optional['DataLakeServiceStorageArgs']]]
+    datalake_storage: NotRequired[pulumi.Input['DataLakeServiceStorageArgsDict']]
     """
     DataLake service storage details.
     """
-    fabric_one_lake: NotRequired[pulumi.Input[Optional['DataLakeFabricStorageArgs']]]
+    fabric_one_lake: NotRequired[pulumi.Input['DataLakeFabricStorageArgsDict']]
     """
     Fabric one lake storage details.
     """
-    local_storage: NotRequired[pulumi.Input[Optional['DataLakeLocalStorageArgs']]]
+    local_storage: NotRequired[pulumi.Input['DataLakeLocalStorageArgsDict']]
     """
     Local storage details.
     """
@@ -2317,9 +2317,9 @@ class DataLakeTargetStorageArgsDict(TypedDict):
 @pulumi.input_type
 class DataLakeTargetStorageArgs:
     def __init__(__self__, *,
-                 datalake_storage: pulumi.Input[Optional['DataLakeServiceStorageArgs']] = None,
-                 fabric_one_lake: pulumi.Input[Optional['DataLakeFabricStorageArgs']] = None,
-                 local_storage: pulumi.Input[Optional['DataLakeLocalStorageArgs']] = None):
+                 datalake_storage: Optional[pulumi.Input['DataLakeServiceStorageArgs']] = None,
+                 fabric_one_lake: Optional[pulumi.Input['DataLakeFabricStorageArgs']] = None,
+                 local_storage: Optional[pulumi.Input['DataLakeLocalStorageArgs']] = None):
         """
         Target storage for the DataLake. NOTE - Enum only storage is supported at a time.
 
@@ -2336,38 +2336,38 @@ class DataLakeTargetStorageArgs:
 
     @_builtins.property
     @pulumi.getter(name="datalakeStorage")
-    def datalake_storage(self) -> pulumi.Input[Optional['DataLakeServiceStorageArgs']]:
+    def datalake_storage(self) -> Optional[pulumi.Input['DataLakeServiceStorageArgs']]:
         """
         DataLake service storage details.
         """
         return pulumi.get(self, "datalake_storage")
 
     @datalake_storage.setter
-    def datalake_storage(self, value: pulumi.Input[Optional['DataLakeServiceStorageArgs']]):
+    def datalake_storage(self, value: Optional[pulumi.Input['DataLakeServiceStorageArgs']]):
         pulumi.set(self, "datalake_storage", value)
 
     @_builtins.property
     @pulumi.getter(name="fabricOneLake")
-    def fabric_one_lake(self) -> pulumi.Input[Optional['DataLakeFabricStorageArgs']]:
+    def fabric_one_lake(self) -> Optional[pulumi.Input['DataLakeFabricStorageArgs']]:
         """
         Fabric one lake storage details.
         """
         return pulumi.get(self, "fabric_one_lake")
 
     @fabric_one_lake.setter
-    def fabric_one_lake(self, value: pulumi.Input[Optional['DataLakeFabricStorageArgs']]):
+    def fabric_one_lake(self, value: Optional[pulumi.Input['DataLakeFabricStorageArgs']]):
         pulumi.set(self, "fabric_one_lake", value)
 
     @_builtins.property
     @pulumi.getter(name="localStorage")
-    def local_storage(self) -> pulumi.Input[Optional['DataLakeLocalStorageArgs']]:
+    def local_storage(self) -> Optional[pulumi.Input['DataLakeLocalStorageArgs']]:
         """
         Local storage details.
         """
         return pulumi.get(self, "local_storage")
 
     @local_storage.setter
-    def local_storage(self, value: pulumi.Input[Optional['DataLakeLocalStorageArgs']]):
+    def local_storage(self, value: Optional[pulumi.Input['DataLakeLocalStorageArgs']]):
         pulumi.set(self, "local_storage", value)
 
 
@@ -2473,7 +2473,7 @@ class DeltaTableArgsDict(TypedDict):
     """
     Delta table name.
     """
-    table_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    table_path: NotRequired[pulumi.Input[_builtins.str]]
     """
     Delta table path.
     """
@@ -2483,7 +2483,7 @@ class DeltaTableArgs:
     def __init__(__self__, *,
                  schema: pulumi.Input[Sequence[pulumi.Input['DeltaTableSchemaArgs']]],
                  table_name: pulumi.Input[_builtins.str],
-                 table_path: pulumi.Input[Optional[_builtins.str]] = None):
+                 table_path: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Delta table properties
 
@@ -2522,14 +2522,14 @@ class DeltaTableArgs:
 
     @_builtins.property
     @pulumi.getter(name="tablePath")
-    def table_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def table_path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Delta table path.
         """
         return pulumi.get(self, "table_path")
 
     @table_path.setter
-    def table_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def table_path(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "table_path", value)
 
 
@@ -2541,11 +2541,11 @@ class DiskBackedMessageBufferSettingsArgsDict(TypedDict):
     """
     The max size of the message buffer on disk. If a PVC template is specified using one of ephemeralVolumeClaimSpec or persistentVolumeClaimSpec, then this size is used as the request and limit sizes of that template. If neither ephemeralVolumeClaimSpec nor persistentVolumeClaimSpec are specified, then an emptyDir volume is mounted with this size as its limit. See <https://kubernetes.io/docs/concepts/storage/volumes/#emptydir> for details.
     """
-    ephemeral_volume_claim_spec: NotRequired[pulumi.Input[Optional['VolumeClaimSpecArgs']]]
+    ephemeral_volume_claim_spec: NotRequired[pulumi.Input['VolumeClaimSpecArgsDict']]
     """
     Use the specified persistent volume claim template to mount a "generic ephemeral volume" for the message buffer. See <https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes> for details.
     """
-    persistent_volume_claim_spec: NotRequired[pulumi.Input[Optional['VolumeClaimSpecArgs']]]
+    persistent_volume_claim_spec: NotRequired[pulumi.Input['VolumeClaimSpecArgsDict']]
     """
     Use the specified persistent volume claim template to mount a persistent volume for the message buffer.
     """
@@ -2554,8 +2554,8 @@ class DiskBackedMessageBufferSettingsArgsDict(TypedDict):
 class DiskBackedMessageBufferSettingsArgs:
     def __init__(__self__, *,
                  max_size: pulumi.Input[_builtins.str],
-                 ephemeral_volume_claim_spec: pulumi.Input[Optional['VolumeClaimSpecArgs']] = None,
-                 persistent_volume_claim_spec: pulumi.Input[Optional['VolumeClaimSpecArgs']] = None):
+                 ephemeral_volume_claim_spec: Optional[pulumi.Input['VolumeClaimSpecArgs']] = None,
+                 persistent_volume_claim_spec: Optional[pulumi.Input['VolumeClaimSpecArgs']] = None):
         """
         DiskBackedMessageBufferSettings properties
 
@@ -2583,26 +2583,26 @@ class DiskBackedMessageBufferSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="ephemeralVolumeClaimSpec")
-    def ephemeral_volume_claim_spec(self) -> pulumi.Input[Optional['VolumeClaimSpecArgs']]:
+    def ephemeral_volume_claim_spec(self) -> Optional[pulumi.Input['VolumeClaimSpecArgs']]:
         """
         Use the specified persistent volume claim template to mount a "generic ephemeral volume" for the message buffer. See <https://kubernetes.io/docs/concepts/storage/ephemeral-volumes/#generic-ephemeral-volumes> for details.
         """
         return pulumi.get(self, "ephemeral_volume_claim_spec")
 
     @ephemeral_volume_claim_spec.setter
-    def ephemeral_volume_claim_spec(self, value: pulumi.Input[Optional['VolumeClaimSpecArgs']]):
+    def ephemeral_volume_claim_spec(self, value: Optional[pulumi.Input['VolumeClaimSpecArgs']]):
         pulumi.set(self, "ephemeral_volume_claim_spec", value)
 
     @_builtins.property
     @pulumi.getter(name="persistentVolumeClaimSpec")
-    def persistent_volume_claim_spec(self) -> pulumi.Input[Optional['VolumeClaimSpecArgs']]:
+    def persistent_volume_claim_spec(self) -> Optional[pulumi.Input['VolumeClaimSpecArgs']]:
         """
         Use the specified persistent volume claim template to mount a persistent volume for the message buffer.
         """
         return pulumi.get(self, "persistent_volume_claim_spec")
 
     @persistent_volume_claim_spec.setter
-    def persistent_volume_claim_spec(self, value: pulumi.Input[Optional['VolumeClaimSpecArgs']]):
+    def persistent_volume_claim_spec(self, value: Optional[pulumi.Input['VolumeClaimSpecArgs']]):
         pulumi.set(self, "persistent_volume_claim_spec", value)
 
 
@@ -2770,11 +2770,11 @@ class FrontendArgsDict(TypedDict):
     """
     Replicas is desired number of frontend replicas of the given distributed MQTT broker.
     """
-    temporary_resource_limits: NotRequired[pulumi.Input[Optional['TemporaryResourceLimitsConfigArgs']]]
+    temporary_resource_limits: NotRequired[pulumi.Input['TemporaryResourceLimitsConfigArgsDict']]
     """
     Defines the limits for resources of the frontend instances of the MQTT broker.
     """
-    workers: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    workers: NotRequired[pulumi.Input[_builtins.int]]
     """
     Number of logical frontend workers per pod.
     """
@@ -2783,8 +2783,8 @@ class FrontendArgsDict(TypedDict):
 class FrontendArgs:
     def __init__(__self__, *,
                  replicas: pulumi.Input[_builtins.int],
-                 temporary_resource_limits: pulumi.Input[Optional['TemporaryResourceLimitsConfigArgs']] = None,
-                 workers: pulumi.Input[Optional[_builtins.int]] = None):
+                 temporary_resource_limits: Optional[pulumi.Input['TemporaryResourceLimitsConfigArgs']] = None,
+                 workers: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Desired properties of the Frontend Instances of the DMQTT Broker
 
@@ -2814,26 +2814,26 @@ class FrontendArgs:
 
     @_builtins.property
     @pulumi.getter(name="temporaryResourceLimits")
-    def temporary_resource_limits(self) -> pulumi.Input[Optional['TemporaryResourceLimitsConfigArgs']]:
+    def temporary_resource_limits(self) -> Optional[pulumi.Input['TemporaryResourceLimitsConfigArgs']]:
         """
         Defines the limits for resources of the frontend instances of the MQTT broker.
         """
         return pulumi.get(self, "temporary_resource_limits")
 
     @temporary_resource_limits.setter
-    def temporary_resource_limits(self, value: pulumi.Input[Optional['TemporaryResourceLimitsConfigArgs']]):
+    def temporary_resource_limits(self, value: Optional[pulumi.Input['TemporaryResourceLimitsConfigArgs']]):
         pulumi.set(self, "temporary_resource_limits", value)
 
     @_builtins.property
     @pulumi.getter
-    def workers(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def workers(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Number of logical frontend workers per pod.
         """
         return pulumi.get(self, "workers")
 
     @workers.setter
-    def workers(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def workers(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "workers", value)
 
 
@@ -2845,7 +2845,7 @@ class KafkaRemoteBrokerAuthenticationPropertiesArgsDict(TypedDict):
     """
     If authentication is enabled for Kafka remote broker.
     """
-    auth_type: NotRequired[pulumi.Input[Optional['KafkaRemoteBrokerAuthenticationTypesArgs']]]
+    auth_type: NotRequired[pulumi.Input['KafkaRemoteBrokerAuthenticationTypesArgsDict']]
     """
     The type of authentication to use for Kafka remote broker.
     """
@@ -2854,7 +2854,7 @@ class KafkaRemoteBrokerAuthenticationPropertiesArgsDict(TypedDict):
 class KafkaRemoteBrokerAuthenticationPropertiesArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[_builtins.bool],
-                 auth_type: pulumi.Input[Optional['KafkaRemoteBrokerAuthenticationTypesArgs']] = None):
+                 auth_type: Optional[pulumi.Input['KafkaRemoteBrokerAuthenticationTypesArgs']] = None):
         """
         Kafka RemoteBrokerConnection Authentication methods
 
@@ -2879,14 +2879,14 @@ class KafkaRemoteBrokerAuthenticationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="authType")
-    def auth_type(self) -> pulumi.Input[Optional['KafkaRemoteBrokerAuthenticationTypesArgs']]:
+    def auth_type(self) -> Optional[pulumi.Input['KafkaRemoteBrokerAuthenticationTypesArgs']]:
         """
         The type of authentication to use for Kafka remote broker.
         """
         return pulumi.get(self, "auth_type")
 
     @auth_type.setter
-    def auth_type(self, value: pulumi.Input[Optional['KafkaRemoteBrokerAuthenticationTypesArgs']]):
+    def auth_type(self, value: Optional[pulumi.Input['KafkaRemoteBrokerAuthenticationTypesArgs']]):
         pulumi.set(self, "auth_type", value)
 
 
@@ -2894,15 +2894,15 @@ class KafkaRemoteBrokerAuthenticationTypesArgsDict(TypedDict):
     """
     Kafka RemoteBrokerConnection Authentication types. NOTE - Enum only one method is allowed to be passed.
     """
-    sasl: NotRequired[pulumi.Input[Optional['SaslRemoteBrokerBasicAuthenticationArgs']]]
+    sasl: NotRequired[pulumi.Input['SaslRemoteBrokerBasicAuthenticationArgsDict']]
     """
     Sasl remote broker authentication method.
     """
-    system_assigned_managed_identity: NotRequired[pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']]]
+    system_assigned_managed_identity: NotRequired[pulumi.Input['ManagedIdentityAuthenticationArgsDict']]
     """
     Managed identity remote broker authentication method.
     """
-    x509: NotRequired[pulumi.Input[Optional['KafkaX509AuthenticationArgs']]]
+    x509: NotRequired[pulumi.Input['KafkaX509AuthenticationArgsDict']]
     """
     X509 remote broker authentication method.
     """
@@ -2910,9 +2910,9 @@ class KafkaRemoteBrokerAuthenticationTypesArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaRemoteBrokerAuthenticationTypesArgs:
     def __init__(__self__, *,
-                 sasl: pulumi.Input[Optional['SaslRemoteBrokerBasicAuthenticationArgs']] = None,
-                 system_assigned_managed_identity: pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']] = None,
-                 x509: pulumi.Input[Optional['KafkaX509AuthenticationArgs']] = None):
+                 sasl: Optional[pulumi.Input['SaslRemoteBrokerBasicAuthenticationArgs']] = None,
+                 system_assigned_managed_identity: Optional[pulumi.Input['ManagedIdentityAuthenticationArgs']] = None,
+                 x509: Optional[pulumi.Input['KafkaX509AuthenticationArgs']] = None):
         """
         Kafka RemoteBrokerConnection Authentication types. NOTE - Enum only one method is allowed to be passed.
 
@@ -2929,38 +2929,38 @@ class KafkaRemoteBrokerAuthenticationTypesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def sasl(self) -> pulumi.Input[Optional['SaslRemoteBrokerBasicAuthenticationArgs']]:
+    def sasl(self) -> Optional[pulumi.Input['SaslRemoteBrokerBasicAuthenticationArgs']]:
         """
         Sasl remote broker authentication method.
         """
         return pulumi.get(self, "sasl")
 
     @sasl.setter
-    def sasl(self, value: pulumi.Input[Optional['SaslRemoteBrokerBasicAuthenticationArgs']]):
+    def sasl(self, value: Optional[pulumi.Input['SaslRemoteBrokerBasicAuthenticationArgs']]):
         pulumi.set(self, "sasl", value)
 
     @_builtins.property
     @pulumi.getter(name="systemAssignedManagedIdentity")
-    def system_assigned_managed_identity(self) -> pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']]:
+    def system_assigned_managed_identity(self) -> Optional[pulumi.Input['ManagedIdentityAuthenticationArgs']]:
         """
         Managed identity remote broker authentication method.
         """
         return pulumi.get(self, "system_assigned_managed_identity")
 
     @system_assigned_managed_identity.setter
-    def system_assigned_managed_identity(self, value: pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']]):
+    def system_assigned_managed_identity(self, value: Optional[pulumi.Input['ManagedIdentityAuthenticationArgs']]):
         pulumi.set(self, "system_assigned_managed_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def x509(self) -> pulumi.Input[Optional['KafkaX509AuthenticationArgs']]:
+    def x509(self) -> Optional[pulumi.Input['KafkaX509AuthenticationArgs']]:
         """
         X509 remote broker authentication method.
         """
         return pulumi.get(self, "x509")
 
     @x509.setter
-    def x509(self, value: pulumi.Input[Optional['KafkaX509AuthenticationArgs']]):
+    def x509(self, value: Optional[pulumi.Input['KafkaX509AuthenticationArgs']]):
         pulumi.set(self, "x509", value)
 
 
@@ -3043,7 +3043,7 @@ class KafkaRemoteBrokerConnectionTlsArgsDict(TypedDict):
     """
     Tls Enabled on Remote Broker Connection.
     """
-    trusted_ca_certificate_config_map: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    trusted_ca_certificate_config_map: NotRequired[pulumi.Input[_builtins.str]]
     """
     Trusted CA certificate name for Remote Broker.
     """
@@ -3052,7 +3052,7 @@ class KafkaRemoteBrokerConnectionTlsArgsDict(TypedDict):
 class KafkaRemoteBrokerConnectionTlsArgs:
     def __init__(__self__, *,
                  tls_enabled: pulumi.Input[_builtins.bool],
-                 trusted_ca_certificate_config_map: pulumi.Input[Optional[_builtins.str]] = None):
+                 trusted_ca_certificate_config_map: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Kafka RemoteBrokerConnection TLS details
 
@@ -3077,14 +3077,14 @@ class KafkaRemoteBrokerConnectionTlsArgs:
 
     @_builtins.property
     @pulumi.getter(name="trustedCaCertificateConfigMap")
-    def trusted_ca_certificate_config_map(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def trusted_ca_certificate_config_map(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Trusted CA certificate name for Remote Broker.
         """
         return pulumi.get(self, "trusted_ca_certificate_config_map")
 
     @trusted_ca_certificate_config_map.setter
-    def trusted_ca_certificate_config_map(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def trusted_ca_certificate_config_map(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "trusted_ca_certificate_config_map", value)
 
 
@@ -3092,11 +3092,11 @@ class KafkaRoutesArgsDict(TypedDict):
     """
     Kafka Routes properties. NOTE - Enum only one method is allowed to be passed.
     """
-    kafka_to_mqtt: NotRequired[pulumi.Input[Optional['KafkaToMqttRoutesArgs']]]
+    kafka_to_mqtt: NotRequired[pulumi.Input['KafkaToMqttRoutesArgsDict']]
     """
     Kafka to Mqtt route.
     """
-    mqtt_to_kafka: NotRequired[pulumi.Input[Optional['MqttToKafkaRoutesArgs']]]
+    mqtt_to_kafka: NotRequired[pulumi.Input['MqttToKafkaRoutesArgsDict']]
     """
     Mqtt to Kafka route.
     """
@@ -3104,8 +3104,8 @@ class KafkaRoutesArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaRoutesArgs:
     def __init__(__self__, *,
-                 kafka_to_mqtt: pulumi.Input[Optional['KafkaToMqttRoutesArgs']] = None,
-                 mqtt_to_kafka: pulumi.Input[Optional['MqttToKafkaRoutesArgs']] = None):
+                 kafka_to_mqtt: Optional[pulumi.Input['KafkaToMqttRoutesArgs']] = None,
+                 mqtt_to_kafka: Optional[pulumi.Input['MqttToKafkaRoutesArgs']] = None):
         """
         Kafka Routes properties. NOTE - Enum only one method is allowed to be passed.
 
@@ -3119,26 +3119,26 @@ class KafkaRoutesArgs:
 
     @_builtins.property
     @pulumi.getter(name="kafkaToMqtt")
-    def kafka_to_mqtt(self) -> pulumi.Input[Optional['KafkaToMqttRoutesArgs']]:
+    def kafka_to_mqtt(self) -> Optional[pulumi.Input['KafkaToMqttRoutesArgs']]:
         """
         Kafka to Mqtt route.
         """
         return pulumi.get(self, "kafka_to_mqtt")
 
     @kafka_to_mqtt.setter
-    def kafka_to_mqtt(self, value: pulumi.Input[Optional['KafkaToMqttRoutesArgs']]):
+    def kafka_to_mqtt(self, value: Optional[pulumi.Input['KafkaToMqttRoutesArgs']]):
         pulumi.set(self, "kafka_to_mqtt", value)
 
     @_builtins.property
     @pulumi.getter(name="mqttToKafka")
-    def mqtt_to_kafka(self) -> pulumi.Input[Optional['MqttToKafkaRoutesArgs']]:
+    def mqtt_to_kafka(self) -> Optional[pulumi.Input['MqttToKafkaRoutesArgs']]:
         """
         Mqtt to Kafka route.
         """
         return pulumi.get(self, "mqtt_to_kafka")
 
     @mqtt_to_kafka.setter
-    def mqtt_to_kafka(self, value: pulumi.Input[Optional['MqttToKafkaRoutesArgs']]):
+    def mqtt_to_kafka(self, value: Optional[pulumi.Input['MqttToKafkaRoutesArgs']]):
         pulumi.set(self, "mqtt_to_kafka", value)
 
 
@@ -3210,11 +3210,11 @@ class KafkaToMqttRoutesArgsDict(TypedDict):
     """
     The name of the route.
     """
-    consumer_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    consumer_group_id: NotRequired[pulumi.Input[_builtins.str]]
     """
     The consumer group id to use.
     """
-    qos: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    qos: NotRequired[pulumi.Input[_builtins.int]]
     """
     The qos to use for mqtt.
     """
@@ -3225,8 +3225,8 @@ class KafkaToMqttRoutesArgs:
                  kafka_topic: pulumi.Input[_builtins.str],
                  mqtt_topic: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 consumer_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 qos: pulumi.Input[Optional[_builtins.int]] = None):
+                 consumer_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 qos: Optional[pulumi.Input[_builtins.int]] = None):
         """
         Kafka to Mqtt route properties
 
@@ -3284,26 +3284,26 @@ class KafkaToMqttRoutesArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupId")
-    def consumer_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def consumer_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The consumer group id to use.
         """
         return pulumi.get(self, "consumer_group_id")
 
     @consumer_group_id.setter
-    def consumer_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def consumer_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "consumer_group_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def qos(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def qos(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         The qos to use for mqtt.
         """
         return pulumi.get(self, "qos")
 
     @qos.setter
-    def qos(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def qos(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "qos", value)
 
 
@@ -3319,7 +3319,7 @@ class KafkaTokenKeyVaultPropertiesArgsDict(TypedDict):
     """
     KeyVault secret details.
     """
-    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    username: NotRequired[pulumi.Input[_builtins.str]]
     """
     Username to connect with.
     """
@@ -3329,7 +3329,7 @@ class KafkaTokenKeyVaultPropertiesArgs:
     def __init__(__self__, *,
                  vault: pulumi.Input['KeyVaultConnectionPropertiesArgs'],
                  vault_secret: pulumi.Input['KeyVaultSecretObjectArgs'],
-                 username: pulumi.Input[Optional[_builtins.str]] = None):
+                 username: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Kafka Token KeyVault properties.
 
@@ -3368,14 +3368,14 @@ class KafkaTokenKeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def username(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Username to connect with.
         """
         return pulumi.get(self, "username")
 
     @username.setter
-    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def username(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "username", value)
 
 
@@ -3383,19 +3383,19 @@ class KafkaTopicMapBatchingArgsDict(TypedDict):
     """
     Kafka TopicMap Batching properties
     """
-    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     The setting to enable or disable batching.
     """
-    latency_ms: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    latency_ms: NotRequired[pulumi.Input[_builtins.int]]
     """
     The latency of message batching.
     """
-    max_bytes: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    max_bytes: NotRequired[pulumi.Input[_builtins.float]]
     """
     The maximum bytes to send in a batch.
     """
-    max_messages: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    max_messages: NotRequired[pulumi.Input[_builtins.float]]
     """
     The maximum messages to send in a batch.
     """
@@ -3403,10 +3403,10 @@ class KafkaTopicMapBatchingArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaTopicMapBatchingArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 latency_ms: pulumi.Input[Optional[_builtins.int]] = None,
-                 max_bytes: pulumi.Input[Optional[_builtins.float]] = None,
-                 max_messages: pulumi.Input[Optional[_builtins.float]] = None):
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 latency_ms: Optional[pulumi.Input[_builtins.int]] = None,
+                 max_bytes: Optional[pulumi.Input[_builtins.float]] = None,
+                 max_messages: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Kafka TopicMap Batching properties
 
@@ -3434,50 +3434,50 @@ class KafkaTopicMapBatchingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         The setting to enable or disable batching.
         """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
-    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="latencyMs")
-    def latency_ms(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def latency_ms(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         The latency of message batching.
         """
         return pulumi.get(self, "latency_ms")
 
     @latency_ms.setter
-    def latency_ms(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def latency_ms(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "latency_ms", value)
 
     @_builtins.property
     @pulumi.getter(name="maxBytes")
-    def max_bytes(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def max_bytes(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         The maximum bytes to send in a batch.
         """
         return pulumi.get(self, "max_bytes")
 
     @max_bytes.setter
-    def max_bytes(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def max_bytes(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "max_bytes", value)
 
     @_builtins.property
     @pulumi.getter(name="maxMessages")
-    def max_messages(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def max_messages(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         The maximum messages to send in a batch.
         """
         return pulumi.get(self, "max_messages")
 
     @max_messages.setter
-    def max_messages(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def max_messages(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "max_messages", value)
 
 
@@ -3485,11 +3485,11 @@ class KafkaX509AuthenticationArgsDict(TypedDict):
     """
     Kafka RemoteBrokerConnection X509 Authentication properties.
     """
-    key_vault: NotRequired[pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]]
+    key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
     """
     Keyvault X509 secret properties.
     """
-    secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Secret where cert details are stored.
     """
@@ -3497,8 +3497,8 @@ class KafkaX509AuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class KafkaX509AuthenticationArgs:
     def __init__(__self__, *,
-                 key_vault: pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']] = None,
-                 secret_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_vault: Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']] = None,
+                 secret_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Kafka RemoteBrokerConnection X509 Authentication properties.
 
@@ -3512,26 +3512,26 @@ class KafkaX509AuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]:
+    def key_vault(self) -> Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']]:
         """
         Keyvault X509 secret properties.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]):
+    def key_vault(self, value: Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Secret where cert details are stored.
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
 
@@ -3547,7 +3547,7 @@ class KeyVaultCertificatePropertiesArgsDict(TypedDict):
     """
     KeyVault Cert secret details.
     """
-    vault_ca_chain_secret: NotRequired[pulumi.Input[Optional['KeyVaultSecretObjectArgs']]]
+    vault_ca_chain_secret: NotRequired[pulumi.Input['KeyVaultSecretObjectArgsDict']]
     """
     KeyVault CA chain secret details.
     """
@@ -3557,7 +3557,7 @@ class KeyVaultCertificatePropertiesArgs:
     def __init__(__self__, *,
                  vault: pulumi.Input['KeyVaultConnectionPropertiesArgs'],
                  vault_cert: pulumi.Input['KeyVaultSecretObjectArgs'],
-                 vault_ca_chain_secret: pulumi.Input[Optional['KeyVaultSecretObjectArgs']] = None):
+                 vault_ca_chain_secret: Optional[pulumi.Input['KeyVaultSecretObjectArgs']] = None):
         """
         KeyVault certificate properties
 
@@ -3596,14 +3596,14 @@ class KeyVaultCertificatePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="vaultCaChainSecret")
-    def vault_ca_chain_secret(self) -> pulumi.Input[Optional['KeyVaultSecretObjectArgs']]:
+    def vault_ca_chain_secret(self) -> Optional[pulumi.Input['KeyVaultSecretObjectArgs']]:
         """
         KeyVault CA chain secret details.
         """
         return pulumi.get(self, "vault_ca_chain_secret")
 
     @vault_ca_chain_secret.setter
-    def vault_ca_chain_secret(self, value: pulumi.Input[Optional['KeyVaultSecretObjectArgs']]):
+    def vault_ca_chain_secret(self, value: Optional[pulumi.Input['KeyVaultSecretObjectArgs']]):
         pulumi.set(self, "vault_ca_chain_secret", value)
 
 
@@ -3719,7 +3719,7 @@ class KeyVaultSecretObjectArgsDict(TypedDict):
     """
     KeyVault secret name.
     """
-    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    version: NotRequired[pulumi.Input[_builtins.str]]
     """
     KeyVault secret version.
     """
@@ -3728,7 +3728,7 @@ class KeyVaultSecretObjectArgsDict(TypedDict):
 class KeyVaultSecretObjectArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 version: pulumi.Input[Optional[_builtins.str]] = None):
+                 version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         KeyVault secret object properties
 
@@ -3753,14 +3753,14 @@ class KeyVaultSecretObjectArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         KeyVault secret version.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -3853,15 +3853,15 @@ class LocalBrokerConnectionSpecArgsDict(TypedDict):
     """
     Mqtt Local Broker ConnectionSpec details
     """
-    authentication: NotRequired[pulumi.Input[Optional['LocalBrokerAuthenticationMethodsArgs']]]
+    authentication: NotRequired[pulumi.Input['LocalBrokerAuthenticationMethodsArgsDict']]
     """
     The authentication methods for LocalBroker connection. NOTE - Enum only one method at a time is supported.
     """
-    endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    endpoint: NotRequired[pulumi.Input[_builtins.str]]
     """
     The endpoint of local broker to connect to.
     """
-    tls: NotRequired[pulumi.Input[Optional['LocalBrokerConnectionTlsArgs']]]
+    tls: NotRequired[pulumi.Input['LocalBrokerConnectionTlsArgsDict']]
     """
     TLS details for Local broker Connection.
     """
@@ -3869,9 +3869,9 @@ class LocalBrokerConnectionSpecArgsDict(TypedDict):
 @pulumi.input_type
 class LocalBrokerConnectionSpecArgs:
     def __init__(__self__, *,
-                 authentication: pulumi.Input[Optional['LocalBrokerAuthenticationMethodsArgs']] = None,
-                 endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 tls: pulumi.Input[Optional['LocalBrokerConnectionTlsArgs']] = None):
+                 authentication: Optional[pulumi.Input['LocalBrokerAuthenticationMethodsArgs']] = None,
+                 endpoint: Optional[pulumi.Input[_builtins.str]] = None,
+                 tls: Optional[pulumi.Input['LocalBrokerConnectionTlsArgs']] = None):
         """
         Mqtt Local Broker ConnectionSpec details
 
@@ -3890,38 +3890,38 @@ class LocalBrokerConnectionSpecArgs:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> pulumi.Input[Optional['LocalBrokerAuthenticationMethodsArgs']]:
+    def authentication(self) -> Optional[pulumi.Input['LocalBrokerAuthenticationMethodsArgs']]:
         """
         The authentication methods for LocalBroker connection. NOTE - Enum only one method at a time is supported.
         """
         return pulumi.get(self, "authentication")
 
     @authentication.setter
-    def authentication(self, value: pulumi.Input[Optional['LocalBrokerAuthenticationMethodsArgs']]):
+    def authentication(self, value: Optional[pulumi.Input['LocalBrokerAuthenticationMethodsArgs']]):
         pulumi.set(self, "authentication", value)
 
     @_builtins.property
     @pulumi.getter
-    def endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def endpoint(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The endpoint of local broker to connect to.
         """
         return pulumi.get(self, "endpoint")
 
     @endpoint.setter
-    def endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def endpoint(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
     @pulumi.getter
-    def tls(self) -> pulumi.Input[Optional['LocalBrokerConnectionTlsArgs']]:
+    def tls(self) -> Optional[pulumi.Input['LocalBrokerConnectionTlsArgs']]:
         """
         TLS details for Local broker Connection.
         """
         return pulumi.get(self, "tls")
 
     @tls.setter
-    def tls(self, value: pulumi.Input[Optional['LocalBrokerConnectionTlsArgs']]):
+    def tls(self, value: Optional[pulumi.Input['LocalBrokerConnectionTlsArgs']]):
         pulumi.set(self, "tls", value)
 
 
@@ -3929,11 +3929,11 @@ class LocalBrokerConnectionTlsArgsDict(TypedDict):
     """
     Mqtt Local Broker Connection TLS details
     """
-    tls_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    tls_enabled: NotRequired[pulumi.Input[_builtins.bool]]
     """
     Tls Enabled on Local Broker Connection.
     """
-    trusted_ca_certificate_config_map: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    trusted_ca_certificate_config_map: NotRequired[pulumi.Input[_builtins.str]]
     """
     Trusted CA certificate config map name for Local Broker.
     """
@@ -3941,8 +3941,8 @@ class LocalBrokerConnectionTlsArgsDict(TypedDict):
 @pulumi.input_type
 class LocalBrokerConnectionTlsArgs:
     def __init__(__self__, *,
-                 tls_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 trusted_ca_certificate_config_map: pulumi.Input[Optional[_builtins.str]] = None):
+                 tls_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 trusted_ca_certificate_config_map: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Mqtt Local Broker Connection TLS details
 
@@ -3958,26 +3958,26 @@ class LocalBrokerConnectionTlsArgs:
 
     @_builtins.property
     @pulumi.getter(name="tlsEnabled")
-    def tls_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def tls_enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Tls Enabled on Local Broker Connection.
         """
         return pulumi.get(self, "tls_enabled")
 
     @tls_enabled.setter
-    def tls_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def tls_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "tls_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedCaCertificateConfigMap")
-    def trusted_ca_certificate_config_map(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def trusted_ca_certificate_config_map(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Trusted CA certificate config map name for Local Broker.
         """
         return pulumi.get(self, "trusted_ca_certificate_config_map")
 
     @trusted_ca_certificate_config_map.setter
-    def trusted_ca_certificate_config_map(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def trusted_ca_certificate_config_map(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "trusted_ca_certificate_config_map", value)
 
 
@@ -3985,11 +3985,11 @@ class LocalBrokerKubernetesAuthenticationArgsDict(TypedDict):
     """
     Local Broker Kubernetes Authentication
     """
-    secret_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_path: NotRequired[pulumi.Input[_builtins.str]]
     """
     Secret Path where SAT is mounted.
     """
-    service_account_token_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    service_account_token_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Token name where SAT is mounted on secret path.
     """
@@ -3997,8 +3997,8 @@ class LocalBrokerKubernetesAuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class LocalBrokerKubernetesAuthenticationArgs:
     def __init__(__self__, *,
-                 secret_path: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_account_token_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 secret_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_account_token_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Local Broker Kubernetes Authentication
 
@@ -4016,26 +4016,26 @@ class LocalBrokerKubernetesAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="secretPath")
-    def secret_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def secret_path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Secret Path where SAT is mounted.
         """
         return pulumi.get(self, "secret_path")
 
     @secret_path.setter
-    def secret_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def secret_path(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_path", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceAccountTokenName")
-    def service_account_token_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def service_account_token_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Token name where SAT is mounted on secret path.
         """
         return pulumi.get(self, "service_account_token_name")
 
     @service_account_token_name.setter
-    def service_account_token_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def service_account_token_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "service_account_token_name", value)
 
 
@@ -4047,7 +4047,7 @@ class ManagedIdentityAuthenticationArgsDict(TypedDict):
     """
     Token audience.
     """
-    extension_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    extension_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Arc Extension name.
     """
@@ -4056,7 +4056,7 @@ class ManagedIdentityAuthenticationArgsDict(TypedDict):
 class ManagedIdentityAuthenticationArgs:
     def __init__(__self__, *,
                  audience: pulumi.Input[_builtins.str],
-                 extension_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 extension_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Managed identity authentication details.
 
@@ -4081,14 +4081,14 @@ class ManagedIdentityAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="extensionName")
-    def extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def extension_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Arc Extension name.
         """
         return pulumi.get(self, "extension_name")
 
     @extension_name.setter
-    def extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def extension_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "extension_name", value)
 
 
@@ -4100,7 +4100,7 @@ class ManualCertMethodArgsDict(TypedDict):
     """
     secret containing TLS cert.
     """
-    secret_namespace: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_namespace: NotRequired[pulumi.Input[_builtins.str]]
     """
     namespace of secret; omit to use default namespace.
     """
@@ -4109,7 +4109,7 @@ class ManualCertMethodArgsDict(TypedDict):
 class ManualCertMethodArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str],
-                 secret_namespace: pulumi.Input[Optional[_builtins.str]] = None):
+                 secret_namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Manual TLS server certificate management through a defined secret
 
@@ -4134,14 +4134,14 @@ class ManualCertMethodArgs:
 
     @_builtins.property
     @pulumi.getter(name="secretNamespace")
-    def secret_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def secret_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         namespace of secret; omit to use default namespace.
         """
         return pulumi.get(self, "secret_namespace")
 
     @secret_namespace.setter
-    def secret_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def secret_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_namespace", value)
 
 
@@ -4149,11 +4149,11 @@ class MqttBridgeRemoteBrokerAuthenticationMethodsArgsDict(TypedDict):
     """
     MqttBridge RemoteBrokerConnection Authentication methods. NOTE - Enum only one is allowed to be passed.
     """
-    system_assigned_managed_identity: NotRequired[pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']]]
+    system_assigned_managed_identity: NotRequired[pulumi.Input['ManagedIdentityAuthenticationArgsDict']]
     """
     Managed identity remote broker authentication method.
     """
-    x509: NotRequired[pulumi.Input[Optional['MqttBridgeRemoteBrokerX509AuthenticationArgs']]]
+    x509: NotRequired[pulumi.Input['MqttBridgeRemoteBrokerX509AuthenticationArgsDict']]
     """
     X509 remote broker authentication method.
     """
@@ -4161,8 +4161,8 @@ class MqttBridgeRemoteBrokerAuthenticationMethodsArgsDict(TypedDict):
 @pulumi.input_type
 class MqttBridgeRemoteBrokerAuthenticationMethodsArgs:
     def __init__(__self__, *,
-                 system_assigned_managed_identity: pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']] = None,
-                 x509: pulumi.Input[Optional['MqttBridgeRemoteBrokerX509AuthenticationArgs']] = None):
+                 system_assigned_managed_identity: Optional[pulumi.Input['ManagedIdentityAuthenticationArgs']] = None,
+                 x509: Optional[pulumi.Input['MqttBridgeRemoteBrokerX509AuthenticationArgs']] = None):
         """
         MqttBridge RemoteBrokerConnection Authentication methods. NOTE - Enum only one is allowed to be passed.
 
@@ -4176,26 +4176,26 @@ class MqttBridgeRemoteBrokerAuthenticationMethodsArgs:
 
     @_builtins.property
     @pulumi.getter(name="systemAssignedManagedIdentity")
-    def system_assigned_managed_identity(self) -> pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']]:
+    def system_assigned_managed_identity(self) -> Optional[pulumi.Input['ManagedIdentityAuthenticationArgs']]:
         """
         Managed identity remote broker authentication method.
         """
         return pulumi.get(self, "system_assigned_managed_identity")
 
     @system_assigned_managed_identity.setter
-    def system_assigned_managed_identity(self, value: pulumi.Input[Optional['ManagedIdentityAuthenticationArgs']]):
+    def system_assigned_managed_identity(self, value: Optional[pulumi.Input['ManagedIdentityAuthenticationArgs']]):
         pulumi.set(self, "system_assigned_managed_identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def x509(self) -> pulumi.Input[Optional['MqttBridgeRemoteBrokerX509AuthenticationArgs']]:
+    def x509(self) -> Optional[pulumi.Input['MqttBridgeRemoteBrokerX509AuthenticationArgs']]:
         """
         X509 remote broker authentication method.
         """
         return pulumi.get(self, "x509")
 
     @x509.setter
-    def x509(self, value: pulumi.Input[Optional['MqttBridgeRemoteBrokerX509AuthenticationArgs']]):
+    def x509(self, value: Optional[pulumi.Input['MqttBridgeRemoteBrokerX509AuthenticationArgs']]):
         pulumi.set(self, "x509", value)
 
 
@@ -4215,7 +4215,7 @@ class MqttBridgeRemoteBrokerConnectionSpecArgsDict(TypedDict):
     """
     TLS details for Remote broker Connection.
     """
-    protocol: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MqttBridgeRemoteBrokerProtocol']]]]
+    protocol: NotRequired[pulumi.Input[Union[_builtins.str, 'MqttBridgeRemoteBrokerProtocol']]]
     """
     Protocol for remote connection.
     """
@@ -4226,7 +4226,7 @@ class MqttBridgeRemoteBrokerConnectionSpecArgs:
                  authentication: pulumi.Input['MqttBridgeRemoteBrokerAuthenticationMethodsArgs'],
                  endpoint: pulumi.Input[_builtins.str],
                  tls: pulumi.Input['MqttBridgeRemoteBrokerConnectionTlsArgs'],
-                 protocol: pulumi.Input[Optional[Union[_builtins.str, 'MqttBridgeRemoteBrokerProtocol']]] = None):
+                 protocol: Optional[pulumi.Input[Union[_builtins.str, 'MqttBridgeRemoteBrokerProtocol']]] = None):
         """
         MqttBridge RemoteBrokerConnectionSpec details
 
@@ -4281,14 +4281,14 @@ class MqttBridgeRemoteBrokerConnectionSpecArgs:
 
     @_builtins.property
     @pulumi.getter
-    def protocol(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MqttBridgeRemoteBrokerProtocol']]]:
+    def protocol(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MqttBridgeRemoteBrokerProtocol']]]:
         """
         Protocol for remote connection.
         """
         return pulumi.get(self, "protocol")
 
     @protocol.setter
-    def protocol(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MqttBridgeRemoteBrokerProtocol']]]):
+    def protocol(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MqttBridgeRemoteBrokerProtocol']]]):
         pulumi.set(self, "protocol", value)
 
 
@@ -4300,7 +4300,7 @@ class MqttBridgeRemoteBrokerConnectionTlsArgsDict(TypedDict):
     """
     Tls Enabled on Remote Broker Connection.
     """
-    trusted_ca_certificate_config_map: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    trusted_ca_certificate_config_map: NotRequired[pulumi.Input[_builtins.str]]
     """
     Trusted CA certificate name for Remote Broker.
     """
@@ -4309,7 +4309,7 @@ class MqttBridgeRemoteBrokerConnectionTlsArgsDict(TypedDict):
 class MqttBridgeRemoteBrokerConnectionTlsArgs:
     def __init__(__self__, *,
                  tls_enabled: pulumi.Input[_builtins.bool],
-                 trusted_ca_certificate_config_map: pulumi.Input[Optional[_builtins.str]] = None):
+                 trusted_ca_certificate_config_map: Optional[pulumi.Input[_builtins.str]] = None):
         """
         MqttBridge RemoteBrokerConnection TLS details
 
@@ -4334,14 +4334,14 @@ class MqttBridgeRemoteBrokerConnectionTlsArgs:
 
     @_builtins.property
     @pulumi.getter(name="trustedCaCertificateConfigMap")
-    def trusted_ca_certificate_config_map(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def trusted_ca_certificate_config_map(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Trusted CA certificate name for Remote Broker.
         """
         return pulumi.get(self, "trusted_ca_certificate_config_map")
 
     @trusted_ca_certificate_config_map.setter
-    def trusted_ca_certificate_config_map(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def trusted_ca_certificate_config_map(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "trusted_ca_certificate_config_map", value)
 
 
@@ -4349,11 +4349,11 @@ class MqttBridgeRemoteBrokerX509AuthenticationArgsDict(TypedDict):
     """
     MqttBridge RemoteBroker X509 Authentication properties.
     """
-    key_vault: NotRequired[pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]]
+    key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
     """
     Keyvault X509 secret properties.
     """
-    secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Secret where cert details are stored.
     """
@@ -4361,8 +4361,8 @@ class MqttBridgeRemoteBrokerX509AuthenticationArgsDict(TypedDict):
 @pulumi.input_type
 class MqttBridgeRemoteBrokerX509AuthenticationArgs:
     def __init__(__self__, *,
-                 key_vault: pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']] = None,
-                 secret_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_vault: Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']] = None,
+                 secret_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         MqttBridge RemoteBroker X509 Authentication properties.
 
@@ -4376,26 +4376,26 @@ class MqttBridgeRemoteBrokerX509AuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]:
+    def key_vault(self) -> Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']]:
         """
         Keyvault X509 secret properties.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]):
+    def key_vault(self, value: Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Secret where cert details are stored.
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
 
@@ -4467,15 +4467,15 @@ class MqttBridgeRoutesArgsDict(TypedDict):
     """
     Source topic of the route.
     """
-    qos: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    qos: NotRequired[pulumi.Input[_builtins.int]]
     """
     Qos for MQTT connection.
     """
-    shared_subscription: NotRequired[pulumi.Input[Optional['MqttBridgeRouteSharedSubscriptionArgs']]]
+    shared_subscription: NotRequired[pulumi.Input['MqttBridgeRouteSharedSubscriptionArgsDict']]
     """
     Shared subscription topic details.
     """
-    target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    target: NotRequired[pulumi.Input[_builtins.str]]
     """
     Target topic of the route. Ignore if same as source
     """
@@ -4486,9 +4486,9 @@ class MqttBridgeRoutesArgs:
                  direction: pulumi.Input[Union[_builtins.str, 'MqttBridgeRouteDirection']],
                  name: pulumi.Input[_builtins.str],
                  source: pulumi.Input[_builtins.str],
-                 qos: pulumi.Input[Optional[_builtins.int]] = None,
-                 shared_subscription: pulumi.Input[Optional['MqttBridgeRouteSharedSubscriptionArgs']] = None,
-                 target: pulumi.Input[Optional[_builtins.str]] = None):
+                 qos: Optional[pulumi.Input[_builtins.int]] = None,
+                 shared_subscription: Optional[pulumi.Input['MqttBridgeRouteSharedSubscriptionArgs']] = None,
+                 target: Optional[pulumi.Input[_builtins.str]] = None):
         """
         MqttBridgeTopicMap route properties
 
@@ -4549,38 +4549,38 @@ class MqttBridgeRoutesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def qos(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def qos(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Qos for MQTT connection.
         """
         return pulumi.get(self, "qos")
 
     @qos.setter
-    def qos(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def qos(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "qos", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedSubscription")
-    def shared_subscription(self) -> pulumi.Input[Optional['MqttBridgeRouteSharedSubscriptionArgs']]:
+    def shared_subscription(self) -> Optional[pulumi.Input['MqttBridgeRouteSharedSubscriptionArgs']]:
         """
         Shared subscription topic details.
         """
         return pulumi.get(self, "shared_subscription")
 
     @shared_subscription.setter
-    def shared_subscription(self, value: pulumi.Input[Optional['MqttBridgeRouteSharedSubscriptionArgs']]):
+    def shared_subscription(self, value: Optional[pulumi.Input['MqttBridgeRouteSharedSubscriptionArgs']]):
         pulumi.set(self, "shared_subscription", value)
 
     @_builtins.property
     @pulumi.getter
-    def target(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def target(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Target topic of the route. Ignore if same as source
         """
         return pulumi.get(self, "target")
 
     @target.setter
-    def target(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def target(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "target", value)
 
 
@@ -4604,11 +4604,11 @@ class MqttToKafkaRoutesArgsDict(TypedDict):
     """
     The name of the route.
     """
-    qos: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    qos: NotRequired[pulumi.Input[_builtins.int]]
     """
     The qos to use for mqtt.
     """
-    shared_subscription: NotRequired[pulumi.Input[Optional['KafkaSharedSubscriptionPropertiesArgs']]]
+    shared_subscription: NotRequired[pulumi.Input['KafkaSharedSubscriptionPropertiesArgsDict']]
     """
     The properties for shared subscription.
     """
@@ -4620,8 +4620,8 @@ class MqttToKafkaRoutesArgs:
                  kafka_topic: pulumi.Input[_builtins.str],
                  mqtt_topic: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 qos: pulumi.Input[Optional[_builtins.int]] = None,
-                 shared_subscription: pulumi.Input[Optional['KafkaSharedSubscriptionPropertiesArgs']] = None):
+                 qos: Optional[pulumi.Input[_builtins.int]] = None,
+                 shared_subscription: Optional[pulumi.Input['KafkaSharedSubscriptionPropertiesArgs']] = None):
         """
         Mqtt to Kafka route properties
 
@@ -4693,26 +4693,26 @@ class MqttToKafkaRoutesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def qos(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def qos(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         The qos to use for mqtt.
         """
         return pulumi.get(self, "qos")
 
     @qos.setter
-    def qos(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def qos(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "qos", value)
 
     @_builtins.property
     @pulumi.getter(name="sharedSubscription")
-    def shared_subscription(self) -> pulumi.Input[Optional['KafkaSharedSubscriptionPropertiesArgs']]:
+    def shared_subscription(self) -> Optional[pulumi.Input['KafkaSharedSubscriptionPropertiesArgs']]:
         """
         The properties for shared subscription.
         """
         return pulumi.get(self, "shared_subscription")
 
     @shared_subscription.setter
-    def shared_subscription(self, value: pulumi.Input[Optional['KafkaSharedSubscriptionPropertiesArgs']]):
+    def shared_subscription(self, value: Optional[pulumi.Input['KafkaSharedSubscriptionPropertiesArgs']]):
         pulumi.set(self, "shared_subscription", value)
 
 
@@ -4810,15 +4810,15 @@ class PrincipalDefinitionArgsDict(TypedDict):
     """
     PrincipalDefinition properties of Basic Rule
     """
-    attributes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]]
+    attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]
     """
     A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication.
     """
-    clientids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    clientids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection.
     """
-    usernames: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    usernames: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication.
     """
@@ -4826,9 +4826,9 @@ class PrincipalDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class PrincipalDefinitionArgs:
     def __init__(__self__, *,
-                 attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
-                 clientids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 usernames: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]] = None,
+                 clientids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 usernames: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         PrincipalDefinition properties of Basic Rule
 
@@ -4845,38 +4845,38 @@ class PrincipalDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def attributes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
+    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]:
         """
         A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication.
         """
         return pulumi.get(self, "attributes")
 
     @attributes.setter
-    def attributes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
+    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]]]):
         pulumi.set(self, "attributes", value)
 
     @_builtins.property
     @pulumi.getter
-    def clientids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def clientids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection.
         """
         return pulumi.get(self, "clientids")
 
     @clientids.setter
-    def clientids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def clientids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "clientids", value)
 
     @_builtins.property
     @pulumi.getter
-    def usernames(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def usernames(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication.
         """
         return pulumi.get(self, "usernames")
 
     @usernames.setter
-    def usernames(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def usernames(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "usernames", value)
 
 
@@ -4888,7 +4888,7 @@ class ResourceInfoDefinitionArgsDict(TypedDict):
     """
     The type of action that the clients can perform on the broker: Connect, Publish or Subscribe.
     """
-    topics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    topics: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Publish or Subscribe.
     """
@@ -4897,7 +4897,7 @@ class ResourceInfoDefinitionArgsDict(TypedDict):
 class ResourceInfoDefinitionArgs:
     def __init__(__self__, *,
                  method: pulumi.Input[Union[_builtins.str, 'ResourceInfoDefinitionMethods']],
-                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 topics: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         ResourceInfoDefinition properties of Basic Rule. This defines the objects that represent the actions or topics, such as - method.Connect, method.Publish, etc.
 
@@ -4922,14 +4922,14 @@ class ResourceInfoDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def topics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is Publish or Subscribe.
         """
         return pulumi.get(self, "topics")
 
     @topics.setter
-    def topics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "topics", value)
 
 
@@ -4989,11 +4989,11 @@ class SaslRemoteBrokerBasicAuthenticationTokenArgsDict(TypedDict):
     """
     Kafka RemoteBrokerConnection Sasl Authentication token properties. NOTE - Enum only one method is allowed to be passed.
     """
-    key_vault: NotRequired[pulumi.Input[Optional['KafkaTokenKeyVaultPropertiesArgs']]]
+    key_vault: NotRequired[pulumi.Input['KafkaTokenKeyVaultPropertiesArgsDict']]
     """
     Keyvault token keyvault secret properties.
     """
-    secret_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    secret_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Secret where cert details are stored.
     """
@@ -5001,8 +5001,8 @@ class SaslRemoteBrokerBasicAuthenticationTokenArgsDict(TypedDict):
 @pulumi.input_type
 class SaslRemoteBrokerBasicAuthenticationTokenArgs:
     def __init__(__self__, *,
-                 key_vault: pulumi.Input[Optional['KafkaTokenKeyVaultPropertiesArgs']] = None,
-                 secret_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_vault: Optional[pulumi.Input['KafkaTokenKeyVaultPropertiesArgs']] = None,
+                 secret_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Kafka RemoteBrokerConnection Sasl Authentication token properties. NOTE - Enum only one method is allowed to be passed.
 
@@ -5016,26 +5016,26 @@ class SaslRemoteBrokerBasicAuthenticationTokenArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> pulumi.Input[Optional['KafkaTokenKeyVaultPropertiesArgs']]:
+    def key_vault(self) -> Optional[pulumi.Input['KafkaTokenKeyVaultPropertiesArgs']]:
         """
         Keyvault token keyvault secret properties.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: pulumi.Input[Optional['KafkaTokenKeyVaultPropertiesArgs']]):
+    def key_vault(self, value: Optional[pulumi.Input['KafkaTokenKeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter(name="secretName")
-    def secret_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def secret_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Secret where cert details are stored.
         """
         return pulumi.get(self, "secret_name")
 
     @secret_name.setter
-    def secret_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def secret_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "secret_name", value)
 
 
@@ -5119,7 +5119,7 @@ class TemporaryResourceLimitsConfigArgsDict(TypedDict):
     """
     Maximum session expiry interval, in seconds.
     """
-    max_message_expiry_secs: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    max_message_expiry_secs: NotRequired[pulumi.Input[_builtins.float]]
     """
     Maximum message expiry interval, in seconds.
     """
@@ -5133,7 +5133,7 @@ class TemporaryResourceLimitsConfigArgs:
                  max_queued_messages: pulumi.Input[_builtins.float],
                  max_queued_qos0_messages: pulumi.Input[_builtins.float],
                  max_session_expiry_secs: pulumi.Input[_builtins.float],
-                 max_message_expiry_secs: pulumi.Input[Optional[_builtins.float]] = None):
+                 max_message_expiry_secs: Optional[pulumi.Input[_builtins.float]] = None):
         """
         Internal knobs of Resource Limits for FE and BE
 
@@ -5228,14 +5228,14 @@ class TemporaryResourceLimitsConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxMessageExpirySecs")
-    def max_message_expiry_secs(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def max_message_expiry_secs(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Maximum message expiry interval, in seconds.
         """
         return pulumi.get(self, "max_message_expiry_secs")
 
     @max_message_expiry_secs.setter
-    def max_message_expiry_secs(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def max_message_expiry_secs(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "max_message_expiry_secs", value)
 
 
@@ -5243,15 +5243,15 @@ class TlsCertMethodArgsDict(TypedDict):
     """
     Collection of different TLS types, NOTE- Enum at a time only one of them needs to be supported
     """
-    automatic: NotRequired[pulumi.Input[Optional['AutomaticCertMethodArgs']]]
+    automatic: NotRequired[pulumi.Input['AutomaticCertMethodArgsDict']]
     """
     Option 1 - Automatic TLS server certificate management with cert-manager.
     """
-    key_vault: NotRequired[pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]]
+    key_vault: NotRequired[pulumi.Input['KeyVaultCertificatePropertiesArgsDict']]
     """
     Option 3 - TLS server certificate retrieved from Key Vault..
     """
-    manual: NotRequired[pulumi.Input[Optional['ManualCertMethodArgs']]]
+    manual: NotRequired[pulumi.Input['ManualCertMethodArgsDict']]
     """
     Option 2 - Manual TLS server certificate management through a defined secret.
     """
@@ -5259,9 +5259,9 @@ class TlsCertMethodArgsDict(TypedDict):
 @pulumi.input_type
 class TlsCertMethodArgs:
     def __init__(__self__, *,
-                 automatic: pulumi.Input[Optional['AutomaticCertMethodArgs']] = None,
-                 key_vault: pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']] = None,
-                 manual: pulumi.Input[Optional['ManualCertMethodArgs']] = None):
+                 automatic: Optional[pulumi.Input['AutomaticCertMethodArgs']] = None,
+                 key_vault: Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']] = None,
+                 manual: Optional[pulumi.Input['ManualCertMethodArgs']] = None):
         """
         Collection of different TLS types, NOTE- Enum at a time only one of them needs to be supported
 
@@ -5278,38 +5278,38 @@ class TlsCertMethodArgs:
 
     @_builtins.property
     @pulumi.getter
-    def automatic(self) -> pulumi.Input[Optional['AutomaticCertMethodArgs']]:
+    def automatic(self) -> Optional[pulumi.Input['AutomaticCertMethodArgs']]:
         """
         Option 1 - Automatic TLS server certificate management with cert-manager.
         """
         return pulumi.get(self, "automatic")
 
     @automatic.setter
-    def automatic(self, value: pulumi.Input[Optional['AutomaticCertMethodArgs']]):
+    def automatic(self, value: Optional[pulumi.Input['AutomaticCertMethodArgs']]):
         pulumi.set(self, "automatic", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]:
+    def key_vault(self) -> Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']]:
         """
         Option 3 - TLS server certificate retrieved from Key Vault..
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: pulumi.Input[Optional['KeyVaultCertificatePropertiesArgs']]):
+    def key_vault(self, value: Optional[pulumi.Input['KeyVaultCertificatePropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter
-    def manual(self) -> pulumi.Input[Optional['ManualCertMethodArgs']]:
+    def manual(self) -> Optional[pulumi.Input['ManualCertMethodArgs']]:
         """
         Option 2 - Manual TLS server certificate management through a defined secret.
         """
         return pulumi.get(self, "manual")
 
     @manual.setter
-    def manual(self, value: pulumi.Input[Optional['ManualCertMethodArgs']]):
+    def manual(self, value: Optional[pulumi.Input['ManualCertMethodArgs']]):
         pulumi.set(self, "manual", value)
 
 
@@ -5325,7 +5325,7 @@ class VolumeClaimDataSourceRefArgsDict(TypedDict):
     """
     Name is the name of resource being referenced
     """
-    api_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    api_group: NotRequired[pulumi.Input[_builtins.str]]
     """
     APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
     """
@@ -5335,7 +5335,7 @@ class VolumeClaimDataSourceRefArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 api_group: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_group: Optional[pulumi.Input[_builtins.str]] = None):
         """
         VolumeClaimDataSourceRef properties
 
@@ -5374,14 +5374,14 @@ class VolumeClaimDataSourceRefArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiGroup")
-    def api_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def api_group(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
         """
         return pulumi.get(self, "api_group")
 
     @api_group.setter
-    def api_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def api_group(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "api_group", value)
 
 
@@ -5397,7 +5397,7 @@ class VolumeClaimDataSourceArgsDict(TypedDict):
     """
     Name is the name of resource being referenced
     """
-    api_group: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    api_group: NotRequired[pulumi.Input[_builtins.str]]
     """
     APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
     """
@@ -5407,7 +5407,7 @@ class VolumeClaimDataSourceArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 api_group: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_group: Optional[pulumi.Input[_builtins.str]] = None):
         """
         VolumeClaimDataSource properties
 
@@ -5446,14 +5446,14 @@ class VolumeClaimDataSourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiGroup")
-    def api_group(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def api_group(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.
         """
         return pulumi.get(self, "api_group")
 
     @api_group.setter
-    def api_group(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def api_group(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "api_group", value)
 
 
@@ -5461,11 +5461,11 @@ class VolumeClaimResourceRequirementsArgsDict(TypedDict):
     """
     VolumeClaimResourceRequirements properties
     """
-    limits: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    limits: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
     """
-    requests: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    requests: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
     """
@@ -5473,8 +5473,8 @@ class VolumeClaimResourceRequirementsArgsDict(TypedDict):
 @pulumi.input_type
 class VolumeClaimResourceRequirementsArgs:
     def __init__(__self__, *,
-                 limits: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 requests: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 limits: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 requests: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         VolumeClaimResourceRequirements properties
 
@@ -5488,26 +5488,26 @@ class VolumeClaimResourceRequirementsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def limits(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def limits(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
         """
         return pulumi.get(self, "limits")
 
     @limits.setter
-    def limits(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def limits(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "limits", value)
 
     @_builtins.property
     @pulumi.getter
-    def requests(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def requests(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
         """
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def requests(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "requests", value)
 
 
@@ -5523,7 +5523,7 @@ class VolumeClaimSpecSelectorMatchExpressionsArgsDict(TypedDict):
     """
     operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
     """
-    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
     """
@@ -5533,7 +5533,7 @@ class VolumeClaimSpecSelectorMatchExpressionsArgs:
     def __init__(__self__, *,
                  key: pulumi.Input[_builtins.str],
                  operator: pulumi.Input[_builtins.str],
-                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         VolumeClaimSpecSelectorMatchExpressions properties
 
@@ -5572,14 +5572,14 @@ class VolumeClaimSpecSelectorMatchExpressionsArgs:
 
     @_builtins.property
     @pulumi.getter
-    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
         """
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
 
 
@@ -5587,11 +5587,11 @@ class VolumeClaimSpecSelectorArgsDict(TypedDict):
     """
     VolumeClaimSpecSelector properties
     """
-    match_expressions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeClaimSpecSelectorMatchExpressionsArgs']]]]]
+    match_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeClaimSpecSelectorMatchExpressionsArgsDict']]]]
     """
     MatchExpressions is a list of label selector requirements. The requirements are ANDed.
     """
-    match_labels: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    match_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
     """
     MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
     """
@@ -5599,8 +5599,8 @@ class VolumeClaimSpecSelectorArgsDict(TypedDict):
 @pulumi.input_type
 class VolumeClaimSpecSelectorArgs:
     def __init__(__self__, *,
-                 match_expressions: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeClaimSpecSelectorMatchExpressionsArgs']]]] = None,
-                 match_labels: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 match_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeClaimSpecSelectorMatchExpressionsArgs']]]] = None,
+                 match_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         VolumeClaimSpecSelector properties
 
@@ -5614,26 +5614,26 @@ class VolumeClaimSpecSelectorArgs:
 
     @_builtins.property
     @pulumi.getter(name="matchExpressions")
-    def match_expressions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeClaimSpecSelectorMatchExpressionsArgs']]]]:
+    def match_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeClaimSpecSelectorMatchExpressionsArgs']]]]:
         """
         MatchExpressions is a list of label selector requirements. The requirements are ANDed.
         """
         return pulumi.get(self, "match_expressions")
 
     @match_expressions.setter
-    def match_expressions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeClaimSpecSelectorMatchExpressionsArgs']]]]):
+    def match_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeClaimSpecSelectorMatchExpressionsArgs']]]]):
         pulumi.set(self, "match_expressions", value)
 
     @_builtins.property
     @pulumi.getter(name="matchLabels")
-    def match_labels(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def match_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         MatchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
         """
         return pulumi.get(self, "match_labels")
 
     @match_labels.setter
-    def match_labels(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def match_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "match_labels", value)
 
 
@@ -5641,35 +5641,35 @@ class VolumeClaimSpecArgsDict(TypedDict):
     """
     VolumeClaimSpec properties
     """
-    access_modes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    access_modes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
     """
     AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
     """
-    data_source: NotRequired[pulumi.Input[Optional['VolumeClaimDataSourceArgs']]]
+    data_source: NotRequired[pulumi.Input['VolumeClaimDataSourceArgsDict']]
     """
     This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
     """
-    data_source_ref: NotRequired[pulumi.Input[Optional['VolumeClaimDataSourceRefArgs']]]
+    data_source_ref: NotRequired[pulumi.Input['VolumeClaimDataSourceRefArgsDict']]
     """
     Specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Alpha) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
     """
-    resources: NotRequired[pulumi.Input[Optional['VolumeClaimResourceRequirementsArgs']]]
+    resources: NotRequired[pulumi.Input['VolumeClaimResourceRequirementsArgsDict']]
     """
     Resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
     """
-    selector: NotRequired[pulumi.Input[Optional['VolumeClaimSpecSelectorArgs']]]
+    selector: NotRequired[pulumi.Input['VolumeClaimSpecSelectorArgsDict']]
     """
     A label query over volumes to consider for binding.
     """
-    storage_class_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    storage_class_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
     """
-    volume_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    volume_mode: NotRequired[pulumi.Input[_builtins.str]]
     """
     volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is a beta feature.
     """
-    volume_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    volume_name: NotRequired[pulumi.Input[_builtins.str]]
     """
     VolumeName is the binding reference to the PersistentVolume backing this claim.
     """
@@ -5677,14 +5677,14 @@ class VolumeClaimSpecArgsDict(TypedDict):
 @pulumi.input_type
 class VolumeClaimSpecArgs:
     def __init__(__self__, *,
-                 access_modes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 data_source: pulumi.Input[Optional['VolumeClaimDataSourceArgs']] = None,
-                 data_source_ref: pulumi.Input[Optional['VolumeClaimDataSourceRefArgs']] = None,
-                 resources: pulumi.Input[Optional['VolumeClaimResourceRequirementsArgs']] = None,
-                 selector: pulumi.Input[Optional['VolumeClaimSpecSelectorArgs']] = None,
-                 storage_class_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 volume_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 volume_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 access_modes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 data_source: Optional[pulumi.Input['VolumeClaimDataSourceArgs']] = None,
+                 data_source_ref: Optional[pulumi.Input['VolumeClaimDataSourceRefArgs']] = None,
+                 resources: Optional[pulumi.Input['VolumeClaimResourceRequirementsArgs']] = None,
+                 selector: Optional[pulumi.Input['VolumeClaimSpecSelectorArgs']] = None,
+                 storage_class_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_mode: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         VolumeClaimSpec properties
 
@@ -5716,98 +5716,98 @@ class VolumeClaimSpecArgs:
 
     @_builtins.property
     @pulumi.getter(name="accessModes")
-    def access_modes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def access_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         AccessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
         """
         return pulumi.get(self, "access_modes")
 
     @access_modes.setter
-    def access_modes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def access_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "access_modes", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSource")
-    def data_source(self) -> pulumi.Input[Optional['VolumeClaimDataSourceArgs']]:
+    def data_source(self) -> Optional[pulumi.Input['VolumeClaimDataSourceArgs']]:
         """
         This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.
         """
         return pulumi.get(self, "data_source")
 
     @data_source.setter
-    def data_source(self, value: pulumi.Input[Optional['VolumeClaimDataSourceArgs']]):
+    def data_source(self, value: Optional[pulumi.Input['VolumeClaimDataSourceArgs']]):
         pulumi.set(self, "data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="dataSourceRef")
-    def data_source_ref(self) -> pulumi.Input[Optional['VolumeClaimDataSourceRefArgs']]:
+    def data_source_ref(self) -> Optional[pulumi.Input['VolumeClaimDataSourceRefArgs']]:
         """
         Specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef allows any non-core object, as well as PersistentVolumeClaim objects. * While DataSource ignores disallowed values (dropping them), DataSourceRef preserves all values, and generates an error if a disallowed value is specified. (Alpha) Using this field requires the AnyVolumeDataSource feature gate to be enabled.
         """
         return pulumi.get(self, "data_source_ref")
 
     @data_source_ref.setter
-    def data_source_ref(self, value: pulumi.Input[Optional['VolumeClaimDataSourceRefArgs']]):
+    def data_source_ref(self, value: Optional[pulumi.Input['VolumeClaimDataSourceRefArgs']]):
         pulumi.set(self, "data_source_ref", value)
 
     @_builtins.property
     @pulumi.getter
-    def resources(self) -> pulumi.Input[Optional['VolumeClaimResourceRequirementsArgs']]:
+    def resources(self) -> Optional[pulumi.Input['VolumeClaimResourceRequirementsArgs']]:
         """
         Resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
         """
         return pulumi.get(self, "resources")
 
     @resources.setter
-    def resources(self, value: pulumi.Input[Optional['VolumeClaimResourceRequirementsArgs']]):
+    def resources(self, value: Optional[pulumi.Input['VolumeClaimResourceRequirementsArgs']]):
         pulumi.set(self, "resources", value)
 
     @_builtins.property
     @pulumi.getter
-    def selector(self) -> pulumi.Input[Optional['VolumeClaimSpecSelectorArgs']]:
+    def selector(self) -> Optional[pulumi.Input['VolumeClaimSpecSelectorArgs']]:
         """
         A label query over volumes to consider for binding.
         """
         return pulumi.get(self, "selector")
 
     @selector.setter
-    def selector(self, value: pulumi.Input[Optional['VolumeClaimSpecSelectorArgs']]):
+    def selector(self, value: Optional[pulumi.Input['VolumeClaimSpecSelectorArgs']]):
         pulumi.set(self, "selector", value)
 
     @_builtins.property
     @pulumi.getter(name="storageClassName")
-    def storage_class_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def storage_class_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
         """
         return pulumi.get(self, "storage_class_name")
 
     @storage_class_name.setter
-    def storage_class_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def storage_class_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "storage_class_name", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeMode")
-    def volume_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def volume_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is a beta feature.
         """
         return pulumi.get(self, "volume_mode")
 
     @volume_mode.setter
-    def volume_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def volume_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "volume_mode", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeName")
-    def volume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def volume_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         VolumeName is the binding reference to the PersistentVolume backing this claim.
         """
         return pulumi.get(self, "volume_name")
 
     @volume_name.setter
-    def volume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def volume_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "volume_name", value)
 
 

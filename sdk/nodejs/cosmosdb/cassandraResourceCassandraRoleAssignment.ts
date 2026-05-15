@@ -130,7 +130,7 @@ export interface CassandraResourceCassandraRoleAssignmentArgs {
     /**
      * The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Cassandra Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
      */
-    principalId?: pulumi.Input<string | undefined>;
+    principalId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,13 +138,13 @@ export interface CassandraResourceCassandraRoleAssignmentArgs {
     /**
      * The GUID for the Role Assignment.
      */
-    roleAssignmentId?: pulumi.Input<string | undefined>;
+    roleAssignmentId?: pulumi.Input<string>;
     /**
      * The unique identifier for the associated Role Definition.
      */
-    roleDefinitionId?: pulumi.Input<string | undefined>;
+    roleDefinitionId?: pulumi.Input<string>;
     /**
      * The data plane resource path for which access is being granted through this Cassandra Role Assignment.
      */
-    scope?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<string>;
 }

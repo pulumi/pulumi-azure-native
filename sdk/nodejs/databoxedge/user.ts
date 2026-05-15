@@ -126,11 +126,11 @@ export interface UserArgs {
     /**
      * The password details.
      */
-    encryptedPassword?: pulumi.Input<inputs.databoxedge.AsymmetricEncryptedSecretArgs | undefined>;
+    encryptedPassword?: pulumi.Input<inputs.databoxedge.AsymmetricEncryptedSecretArgs>;
     /**
      * The user name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */

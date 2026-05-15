@@ -134,8 +134,8 @@ def get_association(association_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         target_resource_id=pulumi.get(__ret__, 'target_resource_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_association_output(association_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           scope: pulumi.Input[Optional[_builtins.str]] = None,
+def get_association_output(association_name: Optional[pulumi.Input[_builtins.str]] = None,
+                           scope: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociationResult]:
     """
     Get an association.

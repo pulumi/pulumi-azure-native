@@ -78,10 +78,10 @@ def get_environment_definition_error_details(catalog_name: Optional[_builtins.st
 
     return AwaitableGetEnvironmentDefinitionErrorDetailsResult(
         errors=pulumi.get(__ret__, 'errors'))
-def get_environment_definition_error_details_output(catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    environment_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_environment_definition_error_details_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                    dev_center_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                    environment_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentDefinitionErrorDetailsResult]:
     """
     Gets Environment Definition error details

@@ -156,14 +156,14 @@ export class Broker extends pulumi.CustomResource {
             resourceInputs["brokerImage"] = args?.brokerImage;
             resourceInputs["brokerName"] = args?.brokerName;
             resourceInputs["brokerNodeTolerations"] = args?.brokerNodeTolerations;
-            resourceInputs["cardinality"] = args ? pulumi.output(args.cardinality).apply(v => v === undefined ? undefined : inputs.iotoperationsmq.cardinalityArgsProvideDefaults(v)) : undefined;
-            resourceInputs["diagnostics"] = args ? pulumi.output(args.diagnostics).apply(v => v === undefined ? undefined : inputs.iotoperationsmq.brokerDiagnosticsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["cardinality"] = args ? (args.cardinality ? pulumi.output(args.cardinality).apply(inputs.iotoperationsmq.cardinalityArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["diagnostics"] = args ? (args.diagnostics ? pulumi.output(args.diagnostics).apply(inputs.iotoperationsmq.brokerDiagnosticsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["diskBackedMessageBufferSettings"] = args?.diskBackedMessageBufferSettings;
             resourceInputs["encryptInternalTraffic"] = (args?.encryptInternalTraffic) ?? true;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["healthManagerImage"] = args?.healthManagerImage;
             resourceInputs["healthManagerNodeTolerations"] = args?.healthManagerNodeTolerations;
-            resourceInputs["internalCerts"] = args ? pulumi.output(args.internalCerts).apply(v => v === undefined ? undefined : inputs.iotoperationsmq.certManagerCertOptionsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["internalCerts"] = args ? (args.internalCerts ? pulumi.output(args.internalCerts).apply(inputs.iotoperationsmq.certManagerCertOptionsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["memoryProfile"] = (args?.memoryProfile) ?? "medium";
             resourceInputs["mode"] = args?.mode;
@@ -219,27 +219,27 @@ export interface BrokerArgs {
     /**
      * Name of MQ broker resource
      */
-    brokerName?: pulumi.Input<string | undefined>;
+    brokerName?: pulumi.Input<string>;
     /**
      * The details of Node Tolerations for Broker Pods.
      */
-    brokerNodeTolerations?: pulumi.Input<inputs.iotoperationsmq.NodeTolerationsArgs | undefined>;
+    brokerNodeTolerations?: pulumi.Input<inputs.iotoperationsmq.NodeTolerationsArgs>;
     /**
      * The cardinality details of the broker.
      */
-    cardinality?: pulumi.Input<inputs.iotoperationsmq.CardinalityArgs | undefined>;
+    cardinality?: pulumi.Input<inputs.iotoperationsmq.CardinalityArgs>;
     /**
      * The diagnostic details of the broker deployment.
      */
-    diagnostics?: pulumi.Input<inputs.iotoperationsmq.BrokerDiagnosticsArgs | undefined>;
+    diagnostics?: pulumi.Input<inputs.iotoperationsmq.BrokerDiagnosticsArgs>;
     /**
      * The settings of the disk-backed message buffer.
      */
-    diskBackedMessageBufferSettings?: pulumi.Input<inputs.iotoperationsmq.DiskBackedMessageBufferSettingsArgs | undefined>;
+    diskBackedMessageBufferSettings?: pulumi.Input<inputs.iotoperationsmq.DiskBackedMessageBufferSettingsArgs>;
     /**
      * The setting to enable or disable encryption of internal Traffic.
      */
-    encryptInternalTraffic?: pulumi.Input<boolean | undefined>;
+    encryptInternalTraffic?: pulumi.Input<boolean>;
     /**
      * Extended Location
      */
@@ -251,19 +251,19 @@ export interface BrokerArgs {
     /**
      * The details of Node Tolerations for Health Manager Pods.
      */
-    healthManagerNodeTolerations?: pulumi.Input<inputs.iotoperationsmq.NodeTolerationsArgs | undefined>;
+    healthManagerNodeTolerations?: pulumi.Input<inputs.iotoperationsmq.NodeTolerationsArgs>;
     /**
      * Details of the internal CA cert that will be used to secure communication between pods.
      */
-    internalCerts?: pulumi.Input<inputs.iotoperationsmq.CertManagerCertOptionsArgs | undefined>;
+    internalCerts?: pulumi.Input<inputs.iotoperationsmq.CertManagerCertOptionsArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Memory profile of broker.
      */
-    memoryProfile?: pulumi.Input<string | enums.iotoperationsmq.BrokerMemoryProfile | undefined>;
+    memoryProfile?: pulumi.Input<string | enums.iotoperationsmq.BrokerMemoryProfile>;
     /**
      * The Running Mode of the Broker Deployment.
      */
@@ -279,5 +279,5 @@ export interface BrokerArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

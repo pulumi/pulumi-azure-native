@@ -23,9 +23,9 @@ class FleetAnalyticArgs:
     def __init__(__self__, *,
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 fleet_analytics_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_location_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageLocationType']]] = None,
-                 storage_location_uri: pulumi.Input[Optional[_builtins.str]] = None):
+                 fleet_analytics_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_location_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageLocationType']]] = None,
+                 storage_location_uri: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetAnalytic resource.
 
@@ -70,38 +70,38 @@ class FleetAnalyticArgs:
 
     @_builtins.property
     @pulumi.getter(name="fleetAnalyticsName")
-    def fleet_analytics_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def fleet_analytics_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Cosmos DB fleetAnalytics name.
         """
         return pulumi.get(self, "fleet_analytics_name")
 
     @fleet_analytics_name.setter
-    def fleet_analytics_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def fleet_analytics_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "fleet_analytics_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageLocationType")
-    def storage_location_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'StorageLocationType']]]:
+    def storage_location_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageLocationType']]]:
         """
         The type of the fleet analytics resource.
         """
         return pulumi.get(self, "storage_location_type")
 
     @storage_location_type.setter
-    def storage_location_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageLocationType']]]):
+    def storage_location_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StorageLocationType']]]):
         pulumi.set(self, "storage_location_type", value)
 
     @_builtins.property
     @pulumi.getter(name="storageLocationUri")
-    def storage_location_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def storage_location_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The unique identifier of the fleet analytics resource.
         """
         return pulumi.get(self, "storage_location_uri")
 
     @storage_location_uri.setter
-    def storage_location_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def storage_location_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "storage_location_uri", value)
 
 
@@ -111,11 +111,11 @@ class FleetAnalytic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_analytics_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_location_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageLocationType']]] = None,
-                 storage_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_analytics_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_location_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageLocationType']]] = None,
+                 storage_location_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         An Azure Cosmos DB FleetAnalytics.
@@ -162,11 +162,11 @@ class FleetAnalytic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fleet_analytics_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_location_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageLocationType']]] = None,
-                 storage_location_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_analytics_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_location_type: Optional[pulumi.Input[Union[_builtins.str, 'StorageLocationType']]] = None,
+                 storage_location_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

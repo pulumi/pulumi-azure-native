@@ -118,11 +118,11 @@ export interface WebAppDiscoverySiteDataSourcesControllerArgs {
     /**
      * Data Source ARM name.
      */
-    discoverySiteDataSourceName?: pulumi.Input<string | undefined>;
+    discoverySiteDataSourceName?: pulumi.Input<string>;
     /**
      * Gets or sets the discovery site Id.
      */
-    discoverySiteId?: pulumi.Input<string | undefined>;
+    discoverySiteId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

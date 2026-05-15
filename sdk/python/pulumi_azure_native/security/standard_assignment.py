@@ -23,15 +23,15 @@ __all__ = ['StandardAssignmentArgs', 'StandardAssignment']
 class StandardAssignmentArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
-                 assigned_standard: pulumi.Input[Optional['AssignedStandardItemArgs']] = None,
-                 attestation_data: pulumi.Input[Optional['StandardAssignmentPropertiesAttestationDataArgs']] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 effect: pulumi.Input[Optional[Union[_builtins.str, 'Effect']]] = None,
-                 excluded_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 exemption_data: pulumi.Input[Optional['StandardAssignmentPropertiesExemptionDataArgs']] = None,
-                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
-                 standard_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 assigned_standard: Optional[pulumi.Input['AssignedStandardItemArgs']] = None,
+                 attestation_data: Optional[pulumi.Input['StandardAssignmentPropertiesAttestationDataArgs']] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 effect: Optional[pulumi.Input[Union[_builtins.str, 'Effect']]] = None,
+                 excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exemption_data: Optional[pulumi.Input['StandardAssignmentPropertiesExemptionDataArgs']] = None,
+                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 standard_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a StandardAssignment resource.
 
@@ -80,110 +80,110 @@ class StandardAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignedStandard")
-    def assigned_standard(self) -> pulumi.Input[Optional['AssignedStandardItemArgs']]:
+    def assigned_standard(self) -> Optional[pulumi.Input['AssignedStandardItemArgs']]:
         """
         Standard item with key as applied to this standard assignment over the given scope
         """
         return pulumi.get(self, "assigned_standard")
 
     @assigned_standard.setter
-    def assigned_standard(self, value: pulumi.Input[Optional['AssignedStandardItemArgs']]):
+    def assigned_standard(self, value: Optional[pulumi.Input['AssignedStandardItemArgs']]):
         pulumi.set(self, "assigned_standard", value)
 
     @_builtins.property
     @pulumi.getter(name="attestationData")
-    def attestation_data(self) -> pulumi.Input[Optional['StandardAssignmentPropertiesAttestationDataArgs']]:
+    def attestation_data(self) -> Optional[pulumi.Input['StandardAssignmentPropertiesAttestationDataArgs']]:
         """
         Additional data about assignment that has Attest effect
         """
         return pulumi.get(self, "attestation_data")
 
     @attestation_data.setter
-    def attestation_data(self, value: pulumi.Input[Optional['StandardAssignmentPropertiesAttestationDataArgs']]):
+    def attestation_data(self, value: Optional[pulumi.Input['StandardAssignmentPropertiesAttestationDataArgs']]):
         pulumi.set(self, "attestation_data", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Description of the standardAssignment
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Display name of the standardAssignment
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def effect(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Effect']]]:
+    def effect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Effect']]]:
         """
         Expected effect of this assignment (Audit/Exempt/Attest)
         """
         return pulumi.get(self, "effect")
 
     @effect.setter
-    def effect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Effect']]]):
+    def effect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Effect']]]):
         pulumi.set(self, "effect", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedScopes")
-    def excluded_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Excluded scopes, filter out the descendants of the scope (on management scopes)
         """
         return pulumi.get(self, "excluded_scopes")
 
     @excluded_scopes.setter
-    def excluded_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="exemptionData")
-    def exemption_data(self) -> pulumi.Input[Optional['StandardAssignmentPropertiesExemptionDataArgs']]:
+    def exemption_data(self) -> Optional[pulumi.Input['StandardAssignmentPropertiesExemptionDataArgs']]:
         """
         Additional data about assignment that has Exempt effect
         """
         return pulumi.get(self, "exemption_data")
 
     @exemption_data.setter
-    def exemption_data(self, value: pulumi.Input[Optional['StandardAssignmentPropertiesExemptionDataArgs']]):
+    def exemption_data(self, value: Optional[pulumi.Input['StandardAssignmentPropertiesExemptionDataArgs']]):
         pulumi.set(self, "exemption_data", value)
 
     @_builtins.property
     @pulumi.getter(name="expiresOn")
-    def expires_on(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def expires_on(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Expiration date of this assignment as a full ISO date
         """
         return pulumi.get(self, "expires_on")
 
     @expires_on.setter
-    def expires_on(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def expires_on(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "expires_on", value)
 
     @_builtins.property
     @pulumi.getter(name="standardAssignmentName")
-    def standard_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def standard_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The standard assignments assignment key - unique key for the standard assignment
         """
         return pulumi.get(self, "standard_assignment_name")
 
     @standard_assignment_name.setter
-    def standard_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def standard_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "standard_assignment_name", value)
 
 
@@ -193,16 +193,16 @@ class StandardAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_standard: pulumi.Input[Optional[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']]] = None,
-                 attestation_data: pulumi.Input[Optional[Union['StandardAssignmentPropertiesAttestationDataArgs', 'StandardAssignmentPropertiesAttestationDataArgsDict']]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 effect: pulumi.Input[Optional[Union[_builtins.str, 'Effect']]] = None,
-                 excluded_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 exemption_data: pulumi.Input[Optional[Union['StandardAssignmentPropertiesExemptionDataArgs', 'StandardAssignmentPropertiesExemptionDataArgsDict']]] = None,
-                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 standard_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assigned_standard: Optional[pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']]] = None,
+                 attestation_data: Optional[pulumi.Input[Union['StandardAssignmentPropertiesAttestationDataArgs', 'StandardAssignmentPropertiesAttestationDataArgsDict']]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 effect: Optional[pulumi.Input[Union[_builtins.str, 'Effect']]] = None,
+                 excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exemption_data: Optional[pulumi.Input[Union['StandardAssignmentPropertiesExemptionDataArgs', 'StandardAssignmentPropertiesExemptionDataArgsDict']]] = None,
+                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 standard_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Security Assignment on a resource group over a given scope
@@ -250,16 +250,16 @@ class StandardAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_standard: pulumi.Input[Optional[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']]] = None,
-                 attestation_data: pulumi.Input[Optional[Union['StandardAssignmentPropertiesAttestationDataArgs', 'StandardAssignmentPropertiesAttestationDataArgsDict']]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 effect: pulumi.Input[Optional[Union[_builtins.str, 'Effect']]] = None,
-                 excluded_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 exemption_data: pulumi.Input[Optional[Union['StandardAssignmentPropertiesExemptionDataArgs', 'StandardAssignmentPropertiesExemptionDataArgsDict']]] = None,
-                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 standard_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assigned_standard: Optional[pulumi.Input[Union['AssignedStandardItemArgs', 'AssignedStandardItemArgsDict']]] = None,
+                 attestation_data: Optional[pulumi.Input[Union['StandardAssignmentPropertiesAttestationDataArgs', 'StandardAssignmentPropertiesAttestationDataArgsDict']]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 effect: Optional[pulumi.Input[Union[_builtins.str, 'Effect']]] = None,
+                 excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exemption_data: Optional[pulumi.Input[Union['StandardAssignmentPropertiesExemptionDataArgs', 'StandardAssignmentPropertiesExemptionDataArgsDict']]] = None,
+                 expires_on: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 standard_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

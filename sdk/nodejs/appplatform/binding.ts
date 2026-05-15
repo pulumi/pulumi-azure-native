@@ -116,11 +116,11 @@ export interface BindingArgs {
     /**
      * The name of the Binding resource.
      */
-    bindingName?: pulumi.Input<string | undefined>;
+    bindingName?: pulumi.Input<string>;
     /**
      * Properties of the Binding resource
      */
-    properties?: pulumi.Input<inputs.appplatform.BindingResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.appplatform.BindingResourcePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

@@ -147,7 +147,7 @@ export interface InstanceFailoverGroupArgs {
     /**
      * The name of the failover group.
      */
-    failoverGroupName?: pulumi.Input<string | undefined>;
+    failoverGroupName?: pulumi.Input<string>;
     /**
      * The name of the region where the resource is located.
      */
@@ -163,7 +163,7 @@ export interface InstanceFailoverGroupArgs {
     /**
      * Read-only endpoint of the failover group instance.
      */
-    readOnlyEndpoint?: pulumi.Input<inputs.sql.InstanceFailoverGroupReadOnlyEndpointArgs | undefined>;
+    readOnlyEndpoint?: pulumi.Input<inputs.sql.InstanceFailoverGroupReadOnlyEndpointArgs>;
     /**
      * Read-write endpoint of the failover group instance.
      */
@@ -175,5 +175,5 @@ export interface InstanceFailoverGroupArgs {
     /**
      * Type of the geo-secondary instance. Set 'Standby' if the instance is used as a DR option only.
      */
-    secondaryType?: pulumi.Input<string | enums.sql.SecondaryInstanceType | undefined>;
+    secondaryType?: pulumi.Input<string | enums.sql.SecondaryInstanceType>;
 }

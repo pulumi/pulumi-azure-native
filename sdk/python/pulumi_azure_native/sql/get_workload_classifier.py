@@ -197,11 +197,11 @@ def get_workload_classifier(database_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         start_time=pulumi.get(__ret__, 'start_time'),
         type=pulumi.get(__ret__, 'type'))
-def get_workload_classifier_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   workload_classifier_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   workload_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_workload_classifier_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   workload_classifier_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   workload_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadClassifierResult]:
     """
     Gets a workload classifier

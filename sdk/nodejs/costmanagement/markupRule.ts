@@ -150,19 +150,19 @@ export interface MarkupRuleArgs {
     /**
      * The description of the markup rule.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Ending date of the markup rule.
      */
-    endDate?: pulumi.Input<string | undefined>;
+    endDate?: pulumi.Input<string>;
     /**
      * Markup rule name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The markup percentage of the rule.
      */

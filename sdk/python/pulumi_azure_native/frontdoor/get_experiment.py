@@ -231,9 +231,9 @@ def get_experiment(experiment_name: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_experiment_output(experiment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_experiment_output(experiment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                          profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentResult]:
     """
     Defines the properties of an Experiment

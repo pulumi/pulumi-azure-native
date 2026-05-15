@@ -151,7 +151,7 @@ export interface APICollectionByAzureApiManagementServiceArgs {
     /**
      * API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
      */
-    apiId?: pulumi.Input<string | undefined>;
+    apiId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

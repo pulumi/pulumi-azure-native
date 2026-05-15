@@ -582,9 +582,9 @@ def get_namespace_asset(asset_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         version=pulumi.get(__ret__, 'version'))
-def get_namespace_asset_output(asset_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_namespace_asset_output(asset_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceAssetResult]:
     """
     Get a NamespaceAsset

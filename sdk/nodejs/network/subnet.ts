@@ -235,55 +235,55 @@ export interface SubnetArgs {
     /**
      * The address prefix for the subnet.
      */
-    addressPrefix?: pulumi.Input<string | undefined>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * List of address prefixes for the subnet.
      */
-    addressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    addressPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Application gateway IP configurations of virtual network resource.
      */
-    applicationGatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayIPConfigurationArgs>[] | undefined>;
+    applicationGatewayIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayIPConfigurationArgs>[]>;
     /**
      * Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
      */
-    defaultOutboundAccess?: pulumi.Input<boolean | undefined>;
+    defaultOutboundAccess?: pulumi.Input<boolean>;
     /**
      * An array of references to the delegations on the subnet.
      */
-    delegations?: pulumi.Input<pulumi.Input<inputs.network.DelegationArgs>[] | undefined>;
+    delegations?: pulumi.Input<pulumi.Input<inputs.network.DelegationArgs>[]>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Array of IpAllocation which reference this subnet.
      */
-    ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[] | undefined>;
+    ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
     /**
      * A list of IPAM Pools for allocating IP address prefixes.
      */
-    ipamPoolPrefixAllocations?: pulumi.Input<pulumi.Input<inputs.network.IpamPoolPrefixAllocationArgs>[] | undefined>;
+    ipamPoolPrefixAllocations?: pulumi.Input<pulumi.Input<inputs.network.IpamPoolPrefixAllocationArgs>[]>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Nat gateway associated with this subnet.
      */
-    natGateway?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    natGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The reference to the NetworkSecurityGroup resource.
      */
-    networkSecurityGroup?: pulumi.Input<inputs.network.NetworkSecurityGroupArgs | undefined>;
+    networkSecurityGroup?: pulumi.Input<inputs.network.NetworkSecurityGroupArgs>;
     /**
      * Enable or Disable apply network policies on private end point in the subnet.
      */
-    privateEndpointNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateEndpointNetworkPolicies | undefined>;
+    privateEndpointNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateEndpointNetworkPolicies>;
     /**
      * Enable or Disable apply network policies on private link service in the subnet.
      */
-    privateLinkServiceNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateLinkServiceNetworkPolicies | undefined>;
+    privateLinkServiceNetworkPolicies?: pulumi.Input<string | enums.network.VirtualNetworkPrivateLinkServiceNetworkPolicies>;
     /**
      * The name of the resource group.
      */
@@ -291,27 +291,27 @@ export interface SubnetArgs {
     /**
      * The reference to the RouteTable resource.
      */
-    routeTable?: pulumi.Input<inputs.network.RouteTableArgs | undefined>;
+    routeTable?: pulumi.Input<inputs.network.RouteTableArgs>;
     /**
      * An array of service endpoint policies.
      */
-    serviceEndpointPolicies?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPolicyArgs>[] | undefined>;
+    serviceEndpointPolicies?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPolicyArgs>[]>;
     /**
      * An array of service endpoints.
      */
-    serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPropertiesFormatArgs>[] | undefined>;
+    serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPropertiesFormatArgs>[]>;
     /**
      * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
      */
-    sharingScope?: pulumi.Input<string | enums.network.SharingScope | undefined>;
+    sharingScope?: pulumi.Input<string | enums.network.SharingScope>;
     /**
      * The name of the subnet.
      */
-    subnetName?: pulumi.Input<string | undefined>;
+    subnetName?: pulumi.Input<string>;
     /**
      * Resource type.
      */
-    type?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string>;
     /**
      * The name of the virtual network.
      */

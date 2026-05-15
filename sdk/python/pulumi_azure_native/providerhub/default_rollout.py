@@ -23,8 +23,8 @@ __all__ = ['DefaultRolloutArgs', 'DefaultRollout']
 class DefaultRolloutArgs:
     def __init__(__self__, *,
                  provider_namespace: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['DefaultRolloutPropertiesArgs']] = None,
-                 rollout_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['DefaultRolloutPropertiesArgs']] = None,
+                 rollout_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DefaultRollout resource.
 
@@ -52,26 +52,26 @@ class DefaultRolloutArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['DefaultRolloutPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['DefaultRolloutPropertiesArgs']]:
         """
         Properties of the rollout.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['DefaultRolloutPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['DefaultRolloutPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="rolloutName")
-    def rollout_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rollout_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The rollout name.
         """
         return pulumi.get(self, "rollout_name")
 
     @rollout_name.setter
-    def rollout_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rollout_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "rollout_name", value)
 
 
@@ -81,9 +81,9 @@ class DefaultRollout(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['DefaultRolloutPropertiesArgs', 'DefaultRolloutPropertiesArgsDict']]] = None,
-                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                 rollout_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['DefaultRolloutPropertiesArgs', 'DefaultRolloutPropertiesArgsDict']]] = None,
+                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 rollout_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
@@ -128,9 +128,9 @@ class DefaultRollout(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['DefaultRolloutPropertiesArgs', 'DefaultRolloutPropertiesArgsDict']]] = None,
-                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                 rollout_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['DefaultRolloutPropertiesArgs', 'DefaultRolloutPropertiesArgsDict']]] = None,
+                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 rollout_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -118,7 +118,7 @@ export interface TaskArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.migrate.TaskPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.TaskPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -126,5 +126,5 @@ export interface TaskArgs {
     /**
      * Task ARM name
      */
-    taskName?: pulumi.Input<string | undefined>;
+    taskName?: pulumi.Input<string>;
 }

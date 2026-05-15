@@ -144,19 +144,19 @@ export interface ChannelArgs {
     /**
      * The name of the Channel resource.
      */
-    channelName?: pulumi.Input<string | undefined>;
+    channelName?: pulumi.Input<string>;
     /**
      * Required. Gets or sets the Kind of the resource.
      */
-    kind?: pulumi.Input<string | enums.botservice.Kind | undefined>;
+    kind?: pulumi.Input<string | enums.botservice.Kind>;
     /**
      * Specifies the location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The set of properties specific to bot channel resource
      */
-    properties?: pulumi.Input<inputs.botservice.AcsChatChannelArgs | inputs.botservice.AlexaChannelArgs | inputs.botservice.DirectLineChannelArgs | inputs.botservice.DirectLineSpeechChannelArgs | inputs.botservice.EmailChannelArgs | inputs.botservice.FacebookChannelArgs | inputs.botservice.KikChannelArgs | inputs.botservice.LineChannelArgs | inputs.botservice.M365ExtensionsArgs | inputs.botservice.MsTeamsChannelArgs | inputs.botservice.OmnichannelArgs | inputs.botservice.OutlookChannelArgs | inputs.botservice.SearchAssistantArgs | inputs.botservice.SkypeChannelArgs | inputs.botservice.SlackChannelArgs | inputs.botservice.SmsChannelArgs | inputs.botservice.TelegramChannelArgs | inputs.botservice.TelephonyChannelArgs | inputs.botservice.WebChatChannelArgs | undefined>;
+    properties?: pulumi.Input<inputs.botservice.AcsChatChannelArgs | inputs.botservice.AlexaChannelArgs | inputs.botservice.DirectLineChannelArgs | inputs.botservice.DirectLineSpeechChannelArgs | inputs.botservice.EmailChannelArgs | inputs.botservice.FacebookChannelArgs | inputs.botservice.KikChannelArgs | inputs.botservice.LineChannelArgs | inputs.botservice.M365ExtensionsArgs | inputs.botservice.MsTeamsChannelArgs | inputs.botservice.OmnichannelArgs | inputs.botservice.OutlookChannelArgs | inputs.botservice.SearchAssistantArgs | inputs.botservice.SkypeChannelArgs | inputs.botservice.SlackChannelArgs | inputs.botservice.SmsChannelArgs | inputs.botservice.TelegramChannelArgs | inputs.botservice.TelephonyChannelArgs | inputs.botservice.WebChatChannelArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -168,9 +168,9 @@ export interface ChannelArgs {
     /**
      * Gets or sets the SKU of the resource.
      */
-    sku?: pulumi.Input<inputs.botservice.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.botservice.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -129,7 +129,7 @@ export interface BgpPeerArgs {
     /**
      * The name of the BgpPeer
      */
-    bgpPeerName?: pulumi.Input<string | undefined>;
+    bgpPeerName?: pulumi.Input<string>;
     /**
      * My ASN
      */

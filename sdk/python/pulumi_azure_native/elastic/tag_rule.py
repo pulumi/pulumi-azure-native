@@ -24,8 +24,8 @@ class TagRuleArgs:
     def __init__(__self__, *,
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']] = None,
-                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']] = None,
+                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagRule resource.
 
@@ -67,26 +67,26 @@ class TagRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]:
         """
         Properties of the monitoring tag rules.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleSetName")
-    def rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rule_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Tag Rule Set resource name
         """
         return pulumi.get(self, "rule_set_name")
 
     @rule_set_name.setter
-    def rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rule_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "rule_set_name", value)
 
 
@@ -96,10 +96,10 @@ class TagRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['MonitoringTagRulesPropertiesArgs', 'MonitoringTagRulesPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['MonitoringTagRulesPropertiesArgs', 'MonitoringTagRulesPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Capture logs and metrics of Azure resources based on ARM tags.
@@ -145,10 +145,10 @@ class TagRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['MonitoringTagRulesPropertiesArgs', 'MonitoringTagRulesPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['MonitoringTagRulesPropertiesArgs', 'MonitoringTagRulesPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

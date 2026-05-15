@@ -384,171 +384,171 @@ export interface WebAppAuthSettingsSlotArgs {
     /**
      * Gets a JSON string containing the Azure AD Acl settings.
      */
-    aadClaimsAuthorization?: pulumi.Input<string | undefined>;
+    aadClaimsAuthorization?: pulumi.Input<string>;
     /**
      * Login parameters to send to the OpenID Connect authorization endpoint when
      * a user logs in. Each parameter must be in the form "key=value".
      */
-    additionalLoginParams?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    additionalLoginParams?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Allowed audience values to consider when validating JSON Web Tokens issued by 
      * Azure Active Directory. Note that the <code>ClientID</code> value is always considered an
      * allowed audience, regardless of this setting.
      */
-    allowedAudiences?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    allowedAudiences?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.
      * This is an advanced setting typically only needed by Windows Store application backends.
      * Note that URLs within the current domain are always implicitly allowed.
      */
-    allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    allowedExternalRedirectUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The path of the config file containing auth settings.
      * If the path is relative, base will the site's root directory.
      */
-    authFilePath?: pulumi.Input<string | undefined>;
+    authFilePath?: pulumi.Input<string>;
     /**
      * The Client ID of this relying party application, known as the client_id.
      * This setting is required for enabling OpenID Connection authentication with Azure Active Directory or 
      * other 3rd party OpenID Connect providers.
      * More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
      */
-    clientId?: pulumi.Input<string | undefined>;
+    clientId?: pulumi.Input<string>;
     /**
      * The Client Secret of this relying party application (in Azure Active Directory, this is also referred to as the Key).
      * This setting is optional. If no client secret is configured, the OpenID Connect implicit auth flow is used to authenticate end users.
      * Otherwise, the OpenID Connect Authorization Code Flow is used to authenticate end users.
      * More information on OpenID Connect: http://openid.net/specs/openid-connect-core-1_0.html
      */
-    clientSecret?: pulumi.Input<string | undefined>;
+    clientSecret?: pulumi.Input<string>;
     /**
      * An alternative to the client secret, that is the thumbprint of a certificate used for signing purposes. This property acts as
      * a replacement for the Client Secret. It is also optional.
      */
-    clientSecretCertificateThumbprint?: pulumi.Input<string | undefined>;
+    clientSecretCertificateThumbprint?: pulumi.Input<string>;
     /**
      * The app setting name that contains the client secret of the relying party application.
      */
-    clientSecretSettingName?: pulumi.Input<string | undefined>;
+    clientSecretSettingName?: pulumi.Input<string>;
     /**
      * The ConfigVersion of the Authentication / Authorization feature in use for the current app.
      * The setting in this value can control the behavior of the control plane for Authentication / Authorization.
      */
-    configVersion?: pulumi.Input<string | undefined>;
+    configVersion?: pulumi.Input<string>;
     /**
      * The default authentication provider to use when multiple providers are configured.
      * This setting is only needed if multiple providers are configured and the unauthenticated client
      * action is set to "RedirectToLoginPage".
      */
-    defaultProvider?: pulumi.Input<enums.web.BuiltInAuthenticationProvider | undefined>;
+    defaultProvider?: pulumi.Input<enums.web.BuiltInAuthenticationProvider>;
     /**
      * <code>true</code> if the Authentication / Authorization feature is enabled for the current app; otherwise, <code>false</code>.
      */
-    enabled?: pulumi.Input<boolean | undefined>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The App ID of the Facebook app used for login.
      * This setting is required for enabling Facebook Login.
      * Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
      */
-    facebookAppId?: pulumi.Input<string | undefined>;
+    facebookAppId?: pulumi.Input<string>;
     /**
      * The App Secret of the Facebook app used for Facebook Login.
      * This setting is required for enabling Facebook Login.
      * Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
      */
-    facebookAppSecret?: pulumi.Input<string | undefined>;
+    facebookAppSecret?: pulumi.Input<string>;
     /**
      * The app setting name that contains the app secret used for Facebook Login.
      */
-    facebookAppSecretSettingName?: pulumi.Input<string | undefined>;
+    facebookAppSecretSettingName?: pulumi.Input<string>;
     /**
      * The OAuth 2.0 scopes that will be requested as part of Facebook Login authentication.
      * This setting is optional.
      * Facebook Login documentation: https://developers.facebook.com/docs/facebook-login
      */
-    facebookOAuthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    facebookOAuthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The Client Id of the GitHub app used for login.
      * This setting is required for enabling Github login
      */
-    gitHubClientId?: pulumi.Input<string | undefined>;
+    gitHubClientId?: pulumi.Input<string>;
     /**
      * The Client Secret of the GitHub app used for Github Login.
      * This setting is required for enabling Github login.
      */
-    gitHubClientSecret?: pulumi.Input<string | undefined>;
+    gitHubClientSecret?: pulumi.Input<string>;
     /**
      * The app setting name that contains the client secret of the Github
      * app used for GitHub Login.
      */
-    gitHubClientSecretSettingName?: pulumi.Input<string | undefined>;
+    gitHubClientSecretSettingName?: pulumi.Input<string>;
     /**
      * The OAuth 2.0 scopes that will be requested as part of GitHub Login authentication.
      * This setting is optional
      */
-    gitHubOAuthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    gitHubOAuthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The OpenID Connect Client ID for the Google web application.
      * This setting is required for enabling Google Sign-In.
      * Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
      */
-    googleClientId?: pulumi.Input<string | undefined>;
+    googleClientId?: pulumi.Input<string>;
     /**
      * The client secret associated with the Google web application.
      * This setting is required for enabling Google Sign-In.
      * Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
      */
-    googleClientSecret?: pulumi.Input<string | undefined>;
+    googleClientSecret?: pulumi.Input<string>;
     /**
      * The app setting name that contains the client secret associated with 
      * the Google web application.
      */
-    googleClientSecretSettingName?: pulumi.Input<string | undefined>;
+    googleClientSecretSettingName?: pulumi.Input<string>;
     /**
      * The OAuth 2.0 scopes that will be requested as part of Google Sign-In authentication.
      * This setting is optional. If not specified, "openid", "profile", and "email" are used as default scopes.
      * Google Sign-In documentation: https://developers.google.com/identity/sign-in/web/
      */
-    googleOAuthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    googleOAuthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * "true" if the auth config settings should be read from a file,
      * "false" otherwise
      */
-    isAuthFromFile?: pulumi.Input<string | undefined>;
+    isAuthFromFile?: pulumi.Input<string>;
     /**
      * The OpenID Connect Issuer URI that represents the entity which issues access tokens for this application.
      * When using Azure Active Directory, this value is the URI of the directory tenant, e.g. `https://sts.windows.net/{tenant-guid}/`.
      * This URI is a case-sensitive identifier for the token issuer.
      * More information on OpenID Connect Discovery: http://openid.net/specs/openid-connect-discovery-1_0.html
      */
-    issuer?: pulumi.Input<string | undefined>;
+    issuer?: pulumi.Input<string>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The OAuth 2.0 client ID that was created for the app used for authentication.
      * This setting is required for enabling Microsoft Account authentication.
      * Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
      */
-    microsoftAccountClientId?: pulumi.Input<string | undefined>;
+    microsoftAccountClientId?: pulumi.Input<string>;
     /**
      * The OAuth 2.0 client secret that was created for the app used for authentication.
      * This setting is required for enabling Microsoft Account authentication.
      * Microsoft Account OAuth documentation: https://dev.onedrive.com/auth/msa_oauth.htm
      */
-    microsoftAccountClientSecret?: pulumi.Input<string | undefined>;
+    microsoftAccountClientSecret?: pulumi.Input<string>;
     /**
      * The app setting name containing the OAuth 2.0 client secret that was created for the
      * app used for authentication.
      */
-    microsoftAccountClientSecretSettingName?: pulumi.Input<string | undefined>;
+    microsoftAccountClientSecretSettingName?: pulumi.Input<string>;
     /**
      * The OAuth 2.0 scopes that will be requested as part of Microsoft Account authentication.
      * This setting is optional. If not specified, "wl.basic" is used as the default scope.
      * Microsoft Account Scopes and permissions documentation: https://msdn.microsoft.com/en-us/library/dn631845.aspx
      */
-    microsoftAccountOAuthScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    microsoftAccountOAuthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of web app.
      */
@@ -561,7 +561,7 @@ export interface WebAppAuthSettingsSlotArgs {
      * The RuntimeVersion of the Authentication / Authorization feature in use for the current app.
      * The setting in this value can control the behavior of certain features in the Authentication / Authorization module.
      */
-    runtimeVersion?: pulumi.Input<string | undefined>;
+    runtimeVersion?: pulumi.Input<string>;
     /**
      * Name of web app slot. If not specified then will default to production slot.
      */
@@ -570,35 +570,35 @@ export interface WebAppAuthSettingsSlotArgs {
      * The number of hours after session token expiration that a session token can be used to
      * call the token refresh API. The default is 72 hours.
      */
-    tokenRefreshExtensionHours?: pulumi.Input<number | undefined>;
+    tokenRefreshExtensionHours?: pulumi.Input<number>;
     /**
      * <code>true</code> to durably store platform-specific security tokens that are obtained during login flows; otherwise, <code>false</code>.
      *  The default is <code>false</code>.
      */
-    tokenStoreEnabled?: pulumi.Input<boolean | undefined>;
+    tokenStoreEnabled?: pulumi.Input<boolean>;
     /**
      * The OAuth 1.0a consumer key of the Twitter application used for sign-in.
      * This setting is required for enabling Twitter Sign-In.
      * Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
      */
-    twitterConsumerKey?: pulumi.Input<string | undefined>;
+    twitterConsumerKey?: pulumi.Input<string>;
     /**
      * The OAuth 1.0a consumer secret of the Twitter application used for sign-in.
      * This setting is required for enabling Twitter Sign-In.
      * Twitter Sign-In documentation: https://dev.twitter.com/web/sign-in
      */
-    twitterConsumerSecret?: pulumi.Input<string | undefined>;
+    twitterConsumerSecret?: pulumi.Input<string>;
     /**
      * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter
      * application used for sign-in.
      */
-    twitterConsumerSecretSettingName?: pulumi.Input<string | undefined>;
+    twitterConsumerSecretSettingName?: pulumi.Input<string>;
     /**
      * The action to take when an unauthenticated client attempts to access the app.
      */
-    unauthenticatedClientAction?: pulumi.Input<enums.web.UnauthenticatedClientAction | undefined>;
+    unauthenticatedClientAction?: pulumi.Input<enums.web.UnauthenticatedClientAction>;
     /**
      * Gets a value indicating whether the issuer should be a valid HTTPS url and be validated as such.
      */
-    validateIssuer?: pulumi.Input<boolean | undefined>;
+    validateIssuer?: pulumi.Input<boolean>;
 }

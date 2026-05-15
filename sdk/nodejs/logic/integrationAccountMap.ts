@@ -159,11 +159,11 @@ export interface IntegrationAccountMapArgs {
     /**
      * The content.
      */
-    content?: pulumi.Input<string | undefined>;
+    content?: pulumi.Input<string>;
     /**
      * The content type.
      */
-    contentType?: pulumi.Input<string | undefined>;
+    contentType?: pulumi.Input<string>;
     /**
      * The integration account name.
      */
@@ -171,11 +171,11 @@ export interface IntegrationAccountMapArgs {
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The integration account map name.
      */
-    mapName?: pulumi.Input<string | undefined>;
+    mapName?: pulumi.Input<string>;
     /**
      * The map type.
      */
@@ -183,11 +183,11 @@ export interface IntegrationAccountMapArgs {
     /**
      * The metadata.
      */
-    metadata?: any | undefined;
+    metadata?: any;
     /**
      * The parameters schema of integration account map.
      */
-    parametersSchema?: pulumi.Input<inputs.logic.IntegrationAccountMapPropertiesParametersSchemaArgs | undefined>;
+    parametersSchema?: pulumi.Input<inputs.logic.IntegrationAccountMapPropertiesParametersSchemaArgs>;
     /**
      * The resource group name.
      */
@@ -195,5 +195,5 @@ export interface IntegrationAccountMapArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

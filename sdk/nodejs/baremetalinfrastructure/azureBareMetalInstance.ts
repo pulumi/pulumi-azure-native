@@ -168,43 +168,43 @@ export interface AzureBareMetalInstanceArgs {
     /**
      * Specifies the Azure Bare Metal Instance unique ID.
      */
-    azureBareMetalInstanceId?: pulumi.Input<string | undefined>;
+    azureBareMetalInstanceId?: pulumi.Input<string>;
     /**
      * Name of the Azure Bare Metal Instance, also known as the ResourceName.
      */
-    azureBareMetalInstanceName?: pulumi.Input<string | undefined>;
+    azureBareMetalInstanceName?: pulumi.Input<string>;
     /**
      * Specifies the hardware settings for the Azure Bare Metal Instance.
      */
-    hardwareProfile?: pulumi.Input<inputs.baremetalinfrastructure.HardwareProfileArgs | undefined>;
+    hardwareProfile?: pulumi.Input<inputs.baremetalinfrastructure.HardwareProfileArgs>;
     /**
      * Hardware revision of an Azure Bare Metal Instance
      */
-    hwRevision?: pulumi.Input<string | undefined>;
+    hwRevision?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the network settings for the Azure Bare Metal Instance.
      */
-    networkProfile?: pulumi.Input<inputs.baremetalinfrastructure.NetworkProfileArgs | undefined>;
+    networkProfile?: pulumi.Input<inputs.baremetalinfrastructure.NetworkProfileArgs>;
     /**
      * Specifies the operating system settings for the Azure Bare Metal Instance.
      */
-    osProfile?: pulumi.Input<inputs.baremetalinfrastructure.OSProfileArgs | undefined>;
+    osProfile?: pulumi.Input<inputs.baremetalinfrastructure.OSProfileArgs>;
     /**
      * ARM ID of another AzureBareMetalInstance that will share a network with this AzureBareMetalInstance
      */
-    partnerNodeId?: pulumi.Input<string | undefined>;
+    partnerNodeId?: pulumi.Input<string>;
     /**
      * Resource power state
      */
-    powerState?: pulumi.Input<string | enums.baremetalinfrastructure.AzureBareMetalInstancePowerStateEnum | undefined>;
+    powerState?: pulumi.Input<string | enums.baremetalinfrastructure.AzureBareMetalInstancePowerStateEnum>;
     /**
      * Resource proximity placement group
      */
-    proximityPlacementGroup?: pulumi.Input<string | undefined>;
+    proximityPlacementGroup?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -212,9 +212,9 @@ export interface AzureBareMetalInstanceArgs {
     /**
      * Specifies the storage settings for the Azure Bare Metal Instance disks.
      */
-    storageProfile?: pulumi.Input<inputs.baremetalinfrastructure.StorageProfileArgs | undefined>;
+    storageProfile?: pulumi.Input<inputs.baremetalinfrastructure.StorageProfileArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

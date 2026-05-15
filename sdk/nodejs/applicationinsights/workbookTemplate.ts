@@ -140,7 +140,7 @@ export interface WorkbookTemplateArgs {
     /**
      * Information about the author of the workbook template.
      */
-    author?: pulumi.Input<string | undefined>;
+    author?: pulumi.Input<string>;
     /**
      * Workbook galleries supported by the template.
      */
@@ -148,15 +148,15 @@ export interface WorkbookTemplateArgs {
     /**
      * Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
      */
-    localized?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.applicationinsights.WorkbookTemplateLocalizedGalleryArgs>[]>} | undefined>;
+    localized?: pulumi.Input<{[key: string]: pulumi.Input<pulumi.Input<inputs.applicationinsights.WorkbookTemplateLocalizedGalleryArgs>[]>}>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
      */
-    priority?: pulumi.Input<number | undefined>;
+    priority?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -164,11 +164,11 @@ export interface WorkbookTemplateArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Valid JSON object containing workbook template payload.
      */

@@ -123,7 +123,7 @@ export interface IntegrationAccountSessionArgs {
     /**
      * The session content.
      */
-    content?: any | undefined;
+    content?: any;
     /**
      * The integration account name.
      */
@@ -131,7 +131,7 @@ export interface IntegrationAccountSessionArgs {
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
@@ -139,9 +139,9 @@ export interface IntegrationAccountSessionArgs {
     /**
      * The integration account session name.
      */
-    sessionName?: pulumi.Input<string | undefined>;
+    sessionName?: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -199,11 +199,11 @@ export interface TrunkedNetworkArgs {
     /**
      * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
-    hybridAksPluginType?: pulumi.Input<string | enums.networkcloud.HybridAksPluginType | undefined>;
+    hybridAksPluginType?: pulumi.Input<string | enums.networkcloud.HybridAksPluginType>;
     /**
      * The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
      */
-    interfaceName?: pulumi.Input<string | undefined>;
+    interfaceName?: pulumi.Input<string>;
     /**
      * The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources.
      */
@@ -211,7 +211,7 @@ export interface TrunkedNetworkArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -219,11 +219,11 @@ export interface TrunkedNetworkArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the trunked network.
      */
-    trunkedNetworkName?: pulumi.Input<string | undefined>;
+    trunkedNetworkName?: pulumi.Input<string>;
     /**
      * The list of vlans that are selected from the isolation domains for trunking.
      */

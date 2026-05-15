@@ -250,11 +250,11 @@ def get_topic(cluster_id: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         topic_id=pulumi.get(__ret__, 'topic_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_topic_output(cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                     environment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                     organization_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_topic_output(cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                     environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                     organization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                     topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Get confluent topic by Name

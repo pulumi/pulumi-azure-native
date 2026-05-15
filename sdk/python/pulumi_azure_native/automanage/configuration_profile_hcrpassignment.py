@@ -23,8 +23,8 @@ class ConfigurationProfileHCRPAssignmentArgs:
     def __init__(__self__, *,
                  machine_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 configuration_profile_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['ConfigurationProfileAssignmentPropertiesArgs']] = None):
+                 configuration_profile_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['ConfigurationProfileAssignmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationProfileHCRPAssignment resource.
 
@@ -66,26 +66,26 @@ class ConfigurationProfileHCRPAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationProfileAssignmentName")
-    def configuration_profile_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def configuration_profile_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the configuration profile assignment. Only default is supported.
         """
         return pulumi.get(self, "configuration_profile_assignment_name")
 
     @configuration_profile_assignment_name.setter
-    def configuration_profile_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def configuration_profile_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "configuration_profile_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['ConfigurationProfileAssignmentPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ConfigurationProfileAssignmentPropertiesArgs']]:
         """
         Properties of the configuration profile assignment.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['ConfigurationProfileAssignmentPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ConfigurationProfileAssignmentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class ConfigurationProfileHCRPAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_profile_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 machine_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ConfigurationProfileAssignmentPropertiesArgs', 'ConfigurationProfileAssignmentPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_profile_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ConfigurationProfileAssignmentPropertiesArgs', 'ConfigurationProfileAssignmentPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Configuration profile assignment is an association between a VM and automanage profile configuration.
@@ -144,10 +144,10 @@ class ConfigurationProfileHCRPAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_profile_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 machine_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ConfigurationProfileAssignmentPropertiesArgs', 'ConfigurationProfileAssignmentPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_profile_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ConfigurationProfileAssignmentPropertiesArgs', 'ConfigurationProfileAssignmentPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

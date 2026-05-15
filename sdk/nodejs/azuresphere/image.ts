@@ -157,19 +157,19 @@ export interface ImageArgs {
     /**
      * Image as a UTF-8 encoded base 64 string on image create. This field contains the image URI on image reads.
      */
-    image?: pulumi.Input<string | undefined>;
+    image?: pulumi.Input<string>;
     /**
      * Image ID
      */
-    imageId?: pulumi.Input<string | undefined>;
+    imageId?: pulumi.Input<string>;
     /**
      * Image name. Use an image GUID for GA versions of the API.
      */
-    imageName?: pulumi.Input<string | undefined>;
+    imageName?: pulumi.Input<string>;
     /**
      * Regional data boundary for an image
      */
-    regionalDataBoundary?: pulumi.Input<string | enums.azuresphere.RegionalDataBoundary | undefined>;
+    regionalDataBoundary?: pulumi.Input<string | enums.azuresphere.RegionalDataBoundary>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -23,11 +23,11 @@ class AppServicePlanRouteForVnetArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vnet_name: pulumi.Input[_builtins.str],
-                 end_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_type: pulumi.Input[Optional[Union[_builtins.str, 'RouteType']]] = None,
-                 start_address: pulumi.Input[Optional[_builtins.str]] = None):
+                 end_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_type: Optional[pulumi.Input[Union[_builtins.str, 'RouteType']]] = None,
+                 start_address: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AppServicePlanRouteForVnet resource.
 
@@ -97,43 +97,43 @@ class AppServicePlanRouteForVnetArgs:
 
     @_builtins.property
     @pulumi.getter(name="endAddress")
-    def end_address(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def end_address(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
         """
         return pulumi.get(self, "end_address")
 
     @end_address.setter
-    def end_address(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def end_address(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "end_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="routeName")
-    def route_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def route_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the Virtual Network route.
         """
         return pulumi.get(self, "route_name")
 
     @route_name.setter
-    def route_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def route_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "route_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routeType")
-    def route_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RouteType']]]:
+    def route_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RouteType']]]:
         """
         The type of route this is:
         DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
@@ -145,19 +145,19 @@ class AppServicePlanRouteForVnetArgs:
         return pulumi.get(self, "route_type")
 
     @route_type.setter
-    def route_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RouteType']]]):
+    def route_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RouteType']]]):
         pulumi.set(self, "route_type", value)
 
     @_builtins.property
     @pulumi.getter(name="startAddress")
-    def start_address(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def start_address(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
         """
         return pulumi.get(self, "start_address")
 
     @start_address.setter
-    def start_address(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def start_address(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "start_address", value)
 
 
@@ -167,14 +167,14 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_type: pulumi.Input[Optional[Union[_builtins.str, 'RouteType']]] = None,
-                 start_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 vnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_type: Optional[pulumi.Input[Union[_builtins.str, 'RouteType']]] = None,
+                 start_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 vnet_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Virtual Network route contract used to pass routing information for a Virtual Network.
@@ -229,14 +229,14 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 route_type: pulumi.Input[Optional[Union[_builtins.str, 'RouteType']]] = None,
-                 start_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 vnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 end_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 route_type: Optional[pulumi.Input[Union[_builtins.str, 'RouteType']]] = None,
+                 start_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 vnet_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

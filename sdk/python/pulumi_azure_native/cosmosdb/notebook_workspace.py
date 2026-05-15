@@ -21,7 +21,7 @@ class NotebookWorkspaceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 notebook_workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 notebook_workspace_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NotebookWorkspace resource.
 
@@ -60,14 +60,14 @@ class NotebookWorkspaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="notebookWorkspaceName")
-    def notebook_workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def notebook_workspace_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the notebook workspace resource.
         """
         return pulumi.get(self, "notebook_workspace_name")
 
     @notebook_workspace_name.setter
-    def notebook_workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def notebook_workspace_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "notebook_workspace_name", value)
 
 
@@ -77,9 +77,9 @@ class NotebookWorkspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notebook_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 notebook_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A notebook workspace resource
@@ -124,9 +124,9 @@ class NotebookWorkspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 notebook_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 notebook_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

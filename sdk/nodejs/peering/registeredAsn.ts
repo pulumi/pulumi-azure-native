@@ -111,7 +111,7 @@ export interface RegisteredAsnArgs {
     /**
      * The customer's ASN from which traffic originates.
      */
-    asn?: pulumi.Input<number | undefined>;
+    asn?: pulumi.Input<number>;
     /**
      * The name of the peering.
      */
@@ -119,7 +119,7 @@ export interface RegisteredAsnArgs {
     /**
      * The name of the ASN.
      */
-    registeredAsnName?: pulumi.Input<string | undefined>;
+    registeredAsnName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

@@ -171,15 +171,15 @@ export interface CapacityPoolBackupArgs {
     /**
      * The name of the backup
      */
-    backupName?: pulumi.Input<string | undefined>;
+    backupName?: pulumi.Input<string>;
     /**
      * Label for backup
      */
-    label?: pulumi.Input<string | undefined>;
+    label?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the capacity pool
      */
@@ -191,7 +191,7 @@ export interface CapacityPoolBackupArgs {
     /**
      * Manual backup an already existing snapshot. This will always be false for scheduled backups and true/false for manual backups
      */
-    useExistingSnapshot?: pulumi.Input<boolean | undefined>;
+    useExistingSnapshot?: pulumi.Input<boolean>;
     /**
      * The name of the volume
      */

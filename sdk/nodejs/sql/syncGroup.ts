@@ -173,11 +173,11 @@ export interface SyncGroupArgs {
     /**
      * Conflict logging retention period.
      */
-    conflictLoggingRetentionInDays?: pulumi.Input<number | undefined>;
+    conflictLoggingRetentionInDays?: pulumi.Input<number>;
     /**
      * Conflict resolution policy of the sync group.
      */
-    conflictResolutionPolicy?: pulumi.Input<string | enums.sql.SyncConflictResolutionPolicy | undefined>;
+    conflictResolutionPolicy?: pulumi.Input<string | enums.sql.SyncConflictResolutionPolicy>;
     /**
      * The name of the database on which the sync group is hosted.
      */
@@ -185,19 +185,19 @@ export interface SyncGroupArgs {
     /**
      * If conflict logging is enabled.
      */
-    enableConflictLogging?: pulumi.Input<boolean | undefined>;
+    enableConflictLogging?: pulumi.Input<boolean>;
     /**
      * Password for the sync group hub database credential.
      */
-    hubDatabasePassword?: pulumi.Input<string | undefined>;
+    hubDatabasePassword?: pulumi.Input<string>;
     /**
      * User name for the sync group hub database credential.
      */
-    hubDatabaseUserName?: pulumi.Input<string | undefined>;
+    hubDatabaseUserName?: pulumi.Input<string>;
     /**
      * Sync interval of the sync group.
      */
-    interval?: pulumi.Input<number | undefined>;
+    interval?: pulumi.Input<number>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -205,7 +205,7 @@ export interface SyncGroupArgs {
     /**
      * Sync schema of the sync group.
      */
-    schema?: pulumi.Input<inputs.sql.SyncGroupSchemaArgs | undefined>;
+    schema?: pulumi.Input<inputs.sql.SyncGroupSchemaArgs>;
     /**
      * The name of the server.
      */
@@ -213,17 +213,17 @@ export interface SyncGroupArgs {
     /**
      * The name and capacity of the SKU.
      */
-    sku?: pulumi.Input<inputs.sql.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.sql.SkuArgs>;
     /**
      * ARM resource id of the sync database in the sync group.
      */
-    syncDatabaseId?: pulumi.Input<string | undefined>;
+    syncDatabaseId?: pulumi.Input<string>;
     /**
      * The name of the sync group.
      */
-    syncGroupName?: pulumi.Input<string | undefined>;
+    syncGroupName?: pulumi.Input<string>;
     /**
      * If use private link connection is enabled.
      */
-    usePrivateLinkConnection?: pulumi.Input<boolean | undefined>;
+    usePrivateLinkConnection?: pulumi.Input<boolean>;
 }

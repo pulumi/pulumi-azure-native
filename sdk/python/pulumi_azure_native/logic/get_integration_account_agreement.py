@@ -257,9 +257,9 @@ def get_integration_account_agreement(agreement_name: Optional[_builtins.str] = 
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_integration_account_agreement_output(agreement_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_integration_account_agreement_output(agreement_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountAgreementResult]:
     """
     Gets an integration account agreement.

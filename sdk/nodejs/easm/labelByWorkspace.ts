@@ -118,15 +118,15 @@ export interface LabelByWorkspaceArgs {
     /**
      * Label color.
      */
-    color?: pulumi.Input<string | undefined>;
+    color?: pulumi.Input<string>;
     /**
      * Label display name.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the Label.
      */
-    labelName?: pulumi.Input<string | undefined>;
+    labelName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

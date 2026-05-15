@@ -171,7 +171,7 @@ export interface DomainArgs {
     /**
      * The name of the Domains resource.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName?: pulumi.Input<string>;
     /**
      * The name of the EmailService resource.
      */
@@ -179,7 +179,7 @@ export interface DomainArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -187,9 +187,9 @@ export interface DomainArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Describes whether user engagement tracking is enabled or disabled.
      */
-    userEngagementTracking?: pulumi.Input<string | enums.communication.UserEngagementTracking | undefined>;
+    userEngagementTracking?: pulumi.Input<string | enums.communication.UserEngagementTracking>;
 }

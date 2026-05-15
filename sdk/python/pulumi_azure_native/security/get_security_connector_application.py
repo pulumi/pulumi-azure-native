@@ -150,9 +150,9 @@ def get_security_connector_application(application_id: Optional[_builtins.str] =
         name=pulumi.get(__ret__, 'name'),
         source_resource_type=pulumi.get(__ret__, 'source_resource_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_security_connector_application_output(application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_security_connector_application_output(application_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              security_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityConnectorApplicationResult]:
     """
     Get a specific application for the requested scope by applicationId

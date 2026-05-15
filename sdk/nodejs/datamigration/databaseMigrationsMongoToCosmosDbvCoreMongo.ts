@@ -184,7 +184,7 @@ export interface DatabaseMigrationsMongoToCosmosDbvCoreMongoArgs {
     /**
      * List of Mongo Collections to be migrated.
      */
-    collectionList?: pulumi.Input<pulumi.Input<inputs.datamigration.MongoMigrationCollectionArgs>[] | undefined>;
+    collectionList?: pulumi.Input<pulumi.Input<inputs.datamigration.MongoMigrationCollectionArgs>[]>;
     /**
      *
      * Expected value is 'MongoToCosmosDbMongo'.
@@ -193,19 +193,19 @@ export interface DatabaseMigrationsMongoToCosmosDbvCoreMongoArgs {
     /**
      * Name of the migration.
      */
-    migrationName?: pulumi.Input<string | undefined>;
+    migrationName?: pulumi.Input<string>;
     /**
      * ID for current migration operation.
      */
-    migrationOperationId?: pulumi.Input<string | undefined>;
+    migrationOperationId?: pulumi.Input<string>;
     /**
      * Resource Id of the Migration Service.
      */
-    migrationService?: pulumi.Input<string | undefined>;
+    migrationService?: pulumi.Input<string>;
     /**
      * Error message for migration provisioning failure, if any.
      */
-    provisioningError?: pulumi.Input<string | undefined>;
+    provisioningError?: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -213,15 +213,15 @@ export interface DatabaseMigrationsMongoToCosmosDbvCoreMongoArgs {
     /**
      * Resource Id of the target resource.
      */
-    scope?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<string>;
     /**
      * Source Mongo connection details.
      */
-    sourceMongoConnection?: pulumi.Input<inputs.datamigration.MongoConnectionInformationArgs | undefined>;
+    sourceMongoConnection?: pulumi.Input<inputs.datamigration.MongoConnectionInformationArgs>;
     /**
      * Target Cosmos DB Mongo connection details.
      */
-    targetMongoConnection?: pulumi.Input<inputs.datamigration.MongoConnectionInformationArgs | undefined>;
+    targetMongoConnection?: pulumi.Input<inputs.datamigration.MongoConnectionInformationArgs>;
     /**
      * The name of the target resource/account.
      */

@@ -166,23 +166,23 @@ export interface ResourceArgs {
     /**
      * Resource extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.resources.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.resources.ExtendedLocationArgs>;
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.resources.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.resources.IdentityArgs>;
     /**
      * The kind of the resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * ID of the resource that manages this resource.
      */
-    managedBy?: pulumi.Input<string | undefined>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The parent resource identity.
      */
@@ -190,11 +190,11 @@ export interface ResourceArgs {
     /**
      * The plan of the resource.
      */
-    plan?: pulumi.Input<inputs.resources.PlanArgs | undefined>;
+    plan?: pulumi.Input<inputs.resources.PlanArgs>;
     /**
      * The resource properties.
      */
-    properties?: any | undefined;
+    properties?: any;
     /**
      * The name of the resource group for the resource. The name is case insensitive.
      */
@@ -202,7 +202,7 @@ export interface ResourceArgs {
     /**
      * The name of the resource to create.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The namespace of the resource provider.
      */
@@ -214,9 +214,9 @@ export interface ResourceArgs {
     /**
      * The SKU of the resource.
      */
-    sku?: pulumi.Input<inputs.resources.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.resources.SkuArgs>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

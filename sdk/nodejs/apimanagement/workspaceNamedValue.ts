@@ -143,11 +143,11 @@ export interface WorkspaceNamedValueArgs {
     /**
      * KeyVault location details of the namedValue.
      */
-    keyVault?: pulumi.Input<inputs.apimanagement.KeyVaultContractCreatePropertiesArgs | undefined>;
+    keyVault?: pulumi.Input<inputs.apimanagement.KeyVaultContractCreatePropertiesArgs>;
     /**
      * Identifier of the NamedValue.
      */
-    namedValueId?: pulumi.Input<string | undefined>;
+    namedValueId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -155,7 +155,7 @@ export interface WorkspaceNamedValueArgs {
     /**
      * Determines whether the value is a secret and should be encrypted or not. Default value is false.
      */
-    secret?: pulumi.Input<boolean | undefined>;
+    secret?: pulumi.Input<boolean>;
     /**
      * The name of the API Management service.
      */
@@ -163,11 +163,11 @@ export interface WorkspaceNamedValueArgs {
     /**
      * Optional tags that when provided can be used to filter the NamedValue list.
      */
-    tags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    tags?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Value of the NamedValue. Can contain policy expressions. It may not be empty or consist only of whitespace. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
-    value?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

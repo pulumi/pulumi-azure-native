@@ -140,7 +140,7 @@ export interface CertificateObjectLocalRulestackArgs {
     /**
      * comment for this object
      */
-    auditComment?: pulumi.Input<string | undefined>;
+    auditComment?: pulumi.Input<string>;
     /**
      * use certificate self signed
      */
@@ -148,11 +148,11 @@ export interface CertificateObjectLocalRulestackArgs {
     /**
      * Resource Id of certificate signer, to be populated only when certificateSelfSigned is false
      */
-    certificateSignerResourceId?: pulumi.Input<string | undefined>;
+    certificateSignerResourceId?: pulumi.Input<string>;
     /**
      * user description for this object
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * LocalRulestack resource name
      */
@@ -160,7 +160,7 @@ export interface CertificateObjectLocalRulestackArgs {
     /**
      * certificate name
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -156,19 +156,19 @@ export interface MasterSitesControllerArgs {
      * Gets or sets a value indicating whether multiple sites per site type are
      * allowed.
      */
-    allowMultipleSites?: pulumi.Input<boolean | undefined>;
+    allowMultipleSites?: pulumi.Input<boolean>;
     /**
      * Gets or sets a value for customer storage account ARM id.
      */
-    customerStorageAccountArmId?: pulumi.Input<string | undefined>;
+    customerStorageAccountArmId?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets the state of public network access.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.offazure.MasterSitePropertiesPublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.offazure.MasterSitePropertiesPublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,15 +176,15 @@ export interface MasterSitesControllerArgs {
     /**
      * Site name
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName?: pulumi.Input<string>;
     /**
      * Gets or sets the sites that are a part of Master Site.
      *             The key
      * should contain the Site ARM name.
      */
-    sites?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    sites?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

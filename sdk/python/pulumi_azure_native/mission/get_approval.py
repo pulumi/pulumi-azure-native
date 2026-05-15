@@ -228,8 +228,8 @@ def get_approval(approval_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         ticket_id=pulumi.get(__ret__, 'ticket_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_approval_output(approval_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+def get_approval_output(approval_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApprovalResult]:
     """
     Get a ApprovalResource

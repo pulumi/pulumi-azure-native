@@ -23,9 +23,9 @@ class BillingRoleAssignmentByDepartmentArgs:
     def __init__(__self__, *,
                  billing_account_name: pulumi.Input[_builtins.str],
                  department_name: pulumi.Input[_builtins.str],
-                 billing_role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['BillingRoleAssignmentPropertiesArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 billing_role_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['BillingRoleAssignmentPropertiesArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BillingRoleAssignmentByDepartment resource.
 
@@ -70,38 +70,38 @@ class BillingRoleAssignmentByDepartmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="billingRoleAssignmentName")
-    def billing_role_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def billing_role_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ID that uniquely identifies a role assignment.
         """
         return pulumi.get(self, "billing_role_assignment_name")
 
     @billing_role_assignment_name.setter
-    def billing_role_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def billing_role_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "billing_role_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['BillingRoleAssignmentPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['BillingRoleAssignmentPropertiesArgs']]:
         """
         The properties of the billing role assignment.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['BillingRoleAssignmentPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['BillingRoleAssignmentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -111,11 +111,11 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 billing_role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 department_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BillingRoleAssignmentPropertiesArgs', 'BillingRoleAssignmentPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_role_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 department_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['BillingRoleAssignmentPropertiesArgs', 'BillingRoleAssignmentPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The properties of the billing role assignment.
@@ -162,11 +162,11 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 billing_role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 department_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BillingRoleAssignmentPropertiesArgs', 'BillingRoleAssignmentPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_role_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 department_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['BillingRoleAssignmentPropertiesArgs', 'BillingRoleAssignmentPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

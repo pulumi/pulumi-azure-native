@@ -77,10 +77,10 @@ def list_build_service_builder_deployments(build_service_name: Optional[_builtin
 
     return AwaitableListBuildServiceBuilderDeploymentsResult(
         deployments=pulumi.get(__ret__, 'deployments'))
-def list_build_service_builder_deployments_output(build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  builder_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_build_service_builder_deployments_output(build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  builder_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBuildServiceBuilderDeploymentsResult]:
     """
     List deployments that are using the builder.

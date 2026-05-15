@@ -24,11 +24,11 @@ class SingleServerArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForReplicaArgs', 'ServerPropertiesForRestoreArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 identity: pulumi.Input[Optional['ResourceIdentityArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional['SingleServerSkuArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 identity: Optional[pulumi.Input['ResourceIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input['SingleServerSkuArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SingleServer resource.
 
@@ -79,62 +79,62 @@ class SingleServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['ResourceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ResourceIdentityArgs']]:
         """
         The Azure Active Directory identity of the server.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['ResourceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ResourceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The location the resource resides in.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def server_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the server.
         """
         return pulumi.get(self, "server_name")
 
     @server_name.setter
-    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def server_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Input[Optional['SingleServerSkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['SingleServerSkuArgs']]:
         """
         The SKU (pricing tier) of the server.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input[Optional['SingleServerSkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['SingleServerSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Application-specific metadata in the form of key-value pairs.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -144,13 +144,13 @@ class SingleServer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForDefaultCreateArgsDict'], Union['ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForGeoRestoreArgsDict'], Union['ServerPropertiesForReplicaArgs', 'ServerPropertiesForReplicaArgsDict'], Union['ServerPropertiesForRestoreArgs', 'ServerPropertiesForRestoreArgsDict']]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['SingleServerSkuArgs', 'SingleServerSkuArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForDefaultCreateArgsDict'], Union['ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForGeoRestoreArgsDict'], Union['ServerPropertiesForReplicaArgs', 'ServerPropertiesForReplicaArgsDict'], Union['ServerPropertiesForRestoreArgs', 'ServerPropertiesForRestoreArgsDict']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[Union['SingleServerSkuArgs', 'SingleServerSkuArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents a server.
@@ -195,13 +195,13 @@ class SingleServer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity: pulumi.Input[Optional[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForDefaultCreateArgsDict'], Union['ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForGeoRestoreArgsDict'], Union['ServerPropertiesForReplicaArgs', 'ServerPropertiesForReplicaArgsDict'], Union['ServerPropertiesForRestoreArgs', 'ServerPropertiesForRestoreArgsDict']]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['SingleServerSkuArgs', 'SingleServerSkuArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 identity: Optional[pulumi.Input[Union['ResourceIdentityArgs', 'ResourceIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForDefaultCreateArgsDict'], Union['ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForGeoRestoreArgsDict'], Union['ServerPropertiesForReplicaArgs', 'ServerPropertiesForReplicaArgsDict'], Union['ServerPropertiesForRestoreArgs', 'ServerPropertiesForRestoreArgsDict']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[Union['SingleServerSkuArgs', 'SingleServerSkuArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

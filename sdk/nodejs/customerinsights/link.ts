@@ -186,11 +186,11 @@ export interface LinkArgs {
     /**
      * Localized descriptions for the Link.
      */
-    description?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    description?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Localized display name for the Link.
      */
-    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    displayName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the hub.
      */
@@ -198,15 +198,15 @@ export interface LinkArgs {
     /**
      * The name of the link.
      */
-    linkName?: pulumi.Input<string | undefined>;
+    linkName?: pulumi.Input<string>;
     /**
      * The set of properties mappings between the source and target Types.
      */
-    mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.TypePropertiesMappingArgs>[] | undefined>;
+    mappings?: pulumi.Input<pulumi.Input<inputs.customerinsights.TypePropertiesMappingArgs>[]>;
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    operationType?: pulumi.Input<enums.customerinsights.InstanceOperationType | undefined>;
+    operationType?: pulumi.Input<enums.customerinsights.InstanceOperationType>;
     /**
      * The properties that represent the participating profile.
      */
@@ -214,7 +214,7 @@ export interface LinkArgs {
     /**
      * Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
      */
-    referenceOnly?: pulumi.Input<boolean | undefined>;
+    referenceOnly?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */

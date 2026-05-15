@@ -123,7 +123,7 @@ export interface GetSmartDetectorAlertRuleOutputArgs {
     /**
      * Indicates if Smart Detector should be expanded.
      */
-    expandDetector?: pulumi.Input<boolean | undefined>;
+    expandDetector?: pulumi.Input<boolean>;
     /**
      * The name of the resource group.
      */

@@ -259,7 +259,7 @@ export interface FileShareArgs {
     /**
      * Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
      */
-    accessTier?: pulumi.Input<string | enums.storage.ShareAccessTier | undefined>;
+    accessTier?: pulumi.Input<string | enums.storage.ShareAccessTier>;
     /**
      * The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
      */
@@ -267,27 +267,27 @@ export interface FileShareArgs {
     /**
      * The authentication protocol that is used for the file share. Can only be specified when creating a share.
      */
-    enabledProtocols?: pulumi.Input<string | enums.storage.EnabledProtocols | undefined>;
+    enabledProtocols?: pulumi.Input<string | enums.storage.EnabledProtocols>;
     /**
      * Optional, used to expand the properties within share's properties. Valid values are: snapshots. Should be passed as a string with delimiter ','
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * File Share Paid Bursting properties.
      */
-    fileSharePaidBursting?: pulumi.Input<inputs.storage.FileSharePropertiesFileSharePaidBurstingArgs | undefined>;
+    fileSharePaidBursting?: pulumi.Input<inputs.storage.FileSharePropertiesFileSharePaidBurstingArgs>;
     /**
      * A name-value pair to associate with the share as metadata.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
      */
-    provisionedBandwidthMibps?: pulumi.Input<number | undefined>;
+    provisionedBandwidthMibps?: pulumi.Input<number>;
     /**
      * The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
      */
-    provisionedIops?: pulumi.Input<number | undefined>;
+    provisionedIops?: pulumi.Input<number>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -295,17 +295,17 @@ export interface FileShareArgs {
     /**
      * The property is for NFS share only. The default is NoRootSquash.
      */
-    rootSquash?: pulumi.Input<string | enums.storage.RootSquashType | undefined>;
+    rootSquash?: pulumi.Input<string | enums.storage.RootSquashType>;
     /**
      * The name of the file share within the specified storage account. File share names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
      */
-    shareName?: pulumi.Input<string | undefined>;
+    shareName?: pulumi.Input<string>;
     /**
      * The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
      */
-    shareQuota?: pulumi.Input<number | undefined>;
+    shareQuota?: pulumi.Input<number>;
     /**
      * List of stored access policies specified on the share.
      */
-    signedIdentifiers?: pulumi.Input<pulumi.Input<inputs.storage.SignedIdentifierArgs>[] | undefined>;
+    signedIdentifiers?: pulumi.Input<pulumi.Input<inputs.storage.SignedIdentifierArgs>[]>;
 }

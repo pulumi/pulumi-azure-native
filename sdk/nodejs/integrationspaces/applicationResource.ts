@@ -146,11 +146,11 @@ export interface ApplicationResourceArgs {
     /**
      * The kind of the application resource.
      */
-    resourceKind?: pulumi.Input<string | undefined>;
+    resourceKind?: pulumi.Input<string>;
     /**
      * The name of the application resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * The type of the application resource.
      */

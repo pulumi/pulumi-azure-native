@@ -25,9 +25,9 @@ class ReportByResourceGroupNameArgs:
                  definition: pulumi.Input['ReportDefinitionArgs'],
                  delivery_info: pulumi.Input['ReportDeliveryInfoArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 format: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]] = None,
-                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional['ReportScheduleArgs']] = None):
+                 format: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]] = None,
+                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schedule: Optional[pulumi.Input['ReportScheduleArgs']] = None):
         """
         The set of arguments for constructing a ReportByResourceGroupName resource.
 
@@ -86,38 +86,38 @@ class ReportByResourceGroupNameArgs:
 
     @_builtins.property
     @pulumi.getter
-    def format(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]]:
+    def format(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]]:
         """
         The format of the report being delivered.
         """
         return pulumi.get(self, "format")
 
     @format.setter
-    def format(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]]):
+    def format(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]]):
         pulumi.set(self, "format", value)
 
     @_builtins.property
     @pulumi.getter(name="reportName")
-    def report_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def report_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Report Name.
         """
         return pulumi.get(self, "report_name")
 
     @report_name.setter
-    def report_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def report_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "report_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def schedule(self) -> pulumi.Input[Optional['ReportScheduleArgs']]:
+    def schedule(self) -> Optional[pulumi.Input['ReportScheduleArgs']]:
         """
         Has schedule information for the report.
         """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
-    def schedule(self, value: pulumi.Input[Optional['ReportScheduleArgs']]):
+    def schedule(self, value: Optional[pulumi.Input['ReportScheduleArgs']]):
         pulumi.set(self, "schedule", value)
 
 
@@ -127,12 +127,12 @@ class ReportByResourceGroupName(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union['ReportDefinitionArgs', 'ReportDefinitionArgsDict']]] = None,
-                 delivery_info: pulumi.Input[Optional[Union['ReportDeliveryInfoArgs', 'ReportDeliveryInfoArgsDict']]] = None,
-                 format: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]] = None,
-                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['ReportScheduleArgs', 'ReportScheduleArgsDict']]] = None,
+                 definition: Optional[pulumi.Input[Union['ReportDefinitionArgs', 'ReportDefinitionArgsDict']]] = None,
+                 delivery_info: Optional[pulumi.Input[Union['ReportDeliveryInfoArgs', 'ReportDeliveryInfoArgsDict']]] = None,
+                 format: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]] = None,
+                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schedule: Optional[pulumi.Input[Union['ReportScheduleArgs', 'ReportScheduleArgsDict']]] = None,
                  __props__=None):
         """
         A report resource.
@@ -176,12 +176,12 @@ class ReportByResourceGroupName(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union['ReportDefinitionArgs', 'ReportDefinitionArgsDict']]] = None,
-                 delivery_info: pulumi.Input[Optional[Union['ReportDeliveryInfoArgs', 'ReportDeliveryInfoArgsDict']]] = None,
-                 format: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]] = None,
-                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['ReportScheduleArgs', 'ReportScheduleArgsDict']]] = None,
+                 definition: Optional[pulumi.Input[Union['ReportDefinitionArgs', 'ReportDefinitionArgsDict']]] = None,
+                 delivery_info: Optional[pulumi.Input[Union['ReportDeliveryInfoArgs', 'ReportDeliveryInfoArgsDict']]] = None,
+                 format: Optional[pulumi.Input[Union[_builtins.str, 'FormatType']]] = None,
+                 report_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schedule: Optional[pulumi.Input[Union['ReportScheduleArgs', 'ReportScheduleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

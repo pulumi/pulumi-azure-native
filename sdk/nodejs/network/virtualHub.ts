@@ -249,39 +249,39 @@ export interface VirtualHubArgs {
     /**
      * Address-prefix for this VirtualHub.
      */
-    addressPrefix?: pulumi.Input<string | undefined>;
+    addressPrefix?: pulumi.Input<string>;
     /**
      * Flag to control transit for VirtualRouter hub.
      */
-    allowBranchToBranchTraffic?: pulumi.Input<boolean | undefined>;
+    allowBranchToBranchTraffic?: pulumi.Input<boolean>;
     /**
      * The azureFirewall associated with this VirtualHub.
      */
-    azureFirewall?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    azureFirewall?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The expressRouteGateway associated with this VirtualHub.
      */
-    expressRouteGateway?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    expressRouteGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The hubRoutingPreference of this VirtualHub.
      */
-    hubRoutingPreference?: pulumi.Input<string | enums.network.HubRoutingPreference | undefined>;
+    hubRoutingPreference?: pulumi.Input<string | enums.network.HubRoutingPreference>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The P2SVpnGateway associated with this VirtualHub.
      */
-    p2SVpnGateway?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    p2SVpnGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The preferred gateway to route on-prem traffic
      */
-    preferredRoutingGateway?: pulumi.Input<string | enums.network.PreferredRoutingGateway | undefined>;
+    preferredRoutingGateway?: pulumi.Input<string | enums.network.PreferredRoutingGateway>;
     /**
      * The resource group name of the VirtualHub.
      */
@@ -289,50 +289,50 @@ export interface VirtualHubArgs {
     /**
      * The routeTable associated with this virtual hub.
      */
-    routeTable?: pulumi.Input<inputs.network.VirtualHubRouteTableArgs | undefined>;
+    routeTable?: pulumi.Input<inputs.network.VirtualHubRouteTableArgs>;
     /**
      * The securityPartnerProvider associated with this VirtualHub.
      */
-    securityPartnerProvider?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    securityPartnerProvider?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The Security Provider name.
      */
-    securityProviderName?: pulumi.Input<string | undefined>;
+    securityProviderName?: pulumi.Input<string>;
     /**
      * The sku of this VirtualHub.
      */
-    sku?: pulumi.Input<string | undefined>;
+    sku?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the VirtualHub.
      */
-    virtualHubName?: pulumi.Input<string | undefined>;
+    virtualHubName?: pulumi.Input<string>;
     /**
      * List of all virtual hub route table v2s associated with this VirtualHub.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    virtualHubRouteTableV2s?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRouteTableV2Args>[] | undefined>;
+    virtualHubRouteTableV2s?: pulumi.Input<pulumi.Input<inputs.network.VirtualHubRouteTableV2Args>[]>;
     /**
      * VirtualRouter ASN.
      */
-    virtualRouterAsn?: pulumi.Input<number | undefined>;
+    virtualRouterAsn?: pulumi.Input<number>;
     /**
      * The VirtualHub Router autoscale configuration.
      */
-    virtualRouterAutoScaleConfiguration?: pulumi.Input<inputs.network.VirtualRouterAutoScaleConfigurationArgs | undefined>;
+    virtualRouterAutoScaleConfiguration?: pulumi.Input<inputs.network.VirtualRouterAutoScaleConfigurationArgs>;
     /**
      * VirtualRouter IPs.
      */
-    virtualRouterIps?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    virtualRouterIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The VirtualWAN to which the VirtualHub belongs.
      */
-    virtualWan?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    virtualWan?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The VpnGateway associated with this VirtualHub.
      */
-    vpnGateway?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    vpnGateway?: pulumi.Input<inputs.network.SubResourceArgs>;
 }

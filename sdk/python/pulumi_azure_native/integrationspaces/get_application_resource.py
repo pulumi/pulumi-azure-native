@@ -180,10 +180,10 @@ def get_application_resource(application_name: Optional[_builtins.str] = None,
         resource_type=pulumi.get(__ret__, 'resource_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_application_resource_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    space_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_application_resource_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    space_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResourceResult]:
     """
     Get a ApplicationResource

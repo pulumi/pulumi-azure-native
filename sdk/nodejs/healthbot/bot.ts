@@ -131,19 +131,19 @@ export interface BotArgs {
     /**
      * The name of the Bot resource.
      */
-    botName?: pulumi.Input<string | undefined>;
+    botName?: pulumi.Input<string>;
     /**
      * The identity of the Azure Health Bot.
      */
-    identity?: pulumi.Input<inputs.healthbot.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.healthbot.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The set of properties specific to Azure Health Bot resource.
      */
-    properties?: pulumi.Input<inputs.healthbot.HealthBotPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.healthbot.HealthBotPropertiesArgs>;
     /**
      * The name of the Bot resource group in the user subscription.
      */
@@ -155,5 +155,5 @@ export interface BotArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

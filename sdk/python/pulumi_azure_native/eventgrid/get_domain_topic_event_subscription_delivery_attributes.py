@@ -78,10 +78,10 @@ def get_domain_topic_event_subscription_delivery_attributes(domain_name: Optiona
 
     return AwaitableGetDomainTopicEventSubscriptionDeliveryAttributesResult(
         value=pulumi.get(__ret__, 'value'))
-def get_domain_topic_event_subscription_delivery_attributes_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                   event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                   topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_domain_topic_event_subscription_delivery_attributes_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                   event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                   topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainTopicEventSubscriptionDeliveryAttributesResult]:
     """
     Get all delivery attributes for an event subscription for domain topic.

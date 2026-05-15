@@ -124,15 +124,15 @@ export interface FileServicePropertiesArgs {
     /**
      * Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
      */
-    cors?: pulumi.Input<inputs.storage.CorsRulesArgs | undefined>;
+    cors?: pulumi.Input<inputs.storage.CorsRulesArgs>;
     /**
      * The name of the file Service within the specified storage account. File Service Name must be "default"
      */
-    fileServicesName?: pulumi.Input<string | undefined>;
+    fileServicesName?: pulumi.Input<string>;
     /**
      * Protocol settings for file service
      */
-    protocolSettings?: pulumi.Input<inputs.storage.ProtocolSettingsArgs | undefined>;
+    protocolSettings?: pulumi.Input<inputs.storage.ProtocolSettingsArgs>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface FileServicePropertiesArgs {
     /**
      * The file service properties for share soft delete.
      */
-    shareDeleteRetentionPolicy?: pulumi.Input<inputs.storage.DeleteRetentionPolicyArgs | undefined>;
+    shareDeleteRetentionPolicy?: pulumi.Input<inputs.storage.DeleteRetentionPolicyArgs>;
 }

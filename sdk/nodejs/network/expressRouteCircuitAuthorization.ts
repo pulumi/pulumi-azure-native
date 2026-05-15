@@ -127,15 +127,15 @@ export interface ExpressRouteCircuitAuthorizationArgs {
     /**
      * The authorization key.
      */
-    authorizationKey?: pulumi.Input<string | undefined>;
+    authorizationKey?: pulumi.Input<string>;
     /**
      * The name of the authorization.
      */
-    authorizationName?: pulumi.Input<string | undefined>;
+    authorizationName?: pulumi.Input<string>;
     /**
      * The authorization use status.
      */
-    authorizationUseStatus?: pulumi.Input<string | enums.network.AuthorizationUseStatus | undefined>;
+    authorizationUseStatus?: pulumi.Input<string | enums.network.AuthorizationUseStatus>;
     /**
      * The name of the express route circuit.
      */
@@ -143,11 +143,11 @@ export interface ExpressRouteCircuitAuthorizationArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

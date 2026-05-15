@@ -332,8 +332,8 @@ def get_virtual_enclave(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         workload_role_assignments=pulumi.get(__ret__, 'workload_role_assignments'))
-def get_virtual_enclave_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               virtual_enclave_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_enclave_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               virtual_enclave_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualEnclaveResult]:
     """
     Get a EnclaveResource

@@ -410,8 +410,8 @@ def get_virtual_machine(resource_group_name: Optional[_builtins.str] = None,
         uuid=pulumi.get(__ret__, 'uuid'),
         vm_name=pulumi.get(__ret__, 'vm_name'),
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
-def get_virtual_machine_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_machine_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Implements VirtualMachine GET method.

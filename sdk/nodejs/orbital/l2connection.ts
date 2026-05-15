@@ -167,11 +167,11 @@ export interface L2ConnectionArgs {
     /**
      * L2 Connection name.
      */
-    l2ConnectionName?: pulumi.Input<string | undefined>;
+    l2ConnectionName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The unique name of the partner router that cross-connects with the Orbital Edge Router at the edge site.
      */
@@ -183,7 +183,7 @@ export interface L2ConnectionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VLAN ID for the L2 connection.
      */

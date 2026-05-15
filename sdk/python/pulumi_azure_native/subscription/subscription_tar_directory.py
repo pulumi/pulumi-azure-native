@@ -21,8 +21,8 @@ __all__ = ['SubscriptionTarDirectoryArgs', 'SubscriptionTarDirectory']
 @pulumi.input_type
 class SubscriptionTarDirectoryArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input[Optional['TargetDirectoryRequestPropertiesArgs']] = None,
-                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['TargetDirectoryRequestPropertiesArgs']] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionTarDirectory resource.
 
@@ -36,26 +36,26 @@ class SubscriptionTarDirectoryArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['TargetDirectoryRequestPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['TargetDirectoryRequestPropertiesArgs']]:
         """
         Target Directory request properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['TargetDirectoryRequestPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['TargetDirectoryRequestPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Subscription Id.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
 
@@ -65,8 +65,8 @@ class SubscriptionTarDirectory(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['TargetDirectoryRequestPropertiesArgs', 'TargetDirectoryRequestPropertiesArgsDict']]] = None,
-                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['TargetDirectoryRequestPropertiesArgs', 'TargetDirectoryRequestPropertiesArgsDict']]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Subscription Response for Changed Target Directory.
@@ -110,8 +110,8 @@ class SubscriptionTarDirectory(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['TargetDirectoryRequestPropertiesArgs', 'TargetDirectoryRequestPropertiesArgsDict']]] = None,
-                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['TargetDirectoryRequestPropertiesArgs', 'TargetDirectoryRequestPropertiesArgsDict']]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

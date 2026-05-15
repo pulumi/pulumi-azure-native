@@ -110,7 +110,7 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
             resourceInputs["interfaceEndpointName"] = args?.interfaceEndpointName;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["subnet"] = args ? pulumi.output(args.subnet).apply(v => v === undefined ? undefined : inputs.network.subnetArgsProvideDefaults(v)) : undefined;
+            resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.subnetArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -147,23 +147,23 @@ export interface InterfaceEndpointArgs {
     /**
      * A reference to the service being brought into the virtual network.
      */
-    endpointService?: pulumi.Input<inputs.network.EndpointServiceArgs | undefined>;
+    endpointService?: pulumi.Input<inputs.network.EndpointServiceArgs>;
     /**
      * A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
      */
-    fqdn?: pulumi.Input<string | undefined>;
+    fqdn?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the interface endpoint.
      */
-    interfaceEndpointName?: pulumi.Input<string | undefined>;
+    interfaceEndpointName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -171,9 +171,9 @@ export interface InterfaceEndpointArgs {
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    subnet?: pulumi.Input<inputs.network.SubnetArgs | undefined>;
+    subnet?: pulumi.Input<inputs.network.SubnetArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

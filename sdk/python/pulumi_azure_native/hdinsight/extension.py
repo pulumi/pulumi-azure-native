@@ -21,9 +21,9 @@ class ExtensionArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 extension_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
 
@@ -68,38 +68,38 @@ class ExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="extensionName")
-    def extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def extension_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the cluster extension.
         """
         return pulumi.get(self, "extension_name")
 
     @extension_name.setter
-    def extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def extension_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The certificate for the cluster monitoring extensions.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The workspace ID for the cluster monitoring extension.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -109,11 +109,11 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extension_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The cluster monitoring status response.
@@ -160,11 +160,11 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extension_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

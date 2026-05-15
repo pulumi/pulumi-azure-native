@@ -118,23 +118,23 @@ export interface VirtualRouterPeeringArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Name of the virtual router peering that is unique within a virtual router.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Peer ASN.
      */
-    peerAsn?: pulumi.Input<number | undefined>;
+    peerAsn?: pulumi.Input<number>;
     /**
      * Peer IP.
      */
-    peerIp?: pulumi.Input<string | undefined>;
+    peerIp?: pulumi.Input<string>;
     /**
      * The name of the Virtual Router Peering.
      */
-    peeringName?: pulumi.Input<string | undefined>;
+    peeringName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

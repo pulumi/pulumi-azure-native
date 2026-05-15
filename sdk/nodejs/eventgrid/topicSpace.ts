@@ -124,7 +124,7 @@ export interface TopicSpaceArgs {
     /**
      * Description for the Topic Space resource.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Name of the namespace.
      */
@@ -136,7 +136,7 @@ export interface TopicSpaceArgs {
     /**
      * The topic space name.
      */
-    topicSpaceName?: pulumi.Input<string | undefined>;
+    topicSpaceName?: pulumi.Input<string>;
     /**
      * The topic filters in the topic space.
      * Example: "topicTemplates": [ 
@@ -144,5 +144,5 @@ export interface TopicSpaceArgs {
      *               "devices/topic1/+",
      *               "devices/${principal.name}/${principal.attributes.keyName}" ].
      */
-    topicTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    topicTemplates?: pulumi.Input<pulumi.Input<string>[]>;
 }

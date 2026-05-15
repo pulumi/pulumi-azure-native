@@ -190,11 +190,11 @@ export interface L2NetworkArgs {
     /**
      * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
-    hybridAksPluginType?: pulumi.Input<string | enums.networkcloud.HybridAksPluginType | undefined>;
+    hybridAksPluginType?: pulumi.Input<string | enums.networkcloud.HybridAksPluginType>;
     /**
      * The default interface name for this L2 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
      */
-    interfaceName?: pulumi.Input<string | undefined>;
+    interfaceName?: pulumi.Input<string>;
     /**
      * The resource ID of the Network Fabric l2IsolationDomain.
      */
@@ -202,11 +202,11 @@ export interface L2NetworkArgs {
     /**
      * The name of the L2 network.
      */
-    l2NetworkName?: pulumi.Input<string | undefined>;
+    l2NetworkName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -214,5 +214,5 @@ export interface L2NetworkArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

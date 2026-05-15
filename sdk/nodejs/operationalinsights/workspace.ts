@@ -200,31 +200,31 @@ export interface WorkspaceArgs {
     /**
      * The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
      */
-    defaultDataCollectionRuleResourceId?: pulumi.Input<string | undefined>;
+    defaultDataCollectionRuleResourceId?: pulumi.Input<string>;
     /**
      * Workspace features.
      */
-    features?: pulumi.Input<inputs.operationalinsights.WorkspaceFeaturesArgs | undefined>;
+    features?: pulumi.Input<inputs.operationalinsights.WorkspaceFeaturesArgs>;
     /**
      * Indicates whether customer managed storage is mandatory for query management.
      */
-    forceCmkForQuery?: pulumi.Input<boolean | undefined>;
+    forceCmkForQuery?: pulumi.Input<boolean>;
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.operationalinsights.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.operationalinsights.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */
-    publicNetworkAccessForIngestion?: pulumi.Input<string | enums.operationalinsights.PublicNetworkAccessType | undefined>;
+    publicNetworkAccessForIngestion?: pulumi.Input<string | enums.operationalinsights.PublicNetworkAccessType>;
     /**
      * The network access type for accessing Log Analytics query.
      */
-    publicNetworkAccessForQuery?: pulumi.Input<string | enums.operationalinsights.PublicNetworkAccessType | undefined>;
+    publicNetworkAccessForQuery?: pulumi.Input<string | enums.operationalinsights.PublicNetworkAccessType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -232,21 +232,21 @@ export interface WorkspaceArgs {
     /**
      * The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
      */
-    retentionInDays?: pulumi.Input<number | undefined>;
+    retentionInDays?: pulumi.Input<number>;
     /**
      * The SKU of the workspace.
      */
-    sku?: pulumi.Input<inputs.operationalinsights.WorkspaceSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.operationalinsights.WorkspaceSkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The daily volume cap for ingestion.
      */
-    workspaceCapping?: pulumi.Input<inputs.operationalinsights.WorkspaceCappingArgs | undefined>;
+    workspaceCapping?: pulumi.Input<inputs.operationalinsights.WorkspaceCappingArgs>;
     /**
      * The name of the workspace.
      */
-    workspaceName?: pulumi.Input<string | undefined>;
+    workspaceName?: pulumi.Input<string>;
 }

@@ -182,10 +182,10 @@ def get_organization_cluster_by_id(cluster_id: Optional[_builtins.str] = None,
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_organization_cluster_by_id_output(cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                          environment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                          organization_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_organization_cluster_by_id_output(cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                          environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                          organization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationClusterByIdResult]:
     """
     Get cluster by Id

@@ -154,7 +154,7 @@ export interface ContactArgs {
     /**
      * Full name of contact
      */
-    contactName?: pulumi.Input<string | undefined>;
+    contactName?: pulumi.Input<string>;
     /**
      * Email address of contact
      */
@@ -162,7 +162,7 @@ export interface ContactArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Telephone number of contact
      */
@@ -178,5 +178,5 @@ export interface ContactArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

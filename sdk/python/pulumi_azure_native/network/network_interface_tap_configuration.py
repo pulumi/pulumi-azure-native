@@ -24,10 +24,10 @@ class NetworkInterfaceTapConfigurationArgs:
     def __init__(__self__, *,
                  network_interface_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tap_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_tap: pulumi.Input[Optional['VirtualNetworkTapArgs']] = None):
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tap_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_tap: Optional[pulumi.Input['VirtualNetworkTapArgs']] = None):
         """
         The set of arguments for constructing a NetworkInterfaceTapConfiguration resource.
 
@@ -75,50 +75,50 @@ class NetworkInterfaceTapConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the resource that is unique within a resource group. This name can be used to access the resource.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tapConfigurationName")
-    def tap_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def tap_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the tap configuration.
         """
         return pulumi.get(self, "tap_configuration_name")
 
     @tap_configuration_name.setter
-    def tap_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def tap_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tap_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkTap")
-    def virtual_network_tap(self) -> pulumi.Input[Optional['VirtualNetworkTapArgs']]:
+    def virtual_network_tap(self) -> Optional[pulumi.Input['VirtualNetworkTapArgs']]:
         """
         The reference to the Virtual Network Tap resource.
         """
         return pulumi.get(self, "virtual_network_tap")
 
     @virtual_network_tap.setter
-    def virtual_network_tap(self, value: pulumi.Input[Optional['VirtualNetworkTapArgs']]):
+    def virtual_network_tap(self, value: Optional[pulumi.Input['VirtualNetworkTapArgs']]):
         pulumi.set(self, "virtual_network_tap", value)
 
 
@@ -128,12 +128,12 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tap_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_tap: pulumi.Input[Optional[Union['VirtualNetworkTapArgs', 'VirtualNetworkTapArgsDict']]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tap_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_tap: Optional[pulumi.Input[Union['VirtualNetworkTapArgs', 'VirtualNetworkTapArgsDict']]] = None,
                  __props__=None):
         """
         Tap configuration in a Network Interface.
@@ -181,12 +181,12 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tap_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_tap: pulumi.Input[Optional[Union['VirtualNetworkTapArgs', 'VirtualNetworkTapArgsDict']]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tap_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_tap: Optional[pulumi.Input[Union['VirtualNetworkTapArgs', 'VirtualNetworkTapArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

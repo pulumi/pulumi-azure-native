@@ -165,7 +165,7 @@ export interface ScheduleArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the pool.
      */
@@ -181,15 +181,15 @@ export interface ScheduleArgs {
     /**
      * The name of the schedule that uniquely identifies it.
      */
-    scheduleName?: pulumi.Input<string | undefined>;
+    scheduleName?: pulumi.Input<string>;
     /**
      * Indicates whether or not this scheduled task is enabled.
      */
-    state?: pulumi.Input<string | enums.devcenter.ScheduleEnableStatus | undefined>;
+    state?: pulumi.Input<string | enums.devcenter.ScheduleEnableStatus>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The target time to trigger the action. The format is HH:MM.
      */
@@ -201,7 +201,7 @@ export interface ScheduleArgs {
     /**
      * The maximum number of resources to return from the operation. Example: '$top=10'.
      */
-    top?: pulumi.Input<number | undefined>;
+    top?: pulumi.Input<number>;
     /**
      * Supported type this scheduled task represents.
      */

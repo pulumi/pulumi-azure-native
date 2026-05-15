@@ -110,8 +110,8 @@ def list_database_account_keys(account_name: Optional[_builtins.str] = None,
         primary_readonly_master_key=pulumi.get(__ret__, 'primary_readonly_master_key'),
         secondary_master_key=pulumi.get(__ret__, 'secondary_master_key'),
         secondary_readonly_master_key=pulumi.get(__ret__, 'secondary_readonly_master_key'))
-def list_database_account_keys_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_database_account_keys_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDatabaseAccountKeysResult]:
     """
     Lists the access keys for the specified Azure Cosmos DB database account.

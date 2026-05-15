@@ -160,19 +160,19 @@ export interface WCFRelayArgs {
     /**
      * The relay name.
      */
-    relayName?: pulumi.Input<string | undefined>;
+    relayName?: pulumi.Input<string>;
     /**
      * WCF relay type.
      */
-    relayType?: pulumi.Input<enums.relay.Relaytype | undefined>;
+    relayType?: pulumi.Input<enums.relay.Relaytype>;
     /**
      * Returns true if client authorization is needed for this relay; otherwise, false.
      */
-    requiresClientAuthorization?: pulumi.Input<boolean | undefined>;
+    requiresClientAuthorization?: pulumi.Input<boolean>;
     /**
      * Returns true if transport security is needed for this relay; otherwise, false.
      */
-    requiresTransportSecurity?: pulumi.Input<boolean | undefined>;
+    requiresTransportSecurity?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -180,5 +180,5 @@ export interface WCFRelayArgs {
     /**
      * The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
      */
-    userMetadata?: pulumi.Input<string | undefined>;
+    userMetadata?: pulumi.Input<string>;
 }

@@ -188,51 +188,51 @@ export interface IacProfileArgs {
     /**
      * Repository Branch Name
      */
-    branchName?: pulumi.Input<string | undefined>;
+    branchName?: pulumi.Input<string>;
     /**
      * The name of the IacProfile.
      */
-    iacProfileName?: pulumi.Input<string | undefined>;
+    iacProfileName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Repository Main Branch
      */
-    repositoryMainBranch?: pulumi.Input<string | undefined>;
+    repositoryMainBranch?: pulumi.Input<string>;
     /**
      * Repository Name
      */
-    repositoryName?: pulumi.Input<string | undefined>;
+    repositoryName?: pulumi.Input<string>;
     /**
      * Repository Owner
      */
-    repositoryOwner?: pulumi.Input<string | undefined>;
+    repositoryOwner?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
-    stages?: pulumi.Input<pulumi.Input<inputs.devhub.StagePropertiesArgs>[] | undefined>;
+    stages?: pulumi.Input<pulumi.Input<inputs.devhub.StagePropertiesArgs>[]>;
     /**
      * Terraform Storage Account Name
      */
-    storageAccountName?: pulumi.Input<string | undefined>;
+    storageAccountName?: pulumi.Input<string>;
     /**
      * Terraform Storage Account Resource Group
      */
-    storageAccountResourceGroup?: pulumi.Input<string | undefined>;
+    storageAccountResourceGroup?: pulumi.Input<string>;
     /**
      * Terraform Storage Account Subscription
      */
-    storageAccountSubscription?: pulumi.Input<string | undefined>;
+    storageAccountSubscription?: pulumi.Input<string>;
     /**
      * Terraform Container Name
      */
-    storageContainerName?: pulumi.Input<string | undefined>;
+    storageContainerName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
-    templates?: pulumi.Input<pulumi.Input<inputs.devhub.IacTemplatePropertiesArgs>[] | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    templates?: pulumi.Input<pulumi.Input<inputs.devhub.IacTemplatePropertiesArgs>[]>;
 }

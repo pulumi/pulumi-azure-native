@@ -126,19 +126,19 @@ export interface WorkspaceCertificateArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    certificateId?: pulumi.Input<string | undefined>;
+    certificateId?: pulumi.Input<string>;
     /**
      * Base 64 encoded certificate using the application/x-pkcs12 representation.
      */
-    data?: pulumi.Input<string | undefined>;
+    data?: pulumi.Input<string>;
     /**
      * KeyVault location details of the certificate.
      */
-    keyVault?: pulumi.Input<inputs.apimanagement.KeyVaultContractCreatePropertiesArgs | undefined>;
+    keyVault?: pulumi.Input<inputs.apimanagement.KeyVaultContractCreatePropertiesArgs>;
     /**
      * Password for the Certificate
      */
-    password?: pulumi.Input<string | undefined>;
+    password?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

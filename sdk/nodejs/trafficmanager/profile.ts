@@ -153,44 +153,44 @@ export interface ProfileArgs {
     /**
      * The list of allowed endpoint record types.
      */
-    allowedEndpointRecordTypes?: pulumi.Input<pulumi.Input<string | enums.trafficmanager.AllowedEndpointRecordType>[] | undefined>;
+    allowedEndpointRecordTypes?: pulumi.Input<pulumi.Input<string | enums.trafficmanager.AllowedEndpointRecordType>[]>;
     /**
      * The DNS settings of the Traffic Manager profile.
      */
-    dnsConfig?: pulumi.Input<inputs.trafficmanager.DnsConfigArgs | undefined>;
+    dnsConfig?: pulumi.Input<inputs.trafficmanager.DnsConfigArgs>;
     /**
      * The list of endpoints in the Traffic Manager profile.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    endpoints?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointArgs>[] | undefined>;
+    endpoints?: pulumi.Input<pulumi.Input<inputs.trafficmanager.EndpointArgs>[]>;
     /**
      * Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The Azure Region where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Maximum number of endpoints to be returned for MultiValue routing type.
      */
-    maxReturn?: pulumi.Input<number | undefined>;
+    maxReturn?: pulumi.Input<number>;
     /**
      * The endpoint monitoring settings of the Traffic Manager profile.
      */
-    monitorConfig?: pulumi.Input<inputs.trafficmanager.MonitorConfigArgs | undefined>;
+    monitorConfig?: pulumi.Input<inputs.trafficmanager.MonitorConfigArgs>;
     /**
      * The name of the resource
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the Traffic Manager profile.
      */
-    profileName?: pulumi.Input<string | undefined>;
+    profileName?: pulumi.Input<string>;
     /**
      * The status of the Traffic Manager profile.
      */
-    profileStatus?: pulumi.Input<string | enums.trafficmanager.ProfileStatus | undefined>;
+    profileStatus?: pulumi.Input<string | enums.trafficmanager.ProfileStatus>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -198,17 +198,17 @@ export interface ProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The traffic routing method of the Traffic Manager profile.
      */
-    trafficRoutingMethod?: pulumi.Input<string | enums.trafficmanager.TrafficRoutingMethod | undefined>;
+    trafficRoutingMethod?: pulumi.Input<string | enums.trafficmanager.TrafficRoutingMethod>;
     /**
      * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
      */
-    trafficViewEnrollmentStatus?: pulumi.Input<string | enums.trafficmanager.TrafficViewEnrollmentStatus | undefined>;
+    trafficViewEnrollmentStatus?: pulumi.Input<string | enums.trafficmanager.TrafficViewEnrollmentStatus>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
-    type?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string>;
 }

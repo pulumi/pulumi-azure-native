@@ -146,7 +146,7 @@ export interface TrafficControllerInterfaceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -154,13 +154,13 @@ export interface TrafficControllerInterfaceArgs {
     /**
      * Security Policy Configuration
      */
-    securityPolicyConfigurations?: pulumi.Input<inputs.servicenetworking.SecurityPolicyConfigurationsArgs | undefined>;
+    securityPolicyConfigurations?: pulumi.Input<inputs.servicenetworking.SecurityPolicyConfigurationsArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * traffic controller name for path
      */
-    trafficControllerName?: pulumi.Input<string | undefined>;
+    trafficControllerName?: pulumi.Input<string>;
 }

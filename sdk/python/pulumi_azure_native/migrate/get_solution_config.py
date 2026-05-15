@@ -72,9 +72,9 @@ def get_solution_config(migrate_project_name: Optional[_builtins.str] = None,
 
     return AwaitableGetSolutionConfigResult(
         publisher_sas_uri=pulumi.get(__ret__, 'publisher_sas_uri'))
-def get_solution_config_output(migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               solution_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_solution_config_output(migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               solution_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionConfigResult]:
     """
     Class representing the config for the solution in the migrate project.

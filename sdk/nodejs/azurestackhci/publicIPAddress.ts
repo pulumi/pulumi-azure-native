@@ -122,19 +122,19 @@ export interface PublicIPAddressArgs {
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azurestackhci.PublicIPAddressPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.azurestackhci.PublicIPAddressPropertiesArgs>;
     /**
      * Name of the public IP
      */
-    publicIPAddressName?: pulumi.Input<string | undefined>;
+    publicIPAddressName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -142,5 +142,5 @@ export interface PublicIPAddressArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

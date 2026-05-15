@@ -178,9 +178,9 @@ def get_aws_cloud_trail_data_connector(data_connector_id: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_aws_cloud_trail_data_connector_output(data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_aws_cloud_trail_data_connector_output(data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAwsCloudTrailDataConnectorResult]:
     """
     Gets a data connector.

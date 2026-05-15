@@ -196,7 +196,7 @@ export interface EventHubDataConnectionArgs {
     /**
      * The event hub messages compression type
      */
-    compression?: pulumi.Input<string | enums.kusto.Compression | undefined>;
+    compression?: pulumi.Input<string | enums.kusto.Compression>;
     /**
      * The event hub consumer group.
      */
@@ -204,11 +204,11 @@ export interface EventHubDataConnectionArgs {
     /**
      * The name of the data connection.
      */
-    dataConnectionName?: pulumi.Input<string | undefined>;
+    dataConnectionName?: pulumi.Input<string>;
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    dataFormat?: pulumi.Input<string | enums.kusto.EventHubDataFormat | undefined>;
+    dataFormat?: pulumi.Input<string | enums.kusto.EventHubDataFormat>;
     /**
      * The name of the database in the Kusto cluster.
      */
@@ -216,7 +216,7 @@ export interface EventHubDataConnectionArgs {
     /**
      * Indication for database routing information from the data connection, by default only database routing information is allowed
      */
-    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting | undefined>;
+    databaseRouting?: pulumi.Input<string | enums.kusto.DatabaseRouting>;
     /**
      * The resource ID of the event hub to be used to create a data connection.
      */
@@ -224,7 +224,7 @@ export interface EventHubDataConnectionArgs {
     /**
      * System properties of the event hub
      */
-    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    eventSystemProperties?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Kind of the endpoint for the data connection
      * Expected value is 'EventHub'.
@@ -233,15 +233,15 @@ export interface EventHubDataConnectionArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub.
      */
-    managedIdentityResourceId?: pulumi.Input<string | undefined>;
+    managedIdentityResourceId?: pulumi.Input<string>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
-    mappingRuleName?: pulumi.Input<string | undefined>;
+    mappingRuleName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -249,9 +249,9 @@ export interface EventHubDataConnectionArgs {
     /**
      * When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period.
      */
-    retrievalStartDate?: pulumi.Input<string | undefined>;
+    retrievalStartDate?: pulumi.Input<string>;
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
-    tableName?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string>;
 }

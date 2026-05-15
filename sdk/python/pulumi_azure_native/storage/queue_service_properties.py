@@ -24,8 +24,8 @@ class QueueServicePropertiesArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cors: pulumi.Input[Optional['CorsRulesArgs']] = None,
-                 queue_service_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 cors: Optional[pulumi.Input['CorsRulesArgs']] = None,
+                 queue_service_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a QueueServiceProperties resource.
 
@@ -67,26 +67,26 @@ class QueueServicePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def cors(self) -> pulumi.Input[Optional['CorsRulesArgs']]:
+    def cors(self) -> Optional[pulumi.Input['CorsRulesArgs']]:
         """
         Specifies CORS rules for the Queue service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Queue service.
         """
         return pulumi.get(self, "cors")
 
     @cors.setter
-    def cors(self, value: pulumi.Input[Optional['CorsRulesArgs']]):
+    def cors(self, value: Optional[pulumi.Input['CorsRulesArgs']]):
         pulumi.set(self, "cors", value)
 
     @_builtins.property
     @pulumi.getter(name="queueServiceName")
-    def queue_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def queue_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the Queue Service within the specified storage account. Queue Service Name must be 'default'
         """
         return pulumi.get(self, "queue_service_name")
 
     @queue_service_name.setter
-    def queue_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def queue_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "queue_service_name", value)
 
 
@@ -96,10 +96,10 @@ class QueueServiceProperties(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 cors: pulumi.Input[Optional[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
-                 queue_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
+                 queue_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The properties of a storage account’s Queue service.
@@ -145,10 +145,10 @@ class QueueServiceProperties(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 cors: pulumi.Input[Optional[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
-                 queue_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cors: Optional[pulumi.Input[Union['CorsRulesArgs', 'CorsRulesArgsDict']]] = None,
+                 queue_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

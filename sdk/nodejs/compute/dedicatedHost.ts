@@ -177,7 +177,7 @@ export interface DedicatedHostArgs {
     /**
      * Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
      */
-    autoReplaceOnFailure?: pulumi.Input<boolean | undefined>;
+    autoReplaceOnFailure?: pulumi.Input<boolean>;
     /**
      * The name of the dedicated host group.
      */
@@ -185,19 +185,19 @@ export interface DedicatedHostArgs {
     /**
      * The name of the dedicated host.
      */
-    hostName?: pulumi.Input<string | undefined>;
+    hostName?: pulumi.Input<string>;
     /**
      * Specifies the software license type that will be applied to the VMs deployed on the dedicated host. Possible values are: **None,** **Windows_Server_Hybrid,** **Windows_Server_Perpetual.** The default value is: **None.**
      */
-    licenseType?: pulumi.Input<enums.compute.DedicatedHostLicenseTypes | undefined>;
+    licenseType?: pulumi.Input<enums.compute.DedicatedHostLicenseTypes>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Fault domain of the dedicated host within a dedicated host group.
      */
-    platformFaultDomain?: pulumi.Input<number | undefined>;
+    platformFaultDomain?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -209,5 +209,5 @@ export interface DedicatedHostArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

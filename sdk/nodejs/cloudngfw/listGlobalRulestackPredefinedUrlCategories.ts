@@ -66,6 +66,6 @@ export interface ListGlobalRulestackPredefinedUrlCategoriesOutputArgs {
      * GlobalRulestack resource name
      */
     globalRulestackName: pulumi.Input<string>;
-    skip?: pulumi.Input<string | undefined>;
-    top?: pulumi.Input<number | undefined>;
+    skip?: pulumi.Input<string>;
+    top?: pulumi.Input<number>;
 }

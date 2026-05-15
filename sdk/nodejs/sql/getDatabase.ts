@@ -297,11 +297,11 @@ export interface GetDatabaseOutputArgs {
     /**
      * The child resources to include in the response.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * An OData filter expression that filters elements in the collection.
      */
-    filter?: pulumi.Input<string | undefined>;
+    filter?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

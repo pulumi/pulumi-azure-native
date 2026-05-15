@@ -95,7 +95,7 @@ export interface ListFirewallPolicyIdpsSignatureOutputArgs {
     /**
      * Contain all filters names and values
      */
-    filters?: pulumi.Input<pulumi.Input<inputs.network.FilterItemsArgs>[] | undefined>;
+    filters?: pulumi.Input<pulumi.Input<inputs.network.FilterItemsArgs>[]>;
     /**
      * The name of the Firewall Policy.
      */
@@ -103,7 +103,7 @@ export interface ListFirewallPolicyIdpsSignatureOutputArgs {
     /**
      * Column to sort response by
      */
-    orderBy?: pulumi.Input<inputs.network.OrderByArgs | undefined>;
+    orderBy?: pulumi.Input<inputs.network.OrderByArgs>;
     /**
      * The name of the resource group.
      */
@@ -111,13 +111,13 @@ export interface ListFirewallPolicyIdpsSignatureOutputArgs {
     /**
      * The number of the results to return in each page
      */
-    resultsPerPage?: pulumi.Input<number | undefined>;
+    resultsPerPage?: pulumi.Input<number>;
     /**
      * Search term in all columns
      */
-    search?: pulumi.Input<string | undefined>;
+    search?: pulumi.Input<string>;
     /**
      * The number of records matching the filter to skip
      */
-    skip?: pulumi.Input<number | undefined>;
+    skip?: pulumi.Input<number>;
 }

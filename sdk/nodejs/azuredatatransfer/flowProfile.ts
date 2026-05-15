@@ -95,7 +95,7 @@ export class FlowProfile extends pulumi.CustomResource {
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["pipelineName"] = args?.pipelineName;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.azuredatatransfer.flowProfilePropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.azuredatatransfer.flowProfilePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -126,15 +126,15 @@ export interface FlowProfileArgs {
     /**
      * The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
      */
-    flowProfileName?: pulumi.Input<string | undefined>;
+    flowProfileName?: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.azuredatatransfer.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.azuredatatransfer.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the pipeline on which to operate.
      */
@@ -142,7 +142,7 @@ export interface FlowProfileArgs {
     /**
      * The set of configuration properties that define the behavior and rules of the FlowProfile.
      */
-    properties?: pulumi.Input<inputs.azuredatatransfer.FlowProfilePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.azuredatatransfer.FlowProfilePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -150,5 +150,5 @@ export interface FlowProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -128,7 +128,7 @@ export interface ContainerAppsSourceControlArgs {
     /**
      * The branch which will trigger the auto deployment
      */
-    branch?: pulumi.Input<string | undefined>;
+    branch?: pulumi.Input<string>;
     /**
      * Name of the Container App.
      */
@@ -138,11 +138,11 @@ export interface ContainerAppsSourceControlArgs {
      * defaults if user did not provide them. The defaults are populated
      * as they were at the creation time
      */
-    githubActionConfiguration?: pulumi.Input<inputs.app.GithubActionConfigurationArgs | undefined>;
+    githubActionConfiguration?: pulumi.Input<inputs.app.GithubActionConfigurationArgs>;
     /**
      * The repo url which will be integrated to ContainerApp.
      */
-    repoUrl?: pulumi.Input<string | undefined>;
+    repoUrl?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -150,5 +150,5 @@ export interface ContainerAppsSourceControlArgs {
     /**
      * Name of the Container App SourceControl.
      */
-    sourceControlName?: pulumi.Input<string | undefined>;
+    sourceControlName?: pulumi.Input<string>;
 }

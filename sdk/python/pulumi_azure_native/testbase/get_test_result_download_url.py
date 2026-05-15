@@ -90,10 +90,10 @@ def get_test_result_download_url(package_name: Optional[_builtins.str] = None,
     return AwaitableGetTestResultDownloadURLResult(
         download_url=pulumi.get(__ret__, 'download_url'),
         expiration_time=pulumi.get(__ret__, 'expiration_time'))
-def get_test_result_download_url_output(package_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        test_result_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_test_result_download_url_output(package_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        test_result_name: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestResultDownloadURLResult]:
     """
     Gets the download URL of the test result.

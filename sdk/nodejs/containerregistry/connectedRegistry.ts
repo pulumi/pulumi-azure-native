@@ -136,7 +136,7 @@ export class ConnectedRegistry extends pulumi.CustomResource {
             resourceInputs["clientTokenIds"] = args?.clientTokenIds;
             resourceInputs["connectedRegistryName"] = args?.connectedRegistryName;
             resourceInputs["garbageCollection"] = args?.garbageCollection;
-            resourceInputs["logging"] = args ? pulumi.output(args.logging).apply(v => v === undefined ? undefined : inputs.containerregistry.loggingPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["logging"] = args ? (args.logging ? pulumi.output(args.logging).apply(inputs.containerregistry.loggingPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["mode"] = args?.mode;
             resourceInputs["notificationsList"] = args?.notificationsList;
             resourceInputs["parent"] = args?.parent;
@@ -186,19 +186,19 @@ export interface ConnectedRegistryArgs {
     /**
      * The list of the ACR token resource IDs used to authenticate clients to the connected registry.
      */
-    clientTokenIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    clientTokenIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the connected registry.
      */
-    connectedRegistryName?: pulumi.Input<string | undefined>;
+    connectedRegistryName?: pulumi.Input<string>;
     /**
      * The garbage collection properties of the connected registry.
      */
-    garbageCollection?: pulumi.Input<inputs.containerregistry.GarbageCollectionPropertiesArgs | undefined>;
+    garbageCollection?: pulumi.Input<inputs.containerregistry.GarbageCollectionPropertiesArgs>;
     /**
      * The logging properties of the connected registry.
      */
-    logging?: pulumi.Input<inputs.containerregistry.LoggingPropertiesArgs | undefined>;
+    logging?: pulumi.Input<inputs.containerregistry.LoggingPropertiesArgs>;
     /**
      * The mode of the connected registry resource that indicates the permissions of the registry.
      */
@@ -206,7 +206,7 @@ export interface ConnectedRegistryArgs {
     /**
      * The list of notifications subscription information for the connected registry.
      */
-    notificationsList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    notificationsList?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The parent of the connected registry.
      */

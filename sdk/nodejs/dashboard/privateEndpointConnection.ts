@@ -129,11 +129,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The private endpoint connection group ids.
      */
-    groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The private endpoint connection name of Azure Managed Grafana.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

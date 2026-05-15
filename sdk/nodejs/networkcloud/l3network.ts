@@ -225,29 +225,29 @@ export interface L3NetworkArgs {
     /**
      * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
      */
-    hybridAksIpamEnabled?: pulumi.Input<string | enums.networkcloud.HybridAksIpamEnabled | undefined>;
+    hybridAksIpamEnabled?: pulumi.Input<string | enums.networkcloud.HybridAksIpamEnabled>;
     /**
      * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
-    hybridAksPluginType?: pulumi.Input<string | enums.networkcloud.HybridAksPluginType | undefined>;
+    hybridAksPluginType?: pulumi.Input<string | enums.networkcloud.HybridAksPluginType>;
     /**
      * The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
      */
-    interfaceName?: pulumi.Input<string | undefined>;
+    interfaceName?: pulumi.Input<string>;
     /**
      * The type of the IP address allocation, defaulted to "DualStack".
      */
-    ipAllocationType?: pulumi.Input<string | enums.networkcloud.IpAllocationType | undefined>;
+    ipAllocationType?: pulumi.Input<string | enums.networkcloud.IpAllocationType>;
     /**
      * The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
      * is IPV4 or DualStack.
      */
-    ipv4ConnectedPrefix?: pulumi.Input<string | undefined>;
+    ipv4ConnectedPrefix?: pulumi.Input<string>;
     /**
      * The IPV6 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
      * is IPV6 or DualStack.
      */
-    ipv6ConnectedPrefix?: pulumi.Input<string | undefined>;
+    ipv6ConnectedPrefix?: pulumi.Input<string>;
     /**
      * The resource ID of the Network Fabric l3IsolationDomain.
      */
@@ -255,11 +255,11 @@ export interface L3NetworkArgs {
     /**
      * The name of the L3 network.
      */
-    l3NetworkName?: pulumi.Input<string | undefined>;
+    l3NetworkName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -267,7 +267,7 @@ export interface L3NetworkArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VLAN from the l3IsolationDomain that is used for this network.
      */

@@ -201,51 +201,51 @@ export interface AzureFirewallArgs {
     /**
      * The additional properties used to further config this azure firewall.
      */
-    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    additionalProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Collection of application rule collections used by Azure Firewall.
      */
-    applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.AzureFirewallApplicationRuleCollectionArgs>[] | undefined>;
+    applicationRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.AzureFirewallApplicationRuleCollectionArgs>[]>;
     /**
      * Properties to provide a custom autoscale configuration to this azure firewall.
      */
-    autoscaleConfiguration?: pulumi.Input<inputs.network.AzureFirewallAutoscaleConfigurationArgs | undefined>;
+    autoscaleConfiguration?: pulumi.Input<inputs.network.AzureFirewallAutoscaleConfigurationArgs>;
     /**
      * The name of the Azure Firewall.
      */
-    azureFirewallName?: pulumi.Input<string | undefined>;
+    azureFirewallName?: pulumi.Input<string>;
     /**
      * The firewallPolicy associated with this azure firewall.
      */
-    firewallPolicy?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    firewallPolicy?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * IP addresses associated with AzureFirewall.
      */
-    hubIPAddresses?: pulumi.Input<inputs.network.HubIPAddressesArgs | undefined>;
+    hubIPAddresses?: pulumi.Input<inputs.network.HubIPAddressesArgs>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * IP configuration of the Azure Firewall resource.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.AzureFirewallIPConfigurationArgs>[] | undefined>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.AzureFirewallIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * IP configuration of the Azure Firewall used for management traffic.
      */
-    managementIpConfiguration?: pulumi.Input<inputs.network.AzureFirewallIPConfigurationArgs | undefined>;
+    managementIpConfiguration?: pulumi.Input<inputs.network.AzureFirewallIPConfigurationArgs>;
     /**
      * Collection of NAT rule collections used by Azure Firewall.
      */
-    natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.AzureFirewallNatRuleCollectionArgs>[] | undefined>;
+    natRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.AzureFirewallNatRuleCollectionArgs>[]>;
     /**
      * Collection of network rule collections used by Azure Firewall.
      */
-    networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.AzureFirewallNetworkRuleCollectionArgs>[] | undefined>;
+    networkRuleCollections?: pulumi.Input<pulumi.Input<inputs.network.AzureFirewallNetworkRuleCollectionArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -253,21 +253,21 @@ export interface AzureFirewallArgs {
     /**
      * The Azure Firewall Resource SKU.
      */
-    sku?: pulumi.Input<inputs.network.AzureFirewallSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.network.AzureFirewallSkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The operation mode for Threat Intelligence.
      */
-    threatIntelMode?: pulumi.Input<string | enums.network.AzureFirewallThreatIntelMode | undefined>;
+    threatIntelMode?: pulumi.Input<string | enums.network.AzureFirewallThreatIntelMode>;
     /**
      * The virtualHub to which the firewall belongs.
      */
-    virtualHub?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    virtualHub?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

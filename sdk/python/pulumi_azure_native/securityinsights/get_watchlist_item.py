@@ -273,10 +273,10 @@ def get_watchlist_item(resource_group_name: Optional[_builtins.str] = None,
         updated_by=pulumi.get(__ret__, 'updated_by'),
         watchlist_item_id=pulumi.get(__ret__, 'watchlist_item_id'),
         watchlist_item_type=pulumi.get(__ret__, 'watchlist_item_type'))
-def get_watchlist_item_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              watchlist_alias: pulumi.Input[Optional[_builtins.str]] = None,
-                              watchlist_item_id: pulumi.Input[Optional[_builtins.str]] = None,
-                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_watchlist_item_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              watchlist_alias: Optional[pulumi.Input[_builtins.str]] = None,
+                              watchlist_item_id: Optional[pulumi.Input[_builtins.str]] = None,
+                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWatchlistItemResult]:
     """
     Get a watchlist item.

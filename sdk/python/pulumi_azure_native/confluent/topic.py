@@ -25,16 +25,16 @@ class TopicArgs:
                  environment_id: pulumi.Input[_builtins.str],
                  organization_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 configs: pulumi.Input[Optional['TopicsRelatedLinkArgs']] = None,
-                 input_configs: pulumi.Input[Optional[Sequence[pulumi.Input['TopicsInputConfigArgs']]]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata: pulumi.Input[Optional['TopicMetadataEntityArgs']] = None,
-                 partitions: pulumi.Input[Optional['TopicsRelatedLinkArgs']] = None,
-                 partitions_count: pulumi.Input[Optional[_builtins.str]] = None,
-                 partitions_reassignments: pulumi.Input[Optional['TopicsRelatedLinkArgs']] = None,
-                 replication_factor: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 configs: Optional[pulumi.Input['TopicsRelatedLinkArgs']] = None,
+                 input_configs: Optional[pulumi.Input[Sequence[pulumi.Input['TopicsInputConfigArgs']]]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata: Optional[pulumi.Input['TopicMetadataEntityArgs']] = None,
+                 partitions: Optional[pulumi.Input['TopicsRelatedLinkArgs']] = None,
+                 partitions_count: Optional[pulumi.Input[_builtins.str]] = None,
+                 partitions_reassignments: Optional[pulumi.Input['TopicsRelatedLinkArgs']] = None,
+                 replication_factor: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Topic resource.
 
@@ -128,122 +128,122 @@ class TopicArgs:
 
     @_builtins.property
     @pulumi.getter
-    def configs(self) -> pulumi.Input[Optional['TopicsRelatedLinkArgs']]:
+    def configs(self) -> Optional[pulumi.Input['TopicsRelatedLinkArgs']]:
         """
         Config Specification of the topic
         """
         return pulumi.get(self, "configs")
 
     @configs.setter
-    def configs(self, value: pulumi.Input[Optional['TopicsRelatedLinkArgs']]):
+    def configs(self, value: Optional[pulumi.Input['TopicsRelatedLinkArgs']]):
         pulumi.set(self, "configs", value)
 
     @_builtins.property
     @pulumi.getter(name="inputConfigs")
-    def input_configs(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TopicsInputConfigArgs']]]]:
+    def input_configs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicsInputConfigArgs']]]]:
         """
         Input Config Specification of the topic
         """
         return pulumi.get(self, "input_configs")
 
     @input_configs.setter
-    def input_configs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TopicsInputConfigArgs']]]]):
+    def input_configs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicsInputConfigArgs']]]]):
         pulumi.set(self, "input_configs", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Type of topic
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> pulumi.Input[Optional['TopicMetadataEntityArgs']]:
+    def metadata(self) -> Optional[pulumi.Input['TopicMetadataEntityArgs']]:
         """
         Metadata of the record
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: pulumi.Input[Optional['TopicMetadataEntityArgs']]):
+    def metadata(self, value: Optional[pulumi.Input['TopicMetadataEntityArgs']]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter
-    def partitions(self) -> pulumi.Input[Optional['TopicsRelatedLinkArgs']]:
+    def partitions(self) -> Optional[pulumi.Input['TopicsRelatedLinkArgs']]:
         """
         Partition Specification of the topic
         """
         return pulumi.get(self, "partitions")
 
     @partitions.setter
-    def partitions(self, value: pulumi.Input[Optional['TopicsRelatedLinkArgs']]):
+    def partitions(self, value: Optional[pulumi.Input['TopicsRelatedLinkArgs']]):
         pulumi.set(self, "partitions", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionsCount")
-    def partitions_count(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def partitions_count(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Partition count of the topic
         """
         return pulumi.get(self, "partitions_count")
 
     @partitions_count.setter
-    def partitions_count(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def partitions_count(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "partitions_count", value)
 
     @_builtins.property
     @pulumi.getter(name="partitionsReassignments")
-    def partitions_reassignments(self) -> pulumi.Input[Optional['TopicsRelatedLinkArgs']]:
+    def partitions_reassignments(self) -> Optional[pulumi.Input['TopicsRelatedLinkArgs']]:
         """
         Partition Reassignment Specification of the topic
         """
         return pulumi.get(self, "partitions_reassignments")
 
     @partitions_reassignments.setter
-    def partitions_reassignments(self, value: pulumi.Input[Optional['TopicsRelatedLinkArgs']]):
+    def partitions_reassignments(self, value: Optional[pulumi.Input['TopicsRelatedLinkArgs']]):
         pulumi.set(self, "partitions_reassignments", value)
 
     @_builtins.property
     @pulumi.getter(name="replicationFactor")
-    def replication_factor(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def replication_factor(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Replication factor of the topic
         """
         return pulumi.get(self, "replication_factor")
 
     @replication_factor.setter
-    def replication_factor(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def replication_factor(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "replication_factor", value)
 
     @_builtins.property
     @pulumi.getter(name="topicId")
-    def topic_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def topic_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Topic Id returned by Confluent
         """
         return pulumi.get(self, "topic_id")
 
     @topic_id.setter
-    def topic_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def topic_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "topic_id", value)
 
     @_builtins.property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Confluent kafka or schema registry topic name
         """
         return pulumi.get(self, "topic_name")
 
     @topic_name.setter
-    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "topic_name", value)
 
 
@@ -253,20 +253,20 @@ class Topic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configs: pulumi.Input[Optional[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
-                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicsInputConfigArgs', 'TopicsInputConfigArgsDict']]]]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata: pulumi.Input[Optional[Union['TopicMetadataEntityArgs', 'TopicMetadataEntityArgsDict']]] = None,
-                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partitions: pulumi.Input[Optional[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
-                 partitions_count: pulumi.Input[Optional[_builtins.str]] = None,
-                 partitions_reassignments: pulumi.Input[Optional[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
-                 replication_factor: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 configs: Optional[pulumi.Input[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
+                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 input_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicsInputConfigArgs', 'TopicsInputConfigArgsDict']]]]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata: Optional[pulumi.Input[Union['TopicMetadataEntityArgs', 'TopicMetadataEntityArgsDict']]] = None,
+                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 partitions: Optional[pulumi.Input[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
+                 partitions_count: Optional[pulumi.Input[_builtins.str]] = None,
+                 partitions_reassignments: Optional[pulumi.Input[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
+                 replication_factor: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Details of topic record
@@ -322,20 +322,20 @@ class Topic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 configs: pulumi.Input[Optional[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
-                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicsInputConfigArgs', 'TopicsInputConfigArgsDict']]]]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata: pulumi.Input[Optional[Union['TopicMetadataEntityArgs', 'TopicMetadataEntityArgsDict']]] = None,
-                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 partitions: pulumi.Input[Optional[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
-                 partitions_count: pulumi.Input[Optional[_builtins.str]] = None,
-                 partitions_reassignments: pulumi.Input[Optional[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
-                 replication_factor: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 configs: Optional[pulumi.Input[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
+                 environment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 input_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicsInputConfigArgs', 'TopicsInputConfigArgsDict']]]]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata: Optional[pulumi.Input[Union['TopicMetadataEntityArgs', 'TopicMetadataEntityArgsDict']]] = None,
+                 organization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 partitions: Optional[pulumi.Input[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
+                 partitions_count: Optional[pulumi.Input[_builtins.str]] = None,
+                 partitions_reassignments: Optional[pulumi.Input[Union['TopicsRelatedLinkArgs', 'TopicsRelatedLinkArgsDict']]] = None,
+                 replication_factor: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

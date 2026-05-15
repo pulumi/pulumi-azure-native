@@ -153,11 +153,11 @@ export interface VirtualNetworkArgs {
     /**
      * Gets or sets the inventory Item ID for the resource.
      */
-    inventoryItemId?: pulumi.Input<string | undefined>;
+    inventoryItemId?: pulumi.Input<string>;
     /**
      * Gets or sets the location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -165,17 +165,17 @@ export interface VirtualNetworkArgs {
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Unique ID of the virtual network.
      */
-    uuid?: pulumi.Input<string | undefined>;
+    uuid?: pulumi.Input<string>;
     /**
      * Name of the VirtualNetwork.
      */
-    virtualNetworkName?: pulumi.Input<string | undefined>;
+    virtualNetworkName?: pulumi.Input<string>;
     /**
      * ARM Id of the vmmServer resource in which this resource resides.
      */
-    vmmServerId?: pulumi.Input<string | undefined>;
+    vmmServerId?: pulumi.Input<string>;
 }

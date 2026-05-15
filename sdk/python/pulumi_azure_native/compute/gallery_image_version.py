@@ -26,13 +26,13 @@ class GalleryImageVersionArgs:
                  gallery_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_profile: pulumi.Input['GalleryImageVersionStorageProfileArgs'],
-                 gallery_image_version_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 publishing_profile: pulumi.Input[Optional['GalleryImageVersionPublishingProfileArgs']] = None,
-                 restore: pulumi.Input[Optional[_builtins.bool]] = None,
-                 safety_profile: pulumi.Input[Optional['GalleryImageVersionSafetyProfileArgs']] = None,
-                 security_profile: pulumi.Input[Optional['ImageVersionSecurityProfileArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 gallery_image_version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 publishing_profile: Optional[pulumi.Input['GalleryImageVersionPublishingProfileArgs']] = None,
+                 restore: Optional[pulumi.Input[_builtins.bool]] = None,
+                 safety_profile: Optional[pulumi.Input['GalleryImageVersionSafetyProfileArgs']] = None,
+                 security_profile: Optional[pulumi.Input['ImageVersionSecurityProfileArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a GalleryImageVersion resource.
 
@@ -117,86 +117,86 @@ class GalleryImageVersionArgs:
 
     @_builtins.property
     @pulumi.getter(name="galleryImageVersionName")
-    def gallery_image_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def gallery_image_version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the gallery image version to be retrieved.
         """
         return pulumi.get(self, "gallery_image_version_name")
 
     @gallery_image_version_name.setter
-    def gallery_image_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def gallery_image_version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "gallery_image_version_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="publishingProfile")
-    def publishing_profile(self) -> pulumi.Input[Optional['GalleryImageVersionPublishingProfileArgs']]:
+    def publishing_profile(self) -> Optional[pulumi.Input['GalleryImageVersionPublishingProfileArgs']]:
         """
         The publishing profile of a gallery image Version.
         """
         return pulumi.get(self, "publishing_profile")
 
     @publishing_profile.setter
-    def publishing_profile(self, value: pulumi.Input[Optional['GalleryImageVersionPublishingProfileArgs']]):
+    def publishing_profile(self, value: Optional[pulumi.Input['GalleryImageVersionPublishingProfileArgs']]):
         pulumi.set(self, "publishing_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def restore(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def restore(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Indicates if this is a soft-delete resource restoration request.
         """
         return pulumi.get(self, "restore")
 
     @restore.setter
-    def restore(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def restore(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "restore", value)
 
     @_builtins.property
     @pulumi.getter(name="safetyProfile")
-    def safety_profile(self) -> pulumi.Input[Optional['GalleryImageVersionSafetyProfileArgs']]:
+    def safety_profile(self) -> Optional[pulumi.Input['GalleryImageVersionSafetyProfileArgs']]:
         """
         This is the safety profile of the Gallery Image Version.
         """
         return pulumi.get(self, "safety_profile")
 
     @safety_profile.setter
-    def safety_profile(self, value: pulumi.Input[Optional['GalleryImageVersionSafetyProfileArgs']]):
+    def safety_profile(self, value: Optional[pulumi.Input['GalleryImageVersionSafetyProfileArgs']]):
         pulumi.set(self, "safety_profile", value)
 
     @_builtins.property
     @pulumi.getter(name="securityProfile")
-    def security_profile(self) -> pulumi.Input[Optional['ImageVersionSecurityProfileArgs']]:
+    def security_profile(self) -> Optional[pulumi.Input['ImageVersionSecurityProfileArgs']]:
         """
         The security profile of a gallery image version
         """
         return pulumi.get(self, "security_profile")
 
     @security_profile.setter
-    def security_profile(self, value: pulumi.Input[Optional['ImageVersionSecurityProfileArgs']]):
+    def security_profile(self, value: Optional[pulumi.Input['ImageVersionSecurityProfileArgs']]):
         pulumi.set(self, "security_profile", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -206,17 +206,17 @@ class GalleryImageVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 gallery_image_version_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 publishing_profile: pulumi.Input[Optional[Union['GalleryImageVersionPublishingProfileArgs', 'GalleryImageVersionPublishingProfileArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore: pulumi.Input[Optional[_builtins.bool]] = None,
-                 safety_profile: pulumi.Input[Optional[Union['GalleryImageVersionSafetyProfileArgs', 'GalleryImageVersionSafetyProfileArgsDict']]] = None,
-                 security_profile: pulumi.Input[Optional[Union['ImageVersionSecurityProfileArgs', 'ImageVersionSecurityProfileArgsDict']]] = None,
-                 storage_profile: pulumi.Input[Optional[Union['GalleryImageVersionStorageProfileArgs', 'GalleryImageVersionStorageProfileArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 gallery_image_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gallery_image_version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 publishing_profile: Optional[pulumi.Input[Union['GalleryImageVersionPublishingProfileArgs', 'GalleryImageVersionPublishingProfileArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 restore: Optional[pulumi.Input[_builtins.bool]] = None,
+                 safety_profile: Optional[pulumi.Input[Union['GalleryImageVersionSafetyProfileArgs', 'GalleryImageVersionSafetyProfileArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['ImageVersionSecurityProfileArgs', 'ImageVersionSecurityProfileArgsDict']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['GalleryImageVersionStorageProfileArgs', 'GalleryImageVersionStorageProfileArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Specifies information about the gallery image version that you want to create or update.
@@ -269,17 +269,17 @@ class GalleryImageVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 gallery_image_version_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 publishing_profile: pulumi.Input[Optional[Union['GalleryImageVersionPublishingProfileArgs', 'GalleryImageVersionPublishingProfileArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 restore: pulumi.Input[Optional[_builtins.bool]] = None,
-                 safety_profile: pulumi.Input[Optional[Union['GalleryImageVersionSafetyProfileArgs', 'GalleryImageVersionSafetyProfileArgsDict']]] = None,
-                 security_profile: pulumi.Input[Optional[Union['ImageVersionSecurityProfileArgs', 'ImageVersionSecurityProfileArgsDict']]] = None,
-                 storage_profile: pulumi.Input[Optional[Union['GalleryImageVersionStorageProfileArgs', 'GalleryImageVersionStorageProfileArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 gallery_image_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gallery_image_version_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 gallery_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 publishing_profile: Optional[pulumi.Input[Union['GalleryImageVersionPublishingProfileArgs', 'GalleryImageVersionPublishingProfileArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 restore: Optional[pulumi.Input[_builtins.bool]] = None,
+                 safety_profile: Optional[pulumi.Input[Union['GalleryImageVersionSafetyProfileArgs', 'GalleryImageVersionSafetyProfileArgsDict']]] = None,
+                 security_profile: Optional[pulumi.Input[Union['ImageVersionSecurityProfileArgs', 'ImageVersionSecurityProfileArgsDict']]] = None,
+                 storage_profile: Optional[pulumi.Input[Union['GalleryImageVersionStorageProfileArgs', 'GalleryImageVersionStorageProfileArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

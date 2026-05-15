@@ -23,7 +23,7 @@ __all__ = ['UserSettingsArgs', 'UserSettings']
 class UserSettingsArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['UserPropertiesArgs'],
-                 user_settings_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 user_settings_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserSettings resource.
 
@@ -48,14 +48,14 @@ class UserSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="userSettingsName")
-    def user_settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def user_settings_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the user settings
         """
         return pulumi.get(self, "user_settings_name")
 
     @user_settings_name.setter
-    def user_settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def user_settings_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "user_settings_name", value)
 
 
@@ -65,8 +65,8 @@ class UserSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['UserPropertiesArgs', 'UserPropertiesArgsDict']]] = None,
-                 user_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['UserPropertiesArgs', 'UserPropertiesArgsDict']]] = None,
+                 user_settings_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Response to get user settings
@@ -106,8 +106,8 @@ class UserSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['UserPropertiesArgs', 'UserPropertiesArgsDict']]] = None,
-                 user_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['UserPropertiesArgs', 'UserPropertiesArgsDict']]] = None,
+                 user_settings_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

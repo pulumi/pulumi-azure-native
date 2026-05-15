@@ -107,7 +107,7 @@ export interface GetSAPSupportedSkuOutputArgs {
     /**
      * The high availability type.
      */
-    highAvailabilityType?: pulumi.Input<string | enums.workloads.SAPHighAvailabilityType | undefined>;
+    highAvailabilityType?: pulumi.Input<string | enums.workloads.SAPHighAvailabilityType>;
     /**
      * The name of Azure region.
      */

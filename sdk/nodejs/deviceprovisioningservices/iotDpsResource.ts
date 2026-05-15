@@ -152,11 +152,11 @@ export interface IotDpsResourceArgs {
     /**
      * The managed identities for a provisioning service.
      */
-    identity?: pulumi.Input<inputs.deviceprovisioningservices.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.deviceprovisioningservices.ManagedServiceIdentityArgs>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Service specific properties for a provisioning service
      */
@@ -164,7 +164,7 @@ export interface IotDpsResourceArgs {
     /**
      * Name of provisioning service to create or update.
      */
-    provisioningServiceName?: pulumi.Input<string | undefined>;
+    provisioningServiceName?: pulumi.Input<string>;
     /**
      * Resource group identifier.
      */
@@ -172,7 +172,7 @@ export interface IotDpsResourceArgs {
     /**
      * The resource group of the resource.
      */
-    resourcegroup?: pulumi.Input<string | undefined>;
+    resourcegroup?: pulumi.Input<string>;
     /**
      * Sku info for a provisioning Service.
      */
@@ -180,9 +180,9 @@ export interface IotDpsResourceArgs {
     /**
      * The subscription id of the resource.
      */
-    subscriptionid?: pulumi.Input<string | undefined>;
+    subscriptionid?: pulumi.Input<string>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

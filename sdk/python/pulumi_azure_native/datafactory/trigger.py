@@ -25,7 +25,7 @@ class TriggerArgs:
                  factory_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['BlobEventsTriggerArgs', 'BlobTriggerArgs', 'ChainingTriggerArgs', 'CustomEventsTriggerArgs', 'MultiplePipelineTriggerArgs', 'RerunTumblingWindowTriggerArgs', 'ScheduleTriggerArgs', 'TumblingWindowTriggerArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Trigger resource.
 
@@ -78,14 +78,14 @@ class TriggerArgs:
 
     @_builtins.property
     @pulumi.getter(name="triggerName")
-    def trigger_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def trigger_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The trigger name.
         """
         return pulumi.get(self, "trigger_name")
 
     @trigger_name.setter
-    def trigger_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def trigger_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "trigger_name", value)
 
 
@@ -95,10 +95,10 @@ class Trigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union[Union['BlobEventsTriggerArgs', 'BlobEventsTriggerArgsDict'], Union['BlobTriggerArgs', 'BlobTriggerArgsDict'], Union['ChainingTriggerArgs', 'ChainingTriggerArgsDict'], Union['CustomEventsTriggerArgs', 'CustomEventsTriggerArgsDict'], Union['MultiplePipelineTriggerArgs', 'MultiplePipelineTriggerArgsDict'], Union['RerunTumblingWindowTriggerArgs', 'RerunTumblingWindowTriggerArgsDict'], Union['ScheduleTriggerArgs', 'ScheduleTriggerArgsDict'], Union['TumblingWindowTriggerArgs', 'TumblingWindowTriggerArgsDict']]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['BlobEventsTriggerArgs', 'BlobEventsTriggerArgsDict'], Union['BlobTriggerArgs', 'BlobTriggerArgsDict'], Union['ChainingTriggerArgs', 'ChainingTriggerArgsDict'], Union['CustomEventsTriggerArgs', 'CustomEventsTriggerArgsDict'], Union['MultiplePipelineTriggerArgs', 'MultiplePipelineTriggerArgsDict'], Union['RerunTumblingWindowTriggerArgs', 'RerunTumblingWindowTriggerArgsDict'], Union['ScheduleTriggerArgs', 'ScheduleTriggerArgsDict'], Union['TumblingWindowTriggerArgs', 'TumblingWindowTriggerArgsDict']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Trigger resource type.
@@ -140,10 +140,10 @@ class Trigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union[Union['BlobEventsTriggerArgs', 'BlobEventsTriggerArgsDict'], Union['BlobTriggerArgs', 'BlobTriggerArgsDict'], Union['ChainingTriggerArgs', 'ChainingTriggerArgsDict'], Union['CustomEventsTriggerArgs', 'CustomEventsTriggerArgsDict'], Union['MultiplePipelineTriggerArgs', 'MultiplePipelineTriggerArgsDict'], Union['RerunTumblingWindowTriggerArgs', 'RerunTumblingWindowTriggerArgsDict'], Union['ScheduleTriggerArgs', 'ScheduleTriggerArgsDict'], Union['TumblingWindowTriggerArgs', 'TumblingWindowTriggerArgsDict']]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['BlobEventsTriggerArgs', 'BlobEventsTriggerArgsDict'], Union['BlobTriggerArgs', 'BlobTriggerArgsDict'], Union['ChainingTriggerArgs', 'ChainingTriggerArgsDict'], Union['CustomEventsTriggerArgs', 'CustomEventsTriggerArgsDict'], Union['MultiplePipelineTriggerArgs', 'MultiplePipelineTriggerArgsDict'], Union['RerunTumblingWindowTriggerArgs', 'RerunTumblingWindowTriggerArgsDict'], Union['ScheduleTriggerArgs', 'ScheduleTriggerArgsDict'], Union['TumblingWindowTriggerArgs', 'TumblingWindowTriggerArgsDict']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 trigger_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

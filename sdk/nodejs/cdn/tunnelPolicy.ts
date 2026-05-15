@@ -142,13 +142,13 @@ export interface TunnelPolicyArgs {
     /**
      * Target Groups referenced by this tunnel policy.
      */
-    targetGroups?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[] | undefined>;
+    targetGroups?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
     /**
      * Name of the Tunnel Policy under the profile.
      */
-    tunnelPolicyName?: pulumi.Input<string | undefined>;
+    tunnelPolicyName?: pulumi.Input<string>;
     /**
      * Protocol this tunnel will use for allowing traffic to backends.
      */
-    tunnelType?: pulumi.Input<string | enums.cdn.TunnelType | undefined>;
+    tunnelType?: pulumi.Input<string | enums.cdn.TunnelType>;
 }

@@ -62,8 +62,8 @@ class GroupQuotaSubscription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         This represents a Azure subscriptionId that is associated with a GroupQuotasEntity.
@@ -107,8 +107,8 @@ class GroupQuotaSubscription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -23,15 +23,15 @@ __all__ = ['ProjectArgs', 'Project']
 class ProjectArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 catalog_settings: pulumi.Input[Optional['ProjectCatalogSettingsArgs']] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 max_dev_boxes_per_user: pulumi.Input[Optional[_builtins.int]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 catalog_settings: Optional[pulumi.Input['ProjectCatalogSettingsArgs']] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
 
@@ -80,110 +80,110 @@ class ProjectArgs:
 
     @_builtins.property
     @pulumi.getter(name="catalogSettings")
-    def catalog_settings(self) -> pulumi.Input[Optional['ProjectCatalogSettingsArgs']]:
+    def catalog_settings(self) -> Optional[pulumi.Input['ProjectCatalogSettingsArgs']]:
         """
         Settings to be used when associating a project with a catalog.
         """
         return pulumi.get(self, "catalog_settings")
 
     @catalog_settings.setter
-    def catalog_settings(self, value: pulumi.Input[Optional['ProjectCatalogSettingsArgs']]):
+    def catalog_settings(self, value: Optional[pulumi.Input['ProjectCatalogSettingsArgs']]):
         pulumi.set(self, "catalog_settings", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Description of the project.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="devCenterId")
-    def dev_center_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def dev_center_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource Id of an associated DevCenter
         """
         return pulumi.get(self, "dev_center_id")
 
     @dev_center_id.setter
-    def dev_center_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def dev_center_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dev_center_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The display name of the project.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         Managed identity properties
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDevBoxesPerUser")
-    def max_dev_boxes_per_user(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def max_dev_boxes_per_user(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
         """
         return pulumi.get(self, "max_dev_boxes_per_user")
 
     @max_dev_boxes_per_user.setter
-    def max_dev_boxes_per_user(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def max_dev_boxes_per_user(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "max_dev_boxes_per_user", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
-    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def project_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the project.
         """
         return pulumi.get(self, "project_name")
 
     @project_name.setter
-    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def project_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -193,16 +193,16 @@ class Project(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_settings: pulumi.Input[Optional[Union['ProjectCatalogSettingsArgs', 'ProjectCatalogSettingsArgsDict']]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 max_dev_boxes_per_user: pulumi.Input[Optional[_builtins.int]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 catalog_settings: Optional[pulumi.Input[Union['ProjectCatalogSettingsArgs', 'ProjectCatalogSettingsArgsDict']]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Represents a project resource.
@@ -254,16 +254,16 @@ class Project(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 catalog_settings: pulumi.Input[Optional[Union['ProjectCatalogSettingsArgs', 'ProjectCatalogSettingsArgsDict']]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dev_center_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 max_dev_boxes_per_user: pulumi.Input[Optional[_builtins.int]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 catalog_settings: Optional[pulumi.Input[Union['ProjectCatalogSettingsArgs', 'ProjectCatalogSettingsArgsDict']]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 dev_center_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 max_dev_boxes_per_user: Optional[pulumi.Input[_builtins.int]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -177,19 +177,19 @@ export interface IscsiTargetArgs {
     /**
      * The name of the iSCSI Target.
      */
-    iscsiTargetName?: pulumi.Input<string | undefined>;
+    iscsiTargetName?: pulumi.Input<string>;
     /**
      * List of LUNs to be exposed through iSCSI Target.
      */
-    luns?: pulumi.Input<pulumi.Input<inputs.storagepool.IscsiLunArgs>[] | undefined>;
+    luns?: pulumi.Input<pulumi.Input<inputs.storagepool.IscsiLunArgs>[]>;
     /**
      * Azure resource id. Indicates if this resource is managed by another Azure resource.
      */
-    managedBy?: pulumi.Input<string | undefined>;
+    managedBy?: pulumi.Input<string>;
     /**
      * List of Azure resource ids that manage this resource.
      */
-    managedByExtended?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    managedByExtended?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -197,9 +197,9 @@ export interface IscsiTargetArgs {
     /**
      * Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
      */
-    staticAcls?: pulumi.Input<pulumi.Input<inputs.storagepool.AclArgs>[] | undefined>;
+    staticAcls?: pulumi.Input<pulumi.Input<inputs.storagepool.AclArgs>[]>;
     /**
      * iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
-    targetIqn?: pulumi.Input<string | undefined>;
+    targetIqn?: pulumi.Input<string>;
 }

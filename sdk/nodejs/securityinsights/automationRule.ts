@@ -170,7 +170,7 @@ export interface AutomationRuleArgs {
     /**
      * Automation rule ID
      */
-    automationRuleId?: pulumi.Input<string | undefined>;
+    automationRuleId?: pulumi.Input<string>;
     /**
      * The display name of the automation rule.
      */

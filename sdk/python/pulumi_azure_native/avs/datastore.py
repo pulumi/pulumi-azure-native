@@ -25,10 +25,10 @@ class DatastoreArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 disk_pool_volume: pulumi.Input[Optional['DiskPoolVolumeArgs']] = None,
-                 elastic_san_volume: pulumi.Input[Optional['ElasticSanVolumeArgs']] = None,
-                 net_app_volume: pulumi.Input[Optional['NetAppVolumeArgs']] = None):
+                 datastore_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 disk_pool_volume: Optional[pulumi.Input['DiskPoolVolumeArgs']] = None,
+                 elastic_san_volume: Optional[pulumi.Input['ElasticSanVolumeArgs']] = None,
+                 net_app_volume: Optional[pulumi.Input['NetAppVolumeArgs']] = None):
         """
         The set of arguments for constructing a Datastore resource.
 
@@ -90,50 +90,50 @@ class DatastoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="datastoreName")
-    def datastore_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def datastore_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the datastore
         """
         return pulumi.get(self, "datastore_name")
 
     @datastore_name.setter
-    def datastore_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def datastore_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "datastore_name", value)
 
     @_builtins.property
     @pulumi.getter(name="diskPoolVolume")
-    def disk_pool_volume(self) -> pulumi.Input[Optional['DiskPoolVolumeArgs']]:
+    def disk_pool_volume(self) -> Optional[pulumi.Input['DiskPoolVolumeArgs']]:
         """
         An iSCSI volume
         """
         return pulumi.get(self, "disk_pool_volume")
 
     @disk_pool_volume.setter
-    def disk_pool_volume(self, value: pulumi.Input[Optional['DiskPoolVolumeArgs']]):
+    def disk_pool_volume(self, value: Optional[pulumi.Input['DiskPoolVolumeArgs']]):
         pulumi.set(self, "disk_pool_volume", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticSanVolume")
-    def elastic_san_volume(self) -> pulumi.Input[Optional['ElasticSanVolumeArgs']]:
+    def elastic_san_volume(self) -> Optional[pulumi.Input['ElasticSanVolumeArgs']]:
         """
         An Elastic SAN volume
         """
         return pulumi.get(self, "elastic_san_volume")
 
     @elastic_san_volume.setter
-    def elastic_san_volume(self, value: pulumi.Input[Optional['ElasticSanVolumeArgs']]):
+    def elastic_san_volume(self, value: Optional[pulumi.Input['ElasticSanVolumeArgs']]):
         pulumi.set(self, "elastic_san_volume", value)
 
     @_builtins.property
     @pulumi.getter(name="netAppVolume")
-    def net_app_volume(self) -> pulumi.Input[Optional['NetAppVolumeArgs']]:
+    def net_app_volume(self) -> Optional[pulumi.Input['NetAppVolumeArgs']]:
         """
         An Azure NetApp Files volume
         """
         return pulumi.get(self, "net_app_volume")
 
     @net_app_volume.setter
-    def net_app_volume(self, value: pulumi.Input[Optional['NetAppVolumeArgs']]):
+    def net_app_volume(self, value: Optional[pulumi.Input['NetAppVolumeArgs']]):
         pulumi.set(self, "net_app_volume", value)
 
 
@@ -143,13 +143,13 @@ class Datastore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 disk_pool_volume: pulumi.Input[Optional[Union['DiskPoolVolumeArgs', 'DiskPoolVolumeArgsDict']]] = None,
-                 elastic_san_volume: pulumi.Input[Optional[Union['ElasticSanVolumeArgs', 'ElasticSanVolumeArgsDict']]] = None,
-                 net_app_volume: pulumi.Input[Optional[Union['NetAppVolumeArgs', 'NetAppVolumeArgsDict']]] = None,
-                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 datastore_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 disk_pool_volume: Optional[pulumi.Input[Union['DiskPoolVolumeArgs', 'DiskPoolVolumeArgsDict']]] = None,
+                 elastic_san_volume: Optional[pulumi.Input[Union['ElasticSanVolumeArgs', 'ElasticSanVolumeArgsDict']]] = None,
+                 net_app_volume: Optional[pulumi.Input[Union['NetAppVolumeArgs', 'NetAppVolumeArgsDict']]] = None,
+                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A datastore resource
@@ -198,13 +198,13 @@ class Datastore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 disk_pool_volume: pulumi.Input[Optional[Union['DiskPoolVolumeArgs', 'DiskPoolVolumeArgsDict']]] = None,
-                 elastic_san_volume: pulumi.Input[Optional[Union['ElasticSanVolumeArgs', 'ElasticSanVolumeArgsDict']]] = None,
-                 net_app_volume: pulumi.Input[Optional[Union['NetAppVolumeArgs', 'NetAppVolumeArgsDict']]] = None,
-                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 datastore_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 disk_pool_volume: Optional[pulumi.Input[Union['DiskPoolVolumeArgs', 'DiskPoolVolumeArgsDict']]] = None,
+                 elastic_san_volume: Optional[pulumi.Input[Union['ElasticSanVolumeArgs', 'ElasticSanVolumeArgsDict']]] = None,
+                 net_app_volume: Optional[pulumi.Input[Union['NetAppVolumeArgs', 'NetAppVolumeArgsDict']]] = None,
+                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

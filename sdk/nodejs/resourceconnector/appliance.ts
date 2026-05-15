@@ -152,23 +152,23 @@ export interface ApplianceArgs {
     /**
      * Represents a supported Fabric/Infra. (AKSEdge etc...).
      */
-    distro?: pulumi.Input<string | enums.resourceconnector.Distro | undefined>;
+    distro?: pulumi.Input<string | enums.resourceconnector.Distro>;
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.resourceconnector.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.resourceconnector.IdentityArgs>;
     /**
      * Contains infrastructure information about the Appliance
      */
-    infrastructureConfig?: pulumi.Input<inputs.resourceconnector.AppliancePropertiesInfrastructureConfigArgs | undefined>;
+    infrastructureConfig?: pulumi.Input<inputs.resourceconnector.AppliancePropertiesInfrastructureConfigArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Certificates pair used to download MSI certificate from HIS. Can only be set once.
      */
-    publicKey?: pulumi.Input<string | undefined>;
+    publicKey?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,13 +176,13 @@ export interface ApplianceArgs {
     /**
      * Appliances name.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version of the Appliance
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

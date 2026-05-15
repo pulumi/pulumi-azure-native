@@ -149,7 +149,7 @@ export interface GetServiceFabricScheduleOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=status)'
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * labs
      */

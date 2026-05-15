@@ -184,23 +184,23 @@ export interface PrivateRecordSetArgs {
     /**
      * The list of A records in the record set.
      */
-    aRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.ARecordArgs>[] | undefined>;
+    aRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.ARecordArgs>[]>;
     /**
      * The list of AAAA records in the record set.
      */
-    aaaaRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.AaaaRecordArgs>[] | undefined>;
+    aaaaRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.AaaaRecordArgs>[]>;
     /**
      * The CNAME record in the record set.
      */
-    cnameRecord?: pulumi.Input<inputs.privatedns.CnameRecordArgs | undefined>;
+    cnameRecord?: pulumi.Input<inputs.privatedns.CnameRecordArgs>;
     /**
      * The metadata attached to the record set.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of MX records in the record set.
      */
-    mxRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.MxRecordArgs>[] | undefined>;
+    mxRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.MxRecordArgs>[]>;
     /**
      * The name of the DNS zone (without a terminating dot).
      */
@@ -208,7 +208,7 @@ export interface PrivateRecordSetArgs {
     /**
      * The list of PTR records in the record set.
      */
-    ptrRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.PtrRecordArgs>[] | undefined>;
+    ptrRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.PtrRecordArgs>[]>;
     /**
      * The type of DNS record in this record set.
      */
@@ -216,7 +216,7 @@ export interface PrivateRecordSetArgs {
     /**
      * The name of the record set, relative to the name of the zone.
      */
-    relativeRecordSetName?: pulumi.Input<string | undefined>;
+    relativeRecordSetName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -224,17 +224,17 @@ export interface PrivateRecordSetArgs {
     /**
      * The SOA record in the record set.
      */
-    soaRecord?: pulumi.Input<inputs.privatedns.SoaRecordArgs | undefined>;
+    soaRecord?: pulumi.Input<inputs.privatedns.SoaRecordArgs>;
     /**
      * The list of SRV records in the record set.
      */
-    srvRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.SrvRecordArgs>[] | undefined>;
+    srvRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.SrvRecordArgs>[]>;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
-    ttl?: pulumi.Input<number | undefined>;
+    ttl?: pulumi.Input<number>;
     /**
      * The list of TXT records in the record set.
      */
-    txtRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.TxtRecordArgs>[] | undefined>;
+    txtRecords?: pulumi.Input<pulumi.Input<inputs.privatedns.TxtRecordArgs>[]>;
 }

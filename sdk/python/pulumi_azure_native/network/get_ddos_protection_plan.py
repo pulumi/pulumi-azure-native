@@ -202,8 +202,8 @@ def get_ddos_protection_plan(ddos_protection_plan_name: Optional[_builtins.str] 
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_networks=pulumi.get(__ret__, 'virtual_networks'))
-def get_ddos_protection_plan_output(ddos_protection_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_ddos_protection_plan_output(ddos_protection_plan_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDdosProtectionPlanResult]:
     """
     Gets information about the specified DDoS protection plan.

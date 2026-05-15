@@ -115,9 +115,9 @@ export interface TableArgs {
     /**
      * List of stored access policies specified on the table.
      */
-    signedIdentifiers?: pulumi.Input<pulumi.Input<inputs.storage.TableSignedIdentifierArgs>[] | undefined>;
+    signedIdentifiers?: pulumi.Input<pulumi.Input<inputs.storage.TableSignedIdentifierArgs>[]>;
     /**
      * A table name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of only alphanumeric characters and it cannot begin with a numeric character.
      */
-    tableName?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string>;
 }

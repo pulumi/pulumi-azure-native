@@ -143,10 +143,10 @@ def list_whois_by_domain(domain: Optional[_builtins.str] = None,
         parsed_whois=pulumi.get(__ret__, 'parsed_whois'),
         server=pulumi.get(__ret__, 'server'),
         updated=pulumi.get(__ret__, 'updated'))
-def list_whois_by_domain_output(domain: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                enrichment_type: pulumi.Input[Optional[_builtins.str]] = None,
-                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_whois_by_domain_output(domain: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                enrichment_type: Optional[pulumi.Input[_builtins.str]] = None,
+                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWhoisByDomainResult]:
     """
     Get whois information for a single domain name

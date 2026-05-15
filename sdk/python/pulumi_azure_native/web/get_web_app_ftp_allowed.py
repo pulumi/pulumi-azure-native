@@ -136,8 +136,8 @@ def get_web_app_ftp_allowed(name: Optional[_builtins.str] = None,
         kind=pulumi.get(__ret__, 'kind'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_ftp_allowed_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_web_app_ftp_allowed_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppFtpAllowedResult]:
     """
     Description for Returns whether FTP is allowed on the site or not.

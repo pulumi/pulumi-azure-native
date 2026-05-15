@@ -24,8 +24,8 @@ class AvsAssessmentsV2OperationArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['AvsAssessmentPropertiesV2Args']] = None):
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['AvsAssessmentPropertiesV2Args']] = None):
         """
         The set of arguments for constructing a AvsAssessmentsV2Operation resource.
 
@@ -67,26 +67,26 @@ class AvsAssessmentsV2OperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def assessment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         AVS Assessment ARM name
         """
         return pulumi.get(self, "assessment_name")
 
     @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def assessment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['AvsAssessmentPropertiesV2Args']]:
+    def properties(self) -> Optional[pulumi.Input['AvsAssessmentPropertiesV2Args']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['AvsAssessmentPropertiesV2Args']]):
+    def properties(self, value: Optional[pulumi.Input['AvsAssessmentPropertiesV2Args']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class AvsAssessmentsV2Operation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['AvsAssessmentPropertiesV2Args', 'AvsAssessmentPropertiesV2ArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['AvsAssessmentPropertiesV2Args', 'AvsAssessmentPropertiesV2ArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         AVS assessment V2 resource.
@@ -141,10 +141,10 @@ class AvsAssessmentsV2Operation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['AvsAssessmentPropertiesV2Args', 'AvsAssessmentPropertiesV2ArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['AvsAssessmentPropertiesV2Args', 'AvsAssessmentPropertiesV2ArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

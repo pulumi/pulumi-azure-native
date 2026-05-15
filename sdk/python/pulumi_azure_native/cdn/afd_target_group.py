@@ -24,7 +24,7 @@ class AFDTargetGroupArgs:
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_endpoints: pulumi.Input[Sequence[pulumi.Input['TargetEndpointArgs']]],
-                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AFDTargetGroup resource.
 
@@ -77,14 +77,14 @@ class AFDTargetGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="targetGroupName")
-    def target_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def target_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the Target Group under the profile.
         """
         return pulumi.get(self, "target_group_name")
 
     @target_group_name.setter
-    def target_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def target_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "target_group_name", value)
 
 
@@ -94,10 +94,10 @@ class AFDTargetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetEndpointArgs', 'TargetEndpointArgsDict']]]]] = None,
-                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetEndpointArgs', 'TargetEndpointArgsDict']]]]] = None,
+                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         AFDTargetGroup comprises a list of Endpoints that is used for tunnelling protocols to allow certain traffic.
@@ -139,10 +139,10 @@ class AFDTargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TargetEndpointArgs', 'TargetEndpointArgsDict']]]]] = None,
-                 target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TargetEndpointArgs', 'TargetEndpointArgsDict']]]]] = None,
+                 target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

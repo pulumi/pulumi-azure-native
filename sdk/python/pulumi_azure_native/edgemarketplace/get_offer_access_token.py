@@ -100,9 +100,9 @@ def get_offer_access_token(offer_id: Optional[_builtins.str] = None,
         access_token=pulumi.get(__ret__, 'access_token'),
         disk_id=pulumi.get(__ret__, 'disk_id'),
         status=pulumi.get(__ret__, 'status'))
-def get_offer_access_token_output(offer_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                  request_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                  resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+def get_offer_access_token_output(offer_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                  request_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                  resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOfferAccessTokenResult]:
     """
     get access token.

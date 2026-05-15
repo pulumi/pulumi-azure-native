@@ -104,7 +104,7 @@ export interface SiteArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.SitePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.edge.SitePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -112,5 +112,5 @@ export interface SiteArgs {
     /**
      * The name of the Site
      */
-    siteName?: pulumi.Input<string | undefined>;
+    siteName?: pulumi.Input<string>;
 }

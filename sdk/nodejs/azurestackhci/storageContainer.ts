@@ -137,11 +137,11 @@ export interface StorageContainerArgs {
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Path of the storage container on the disk
      */
@@ -153,9 +153,9 @@ export interface StorageContainerArgs {
     /**
      * Name of the storage container
      */
-    storageContainerName?: pulumi.Input<string | undefined>;
+    storageContainerName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

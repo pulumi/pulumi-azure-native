@@ -178,39 +178,39 @@ export interface LocalUserArgs {
     /**
      * Indicates whether ACL authorization is allowed for this user. Set it to false to disallow using ACL authorization.
      */
-    allowAclAuthorization?: pulumi.Input<boolean | undefined>;
+    allowAclAuthorization?: pulumi.Input<boolean>;
     /**
      * Supplementary group membership. Only applicable for local users enabled for NFSv3 access.
      */
-    extendedGroups?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+    extendedGroups?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * An identifier for associating a group of users.
      */
-    groupId?: pulumi.Input<number | undefined>;
+    groupId?: pulumi.Input<number>;
     /**
      * Indicates whether shared key exists. Set it to false to remove existing shared key.
      */
-    hasSharedKey?: pulumi.Input<boolean | undefined>;
+    hasSharedKey?: pulumi.Input<boolean>;
     /**
      * Indicates whether ssh key exists. Set it to false to remove existing SSH key.
      */
-    hasSshKey?: pulumi.Input<boolean | undefined>;
+    hasSshKey?: pulumi.Input<boolean>;
     /**
      * Indicates whether ssh password exists. Set it to false to remove existing SSH password.
      */
-    hasSshPassword?: pulumi.Input<boolean | undefined>;
+    hasSshPassword?: pulumi.Input<boolean>;
     /**
      * Optional, local user home directory.
      */
-    homeDirectory?: pulumi.Input<string | undefined>;
+    homeDirectory?: pulumi.Input<string>;
     /**
      * Indicates if the local user is enabled for access with NFSv3 protocol.
      */
-    isNFSv3Enabled?: pulumi.Input<boolean | undefined>;
+    isNFSv3Enabled?: pulumi.Input<boolean>;
     /**
      * The permission scopes of the local user.
      */
-    permissionScopes?: pulumi.Input<pulumi.Input<inputs.storage.PermissionScopeArgs>[] | undefined>;
+    permissionScopes?: pulumi.Input<pulumi.Input<inputs.storage.PermissionScopeArgs>[]>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -218,9 +218,9 @@ export interface LocalUserArgs {
     /**
      * Optional, local user ssh authorized keys for SFTP.
      */
-    sshAuthorizedKeys?: pulumi.Input<pulumi.Input<inputs.storage.SshPublicKeyArgs>[] | undefined>;
+    sshAuthorizedKeys?: pulumi.Input<pulumi.Input<inputs.storage.SshPublicKeyArgs>[]>;
     /**
      * The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
      */
-    username?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string>;
 }

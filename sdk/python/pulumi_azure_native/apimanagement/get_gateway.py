@@ -140,9 +140,9 @@ def get_gateway(gateway_id: Optional[_builtins.str] = None,
         location_data=pulumi.get(__ret__, 'location_data'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_gateway_output(gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_gateway_output(gateway_id: Optional[pulumi.Input[_builtins.str]] = None,
+                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       service_name: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
     """
     Gets the details of the Gateway specified by its identifier.

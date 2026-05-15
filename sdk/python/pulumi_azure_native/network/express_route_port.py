@@ -23,16 +23,16 @@ __all__ = ['ExpressRoutePortArgs', 'ExpressRoutePort']
 class ExpressRoutePortArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 bandwidth_in_gbps: pulumi.Input[Optional[_builtins.int]] = None,
-                 billing_type: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsBillingType']]] = None,
-                 encapsulation: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]] = None,
-                 express_route_port_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
-                 links: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteLinkArgs']]]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 peering_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 bandwidth_in_gbps: Optional[pulumi.Input[_builtins.int]] = None,
+                 billing_type: Optional[pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsBillingType']]] = None,
+                 encapsulation: Optional[pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]] = None,
+                 express_route_port_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteLinkArgs']]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 peering_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExpressRoutePort resource.
 
@@ -84,122 +84,122 @@ class ExpressRoutePortArgs:
 
     @_builtins.property
     @pulumi.getter(name="bandwidthInGbps")
-    def bandwidth_in_gbps(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def bandwidth_in_gbps(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Bandwidth of procured ports in Gbps.
         """
         return pulumi.get(self, "bandwidth_in_gbps")
 
     @bandwidth_in_gbps.setter
-    def bandwidth_in_gbps(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def bandwidth_in_gbps(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "bandwidth_in_gbps", value)
 
     @_builtins.property
     @pulumi.getter(name="billingType")
-    def billing_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsBillingType']]]:
+    def billing_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsBillingType']]]:
         """
         The billing type of the ExpressRoutePort resource.
         """
         return pulumi.get(self, "billing_type")
 
     @billing_type.setter
-    def billing_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsBillingType']]]):
+    def billing_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsBillingType']]]):
         pulumi.set(self, "billing_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def encapsulation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]]:
+    def encapsulation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]]:
         """
         Encapsulation method on physical ports.
         """
         return pulumi.get(self, "encapsulation")
 
     @encapsulation.setter
-    def encapsulation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]]):
+    def encapsulation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]]):
         pulumi.set(self, "encapsulation", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRoutePortName")
-    def express_route_port_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def express_route_port_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the ExpressRoutePort resource.
         """
         return pulumi.get(self, "express_route_port_name")
 
     @express_route_port_name.setter
-    def express_route_port_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def express_route_port_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "express_route_port_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         The identity of ExpressRoutePort, if configured.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def links(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteLinkArgs']]]]:
+    def links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteLinkArgs']]]]:
         """
         The set of physical links of the ExpressRoutePort resource.
         """
         return pulumi.get(self, "links")
 
     @links.setter
-    def links(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteLinkArgs']]]]):
+    def links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressRouteLinkArgs']]]]):
         pulumi.set(self, "links", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="peeringLocation")
-    def peering_location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def peering_location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the peering location that the ExpressRoutePort is mapped to physically.
         """
         return pulumi.get(self, "peering_location")
 
     @peering_location.setter
-    def peering_location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def peering_location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "peering_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -209,17 +209,17 @@ class ExpressRoutePort(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth_in_gbps: pulumi.Input[Optional[_builtins.int]] = None,
-                 billing_type: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsBillingType']]] = None,
-                 encapsulation: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]] = None,
-                 express_route_port_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressRouteLinkArgs', 'ExpressRouteLinkArgsDict']]]]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 peering_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[_builtins.int]] = None,
+                 billing_type: Optional[pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsBillingType']]] = None,
+                 encapsulation: Optional[pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]] = None,
+                 express_route_port_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteLinkArgs', 'ExpressRouteLinkArgsDict']]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 peering_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         ExpressRoutePort resource definition.
@@ -272,17 +272,17 @@ class ExpressRoutePort(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bandwidth_in_gbps: pulumi.Input[Optional[_builtins.int]] = None,
-                 billing_type: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsBillingType']]] = None,
-                 encapsulation: pulumi.Input[Optional[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]] = None,
-                 express_route_port_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 links: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExpressRouteLinkArgs', 'ExpressRouteLinkArgsDict']]]]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 peering_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 bandwidth_in_gbps: Optional[pulumi.Input[_builtins.int]] = None,
+                 billing_type: Optional[pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsBillingType']]] = None,
+                 encapsulation: Optional[pulumi.Input[Union[_builtins.str, 'ExpressRoutePortsEncapsulation']]] = None,
+                 express_route_port_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExpressRouteLinkArgs', 'ExpressRouteLinkArgsDict']]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 peering_location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

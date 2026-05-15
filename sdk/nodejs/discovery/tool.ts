@@ -114,11 +114,11 @@ export interface ToolArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.discovery.ToolPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.discovery.ToolPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -126,9 +126,9 @@ export interface ToolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Tool
      */
-    toolName?: pulumi.Input<string | undefined>;
+    toolName?: pulumi.Input<string>;
 }

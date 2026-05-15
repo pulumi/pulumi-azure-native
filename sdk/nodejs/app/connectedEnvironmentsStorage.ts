@@ -112,7 +112,7 @@ export interface ConnectedEnvironmentsStorageArgs {
     /**
      * Storage properties
      */
-    properties?: pulumi.Input<inputs.app.ConnectedEnvironmentStoragePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.app.ConnectedEnvironmentStoragePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,5 +120,5 @@ export interface ConnectedEnvironmentsStorageArgs {
     /**
      * Name of the storage.
      */
-    storageName?: pulumi.Input<string | undefined>;
+    storageName?: pulumi.Input<string>;
 }

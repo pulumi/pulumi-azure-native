@@ -89,5 +89,5 @@ export interface ListIntegrationAccountKeyVaultKeysOutputArgs {
     /**
      * The skip token.
      */
-    skipToken?: pulumi.Input<string | undefined>;
+    skipToken?: pulumi.Input<string>;
 }

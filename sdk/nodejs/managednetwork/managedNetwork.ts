@@ -126,11 +126,11 @@ export interface ManagedNetworkArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Managed Network.
      */
-    managedNetworkName?: pulumi.Input<string | undefined>;
+    managedNetworkName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -138,9 +138,9 @@ export interface ManagedNetworkArgs {
     /**
      * The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
      */
-    scope?: pulumi.Input<inputs.managednetwork.ScopeArgs | undefined>;
+    scope?: pulumi.Input<inputs.managednetwork.ScopeArgs>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -116,15 +116,15 @@ export interface PrivateEndpointConnectionByNameArgs {
     /**
      * Private Endpoint Connection Resource Id.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * The connection state of the private endpoint connection.
      */
-    properties?: pulumi.Input<inputs.apimanagement.PrivateEndpointConnectionRequestPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.apimanagement.PrivateEndpointConnectionRequestPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

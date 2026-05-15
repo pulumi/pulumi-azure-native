@@ -120,5 +120,5 @@ export interface AzureServersSettingArgs {
     /**
      * The kind of the server vulnerability assessments setting
      */
-    settingKind?: pulumi.Input<string | undefined>;
+    settingKind?: pulumi.Input<string>;
 }

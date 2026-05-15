@@ -117,11 +117,11 @@ export interface MetadataSchemaArgs {
     /**
      * The assignees
      */
-    assignedTo?: pulumi.Input<pulumi.Input<inputs.apicenter.MetadataAssignmentArgs>[] | undefined>;
+    assignedTo?: pulumi.Input<pulumi.Input<inputs.apicenter.MetadataAssignmentArgs>[]>;
     /**
      * The name of the metadata schema.
      */
-    metadataSchemaName?: pulumi.Input<string | undefined>;
+    metadataSchemaName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -90,10 +90,10 @@ def list_workspace_subscription_secrets(resource_group_name: Optional[_builtins.
     return AwaitableListWorkspaceSubscriptionSecretsResult(
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_workspace_subscription_secrets_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               sid: pulumi.Input[Optional[_builtins.str]] = None,
-                                               workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+def list_workspace_subscription_secrets_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               sid: Optional[pulumi.Input[_builtins.str]] = None,
+                                               workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceSubscriptionSecretsResult]:
     """
     Gets the specified Subscription keys.

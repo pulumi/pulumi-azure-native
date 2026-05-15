@@ -387,9 +387,9 @@ def get_big_data_pool(big_data_pool_name: Optional[_builtins.str] = None,
         spark_version=pulumi.get(__ret__, 'spark_version'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_big_data_pool_output(big_data_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_big_data_pool_output(big_data_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                             workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBigDataPoolResult]:
     """
     Get a Big Data pool.

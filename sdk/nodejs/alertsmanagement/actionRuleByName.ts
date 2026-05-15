@@ -108,15 +108,15 @@ export interface ActionRuleByNameArgs {
     /**
      * The name of action rule that needs to be created/updated
      */
-    actionRuleName?: pulumi.Input<string | undefined>;
+    actionRuleName?: pulumi.Input<string>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * action rule properties
      */
-    properties?: pulumi.Input<inputs.alertsmanagement.ActionGroupArgs | inputs.alertsmanagement.DiagnosticsArgs | inputs.alertsmanagement.SuppressionArgs | undefined>;
+    properties?: pulumi.Input<inputs.alertsmanagement.ActionGroupArgs | inputs.alertsmanagement.DiagnosticsArgs | inputs.alertsmanagement.SuppressionArgs>;
     /**
      * Resource group name where the resource is created.
      */
@@ -124,5 +124,5 @@ export interface ActionRuleByNameArgs {
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

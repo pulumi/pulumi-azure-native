@@ -205,9 +205,9 @@ def get_container_apps_auth_config(auth_config_name: Optional[_builtins.str] = N
         platform=pulumi.get(__ret__, 'platform'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_container_apps_auth_config_output(auth_config_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_container_apps_auth_config_output(auth_config_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerAppsAuthConfigResult]:
     """
     Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.

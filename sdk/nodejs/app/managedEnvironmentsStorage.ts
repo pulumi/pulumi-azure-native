@@ -112,7 +112,7 @@ export interface ManagedEnvironmentsStorageArgs {
     /**
      * Storage properties
      */
-    properties?: pulumi.Input<inputs.app.ManagedEnvironmentStoragePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.app.ManagedEnvironmentStoragePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,5 +120,5 @@ export interface ManagedEnvironmentsStorageArgs {
     /**
      * Name of the storage.
      */
-    storageName?: pulumi.Input<string | undefined>;
+    storageName?: pulumi.Input<string>;
 }

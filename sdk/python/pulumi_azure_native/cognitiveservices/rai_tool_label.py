@@ -23,9 +23,9 @@ class RaiToolLabelArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['RaiToolLabelPropertiesArgs']] = None,
-                 rai_tool_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 properties: Optional[pulumi.Input['RaiToolLabelPropertiesArgs']] = None,
+                 rai_tool_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RaiToolLabel resource.
 
@@ -70,38 +70,38 @@ class RaiToolLabelArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['RaiToolLabelPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['RaiToolLabelPropertiesArgs']]:
         """
         Properties of the RAI Tool Label.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['RaiToolLabelPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['RaiToolLabelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="raiToolConnectionName")
-    def rai_tool_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rai_tool_connection_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the Rai Tool Label
         """
         return pulumi.get(self, "rai_tool_connection_name")
 
     @rai_tool_connection_name.setter
-    def rai_tool_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rai_tool_connection_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "rai_tool_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -111,11 +111,11 @@ class RaiToolLabel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['RaiToolLabelPropertiesArgs', 'RaiToolLabelPropertiesArgsDict']]] = None,
-                 rai_tool_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['RaiToolLabelPropertiesArgs', 'RaiToolLabelPropertiesArgsDict']]] = None,
+                 rai_tool_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Cognitive Services RAI Tool Label resource.
@@ -158,11 +158,11 @@ class RaiToolLabel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['RaiToolLabelPropertiesArgs', 'RaiToolLabelPropertiesArgsDict']]] = None,
-                 rai_tool_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['RaiToolLabelPropertiesArgs', 'RaiToolLabelPropertiesArgsDict']]] = None,
+                 rai_tool_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

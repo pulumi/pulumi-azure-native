@@ -162,8 +162,8 @@ def get_workspace_aad_admin(resource_group_name: Optional[_builtins.str] = None,
         sid=pulumi.get(__ret__, 'sid'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_workspace_aad_admin_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_workspace_aad_admin_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceAadAdminResult]:
     """
     Gets a workspace active directory admin

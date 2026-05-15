@@ -147,31 +147,31 @@ export interface LocalNetworkGatewayArgs {
     /**
      * Local network gateway's BGP speaker settings.
      */
-    bgpSettings?: pulumi.Input<inputs.network.BgpSettingsArgs | undefined>;
+    bgpSettings?: pulumi.Input<inputs.network.BgpSettingsArgs>;
     /**
      * FQDN of local network gateway.
      */
-    fqdn?: pulumi.Input<string | undefined>;
+    fqdn?: pulumi.Input<string>;
     /**
      * IP address of local network gateway.
      */
-    gatewayIpAddress?: pulumi.Input<string | undefined>;
+    gatewayIpAddress?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Local network site address space.
      */
-    localNetworkAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs | undefined>;
+    localNetworkAddressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
     /**
      * The name of the local network gateway.
      */
-    localNetworkGatewayName?: pulumi.Input<string | undefined>;
+    localNetworkGatewayName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -179,5 +179,5 @@ export interface LocalNetworkGatewayArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -166,41 +166,41 @@ export interface PartnerTopicArgs {
     /**
      * Activation state of the partner topic.
      */
-    activationState?: pulumi.Input<string | enums.eventgrid.PartnerTopicActivationState | undefined>;
+    activationState?: pulumi.Input<string | enums.eventgrid.PartnerTopicActivationState>;
     /**
      * Event Type information from the corresponding event channel.
      */
-    eventTypeInfo?: pulumi.Input<inputs.eventgrid.EventTypeInfoArgs | undefined>;
+    eventTypeInfo?: pulumi.Input<inputs.eventgrid.EventTypeInfoArgs>;
     /**
      * Expiration time of the partner topic. If this timer expires while the partner topic is still never activated,
      * the partner topic and corresponding event channel are deleted.
      */
-    expirationTimeIfNotActivatedUtc?: pulumi.Input<string | undefined>;
+    expirationTimeIfNotActivatedUtc?: pulumi.Input<string>;
     /**
      * Identity information for the Partner Topic resource.
      */
-    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs | undefined>;
+    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs>;
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Context or helpful message that can be used during the approval process by the subscriber.
      */
-    messageForActivation?: pulumi.Input<string | undefined>;
+    messageForActivation?: pulumi.Input<string>;
     /**
      * The immutableId of the corresponding partner registration.
      */
-    partnerRegistrationImmutableId?: pulumi.Input<string | undefined>;
+    partnerRegistrationImmutableId?: pulumi.Input<string>;
     /**
      * Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
      * This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
      */
-    partnerTopicFriendlyDescription?: pulumi.Input<string | undefined>;
+    partnerTopicFriendlyDescription?: pulumi.Input<string>;
     /**
      * Name of the partner topic.
      */
-    partnerTopicName?: pulumi.Input<string | undefined>;
+    partnerTopicName?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -208,9 +208,9 @@ export interface PartnerTopicArgs {
     /**
      * Source associated with this partner topic. This represents a unique partner resource.
      */
-    source?: pulumi.Input<string | undefined>;
+    source?: pulumi.Input<string>;
     /**
      * Tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

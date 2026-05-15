@@ -142,7 +142,7 @@ export interface SqlPoolWorkloadGroupArgs {
     /**
      * The workload group importance level.
      */
-    importance?: pulumi.Input<string | undefined>;
+    importance?: pulumi.Input<string>;
     /**
      * The workload group cap percentage resource.
      */
@@ -150,7 +150,7 @@ export interface SqlPoolWorkloadGroupArgs {
     /**
      * The workload group request maximum grant percentage.
      */
-    maxResourcePercentPerRequest?: pulumi.Input<number | undefined>;
+    maxResourcePercentPerRequest?: pulumi.Input<number>;
     /**
      * The workload group minimum percentage resource.
      */
@@ -162,7 +162,7 @@ export interface SqlPoolWorkloadGroupArgs {
     /**
      * The workload group query execution timeout.
      */
-    queryExecutionTimeout?: pulumi.Input<number | undefined>;
+    queryExecutionTimeout?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -174,7 +174,7 @@ export interface SqlPoolWorkloadGroupArgs {
     /**
      * The name of the workload group.
      */
-    workloadGroupName?: pulumi.Input<string | undefined>;
+    workloadGroupName?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

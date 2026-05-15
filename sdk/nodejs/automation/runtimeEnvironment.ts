@@ -142,19 +142,19 @@ export interface RuntimeEnvironmentArgs {
     /**
      * List of Default packages for Environment
      */
-    defaultPackages?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    defaultPackages?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Gets or sets the description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Language of Runtime Environment
      */
-    language?: pulumi.Input<string | undefined>;
+    language?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */
@@ -162,13 +162,13 @@ export interface RuntimeEnvironmentArgs {
     /**
      * The name of the Runtime Environment.
      */
-    runtimeEnvironmentName?: pulumi.Input<string | undefined>;
+    runtimeEnvironmentName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Version of Language
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

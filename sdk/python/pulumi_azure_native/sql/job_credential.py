@@ -24,7 +24,7 @@ class JobCredentialArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 credential_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 credential_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobCredential resource.
 
@@ -105,14 +105,14 @@ class JobCredentialArgs:
 
     @_builtins.property
     @pulumi.getter(name="credentialName")
-    def credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def credential_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the credential.
         """
         return pulumi.get(self, "credential_name")
 
     @credential_name.setter
-    def credential_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def credential_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "credential_name", value)
 
 
@@ -122,12 +122,12 @@ class JobCredential(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 password: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 job_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 password: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 username: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A stored credential that can be used by a job to connect to target databases.
@@ -175,12 +175,12 @@ class JobCredential(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 password: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 job_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 password: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 username: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

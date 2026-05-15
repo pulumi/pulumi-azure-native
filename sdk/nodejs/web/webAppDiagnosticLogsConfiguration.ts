@@ -91,7 +91,7 @@ export class WebAppDiagnosticLogsConfiguration extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationLogs"] = args ? pulumi.output(args.applicationLogs).apply(v => v === undefined ? undefined : inputs.web.applicationLogsConfigArgsProvideDefaults(v)) : undefined;
+            resourceInputs["applicationLogs"] = args ? (args.applicationLogs ? pulumi.output(args.applicationLogs).apply(inputs.web.applicationLogsConfigArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["detailedErrorMessages"] = args?.detailedErrorMessages;
             resourceInputs["failedRequestsTracing"] = args?.failedRequestsTracing;
             resourceInputs["httpLogs"] = args?.httpLogs;
@@ -124,23 +124,23 @@ export interface WebAppDiagnosticLogsConfigurationArgs {
     /**
      * Application logs configuration.
      */
-    applicationLogs?: pulumi.Input<inputs.web.ApplicationLogsConfigArgs | undefined>;
+    applicationLogs?: pulumi.Input<inputs.web.ApplicationLogsConfigArgs>;
     /**
      * Detailed error messages configuration.
      */
-    detailedErrorMessages?: pulumi.Input<inputs.web.EnabledConfigArgs | undefined>;
+    detailedErrorMessages?: pulumi.Input<inputs.web.EnabledConfigArgs>;
     /**
      * Failed requests tracing configuration.
      */
-    failedRequestsTracing?: pulumi.Input<inputs.web.EnabledConfigArgs | undefined>;
+    failedRequestsTracing?: pulumi.Input<inputs.web.EnabledConfigArgs>;
     /**
      * HTTP logs configuration.
      */
-    httpLogs?: pulumi.Input<inputs.web.HttpLogsConfigArgs | undefined>;
+    httpLogs?: pulumi.Input<inputs.web.HttpLogsConfigArgs>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */

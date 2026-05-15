@@ -22,10 +22,10 @@ class ApiTagDescriptionArgs:
                  api_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_docs_description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_docs_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_description_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_docs_description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_docs_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_description_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiTagDescription resource.
 
@@ -87,50 +87,50 @@ class ApiTagDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Description of the Tag.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="externalDocsDescription")
-    def external_docs_description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def external_docs_description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Description of the external resources describing the tag.
         """
         return pulumi.get(self, "external_docs_description")
 
     @external_docs_description.setter
-    def external_docs_description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def external_docs_description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "external_docs_description", value)
 
     @_builtins.property
     @pulumi.getter(name="externalDocsUrl")
-    def external_docs_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def external_docs_url(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Absolute URL of external resources describing the tag.
         """
         return pulumi.get(self, "external_docs_url")
 
     @external_docs_url.setter
-    def external_docs_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def external_docs_url(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "external_docs_url", value)
 
     @_builtins.property
     @pulumi.getter(name="tagDescriptionId")
-    def tag_description_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def tag_description_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Tag description identifier. Used when creating tagDescription for API/Tag association. Based on API and Tag names.
         """
         return pulumi.get(self, "tag_description_id")
 
     @tag_description_id.setter
-    def tag_description_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def tag_description_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tag_description_id", value)
 
 
@@ -140,13 +140,13 @@ class ApiTagDescription(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_docs_description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_docs_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_description_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_docs_description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_docs_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_description_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Contract details.
@@ -195,13 +195,13 @@ class ApiTagDescription(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_docs_description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_docs_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_description_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_docs_description: Optional[pulumi.Input[_builtins.str]] = None,
+                 external_docs_url: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_description_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

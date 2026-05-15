@@ -123,7 +123,7 @@ export interface GetProtectedItemOutputArgs {
     /**
      * OData filter options.
      */
-    filter?: pulumi.Input<string | undefined>;
+    filter?: pulumi.Input<string>;
     /**
      * Backed up item name whose details are to be fetched.
      */

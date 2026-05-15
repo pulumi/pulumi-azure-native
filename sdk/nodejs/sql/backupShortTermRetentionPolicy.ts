@@ -113,11 +113,11 @@ export interface BackupShortTermRetentionPolicyArgs {
     /**
      * The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
      */
-    diffBackupIntervalInHours?: pulumi.Input<number | undefined>;
+    diffBackupIntervalInHours?: pulumi.Input<number>;
     /**
      * The policy name. Should always be "default".
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -125,7 +125,7 @@ export interface BackupShortTermRetentionPolicyArgs {
     /**
      * The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
      */
-    retentionDays?: pulumi.Input<number | undefined>;
+    retentionDays?: pulumi.Input<number>;
     /**
      * The name of the server.
      */

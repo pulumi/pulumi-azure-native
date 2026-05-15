@@ -25,10 +25,10 @@ class CapacityPoolBucketArgs:
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  volume_name: pulumi.Input[_builtins.str],
-                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_user: pulumi.Input[Optional['FileSystemUserArgs']] = None,
-                 path: pulumi.Input[Optional[_builtins.str]] = None,
-                 server: pulumi.Input[Optional['BucketServerPropertiesArgs']] = None):
+                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_system_user: Optional[pulumi.Input['FileSystemUserArgs']] = None,
+                 path: Optional[pulumi.Input[_builtins.str]] = None,
+                 server: Optional[pulumi.Input['BucketServerPropertiesArgs']] = None):
         """
         The set of arguments for constructing a CapacityPoolBucket resource.
 
@@ -106,50 +106,50 @@ class CapacityPoolBucketArgs:
 
     @_builtins.property
     @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def bucket_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the bucket
         """
         return pulumi.get(self, "bucket_name")
 
     @bucket_name.setter
-    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def bucket_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemUser")
-    def file_system_user(self) -> pulumi.Input[Optional['FileSystemUserArgs']]:
+    def file_system_user(self) -> Optional[pulumi.Input['FileSystemUserArgs']]:
         """
         File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
         """
         return pulumi.get(self, "file_system_user")
 
     @file_system_user.setter
-    def file_system_user(self, value: pulumi.Input[Optional['FileSystemUserArgs']]):
+    def file_system_user(self, value: Optional[pulumi.Input['FileSystemUserArgs']]):
         pulumi.set(self, "file_system_user", value)
 
     @_builtins.property
     @pulumi.getter
-    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The volume path mounted inside the bucket. The default is the root path '/' if no value is provided when the bucket is created.
         """
         return pulumi.get(self, "path")
 
     @path.setter
-    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "path", value)
 
     @_builtins.property
     @pulumi.getter
-    def server(self) -> pulumi.Input[Optional['BucketServerPropertiesArgs']]:
+    def server(self) -> Optional[pulumi.Input['BucketServerPropertiesArgs']]:
         """
         Properties of the server managing the lifecycle of volume buckets
         """
         return pulumi.get(self, "server")
 
     @server.setter
-    def server(self, value: pulumi.Input[Optional['BucketServerPropertiesArgs']]):
+    def server(self, value: Optional[pulumi.Input['BucketServerPropertiesArgs']]):
         pulumi.set(self, "server", value)
 
 
@@ -159,14 +159,14 @@ class CapacityPoolBucket(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_user: pulumi.Input[Optional[Union['FileSystemUserArgs', 'FileSystemUserArgsDict']]] = None,
-                 path: pulumi.Input[Optional[_builtins.str]] = None,
-                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server: pulumi.Input[Optional[Union['BucketServerPropertiesArgs', 'BucketServerPropertiesArgsDict']]] = None,
-                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_system_user: Optional[pulumi.Input[Union['FileSystemUserArgs', 'FileSystemUserArgsDict']]] = None,
+                 path: Optional[pulumi.Input[_builtins.str]] = None,
+                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server: Optional[pulumi.Input[Union['BucketServerPropertiesArgs', 'BucketServerPropertiesArgsDict']]] = None,
+                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Bucket resource
@@ -216,14 +216,14 @@ class CapacityPoolBucket(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 file_system_user: pulumi.Input[Optional[Union['FileSystemUserArgs', 'FileSystemUserArgsDict']]] = None,
-                 path: pulumi.Input[Optional[_builtins.str]] = None,
-                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server: pulumi.Input[Optional[Union['BucketServerPropertiesArgs', 'BucketServerPropertiesArgsDict']]] = None,
-                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 bucket_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 file_system_user: Optional[pulumi.Input[Union['FileSystemUserArgs', 'FileSystemUserArgsDict']]] = None,
+                 path: Optional[pulumi.Input[_builtins.str]] = None,
+                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server: Optional[pulumi.Input[Union['BucketServerPropertiesArgs', 'BucketServerPropertiesArgsDict']]] = None,
+                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

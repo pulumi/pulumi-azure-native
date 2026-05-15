@@ -24,8 +24,8 @@ class PrivateEndpointConnectionProxyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 private_endpoint_connection_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['PrivateEndpointConnectionProxyPropertiesArgs']] = None):
+                 private_endpoint_connection_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['PrivateEndpointConnectionProxyPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnectionProxy resource.
 
@@ -67,26 +67,26 @@ class PrivateEndpointConnectionProxyArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnectionProxyName")
-    def private_endpoint_connection_proxy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def private_endpoint_connection_proxy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The private endpoint connection proxy name.
         """
         return pulumi.get(self, "private_endpoint_connection_proxy_name")
 
     @private_endpoint_connection_proxy_name.setter
-    def private_endpoint_connection_proxy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def private_endpoint_connection_proxy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "private_endpoint_connection_proxy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['PrivateEndpointConnectionProxyPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['PrivateEndpointConnectionProxyPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['PrivateEndpointConnectionProxyPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['PrivateEndpointConnectionProxyPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_endpoint_connection_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['PrivateEndpointConnectionProxyPropertiesArgs', 'PrivateEndpointConnectionProxyPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['PrivateEndpointConnectionProxyPropertiesArgs', 'PrivateEndpointConnectionProxyPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Represents private endpoint connection proxy request.
@@ -141,10 +141,10 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 private_endpoint_connection_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['PrivateEndpointConnectionProxyPropertiesArgs', 'PrivateEndpointConnectionProxyPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['PrivateEndpointConnectionProxyPropertiesArgs', 'PrivateEndpointConnectionProxyPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -138,15 +138,15 @@ export interface WebAgentArgs {
     /**
      * Optional textual description of the agent.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * List of paths associated with the web agent.
      */
-    paths?: pulumi.Input<pulumi.Input<inputs.cdn.AgentPathArgs>[] | undefined>;
+    paths?: pulumi.Input<pulumi.Input<inputs.cdn.AgentPathArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -154,13 +154,13 @@ export interface WebAgentArgs {
     /**
      * System prompt for the web agent.
      */
-    systemPrompt?: pulumi.Input<string | undefined>;
+    systemPrompt?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the web agent.
      */
-    webAgentName?: pulumi.Input<string | undefined>;
+    webAgentName?: pulumi.Input<string>;
 }

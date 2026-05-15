@@ -147,11 +147,11 @@ def list_integration_account_agreement_content_callback_url(agreement_name: Opti
         relative_path=pulumi.get(__ret__, 'relative_path'),
         relative_path_parameters=pulumi.get(__ret__, 'relative_path_parameters'),
         value=pulumi.get(__ret__, 'value'))
-def list_integration_account_agreement_content_callback_url_output(agreement_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                   integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                   key_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'KeyType']]]] = None,
-                                                                   not_after: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_integration_account_agreement_content_callback_url_output(agreement_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                   integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                   key_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'KeyType']]]] = None,
+                                                                   not_after: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountAgreementContentCallbackUrlResult]:
     """
     Get the content callback url.

@@ -146,19 +146,19 @@ export interface AFDOriginGroupArgs {
     /**
      * Authentication settings for origin in origin group.
      */
-    authentication?: pulumi.Input<inputs.cdn.OriginAuthenticationPropertiesArgs | undefined>;
+    authentication?: pulumi.Input<inputs.cdn.OriginAuthenticationPropertiesArgs>;
     /**
      * Health probe settings to the origin that is used to determine the health of the origin.
      */
-    healthProbeSettings?: pulumi.Input<inputs.cdn.HealthProbeParametersArgs | undefined>;
+    healthProbeSettings?: pulumi.Input<inputs.cdn.HealthProbeParametersArgs>;
     /**
      * Load balancing settings for a backend pool
      */
-    loadBalancingSettings?: pulumi.Input<inputs.cdn.LoadBalancingSettingsParametersArgs | undefined>;
+    loadBalancingSettings?: pulumi.Input<inputs.cdn.LoadBalancingSettingsParametersArgs>;
     /**
      * Name of the origin group which is unique within the endpoint.
      */
-    originGroupName?: pulumi.Input<string | undefined>;
+    originGroupName?: pulumi.Input<string>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -170,9 +170,9 @@ export interface AFDOriginGroupArgs {
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */
-    sessionAffinityState?: pulumi.Input<string | enums.cdn.EnabledState | undefined>;
+    sessionAffinityState?: pulumi.Input<string | enums.cdn.EnabledState>;
     /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */
-    trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: pulumi.Input<number | undefined>;
+    trafficRestorationTimeToHealedOrNewEndpointsInMinutes?: pulumi.Input<number>;
 }

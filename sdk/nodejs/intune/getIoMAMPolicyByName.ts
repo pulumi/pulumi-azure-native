@@ -108,5 +108,5 @@ export interface GetIoMAMPolicyByNameOutputArgs {
     /**
      * select specific fields in entity.
      */
-    select?: pulumi.Input<string | undefined>;
+    select?: pulumi.Input<string>;
 }

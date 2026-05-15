@@ -97,7 +97,7 @@ export interface ExtensionMonitoringStatusArgs {
     /**
      * The cluster monitor workspace key.
      */
-    primaryKey?: pulumi.Input<string | undefined>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -105,5 +105,5 @@ export interface ExtensionMonitoringStatusArgs {
     /**
      * The cluster monitor workspace ID.
      */
-    workspaceId?: pulumi.Input<string | undefined>;
+    workspaceId?: pulumi.Input<string>;
 }

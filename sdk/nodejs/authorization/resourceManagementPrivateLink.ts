@@ -97,7 +97,7 @@ export interface ResourceManagementPrivateLinkArgs {
     /**
      * the region to create private link association.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -105,5 +105,5 @@ export interface ResourceManagementPrivateLinkArgs {
     /**
      * The name of the resource management private link.
      */
-    rmplName?: pulumi.Input<string | undefined>;
+    rmplName?: pulumi.Input<string>;
 }

@@ -124,11 +124,11 @@ export interface RaiPolicyArgs {
     /**
      * Properties of Cognitive Services RaiPolicy.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.RaiPolicyPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.cognitiveservices.RaiPolicyPropertiesArgs>;
     /**
      * The name of the RaiPolicy associated with the Cognitive Services Account
      */
-    raiPolicyName?: pulumi.Input<string | undefined>;
+    raiPolicyName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,5 +136,5 @@ export interface RaiPolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

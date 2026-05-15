@@ -182,35 +182,35 @@ export interface MonitorArgs {
     /**
      * The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
      */
-    appLocation?: pulumi.Input<string | undefined>;
+    appLocation?: pulumi.Input<string>;
     /**
      * App service plan configuration
      */
-    appServicePlanConfiguration?: pulumi.Input<inputs.workloads.AppServicePlanConfigurationArgs | undefined>;
+    appServicePlanConfiguration?: pulumi.Input<inputs.workloads.AppServicePlanConfigurationArgs>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.workloads.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.workloads.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
      */
-    logAnalyticsWorkspaceArmId?: pulumi.Input<string | undefined>;
+    logAnalyticsWorkspaceArmId?: pulumi.Input<string>;
     /**
      * Managed resource group configuration
      */
-    managedResourceGroupConfiguration?: pulumi.Input<inputs.workloads.ManagedResourceGroupConfigurationArgs | undefined>;
+    managedResourceGroupConfiguration?: pulumi.Input<inputs.workloads.ManagedResourceGroupConfigurationArgs>;
     /**
      * Name of the SAP monitor resource.
      */
-    monitorName?: pulumi.Input<string | undefined>;
+    monitorName?: pulumi.Input<string>;
     /**
      * The subnet which the SAP monitor will be deployed in
      */
-    monitorSubnet?: pulumi.Input<string | undefined>;
+    monitorSubnet?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -218,13 +218,13 @@ export interface MonitorArgs {
     /**
      * Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
      */
-    routingPreference?: pulumi.Input<string | enums.workloads.RoutingPreference | undefined>;
+    routingPreference?: pulumi.Input<string | enums.workloads.RoutingPreference>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
      */
-    zoneRedundancyPreference?: pulumi.Input<string | undefined>;
+    zoneRedundancyPreference?: pulumi.Input<string>;
 }

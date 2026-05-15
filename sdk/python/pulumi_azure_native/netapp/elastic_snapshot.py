@@ -24,7 +24,7 @@ class ElasticSnapshotArgs:
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  volume_name: pulumi.Input[_builtins.str],
-                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ElasticSnapshot resource.
 
@@ -91,14 +91,14 @@ class ElasticSnapshotArgs:
 
     @_builtins.property
     @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def snapshot_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the ElasticSnapshot
         """
         return pulumi.get(self, "snapshot_name")
 
     @snapshot_name.setter
-    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def snapshot_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "snapshot_name", value)
 
 
@@ -108,11 +108,11 @@ class ElasticSnapshot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         NetApp Elastic Snapshot under an Elastic Volume
@@ -159,11 +159,11 @@ class ElasticSnapshot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 volume_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 snapshot_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 volume_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -159,27 +159,27 @@ export interface NatGatewayArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The idle timeout of the nat gateway.
      */
-    idleTimeoutInMinutes?: pulumi.Input<number | undefined>;
+    idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the nat gateway.
      */
-    natGatewayName?: pulumi.Input<string | undefined>;
+    natGatewayName?: pulumi.Input<string>;
     /**
      * An array of public ip addresses associated with the nat gateway resource.
      */
-    publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[] | undefined>;
+    publicIpAddresses?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
     /**
      * An array of public ip prefixes associated with the nat gateway resource.
      */
-    publicIpPrefixes?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[] | undefined>;
+    publicIpPrefixes?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -187,13 +187,13 @@ export interface NatGatewayArgs {
     /**
      * The nat gateway SKU.
      */
-    sku?: pulumi.Input<inputs.network.NatGatewaySkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.network.NatGatewaySkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A list of availability zones denoting the zone in which Nat Gateway should be deployed.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

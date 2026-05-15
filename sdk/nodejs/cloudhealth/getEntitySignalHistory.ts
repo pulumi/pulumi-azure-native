@@ -89,7 +89,7 @@ export interface GetEntitySignalHistoryOutputArgs {
     /**
      * End time for the history query. Defaults to now if not specified.
      */
-    endAt?: pulumi.Input<string | undefined>;
+    endAt?: pulumi.Input<string>;
     /**
      * Name of the entity. Must be unique within a health model.
      */
@@ -109,5 +109,5 @@ export interface GetEntitySignalHistoryOutputArgs {
     /**
      * Start time for the history query. Defaults to 24 hours ago if not specified.
      */
-    startAt?: pulumi.Input<string | undefined>;
+    startAt?: pulumi.Input<string>;
 }

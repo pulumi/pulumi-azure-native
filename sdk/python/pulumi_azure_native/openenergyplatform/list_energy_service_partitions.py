@@ -70,8 +70,8 @@ def list_energy_service_partitions(resource_group_name: Optional[_builtins.str] 
 
     return AwaitableListEnergyServicePartitionsResult(
         data_partition_info=pulumi.get(__ret__, 'data_partition_info'))
-def list_energy_service_partitions_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_energy_service_partitions_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEnergyServicePartitionsResult]:
     """
     Method that gets called when list of partitions is requested.

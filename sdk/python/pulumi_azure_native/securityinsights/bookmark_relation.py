@@ -24,7 +24,7 @@ class BookmarkRelationArgs:
                  related_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 relation_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 relation_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BookmarkRelation resource.
 
@@ -91,14 +91,14 @@ class BookmarkRelationArgs:
 
     @_builtins.property
     @pulumi.getter(name="relationName")
-    def relation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def relation_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Relation Name
         """
         return pulumi.get(self, "relation_name")
 
     @relation_name.setter
-    def relation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def relation_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "relation_name", value)
 
 
@@ -108,11 +108,11 @@ class BookmarkRelation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bookmark_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 related_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 relation_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bookmark_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 related_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 relation_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a relation between two resources
@@ -159,11 +159,11 @@ class BookmarkRelation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bookmark_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 related_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 relation_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 bookmark_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 related_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 relation_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

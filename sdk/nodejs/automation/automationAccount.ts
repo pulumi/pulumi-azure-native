@@ -188,31 +188,31 @@ export interface AutomationAccountArgs {
     /**
      * The name of the automation account.
      */
-    automationAccountName?: pulumi.Input<string | undefined>;
+    automationAccountName?: pulumi.Input<string>;
     /**
      * Indicates whether requests using non-AAD authentication are blocked
      */
-    disableLocalAuth?: pulumi.Input<boolean | undefined>;
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * Set the encryption properties for the automation account
      */
-    encryption?: pulumi.Input<inputs.automation.EncryptionPropertiesArgs | undefined>;
+    encryption?: pulumi.Input<inputs.automation.EncryptionPropertiesArgs>;
     /**
      * Sets the identity property for automation account
      */
-    identity?: pulumi.Input<inputs.automation.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.automation.IdentityArgs>;
     /**
      * Gets or sets the location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets name of the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
      */
-    publicNetworkAccess?: pulumi.Input<boolean | undefined>;
+    publicNetworkAccess?: pulumi.Input<boolean>;
     /**
      * Name of an Azure Resource group.
      */
@@ -220,9 +220,9 @@ export interface AutomationAccountArgs {
     /**
      * Gets or sets account SKU.
      */
-    sku?: pulumi.Input<inputs.automation.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.automation.SkuArgs>;
     /**
      * Gets or sets the tags attached to the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

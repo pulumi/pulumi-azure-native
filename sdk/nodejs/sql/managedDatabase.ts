@@ -170,51 +170,51 @@ export interface ManagedDatabaseArgs {
     /**
      * Whether to auto complete restore of this managed database.
      */
-    autoCompleteRestore?: pulumi.Input<boolean | undefined>;
+    autoCompleteRestore?: pulumi.Input<boolean>;
     /**
      * Collation of the metadata catalog.
      */
-    catalogCollation?: pulumi.Input<string | enums.sql.CatalogCollationType | undefined>;
+    catalogCollation?: pulumi.Input<string | enums.sql.CatalogCollationType>;
     /**
      * Collation of the managed database.
      */
-    collation?: pulumi.Input<string | undefined>;
+    collation?: pulumi.Input<string>;
     /**
      * Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required).
      */
-    createMode?: pulumi.Input<string | enums.sql.ManagedDatabaseCreateMode | undefined>;
+    createMode?: pulumi.Input<string | enums.sql.ManagedDatabaseCreateMode>;
     /**
      * The restorable cross-subscription dropped database resource id to restore when creating this database.
      */
-    crossSubscriptionRestorableDroppedDatabaseId?: pulumi.Input<string | undefined>;
+    crossSubscriptionRestorableDroppedDatabaseId?: pulumi.Input<string>;
     /**
      * The resource identifier of the cross-subscription source database associated with create operation of this database.
      */
-    crossSubscriptionSourceDatabaseId?: pulumi.Input<string | undefined>;
+    crossSubscriptionSourceDatabaseId?: pulumi.Input<string>;
     /**
      * Target managed instance id used in cross-subscription restore.
      */
-    crossSubscriptionTargetManagedInstanceId?: pulumi.Input<string | undefined>;
+    crossSubscriptionTargetManagedInstanceId?: pulumi.Input<string>;
     /**
      * The name of the database.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string>;
     /**
      * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
      */
-    isLedgerOn?: pulumi.Input<boolean | undefined>;
+    isLedgerOn?: pulumi.Input<boolean>;
     /**
      * Last backup file name for restore of this managed database.
      */
-    lastBackupName?: pulumi.Input<string | undefined>;
+    lastBackupName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Long Term Retention backup to be used for restore of this managed database.
      */
-    longTermRetentionBackupResourceId?: pulumi.Input<string | undefined>;
+    longTermRetentionBackupResourceId?: pulumi.Input<string>;
     /**
      * The name of the managed instance.
      */
@@ -222,7 +222,7 @@ export interface ManagedDatabaseArgs {
     /**
      * The resource identifier of the recoverable database associated with create operation of this database.
      */
-    recoverableDatabaseId?: pulumi.Input<string | undefined>;
+    recoverableDatabaseId?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -230,29 +230,29 @@ export interface ManagedDatabaseArgs {
     /**
      * The restorable dropped database resource id to restore when creating this database.
      */
-    restorableDroppedDatabaseId?: pulumi.Input<string | undefined>;
+    restorableDroppedDatabaseId?: pulumi.Input<string>;
     /**
      * Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
      */
-    restorePointInTime?: pulumi.Input<string | undefined>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * The resource identifier of the source database associated with create operation of this database.
      */
-    sourceDatabaseId?: pulumi.Input<string | undefined>;
+    sourceDatabaseId?: pulumi.Input<string>;
     /**
      * Conditional. If createMode is RestoreExternalBackup, this value is used. Specifies the identity used for storage container authentication. Can be 'SharedAccessSignature' or 'ManagedIdentity'; if not specified 'SharedAccessSignature' is assumed.
      */
-    storageContainerIdentity?: pulumi.Input<string | undefined>;
+    storageContainerIdentity?: pulumi.Input<string>;
     /**
      * Conditional. If createMode is RestoreExternalBackup and storageContainerIdentity is not ManagedIdentity, this value is required. Specifies the storage container sas token.
      */
-    storageContainerSasToken?: pulumi.Input<string | undefined>;
+    storageContainerSasToken?: pulumi.Input<string>;
     /**
      * Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored.
      */
-    storageContainerUri?: pulumi.Input<string | undefined>;
+    storageContainerUri?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

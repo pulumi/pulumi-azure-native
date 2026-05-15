@@ -97,7 +97,7 @@ export interface GetReplicationFabricOutputArgs {
     /**
      * OData filter options.
      */
-    filter?: pulumi.Input<string | undefined>;
+    filter?: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

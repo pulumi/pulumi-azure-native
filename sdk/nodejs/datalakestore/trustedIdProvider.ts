@@ -112,5 +112,5 @@ export interface TrustedIdProviderArgs {
     /**
      * The name of the trusted identity provider. This is used for differentiation of providers in the account.
      */
-    trustedIdProviderName?: pulumi.Input<string | undefined>;
+    trustedIdProviderName?: pulumi.Input<string>;
 }

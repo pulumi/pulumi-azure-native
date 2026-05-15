@@ -24,8 +24,8 @@ class HttpRouteConfigArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 http_route_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['HttpRouteConfigPropertiesArgs']] = None):
+                 http_route_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['HttpRouteConfigPropertiesArgs']] = None):
         """
         The set of arguments for constructing a HttpRouteConfig resource.
 
@@ -67,26 +67,26 @@ class HttpRouteConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="httpRouteName")
-    def http_route_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def http_route_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the Http Route Config Resource.
         """
         return pulumi.get(self, "http_route_name")
 
     @http_route_name.setter
-    def http_route_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def http_route_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "http_route_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['HttpRouteConfigPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['HttpRouteConfigPropertiesArgs']]:
         """
         Http Route Config properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['HttpRouteConfigPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['HttpRouteConfigPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class HttpRouteConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 http_route_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['HttpRouteConfigPropertiesArgs', 'HttpRouteConfigPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 http_route_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['HttpRouteConfigPropertiesArgs', 'HttpRouteConfigPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Advanced Ingress routing for path/header based routing for a Container App Environment
@@ -145,10 +145,10 @@ class HttpRouteConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 http_route_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['HttpRouteConfigPropertiesArgs', 'HttpRouteConfigPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 http_route_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['HttpRouteConfigPropertiesArgs', 'HttpRouteConfigPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

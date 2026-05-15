@@ -23,19 +23,19 @@ __all__ = ['FreeServiceArgs', 'FreeService']
 class FreeServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 end_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 free_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional['PlanArgs']] = None,
-                 product_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional['SkuArgs']] = None,
-                 start_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'FreeServicesStatus']]] = None,
-                 system_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 free_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 plan: Optional[pulumi.Input['PlanArgs']] = None,
+                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input['SkuArgs']] = None,
+                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'FreeServicesStatus']]] = None,
+                 system_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FreeService resource.
 
@@ -96,158 +96,158 @@ class FreeServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="endAt")
-    def end_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def end_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Expiration date and time of the free services
         """
         return pulumi.get(self, "end_at")
 
     @end_at.setter
-    def end_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def end_at(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "end_at", value)
 
     @_builtins.property
     @pulumi.getter(name="freeServiceName")
-    def free_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def free_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the free service
         """
         return pulumi.get(self, "free_service_name")
 
     @free_service_name.setter
-    def free_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def free_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "free_service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['ManagedServiceIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
         """
         Managed service identity (system assigned and/or user assigned identities)
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="managedBy")
-    def managed_by(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def managed_by(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         """
         return pulumi.get(self, "managed_by")
 
     @managed_by.setter
-    def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def managed_by(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
 
     @_builtins.property
     @pulumi.getter
-    def plan(self) -> pulumi.Input[Optional['PlanArgs']]:
+    def plan(self) -> Optional[pulumi.Input['PlanArgs']]:
         """
         Plan for the resource.
         """
         return pulumi.get(self, "plan")
 
     @plan.setter
-    def plan(self, value: pulumi.Input[Optional['PlanArgs']]):
+    def plan(self, value: Optional[pulumi.Input['PlanArgs']]):
         pulumi.set(self, "plan", value)
 
     @_builtins.property
     @pulumi.getter(name="productCode")
-    def product_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def product_code(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         This is the catalog UPN for the product.
         """
         return pulumi.get(self, "product_code")
 
     @product_code.setter
-    def product_code(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def product_code(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "product_code", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
+    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
         The resource model definition representing SKU
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
+    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter(name="startAt")
-    def start_at(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def start_at(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Date and time when the free services become active
         """
         return pulumi.get(self, "start_at")
 
     @start_at.setter
-    def start_at(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def start_at(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "start_at", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'FreeServicesStatus']]]:
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'FreeServicesStatus']]]:
         """
         Current status of the free services
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FreeServicesStatus']]]):
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'FreeServicesStatus']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="systemId")
-    def system_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         This is the globally unique identifier of the free services which will not change for its lifetime.
         """
         return pulumi.get(self, "system_id")
 
     @system_id.setter
-    def system_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "system_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -257,20 +257,20 @@ class FreeService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 free_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 product_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 start_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'FreeServicesStatus']]] = None,
-                 system_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 free_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'FreeServicesStatus']]] = None,
+                 system_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The Free Services API includes operations for creating and managing free services.
@@ -322,20 +322,20 @@ class FreeService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 end_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 free_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 identity: pulumi.Input[Optional[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_by: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional[Union['PlanArgs', 'PlanArgsDict']]] = None,
-                 product_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
-                 start_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'FreeServicesStatus']]] = None,
-                 system_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 free_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 identity: Optional[pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 managed_by: Optional[pulumi.Input[_builtins.str]] = None,
+                 plan: Optional[pulumi.Input[Union['PlanArgs', 'PlanArgsDict']]] = None,
+                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'FreeServicesStatus']]] = None,
+                 system_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

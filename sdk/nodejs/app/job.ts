@@ -120,7 +120,7 @@ export class Job extends pulumi.CustomResource {
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configuration"] = args ? pulumi.output(args.configuration).apply(v => v === undefined ? undefined : inputs.app.jobConfigurationArgsProvideDefaults(v)) : undefined;
+            resourceInputs["configuration"] = args ? (args.configuration ? pulumi.output(args.configuration).apply(inputs.app.jobConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["environmentId"] = args?.environmentId;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["identity"] = args?.identity;
@@ -170,27 +170,27 @@ export interface JobArgs {
     /**
      * Container Apps Job configuration properties.
      */
-    configuration?: pulumi.Input<inputs.app.JobConfigurationArgs | undefined>;
+    configuration?: pulumi.Input<inputs.app.JobConfigurationArgs>;
     /**
      * Resource ID of environment.
      */
-    environmentId?: pulumi.Input<string | undefined>;
+    environmentId?: pulumi.Input<string>;
     /**
      * The complex type of the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.app.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.app.ExtendedLocationArgs>;
     /**
      * Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
      */
-    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs>;
     /**
      * Job Name
      */
-    jobName?: pulumi.Input<string | undefined>;
+    jobName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -198,13 +198,13 @@ export interface JobArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Container Apps job definition.
      */
-    template?: pulumi.Input<inputs.app.JobTemplateArgs | undefined>;
+    template?: pulumi.Input<inputs.app.JobTemplateArgs>;
     /**
      * Workload profile name to pin for container apps job execution.
      */
-    workloadProfileName?: pulumi.Input<string | undefined>;
+    workloadProfileName?: pulumi.Input<string>;
 }

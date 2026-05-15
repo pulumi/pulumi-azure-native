@@ -157,19 +157,19 @@ export interface ConnectorArgs {
     /**
      * The authentication type.
      */
-    authInfo?: pulumi.Input<inputs.servicelinker.AccessKeyInfoBaseArgs | inputs.servicelinker.EasyAuthMicrosoftEntraIDAuthInfoArgs | inputs.servicelinker.SecretAuthInfoArgs | inputs.servicelinker.ServicePrincipalCertificateAuthInfoArgs | inputs.servicelinker.ServicePrincipalSecretAuthInfoArgs | inputs.servicelinker.SystemAssignedIdentityAuthInfoArgs | inputs.servicelinker.UserAccountAuthInfoArgs | inputs.servicelinker.UserAssignedIdentityAuthInfoArgs | undefined>;
+    authInfo?: pulumi.Input<inputs.servicelinker.AccessKeyInfoBaseArgs | inputs.servicelinker.EasyAuthMicrosoftEntraIDAuthInfoArgs | inputs.servicelinker.SecretAuthInfoArgs | inputs.servicelinker.ServicePrincipalCertificateAuthInfoArgs | inputs.servicelinker.ServicePrincipalSecretAuthInfoArgs | inputs.servicelinker.SystemAssignedIdentityAuthInfoArgs | inputs.servicelinker.UserAccountAuthInfoArgs | inputs.servicelinker.UserAssignedIdentityAuthInfoArgs>;
     /**
      * The application client type
      */
-    clientType?: pulumi.Input<string | enums.servicelinker.ClientType | undefined>;
+    clientType?: pulumi.Input<string | enums.servicelinker.ClientType>;
     /**
      * The connection information consumed by applications, including secrets, connection strings.
      */
-    configurationInfo?: pulumi.Input<inputs.servicelinker.ConfigurationInfoArgs | undefined>;
+    configurationInfo?: pulumi.Input<inputs.servicelinker.ConfigurationInfoArgs>;
     /**
      * The name of resource.
      */
-    connectorName?: pulumi.Input<string | undefined>;
+    connectorName?: pulumi.Input<string>;
     /**
      * The name of Azure region.
      */
@@ -177,7 +177,7 @@ export interface ConnectorArgs {
     /**
      * The network solution.
      */
-    publicNetworkSolution?: pulumi.Input<inputs.servicelinker.PublicNetworkSolutionArgs | undefined>;
+    publicNetworkSolution?: pulumi.Input<inputs.servicelinker.PublicNetworkSolutionArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -185,21 +185,21 @@ export interface ConnectorArgs {
     /**
      * connection scope in source service.
      */
-    scope?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<string>;
     /**
      * An option to store secret value in secure place
      */
-    secretStore?: pulumi.Input<inputs.servicelinker.SecretStoreArgs | undefined>;
+    secretStore?: pulumi.Input<inputs.servicelinker.SecretStoreArgs>;
     /**
      * The ID of the target subscription.
      */
-    subscriptionId?: pulumi.Input<string | undefined>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * The target service properties
      */
-    targetService?: pulumi.Input<inputs.servicelinker.AzureResourceArgs | inputs.servicelinker.ConfluentBootstrapServerArgs | inputs.servicelinker.ConfluentSchemaRegistryArgs | inputs.servicelinker.SelfHostedServerArgs | undefined>;
+    targetService?: pulumi.Input<inputs.servicelinker.AzureResourceArgs | inputs.servicelinker.ConfluentBootstrapServerArgs | inputs.servicelinker.ConfluentSchemaRegistryArgs | inputs.servicelinker.SelfHostedServerArgs>;
     /**
      * The VNet solution.
      */
-    vNetSolution?: pulumi.Input<inputs.servicelinker.VNetSolutionArgs | undefined>;
+    vNetSolution?: pulumi.Input<inputs.servicelinker.VNetSolutionArgs>;
 }

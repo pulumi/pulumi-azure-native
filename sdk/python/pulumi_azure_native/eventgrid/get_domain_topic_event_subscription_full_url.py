@@ -77,10 +77,10 @@ def get_domain_topic_event_subscription_full_url(domain_name: Optional[_builtins
 
     return AwaitableGetDomainTopicEventSubscriptionFullUrlResult(
         endpoint_url=pulumi.get(__ret__, 'endpoint_url'))
-def get_domain_topic_event_subscription_full_url_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_domain_topic_event_subscription_full_url_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainTopicEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for a nested event subscription for domain topic.

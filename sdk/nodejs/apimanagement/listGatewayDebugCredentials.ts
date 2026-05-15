@@ -89,7 +89,7 @@ export interface ListGatewayDebugCredentialsOutputArgs {
     /**
      * Credentials expiration in ISO8601 format. Maximum duration of the credentials is PT1H. When property is not specified, them value PT1H is used.
      */
-    credentialsExpireAfter?: pulumi.Input<string | undefined>;
+    credentialsExpireAfter?: pulumi.Input<string>;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */

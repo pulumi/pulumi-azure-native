@@ -120,7 +120,7 @@ export interface IspCacheNodesOperationArgs {
     /**
      * Name of the ConnectedCache resource
      */
-    cacheNodeResourceName?: pulumi.Input<string | undefined>;
+    cacheNodeResourceName?: pulumi.Input<string>;
     /**
      * Name of the Customer resource
      */
@@ -128,11 +128,11 @@ export interface IspCacheNodesOperationArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.connectedcache.CacheNodePropertyArgs | undefined>;
+    properties?: pulumi.Input<inputs.connectedcache.CacheNodePropertyArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,5 +140,5 @@ export interface IspCacheNodesOperationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

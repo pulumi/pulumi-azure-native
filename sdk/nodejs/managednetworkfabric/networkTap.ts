@@ -164,7 +164,7 @@ export interface NetworkTapArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string | undefined>;
+    annotation?: pulumi.Input<string>;
     /**
      * List of destinations to send the filter traffic.
      */
@@ -172,7 +172,7 @@ export interface NetworkTapArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * ARM resource ID of the Network Packet Broker.
      */
@@ -180,11 +180,11 @@ export interface NetworkTapArgs {
     /**
      * Name of the Network Tap.
      */
-    networkTapName?: pulumi.Input<string | undefined>;
+    networkTapName?: pulumi.Input<string>;
     /**
      * Polling type.
      */
-    pollingType?: pulumi.Input<string | enums.managednetworkfabric.PollingType | undefined>;
+    pollingType?: pulumi.Input<string | enums.managednetworkfabric.PollingType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -192,5 +192,5 @@ export interface NetworkTapArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

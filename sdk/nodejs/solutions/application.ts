@@ -233,19 +233,19 @@ export interface ApplicationArgs {
     /**
      * The fully qualified path of managed application definition Id.
      */
-    applicationDefinitionId?: pulumi.Input<string | undefined>;
+    applicationDefinitionId?: pulumi.Input<string>;
     /**
      * The name of the managed application.
      */
-    applicationName?: pulumi.Input<string | undefined>;
+    applicationName?: pulumi.Input<string>;
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.solutions.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.solutions.IdentityArgs>;
     /**
      * The managed application Jit access policy.
      */
-    jitAccessPolicy?: pulumi.Input<inputs.solutions.ApplicationJitAccessPolicyArgs | undefined>;
+    jitAccessPolicy?: pulumi.Input<inputs.solutions.ApplicationJitAccessPolicyArgs>;
     /**
      * The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
      */
@@ -253,23 +253,23 @@ export interface ApplicationArgs {
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * ID of the resource that manages this resource.
      */
-    managedBy?: pulumi.Input<string | undefined>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The managed resource group Id.
      */
-    managedResourceGroupId?: pulumi.Input<string | undefined>;
+    managedResourceGroupId?: pulumi.Input<string>;
     /**
      * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
      */
-    parameters?: any | undefined;
+    parameters?: any;
     /**
      * The plan information.
      */
-    plan?: pulumi.Input<inputs.solutions.PlanArgs | undefined>;
+    plan?: pulumi.Input<inputs.solutions.PlanArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -277,9 +277,9 @@ export interface ApplicationArgs {
     /**
      * The SKU of the resource.
      */
-    sku?: pulumi.Input<inputs.solutions.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.solutions.SkuArgs>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

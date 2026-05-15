@@ -117,10 +117,10 @@ def list_vpn_link_connection_default_shared_key(connection_name: Optional[_built
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def list_vpn_link_connection_default_shared_key_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                       gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                       link_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_vpn_link_connection_default_shared_key_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                       gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                       link_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVpnLinkConnectionDefaultSharedKeyResult]:
     """
     Gets the value of the shared key of VpnLink connection specified.

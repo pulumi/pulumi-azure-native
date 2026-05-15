@@ -725,9 +725,9 @@ def get_storage_account(account_name: Optional[_builtins.str] = None,
         storage_account_sku_conversion_status=pulumi.get(__ret__, 'storage_account_sku_conversion_status'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_storage_account_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_storage_account_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageAccountResult]:
     """
     Returns the properties for the specified storage account including but not limited to name, SKU name, location, and account status. The ListKeys operation should be used to retrieve storage keys.

@@ -23,11 +23,11 @@ class WorkloadNetworkSegmentArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 connected_gateway: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 revision: pulumi.Input[Optional[_builtins.float]] = None,
-                 segment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional['WorkloadNetworkSegmentSubnetArgs']] = None):
+                 connected_gateway: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 revision: Optional[pulumi.Input[_builtins.float]] = None,
+                 segment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet: Optional[pulumi.Input['WorkloadNetworkSegmentSubnetArgs']] = None):
         """
         The set of arguments for constructing a WorkloadNetworkSegment resource.
 
@@ -78,62 +78,62 @@ class WorkloadNetworkSegmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectedGateway")
-    def connected_gateway(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def connected_gateway(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Gateway which to connect segment to.
         """
         return pulumi.get(self, "connected_gateway")
 
     @connected_gateway.setter
-    def connected_gateway(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def connected_gateway(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "connected_gateway", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Display name of the segment.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def revision(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def revision(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         NSX revision number.
         """
         return pulumi.get(self, "revision")
 
     @revision.setter
-    def revision(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def revision(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "revision", value)
 
     @_builtins.property
     @pulumi.getter(name="segmentId")
-    def segment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def segment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ID of the NSX Segment
         """
         return pulumi.get(self, "segment_id")
 
     @segment_id.setter
-    def segment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def segment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "segment_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> pulumi.Input[Optional['WorkloadNetworkSegmentSubnetArgs']]:
+    def subnet(self) -> Optional[pulumi.Input['WorkloadNetworkSegmentSubnetArgs']]:
         """
         Subnet which to connect segment to.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: pulumi.Input[Optional['WorkloadNetworkSegmentSubnetArgs']]):
+    def subnet(self, value: Optional[pulumi.Input['WorkloadNetworkSegmentSubnetArgs']]):
         pulumi.set(self, "subnet", value)
 
 
@@ -143,13 +143,13 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connected_gateway: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 revision: pulumi.Input[Optional[_builtins.float]] = None,
-                 segment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional[Union['WorkloadNetworkSegmentSubnetArgs', 'WorkloadNetworkSegmentSubnetArgsDict']]] = None,
+                 connected_gateway: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 revision: Optional[pulumi.Input[_builtins.float]] = None,
+                 segment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet: Optional[pulumi.Input[Union['WorkloadNetworkSegmentSubnetArgs', 'WorkloadNetworkSegmentSubnetArgsDict']]] = None,
                  __props__=None):
         """
         NSX Segment
@@ -198,13 +198,13 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 connected_gateway: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 revision: pulumi.Input[Optional[_builtins.float]] = None,
-                 segment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet: pulumi.Input[Optional[Union['WorkloadNetworkSegmentSubnetArgs', 'WorkloadNetworkSegmentSubnetArgsDict']]] = None,
+                 connected_gateway: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 revision: Optional[pulumi.Input[_builtins.float]] = None,
+                 segment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet: Optional[pulumi.Input[Union['WorkloadNetworkSegmentSubnetArgs', 'WorkloadNetworkSegmentSubnetArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -188,7 +188,7 @@ export interface ADLSGen2FolderDataSetMappingArgs {
     /**
      * The name of the data set mapping to be created.
      */
-    dataSetMappingName?: pulumi.Input<string | undefined>;
+    dataSetMappingName?: pulumi.Input<string>;
     /**
      * File system to which the folder belongs.
      */

@@ -157,7 +157,7 @@ export interface AlertRuleResourceArgs {
     /**
      * The alert rule proxy resource name.
      */
-    alertRuleResourceName?: pulumi.Input<string | undefined>;
+    alertRuleResourceName?: pulumi.Input<string>;
     /**
      * The template ID associated with alert rule resource.
      */

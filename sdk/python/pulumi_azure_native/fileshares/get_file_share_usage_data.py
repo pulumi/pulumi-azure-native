@@ -69,7 +69,7 @@ def get_file_share_usage_data(location: Optional[_builtins.str] = None,
 
     return AwaitableGetFileShareUsageDataResult(
         properties=pulumi.get(__ret__, 'properties'))
-def get_file_share_usage_data_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+def get_file_share_usage_data_output(location: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileShareUsageDataResult]:
     """
     Get file shares usage data.

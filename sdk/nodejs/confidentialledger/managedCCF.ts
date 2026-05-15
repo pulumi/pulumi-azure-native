@@ -116,15 +116,15 @@ export interface ManagedCCFArgs {
     /**
      * Name of the Managed CCF
      */
-    appName?: pulumi.Input<string | undefined>;
+    appName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of Managed CCF Resource.
      */
-    properties?: pulumi.Input<inputs.confidentialledger.ManagedCCFPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.confidentialledger.ManagedCCFPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,5 +132,5 @@ export interface ManagedCCFArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

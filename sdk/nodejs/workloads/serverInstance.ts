@@ -176,5 +176,5 @@ export interface ServerInstanceArgs {
     /**
      * The name of the Server instance resource for SAP Migration.
      */
-    serverInstanceName?: pulumi.Input<string | undefined>;
+    serverInstanceName?: pulumi.Input<string>;
 }

@@ -25,8 +25,8 @@ class UserArgs:
                  device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_type: pulumi.Input[Union[_builtins.str, 'UserType']],
-                 encrypted_password: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 encrypted_password: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -82,26 +82,26 @@ class UserArgs:
 
     @_builtins.property
     @pulumi.getter(name="encryptedPassword")
-    def encrypted_password(self) -> pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]:
+    def encrypted_password(self) -> Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]:
         """
         The password details.
         """
         return pulumi.get(self, "encrypted_password")
 
     @encrypted_password.setter
-    def encrypted_password(self, value: pulumi.Input[Optional['AsymmetricEncryptedSecretArgs']]):
+    def encrypted_password(self, value: Optional[pulumi.Input['AsymmetricEncryptedSecretArgs']]):
         pulumi.set(self, "encrypted_password", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The user name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -111,11 +111,11 @@ class User(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 encrypted_password: pulumi.Input[Optional[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_type: pulumi.Input[Optional[Union[_builtins.str, 'UserType']]] = None,
+                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 encrypted_password: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_type: Optional[pulumi.Input[Union[_builtins.str, 'UserType']]] = None,
                  __props__=None):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
@@ -162,11 +162,11 @@ class User(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 encrypted_password: pulumi.Input[Optional[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_type: pulumi.Input[Optional[Union[_builtins.str, 'UserType']]] = None,
+                 device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 encrypted_password: Optional[pulumi.Input[Union['AsymmetricEncryptedSecretArgs', 'AsymmetricEncryptedSecretArgsDict']]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_type: Optional[pulumi.Input[Union[_builtins.str, 'UserType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

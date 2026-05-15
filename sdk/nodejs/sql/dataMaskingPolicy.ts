@@ -139,7 +139,7 @@ export interface DataMaskingPolicyArgs {
     /**
      * The name of the database for which the data masking policy applies.
      */
-    dataMaskingPolicyName?: pulumi.Input<string | undefined>;
+    dataMaskingPolicyName?: pulumi.Input<string>;
     /**
      * The state of the data masking policy.
      */
@@ -151,7 +151,7 @@ export interface DataMaskingPolicyArgs {
     /**
      * The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
      */
-    exemptPrincipals?: pulumi.Input<string | undefined>;
+    exemptPrincipals?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

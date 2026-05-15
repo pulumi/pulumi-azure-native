@@ -285,10 +285,10 @@ def get_workspace_subscription(resource_group_name: Optional[_builtins.str] = No
         state=pulumi.get(__ret__, 'state'),
         state_comment=pulumi.get(__ret__, 'state_comment'),
         type=pulumi.get(__ret__, 'type'))
-def get_workspace_subscription_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      sid: pulumi.Input[Optional[_builtins.str]] = None,
-                                      workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_workspace_subscription_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      sid: Optional[pulumi.Input[_builtins.str]] = None,
+                                      workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceSubscriptionResult]:
     """
     Gets the specified Subscription entity.

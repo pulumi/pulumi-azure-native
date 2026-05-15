@@ -90,11 +90,11 @@ export interface StorageAccountStaticWebsiteArgs {
     /**
      * The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
      */
-    error404Document?: pulumi.Input<string | undefined>;
+    error404Document?: pulumi.Input<string>;
     /**
      * The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
      */
-    indexDocument?: pulumi.Input<string | undefined>;
+    indexDocument?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

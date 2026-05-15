@@ -298,10 +298,10 @@ def get_web_app_instance_function_slot(function_name: Optional[_builtins.str] = 
         test_data=pulumi.get(__ret__, 'test_data'),
         test_data_href=pulumi.get(__ret__, 'test_data_href'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_instance_function_slot_output(function_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              slot: pulumi.Input[Optional[_builtins.str]] = None,
+def get_web_app_instance_function_slot_output(function_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              slot: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppInstanceFunctionSlotResult]:
     """
     Description for Get function information by its ID for web site, or a deployment slot.

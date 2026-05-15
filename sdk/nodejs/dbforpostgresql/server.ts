@@ -166,16 +166,16 @@ export class Server extends pulumi.CustomResource {
             }
             resourceInputs["administratorLogin"] = args?.administratorLogin;
             resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
-            resourceInputs["authConfig"] = args ? pulumi.output(args.authConfig).apply(v => v === undefined ? undefined : inputs.dbforpostgresql.authConfigArgsProvideDefaults(v)) : undefined;
+            resourceInputs["authConfig"] = args ? (args.authConfig ? pulumi.output(args.authConfig).apply(inputs.dbforpostgresql.authConfigArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["availabilityZone"] = (args?.availabilityZone) ?? "";
-            resourceInputs["backup"] = args ? pulumi.output(args.backup).apply(v => v === undefined ? undefined : inputs.dbforpostgresql.backupArgsProvideDefaults(v)) : undefined;
-            resourceInputs["cluster"] = args ? pulumi.output(args.cluster).apply(v => v === undefined ? undefined : inputs.dbforpostgresql.clusterArgsProvideDefaults(v)) : undefined;
+            resourceInputs["backup"] = args ? (args.backup ? pulumi.output(args.backup).apply(inputs.dbforpostgresql.backupArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["cluster"] = args ? (args.cluster ? pulumi.output(args.cluster).apply(inputs.dbforpostgresql.clusterArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["createMode"] = args?.createMode;
             resourceInputs["dataEncryption"] = args?.dataEncryption;
-            resourceInputs["highAvailability"] = args ? pulumi.output(args.highAvailability).apply(v => v === undefined ? undefined : inputs.dbforpostgresql.highAvailabilityArgsProvideDefaults(v)) : undefined;
+            resourceInputs["highAvailability"] = args ? (args.highAvailability ? pulumi.output(args.highAvailability).apply(inputs.dbforpostgresql.highAvailabilityArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["maintenanceWindow"] = args ? pulumi.output(args.maintenanceWindow).apply(v => v === undefined ? undefined : inputs.dbforpostgresql.maintenanceWindowArgsProvideDefaults(v)) : undefined;
+            resourceInputs["maintenanceWindow"] = args ? (args.maintenanceWindow ? pulumi.output(args.maintenanceWindow).apply(inputs.dbforpostgresql.maintenanceWindowArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["network"] = args?.network;
             resourceInputs["pointInTimeUTC"] = args?.pointInTimeUTC;
             resourceInputs["replica"] = args?.replica;
@@ -239,67 +239,67 @@ export interface ServerArgs {
     /**
      * Name of the login designated as the first password based administrator assigned to your instance of PostgreSQL. Must be specified the first time that you enable password based authentication on a server. Once set to a given value, it cannot be changed for the rest of the life of a server. If you disable password based authentication on a server which had it enabled, this password based role isn't deleted.
      */
-    administratorLogin?: pulumi.Input<string | undefined>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * Password assigned to the administrator login. As long as password authentication is enabled, this password can be changed at any time.
      */
-    administratorLoginPassword?: pulumi.Input<string | undefined>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * Authentication configuration properties of a server.
      */
-    authConfig?: pulumi.Input<inputs.dbforpostgresql.AuthConfigArgs | undefined>;
+    authConfig?: pulumi.Input<inputs.dbforpostgresql.AuthConfigArgs>;
     /**
      * Availability zone of a server.
      */
-    availabilityZone?: pulumi.Input<string | undefined>;
+    availabilityZone?: pulumi.Input<string>;
     /**
      * Backup properties of a server.
      */
-    backup?: pulumi.Input<inputs.dbforpostgresql.BackupArgs | undefined>;
+    backup?: pulumi.Input<inputs.dbforpostgresql.BackupArgs>;
     /**
      * Cluster properties of a server.
      */
-    cluster?: pulumi.Input<inputs.dbforpostgresql.ClusterArgs | undefined>;
+    cluster?: pulumi.Input<inputs.dbforpostgresql.ClusterArgs>;
     /**
      * Creation mode of a new server.
      */
-    createMode?: pulumi.Input<string | enums.dbforpostgresql.CreateMode | undefined>;
+    createMode?: pulumi.Input<string | enums.dbforpostgresql.CreateMode>;
     /**
      * Data encryption properties of a server.
      */
-    dataEncryption?: pulumi.Input<inputs.dbforpostgresql.DataEncryptionArgs | undefined>;
+    dataEncryption?: pulumi.Input<inputs.dbforpostgresql.DataEncryptionArgs>;
     /**
      * High availability properties of a server.
      */
-    highAvailability?: pulumi.Input<inputs.dbforpostgresql.HighAvailabilityArgs | undefined>;
+    highAvailability?: pulumi.Input<inputs.dbforpostgresql.HighAvailabilityArgs>;
     /**
      * User assigned managed identities assigned to the server.
      */
-    identity?: pulumi.Input<inputs.dbforpostgresql.UserAssignedIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.dbforpostgresql.UserAssignedIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Maintenance window properties of a server.
      */
-    maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.MaintenanceWindowArgs | undefined>;
+    maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.MaintenanceWindowArgs>;
     /**
      * Network properties of a server. Only required if you want your server to be integrated into a virtual network provided by customer.
      */
-    network?: pulumi.Input<inputs.dbforpostgresql.NetworkArgs | undefined>;
+    network?: pulumi.Input<inputs.dbforpostgresql.NetworkArgs>;
     /**
      * Creation time (in ISO8601 format) of the backup which you want to restore in the new server. It's required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', or 'ReviveDropped'.
      */
-    pointInTimeUTC?: pulumi.Input<string | undefined>;
+    pointInTimeUTC?: pulumi.Input<string>;
     /**
      * Read replica properties of a server. Required only in case that you want to promote a server.
      */
-    replica?: pulumi.Input<inputs.dbforpostgresql.ReplicaArgs | undefined>;
+    replica?: pulumi.Input<inputs.dbforpostgresql.ReplicaArgs>;
     /**
      * Role of the server in a replication set.
      */
-    replicationRole?: pulumi.Input<string | enums.dbforpostgresql.ReplicationRole | undefined>;
+    replicationRole?: pulumi.Input<string | enums.dbforpostgresql.ReplicationRole>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -307,25 +307,25 @@ export interface ServerArgs {
     /**
      * The name of the server.
      */
-    serverName?: pulumi.Input<string | undefined>;
+    serverName?: pulumi.Input<string>;
     /**
      * Compute tier and size of a server.
      */
-    sku?: pulumi.Input<inputs.dbforpostgresql.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.dbforpostgresql.SkuArgs>;
     /**
      * Identifier of the server to be used as the source of the new server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target server is a read replica.
      */
-    sourceServerResourceId?: pulumi.Input<string | undefined>;
+    sourceServerResourceId?: pulumi.Input<string>;
     /**
      * Storage properties of a server.
      */
-    storage?: pulumi.Input<inputs.dbforpostgresql.StorageArgs | undefined>;
+    storage?: pulumi.Input<inputs.dbforpostgresql.StorageArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Major version of PostgreSQL database engine.
      */
-    version?: pulumi.Input<string | enums.dbforpostgresql.PostgresMajorVersion | undefined>;
+    version?: pulumi.Input<string | enums.dbforpostgresql.PostgresMajorVersion>;
 }

@@ -123,13 +123,13 @@ export class VirtualMachine extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["extendedLocation"] = args?.extendedLocation;
-            resourceInputs["hardwareProfile"] = args ? pulumi.output(args.hardwareProfile).apply(v => v === undefined ? undefined : inputs.azurestackhci.virtualMachinePropertiesHardwareProfileArgsProvideDefaults(v)) : undefined;
+            resourceInputs["hardwareProfile"] = args ? (args.hardwareProfile ? pulumi.output(args.hardwareProfile).apply(inputs.azurestackhci.virtualMachinePropertiesHardwareProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["networkProfile"] = args?.networkProfile;
             resourceInputs["osProfile"] = args?.osProfile;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["securityProfile"] = args ? pulumi.output(args.securityProfile).apply(v => v === undefined ? undefined : inputs.azurestackhci.virtualMachinePropertiesSecurityProfileArgsProvideDefaults(v)) : undefined;
+            resourceInputs["securityProfile"] = args ? (args.securityProfile ? pulumi.output(args.securityProfile).apply(inputs.azurestackhci.virtualMachinePropertiesSecurityProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["storageProfile"] = args?.storageProfile;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualMachineName"] = args?.virtualMachineName;
@@ -174,27 +174,27 @@ export interface VirtualMachineArgs {
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
     /**
      * HardwareProfile - Specifies the hardware settings for the virtual machine.
      */
-    hardwareProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesHardwareProfileArgs | undefined>;
+    hardwareProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesHardwareProfileArgs>;
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.azurestackhci.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.azurestackhci.IdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * NetworkProfile - describes the network configuration the virtual machine
      */
-    networkProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesNetworkProfileArgs | undefined>;
+    networkProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesNetworkProfileArgs>;
     /**
      * OsProfile - describes the configuration of the operating system and sets login data
      */
-    osProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesOsProfileArgs | undefined>;
+    osProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesOsProfileArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -202,17 +202,17 @@ export interface VirtualMachineArgs {
     /**
      * SecurityProfile - Specifies the security settings for the virtual machine.
      */
-    securityProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesSecurityProfileArgs | undefined>;
+    securityProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesSecurityProfileArgs>;
     /**
      * StorageProfile - contains information about the disks and storage information for the virtual machine
      */
-    storageProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesStorageProfileArgs | undefined>;
+    storageProfile?: pulumi.Input<inputs.azurestackhci.VirtualMachinePropertiesStorageProfileArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the virtual machine
      */
-    virtualMachineName?: pulumi.Input<string | undefined>;
+    virtualMachineName?: pulumi.Input<string>;
 }

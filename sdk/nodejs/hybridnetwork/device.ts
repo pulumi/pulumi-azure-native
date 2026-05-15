@@ -135,7 +135,7 @@ export interface DeviceArgs {
     /**
      * Resource name for the device resource.
      */
-    deviceName?: pulumi.Input<string | undefined>;
+    deviceName?: pulumi.Input<string>;
     /**
      * The type of the device.
      */
@@ -143,7 +143,7 @@ export interface DeviceArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -151,5 +151,5 @@ export interface DeviceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

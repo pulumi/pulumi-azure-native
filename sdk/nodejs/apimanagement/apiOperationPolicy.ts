@@ -123,7 +123,7 @@ export interface ApiOperationPolicyArgs {
     /**
      * Format of the policyContent.
      */
-    format?: pulumi.Input<string | enums.apimanagement.PolicyContentFormat | undefined>;
+    format?: pulumi.Input<string | enums.apimanagement.PolicyContentFormat>;
     /**
      * Operation identifier within an API. Must be unique in the current API Management service instance.
      */
@@ -131,7 +131,7 @@ export interface ApiOperationPolicyArgs {
     /**
      * The identifier of the Policy.
      */
-    policyId?: pulumi.Input<string | undefined>;
+    policyId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

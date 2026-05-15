@@ -87,9 +87,9 @@ def get_build_service_resource_upload_url(build_service_name: Optional[_builtins
     return AwaitableGetBuildServiceResourceUploadUrlResult(
         relative_path=pulumi.get(__ret__, 'relative_path'),
         upload_url=pulumi.get(__ret__, 'upload_url'))
-def get_build_service_resource_upload_url_output(build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_build_service_resource_upload_url_output(build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildServiceResourceUploadUrlResult]:
     """
     Get an resource upload URL for build service, which may be artifacts or source archive.

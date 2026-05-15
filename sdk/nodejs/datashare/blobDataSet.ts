@@ -173,7 +173,7 @@ export interface BlobDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string | undefined>;
+    dataSetName?: pulumi.Input<string>;
     /**
      * File path within the source data set
      */

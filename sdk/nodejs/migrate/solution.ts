@@ -110,7 +110,7 @@ export interface SolutionArgs {
     /**
      * Gets or sets the properties of the solution.
      */
-    properties?: pulumi.Input<inputs.migrate.SolutionPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.SolutionPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that migrate project is part of.
      */
@@ -118,5 +118,5 @@ export interface SolutionArgs {
     /**
      * Unique name of a migration solution within a migrate project.
      */
-    solutionName?: pulumi.Input<string | undefined>;
+    solutionName?: pulumi.Input<string>;
 }

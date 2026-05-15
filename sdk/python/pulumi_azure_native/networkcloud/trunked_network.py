@@ -26,11 +26,11 @@ class TrunkedNetworkArgs:
                  isolation_domain_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vlans: pulumi.Input[Sequence[pulumi.Input[_builtins.float]]],
-                 hybrid_aks_plugin_type: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]] = None,
-                 interface_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trunked_network_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']]] = None,
+                 interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trunked_network_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrunkedNetwork resource.
 
@@ -111,62 +111,62 @@ class TrunkedNetworkArgs:
 
     @_builtins.property
     @pulumi.getter(name="hybridAksPluginType")
-    def hybrid_aks_plugin_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]]:
+    def hybrid_aks_plugin_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']]]:
         """
         Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
         """
         return pulumi.get(self, "hybrid_aks_plugin_type")
 
     @hybrid_aks_plugin_type.setter
-    def hybrid_aks_plugin_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]]):
+    def hybrid_aks_plugin_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']]]):
         pulumi.set(self, "hybrid_aks_plugin_type", value)
 
     @_builtins.property
     @pulumi.getter(name="interfaceName")
-    def interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
         """
         return pulumi.get(self, "interface_name")
 
     @interface_name.setter
-    def interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "interface_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="trunkedNetworkName")
-    def trunked_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def trunked_network_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the trunked network.
         """
         return pulumi.get(self, "trunked_network_name")
 
     @trunked_network_name.setter
-    def trunked_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def trunked_network_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "trunked_network_name", value)
 
 
@@ -176,15 +176,15 @@ class TrunkedNetwork(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hybrid_aks_plugin_type: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]] = None,
-                 interface_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 isolation_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trunked_network_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']]] = None,
+                 interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 isolation_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trunked_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
@@ -231,15 +231,15 @@ class TrunkedNetwork(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 hybrid_aks_plugin_type: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksPluginType']]] = None,
-                 interface_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 isolation_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trunked_network_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 vlans: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.float]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 hybrid_aks_plugin_type: Optional[pulumi.Input[Union[_builtins.str, 'HybridAksPluginType']]] = None,
+                 interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 isolation_domain_ids: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 trunked_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.float]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -134,7 +134,7 @@ export interface MSTIDataConnectorArgs {
     /**
      * Connector ID
      */
-    dataConnectorId?: pulumi.Input<string | undefined>;
+    dataConnectorId?: pulumi.Input<string>;
     /**
      * The available data types for the connector.
      */

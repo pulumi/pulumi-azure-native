@@ -74,9 +74,9 @@ def list_apm_secret_keys(apm_name: Optional[_builtins.str] = None,
 
     return AwaitableListApmSecretKeysResult(
         value=pulumi.get(__ret__, 'value'))
-def list_apm_secret_keys_output(apm_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_apm_secret_keys_output(apm_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApmSecretKeysResult]:
     """
     List keys of APM sensitive properties.

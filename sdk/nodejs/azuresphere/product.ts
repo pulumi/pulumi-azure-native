@@ -116,11 +116,11 @@ export interface ProductArgs {
     /**
      * Description of the product
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Name of product.
      */
-    productName?: pulumi.Input<string | undefined>;
+    productName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

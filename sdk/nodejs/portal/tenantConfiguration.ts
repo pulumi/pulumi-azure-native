@@ -100,9 +100,9 @@ export interface TenantConfigurationArgs {
     /**
      * The name of the Configuration
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.portal.ConfigurationPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.portal.ConfigurationPropertiesArgs>;
 }

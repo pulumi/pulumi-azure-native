@@ -182,11 +182,11 @@ export interface SubscriptionArgs {
     /**
      * Determines whether tracing can be enabled
      */
-    allowTracing?: pulumi.Input<boolean | undefined>;
+    allowTracing?: pulumi.Input<boolean>;
     /**
      * Determines the type of application which send the create user request. Default is legacy publisher portal.
      */
-    appType?: pulumi.Input<string | undefined>;
+    appType?: pulumi.Input<string>;
     /**
      * Subscription name.
      */
@@ -196,15 +196,15 @@ export interface SubscriptionArgs {
      *  - If false, do not send any email notification for change of state of subscription 
      *  - If true, send email notification of change of state of subscription 
      */
-    notify?: pulumi.Input<boolean | undefined>;
+    notify?: pulumi.Input<boolean>;
     /**
      * User (user id path) for whom subscription is being created in form /users/{userId}
      */
-    ownerId?: pulumi.Input<string | undefined>;
+    ownerId?: pulumi.Input<string>;
     /**
      * Primary subscription key. If not specified during request key will be generated automatically.
      */
-    primaryKey?: pulumi.Input<string | undefined>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -216,7 +216,7 @@ export interface SubscriptionArgs {
     /**
      * Secondary subscription key. If not specified during request key will be generated automatically.
      */
-    secondaryKey?: pulumi.Input<string | undefined>;
+    secondaryKey?: pulumi.Input<string>;
     /**
      * The name of the API Management service.
      */
@@ -224,9 +224,9 @@ export interface SubscriptionArgs {
     /**
      * Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
      */
-    sid?: pulumi.Input<string | undefined>;
+    sid?: pulumi.Input<string>;
     /**
      * Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
      */
-    state?: pulumi.Input<enums.apimanagement.SubscriptionState | undefined>;
+    state?: pulumi.Input<enums.apimanagement.SubscriptionState>;
 }

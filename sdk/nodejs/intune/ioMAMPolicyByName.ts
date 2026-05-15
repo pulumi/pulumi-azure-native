@@ -159,17 +159,17 @@ export class IoMAMPolicyByName extends pulumi.CustomResource {
  * The set of arguments for constructing a IoMAMPolicyByName resource.
  */
 export interface IoMAMPolicyByNameArgs {
-    accessRecheckOfflineTimeout?: pulumi.Input<string | undefined>;
-    accessRecheckOnlineTimeout?: pulumi.Input<string | undefined>;
-    appSharingFromLevel?: pulumi.Input<string | undefined>;
-    appSharingToLevel?: pulumi.Input<string | undefined>;
-    authentication?: pulumi.Input<string | undefined>;
-    clipboardSharingLevel?: pulumi.Input<string | undefined>;
-    dataBackup?: pulumi.Input<string | undefined>;
-    description?: pulumi.Input<string | undefined>;
-    deviceCompliance?: pulumi.Input<string | undefined>;
-    fileEncryptionLevel?: pulumi.Input<string | undefined>;
-    fileSharingSaveAs?: pulumi.Input<string | undefined>;
+    accessRecheckOfflineTimeout?: pulumi.Input<string>;
+    accessRecheckOnlineTimeout?: pulumi.Input<string>;
+    appSharingFromLevel?: pulumi.Input<string>;
+    appSharingToLevel?: pulumi.Input<string>;
+    authentication?: pulumi.Input<string>;
+    clipboardSharingLevel?: pulumi.Input<string>;
+    dataBackup?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    deviceCompliance?: pulumi.Input<string>;
+    fileEncryptionLevel?: pulumi.Input<string>;
+    fileSharingSaveAs?: pulumi.Input<string>;
     friendlyName: pulumi.Input<string>;
     /**
      * Location hostName for the tenant
@@ -178,18 +178,18 @@ export interface IoMAMPolicyByNameArgs {
     /**
      * Resource Location
      */
-    location?: pulumi.Input<string | undefined>;
-    managedBrowser?: pulumi.Input<string | undefined>;
-    offlineWipeTimeout?: pulumi.Input<string | undefined>;
-    pin?: pulumi.Input<string | undefined>;
-    pinNumRetry?: pulumi.Input<number | undefined>;
+    location?: pulumi.Input<string>;
+    managedBrowser?: pulumi.Input<string>;
+    offlineWipeTimeout?: pulumi.Input<string>;
+    pin?: pulumi.Input<string>;
+    pinNumRetry?: pulumi.Input<number>;
     /**
      * Unique name for the policy
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string>;
     /**
      * Resource Tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
-    touchId?: pulumi.Input<string | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    touchId?: pulumi.Input<string>;
 }

@@ -129,7 +129,7 @@ export class KafkaConnectorTopicMap extends pulumi.CustomResource {
             if (args?.routes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routes'");
             }
-            resourceInputs["batching"] = args ? pulumi.output(args.batching).apply(v => v === undefined ? undefined : inputs.iotoperationsmq.kafkaTopicMapBatchingArgsProvideDefaults(v)) : undefined;
+            resourceInputs["batching"] = args ? (args.batching ? pulumi.output(args.batching).apply(inputs.iotoperationsmq.kafkaTopicMapBatchingArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["compression"] = (args?.compression) ?? "none";
             resourceInputs["copyMqttProperties"] = args?.copyMqttProperties;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
@@ -179,15 +179,15 @@ export interface KafkaConnectorTopicMapArgs {
     /**
      * The batching settings for kafka messages.
      */
-    batching?: pulumi.Input<inputs.iotoperationsmq.KafkaTopicMapBatchingArgs | undefined>;
+    batching?: pulumi.Input<inputs.iotoperationsmq.KafkaTopicMapBatchingArgs>;
     /**
      * The compression to use for kafka messages.
      */
-    compression?: pulumi.Input<string | enums.iotoperationsmq.KafkaMessageCompressionType | undefined>;
+    compression?: pulumi.Input<string | enums.iotoperationsmq.KafkaMessageCompressionType>;
     /**
      * The flag to copy Mqtt properties.
      */
-    copyMqttProperties?: pulumi.Input<string | undefined>;
+    copyMqttProperties?: pulumi.Input<string>;
     /**
      * Extended Location
      */
@@ -203,7 +203,7 @@ export interface KafkaConnectorTopicMapArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of MQ resource
      */
@@ -211,11 +211,11 @@ export interface KafkaConnectorTopicMapArgs {
     /**
      * The partition to use for Kafka.
      */
-    partitionKeyProperty?: pulumi.Input<string | undefined>;
+    partitionKeyProperty?: pulumi.Input<string>;
     /**
      * The partition strategy to use for Kafka.
      */
-    partitionStrategy?: pulumi.Input<string | enums.iotoperationsmq.KafkaPartitionStrategy | undefined>;
+    partitionStrategy?: pulumi.Input<string | enums.iotoperationsmq.KafkaPartitionStrategy>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -227,9 +227,9 @@ export interface KafkaConnectorTopicMapArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of MQ kafka/topicMap resource
      */
-    topicMapName?: pulumi.Input<string | undefined>;
+    topicMapName?: pulumi.Input<string>;
 }

@@ -73,7 +73,7 @@ export interface ListManagedClusterUserCredentialsOutputArgs {
     /**
      * Only apply to AAD clusters, specifies the format of returned kubeconfig. Format 'azure' will return azure auth-provider kubeconfig; format 'exec' will return exec format kubeconfig, which requires kubelogin binary in the path.
      */
-    format?: pulumi.Input<string | undefined>;
+    format?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -85,5 +85,5 @@ export interface ListManagedClusterUserCredentialsOutputArgs {
     /**
      * server fqdn type for credentials to be returned
      */
-    serverFqdn?: pulumi.Input<string | undefined>;
+    serverFqdn?: pulumi.Input<string>;
 }

@@ -24,10 +24,10 @@ class WorkloadDeploymentArgs:
     def __init__(__self__, *,
                  modernize_project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['WorkloadDeploymentModelPropertiesArgs']] = None,
-                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_deployment_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['WorkloadDeploymentModelPropertiesArgs']] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_deployment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadDeployment resource.
 
@@ -75,50 +75,50 @@ class WorkloadDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['WorkloadDeploymentModelPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['WorkloadDeploymentModelPropertiesArgs']]:
         """
         Workload deployment model properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['WorkloadDeploymentModelPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['WorkloadDeploymentModelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Azure Subscription Id in which project was created.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets the resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadDeploymentName")
-    def workload_deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def workload_deployment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Workload deployment name.
         """
         return pulumi.get(self, "workload_deployment_name")
 
     @workload_deployment_name.setter
-    def workload_deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def workload_deployment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "workload_deployment_name", value)
 
 
@@ -128,12 +128,12 @@ class WorkloadDeployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 modernize_project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['WorkloadDeploymentModelPropertiesArgs', 'WorkloadDeploymentModelPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 modernize_project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['WorkloadDeploymentModelPropertiesArgs', 'WorkloadDeploymentModelPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Workload deployment model.
@@ -177,12 +177,12 @@ class WorkloadDeployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 modernize_project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['WorkloadDeploymentModelPropertiesArgs', 'WorkloadDeploymentModelPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workload_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 modernize_project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['WorkloadDeploymentModelPropertiesArgs', 'WorkloadDeploymentModelPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

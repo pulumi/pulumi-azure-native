@@ -21,7 +21,7 @@ class ServerDnsAliasArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 dns_alias_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 dns_alias_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerDnsAlias resource.
 
@@ -60,14 +60,14 @@ class ServerDnsAliasArgs:
 
     @_builtins.property
     @pulumi.getter(name="dnsAliasName")
-    def dns_alias_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def dns_alias_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the server dns alias.
         """
         return pulumi.get(self, "dns_alias_name")
 
     @dns_alias_name.setter
-    def dns_alias_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def dns_alias_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dns_alias_name", value)
 
 
@@ -77,9 +77,9 @@ class ServerDnsAlias(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A server DNS alias.
@@ -124,9 +124,9 @@ class ServerDnsAlias(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_alias_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_alias_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

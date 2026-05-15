@@ -177,7 +177,7 @@ export interface ReadOnlyFollowingDatabaseArgs {
     /**
      * By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
      */
-    callerRole?: pulumi.Input<string | undefined>;
+    callerRole?: pulumi.Input<string>;
     /**
      * The name of the Kusto cluster.
      */
@@ -185,11 +185,11 @@ export interface ReadOnlyFollowingDatabaseArgs {
     /**
      * The name of the database in the Kusto cluster.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
-    hotCachePeriod?: pulumi.Input<string | undefined>;
+    hotCachePeriod?: pulumi.Input<string>;
     /**
      * Kind of the database
      * Expected value is 'ReadOnlyFollowing'.
@@ -198,7 +198,7 @@ export interface ReadOnlyFollowingDatabaseArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

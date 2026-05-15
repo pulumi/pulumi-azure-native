@@ -137,11 +137,11 @@ export interface BuilderArgs {
     /**
      * The name of the builder.
      */
-    builderName?: pulumi.Input<string | undefined>;
+    builderName?: pulumi.Input<string>;
     /**
      * List of mappings of container registries and the managed identity used to connect to it.
      */
-    containerRegistries?: pulumi.Input<pulumi.Input<inputs.app.ContainerRegistryArgs>[] | undefined>;
+    containerRegistries?: pulumi.Input<pulumi.Input<inputs.app.ContainerRegistryArgs>[]>;
     /**
      * Resource ID of the container apps environment that the builder is associated with.
      */
@@ -149,11 +149,11 @@ export interface BuilderArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -161,5 +161,5 @@ export interface BuilderArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

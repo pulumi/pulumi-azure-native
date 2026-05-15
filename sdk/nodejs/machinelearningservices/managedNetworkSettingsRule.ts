@@ -119,7 +119,7 @@ export interface ManagedNetworkSettingsRuleArgs {
     /**
      * Name of the workspace managed network outbound rule
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName?: pulumi.Input<string>;
     /**
      * Azure Machine Learning Workspace Name
      */

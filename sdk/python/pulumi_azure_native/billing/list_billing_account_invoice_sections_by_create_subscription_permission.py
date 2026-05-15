@@ -85,8 +85,8 @@ def list_billing_account_invoice_sections_by_create_subscription_permission(bill
     return AwaitableListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_billing_account_invoice_sections_by_create_subscription_permission_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                                   filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def list_billing_account_invoice_sections_by_create_subscription_permission_output(billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                                   filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBillingAccountInvoiceSectionsByCreateSubscriptionPermissionResult]:
     """
     Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement.

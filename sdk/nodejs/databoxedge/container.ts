@@ -133,7 +133,7 @@ export interface ContainerArgs {
     /**
      * The container name.
      */
-    containerName?: pulumi.Input<string | undefined>;
+    containerName?: pulumi.Input<string>;
     /**
      * DataFormat for Container
      */

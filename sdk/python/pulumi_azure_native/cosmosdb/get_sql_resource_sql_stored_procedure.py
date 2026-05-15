@@ -156,11 +156,11 @@ def get_sql_resource_sql_stored_procedure(account_name: Optional[_builtins.str] 
         resource=pulumi.get(__ret__, 'resource'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_resource_sql_stored_procedure_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 stored_procedure_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_sql_resource_sql_stored_procedure_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 container_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 stored_procedure_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlResourceSqlStoredProcedureResult]:
     """
     Gets the SQL storedProcedure under an existing Azure Cosmos DB database account.

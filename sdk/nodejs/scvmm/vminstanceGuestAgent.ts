@@ -137,15 +137,15 @@ export interface VMInstanceGuestAgentArgs {
     /**
      * Username / Password Credentials to provision guest agent.
      */
-    credentials?: pulumi.Input<inputs.scvmm.GuestCredentialArgs | undefined>;
+    credentials?: pulumi.Input<inputs.scvmm.GuestCredentialArgs>;
     /**
      * HTTP Proxy configuration for the VM.
      */
-    httpProxyConfig?: pulumi.Input<inputs.scvmm.HttpProxyConfigurationArgs | undefined>;
+    httpProxyConfig?: pulumi.Input<inputs.scvmm.HttpProxyConfigurationArgs>;
     /**
      * Gets or sets the guest agent provisioning action.
      */
-    provisioningAction?: pulumi.Input<string | enums.scvmm.ProvisioningAction | undefined>;
+    provisioningAction?: pulumi.Input<string | enums.scvmm.ProvisioningAction>;
     /**
      * The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
      */

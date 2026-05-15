@@ -166,9 +166,9 @@ def get_managed_cluster_application_type(application_type_name: Optional[_builti
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_cluster_application_type_output(application_type_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_managed_cluster_application_type_output(application_type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterApplicationTypeResult]:
     """
     Get a Service Fabric application type name resource created or in the process of being created in the Service Fabric managed cluster resource.

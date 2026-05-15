@@ -137,7 +137,7 @@ export interface ScopeMapArgs {
     /**
      * The user friendly description of the scope map.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */
@@ -149,5 +149,5 @@ export interface ScopeMapArgs {
     /**
      * The name of the scope map.
      */
-    scopeMapName?: pulumi.Input<string | undefined>;
+    scopeMapName?: pulumi.Input<string>;
 }

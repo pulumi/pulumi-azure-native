@@ -98,7 +98,7 @@ export interface DefenderForStorageArgs {
     /**
      * Defender for Storage resource properties.
      */
-    properties?: pulumi.Input<inputs.security.DefenderForStorageSettingPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.security.DefenderForStorageSettingPropertiesArgs>;
     /**
      * The identifier of the resource.
      */
@@ -106,5 +106,5 @@ export interface DefenderForStorageArgs {
     /**
      * Defender for Storage setting name.
      */
-    settingName?: pulumi.Input<string | undefined>;
+    settingName?: pulumi.Input<string>;
 }

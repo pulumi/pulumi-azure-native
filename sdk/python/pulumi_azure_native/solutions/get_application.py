@@ -410,8 +410,8 @@ def get_application(application_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         updated_by=pulumi.get(__ret__, 'updated_by'))
-def get_application_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_application_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
+                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Gets the managed application.

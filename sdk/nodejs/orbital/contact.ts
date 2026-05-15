@@ -208,7 +208,7 @@ export interface ContactArgs {
     /**
      * Contact name.
      */
-    contactName?: pulumi.Input<string | undefined>;
+    contactName?: pulumi.Input<string>;
     /**
      * The reference to the contact profile resource.
      */

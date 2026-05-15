@@ -93,11 +93,11 @@ export interface GetFactoryGitHubAccessTokenOutputArgs {
     /**
      * GitHub application client ID.
      */
-    gitHubClientId?: pulumi.Input<string | undefined>;
+    gitHubClientId?: pulumi.Input<string>;
     /**
      * GitHub bring your own app client secret information.
      */
-    gitHubClientSecret?: pulumi.Input<inputs.datafactory.GitHubClientSecretArgs | undefined>;
+    gitHubClientSecret?: pulumi.Input<inputs.datafactory.GitHubClientSecretArgs>;
     /**
      * The resource group name.
      */

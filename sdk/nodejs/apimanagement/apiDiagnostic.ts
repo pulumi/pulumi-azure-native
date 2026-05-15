@@ -163,7 +163,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Specifies for what type of messages sampling settings should not apply.
      */
-    alwaysLog?: pulumi.Input<string | enums.apimanagement.AlwaysLog | undefined>;
+    alwaysLog?: pulumi.Input<string | enums.apimanagement.AlwaysLog>;
     /**
      * API identifier. Must be unique in the current API Management service instance.
      */
@@ -171,23 +171,23 @@ export interface ApiDiagnosticArgs {
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */
-    backend?: pulumi.Input<inputs.apimanagement.PipelineDiagnosticSettingsArgs | undefined>;
+    backend?: pulumi.Input<inputs.apimanagement.PipelineDiagnosticSettingsArgs>;
     /**
      * Diagnostic identifier. Must be unique in the current API Management service instance.
      */
-    diagnosticId?: pulumi.Input<string | undefined>;
+    diagnosticId?: pulumi.Input<string>;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
      */
-    frontend?: pulumi.Input<inputs.apimanagement.PipelineDiagnosticSettingsArgs | undefined>;
+    frontend?: pulumi.Input<inputs.apimanagement.PipelineDiagnosticSettingsArgs>;
     /**
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
-    httpCorrelationProtocol?: pulumi.Input<string | enums.apimanagement.HttpCorrelationProtocol | undefined>;
+    httpCorrelationProtocol?: pulumi.Input<string | enums.apimanagement.HttpCorrelationProtocol>;
     /**
      * Log the ClientIP. Default is false.
      */
-    logClientIp?: pulumi.Input<boolean | undefined>;
+    logClientIp?: pulumi.Input<boolean>;
     /**
      * Resource Id of a target logger.
      */
@@ -195,11 +195,11 @@ export interface ApiDiagnosticArgs {
     /**
      * Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
      */
-    metrics?: pulumi.Input<boolean | undefined>;
+    metrics?: pulumi.Input<boolean>;
     /**
      * The format of the Operation Name for Application Insights telemetries. Default is Name.
      */
-    operationNameFormat?: pulumi.Input<string | enums.apimanagement.OperationNameFormat | undefined>;
+    operationNameFormat?: pulumi.Input<string | enums.apimanagement.OperationNameFormat>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -207,7 +207,7 @@ export interface ApiDiagnosticArgs {
     /**
      * Sampling settings for Diagnostic.
      */
-    sampling?: pulumi.Input<inputs.apimanagement.SamplingSettingsArgs | undefined>;
+    sampling?: pulumi.Input<inputs.apimanagement.SamplingSettingsArgs>;
     /**
      * The name of the API Management service.
      */
@@ -215,5 +215,5 @@ export interface ApiDiagnosticArgs {
     /**
      * The verbosity level applied to traces emitted by trace policies.
      */
-    verbosity?: pulumi.Input<string | enums.apimanagement.Verbosity | undefined>;
+    verbosity?: pulumi.Input<string | enums.apimanagement.Verbosity>;
 }

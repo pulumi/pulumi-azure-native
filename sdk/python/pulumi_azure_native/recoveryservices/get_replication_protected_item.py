@@ -146,11 +146,11 @@ def get_replication_protected_item(fabric_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_replication_protected_item_output(fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          replicated_protected_item_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_replication_protected_item_output(fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          replicated_protected_item_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationProtectedItemResult]:
     """
     Gets the details of an ASR replication protected item.

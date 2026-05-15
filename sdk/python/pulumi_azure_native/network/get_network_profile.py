@@ -205,9 +205,9 @@ def get_network_profile(expand: Optional[_builtins.str] = None,
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_network_profile_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                               network_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_network_profile_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                               network_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkProfileResult]:
     """
     Gets the specified network profile in a specified resource group.

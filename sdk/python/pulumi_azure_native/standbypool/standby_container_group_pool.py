@@ -25,9 +25,9 @@ class StandbyContainerGroupPoolArgs:
                  container_group_properties: pulumi.Input['ContainerGroupPropertiesArgs'],
                  elasticity_profile: pulumi.Input['StandbyContainerGroupPoolElasticityProfileArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 standby_container_group_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 standby_container_group_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StandbyContainerGroupPool resource.
 
@@ -86,38 +86,38 @@ class StandbyContainerGroupPoolArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="standbyContainerGroupPoolName")
-    def standby_container_group_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def standby_container_group_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the standby container group pool
         """
         return pulumi.get(self, "standby_container_group_pool_name")
 
     @standby_container_group_pool_name.setter
-    def standby_container_group_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def standby_container_group_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "standby_container_group_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,12 +127,12 @@ class StandbyContainerGroupPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_group_properties: pulumi.Input[Optional[Union['ContainerGroupPropertiesArgs', 'ContainerGroupPropertiesArgsDict']]] = None,
-                 elasticity_profile: pulumi.Input[Optional[Union['StandbyContainerGroupPoolElasticityProfileArgs', 'StandbyContainerGroupPoolElasticityProfileArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 standby_container_group_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 container_group_properties: Optional[pulumi.Input[Union['ContainerGroupPropertiesArgs', 'ContainerGroupPropertiesArgsDict']]] = None,
+                 elasticity_profile: Optional[pulumi.Input[Union['StandbyContainerGroupPoolElasticityProfileArgs', 'StandbyContainerGroupPoolElasticityProfileArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 standby_container_group_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A StandbyContainerGroupPoolResource.
@@ -180,12 +180,12 @@ class StandbyContainerGroupPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_group_properties: pulumi.Input[Optional[Union['ContainerGroupPropertiesArgs', 'ContainerGroupPropertiesArgsDict']]] = None,
-                 elasticity_profile: pulumi.Input[Optional[Union['StandbyContainerGroupPoolElasticityProfileArgs', 'StandbyContainerGroupPoolElasticityProfileArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 standby_container_group_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 container_group_properties: Optional[pulumi.Input[Union['ContainerGroupPropertiesArgs', 'ContainerGroupPropertiesArgsDict']]] = None,
+                 elasticity_profile: Optional[pulumi.Input[Union['StandbyContainerGroupPoolElasticityProfileArgs', 'StandbyContainerGroupPoolElasticityProfileArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 standby_container_group_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

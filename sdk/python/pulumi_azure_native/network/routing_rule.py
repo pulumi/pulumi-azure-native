@@ -28,8 +28,8 @@ class RoutingRuleArgs:
                  next_hop: pulumi.Input['RoutingRuleNextHopArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_collection_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoutingRule resource.
 
@@ -127,26 +127,26 @@ class RoutingRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         A description for this rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the rule.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
 
@@ -156,14 +156,14 @@ class RoutingRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination: pulumi.Input[Optional[Union['RoutingRuleRouteDestinationArgs', 'RoutingRuleRouteDestinationArgsDict']]] = None,
-                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 next_hop: pulumi.Input[Optional[Union['RoutingRuleNextHopArgs', 'RoutingRuleNextHopArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination: Optional[pulumi.Input[Union['RoutingRuleRouteDestinationArgs', 'RoutingRuleRouteDestinationArgsDict']]] = None,
+                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 next_hop: Optional[pulumi.Input[Union['RoutingRuleNextHopArgs', 'RoutingRuleNextHopArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Network routing rule.
@@ -213,14 +213,14 @@ class RoutingRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination: pulumi.Input[Optional[Union['RoutingRuleRouteDestinationArgs', 'RoutingRuleRouteDestinationArgsDict']]] = None,
-                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 next_hop: pulumi.Input[Optional[Union['RoutingRuleNextHopArgs', 'RoutingRuleNextHopArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 destination: Optional[pulumi.Input[Union['RoutingRuleRouteDestinationArgs', 'RoutingRuleRouteDestinationArgsDict']]] = None,
+                 network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 next_hop: Optional[pulumi.Input[Union['RoutingRuleNextHopArgs', 'RoutingRuleNextHopArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

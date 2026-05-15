@@ -25,8 +25,8 @@ class ActionRequestArgs:
                  request_type: pulumi.Input[Union[_builtins.str, 'RequestTypes']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  test_base_account_name: pulumi.Input[_builtins.str],
-                 action_request_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pre_release_access_request_spec: pulumi.Input[Optional['PreReleaseAccessRequestSpecArgs']] = None):
+                 action_request_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pre_release_access_request_spec: Optional[pulumi.Input['PreReleaseAccessRequestSpecArgs']] = None):
         """
         The set of arguments for constructing a ActionRequest resource.
 
@@ -76,20 +76,20 @@ class ActionRequestArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionRequestName")
-    def action_request_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def action_request_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "action_request_name")
 
     @action_request_name.setter
-    def action_request_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def action_request_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "action_request_name", value)
 
     @_builtins.property
     @pulumi.getter(name="preReleaseAccessRequestSpec")
-    def pre_release_access_request_spec(self) -> pulumi.Input[Optional['PreReleaseAccessRequestSpecArgs']]:
+    def pre_release_access_request_spec(self) -> Optional[pulumi.Input['PreReleaseAccessRequestSpecArgs']]:
         return pulumi.get(self, "pre_release_access_request_spec")
 
     @pre_release_access_request_spec.setter
-    def pre_release_access_request_spec(self, value: pulumi.Input[Optional['PreReleaseAccessRequestSpecArgs']]):
+    def pre_release_access_request_spec(self, value: Optional[pulumi.Input['PreReleaseAccessRequestSpecArgs']]):
         pulumi.set(self, "pre_release_access_request_spec", value)
 
 
@@ -99,11 +99,11 @@ class ActionRequest(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_request_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pre_release_access_request_spec: pulumi.Input[Optional[Union['PreReleaseAccessRequestSpecArgs', 'PreReleaseAccessRequestSpecArgsDict']]] = None,
-                 request_type: pulumi.Input[Optional[Union[_builtins.str, 'RequestTypes']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_request_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pre_release_access_request_spec: Optional[pulumi.Input[Union['PreReleaseAccessRequestSpecArgs', 'PreReleaseAccessRequestSpecArgsDict']]] = None,
+                 request_type: Optional[pulumi.Input[Union[_builtins.str, 'RequestTypes']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2023-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-11-01-preview.
@@ -139,11 +139,11 @@ class ActionRequest(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 action_request_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 pre_release_access_request_spec: pulumi.Input[Optional[Union['PreReleaseAccessRequestSpecArgs', 'PreReleaseAccessRequestSpecArgsDict']]] = None,
-                 request_type: pulumi.Input[Optional[Union[_builtins.str, 'RequestTypes']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 action_request_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pre_release_access_request_spec: Optional[pulumi.Input[Union['PreReleaseAccessRequestSpecArgs', 'PreReleaseAccessRequestSpecArgsDict']]] = None,
+                 request_type: Optional[pulumi.Input[Union[_builtins.str, 'RequestTypes']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

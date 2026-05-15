@@ -23,10 +23,10 @@ class NamespaceTopicArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 event_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 input_schema: pulumi.Input[Optional[Union[_builtins.str, 'EventInputSchema']]] = None,
-                 publisher_type: pulumi.Input[Optional[Union[_builtins.str, 'PublisherType']]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 event_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 input_schema: Optional[pulumi.Input[Union[_builtins.str, 'EventInputSchema']]] = None,
+                 publisher_type: Optional[pulumi.Input[Union[_builtins.str, 'PublisherType']]] = None,
+                 topic_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceTopic resource.
 
@@ -77,7 +77,7 @@ class NamespaceTopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventRetentionInDays")
-    def event_retention_in_days(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def event_retention_in_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Event retention for the namespace topic expressed in days. The property default value is 1 day.
         Min event retention duration value is 1 day and max event retention duration value is 1 day.
@@ -85,43 +85,43 @@ class NamespaceTopicArgs:
         return pulumi.get(self, "event_retention_in_days")
 
     @event_retention_in_days.setter
-    def event_retention_in_days(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def event_retention_in_days(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "event_retention_in_days", value)
 
     @_builtins.property
     @pulumi.getter(name="inputSchema")
-    def input_schema(self) -> pulumi.Input[Optional[Union[_builtins.str, 'EventInputSchema']]]:
+    def input_schema(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EventInputSchema']]]:
         """
         This determines the format that is expected for incoming events published to the topic.
         """
         return pulumi.get(self, "input_schema")
 
     @input_schema.setter
-    def input_schema(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EventInputSchema']]]):
+    def input_schema(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EventInputSchema']]]):
         pulumi.set(self, "input_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherType")
-    def publisher_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PublisherType']]]:
+    def publisher_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublisherType']]]:
         """
         Publisher type of the namespace topic.
         """
         return pulumi.get(self, "publisher_type")
 
     @publisher_type.setter
-    def publisher_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PublisherType']]]):
+    def publisher_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublisherType']]]):
         pulumi.set(self, "publisher_type", value)
 
     @_builtins.property
     @pulumi.getter(name="topicName")
-    def topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the namespace topic.
         """
         return pulumi.get(self, "topic_name")
 
     @topic_name.setter
-    def topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "topic_name", value)
 
 
@@ -131,12 +131,12 @@ class NamespaceTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 input_schema: pulumi.Input[Optional[Union[_builtins.str, 'EventInputSchema']]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 publisher_type: pulumi.Input[Optional[Union[_builtins.str, 'PublisherType']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 input_schema: Optional[pulumi.Input[Union[_builtins.str, 'EventInputSchema']]] = None,
+                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 publisher_type: Optional[pulumi.Input[Union[_builtins.str, 'PublisherType']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Namespace topic details.
@@ -185,12 +185,12 @@ class NamespaceTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 event_retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 input_schema: pulumi.Input[Optional[Union[_builtins.str, 'EventInputSchema']]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 publisher_type: pulumi.Input[Optional[Union[_builtins.str, 'PublisherType']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 event_retention_in_days: Optional[pulumi.Input[_builtins.int]] = None,
+                 input_schema: Optional[pulumi.Input[Union[_builtins.str, 'EventInputSchema']]] = None,
+                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 publisher_type: Optional[pulumi.Input[Union[_builtins.str, 'PublisherType']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

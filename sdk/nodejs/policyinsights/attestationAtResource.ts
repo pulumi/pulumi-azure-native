@@ -167,35 +167,35 @@ export interface AttestationAtResourceArgs {
     /**
      * The time the evidence was assessed
      */
-    assessmentDate?: pulumi.Input<string | undefined>;
+    assessmentDate?: pulumi.Input<string>;
     /**
      * The name of the attestation.
      */
-    attestationName?: pulumi.Input<string | undefined>;
+    attestationName?: pulumi.Input<string>;
     /**
      * Comments describing why this attestation was created.
      */
-    comments?: pulumi.Input<string | undefined>;
+    comments?: pulumi.Input<string>;
     /**
      * The compliance state that should be set on the resource.
      */
-    complianceState?: pulumi.Input<string | enums.policyinsights.ComplianceState | undefined>;
+    complianceState?: pulumi.Input<string | enums.policyinsights.ComplianceState>;
     /**
      * The evidence supporting the compliance state set in this attestation.
      */
-    evidence?: pulumi.Input<pulumi.Input<inputs.policyinsights.AttestationEvidenceArgs>[] | undefined>;
+    evidence?: pulumi.Input<pulumi.Input<inputs.policyinsights.AttestationEvidenceArgs>[]>;
     /**
      * The time the compliance state should expire.
      */
-    expiresOn?: pulumi.Input<string | undefined>;
+    expiresOn?: pulumi.Input<string>;
     /**
      * Additional metadata for this attestation
      */
-    metadata?: any | undefined;
+    metadata?: any;
     /**
      * The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
      */
-    owner?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string>;
     /**
      * The resource ID of the policy assignment that the attestation is setting the state for.
      */
@@ -203,7 +203,7 @@ export interface AttestationAtResourceArgs {
     /**
      * The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
      */
-    policyDefinitionReferenceId?: pulumi.Input<string | undefined>;
+    policyDefinitionReferenceId?: pulumi.Input<string>;
     /**
      * Resource ID.
      */

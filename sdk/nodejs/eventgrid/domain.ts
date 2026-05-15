@@ -220,7 +220,7 @@ export interface DomainArgs {
      * flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
      * domain topic on demand if needed.
      */
-    autoCreateTopicWithFirstSubscription?: pulumi.Input<boolean | undefined>;
+    autoCreateTopicWithFirstSubscription?: pulumi.Input<boolean>;
     /**
      * This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
      * In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
@@ -230,53 +230,53 @@ export interface DomainArgs {
      * control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
      * resources by the user.
      */
-    autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean | undefined>;
+    autoDeleteTopicWithLastSubscription?: pulumi.Input<boolean>;
     /**
      * Data Residency Boundary of the resource.
      */
-    dataResidencyBoundary?: pulumi.Input<string | enums.eventgrid.DataResidencyBoundary | undefined>;
+    dataResidencyBoundary?: pulumi.Input<string | enums.eventgrid.DataResidencyBoundary>;
     /**
      * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
      */
-    disableLocalAuth?: pulumi.Input<boolean | undefined>;
+    disableLocalAuth?: pulumi.Input<boolean>;
     /**
      * Name of the domain.
      */
-    domainName?: pulumi.Input<string | undefined>;
+    domainName?: pulumi.Input<string>;
     /**
      * Event Type Information for the domain. This information is provided by the publisher and can be used by the 
      * subscriber to view different types of events that are published.
      */
-    eventTypeInfo?: pulumi.Input<inputs.eventgrid.EventTypeInfoArgs | undefined>;
+    eventTypeInfo?: pulumi.Input<inputs.eventgrid.EventTypeInfoArgs>;
     /**
      * Identity information for the Event Grid Domain resource.
      */
-    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs | undefined>;
+    identity?: pulumi.Input<inputs.eventgrid.IdentityInfoArgs>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[] | undefined>;
+    inboundIpRules?: pulumi.Input<pulumi.Input<inputs.eventgrid.InboundIpRuleArgs>[]>;
     /**
      * This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
      */
-    inputSchema?: pulumi.Input<string | enums.eventgrid.InputSchema | undefined>;
+    inputSchema?: pulumi.Input<string | enums.eventgrid.InputSchema>;
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    inputSchemaMapping?: pulumi.Input<inputs.eventgrid.JsonInputSchemaMappingArgs | undefined>;
+    inputSchemaMapping?: pulumi.Input<inputs.eventgrid.JsonInputSchemaMappingArgs>;
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Minimum TLS version of the publisher allowed to publish to this domain
      */
-    minimumTlsVersionAllowed?: pulumi.Input<string | enums.eventgrid.TlsVersion | undefined>;
+    minimumTlsVersionAllowed?: pulumi.Input<string | enums.eventgrid.TlsVersion>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.eventgrid.PublicNetworkAccess>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -284,5 +284,5 @@ export interface DomainArgs {
     /**
      * Tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

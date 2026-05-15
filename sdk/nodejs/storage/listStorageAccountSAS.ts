@@ -113,11 +113,11 @@ export interface ListStorageAccountSASOutputArgs {
     /**
      * An IP address or a range of IP addresses from which to accept requests.
      */
-    iPAddressOrRange?: pulumi.Input<string | undefined>;
+    iPAddressOrRange?: pulumi.Input<string>;
     /**
      * The key to sign the account SAS token with.
      */
-    keyToSign?: pulumi.Input<string | undefined>;
+    keyToSign?: pulumi.Input<string>;
     /**
      * The signed permissions for the account SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p).
      */
@@ -125,7 +125,7 @@ export interface ListStorageAccountSASOutputArgs {
     /**
      * The protocol permitted for a request made with the account SAS.
      */
-    protocols?: pulumi.Input<enums.storage.HttpProtocol | undefined>;
+    protocols?: pulumi.Input<enums.storage.HttpProtocol>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -145,5 +145,5 @@ export interface ListStorageAccountSASOutputArgs {
     /**
      * The time at which the SAS becomes valid.
      */
-    sharedAccessStartTime?: pulumi.Input<string | undefined>;
+    sharedAccessStartTime?: pulumi.Input<string>;
 }

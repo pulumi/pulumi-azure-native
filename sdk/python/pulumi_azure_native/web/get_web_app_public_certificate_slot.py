@@ -168,10 +168,10 @@ def get_web_app_public_certificate_slot(name: Optional[_builtins.str] = None,
         public_certificate_location=pulumi.get(__ret__, 'public_certificate_location'),
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_public_certificate_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               public_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               slot: pulumi.Input[Optional[_builtins.str]] = None,
+def get_web_app_public_certificate_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               public_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               slot: Optional[pulumi.Input[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppPublicCertificateSlotResult]:
     """
     Description for Get the named public certificate for an app (or deployment slot, if specified).

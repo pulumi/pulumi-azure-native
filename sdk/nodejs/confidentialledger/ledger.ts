@@ -116,15 +116,15 @@ export interface LedgerArgs {
     /**
      * Name of the Confidential Ledger
      */
-    ledgerName?: pulumi.Input<string | undefined>;
+    ledgerName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of Confidential Ledger Resource.
      */
-    properties?: pulumi.Input<inputs.confidentialledger.LedgerPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.confidentialledger.LedgerPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,5 +132,5 @@ export interface LedgerArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

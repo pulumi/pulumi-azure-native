@@ -68,8 +68,8 @@ def list_workspace_storage_account_keys(resource_group_name: Optional[_builtins.
 
     return AwaitableListWorkspaceStorageAccountKeysResult(
         user_storage_key=pulumi.get(__ret__, 'user_storage_key'))
-def list_workspace_storage_account_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_workspace_storage_account_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceStorageAccountKeysResult]:
     """
     Lists keys of Azure Machine Learning Workspace's storage account.

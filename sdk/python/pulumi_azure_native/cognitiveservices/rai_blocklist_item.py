@@ -24,9 +24,9 @@ class RaiBlocklistItemArgs:
                  account_name: pulumi.Input[_builtins.str],
                  rai_blocklist_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['RaiBlocklistItemPropertiesArgs']] = None,
-                 rai_blocklist_item_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 properties: Optional[pulumi.Input['RaiBlocklistItemPropertiesArgs']] = None,
+                 rai_blocklist_item_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RaiBlocklistItem resource.
 
@@ -85,38 +85,38 @@ class RaiBlocklistItemArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['RaiBlocklistItemPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['RaiBlocklistItemPropertiesArgs']]:
         """
         Properties of Cognitive Services RaiBlocklist Item.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['RaiBlocklistItemPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['RaiBlocklistItemPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="raiBlocklistItemName")
-    def rai_blocklist_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rai_blocklist_item_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the RaiBlocklist Item associated with the custom blocklist
         """
         return pulumi.get(self, "rai_blocklist_item_name")
 
     @rai_blocklist_item_name.setter
-    def rai_blocklist_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rai_blocklist_item_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "rai_blocklist_item_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -126,12 +126,12 @@ class RaiBlocklistItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['RaiBlocklistItemPropertiesArgs', 'RaiBlocklistItemPropertiesArgsDict']]] = None,
-                 rai_blocklist_item_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rai_blocklist_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['RaiBlocklistItemPropertiesArgs', 'RaiBlocklistItemPropertiesArgsDict']]] = None,
+                 rai_blocklist_item_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rai_blocklist_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Cognitive Services RaiBlocklist Item.
@@ -179,12 +179,12 @@ class RaiBlocklistItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['RaiBlocklistItemPropertiesArgs', 'RaiBlocklistItemPropertiesArgsDict']]] = None,
-                 rai_blocklist_item_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rai_blocklist_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['RaiBlocklistItemPropertiesArgs', 'RaiBlocklistItemPropertiesArgsDict']]] = None,
+                 rai_blocklist_item_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rai_blocklist_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -151,7 +151,7 @@ export class ContainerGroupProfile extends pulumi.CustomResource {
             resourceInputs["extensions"] = args?.extensions;
             resourceInputs["imageRegistryCredentials"] = args?.imageRegistryCredentials;
             resourceInputs["initContainers"] = args?.initContainers;
-            resourceInputs["ipAddress"] = args ? pulumi.output(args.ipAddress).apply(v => v === undefined ? undefined : inputs.containerinstance.ipAddressArgsProvideDefaults(v)) : undefined;
+            resourceInputs["ipAddress"] = args ? (args.ipAddress ? pulumi.output(args.ipAddress).apply(inputs.containerinstance.ipAddressArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["osType"] = args?.osType;
             resourceInputs["priority"] = args?.priority;
@@ -201,11 +201,11 @@ export interface ContainerGroupProfileArgs {
     /**
      * The properties for confidential container group
      */
-    confidentialComputeProperties?: pulumi.Input<inputs.containerinstance.ConfidentialComputePropertiesArgs | undefined>;
+    confidentialComputeProperties?: pulumi.Input<inputs.containerinstance.ConfidentialComputePropertiesArgs>;
     /**
      * The name of the container group profile.
      */
-    containerGroupProfileName?: pulumi.Input<string | undefined>;
+    containerGroupProfileName?: pulumi.Input<string>;
     /**
      * The containers within the container group.
      */
@@ -213,31 +213,31 @@ export interface ContainerGroupProfileArgs {
     /**
      * The diagnostic information for a container group.
      */
-    diagnostics?: pulumi.Input<inputs.containerinstance.ContainerGroupDiagnosticsArgs | undefined>;
+    diagnostics?: pulumi.Input<inputs.containerinstance.ContainerGroupDiagnosticsArgs>;
     /**
      * The encryption properties for a container group.
      */
-    encryptionProperties?: pulumi.Input<inputs.containerinstance.EncryptionPropertiesArgs | undefined>;
+    encryptionProperties?: pulumi.Input<inputs.containerinstance.EncryptionPropertiesArgs>;
     /**
      * extensions used by virtual kubelet
      */
-    extensions?: pulumi.Input<pulumi.Input<inputs.containerinstance.DeploymentExtensionSpecArgs>[] | undefined>;
+    extensions?: pulumi.Input<pulumi.Input<inputs.containerinstance.DeploymentExtensionSpecArgs>[]>;
     /**
      * The image registry credentials by which the container group is created from.
      */
-    imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.ImageRegistryCredentialArgs>[] | undefined>;
+    imageRegistryCredentials?: pulumi.Input<pulumi.Input<inputs.containerinstance.ImageRegistryCredentialArgs>[]>;
     /**
      * The init containers for a container group.
      */
-    initContainers?: pulumi.Input<pulumi.Input<inputs.containerinstance.InitContainerDefinitionArgs>[] | undefined>;
+    initContainers?: pulumi.Input<pulumi.Input<inputs.containerinstance.InitContainerDefinitionArgs>[]>;
     /**
      * The IP address type of the container group.
      */
-    ipAddress?: pulumi.Input<inputs.containerinstance.IpAddressArgs | undefined>;
+    ipAddress?: pulumi.Input<inputs.containerinstance.IpAddressArgs>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The operating system type required by the containers in the container group.
      */
@@ -245,7 +245,7 @@ export interface ContainerGroupProfileArgs {
     /**
      * The priority of the container group.
      */
-    priority?: pulumi.Input<string | enums.containerinstance.ContainerGroupPriority | undefined>;
+    priority?: pulumi.Input<string | enums.containerinstance.ContainerGroupPriority>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -256,21 +256,21 @@ export interface ContainerGroupProfileArgs {
      * - `OnFailure` Restart on failure
      * - `Never` Never restart
      */
-    restartPolicy?: pulumi.Input<string | enums.containerinstance.ContainerGroupRestartPolicy | undefined>;
+    restartPolicy?: pulumi.Input<string | enums.containerinstance.ContainerGroupRestartPolicy>;
     /**
      * The SKU for a container group.
      */
-    sku?: pulumi.Input<string | enums.containerinstance.ContainerGroupSku | undefined>;
+    sku?: pulumi.Input<string | enums.containerinstance.ContainerGroupSku>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.VolumeArgs>[] | undefined>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.containerinstance.VolumeArgs>[]>;
     /**
      * The zones for the container group.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

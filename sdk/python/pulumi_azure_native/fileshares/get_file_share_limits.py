@@ -69,7 +69,7 @@ def get_file_share_limits(location: Optional[_builtins.str] = None,
 
     return AwaitableGetFileShareLimitsResult(
         properties=pulumi.get(__ret__, 'properties'))
-def get_file_share_limits_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+def get_file_share_limits_output(location: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileShareLimitsResult]:
     """
     Get file shares limits.

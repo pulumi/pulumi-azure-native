@@ -120,15 +120,15 @@ export interface ConfigurationGroupSchemaArgs {
     /**
      * The name of the configuration group schema.
      */
-    configurationGroupSchemaName?: pulumi.Input<string | undefined>;
+    configurationGroupSchemaName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Configuration group schema properties.
      */
-    properties?: pulumi.Input<inputs.hybridnetwork.ConfigurationGroupSchemaPropertiesFormatArgs | undefined>;
+    properties?: pulumi.Input<inputs.hybridnetwork.ConfigurationGroupSchemaPropertiesFormatArgs>;
     /**
      * The name of the publisher.
      */
@@ -140,5 +140,5 @@ export interface ConfigurationGroupSchemaArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

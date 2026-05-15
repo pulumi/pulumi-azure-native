@@ -316,7 +316,7 @@ def get_virtual_machine_instance(resource_uri: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         vm_id=pulumi.get(__ret__, 'vm_id'))
-def get_virtual_machine_instance_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_machine_instance_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineInstanceResult]:
     """
     Gets a virtual machine instance

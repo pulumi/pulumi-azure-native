@@ -165,7 +165,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["deliveryInfo"] = args?.deliveryInfo;
             resourceInputs["deliveryType"] = (args?.deliveryType) ?? "NonScheduled";
             resourceInputs["details"] = args?.details;
-            resourceInputs["identity"] = args ? pulumi.output(args.identity).apply(v => v === undefined ? undefined : inputs.databox.resourceIdentityArgsProvideDefaults(v)) : undefined;
+            resourceInputs["identity"] = args ? (args.identity ? pulumi.output(args.identity).apply(inputs.databox.resourceIdentityArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["jobName"] = args?.jobName;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -230,27 +230,27 @@ export interface JobArgs {
     /**
      * Delivery Info of Job.
      */
-    deliveryInfo?: pulumi.Input<inputs.databox.JobDeliveryInfoArgs | undefined>;
+    deliveryInfo?: pulumi.Input<inputs.databox.JobDeliveryInfoArgs>;
     /**
      * Delivery type of Job.
      */
-    deliveryType?: pulumi.Input<string | enums.databox.JobDeliveryType | undefined>;
+    deliveryType?: pulumi.Input<string | enums.databox.JobDeliveryType>;
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    details?: pulumi.Input<inputs.databox.DataBoxCustomerDiskJobDetailsArgs | inputs.databox.DataBoxDiskJobDetailsArgs | inputs.databox.DataBoxHeavyJobDetailsArgs | inputs.databox.DataBoxJobDetailsArgs | undefined>;
+    details?: pulumi.Input<inputs.databox.DataBoxCustomerDiskJobDetailsArgs | inputs.databox.DataBoxDiskJobDetailsArgs | inputs.databox.DataBoxHeavyJobDetailsArgs | inputs.databox.DataBoxJobDetailsArgs>;
     /**
      * Msi identity of the resource
      */
-    identity?: pulumi.Input<inputs.databox.ResourceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.databox.ResourceIdentityArgs>;
     /**
      * The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
      */
-    jobName?: pulumi.Input<string | undefined>;
+    jobName?: pulumi.Input<string>;
     /**
      * The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The Resource Group Name
      */
@@ -262,7 +262,7 @@ export interface JobArgs {
     /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of the data transfer.
      */

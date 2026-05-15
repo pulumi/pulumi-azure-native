@@ -24,16 +24,16 @@ class AppServiceCertificateOrderArgs:
     def __init__(__self__, *,
                  product_type: pulumi.Input['CertificateProductType'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
-                 certificate_order_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 certificates: pulumi.Input[Optional[Mapping[str, pulumi.Input['AppServiceCertificateArgs']]]] = None,
-                 csr: pulumi.Input[Optional[_builtins.str]] = None,
-                 distinguished_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validity_in_years: pulumi.Input[Optional[_builtins.int]] = None):
+                 auto_renew: Optional[pulumi.Input[_builtins.bool]] = None,
+                 certificate_order_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificates: Optional[pulumi.Input[Mapping[str, pulumi.Input['AppServiceCertificateArgs']]]] = None,
+                 csr: Optional[pulumi.Input[_builtins.str]] = None,
+                 distinguished_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validity_in_years: Optional[pulumi.Input[_builtins.int]] = None):
         """
         The set of arguments for constructing a AppServiceCertificateOrder resource.
 
@@ -105,122 +105,122 @@ class AppServiceCertificateOrderArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoRenew")
-    def auto_renew(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def auto_renew(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
         """
         return pulumi.get(self, "auto_renew")
 
     @auto_renew.setter
-    def auto_renew(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def auto_renew(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "auto_renew", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateOrderName")
-    def certificate_order_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def certificate_order_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the certificate order.
         """
         return pulumi.get(self, "certificate_order_name")
 
     @certificate_order_name.setter
-    def certificate_order_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def certificate_order_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "certificate_order_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def certificates(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['AppServiceCertificateArgs']]]]:
+    def certificates(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['AppServiceCertificateArgs']]]]:
         """
         State of the Key Vault secret.
         """
         return pulumi.get(self, "certificates")
 
     @certificates.setter
-    def certificates(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['AppServiceCertificateArgs']]]]):
+    def certificates(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['AppServiceCertificateArgs']]]]):
         pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter
-    def csr(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def csr(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Last CSR that was created for this order.
         """
         return pulumi.get(self, "csr")
 
     @csr.setter
-    def csr(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def csr(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "csr", value)
 
     @_builtins.property
     @pulumi.getter(name="distinguishedName")
-    def distinguished_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def distinguished_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Certificate distinguished name.
         """
         return pulumi.get(self, "distinguished_name")
 
     @distinguished_name.setter
-    def distinguished_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def distinguished_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "distinguished_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keySize")
-    def key_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def key_size(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Certificate key size.
         """
         return pulumi.get(self, "key_size")
 
     @key_size.setter
-    def key_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def key_size(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "key_size", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource Location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="validityInYears")
-    def validity_in_years(self) -> pulumi.Input[Optional[_builtins.int]]:
+    def validity_in_years(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
         Duration in years (must be 1).
         """
         return pulumi.get(self, "validity_in_years")
 
     @validity_in_years.setter
-    def validity_in_years(self, value: pulumi.Input[Optional[_builtins.int]]):
+    def validity_in_years(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "validity_in_years", value)
 
 
@@ -230,18 +230,18 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
-                 certificate_order_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 certificates: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['AppServiceCertificateArgs', 'AppServiceCertificateArgsDict']]]]] = None,
-                 csr: pulumi.Input[Optional[_builtins.str]] = None,
-                 distinguished_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 product_type: pulumi.Input[Optional['CertificateProductType']] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validity_in_years: pulumi.Input[Optional[_builtins.int]] = None,
+                 auto_renew: Optional[pulumi.Input[_builtins.bool]] = None,
+                 certificate_order_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificates: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['AppServiceCertificateArgs', 'AppServiceCertificateArgsDict']]]]] = None,
+                 csr: Optional[pulumi.Input[_builtins.str]] = None,
+                 distinguished_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_type: Optional[pulumi.Input['CertificateProductType']] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validity_in_years: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         """
         SSL certificate purchase order.
@@ -295,18 +295,18 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
-                 certificate_order_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 certificates: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['AppServiceCertificateArgs', 'AppServiceCertificateArgsDict']]]]] = None,
-                 csr: pulumi.Input[Optional[_builtins.str]] = None,
-                 distinguished_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_size: pulumi.Input[Optional[_builtins.int]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 product_type: pulumi.Input[Optional['CertificateProductType']] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validity_in_years: pulumi.Input[Optional[_builtins.int]] = None,
+                 auto_renew: Optional[pulumi.Input[_builtins.bool]] = None,
+                 certificate_order_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 certificates: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['AppServiceCertificateArgs', 'AppServiceCertificateArgsDict']]]]] = None,
+                 csr: Optional[pulumi.Input[_builtins.str]] = None,
+                 distinguished_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_type: Optional[pulumi.Input['CertificateProductType']] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 validity_in_years: Optional[pulumi.Input[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

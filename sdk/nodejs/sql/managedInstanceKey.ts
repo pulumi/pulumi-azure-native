@@ -125,7 +125,7 @@ export interface ManagedInstanceKeyArgs {
     /**
      * The name of the managed instance key to be operated on (updated or created).
      */
-    keyName?: pulumi.Input<string | undefined>;
+    keyName?: pulumi.Input<string>;
     /**
      * The name of the managed instance.
      */
@@ -141,5 +141,5 @@ export interface ManagedInstanceKeyArgs {
     /**
      * The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
      */
-    uri?: pulumi.Input<string | undefined>;
+    uri?: pulumi.Input<string>;
 }

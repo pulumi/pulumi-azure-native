@@ -140,19 +140,19 @@ export interface CollectorPolicyArgs {
     /**
      * Collector Policy Name
      */
-    collectorPolicyName?: pulumi.Input<string | undefined>;
+    collectorPolicyName?: pulumi.Input<string>;
     /**
      * Emission policies.
      */
-    emissionPolicies?: pulumi.Input<pulumi.Input<inputs.networkfunction.EmissionPoliciesPropertiesFormatArgs>[] | undefined>;
+    emissionPolicies?: pulumi.Input<pulumi.Input<inputs.networkfunction.EmissionPoliciesPropertiesFormatArgs>[]>;
     /**
      * Ingestion policies.
      */
-    ingestionPolicy?: pulumi.Input<inputs.networkfunction.IngestionPolicyPropertiesFormatArgs | undefined>;
+    ingestionPolicy?: pulumi.Input<inputs.networkfunction.IngestionPolicyPropertiesFormatArgs>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,5 +160,5 @@ export interface CollectorPolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

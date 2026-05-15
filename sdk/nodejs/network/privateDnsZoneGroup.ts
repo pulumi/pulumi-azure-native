@@ -109,19 +109,19 @@ export interface PrivateDnsZoneGroupArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * A collection of private dns zone configurations of the private dns zone group.
      */
-    privateDnsZoneConfigs?: pulumi.Input<pulumi.Input<inputs.network.PrivateDnsZoneConfigArgs>[] | undefined>;
+    privateDnsZoneConfigs?: pulumi.Input<pulumi.Input<inputs.network.PrivateDnsZoneConfigArgs>[]>;
     /**
      * The name of the private dns zone group.
      */
-    privateDnsZoneGroupName?: pulumi.Input<string | undefined>;
+    privateDnsZoneGroupName?: pulumi.Input<string>;
     /**
      * The name of the private endpoint.
      */

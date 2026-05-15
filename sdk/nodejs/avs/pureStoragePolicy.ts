@@ -138,7 +138,7 @@ export interface PureStoragePolicyArgs {
     /**
      * Name of the storage policy.
      */
-    storagePolicyName?: pulumi.Input<string | undefined>;
+    storagePolicyName?: pulumi.Input<string>;
     /**
      * Azure resource ID of the Pure Storage Pool associated with the storage policy
      */

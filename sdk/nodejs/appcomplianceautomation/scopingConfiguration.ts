@@ -108,7 +108,7 @@ export interface ScopingConfigurationArgs {
     /**
      * List of scoping question answers.
      */
-    answers?: pulumi.Input<pulumi.Input<inputs.appcomplianceautomation.ScopingAnswerArgs>[] | undefined>;
+    answers?: pulumi.Input<pulumi.Input<inputs.appcomplianceautomation.ScopingAnswerArgs>[]>;
     /**
      * Report Name.
      */
@@ -116,5 +116,5 @@ export interface ScopingConfigurationArgs {
     /**
      * The scoping configuration of the specific report.
      */
-    scopingConfigurationName?: pulumi.Input<string | undefined>;
+    scopingConfigurationName?: pulumi.Input<string>;
 }

@@ -255,63 +255,63 @@ export interface NetworkInterfaceArgs {
     /**
      * Auxiliary mode of Network Interface resource.
      */
-    auxiliaryMode?: pulumi.Input<string | enums.network.NetworkInterfaceAuxiliaryMode | undefined>;
+    auxiliaryMode?: pulumi.Input<string | enums.network.NetworkInterfaceAuxiliaryMode>;
     /**
      * Auxiliary sku of Network Interface resource.
      */
-    auxiliarySku?: pulumi.Input<string | enums.network.NetworkInterfaceAuxiliarySku | undefined>;
+    auxiliarySku?: pulumi.Input<string | enums.network.NetworkInterfaceAuxiliarySku>;
     /**
      * Indicates whether to disable tcp state tracking.
      */
-    disableTcpStateTracking?: pulumi.Input<boolean | undefined>;
+    disableTcpStateTracking?: pulumi.Input<boolean>;
     /**
      * The DNS settings in network interface.
      */
-    dnsSettings?: pulumi.Input<inputs.network.NetworkInterfaceDnsSettingsArgs | undefined>;
+    dnsSettings?: pulumi.Input<inputs.network.NetworkInterfaceDnsSettingsArgs>;
     /**
      * If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
      */
-    enableAcceleratedNetworking?: pulumi.Input<boolean | undefined>;
+    enableAcceleratedNetworking?: pulumi.Input<boolean>;
     /**
      * Indicates whether IP forwarding is enabled on this network interface.
      */
-    enableIPForwarding?: pulumi.Input<boolean | undefined>;
+    enableIPForwarding?: pulumi.Input<boolean>;
     /**
      * The extended location of the network interface.
      */
-    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * A list of IPConfigurations of the network interface.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIPConfigurationArgs>[] | undefined>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.NetworkInterfaceIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Migration phase of Network Interface resource.
      */
-    migrationPhase?: pulumi.Input<string | enums.network.NetworkInterfaceMigrationPhase | undefined>;
+    migrationPhase?: pulumi.Input<string | enums.network.NetworkInterfaceMigrationPhase>;
     /**
      * The name of the network interface.
      */
-    networkInterfaceName?: pulumi.Input<string | undefined>;
+    networkInterfaceName?: pulumi.Input<string>;
     /**
      * The reference to the NetworkSecurityGroup resource.
      */
-    networkSecurityGroup?: pulumi.Input<inputs.network.NetworkSecurityGroupArgs | undefined>;
+    networkSecurityGroup?: pulumi.Input<inputs.network.NetworkSecurityGroupArgs>;
     /**
      * Type of Network Interface resource.
      */
-    nicType?: pulumi.Input<string | enums.network.NetworkInterfaceNicType | undefined>;
+    nicType?: pulumi.Input<string | enums.network.NetworkInterfaceNicType>;
     /**
      * Privatelinkservice of the network interface resource.
      */
-    privateLinkService?: pulumi.Input<inputs.network.PrivateLinkServiceArgs | undefined>;
+    privateLinkService?: pulumi.Input<inputs.network.PrivateLinkServiceArgs>;
     /**
      * The name of the resource group.
      */
@@ -319,9 +319,9 @@ export interface NetworkInterfaceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * WorkloadType of the NetworkInterface for BareMetal resources
      */
-    workloadType?: pulumi.Input<string | undefined>;
+    workloadType?: pulumi.Input<string>;
 }

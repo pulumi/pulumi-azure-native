@@ -109,7 +109,7 @@ export interface DatasetArgs {
     /**
      * The dataset name.
      */
-    datasetName?: pulumi.Input<string | undefined>;
+    datasetName?: pulumi.Input<string>;
     /**
      * The factory name.
      */

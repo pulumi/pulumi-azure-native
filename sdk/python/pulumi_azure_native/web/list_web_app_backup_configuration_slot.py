@@ -179,9 +179,9 @@ def list_web_app_backup_configuration_slot(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         storage_account_url=pulumi.get(__ret__, 'storage_account_url'),
         type=pulumi.get(__ret__, 'type'))
-def list_web_app_backup_configuration_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  slot: pulumi.Input[Optional[_builtins.str]] = None,
+def list_web_app_backup_configuration_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  slot: Optional[pulumi.Input[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppBackupConfigurationSlotResult]:
     """
     Description for Gets the backup configuration of an app.

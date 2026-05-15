@@ -102,7 +102,7 @@ export interface ServerAzureADOnlyAuthenticationArgs {
     /**
      * The name of server azure active directory only authentication.
      */
-    authenticationName?: pulumi.Input<string | undefined>;
+    authenticationName?: pulumi.Input<string>;
     /**
      * Azure Active Directory only Authentication enabled.
      */

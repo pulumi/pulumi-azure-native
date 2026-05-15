@@ -179,11 +179,11 @@ export interface PoolArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.devopsinfrastructure.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.devopsinfrastructure.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Defines how many resources can there be created at any given time.
      */
@@ -195,11 +195,11 @@ export interface PoolArgs {
     /**
      * Name of the pool. It needs to be globally unique.
      */
-    poolName?: pulumi.Input<string | undefined>;
+    poolName?: pulumi.Input<string>;
     /**
      * The status of the current operation.
      */
-    provisioningState?: pulumi.Input<string | enums.devopsinfrastructure.ProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.devopsinfrastructure.ProvisioningState>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -207,5 +207,5 @@ export interface PoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

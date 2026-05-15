@@ -85,8 +85,8 @@ def list_monitor_linked_resources(monitor_name: Optional[_builtins.str] = None,
     return AwaitableListMonitorLinkedResourcesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_monitor_linked_resources_output(monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_monitor_linked_resources_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListMonitorLinkedResourcesResult]:
     """
     Response of a list operation.

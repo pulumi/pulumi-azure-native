@@ -135,19 +135,19 @@ export interface ExportPipelineArgs {
     /**
      * The name of the export pipeline.
      */
-    exportPipelineName?: pulumi.Input<string | undefined>;
+    exportPipelineName?: pulumi.Input<string>;
     /**
      * The identity of the export pipeline.
      */
-    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs | undefined>;
+    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
     /**
      * The location of the export pipeline.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The list of all options configured for the pipeline.
      */
-    options?: pulumi.Input<pulumi.Input<string | enums.containerregistry.PipelineOptions>[] | undefined>;
+    options?: pulumi.Input<pulumi.Input<string | enums.containerregistry.PipelineOptions>[]>;
     /**
      * The name of the container registry.
      */

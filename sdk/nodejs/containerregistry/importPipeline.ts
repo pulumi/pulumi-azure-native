@@ -108,8 +108,8 @@ export class ImportPipeline extends pulumi.CustomResource {
             resourceInputs["options"] = args?.options;
             resourceInputs["registryName"] = args?.registryName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["source"] = args ? pulumi.output(args.source).apply(inputs.containerregistry.importPipelineSourcePropertiesArgsProvideDefaults) : undefined;
-            resourceInputs["trigger"] = args ? pulumi.output(args.trigger).apply(v => v === undefined ? undefined : inputs.containerregistry.pipelineTriggerPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["source"] = args ? (args.source ? pulumi.output(args.source).apply(inputs.containerregistry.importPipelineSourcePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["trigger"] = args ? (args.trigger ? pulumi.output(args.trigger).apply(inputs.containerregistry.pipelineTriggerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -141,19 +141,19 @@ export interface ImportPipelineArgs {
     /**
      * The identity of the import pipeline.
      */
-    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs | undefined>;
+    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
     /**
      * The name of the import pipeline.
      */
-    importPipelineName?: pulumi.Input<string | undefined>;
+    importPipelineName?: pulumi.Input<string>;
     /**
      * The location of the import pipeline.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The list of all options configured for the pipeline.
      */
-    options?: pulumi.Input<pulumi.Input<string | enums.containerregistry.PipelineOptions>[] | undefined>;
+    options?: pulumi.Input<pulumi.Input<string | enums.containerregistry.PipelineOptions>[]>;
     /**
      * The name of the container registry.
      */
@@ -169,5 +169,5 @@ export interface ImportPipelineArgs {
     /**
      * The properties that describe the trigger of the import pipeline.
      */
-    trigger?: pulumi.Input<inputs.containerregistry.PipelineTriggerPropertiesArgs | undefined>;
+    trigger?: pulumi.Input<inputs.containerregistry.PipelineTriggerPropertiesArgs>;
 }

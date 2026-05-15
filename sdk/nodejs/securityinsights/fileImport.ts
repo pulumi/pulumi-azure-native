@@ -196,7 +196,7 @@ export interface FileImportArgs {
     /**
      * File import ID
      */
-    fileImportId?: pulumi.Input<string | undefined>;
+    fileImportId?: pulumi.Input<string>;
     /**
      * Represents the imported file.
      */

@@ -200,7 +200,7 @@ export interface ShareSubscriptionArgs {
     /**
      * The expiration date of the share subscription.
      */
-    expirationDate?: pulumi.Input<string | undefined>;
+    expirationDate?: pulumi.Input<string>;
     /**
      * The invitation id.
      */
@@ -212,7 +212,7 @@ export interface ShareSubscriptionArgs {
     /**
      * The name of the shareSubscription.
      */
-    shareSubscriptionName?: pulumi.Input<string | undefined>;
+    shareSubscriptionName?: pulumi.Input<string>;
     /**
      * Source share location.
      */

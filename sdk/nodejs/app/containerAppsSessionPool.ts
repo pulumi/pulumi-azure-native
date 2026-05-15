@@ -188,35 +188,35 @@ export interface ContainerAppsSessionPoolArgs {
     /**
      * The container type of the sessions.
      */
-    containerType?: pulumi.Input<string | enums.app.ContainerType | undefined>;
+    containerType?: pulumi.Input<string | enums.app.ContainerType>;
     /**
      * The custom container configuration if the containerType is CustomContainer.
      */
-    customContainerTemplate?: pulumi.Input<inputs.app.CustomContainerTemplateArgs | undefined>;
+    customContainerTemplate?: pulumi.Input<inputs.app.CustomContainerTemplateArgs>;
     /**
      * The pool configuration if the poolManagementType is dynamic.
      */
-    dynamicPoolConfiguration?: pulumi.Input<inputs.app.DynamicPoolConfigurationArgs | undefined>;
+    dynamicPoolConfiguration?: pulumi.Input<inputs.app.DynamicPoolConfigurationArgs>;
     /**
      * Resource ID of the session pool's environment.
      */
-    environmentId?: pulumi.Input<string | undefined>;
+    environmentId?: pulumi.Input<string>;
     /**
      * Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
      */
-    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Optional settings for a Managed Identity that is assigned to the Session pool.
      */
-    managedIdentitySettings?: pulumi.Input<pulumi.Input<inputs.app.ManagedIdentitySettingArgs>[] | undefined>;
+    managedIdentitySettings?: pulumi.Input<pulumi.Input<inputs.app.ManagedIdentitySettingArgs>[]>;
     /**
      * The pool management type of the session pool.
      */
-    poolManagementType?: pulumi.Input<string | enums.app.PoolManagementType | undefined>;
+    poolManagementType?: pulumi.Input<string | enums.app.PoolManagementType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -224,21 +224,21 @@ export interface ContainerAppsSessionPoolArgs {
     /**
      * The scale configuration of the session pool.
      */
-    scaleConfiguration?: pulumi.Input<inputs.app.ScaleConfigurationArgs | undefined>;
+    scaleConfiguration?: pulumi.Input<inputs.app.ScaleConfigurationArgs>;
     /**
      * The secrets of the session pool.
      */
-    secrets?: pulumi.Input<pulumi.Input<inputs.app.SessionPoolSecretArgs>[] | undefined>;
+    secrets?: pulumi.Input<pulumi.Input<inputs.app.SessionPoolSecretArgs>[]>;
     /**
      * The network configuration of the sessions in the session pool.
      */
-    sessionNetworkConfiguration?: pulumi.Input<inputs.app.SessionNetworkConfigurationArgs | undefined>;
+    sessionNetworkConfiguration?: pulumi.Input<inputs.app.SessionNetworkConfigurationArgs>;
     /**
      * Name of the session pool.
      */
-    sessionPoolName?: pulumi.Input<string | undefined>;
+    sessionPoolName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

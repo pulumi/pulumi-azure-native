@@ -126,7 +126,7 @@ export interface ScopeConnectionArgs {
     /**
      * A description of the scope connection.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the network manager.
      */
@@ -138,13 +138,13 @@ export interface ScopeConnectionArgs {
     /**
      * Resource ID.
      */
-    resourceId?: pulumi.Input<string | undefined>;
+    resourceId?: pulumi.Input<string>;
     /**
      * Name for the cross-tenant connection.
      */
-    scopeConnectionName?: pulumi.Input<string | undefined>;
+    scopeConnectionName?: pulumi.Input<string>;
     /**
      * Tenant ID.
      */
-    tenantId?: pulumi.Input<string | undefined>;
+    tenantId?: pulumi.Input<string>;
 }

@@ -121,5 +121,5 @@ export interface TriggerArgs {
     /**
      * The trigger name.
      */
-    triggerName?: pulumi.Input<string | undefined>;
+    triggerName?: pulumi.Input<string>;
 }

@@ -303,99 +303,99 @@ export interface ServerGroupClusterArgs {
     /**
      * The password of the administrator login. Required for creation.
      */
-    administratorLoginPassword?: pulumi.Input<string | undefined>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * Authentication configuration of a cluster.
      */
-    authConfig?: pulumi.Input<inputs.dbforpostgresql.ServerGroupClusterAuthConfigArgs | undefined>;
+    authConfig?: pulumi.Input<inputs.dbforpostgresql.ServerGroupClusterAuthConfigArgs>;
     /**
      * The Citus extension version on all cluster servers.
      */
-    citusVersion?: pulumi.Input<string | undefined>;
+    citusVersion?: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName?: pulumi.Input<string>;
     /**
      * If public access is enabled on coordinator.
      */
-    coordinatorEnablePublicIpAccess?: pulumi.Input<boolean | undefined>;
+    coordinatorEnablePublicIpAccess?: pulumi.Input<boolean>;
     /**
      * The edition of a coordinator server (default: GeneralPurpose). Required for creation.
      */
-    coordinatorServerEdition?: pulumi.Input<string | undefined>;
+    coordinatorServerEdition?: pulumi.Input<string>;
     /**
      * The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
      */
-    coordinatorStorageQuotaInMb?: pulumi.Input<number | undefined>;
+    coordinatorStorageQuotaInMb?: pulumi.Input<number>;
     /**
      * The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
      */
-    coordinatorVCores?: pulumi.Input<number | undefined>;
+    coordinatorVCores?: pulumi.Input<number>;
     /**
      * The data encryption properties of a cluster.
      */
-    dataEncryption?: pulumi.Input<inputs.dbforpostgresql.ServerGroupClusterDataEncryptionArgs | undefined>;
+    dataEncryption?: pulumi.Input<inputs.dbforpostgresql.ServerGroupClusterDataEncryptionArgs>;
     /**
      * The database name of the cluster. Only one database per cluster is supported.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string>;
     /**
      * If cluster backup is stored in another Azure region in addition to the copy of the backup stored in the cluster's region. Enabled only at the time of cluster creation.
      */
-    enableGeoBackup?: pulumi.Input<boolean | undefined>;
+    enableGeoBackup?: pulumi.Input<boolean>;
     /**
      * If high availability (HA) is enabled or not for the cluster.
      */
-    enableHa?: pulumi.Input<boolean | undefined>;
+    enableHa?: pulumi.Input<boolean>;
     /**
      * If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
      */
-    enableShardsOnCoordinator?: pulumi.Input<boolean | undefined>;
+    enableShardsOnCoordinator?: pulumi.Input<boolean>;
     /**
      * Describes the identity of the cluster.
      */
-    identity?: pulumi.Input<inputs.dbforpostgresql.IdentityPropertiesArgs | undefined>;
+    identity?: pulumi.Input<inputs.dbforpostgresql.IdentityPropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Maintenance window of a cluster.
      */
-    maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.ServerGroupClusterMaintenanceWindowArgs | undefined>;
+    maintenanceWindow?: pulumi.Input<inputs.dbforpostgresql.ServerGroupClusterMaintenanceWindowArgs>;
     /**
      * Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
      */
-    nodeCount?: pulumi.Input<number | undefined>;
+    nodeCount?: pulumi.Input<number>;
     /**
      * If public access is enabled on worker nodes.
      */
-    nodeEnablePublicIpAccess?: pulumi.Input<boolean | undefined>;
+    nodeEnablePublicIpAccess?: pulumi.Input<boolean>;
     /**
      * The edition of a node server (default: MemoryOptimized).
      */
-    nodeServerEdition?: pulumi.Input<string | undefined>;
+    nodeServerEdition?: pulumi.Input<string>;
     /**
      * The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
      */
-    nodeStorageQuotaInMb?: pulumi.Input<number | undefined>;
+    nodeStorageQuotaInMb?: pulumi.Input<number>;
     /**
      * The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
      */
-    nodeVCores?: pulumi.Input<number | undefined>;
+    nodeVCores?: pulumi.Input<number>;
     /**
      * Date and time in UTC (ISO8601 format) for cluster restore.
      */
-    pointInTimeUTC?: pulumi.Input<string | undefined>;
+    pointInTimeUTC?: pulumi.Input<string>;
     /**
      * The major PostgreSQL version on all cluster servers.
      */
-    postgresqlVersion?: pulumi.Input<string | undefined>;
+    postgresqlVersion?: pulumi.Input<string>;
     /**
      * Preferred primary availability zone (AZ) for all cluster servers.
      */
-    preferredPrimaryZone?: pulumi.Input<string | undefined>;
+    preferredPrimaryZone?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -403,13 +403,13 @@ export interface ServerGroupClusterArgs {
     /**
      * The Azure region of source cluster for read replica clusters.
      */
-    sourceLocation?: pulumi.Input<string | undefined>;
+    sourceLocation?: pulumi.Input<string>;
     /**
      * The resource id of source cluster for read replica clusters.
      */
-    sourceResourceId?: pulumi.Input<string | undefined>;
+    sourceResourceId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

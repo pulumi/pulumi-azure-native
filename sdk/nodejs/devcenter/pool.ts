@@ -208,7 +208,7 @@ export interface PoolArgs {
     /**
      * The display name of the pool.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
      */
@@ -220,11 +220,11 @@ export interface PoolArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The regions of the managed virtual network (required when managedNetworkType is Managed).
      */
-    managedVirtualNetworkRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    managedVirtualNetworkRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of a Network Connection in parent Project of this Pool
      */
@@ -232,7 +232,7 @@ export interface PoolArgs {
     /**
      * Name of the pool.
      */
-    poolName?: pulumi.Input<string | undefined>;
+    poolName?: pulumi.Input<string>;
     /**
      * The name of the project.
      */
@@ -244,17 +244,17 @@ export interface PoolArgs {
     /**
      * Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
      */
-    singleSignOnStatus?: pulumi.Input<string | enums.devcenter.SingleSignOnStatus | undefined>;
+    singleSignOnStatus?: pulumi.Input<string | enums.devcenter.SingleSignOnStatus>;
     /**
      * Stop on disconnect configuration settings for Dev Boxes created in this pool.
      */
-    stopOnDisconnect?: pulumi.Input<inputs.devcenter.StopOnDisconnectConfigurationArgs | undefined>;
+    stopOnDisconnect?: pulumi.Input<inputs.devcenter.StopOnDisconnectConfigurationArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
      */
-    virtualNetworkType?: pulumi.Input<string | enums.devcenter.VirtualNetworkType | undefined>;
+    virtualNetworkType?: pulumi.Input<string | enums.devcenter.VirtualNetworkType>;
 }

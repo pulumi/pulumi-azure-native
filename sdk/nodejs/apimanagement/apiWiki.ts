@@ -109,7 +109,7 @@ export interface ApiWikiArgs {
     /**
      * Collection wiki documents included into this wiki.
      */
-    documents?: pulumi.Input<pulumi.Input<inputs.apimanagement.WikiDocumentationContractArgs>[] | undefined>;
+    documents?: pulumi.Input<pulumi.Input<inputs.apimanagement.WikiDocumentationContractArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

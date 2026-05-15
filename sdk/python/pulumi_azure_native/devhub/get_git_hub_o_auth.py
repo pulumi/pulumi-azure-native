@@ -84,8 +84,8 @@ def get_git_hub_o_auth(location: Optional[_builtins.str] = None,
     return AwaitableGetGitHubOAuthResult(
         auth_url=pulumi.get(__ret__, 'auth_url'),
         token=pulumi.get(__ret__, 'token'))
-def get_git_hub_o_auth_output(location: pulumi.Input[Optional[_builtins.str]] = None,
-                              redirect_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_git_hub_o_auth_output(location: Optional[pulumi.Input[_builtins.str]] = None,
+                              redirect_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGitHubOAuthResult]:
     """
     URL used to authorize the Developer Hub GitHub App

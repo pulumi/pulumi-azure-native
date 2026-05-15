@@ -290,32 +290,32 @@ export interface HostPoolArgs {
     /**
      * The session host configuration for updating agent, monitoring agent, and stack component.
      */
-    agentUpdate?: pulumi.Input<inputs.desktopvirtualization.AgentUpdatePropertiesArgs | undefined>;
+    agentUpdate?: pulumi.Input<inputs.desktopvirtualization.AgentUpdatePropertiesArgs>;
     /**
      * Custom rdp property of HostPool.
      */
-    customRdpProperty?: pulumi.Input<string | undefined>;
+    customRdpProperty?: pulumi.Input<string>;
     /**
      * Description of HostPool.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Friendly name of HostPool.
      */
-    friendlyName?: pulumi.Input<string | undefined>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * The name of the host pool within the specified resource group
      */
-    hostPoolName?: pulumi.Input<string | undefined>;
+    hostPoolName?: pulumi.Input<string>;
     /**
      * HostPool type for desktop.
      */
     hostPoolType: pulumi.Input<string | enums.desktopvirtualization.HostPoolType>;
-    identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetIdentityArgs>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The type of the load balancer.
      */
@@ -323,20 +323,20 @@ export interface HostPoolArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    managedBy?: pulumi.Input<string | undefined>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The max session limit of HostPool.
      */
-    maxSessionLimit?: pulumi.Input<number | undefined>;
+    maxSessionLimit?: pulumi.Input<number>;
     /**
      * PersonalDesktopAssignment type for HostPool.
      */
-    personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.PersonalDesktopAssignmentType | undefined>;
-    plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs | undefined>;
+    personalDesktopAssignmentType?: pulumi.Input<string | enums.desktopvirtualization.PersonalDesktopAssignmentType>;
+    plan?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetPlanArgs>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
@@ -344,11 +344,11 @@ export interface HostPoolArgs {
     /**
      * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.desktopvirtualization.HostpoolPublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.desktopvirtualization.HostpoolPublicNetworkAccess>;
     /**
      * The registration info of HostPool.
      */
-    registrationInfo?: pulumi.Input<inputs.desktopvirtualization.RegistrationInfoArgs | undefined>;
+    registrationInfo?: pulumi.Input<inputs.desktopvirtualization.RegistrationInfoArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -356,38 +356,38 @@ export interface HostPoolArgs {
     /**
      * The ring number of HostPool.
      */
-    ring?: pulumi.Input<number | undefined>;
-    sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs | undefined>;
+    ring?: pulumi.Input<number>;
+    sku?: pulumi.Input<inputs.desktopvirtualization.ResourceModelWithAllowedPropertySetSkuArgs>;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */
-    ssoClientId?: pulumi.Input<string | undefined>;
+    ssoClientId?: pulumi.Input<string>;
     /**
      * Path to Azure KeyVault storing the secret used for communication to ADFS.
      */
-    ssoClientSecretKeyVaultPath?: pulumi.Input<string | undefined>;
+    ssoClientSecretKeyVaultPath?: pulumi.Input<string>;
     /**
      * The type of single sign on Secret Type.
      */
-    ssoSecretType?: pulumi.Input<string | enums.desktopvirtualization.SSOSecretType | undefined>;
+    ssoSecretType?: pulumi.Input<string | enums.desktopvirtualization.SSOSecretType>;
     /**
      * URL to customer ADFS server for signing WVD SSO certificates.
      */
-    ssoadfsAuthority?: pulumi.Input<string | undefined>;
+    ssoadfsAuthority?: pulumi.Input<string>;
     /**
      * The flag to turn on/off StartVMOnConnect feature.
      */
-    startVMOnConnect?: pulumi.Input<boolean | undefined>;
+    startVMOnConnect?: pulumi.Input<boolean>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Is validation environment.
      */
-    validationEnvironment?: pulumi.Input<boolean | undefined>;
+    validationEnvironment?: pulumi.Input<boolean>;
     /**
      * VM template for sessionhosts configuration within hostpool.
      */
-    vmTemplate?: pulumi.Input<string | undefined>;
+    vmTemplate?: pulumi.Input<string>;
 }

@@ -205,9 +205,9 @@ def get_express_route_connection(connection_name: Optional[_builtins.str] = None
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         routing_configuration=pulumi.get(__ret__, 'routing_configuration'),
         routing_weight=pulumi.get(__ret__, 'routing_weight'))
-def get_express_route_connection_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        express_route_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_express_route_connection_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        express_route_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteConnectionResult]:
     """
     Gets the specified ExpressRouteConnection.

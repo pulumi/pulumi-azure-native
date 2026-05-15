@@ -150,7 +150,7 @@ export interface VirtualNetworkLinkArgs {
     /**
      * The Azure Region where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Private DNS zone (without a terminating dot).
      */
@@ -158,11 +158,11 @@ export interface VirtualNetworkLinkArgs {
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
      */
-    registrationEnabled?: pulumi.Input<boolean | undefined>;
+    registrationEnabled?: pulumi.Input<boolean>;
     /**
      * The resolution policy on the virtual network link. Only applicable for virtual network links to privatelink zones, and for A,AAAA,CNAME queries. When set to 'NxDomainRedirect', Azure DNS resolver falls back to public resolution if private dns query resolution results in non-existent domain response.
      */
-    resolutionPolicy?: pulumi.Input<string | enums.privatedns.ResolutionPolicy | undefined>;
+    resolutionPolicy?: pulumi.Input<string | enums.privatedns.ResolutionPolicy>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -170,13 +170,13 @@ export interface VirtualNetworkLinkArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The reference of the virtual network.
      */
-    virtualNetwork?: pulumi.Input<inputs.privatedns.SubResourceArgs | undefined>;
+    virtualNetwork?: pulumi.Input<inputs.privatedns.SubResourceArgs>;
     /**
      * The name of the virtual network link.
      */
-    virtualNetworkLinkName?: pulumi.Input<string | undefined>;
+    virtualNetworkLinkName?: pulumi.Input<string>;
 }

@@ -172,12 +172,12 @@ export class ConnectedCluster extends pulumi.CustomResource {
             }
             resourceInputs["aadProfile"] = args?.aadProfile;
             resourceInputs["agentPublicKeyCertificate"] = args?.agentPublicKeyCertificate;
-            resourceInputs["arcAgentProfile"] = args ? pulumi.output(args.arcAgentProfile).apply(v => v === undefined ? undefined : inputs.kubernetes.arcAgentProfileArgsProvideDefaults(v)) : undefined;
+            resourceInputs["arcAgentProfile"] = args ? (args.arcAgentProfile ? pulumi.output(args.arcAgentProfile).apply(inputs.kubernetes.arcAgentProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureHybridBenefit"] = (args?.azureHybridBenefit) ?? "NotApplicable";
             resourceInputs["clusterName"] = args?.clusterName;
             resourceInputs["distribution"] = args?.distribution;
             resourceInputs["distributionVersion"] = args?.distributionVersion;
-            resourceInputs["identity"] = args ? pulumi.output(args.identity).apply(inputs.kubernetes.connectedClusterIdentityArgsProvideDefaults) : undefined;
+            resourceInputs["identity"] = args ? (args.identity ? pulumi.output(args.identity).apply(inputs.kubernetes.connectedClusterIdentityArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["infrastructure"] = args?.infrastructure;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
@@ -242,7 +242,7 @@ export interface ConnectedClusterArgs {
     /**
      * AAD profile for the connected cluster.
      */
-    aadProfile?: pulumi.Input<inputs.kubernetes.AadProfileArgs | undefined>;
+    aadProfile?: pulumi.Input<inputs.kubernetes.AadProfileArgs>;
     /**
      * Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
      */
@@ -250,23 +250,23 @@ export interface ConnectedClusterArgs {
     /**
      * Arc agentry configuration for the provisioned cluster.
      */
-    arcAgentProfile?: pulumi.Input<inputs.kubernetes.ArcAgentProfileArgs | undefined>;
+    arcAgentProfile?: pulumi.Input<inputs.kubernetes.ArcAgentProfileArgs>;
     /**
      * Indicates whether Azure Hybrid Benefit is opted in
      */
-    azureHybridBenefit?: pulumi.Input<string | enums.kubernetes.AzureHybridBenefit | undefined>;
+    azureHybridBenefit?: pulumi.Input<string | enums.kubernetes.AzureHybridBenefit>;
     /**
      * The name of the Kubernetes cluster on which get is called.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName?: pulumi.Input<string>;
     /**
      * The Kubernetes distribution running on this connected cluster.
      */
-    distribution?: pulumi.Input<string | undefined>;
+    distribution?: pulumi.Input<string>;
     /**
      * The Kubernetes distribution version on this connected cluster.
      */
-    distributionVersion?: pulumi.Input<string | undefined>;
+    distributionVersion?: pulumi.Input<string>;
     /**
      * The identity of the connected cluster.
      */
@@ -274,27 +274,27 @@ export interface ConnectedClusterArgs {
     /**
      * The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
      */
-    infrastructure?: pulumi.Input<string | undefined>;
+    infrastructure?: pulumi.Input<string>;
     /**
      * The kind of connected cluster.
      */
-    kind?: pulumi.Input<string | enums.kubernetes.ConnectedClusterKind | undefined>;
+    kind?: pulumi.Input<string | enums.kubernetes.ConnectedClusterKind>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource id of the private link scope this connected cluster is assigned to, if any.
      */
-    privateLinkScopeResourceId?: pulumi.Input<string | undefined>;
+    privateLinkScopeResourceId?: pulumi.Input<string>;
     /**
      * Property which describes the state of private link on a connected cluster resource.
      */
-    privateLinkState?: pulumi.Input<string | enums.kubernetes.PrivateLinkState | undefined>;
+    privateLinkState?: pulumi.Input<string | enums.kubernetes.PrivateLinkState>;
     /**
      * Provisioning state of the connected cluster resource.
      */
-    provisioningState?: pulumi.Input<string | enums.kubernetes.ProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.kubernetes.ProvisioningState>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -302,5 +302,5 @@ export interface ConnectedClusterArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

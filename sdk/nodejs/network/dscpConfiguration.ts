@@ -177,35 +177,35 @@ export interface DscpConfigurationArgs {
     /**
      * Destination IP ranges.
      */
-    destinationIpRanges?: pulumi.Input<pulumi.Input<inputs.network.QosIpRangeArgs>[] | undefined>;
+    destinationIpRanges?: pulumi.Input<pulumi.Input<inputs.network.QosIpRangeArgs>[]>;
     /**
      * Destination port ranges.
      */
-    destinationPortRanges?: pulumi.Input<pulumi.Input<inputs.network.QosPortRangeArgs>[] | undefined>;
+    destinationPortRanges?: pulumi.Input<pulumi.Input<inputs.network.QosPortRangeArgs>[]>;
     /**
      * The name of the resource.
      */
-    dscpConfigurationName?: pulumi.Input<string | undefined>;
+    dscpConfigurationName?: pulumi.Input<string>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * List of markings to be used in the configuration.
      */
-    markings?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+    markings?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * RNM supported protocol types.
      */
-    protocol?: pulumi.Input<string | enums.network.ProtocolType | undefined>;
+    protocol?: pulumi.Input<string | enums.network.ProtocolType>;
     /**
      * QoS object definitions
      */
-    qosDefinitionCollection?: pulumi.Input<pulumi.Input<inputs.network.QosDefinitionArgs>[] | undefined>;
+    qosDefinitionCollection?: pulumi.Input<pulumi.Input<inputs.network.QosDefinitionArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -213,13 +213,13 @@ export interface DscpConfigurationArgs {
     /**
      * Source IP ranges.
      */
-    sourceIpRanges?: pulumi.Input<pulumi.Input<inputs.network.QosIpRangeArgs>[] | undefined>;
+    sourceIpRanges?: pulumi.Input<pulumi.Input<inputs.network.QosIpRangeArgs>[]>;
     /**
      * Sources port ranges.
      */
-    sourcePortRanges?: pulumi.Input<pulumi.Input<inputs.network.QosPortRangeArgs>[] | undefined>;
+    sourcePortRanges?: pulumi.Input<pulumi.Input<inputs.network.QosPortRangeArgs>[]>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

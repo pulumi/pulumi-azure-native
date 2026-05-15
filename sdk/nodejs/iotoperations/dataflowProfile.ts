@@ -89,7 +89,7 @@ export class DataflowProfile extends pulumi.CustomResource {
             resourceInputs["dataflowProfileName"] = args?.dataflowProfileName;
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["instanceName"] = args?.instanceName;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.iotoperations.dataflowProfilePropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.iotoperations.dataflowProfilePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -117,7 +117,7 @@ export interface DataflowProfileArgs {
     /**
      * Name of Instance dataflowProfile resource
      */
-    dataflowProfileName?: pulumi.Input<string | undefined>;
+    dataflowProfileName?: pulumi.Input<string>;
     /**
      * Edge location of the resource.
      */
@@ -129,7 +129,7 @@ export interface DataflowProfileArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.iotoperations.DataflowProfilePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.iotoperations.DataflowProfilePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -133,7 +133,7 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the Private Endpoint Connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

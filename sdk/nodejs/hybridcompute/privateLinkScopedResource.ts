@@ -102,11 +102,11 @@ export interface PrivateLinkScopedResourceArgs {
     /**
      * The resource id of the scoped Azure monitor resource.
      */
-    linkedResourceId?: pulumi.Input<string | undefined>;
+    linkedResourceId?: pulumi.Input<string>;
     /**
      * The name of the scoped resource object.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

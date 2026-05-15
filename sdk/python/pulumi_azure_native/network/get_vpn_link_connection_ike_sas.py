@@ -71,10 +71,10 @@ def get_vpn_link_connection_ike_sas(connection_name: Optional[_builtins.str] = N
 
     return AwaitableGetVpnLinkConnectionIkeSasResult(
         value=pulumi.get(__ret__, 'value'))
-def get_vpn_link_connection_ike_sas_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           link_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_vpn_link_connection_ike_sas_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           link_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnLinkConnectionIkeSasResult]:
     """
     Lists IKE Security Associations for Vpn Site Link Connection in the specified resource group.

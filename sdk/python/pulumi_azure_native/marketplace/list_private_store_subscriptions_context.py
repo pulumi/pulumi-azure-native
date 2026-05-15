@@ -65,7 +65,7 @@ def list_private_store_subscriptions_context(private_store_id: Optional[_builtin
 
     return AwaitableListPrivateStoreSubscriptionsContextResult(
         subscriptions_ids=pulumi.get(__ret__, 'subscriptions_ids'))
-def list_private_store_subscriptions_context_output(private_store_id: pulumi.Input[Optional[_builtins.str]] = None,
+def list_private_store_subscriptions_context_output(private_store_id: Optional[pulumi.Input[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListPrivateStoreSubscriptionsContextResult]:
     """
     List all the subscriptions in the private store context

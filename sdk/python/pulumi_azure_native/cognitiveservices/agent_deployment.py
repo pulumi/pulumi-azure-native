@@ -27,7 +27,7 @@ class AgentDeploymentArgs:
                  project_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['HostedAgentDeploymentArgs', 'ManagedAgentDeploymentArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentDeployment resource.
 
@@ -108,14 +108,14 @@ class AgentDeploymentArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def deployment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the deployment associated with the Cognitive Services Account
         """
         return pulumi.get(self, "deployment_name")
 
     @deployment_name.setter
-    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def deployment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "deployment_name", value)
 
 
@@ -125,12 +125,12 @@ class AgentDeployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 app_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union[Union['HostedAgentDeploymentArgs', 'HostedAgentDeploymentArgsDict'], Union['ManagedAgentDeploymentArgs', 'ManagedAgentDeploymentArgsDict']]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['HostedAgentDeploymentArgs', 'HostedAgentDeploymentArgsDict'], Union['ManagedAgentDeploymentArgs', 'ManagedAgentDeploymentArgsDict']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Agent Deployment resource
@@ -174,12 +174,12 @@ class AgentDeployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 app_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union[Union['HostedAgentDeploymentArgs', 'HostedAgentDeploymentArgsDict'], Union['ManagedAgentDeploymentArgs', 'ManagedAgentDeploymentArgsDict']]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union[Union['HostedAgentDeploymentArgs', 'HostedAgentDeploymentArgsDict'], Union['ManagedAgentDeploymentArgs', 'ManagedAgentDeploymentArgsDict']]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

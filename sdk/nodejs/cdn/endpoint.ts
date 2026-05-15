@@ -237,55 +237,55 @@ export interface EndpointArgs {
     /**
      * List of content types on which compression applies. The value should be a valid MIME type.
      */
-    contentTypesToCompress?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    contentTypesToCompress?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A reference to the origin group.
      */
-    defaultOriginGroup?: pulumi.Input<inputs.cdn.ResourceReferenceArgs | undefined>;
+    defaultOriginGroup?: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
     /**
      * A policy that specifies the delivery rules to be used for an endpoint.
      */
-    deliveryPolicy?: pulumi.Input<inputs.cdn.EndpointPropertiesUpdateParametersDeliveryPolicyArgs | undefined>;
+    deliveryPolicy?: pulumi.Input<inputs.cdn.EndpointPropertiesUpdateParametersDeliveryPolicyArgs>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
-    endpointName?: pulumi.Input<string | undefined>;
+    endpointName?: pulumi.Input<string>;
     /**
      * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
      */
-    geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.GeoFilterArgs>[] | undefined>;
+    geoFilters?: pulumi.Input<pulumi.Input<inputs.cdn.GeoFilterArgs>[]>;
     /**
      * Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
      */
-    isCompressionEnabled?: pulumi.Input<boolean | undefined>;
+    isCompressionEnabled?: pulumi.Input<boolean>;
     /**
      * Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
      */
-    isHttpAllowed?: pulumi.Input<boolean | undefined>;
+    isHttpAllowed?: pulumi.Input<boolean>;
     /**
      * Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
      */
-    isHttpsAllowed?: pulumi.Input<boolean | undefined>;
+    isHttpsAllowed?: pulumi.Input<boolean>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
      */
-    optimizationType?: pulumi.Input<string | enums.cdn.OptimizationType | undefined>;
+    optimizationType?: pulumi.Input<string | enums.cdn.OptimizationType>;
     /**
      * The origin groups comprising of origins that are used for load balancing the traffic based on availability.
      */
-    originGroups?: pulumi.Input<pulumi.Input<inputs.cdn.DeepCreatedOriginGroupArgs>[] | undefined>;
+    originGroups?: pulumi.Input<pulumi.Input<inputs.cdn.DeepCreatedOriginGroupArgs>[]>;
     /**
      * The host header value sent to the origin with each request. This property at Endpoint is only allowed when endpoint uses single origin and can be overridden by the same property specified at origin.If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
      */
-    originHostHeader?: pulumi.Input<string | undefined>;
+    originHostHeader?: pulumi.Input<string>;
     /**
      * A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
      */
-    originPath?: pulumi.Input<string | undefined>;
+    originPath?: pulumi.Input<string>;
     /**
      * The source of the content being delivered via CDN.
      */
@@ -293,7 +293,7 @@ export interface EndpointArgs {
     /**
      * Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
      */
-    probePath?: pulumi.Input<string | undefined>;
+    probePath?: pulumi.Input<string>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -301,7 +301,7 @@ export interface EndpointArgs {
     /**
      * Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
      */
-    queryStringCachingBehavior?: pulumi.Input<enums.cdn.QueryStringCachingBehavior | undefined>;
+    queryStringCachingBehavior?: pulumi.Input<enums.cdn.QueryStringCachingBehavior>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -309,13 +309,13 @@ export interface EndpointArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * List of keys used to validate the signed URL hashes.
      */
-    urlSigningKeys?: pulumi.Input<pulumi.Input<inputs.cdn.UrlSigningKeyArgs>[] | undefined>;
+    urlSigningKeys?: pulumi.Input<pulumi.Input<inputs.cdn.UrlSigningKeyArgs>[]>;
     /**
      * Defines the Web Application Firewall policy for the endpoint (if applicable)
      */
-    webApplicationFirewallPolicyLink?: pulumi.Input<inputs.cdn.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs | undefined>;
+    webApplicationFirewallPolicyLink?: pulumi.Input<inputs.cdn.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs>;
 }

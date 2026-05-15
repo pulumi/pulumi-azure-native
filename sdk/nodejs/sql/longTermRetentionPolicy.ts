@@ -125,11 +125,11 @@ export interface LongTermRetentionPolicyArgs {
     /**
      * The monthly retention policy for an LTR backup in an ISO 8601 format.
      */
-    monthlyRetention?: pulumi.Input<string | undefined>;
+    monthlyRetention?: pulumi.Input<string>;
     /**
      * The policy name. Should always be Default.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -141,13 +141,13 @@ export interface LongTermRetentionPolicyArgs {
     /**
      * The week of year to take the yearly backup in an ISO 8601 format.
      */
-    weekOfYear?: pulumi.Input<number | undefined>;
+    weekOfYear?: pulumi.Input<number>;
     /**
      * The weekly retention policy for an LTR backup in an ISO 8601 format.
      */
-    weeklyRetention?: pulumi.Input<string | undefined>;
+    weeklyRetention?: pulumi.Input<string>;
     /**
      * The yearly retention policy for an LTR backup in an ISO 8601 format.
      */
-    yearlyRetention?: pulumi.Input<string | undefined>;
+    yearlyRetention?: pulumi.Input<string>;
 }

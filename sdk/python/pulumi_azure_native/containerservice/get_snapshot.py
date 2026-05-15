@@ -254,8 +254,8 @@ def get_snapshot(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
-def get_snapshot_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_snapshot_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     A node pool snapshot resource.

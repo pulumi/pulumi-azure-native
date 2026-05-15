@@ -106,7 +106,7 @@ export interface WebAppAssessmentV3OperationArgs {
     /**
      * WebApp Assessment ARM name
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */
@@ -114,7 +114,7 @@ export interface WebAppAssessmentV3OperationArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.migrate.WebAppAssessmentV3PropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.WebAppAssessmentV3PropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

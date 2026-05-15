@@ -116,7 +116,7 @@ export interface ReplicationvCenterArgs {
     /**
      * The properties of an add vCenter request.
      */
-    properties?: pulumi.Input<inputs.recoveryservices.AddVCenterRequestPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.recoveryservices.AddVCenterRequestPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -128,5 +128,5 @@ export interface ReplicationvCenterArgs {
     /**
      * vcenter name.
      */
-    vcenterName?: pulumi.Input<string | undefined>;
+    vcenterName?: pulumi.Input<string>;
 }

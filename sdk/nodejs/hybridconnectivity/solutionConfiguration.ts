@@ -139,11 +139,11 @@ export interface SolutionConfigurationArgs {
     /**
      * Represent Solution Configuration Resource.
      */
-    solutionConfiguration?: pulumi.Input<string | undefined>;
+    solutionConfiguration?: pulumi.Input<string>;
     /**
      * Solution settings
      */
-    solutionSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    solutionSettings?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the solution
      */

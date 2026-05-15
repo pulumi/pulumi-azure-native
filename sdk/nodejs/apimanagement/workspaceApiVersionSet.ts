@@ -136,7 +136,7 @@ export interface WorkspaceApiVersionSetArgs {
     /**
      * Description of API Version Set.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Name of API Version Set
      */
@@ -152,15 +152,15 @@ export interface WorkspaceApiVersionSetArgs {
     /**
      * Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
      */
-    versionHeaderName?: pulumi.Input<string | undefined>;
+    versionHeaderName?: pulumi.Input<string>;
     /**
      * Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
      */
-    versionQueryName?: pulumi.Input<string | undefined>;
+    versionQueryName?: pulumi.Input<string>;
     /**
      * Api Version Set identifier. Must be unique in the current API Management service instance.
      */
-    versionSetId?: pulumi.Input<string | undefined>;
+    versionSetId?: pulumi.Input<string>;
     /**
      * An value that determines where the API Version identifier will be located in a HTTP request.
      */

@@ -23,8 +23,8 @@ class ApmArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 apm_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['ApmPropertiesArgs']] = None):
+                 apm_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['ApmPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Apm resource.
 
@@ -66,26 +66,26 @@ class ApmArgs:
 
     @_builtins.property
     @pulumi.getter(name="apmName")
-    def apm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def apm_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the APM
         """
         return pulumi.get(self, "apm_name")
 
     @apm_name.setter
-    def apm_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def apm_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "apm_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['ApmPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ApmPropertiesArgs']]:
         """
         Properties of an APM
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['ApmPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ApmPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class Apm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apm_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ApmPropertiesArgs', 'ApmPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 apm_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ApmPropertiesArgs', 'ApmPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         APM Resource object
@@ -144,10 +144,10 @@ class Apm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apm_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ApmPropertiesArgs', 'ApmPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 apm_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ApmPropertiesArgs', 'ApmPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

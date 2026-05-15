@@ -167,23 +167,23 @@ export interface L3IsolationDomainArgs {
     /**
      * Aggregate route configurations.
      */
-    aggregateRouteConfiguration?: pulumi.Input<inputs.managednetworkfabric.AggregateRouteConfigurationArgs | undefined>;
+    aggregateRouteConfiguration?: pulumi.Input<inputs.managednetworkfabric.AggregateRouteConfigurationArgs>;
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string | undefined>;
+    annotation?: pulumi.Input<string>;
     /**
      * Connected Subnet RoutePolicy
      */
-    connectedSubnetRoutePolicy?: pulumi.Input<inputs.managednetworkfabric.ConnectedSubnetRoutePolicyArgs | undefined>;
+    connectedSubnetRoutePolicy?: pulumi.Input<inputs.managednetworkfabric.ConnectedSubnetRoutePolicyArgs>;
     /**
      * Name of the L3 Isolation Domain.
      */
-    l3IsolationDomainName?: pulumi.Input<string | undefined>;
+    l3IsolationDomainName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * ARM Resource ID of the Network Fabric.
      */
@@ -191,11 +191,11 @@ export interface L3IsolationDomainArgs {
     /**
      * Advertise Connected Subnets. Ex: "True" | "False".
      */
-    redistributeConnectedSubnets?: pulumi.Input<string | enums.managednetworkfabric.RedistributeConnectedSubnets | undefined>;
+    redistributeConnectedSubnets?: pulumi.Input<string | enums.managednetworkfabric.RedistributeConnectedSubnets>;
     /**
      * Advertise Static Routes. Ex: "True" | "False".
      */
-    redistributeStaticRoutes?: pulumi.Input<string | enums.managednetworkfabric.RedistributeStaticRoutes | undefined>;
+    redistributeStaticRoutes?: pulumi.Input<string | enums.managednetworkfabric.RedistributeStaticRoutes>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -203,5 +203,5 @@ export interface L3IsolationDomainArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

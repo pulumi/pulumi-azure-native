@@ -143,7 +143,7 @@ export interface RoleAssignmentArtifactArgs {
     /**
      * Name of the blueprint artifact.
      */
-    artifactName?: pulumi.Input<string | undefined>;
+    artifactName?: pulumi.Input<string>;
     /**
      * Name of the blueprint definition.
      */
@@ -151,15 +151,15 @@ export interface RoleAssignmentArtifactArgs {
     /**
      * Artifacts which need to be deployed before the specified artifact.
      */
-    dependsOn?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    dependsOn?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Multi-line explain this resource.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * One-liner string explain this resource.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * Specifies the kind of blueprint artifact.
      * Expected value is 'roleAssignment'.
@@ -172,7 +172,7 @@ export interface RoleAssignmentArtifactArgs {
     /**
      * RoleAssignment will be scope to this resourceGroup. If empty, it scopes to the subscription.
      */
-    resourceGroup?: pulumi.Input<string | undefined>;
+    resourceGroup?: pulumi.Input<string>;
     /**
      * The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
      */

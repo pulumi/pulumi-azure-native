@@ -148,7 +148,7 @@ export interface ApiVersionArgs {
     /**
      * The name of the API version.
      */
-    versionName?: pulumi.Input<string | undefined>;
+    versionName?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

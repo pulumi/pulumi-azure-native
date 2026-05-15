@@ -124,11 +124,11 @@ export interface RaiTopicArgs {
     /**
      * Properties of Cognitive Services Rai Topic.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.RaiTopicPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.cognitiveservices.RaiTopicPropertiesArgs>;
     /**
      * The name of the Rai Topic associated with the Cognitive Services Account
      */
-    raiTopicName?: pulumi.Input<string | undefined>;
+    raiTopicName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,5 +136,5 @@ export interface RaiTopicArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

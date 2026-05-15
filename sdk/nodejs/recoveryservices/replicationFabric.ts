@@ -108,11 +108,11 @@ export interface ReplicationFabricArgs {
     /**
      * Name of the ASR fabric.
      */
-    fabricName?: pulumi.Input<string | undefined>;
+    fabricName?: pulumi.Input<string>;
     /**
      * Fabric creation input.
      */
-    properties?: pulumi.Input<inputs.recoveryservices.FabricCreationInputPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.recoveryservices.FabricCreationInputPropertiesArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */

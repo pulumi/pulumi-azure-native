@@ -179,9 +179,9 @@ def get_connection_type(automation_account_name: Optional[_builtins.str] = None,
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_connection_type_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               connection_type_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_connection_type_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               connection_type_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionTypeResult]:
     """
     Retrieve the connection type identified by connection type name.

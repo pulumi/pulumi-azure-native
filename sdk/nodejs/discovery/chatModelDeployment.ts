@@ -118,15 +118,15 @@ export interface ChatModelDeploymentArgs {
     /**
      * The name of the ChatModelDeployment
      */
-    chatModelDeploymentName?: pulumi.Input<string | undefined>;
+    chatModelDeploymentName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.discovery.ChatModelDeploymentPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.discovery.ChatModelDeploymentPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -134,7 +134,7 @@ export interface ChatModelDeploymentArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Workspace
      */

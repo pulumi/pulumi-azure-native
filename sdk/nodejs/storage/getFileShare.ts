@@ -197,7 +197,7 @@ export interface GetFileShareOutputArgs {
     /**
      * Optional, used to expand the properties within share's properties. Valid values are: stats. Should be passed as a string with delimiter ','.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */

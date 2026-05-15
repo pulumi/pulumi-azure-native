@@ -143,11 +143,11 @@ export interface CapacityPoolCacheArgs {
     /**
      * The name of the cache resource.
      */
-    cacheName?: pulumi.Input<string | undefined>;
+    cacheName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the capacity pool
      */
@@ -163,9 +163,9 @@ export interface CapacityPoolCacheArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The availability zones.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    zones?: pulumi.Input<pulumi.Input<string>[]>;
 }

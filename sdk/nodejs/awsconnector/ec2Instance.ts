@@ -74,7 +74,7 @@ export class Ec2Instance extends pulumi.CustomResource {
             if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.awsconnector.ec2InstancePropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.awsconnector.ec2InstancePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -101,7 +101,7 @@ export interface Ec2InstanceArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.awsconnector.Ec2InstancePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.awsconnector.Ec2InstancePropertiesArgs>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

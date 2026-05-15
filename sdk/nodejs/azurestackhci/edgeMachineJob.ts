@@ -112,11 +112,11 @@ export interface EdgeMachineJobArgs {
     /**
      * Name of EdgeMachineJob
      */
-    jobsName?: pulumi.Input<string | undefined>;
+    jobsName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azurestackhci.DownloadOsJobPropertiesArgs | inputs.azurestackhci.EdgeMachineCollectLogJobPropertiesArgs | inputs.azurestackhci.EdgeMachineRemoteSupportJobPropertiesArgs | inputs.azurestackhci.ProvisionOsJobPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.azurestackhci.DownloadOsJobPropertiesArgs | inputs.azurestackhci.EdgeMachineCollectLogJobPropertiesArgs | inputs.azurestackhci.EdgeMachineRemoteSupportJobPropertiesArgs | inputs.azurestackhci.ProvisionOsJobPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

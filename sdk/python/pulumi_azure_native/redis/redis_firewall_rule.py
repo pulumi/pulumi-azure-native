@@ -23,7 +23,7 @@ class RedisFirewallRuleArgs:
                  end_ip: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  start_ip: pulumi.Input[_builtins.str],
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 rule_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RedisFirewallRule resource.
 
@@ -90,14 +90,14 @@ class RedisFirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the firewall rule.
         """
         return pulumi.get(self, "rule_name")
 
     @rule_name.setter
-    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
 
 
@@ -107,11 +107,11 @@ class RedisFirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 end_ip: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 start_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
@@ -154,11 +154,11 @@ class RedisFirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 end_ip: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 start_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 cache_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 end_ip: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

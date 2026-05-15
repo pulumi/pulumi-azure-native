@@ -168,7 +168,7 @@ export interface MSIXPackageArgs {
     /**
      * User friendly Name to be displayed in the portal. 
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The name of the host pool within the specified resource group
      */
@@ -176,43 +176,43 @@ export interface MSIXPackageArgs {
     /**
      * VHD/CIM image path on Network Share.
      */
-    imagePath?: pulumi.Input<string | undefined>;
+    imagePath?: pulumi.Input<string>;
     /**
      * Make this version of the package the active one across the hostpool. 
      */
-    isActive?: pulumi.Input<boolean | undefined>;
+    isActive?: pulumi.Input<boolean>;
     /**
      * Specifies how to register Package in feed.
      */
-    isRegularRegistration?: pulumi.Input<boolean | undefined>;
+    isRegularRegistration?: pulumi.Input<boolean>;
     /**
      * Date Package was last updated, found in the appxmanifest.xml. 
      */
-    lastUpdated?: pulumi.Input<string | undefined>;
+    lastUpdated?: pulumi.Input<string>;
     /**
      * The version specific package full name of the MSIX package within specified hostpool
      */
-    msixPackageFullName?: pulumi.Input<string | undefined>;
+    msixPackageFullName?: pulumi.Input<string>;
     /**
      * List of package applications. 
      */
-    packageApplications?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.MsixPackageApplicationsArgs>[] | undefined>;
+    packageApplications?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.MsixPackageApplicationsArgs>[]>;
     /**
      * List of package dependencies. 
      */
-    packageDependencies?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.MsixPackageDependenciesArgs>[] | undefined>;
+    packageDependencies?: pulumi.Input<pulumi.Input<inputs.desktopvirtualization.MsixPackageDependenciesArgs>[]>;
     /**
      * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
      */
-    packageFamilyName?: pulumi.Input<string | undefined>;
+    packageFamilyName?: pulumi.Input<string>;
     /**
      * Package Name from appxmanifest.xml. 
      */
-    packageName?: pulumi.Input<string | undefined>;
+    packageName?: pulumi.Input<string>;
     /**
      * Relative Path to the package inside the image. 
      */
-    packageRelativePath?: pulumi.Input<string | undefined>;
+    packageRelativePath?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -220,5 +220,5 @@ export interface MSIXPackageArgs {
     /**
      * Package version found in the appxmanifest.xml. 
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

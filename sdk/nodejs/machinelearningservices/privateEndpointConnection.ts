@@ -141,19 +141,19 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
     /**
      * *Same as workspace location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * NRP Private Endpoint Connection Name
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * The connection state.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.machinelearningservices.PrivateLinkServiceConnectionStateArgs | undefined>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.machinelearningservices.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -161,8 +161,8 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
      */
-    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs | undefined>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Azure Machine Learning Workspace Name
      */

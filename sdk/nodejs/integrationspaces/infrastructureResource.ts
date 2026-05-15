@@ -124,7 +124,7 @@ export interface InfrastructureResourceArgs {
     /**
      * The name of the infrastructure resource in the space.
      */
-    infrastructureResourceName?: pulumi.Input<string | undefined>;
+    infrastructureResourceName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

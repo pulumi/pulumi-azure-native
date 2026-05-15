@@ -104,5 +104,5 @@ export interface VendorArgs {
     /**
      * The name of the vendor.
      */
-    vendorName?: pulumi.Input<string | undefined>;
+    vendorName?: pulumi.Input<string>;
 }

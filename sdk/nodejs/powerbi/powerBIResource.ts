@@ -118,16 +118,16 @@ export interface PowerBIResourceArgs {
     /**
      * The name of the Azure resource.
      */
-    azureResourceName?: pulumi.Input<string | undefined>;
+    azureResourceName?: pulumi.Input<string>;
     /**
      * Specifies the location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the private endpoint connections of the resource.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.powerbi.PrivateEndpointConnectionArgs>[] | undefined>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.powerbi.PrivateEndpointConnectionArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -135,9 +135,9 @@ export interface PowerBIResourceArgs {
     /**
      * Specifies the tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the tenant id of the resource.
      */
-    tenantId?: pulumi.Input<string | undefined>;
+    tenantId?: pulumi.Input<string>;
 }

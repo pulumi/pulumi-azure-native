@@ -24,8 +24,8 @@ class SignalRCustomCertificateArgs:
                  key_vault_secret_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_secret_version: pulumi.Input[Optional[_builtins.str]] = None):
+                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_secret_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SignalRCustomCertificate resource.
 
@@ -95,26 +95,26 @@ class SignalRCustomCertificateArgs:
 
     @_builtins.property
     @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def certificate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Custom certificate name
         """
         return pulumi.get(self, "certificate_name")
 
     @certificate_name.setter
-    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def certificate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultSecretVersion")
-    def key_vault_secret_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def key_vault_secret_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Certificate secret version.
         """
         return pulumi.get(self, "key_vault_secret_version")
 
     @key_vault_secret_version.setter
-    def key_vault_secret_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def key_vault_secret_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "key_vault_secret_version", value)
 
 
@@ -124,12 +124,12 @@ class SignalRCustomCertificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_base_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_secret_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_secret_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_base_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_secret_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_secret_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A custom certificate.
@@ -177,12 +177,12 @@ class SignalRCustomCertificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_base_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_secret_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_secret_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_base_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_secret_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_secret_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

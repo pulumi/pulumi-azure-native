@@ -115,5 +115,5 @@ export interface VariableValueArgs {
     /**
      * The name of the variable value to operate on.
      */
-    variableValueName?: pulumi.Input<string | undefined>;
+    variableValueName?: pulumi.Input<string>;
 }

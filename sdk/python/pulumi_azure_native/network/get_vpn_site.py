@@ -280,8 +280,8 @@ def get_vpn_site(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_wan=pulumi.get(__ret__, 'virtual_wan'),
         vpn_site_links=pulumi.get(__ret__, 'vpn_site_links'))
-def get_vpn_site_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        vpn_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_vpn_site_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        vpn_site_name: Optional[pulumi.Input[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnSiteResult]:
     """
     Retrieves the details of a VPN site.

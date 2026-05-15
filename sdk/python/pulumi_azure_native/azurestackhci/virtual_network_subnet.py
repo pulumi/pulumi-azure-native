@@ -24,9 +24,9 @@ class VirtualNetworkSubnetArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network_name: pulumi.Input[_builtins.str],
-                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
-                 properties: pulumi.Input[Optional['VirtualNetworkSubnetPropertiesArgs']] = None,
-                 subnet_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 properties: Optional[pulumi.Input['VirtualNetworkSubnetPropertiesArgs']] = None,
+                 subnet_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkSubnet resource.
 
@@ -71,38 +71,38 @@ class VirtualNetworkSubnetArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
         """
         The extendedLocation of the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['VirtualNetworkSubnetPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['VirtualNetworkSubnetPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['VirtualNetworkSubnetPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['VirtualNetworkSubnetPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetName")
-    def subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def subnet_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the virtual network subnet
         """
         return pulumi.get(self, "subnet_name")
 
     @subnet_name.setter
-    def subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def subnet_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "subnet_name", value)
 
 
@@ -112,11 +112,11 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 properties: pulumi.Input[Optional[Union['VirtualNetworkSubnetPropertiesArgs', 'VirtualNetworkSubnetPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['VirtualNetworkSubnetPropertiesArgs', 'VirtualNetworkSubnetPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The virtual network resource definition.
@@ -163,11 +163,11 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 properties: pulumi.Input[Optional[Union['VirtualNetworkSubnetPropertiesArgs', 'VirtualNetworkSubnetPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 properties: Optional[pulumi.Input[Union['VirtualNetworkSubnetPropertiesArgs', 'VirtualNetworkSubnetPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

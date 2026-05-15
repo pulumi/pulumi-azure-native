@@ -25,9 +25,9 @@ class FabricCapacityArgs:
                  administration: pulumi.Input['CapacityAdministrationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['RpSkuArgs'],
-                 capacity_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 capacity_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FabricCapacity resource.
 
@@ -86,38 +86,38 @@ class FabricCapacityArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityName")
-    def capacity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def capacity_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
         """
         return pulumi.get(self, "capacity_name")
 
     @capacity_name.setter
-    def capacity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def capacity_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "capacity_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,12 +127,12 @@ class FabricCapacity(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administration: pulumi.Input[Optional[Union['CapacityAdministrationArgs', 'CapacityAdministrationArgsDict']]] = None,
-                 capacity_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['RpSkuArgs', 'RpSkuArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 administration: Optional[pulumi.Input[Union['CapacityAdministrationArgs', 'CapacityAdministrationArgsDict']]] = None,
+                 capacity_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[Union['RpSkuArgs', 'RpSkuArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Fabric Capacity resource
@@ -180,12 +180,12 @@ class FabricCapacity(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administration: pulumi.Input[Optional[Union['CapacityAdministrationArgs', 'CapacityAdministrationArgsDict']]] = None,
-                 capacity_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sku: pulumi.Input[Optional[Union['RpSkuArgs', 'RpSkuArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 administration: Optional[pulumi.Input[Union['CapacityAdministrationArgs', 'CapacityAdministrationArgsDict']]] = None,
+                 capacity_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sku: Optional[pulumi.Input[Union['RpSkuArgs', 'RpSkuArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

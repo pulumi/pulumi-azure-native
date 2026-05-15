@@ -23,12 +23,12 @@ __all__ = ['ProvisionedClusterArgs', 'ProvisionedCluster']
 class ProvisionedClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 extended_location: pulumi.Input[Optional['ProvisionedClustersExtendedLocationArgs']] = None,
-                 identity: pulumi.Input[Optional['ProvisionedClusterIdentityArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['ProvisionedClustersAllPropertiesArgs']] = None,
-                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 extended_location: Optional[pulumi.Input['ProvisionedClustersExtendedLocationArgs']] = None,
+                 identity: Optional[pulumi.Input['ProvisionedClusterIdentityArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['ProvisionedClustersAllPropertiesArgs']] = None,
+                 resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProvisionedCluster resource.
 
@@ -67,71 +67,71 @@ class ProvisionedClusterArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Input[Optional['ProvisionedClustersExtendedLocationArgs']]:
+    def extended_location(self) -> Optional[pulumi.Input['ProvisionedClustersExtendedLocationArgs']]:
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: pulumi.Input[Optional['ProvisionedClustersExtendedLocationArgs']]):
+    def extended_location(self, value: Optional[pulumi.Input['ProvisionedClustersExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> pulumi.Input[Optional['ProvisionedClusterIdentityArgs']]:
+    def identity(self) -> Optional[pulumi.Input['ProvisionedClusterIdentityArgs']]:
         """
         Identity for the Provisioned cluster.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: pulumi.Input[Optional['ProvisionedClusterIdentityArgs']]):
+    def identity(self, value: Optional[pulumi.Input['ProvisionedClusterIdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['ProvisionedClustersAllPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['ProvisionedClustersAllPropertiesArgs']]:
         """
         All properties of the provisioned cluster
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['ProvisionedClustersAllPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['ProvisionedClustersAllPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Parameter for the name of the provisioned cluster
         """
         return pulumi.get(self, "resource_name")
 
     @resource_name.setter
-    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -141,13 +141,13 @@ class ProvisionedCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: pulumi.Input[Optional[Union['ProvisionedClustersExtendedLocationArgs', 'ProvisionedClustersExtendedLocationArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ProvisionedClustersAllPropertiesArgs', 'ProvisionedClustersAllPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ProvisionedClustersExtendedLocationArgs', 'ProvisionedClustersExtendedLocationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ProvisionedClustersAllPropertiesArgs', 'ProvisionedClustersAllPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The provisionedClusters resource definition.
@@ -191,13 +191,13 @@ class ProvisionedCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: pulumi.Input[Optional[Union['ProvisionedClustersExtendedLocationArgs', 'ProvisionedClustersExtendedLocationArgsDict']]] = None,
-                 identity: pulumi.Input[Optional[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['ProvisionedClustersAllPropertiesArgs', 'ProvisionedClustersAllPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ProvisionedClustersExtendedLocationArgs', 'ProvisionedClustersExtendedLocationArgsDict']]] = None,
+                 identity: Optional[pulumi.Input[Union['ProvisionedClusterIdentityArgs', 'ProvisionedClusterIdentityArgsDict']]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['ProvisionedClustersAllPropertiesArgs', 'ProvisionedClustersAllPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

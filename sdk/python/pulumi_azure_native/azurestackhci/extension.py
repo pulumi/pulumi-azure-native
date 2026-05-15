@@ -23,15 +23,15 @@ class ExtensionArgs:
                  arc_setting_name: pulumi.Input[_builtins.str],
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
-                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
+                 extension_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
                  protected_settings: Optional[Any] = None,
-                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
                  settings: Optional[Any] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None,
-                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None):
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
 
@@ -108,50 +108,50 @@ class ExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="autoUpgradeMinorVersion")
-    def auto_upgrade_minor_version(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def auto_upgrade_minor_version(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         """
         return pulumi.get(self, "auto_upgrade_minor_version")
 
     @auto_upgrade_minor_version.setter
-    def auto_upgrade_minor_version(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def auto_upgrade_minor_version(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "auto_upgrade_minor_version", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUpgrade")
-    def enable_automatic_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def enable_automatic_upgrade(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Indicates whether the extension should be automatically upgraded by the platform if there is a newer version available.
         """
         return pulumi.get(self, "enable_automatic_upgrade")
 
     @enable_automatic_upgrade.setter
-    def enable_automatic_upgrade(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def enable_automatic_upgrade(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "enable_automatic_upgrade", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionName")
-    def extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def extension_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the machine extension.
         """
         return pulumi.get(self, "extension_name")
 
     @extension_name.setter
-    def extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def extension_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="forceUpdateTag")
-    def force_update_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def force_update_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         How the extension handler should be forced to update even if the extension configuration has not changed.
         """
         return pulumi.get(self, "force_update_tag")
 
     @force_update_tag.setter
-    def force_update_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def force_update_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "force_update_tag", value)
 
     @_builtins.property
@@ -168,14 +168,14 @@ class ExtensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def publisher(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def publisher(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the extension handler publisher.
         """
         return pulumi.get(self, "publisher")
 
     @publisher.setter
-    def publisher(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def publisher(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "publisher", value)
 
     @_builtins.property
@@ -192,26 +192,26 @@ class ExtensionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Specifies the type of the extension; an example is "CustomScriptExtension".
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
     @pulumi.getter(name="typeHandlerVersion")
-    def type_handler_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def type_handler_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Specifies the version of the script handler. Latest version would be used if not specified.
         """
         return pulumi.get(self, "type_handler_version")
 
     @type_handler_version.setter
-    def type_handler_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def type_handler_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type_handler_version", value)
 
 
@@ -221,18 +221,18 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
-                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
+                 extension_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
                  protected_settings: Optional[Any] = None,
-                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  settings: Optional[Any] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None,
-                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Details of a particular extension in HCI Cluster.
@@ -286,18 +286,18 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 arc_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
-                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_upgrade_minor_version: Optional[pulumi.Input[_builtins.bool]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 enable_automatic_upgrade: Optional[pulumi.Input[_builtins.bool]] = None,
+                 extension_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 force_update_tag: Optional[pulumi.Input[_builtins.str]] = None,
                  protected_settings: Optional[Any] = None,
-                 publisher: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 publisher: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  settings: Optional[Any] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None,
-                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
+                 type_handler_version: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

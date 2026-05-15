@@ -127,19 +127,19 @@ export interface AzureLargeStorageInstanceArgs {
     /**
      * Name of the AzureLargeStorageInstance.
      */
-    azureLargeStorageInstanceName?: pulumi.Input<string | undefined>;
+    azureLargeStorageInstanceName?: pulumi.Input<string>;
     /**
      * Specifies the AzureLargeStorageInstance unique ID.
      */
-    azureLargeStorageInstanceUniqueIdentifier?: pulumi.Input<string | undefined>;
+    azureLargeStorageInstanceUniqueIdentifier?: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.azurelargeinstance.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.azurelargeinstance.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -147,9 +147,9 @@ export interface AzureLargeStorageInstanceArgs {
     /**
      * Specifies the storage properties for the AzureLargeStorage instance.
      */
-    storageProperties?: pulumi.Input<inputs.azurelargeinstance.StoragePropertiesArgs | undefined>;
+    storageProperties?: pulumi.Input<inputs.azurelargeinstance.StoragePropertiesArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

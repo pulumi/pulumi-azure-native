@@ -91,10 +91,10 @@ def list_issue_resources(azure_monitor_workspace_name: Optional[_builtins.str] =
     return AwaitableListIssueResourcesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_issue_resources_output(azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                issue_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_issue_resources_output(azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                issue_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIssueResourcesResult]:
     """
     List all resources in the issue - this method uses pagination to return all resources

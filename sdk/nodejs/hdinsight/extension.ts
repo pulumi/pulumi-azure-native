@@ -98,11 +98,11 @@ export interface ExtensionArgs {
     /**
      * The name of the cluster extension.
      */
-    extensionName?: pulumi.Input<string | undefined>;
+    extensionName?: pulumi.Input<string>;
     /**
      * The certificate for the cluster monitoring extensions.
      */
-    primaryKey?: pulumi.Input<string | undefined>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -110,5 +110,5 @@ export interface ExtensionArgs {
     /**
      * The workspace ID for the cluster monitoring extension.
      */
-    workspaceId?: pulumi.Input<string | undefined>;
+    workspaceId?: pulumi.Input<string>;
 }

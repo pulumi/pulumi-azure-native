@@ -169,10 +169,10 @@ def get_managed_cluster_service(application_name: Optional[_builtins.str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_cluster_service_output(application_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_managed_cluster_service_output(application_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterServiceResult]:
     """
     Get a Service Fabric service resource created or in the process of being created in the Service Fabric managed application resource.

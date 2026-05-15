@@ -166,9 +166,9 @@ def get_file_service_properties(account_name: Optional[_builtins.str] = None,
         share_delete_retention_policy=pulumi.get(__ret__, 'share_delete_retention_policy'),
         sku=pulumi.get(__ret__, 'sku'),
         type=pulumi.get(__ret__, 'type'))
-def get_file_service_properties_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       file_services_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_file_service_properties_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       file_services_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileServicePropertiesResult]:
     """
     Gets the properties of file services in storage accounts, including CORS (Cross-Origin Resource Sharing) rules.

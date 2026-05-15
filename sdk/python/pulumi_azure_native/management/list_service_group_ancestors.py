@@ -80,7 +80,7 @@ def list_service_group_ancestors(service_group_name: Optional[_builtins.str] = N
     return AwaitableListServiceGroupAncestorsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_service_group_ancestors_output(service_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_service_group_ancestors_output(service_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServiceGroupAncestorsResult]:
     """
     Get the details of the serviceGroup's ancestors

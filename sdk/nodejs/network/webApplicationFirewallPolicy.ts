@@ -124,7 +124,7 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
             resourceInputs["location"] = args?.location;
             resourceInputs["managedRules"] = args?.managedRules;
             resourceInputs["policyName"] = args?.policyName;
-            resourceInputs["policySettings"] = args ? pulumi.output(args.policySettings).apply(v => v === undefined ? undefined : inputs.network.policySettingsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["policySettings"] = args ? (args.policySettings ? pulumi.output(args.policySettings).apply(inputs.network.policySettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationGatewayForContainers"] = undefined /*out*/;
@@ -168,15 +168,15 @@ export interface WebApplicationFirewallPolicyArgs {
     /**
      * The custom rules inside the policy.
      */
-    customRules?: pulumi.Input<pulumi.Input<inputs.network.WebApplicationFirewallCustomRuleArgs>[] | undefined>;
+    customRules?: pulumi.Input<pulumi.Input<inputs.network.WebApplicationFirewallCustomRuleArgs>[]>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Describes the managedRules structure.
      */
@@ -184,11 +184,11 @@ export interface WebApplicationFirewallPolicyArgs {
     /**
      * The name of the policy.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string>;
     /**
      * The PolicySettings for policy.
      */
-    policySettings?: pulumi.Input<inputs.network.PolicySettingsArgs | undefined>;
+    policySettings?: pulumi.Input<inputs.network.PolicySettingsArgs>;
     /**
      * The name of the resource group.
      */
@@ -196,5 +196,5 @@ export interface WebApplicationFirewallPolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

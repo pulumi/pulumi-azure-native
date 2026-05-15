@@ -143,7 +143,7 @@ export interface GetWorkbookOutputArgs {
     /**
      * Flag indicating whether or not to return the full content for each applicable workbook. If false, only return summary content for workbooks.
      */
-    canFetchContent?: pulumi.Input<boolean | undefined>;
+    canFetchContent?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

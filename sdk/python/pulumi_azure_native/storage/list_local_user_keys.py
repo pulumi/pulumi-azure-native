@@ -88,9 +88,9 @@ def list_local_user_keys(account_name: Optional[_builtins.str] = None,
     return AwaitableListLocalUserKeysResult(
         shared_key=pulumi.get(__ret__, 'shared_key'),
         ssh_authorized_keys=pulumi.get(__ret__, 'ssh_authorized_keys'))
-def list_local_user_keys_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                username: pulumi.Input[Optional[_builtins.str]] = None,
+def list_local_user_keys_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                username: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLocalUserKeysResult]:
     """
     List SSH authorized keys and shared key of the local user.

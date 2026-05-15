@@ -166,7 +166,7 @@ export class SensitivityLabel extends pulumi.CustomResource {
  * The set of arguments for constructing a SensitivityLabel resource.
  */
 export interface SensitivityLabelArgs {
-    clientClassificationSource?: pulumi.Input<string | enums.sql.ClientClassificationSource | undefined>;
+    clientClassificationSource?: pulumi.Input<string | enums.sql.ClientClassificationSource>;
     /**
      * The name of the column.
      */
@@ -178,20 +178,20 @@ export interface SensitivityLabelArgs {
     /**
      * The information type.
      */
-    informationType?: pulumi.Input<string | undefined>;
+    informationType?: pulumi.Input<string>;
     /**
      * The information type ID.
      */
-    informationTypeId?: pulumi.Input<string | undefined>;
+    informationTypeId?: pulumi.Input<string>;
     /**
      * The label ID.
      */
-    labelId?: pulumi.Input<string | undefined>;
+    labelId?: pulumi.Input<string>;
     /**
      * The label name.
      */
-    labelName?: pulumi.Input<string | undefined>;
-    rank?: pulumi.Input<enums.sql.SensitivityLabelRank | undefined>;
+    labelName?: pulumi.Input<string>;
+    rank?: pulumi.Input<enums.sql.SensitivityLabelRank>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -203,7 +203,7 @@ export interface SensitivityLabelArgs {
     /**
      * The source of the sensitivity label.
      */
-    sensitivityLabelSource?: pulumi.Input<string | undefined>;
+    sensitivityLabelSource?: pulumi.Input<string>;
     /**
      * The name of the server.
      */

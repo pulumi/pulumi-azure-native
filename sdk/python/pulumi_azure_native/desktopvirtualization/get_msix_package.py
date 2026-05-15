@@ -270,9 +270,9 @@ def get_msix_package(host_pool_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_msix_package_output(host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            msix_package_full_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_msix_package_output(host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                            msix_package_full_name: Optional[pulumi.Input[_builtins.str]] = None,
+                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMSIXPackageResult]:
     """
     Get a msixpackage.

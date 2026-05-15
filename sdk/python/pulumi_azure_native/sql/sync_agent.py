@@ -21,8 +21,8 @@ class SyncAgentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 sync_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sync_database_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 sync_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sync_database_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SyncAgent resource.
 
@@ -64,26 +64,26 @@ class SyncAgentArgs:
 
     @_builtins.property
     @pulumi.getter(name="syncAgentName")
-    def sync_agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def sync_agent_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the sync agent.
         """
         return pulumi.get(self, "sync_agent_name")
 
     @sync_agent_name.setter
-    def sync_agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def sync_agent_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "sync_agent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="syncDatabaseId")
-    def sync_database_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def sync_database_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         ARM resource id of the sync database in the sync agent.
         """
         return pulumi.get(self, "sync_database_id")
 
     @sync_database_id.setter
-    def sync_database_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def sync_database_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "sync_database_id", value)
 
 
@@ -93,10 +93,10 @@ class SyncAgent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sync_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sync_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sync_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sync_database_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         An Azure SQL Database sync agent.
@@ -142,10 +142,10 @@ class SyncAgent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sync_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sync_database_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sync_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 sync_database_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

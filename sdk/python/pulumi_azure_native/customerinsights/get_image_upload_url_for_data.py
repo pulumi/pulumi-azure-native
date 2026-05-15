@@ -104,11 +104,11 @@ def get_image_upload_url_for_data(entity_type: Optional[_builtins.str] = None,
         content_url=pulumi.get(__ret__, 'content_url'),
         image_exists=pulumi.get(__ret__, 'image_exists'),
         relative_path=pulumi.get(__ret__, 'relative_path'))
-def get_image_upload_url_for_data_output(entity_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                         entity_type_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                         hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         relative_path: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_image_upload_url_for_data_output(entity_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                         entity_type_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                         hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         relative_path: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageUploadUrlForDataResult]:
     """
     Gets data image upload URL.

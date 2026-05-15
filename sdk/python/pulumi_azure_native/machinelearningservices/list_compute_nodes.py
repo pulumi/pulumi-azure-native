@@ -88,9 +88,9 @@ def list_compute_nodes(compute_name: Optional[_builtins.str] = None,
     return AwaitableListComputeNodesResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         nodes=pulumi.get(__ret__, 'nodes'))
-def list_compute_nodes_output(compute_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_compute_nodes_output(compute_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListComputeNodesResult]:
     """
     Get the details (e.g IP address, port etc) of all the compute nodes in the compute.

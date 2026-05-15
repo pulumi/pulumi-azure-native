@@ -23,10 +23,10 @@ class KubernetesClusterFeatureArgs:
     def __init__(__self__, *,
                  kubernetes_cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Sequence[pulumi.Input['StringKeyValuePairArgs']]]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 feature_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input['StringKeyValuePairArgs']]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KubernetesClusterFeature resource.
 
@@ -74,50 +74,50 @@ class KubernetesClusterFeatureArgs:
 
     @_builtins.property
     @pulumi.getter(name="featureName")
-    def feature_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def feature_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the feature.
         """
         return pulumi.get(self, "feature_name")
 
     @feature_name.setter
-    def feature_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def feature_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "feature_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['StringKeyValuePairArgs']]]]:
+    def options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['StringKeyValuePairArgs']]]]:
         """
         The configured options for the feature.
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['StringKeyValuePairArgs']]]]):
+    def options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['StringKeyValuePairArgs']]]]):
         pulumi.set(self, "options", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,12 +127,12 @@ class KubernetesClusterFeature(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kubernetes_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StringKeyValuePairArgs', 'StringKeyValuePairArgsDict']]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 feature_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kubernetes_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StringKeyValuePairArgs', 'StringKeyValuePairArgsDict']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
@@ -176,12 +176,12 @@ class KubernetesClusterFeature(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kubernetes_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StringKeyValuePairArgs', 'StringKeyValuePairArgsDict']]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 feature_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kubernetes_cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 options: Optional[pulumi.Input[Sequence[pulumi.Input[Union['StringKeyValuePairArgs', 'StringKeyValuePairArgsDict']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

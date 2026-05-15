@@ -22,8 +22,8 @@ class RegistrationArgs:
     def __init__(__self__, *,
                  registration_token: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
-                 location: pulumi.Input[Optional[Union[_builtins.str, 'Location']]] = None,
-                 registration_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 location: Optional[pulumi.Input[Union[_builtins.str, 'Location']]] = None,
+                 registration_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Registration resource.
 
@@ -65,26 +65,26 @@ class RegistrationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Location']]]:
+    def location(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Location']]]:
         """
         Location of the resource.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Location']]]):
+    def location(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Location']]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationName")
-    def registration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def registration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the Azure Stack registration.
         """
         return pulumi.get(self, "registration_name")
 
     @registration_name.setter
-    def registration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def registration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "registration_name", value)
 
 
@@ -94,10 +94,10 @@ class Registration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: pulumi.Input[Optional[Union[_builtins.str, 'Location']]] = None,
-                 registration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 registration_token: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[Union[_builtins.str, 'Location']]] = None,
+                 registration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 registration_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Registration information.
@@ -143,10 +143,10 @@ class Registration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: pulumi.Input[Optional[Union[_builtins.str, 'Location']]] = None,
-                 registration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 registration_token: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[Union[_builtins.str, 'Location']]] = None,
+                 registration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 registration_token: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

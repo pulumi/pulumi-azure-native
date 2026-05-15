@@ -133,11 +133,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      *  List of resources private endpoint is mapped
      */
-    groupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    groupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the Private Endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Private Link Service Connection State.
      */

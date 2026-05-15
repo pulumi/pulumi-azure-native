@@ -128,7 +128,7 @@ def list_provisioned_cluster_instance_user_kubeconfig(connected_cluster_resource
         properties=pulumi.get(__ret__, 'properties'),
         resource_id=pulumi.get(__ret__, 'resource_id'),
         status=pulumi.get(__ret__, 'status'))
-def list_provisioned_cluster_instance_user_kubeconfig_output(connected_cluster_resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+def list_provisioned_cluster_instance_user_kubeconfig_output(connected_cluster_resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListProvisionedClusterInstanceUserKubeconfigResult]:
     """
     Lists the user credentials of the provisioned cluster (can only be used within private network)

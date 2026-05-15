@@ -118,15 +118,15 @@ export interface NspProfileArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the profile resource that is unique within a perimeter. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the network security perimeter.
      */
@@ -134,7 +134,7 @@ export interface NspProfileArgs {
     /**
      * The name of the NSP profile.
      */
-    profileName?: pulumi.Input<string | undefined>;
+    profileName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -142,5 +142,5 @@ export interface NspProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

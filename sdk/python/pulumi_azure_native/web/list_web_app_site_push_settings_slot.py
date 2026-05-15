@@ -168,9 +168,9 @@ def list_web_app_site_push_settings_slot(name: Optional[_builtins.str] = None,
         tag_whitelist_json=pulumi.get(__ret__, 'tag_whitelist_json'),
         tags_requiring_auth=pulumi.get(__ret__, 'tags_requiring_auth'),
         type=pulumi.get(__ret__, 'type'))
-def list_web_app_site_push_settings_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                slot: pulumi.Input[Optional[_builtins.str]] = None,
+def list_web_app_site_push_settings_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                slot: Optional[pulumi.Input[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppSitePushSettingsSlotResult]:
     """
     Description for Gets the Push settings associated with web app.

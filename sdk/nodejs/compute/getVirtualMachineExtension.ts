@@ -145,7 +145,7 @@ export interface GetVirtualMachineExtensionOutputArgs {
     /**
      * The expand expression to apply on the operation.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

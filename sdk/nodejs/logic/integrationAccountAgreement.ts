@@ -180,7 +180,7 @@ export interface IntegrationAccountAgreementArgs {
     /**
      * The integration account agreement name.
      */
-    agreementName?: pulumi.Input<string | undefined>;
+    agreementName?: pulumi.Input<string>;
     /**
      * The agreement type.
      */
@@ -212,11 +212,11 @@ export interface IntegrationAccountAgreementArgs {
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The metadata.
      */
-    metadata?: any | undefined;
+    metadata?: any;
     /**
      * The resource group name.
      */
@@ -224,5 +224,5 @@ export interface IntegrationAccountAgreementArgs {
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

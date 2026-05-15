@@ -168,7 +168,7 @@ export interface ConfigurationArgs {
     /**
      * Name of the configuration (also known as server parameter).
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -180,9 +180,9 @@ export interface ConfigurationArgs {
     /**
      * Source of the value assigned to the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
      */
-    source?: pulumi.Input<string | undefined>;
+    source?: pulumi.Input<string>;
     /**
      * Value of the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
      */
-    value?: pulumi.Input<string | undefined>;
+    value?: pulumi.Input<string>;
 }

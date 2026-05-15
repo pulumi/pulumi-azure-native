@@ -166,7 +166,7 @@ export class DiscoveredAsset extends pulumi.CustomResource {
             resourceInputs["datasets"] = args?.datasets;
             resourceInputs["defaultDatasetsConfiguration"] = args?.defaultDatasetsConfiguration;
             resourceInputs["defaultEventsConfiguration"] = args?.defaultEventsConfiguration;
-            resourceInputs["defaultTopic"] = args ? pulumi.output(args.defaultTopic).apply(v => v === undefined ? undefined : inputs.deviceregistry.topicArgsProvideDefaults(v)) : undefined;
+            resourceInputs["defaultTopic"] = args ? (args.defaultTopic ? pulumi.output(args.defaultTopic).apply(inputs.deviceregistry.topicArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["discoveredAssetName"] = args?.discoveredAssetName;
             resourceInputs["discoveryId"] = args?.discoveryId;
             resourceInputs["documentationUri"] = args?.documentationUri;
@@ -232,23 +232,23 @@ export interface DiscoveredAssetArgs {
     /**
      * Array of datasets that are part of the asset. Each dataset spec describes the data points that make up the set.
      */
-    datasets?: pulumi.Input<pulumi.Input<inputs.deviceregistry.DiscoveredDatasetArgs>[] | undefined>;
+    datasets?: pulumi.Input<pulumi.Input<inputs.deviceregistry.DiscoveredDatasetArgs>[]>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
      */
-    defaultDatasetsConfiguration?: pulumi.Input<string | undefined>;
+    defaultDatasetsConfiguration?: pulumi.Input<string>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
      */
-    defaultEventsConfiguration?: pulumi.Input<string | undefined>;
+    defaultEventsConfiguration?: pulumi.Input<string>;
     /**
      * Object that describes the default topic information for the asset.
      */
-    defaultTopic?: pulumi.Input<inputs.deviceregistry.TopicArgs | undefined>;
+    defaultTopic?: pulumi.Input<inputs.deviceregistry.TopicArgs>;
     /**
      * Discovered Asset name parameter.
      */
-    discoveredAssetName?: pulumi.Input<string | undefined>;
+    discoveredAssetName?: pulumi.Input<string>;
     /**
      * Identifier used to detect changes in the asset.
      */
@@ -256,11 +256,11 @@ export interface DiscoveredAssetArgs {
     /**
      * Reference to the documentation.
      */
-    documentationUri?: pulumi.Input<string | undefined>;
+    documentationUri?: pulumi.Input<string>;
     /**
      * Array of events that are part of the asset. Each event can have per-event configuration.
      */
-    events?: pulumi.Input<pulumi.Input<inputs.deviceregistry.DiscoveredEventArgs>[] | undefined>;
+    events?: pulumi.Input<pulumi.Input<inputs.deviceregistry.DiscoveredEventArgs>[]>;
     /**
      * The extended location.
      */
@@ -268,27 +268,27 @@ export interface DiscoveredAssetArgs {
     /**
      * Revision number of the hardware.
      */
-    hardwareRevision?: pulumi.Input<string | undefined>;
+    hardwareRevision?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Asset manufacturer name.
      */
-    manufacturer?: pulumi.Input<string | undefined>;
+    manufacturer?: pulumi.Input<string>;
     /**
      * Asset manufacturer URI.
      */
-    manufacturerUri?: pulumi.Input<string | undefined>;
+    manufacturerUri?: pulumi.Input<string>;
     /**
      * Asset model name.
      */
-    model?: pulumi.Input<string | undefined>;
+    model?: pulumi.Input<string>;
     /**
      * Asset product code.
      */
-    productCode?: pulumi.Input<string | undefined>;
+    productCode?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -296,15 +296,15 @@ export interface DiscoveredAssetArgs {
     /**
      * Asset serial number.
      */
-    serialNumber?: pulumi.Input<string | undefined>;
+    serialNumber?: pulumi.Input<string>;
     /**
      * Revision number of the software.
      */
-    softwareRevision?: pulumi.Input<string | undefined>;
+    softwareRevision?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An integer that is incremented each time the resource is modified.
      */

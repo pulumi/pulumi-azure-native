@@ -166,9 +166,9 @@ def get_isp_cache_nodes_operation(cache_node_resource_name: Optional[_builtins.s
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_isp_cache_nodes_operation_output(cache_node_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         customer_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_isp_cache_nodes_operation_output(cache_node_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         customer_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIspCacheNodesOperationResult]:
     """
     This api gets ispCacheNode resource information

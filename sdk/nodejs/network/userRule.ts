@@ -184,15 +184,15 @@ export interface UserRuleArgs {
     /**
      * A description for this rule.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The destination port ranges.
      */
-    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    destinationPortRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The destination address prefixes. CIDR or destination IP ranges.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItemArgs>[] | undefined>;
+    destinations?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItemArgs>[]>;
     /**
      * Indicates if the traffic matched against the rule in inbound or outbound.
      */
@@ -221,13 +221,13 @@ export interface UserRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName?: pulumi.Input<string>;
     /**
      * The source port ranges.
      */
-    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    sourcePortRanges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The CIDR or source IP ranges.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItemArgs>[] | undefined>;
+    sources?: pulumi.Input<pulumi.Input<inputs.network.AddressPrefixItemArgs>[]>;
 }

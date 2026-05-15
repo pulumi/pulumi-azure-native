@@ -143,10 +143,10 @@ def get_gateway_custom_domain(domain_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_gateway_custom_domain_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_gateway_custom_domain_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayCustomDomainResult]:
     """
     Get the Spring Cloud Gateway custom domain.

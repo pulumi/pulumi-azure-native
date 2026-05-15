@@ -131,15 +131,15 @@ export interface BackupVaultArgs {
     /**
      * Optional ETag.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Input Managed Identity Details
      */
-    identity?: pulumi.Input<inputs.dataprotection.DppIdentityDetailsArgs | undefined>;
+    identity?: pulumi.Input<inputs.dataprotection.DppIdentityDetailsArgs>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * BackupVaultResource properties
      */
@@ -151,9 +151,9 @@ export interface BackupVaultArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the backup vault.
      */
-    vaultName?: pulumi.Input<string | undefined>;
+    vaultName?: pulumi.Input<string>;
 }

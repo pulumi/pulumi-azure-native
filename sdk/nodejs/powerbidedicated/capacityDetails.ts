@@ -153,19 +153,19 @@ export interface CapacityDetailsArgs {
     /**
      * A collection of Dedicated capacity administrators
      */
-    administration?: pulumi.Input<inputs.powerbidedicated.DedicatedCapacityAdministratorsArgs | undefined>;
+    administration?: pulumi.Input<inputs.powerbidedicated.DedicatedCapacityAdministratorsArgs>;
     /**
      * The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
      */
-    dedicatedCapacityName?: pulumi.Input<string | undefined>;
+    dedicatedCapacityName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
      */
-    mode?: pulumi.Input<string | enums.powerbidedicated.Mode | undefined>;
+    mode?: pulumi.Input<string | enums.powerbidedicated.Mode>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -177,5 +177,5 @@ export interface CapacityDetailsArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

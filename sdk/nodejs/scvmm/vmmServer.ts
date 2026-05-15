@@ -170,7 +170,7 @@ export interface VmmServerArgs {
     /**
      * Credentials to connect to VMMServer.
      */
-    credentials?: pulumi.Input<inputs.scvmm.VMMServerPropertiesCredentialsArgs | undefined>;
+    credentials?: pulumi.Input<inputs.scvmm.VMMServerPropertiesCredentialsArgs>;
     /**
      * The extended location.
      */
@@ -182,11 +182,11 @@ export interface VmmServerArgs {
     /**
      * Gets or sets the location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Port is the port on which the vmmServer is listening.
      */
-    port?: pulumi.Input<number | undefined>;
+    port?: pulumi.Input<number>;
     /**
      * The name of the resource group.
      */
@@ -194,9 +194,9 @@ export interface VmmServerArgs {
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the VMMServer.
      */
-    vmmServerName?: pulumi.Input<string | undefined>;
+    vmmServerName?: pulumi.Input<string>;
 }

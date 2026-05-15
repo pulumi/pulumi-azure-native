@@ -188,51 +188,51 @@ export interface VirtualHardDiskArgs {
     /**
      * Block size in bytes
      */
-    blockSizeBytes?: pulumi.Input<number | undefined>;
+    blockSizeBytes?: pulumi.Input<number>;
     /**
      * Storage ContainerID of the storage container to be used for VHD
      */
-    containerId?: pulumi.Input<string | undefined>;
+    containerId?: pulumi.Input<string>;
     /**
      * Boolean indicating whether it is an existing local hard disk or if one should be created.
      */
-    createFromLocal?: pulumi.Input<boolean | undefined>;
+    createFromLocal?: pulumi.Input<boolean>;
     /**
      * The format of the actual VHD file [vhd, vhdx]
      */
-    diskFileFormat?: pulumi.Input<string | enums.azurestackhci.DiskFileFormat | undefined>;
+    diskFileFormat?: pulumi.Input<string | enums.azurestackhci.DiskFileFormat>;
     /**
      * Size of the disk in GB
      */
-    diskSizeGB?: pulumi.Input<number | undefined>;
+    diskSizeGB?: pulumi.Input<number>;
     /**
      * URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
      */
-    downloadUrl?: pulumi.Input<string | undefined>;
+    downloadUrl?: pulumi.Input<string>;
     /**
      * Boolean for enabling dynamic sizing on the virtual hard disk
      */
-    dynamic?: pulumi.Input<boolean | undefined>;
+    dynamic?: pulumi.Input<boolean>;
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
     /**
      * The hypervisor generation of the Virtual Machine [V1, V2]
      */
-    hyperVGeneration?: pulumi.Input<string | enums.azurestackhci.HyperVGeneration | undefined>;
+    hyperVGeneration?: pulumi.Input<string | enums.azurestackhci.HyperVGeneration>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Logical sector in bytes
      */
-    logicalSectorBytes?: pulumi.Input<number | undefined>;
+    logicalSectorBytes?: pulumi.Input<number>;
     /**
      * Physical sector in bytes
      */
-    physicalSectorBytes?: pulumi.Input<number | undefined>;
+    physicalSectorBytes?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -240,9 +240,9 @@ export interface VirtualHardDiskArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the virtual hard disk
      */
-    virtualHardDiskName?: pulumi.Input<string | undefined>;
+    virtualHardDiskName?: pulumi.Input<string>;
 }

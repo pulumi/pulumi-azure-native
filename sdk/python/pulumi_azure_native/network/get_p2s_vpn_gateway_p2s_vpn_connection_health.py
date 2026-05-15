@@ -241,8 +241,8 @@ def get_p2s_vpn_gateway_p2s_vpn_connection_health(gateway_name: Optional[_builti
         vpn_client_connection_health=pulumi.get(__ret__, 'vpn_client_connection_health'),
         vpn_gateway_scale_unit=pulumi.get(__ret__, 'vpn_gateway_scale_unit'),
         vpn_server_configuration=pulumi.get(__ret__, 'vpn_server_configuration'))
-def get_p2s_vpn_gateway_p2s_vpn_connection_health_output(gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_p2s_vpn_gateway_p2s_vpn_connection_health_output(gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetP2sVpnGatewayP2sVpnConnectionHealthResult]:
     """
     Gets the connection health of P2S clients of the virtual wan P2SVpnGateway in the specified resource group.

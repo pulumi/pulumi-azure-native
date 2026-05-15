@@ -23,10 +23,10 @@ class WebAppSitePushSettingsSlotArgs:
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
-                 dynamic_tags_json: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_whitelist_json: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags_requiring_auth: pulumi.Input[Optional[_builtins.str]] = None):
+                 dynamic_tags_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_whitelist_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags_requiring_auth: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppSitePushSettingsSlot resource.
 
@@ -105,43 +105,43 @@ class WebAppSitePushSettingsSlotArgs:
 
     @_builtins.property
     @pulumi.getter(name="dynamicTagsJson")
-    def dynamic_tags_json(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def dynamic_tags_json(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
         """
         return pulumi.get(self, "dynamic_tags_json")
 
     @dynamic_tags_json.setter
-    def dynamic_tags_json(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def dynamic_tags_json(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dynamic_tags_json", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def kind(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Kind of resource.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def kind(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter(name="tagWhitelistJson")
-    def tag_whitelist_json(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def tag_whitelist_json(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
         """
         return pulumi.get(self, "tag_whitelist_json")
 
     @tag_whitelist_json.setter
-    def tag_whitelist_json(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def tag_whitelist_json(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tag_whitelist_json", value)
 
     @_builtins.property
     @pulumi.getter(name="tagsRequiringAuth")
-    def tags_requiring_auth(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def tags_requiring_auth(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
         Tags can consist of alphanumeric characters and the following:
@@ -151,7 +151,7 @@ class WebAppSitePushSettingsSlotArgs:
         return pulumi.get(self, "tags_requiring_auth")
 
     @tags_requiring_auth.setter
-    def tags_requiring_auth(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def tags_requiring_auth(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "tags_requiring_auth", value)
 
 
@@ -161,14 +161,14 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dynamic_tags_json: pulumi.Input[Optional[_builtins.str]] = None,
-                 is_push_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 slot: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_whitelist_json: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags_requiring_auth: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_tags_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_push_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 slot: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_whitelist_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags_requiring_auth: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Push settings for the App.
@@ -221,14 +221,14 @@ class WebAppSitePushSettingsSlot(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dynamic_tags_json: pulumi.Input[Optional[_builtins.str]] = None,
-                 is_push_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 slot: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_whitelist_json: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags_requiring_auth: pulumi.Input[Optional[_builtins.str]] = None,
+                 dynamic_tags_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 is_push_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 slot: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_whitelist_json: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags_requiring_auth: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -124,11 +124,11 @@ export interface ServiceEndpointArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * ServiceEndpoint resource properties.
      */
-    properties?: pulumi.Input<inputs.recommendationsservice.ServiceEndpointResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.recommendationsservice.ServiceEndpointResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,9 +136,9 @@ export interface ServiceEndpointArgs {
     /**
      * The name of the ServiceEndpoint resource.
      */
-    serviceEndpointName?: pulumi.Input<string | undefined>;
+    serviceEndpointName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

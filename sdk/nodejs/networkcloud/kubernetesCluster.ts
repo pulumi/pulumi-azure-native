@@ -178,7 +178,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
             resourceInputs["kubernetesVersion"] = args?.kubernetesVersion;
             resourceInputs["location"] = args?.location;
             resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
-            resourceInputs["networkConfiguration"] = args ? pulumi.output(args.networkConfiguration).apply(inputs.networkcloud.networkConfigurationArgsProvideDefaults) : undefined;
+            resourceInputs["networkConfiguration"] = args ? (args.networkConfiguration ? pulumi.output(args.networkConfiguration).apply(inputs.networkcloud.networkConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["attachedNetworkIds"] = undefined /*out*/;
@@ -237,11 +237,11 @@ export interface KubernetesClusterArgs {
     /**
      * The Azure Active Directory Integration properties.
      */
-    aadConfiguration?: pulumi.Input<inputs.networkcloud.AadConfigurationArgs | undefined>;
+    aadConfiguration?: pulumi.Input<inputs.networkcloud.AadConfigurationArgs>;
     /**
      * The administrative credentials that will be applied to the control plane and agent pool nodes that do not specify their own values.
      */
-    administratorConfiguration?: pulumi.Input<inputs.networkcloud.AdministratorConfigurationArgs | undefined>;
+    administratorConfiguration?: pulumi.Input<inputs.networkcloud.AdministratorConfigurationArgs>;
     /**
      * The defining characteristics of the control plane for this Kubernetes Cluster.
      */
@@ -257,7 +257,7 @@ export interface KubernetesClusterArgs {
     /**
      * The name of the Kubernetes cluster.
      */
-    kubernetesClusterName?: pulumi.Input<string | undefined>;
+    kubernetesClusterName?: pulumi.Input<string>;
     /**
      * The Kubernetes version for this cluster.
      */
@@ -265,11 +265,11 @@ export interface KubernetesClusterArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The configuration of the managed resource group associated with the resource.
      */
-    managedResourceGroupConfiguration?: pulumi.Input<inputs.networkcloud.ManagedResourceGroupConfigurationArgs | undefined>;
+    managedResourceGroupConfiguration?: pulumi.Input<inputs.networkcloud.ManagedResourceGroupConfigurationArgs>;
     /**
      * The configuration of the Kubernetes cluster networking, including the attachment of networks that span the cluster.
      */
@@ -281,5 +281,5 @@ export interface KubernetesClusterArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

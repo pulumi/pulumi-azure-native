@@ -84,8 +84,8 @@ def list_web_app_sync_function_triggers(name: Optional[_builtins.str] = None,
     return AwaitableListWebAppSyncFunctionTriggersResult(
         key=pulumi.get(__ret__, 'key'),
         trigger_url=pulumi.get(__ret__, 'trigger_url'))
-def list_web_app_sync_function_triggers_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_web_app_sync_function_triggers_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppSyncFunctionTriggersResult]:
     """
     Description for This is to allow calling via powershell and ARM template.

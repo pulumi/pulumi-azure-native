@@ -138,11 +138,11 @@ export interface TestBaseAccountArgs {
     /**
      * The identity of the testBaseAccount.
      */
-    identity?: pulumi.Input<inputs.testbase.SystemAssignedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.testbase.SystemAssignedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -150,7 +150,7 @@ export interface TestBaseAccountArgs {
     /**
      * The flag indicating if we would like to restore the Test Base Accounts which were soft deleted before.
      */
-    restore?: pulumi.Input<boolean | undefined>;
+    restore?: pulumi.Input<boolean>;
     /**
      * The SKU of the Test Base Account.
      */
@@ -158,9 +158,9 @@ export interface TestBaseAccountArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The resource name of the Test Base Account.
      */
-    testBaseAccountName?: pulumi.Input<string | undefined>;
+    testBaseAccountName?: pulumi.Input<string>;
 }

@@ -109,7 +109,7 @@ export interface DataFlowArgs {
     /**
      * The data flow name.
      */
-    dataFlowName?: pulumi.Input<string | undefined>;
+    dataFlowName?: pulumi.Input<string>;
     /**
      * The factory name.
      */

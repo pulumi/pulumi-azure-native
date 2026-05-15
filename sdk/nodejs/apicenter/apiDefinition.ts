@@ -139,11 +139,11 @@ export interface ApiDefinitionArgs {
     /**
      * The name of the API definition.
      */
-    definitionName?: pulumi.Input<string | undefined>;
+    definitionName?: pulumi.Input<string>;
     /**
      * API definition description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

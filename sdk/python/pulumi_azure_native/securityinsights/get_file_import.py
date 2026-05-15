@@ -296,9 +296,9 @@ def get_file_import(file_import_id: Optional[_builtins.str] = None,
         total_record_count=pulumi.get(__ret__, 'total_record_count'),
         type=pulumi.get(__ret__, 'type'),
         valid_record_count=pulumi.get(__ret__, 'valid_record_count'))
-def get_file_import_output(file_import_id: pulumi.Input[Optional[_builtins.str]] = None,
-                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_file_import_output(file_import_id: Optional[pulumi.Input[_builtins.str]] = None,
+                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                           workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFileImportResult]:
     """
     Gets a file import.

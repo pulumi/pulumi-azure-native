@@ -162,23 +162,23 @@ export interface ApplicationArgs {
     /**
      * The identity of the application.
      */
-    applicationResourceName?: pulumi.Input<string | undefined>;
+    applicationResourceName?: pulumi.Input<string>;
     /**
      * Internal - used by Visual Studio to setup the debugging session on the local development environment.
      */
-    debugParams?: pulumi.Input<string | undefined>;
+    debugParams?: pulumi.Input<string>;
     /**
      * User readable description of the application.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Describes the diagnostics definition and usage for an application resource.
      */
-    diagnostics?: pulumi.Input<inputs.servicefabricmesh.DiagnosticsDescriptionArgs | undefined>;
+    diagnostics?: pulumi.Input<inputs.servicefabricmesh.DiagnosticsDescriptionArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource group name
      */
@@ -186,9 +186,9 @@ export interface ApplicationArgs {
     /**
      * Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
      */
-    services?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.ServiceResourceDescriptionArgs>[] | undefined>;
+    services?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.ServiceResourceDescriptionArgs>[]>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

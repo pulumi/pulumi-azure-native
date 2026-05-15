@@ -78,10 +78,10 @@ def get_sql_server_instance_jobs_status(feature_name: Optional[_builtins.str] = 
 
     return AwaitableGetSqlServerInstanceJobsStatusResult(
         jobs_status=pulumi.get(__ret__, 'jobs_status'))
-def get_sql_server_instance_jobs_status_output(feature_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                               job_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               sql_server_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_sql_server_instance_jobs_status_output(feature_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                               job_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               sql_server_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerInstanceJobsStatusResult]:
     """
     Gets jobs status details for sql arc resource

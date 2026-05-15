@@ -119,7 +119,7 @@ export interface GetProximityPlacementGroupOutputArgs {
     /**
      * includeColocationStatus=true enables fetching the colocation status of all the resources in the proximity placement group.
      */
-    includeColocationStatus?: pulumi.Input<string | undefined>;
+    includeColocationStatus?: pulumi.Input<string>;
     /**
      * The name of the proximity placement group.
      */

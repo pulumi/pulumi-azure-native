@@ -23,8 +23,8 @@ class ConsumerGroupArgs:
                  event_hub_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None):
+                 consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConsumerGroup resource.
 
@@ -80,26 +80,26 @@ class ConsumerGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="consumerGroupName")
-    def consumer_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def consumer_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The consumer group name
         """
         return pulumi.get(self, "consumer_group_name")
 
     @consumer_group_name.setter
-    def consumer_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def consumer_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "consumer_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="userMetadata")
-    def user_metadata(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def user_metadata(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         User Metadata is a placeholder to store user-defined string data with maximum length 1024. e.g. it can be used to store descriptive data, such as list of teams and their contact information also user-defined configuration settings can be stored.
         """
         return pulumi.get(self, "user_metadata")
 
     @user_metadata.setter
-    def user_metadata(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def user_metadata(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "user_metadata", value)
 
 
@@ -109,11 +109,11 @@ class ConsumerGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Single item in List or Get Consumer group operation
@@ -160,11 +160,11 @@ class ConsumerGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumer_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_metadata: pulumi.Input[Optional[_builtins.str]] = None,
+                 consumer_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 event_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 user_metadata: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -68,7 +68,7 @@ export interface ListFeatureAccountOutputArgs {
     /**
      * Set of features
      */
-    features?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    features?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

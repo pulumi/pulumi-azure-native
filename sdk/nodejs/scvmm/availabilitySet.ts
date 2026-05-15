@@ -133,15 +133,15 @@ export interface AvailabilitySetArgs {
     /**
      * Name of the availability set.
      */
-    availabilitySetName?: pulumi.Input<string | undefined>;
+    availabilitySetName?: pulumi.Input<string>;
     /**
      * The extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.scvmm.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.scvmm.ExtendedLocationArgs>;
     /**
      * Gets or sets the location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -149,9 +149,9 @@ export interface AvailabilitySetArgs {
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * ARM Id of the vmmServer resource in which this resource resides.
      */
-    vmmServerId?: pulumi.Input<string | undefined>;
+    vmmServerId?: pulumi.Input<string>;
 }

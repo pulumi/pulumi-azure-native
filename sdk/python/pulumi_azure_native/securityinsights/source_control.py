@@ -28,12 +28,12 @@ class SourceControlArgs:
                  repository: pulumi.Input['RepositoryArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 last_deployment_info: pulumi.Input[Optional['DeploymentInfoArgs']] = None,
-                 repository_resource_info: pulumi.Input[Optional['RepositoryResourceInfoArgs']] = None,
-                 source_control_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 version: pulumi.Input[Optional[Union[_builtins.str, 'Version']]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_deployment_info: Optional[pulumi.Input['DeploymentInfoArgs']] = None,
+                 repository_resource_info: Optional[pulumi.Input['RepositoryResourceInfoArgs']] = None,
+                 source_control_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 version: Optional[pulumi.Input[Union[_builtins.str, 'Version']]] = None):
         """
         The set of arguments for constructing a SourceControl resource.
 
@@ -143,74 +143,74 @@ class SourceControlArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         A description of the source control
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The id (a Guid) of the source control
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastDeploymentInfo")
-    def last_deployment_info(self) -> pulumi.Input[Optional['DeploymentInfoArgs']]:
+    def last_deployment_info(self) -> Optional[pulumi.Input['DeploymentInfoArgs']]:
         """
         Information regarding the latest deployment for the source control.
         """
         return pulumi.get(self, "last_deployment_info")
 
     @last_deployment_info.setter
-    def last_deployment_info(self, value: pulumi.Input[Optional['DeploymentInfoArgs']]):
+    def last_deployment_info(self, value: Optional[pulumi.Input['DeploymentInfoArgs']]):
         pulumi.set(self, "last_deployment_info", value)
 
     @_builtins.property
     @pulumi.getter(name="repositoryResourceInfo")
-    def repository_resource_info(self) -> pulumi.Input[Optional['RepositoryResourceInfoArgs']]:
+    def repository_resource_info(self) -> Optional[pulumi.Input['RepositoryResourceInfoArgs']]:
         """
         Information regarding the resources created in user's repository.
         """
         return pulumi.get(self, "repository_resource_info")
 
     @repository_resource_info.setter
-    def repository_resource_info(self, value: pulumi.Input[Optional['RepositoryResourceInfoArgs']]):
+    def repository_resource_info(self, value: Optional[pulumi.Input['RepositoryResourceInfoArgs']]):
         pulumi.set(self, "repository_resource_info", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceControlId")
-    def source_control_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def source_control_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Source control Id
         """
         return pulumi.get(self, "source_control_id")
 
     @source_control_id.setter
-    def source_control_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def source_control_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "source_control_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Version']]]:
+    def version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Version']]]:
         """
         The version number associated with the source control
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Version']]]):
+    def version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Version']]]):
         pulumi.set(self, "version", value)
 
 
@@ -220,18 +220,18 @@ class SourceControl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ContentType']]]]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 last_deployment_info: pulumi.Input[Optional[Union['DeploymentInfoArgs', 'DeploymentInfoArgsDict']]] = None,
-                 repo_type: pulumi.Input[Optional[Union[_builtins.str, 'RepoType']]] = None,
-                 repository: pulumi.Input[Optional[Union['RepositoryArgs', 'RepositoryArgsDict']]] = None,
-                 repository_resource_info: pulumi.Input[Optional[Union['RepositoryResourceInfoArgs', 'RepositoryResourceInfoArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_control_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 version: pulumi.Input[Optional[Union[_builtins.str, 'Version']]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ContentType']]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_deployment_info: Optional[pulumi.Input[Union['DeploymentInfoArgs', 'DeploymentInfoArgsDict']]] = None,
+                 repo_type: Optional[pulumi.Input[Union[_builtins.str, 'RepoType']]] = None,
+                 repository: Optional[pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']]] = None,
+                 repository_resource_info: Optional[pulumi.Input[Union['RepositoryResourceInfoArgs', 'RepositoryResourceInfoArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_control_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 version: Optional[pulumi.Input[Union[_builtins.str, 'Version']]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Represents a SourceControl in Azure Security Insights.
@@ -285,18 +285,18 @@ class SourceControl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ContentType']]]]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 id: pulumi.Input[Optional[_builtins.str]] = None,
-                 last_deployment_info: pulumi.Input[Optional[Union['DeploymentInfoArgs', 'DeploymentInfoArgsDict']]] = None,
-                 repo_type: pulumi.Input[Optional[Union[_builtins.str, 'RepoType']]] = None,
-                 repository: pulumi.Input[Optional[Union['RepositoryArgs', 'RepositoryArgsDict']]] = None,
-                 repository_resource_info: pulumi.Input[Optional[Union['RepositoryResourceInfoArgs', 'RepositoryResourceInfoArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_control_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 version: pulumi.Input[Optional[Union[_builtins.str, 'Version']]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 content_types: Optional[pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ContentType']]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 id: Optional[pulumi.Input[_builtins.str]] = None,
+                 last_deployment_info: Optional[pulumi.Input[Union['DeploymentInfoArgs', 'DeploymentInfoArgsDict']]] = None,
+                 repo_type: Optional[pulumi.Input[Union[_builtins.str, 'RepoType']]] = None,
+                 repository: Optional[pulumi.Input[Union['RepositoryArgs', 'RepositoryArgsDict']]] = None,
+                 repository_resource_info: Optional[pulumi.Input[Union['RepositoryResourceInfoArgs', 'RepositoryResourceInfoArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_control_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 version: Optional[pulumi.Input[Union[_builtins.str, 'Version']]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -70,8 +70,8 @@ def list_bit_locker_key(job_name: Optional[_builtins.str] = None,
 
     return AwaitableListBitLockerKeyResult(
         value=pulumi.get(__ret__, 'value'))
-def list_bit_locker_key_output(job_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_bit_locker_key_output(job_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListBitLockerKeyResult]:
     """
     Returns the BitLocker Keys for all drives in the specified job.

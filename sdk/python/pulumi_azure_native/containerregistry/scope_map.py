@@ -23,8 +23,8 @@ class ScopeMapArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_map_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope_map_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScopeMap resource.
 
@@ -84,26 +84,26 @@ class ScopeMapArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The user friendly description of the scope map.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeMapName")
-    def scope_map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def scope_map_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the scope map.
         """
         return pulumi.get(self, "scope_map_name")
 
     @scope_map_name.setter
-    def scope_map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def scope_map_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "scope_map_name", value)
 
 
@@ -113,11 +113,11 @@ class ScopeMap(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope_map_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         An object that represents a scope map for a container registry.
@@ -166,11 +166,11 @@ class ScopeMap(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_map_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope_map_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

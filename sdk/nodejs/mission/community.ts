@@ -141,7 +141,7 @@ export class Community extends pulumi.CustomResource {
             resourceInputs["governedServiceList"] = args?.governedServiceList;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["maintenanceModeConfiguration"] = args ? pulumi.output(args.maintenanceModeConfiguration).apply(v => v === undefined ? undefined : inputs.mission.maintenanceModeConfigurationModelArgsProvideDefaults(v)) : undefined;
+            resourceInputs["maintenanceModeConfiguration"] = args ? (args.maintenanceModeConfiguration ? pulumi.output(args.maintenanceModeConfiguration).apply(inputs.mission.maintenanceModeConfigurationModelArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["policyOverride"] = args?.policyOverride;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
@@ -188,47 +188,47 @@ export interface CommunityArgs {
     /**
      * Address Space.
      */
-    addressSpace?: pulumi.Input<string | undefined>;
+    addressSpace?: pulumi.Input<string>;
     /**
      * Approval requirements for various actions on the community's resources.
      */
-    approvalSettings?: pulumi.Input<inputs.mission.ApprovalSettingsArgs | undefined>;
+    approvalSettings?: pulumi.Input<inputs.mission.ApprovalSettingsArgs>;
     /**
      * The name of the communityResource Resource
      */
-    communityName?: pulumi.Input<string | undefined>;
+    communityName?: pulumi.Input<string>;
     /**
      * Community role assignments
      */
-    communityRoleAssignments?: pulumi.Input<pulumi.Input<inputs.mission.RoleAssignmentItemArgs>[] | undefined>;
+    communityRoleAssignments?: pulumi.Input<pulumi.Input<inputs.mission.RoleAssignmentItemArgs>[]>;
     /**
      * DNS Servers.
      */
-    dnsServers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    dnsServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * SKU of the community's Azure Firewall (Basic, Standard, Premium). Standard is the default
      */
-    firewallSku?: pulumi.Input<string | enums.mission.FirewallSKU | undefined>;
+    firewallSku?: pulumi.Input<string | enums.mission.FirewallSKU>;
     /**
      * List of services governed by a community.
      */
-    governedServiceList?: pulumi.Input<pulumi.Input<inputs.mission.GovernedServiceItemArgs>[] | undefined>;
+    governedServiceList?: pulumi.Input<pulumi.Input<inputs.mission.GovernedServiceItemArgs>[]>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.mission.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.mission.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Maintenance Mode configuration.
      */
-    maintenanceModeConfiguration?: pulumi.Input<inputs.mission.MaintenanceModeConfigurationModelArgs | undefined>;
+    maintenanceModeConfiguration?: pulumi.Input<inputs.mission.MaintenanceModeConfigurationModelArgs>;
     /**
      * Policy override setting for the community. Specifies whether to apply enclave-specific policies or disable policy enforcement.
      */
-    policyOverride?: pulumi.Input<string | enums.mission.PolicyOverride | undefined>;
+    policyOverride?: pulumi.Input<string | enums.mission.PolicyOverride>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -236,5 +236,5 @@ export interface CommunityArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

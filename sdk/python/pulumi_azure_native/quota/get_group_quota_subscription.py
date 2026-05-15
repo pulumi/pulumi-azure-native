@@ -134,8 +134,8 @@ def get_group_quota_subscription(group_quota_name: Optional[_builtins.str] = Non
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_group_quota_subscription_output(group_quota_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_group_quota_subscription_output(group_quota_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupQuotaSubscriptionResult]:
     """
     Returns the subscriptionIds along with its provisioning state for being associated with the GroupQuota. If the subscription is not a member of GroupQuota, it will return 404, else 200.

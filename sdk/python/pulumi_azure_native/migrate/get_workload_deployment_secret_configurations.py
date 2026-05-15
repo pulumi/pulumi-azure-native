@@ -138,10 +138,10 @@ def get_workload_deployment_secret_configurations(modernize_project_name: Option
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_workload_deployment_secret_configurations_output(modernize_project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                         subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                         workload_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_workload_deployment_secret_configurations_output(modernize_project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                         subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                                         workload_deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadDeploymentSecretConfigurationsResult]:
     """
     Gets the secrets of the workload deployment.

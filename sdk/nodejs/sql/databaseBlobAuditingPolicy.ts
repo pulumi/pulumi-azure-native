@@ -295,11 +295,11 @@ export interface DatabaseBlobAuditingPolicyArgs {
      * 
      * For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
      */
-    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    auditActionsAndGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the blob auditing policy.
      */
-    blobAuditingPolicyName?: pulumi.Input<string | undefined>;
+    blobAuditingPolicyName?: pulumi.Input<string>;
     /**
      * The name of the database.
      */
@@ -317,20 +317,20 @@ export interface DatabaseBlobAuditingPolicyArgs {
      * For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
-    isAzureMonitorTargetEnabled?: pulumi.Input<boolean | undefined>;
+    isAzureMonitorTargetEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies whether Managed Identity is used to access blob storage
      */
-    isManagedIdentityInUse?: pulumi.Input<boolean | undefined>;
+    isManagedIdentityInUse?: pulumi.Input<boolean>;
     /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */
-    isStorageSecondaryKeyInUse?: pulumi.Input<boolean | undefined>;
+    isStorageSecondaryKeyInUse?: pulumi.Input<boolean>;
     /**
      * Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
      * The default minimum value is 1000 (1 second). The maximum is 2,147,483,647.
      */
-    queueDelayMs?: pulumi.Input<number | undefined>;
+    queueDelayMs?: pulumi.Input<number>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -338,7 +338,7 @@ export interface DatabaseBlobAuditingPolicyArgs {
     /**
      * Specifies the number of days to keep in the audit logs in the storage account.
      */
-    retentionDays?: pulumi.Input<number | undefined>;
+    retentionDays?: pulumi.Input<number>;
     /**
      * The name of the server.
      */
@@ -355,13 +355,13 @@ export interface DatabaseBlobAuditingPolicyArgs {
      * 2. Grant SQL Server identity access to the storage account by adding 'Storage Blob Data Contributor' RBAC role to the server identity.
      * For more information, see [Auditing to storage using Managed Identity authentication](https://go.microsoft.com/fwlink/?linkid=2114355)
      */
-    storageAccountAccessKey?: pulumi.Input<string | undefined>;
+    storageAccountAccessKey?: pulumi.Input<string>;
     /**
      * Specifies the blob storage subscription Id.
      */
-    storageAccountSubscriptionId?: pulumi.Input<string | undefined>;
+    storageAccountSubscriptionId?: pulumi.Input<string>;
     /**
      * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled is required.
      */
-    storageEndpoint?: pulumi.Input<string | undefined>;
+    storageEndpoint?: pulumi.Input<string>;
 }

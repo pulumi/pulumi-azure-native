@@ -75,9 +75,9 @@ def list_organization_regions(organization_name: Optional[_builtins.str] = None,
 
     return AwaitableListOrganizationRegionsResult(
         data=pulumi.get(__ret__, 'data'))
-def list_organization_regions_output(organization_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     search_filters: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
+def list_organization_regions_output(organization_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     search_filters: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOrganizationRegionsResult]:
     """
     cloud provider regions available for creating Schema Registry clusters.

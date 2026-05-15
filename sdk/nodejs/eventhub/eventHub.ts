@@ -162,15 +162,15 @@ export interface EventHubArgs {
     /**
      * Properties of capture description
      */
-    captureDescription?: pulumi.Input<inputs.eventhub.CaptureDescriptionArgs | undefined>;
+    captureDescription?: pulumi.Input<inputs.eventhub.CaptureDescriptionArgs>;
     /**
      * The Event Hub name
      */
-    eventHubName?: pulumi.Input<string | undefined>;
+    eventHubName?: pulumi.Input<string>;
     /**
      * Number of days to retain the events for this Event Hub, value should be 1 to 7 days
      */
-    messageRetentionInDays?: pulumi.Input<number | undefined>;
+    messageRetentionInDays?: pulumi.Input<number>;
     /**
      * The Namespace name
      */
@@ -178,7 +178,7 @@ export interface EventHubArgs {
     /**
      * Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
      */
-    partitionCount?: pulumi.Input<number | undefined>;
+    partitionCount?: pulumi.Input<number>;
     /**
      * Name of the resource group within the azure subscription.
      */
@@ -186,13 +186,13 @@ export interface EventHubArgs {
     /**
      * Event Hub retention settings
      */
-    retentionDescription?: pulumi.Input<inputs.eventhub.RetentionDescriptionArgs | undefined>;
+    retentionDescription?: pulumi.Input<inputs.eventhub.RetentionDescriptionArgs>;
     /**
      * Enumerates the possible values for the status of the Event Hub.
      */
-    status?: pulumi.Input<enums.eventhub.EntityStatus | undefined>;
+    status?: pulumi.Input<enums.eventhub.EntityStatus>;
     /**
      * Gets and Sets Metadata of User.
      */
-    userMetadata?: pulumi.Input<string | undefined>;
+    userMetadata?: pulumi.Input<string>;
 }

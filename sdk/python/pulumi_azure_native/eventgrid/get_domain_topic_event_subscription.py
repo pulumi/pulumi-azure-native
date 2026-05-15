@@ -277,10 +277,10 @@ def get_domain_topic_event_subscription(domain_name: Optional[_builtins.str] = N
         system_data=pulumi.get(__ret__, 'system_data'),
         topic=pulumi.get(__ret__, 'topic'),
         type=pulumi.get(__ret__, 'type'))
-def get_domain_topic_event_subscription_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_domain_topic_event_subscription_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                               topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainTopicEventSubscriptionResult]:
     """
     Get properties of a nested event subscription for a domain topic.

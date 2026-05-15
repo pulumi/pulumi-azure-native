@@ -146,27 +146,27 @@ export interface RoleDefinitionArgs {
     /**
      * Role definition assignable scopes.
      */
-    assignableScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    assignableScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The role definition description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Role definition permissions.
      */
-    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.PermissionArgs>[] | undefined>;
+    permissions?: pulumi.Input<pulumi.Input<inputs.authorization.PermissionArgs>[]>;
     /**
      * The ID of the role definition.
      */
-    roleDefinitionId?: pulumi.Input<string | undefined>;
+    roleDefinitionId?: pulumi.Input<string>;
     /**
      * The role name.
      */
-    roleName?: pulumi.Input<string | undefined>;
+    roleName?: pulumi.Input<string>;
     /**
      * The role type.
      */
-    roleType?: pulumi.Input<string | undefined>;
+    roleType?: pulumi.Input<string>;
     /**
      * The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

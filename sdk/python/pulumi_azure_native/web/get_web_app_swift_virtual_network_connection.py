@@ -149,8 +149,8 @@ def get_web_app_swift_virtual_network_connection(name: Optional[_builtins.str] =
         subnet_resource_id=pulumi.get(__ret__, 'subnet_resource_id'),
         swift_supported=pulumi.get(__ret__, 'swift_supported'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_swift_virtual_network_connection_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_web_app_swift_virtual_network_connection_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSwiftVirtualNetworkConnectionResult]:
     """
     Description for Gets a Swift Virtual Network connection.

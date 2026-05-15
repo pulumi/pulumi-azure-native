@@ -24,7 +24,7 @@ class CustomDomainArgs:
                  host_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomDomain resource.
 
@@ -91,14 +91,14 @@ class CustomDomainArgs:
 
     @_builtins.property
     @pulumi.getter(name="customDomainName")
-    def custom_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the custom domain within an endpoint.
         """
         return pulumi.get(self, "custom_domain_name")
 
     @custom_domain_name.setter
-    def custom_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def custom_domain_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "custom_domain_name", value)
 
 
@@ -108,11 +108,11 @@ class CustomDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
@@ -159,11 +159,11 @@ class CustomDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 host_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

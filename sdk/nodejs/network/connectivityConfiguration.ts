@@ -166,7 +166,7 @@ export interface ConnectivityConfigurationArgs {
     /**
      * The name of the network manager connectivity configuration.
      */
-    configurationName?: pulumi.Input<string | undefined>;
+    configurationName?: pulumi.Input<string>;
     /**
      * Connectivity topology type.
      */
@@ -174,19 +174,19 @@ export interface ConnectivityConfigurationArgs {
     /**
      * Flag if need to remove current existing peerings.
      */
-    deleteExistingPeering?: pulumi.Input<string | enums.network.DeleteExistingPeering | undefined>;
+    deleteExistingPeering?: pulumi.Input<string | enums.network.DeleteExistingPeering>;
     /**
      * A description of the connectivity configuration.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * List of hubItems
      */
-    hubs?: pulumi.Input<pulumi.Input<inputs.network.HubArgs>[] | undefined>;
+    hubs?: pulumi.Input<pulumi.Input<inputs.network.HubArgs>[]>;
     /**
      * Flag if global mesh is supported.
      */
-    isGlobal?: pulumi.Input<string | enums.network.IsGlobal | undefined>;
+    isGlobal?: pulumi.Input<string | enums.network.IsGlobal>;
     /**
      * The name of the network manager.
      */

@@ -24,8 +24,8 @@ class MoveResourceArgs:
     def __init__(__self__, *,
                  move_collection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 move_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['MoveResourcePropertiesArgs']] = None):
+                 move_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['MoveResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a MoveResource resource.
 
@@ -67,26 +67,26 @@ class MoveResourceArgs:
 
     @_builtins.property
     @pulumi.getter(name="moveResourceName")
-    def move_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def move_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Move Resource Name.
         """
         return pulumi.get(self, "move_resource_name")
 
     @move_resource_name.setter
-    def move_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def move_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "move_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['MoveResourcePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['MoveResourcePropertiesArgs']]:
         """
         Defines the move resource properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['MoveResourcePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['MoveResourcePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class MoveResource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 move_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 move_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['MoveResourcePropertiesArgs', 'MoveResourcePropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 move_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 move_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['MoveResourcePropertiesArgs', 'MoveResourcePropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the move resource.
@@ -145,10 +145,10 @@ class MoveResource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 move_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 move_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['MoveResourcePropertiesArgs', 'MoveResourcePropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 move_collection_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 move_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['MoveResourcePropertiesArgs', 'MoveResourcePropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

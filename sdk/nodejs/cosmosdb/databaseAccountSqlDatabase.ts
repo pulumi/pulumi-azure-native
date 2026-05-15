@@ -150,7 +150,7 @@ export interface DatabaseAccountSqlDatabaseArgs {
     /**
      * Cosmos DB database name.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */

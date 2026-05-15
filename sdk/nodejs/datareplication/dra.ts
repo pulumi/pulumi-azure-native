@@ -106,7 +106,7 @@ export interface DraArgs {
     /**
      * The fabric agent (Dra) name.
      */
-    fabricAgentName?: pulumi.Input<string | undefined>;
+    fabricAgentName?: pulumi.Input<string>;
     /**
      * The fabric name.
      */

@@ -126,15 +126,15 @@ export interface SqlServerRegistrationArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Optional Properties as JSON string
      */
-    propertyBag?: pulumi.Input<string | undefined>;
+    propertyBag?: pulumi.Input<string>;
     /**
      * Resource Group Name
      */
-    resourceGroup?: pulumi.Input<string | undefined>;
+    resourceGroup?: pulumi.Input<string>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -142,13 +142,13 @@ export interface SqlServerRegistrationArgs {
     /**
      * Name of the SQL Server registration.
      */
-    sqlServerRegistrationName?: pulumi.Input<string | undefined>;
+    sqlServerRegistrationName?: pulumi.Input<string>;
     /**
      * Subscription Id
      */
-    subscriptionId?: pulumi.Input<string | undefined>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

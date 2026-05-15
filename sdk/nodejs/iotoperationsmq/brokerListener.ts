@@ -147,7 +147,7 @@ export class BrokerListener extends pulumi.CustomResource {
             resourceInputs["serviceName"] = (args?.serviceName) ?? "aio-mq-dmqtt-frontend";
             resourceInputs["serviceType"] = (args?.serviceType) ?? "clusterIp";
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["tls"] = args ? pulumi.output(args.tls).apply(v => v === undefined ? undefined : inputs.iotoperationsmq.tlsCertMethodArgsProvideDefaults(v)) : undefined;
+            resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.iotoperationsmq.tlsCertMethodArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -185,11 +185,11 @@ export interface BrokerListenerArgs {
     /**
      * The flag for enabling Authentication rules on Listener Port.
      */
-    authenticationEnabled?: pulumi.Input<boolean | undefined>;
+    authenticationEnabled?: pulumi.Input<boolean>;
     /**
      * The flag for enabling Authorization policies on Listener Port. false - AllowAll, true - Use Authorization resource rules if present.
      */
-    authorizationEnabled?: pulumi.Input<boolean | undefined>;
+    authorizationEnabled?: pulumi.Input<boolean>;
     /**
      * Name of MQ broker resource
      */
@@ -205,11 +205,11 @@ export interface BrokerListenerArgs {
     /**
      * Name of MQ broker/listener resource
      */
-    listenerName?: pulumi.Input<string | undefined>;
+    listenerName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of MQ resource
      */
@@ -217,7 +217,7 @@ export interface BrokerListenerArgs {
     /**
      * The node port to use on the Host node.
      */
-    nodePort?: pulumi.Input<number | undefined>;
+    nodePort?: pulumi.Input<number>;
     /**
      * The port to start Listening for connections on.
      */
@@ -229,17 +229,17 @@ export interface BrokerListenerArgs {
     /**
      * The service name to expose Listener port on.
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName?: pulumi.Input<string>;
     /**
      * The Kubernetes Service type to deploy for Listener.
      */
-    serviceType?: pulumi.Input<string | enums.iotoperationsmq.ServiceType | undefined>;
+    serviceType?: pulumi.Input<string | enums.iotoperationsmq.ServiceType>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Defines configuration of a TLS server certificate. NOTE Enum - Only one TLS Cert method is supported
      */
-    tls?: pulumi.Input<inputs.iotoperationsmq.TlsCertMethodArgs | undefined>;
+    tls?: pulumi.Input<inputs.iotoperationsmq.TlsCertMethodArgs>;
 }

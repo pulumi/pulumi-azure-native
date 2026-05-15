@@ -117,7 +117,7 @@ export interface VirtualClusterArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -125,13 +125,13 @@ export interface VirtualClusterArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Virtual cluster version.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
     /**
      * The name of the virtual cluster.
      */
-    virtualClusterName?: pulumi.Input<string | undefined>;
+    virtualClusterName?: pulumi.Input<string>;
 }

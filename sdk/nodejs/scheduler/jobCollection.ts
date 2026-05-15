@@ -106,19 +106,19 @@ export interface JobCollectionArgs {
     /**
      * The job collection name.
      */
-    jobCollectionName?: pulumi.Input<string | undefined>;
+    jobCollectionName?: pulumi.Input<string>;
     /**
      * Gets or sets the storage account location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets the job collection resource name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Gets or sets the job collection properties.
      */
-    properties?: pulumi.Input<inputs.scheduler.JobCollectionPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.scheduler.JobCollectionPropertiesArgs>;
     /**
      * The resource group name.
      */
@@ -126,5 +126,5 @@ export interface JobCollectionArgs {
     /**
      * Gets or sets the tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

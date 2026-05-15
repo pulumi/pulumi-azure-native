@@ -24,8 +24,8 @@ class DevToolPortalArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 dev_tool_portal_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['DevToolPortalPropertiesArgs']] = None):
+                 dev_tool_portal_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['DevToolPortalPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DevToolPortal resource.
 
@@ -67,26 +67,26 @@ class DevToolPortalArgs:
 
     @_builtins.property
     @pulumi.getter(name="devToolPortalName")
-    def dev_tool_portal_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def dev_tool_portal_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of Dev Tool Portal.
         """
         return pulumi.get(self, "dev_tool_portal_name")
 
     @dev_tool_portal_name.setter
-    def dev_tool_portal_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def dev_tool_portal_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dev_tool_portal_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['DevToolPortalPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['DevToolPortalPropertiesArgs']]:
         """
         Dev Tool Portal properties payload
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['DevToolPortalPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['DevToolPortalPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class DevToolPortal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_tool_portal_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['DevToolPortalPropertiesArgs', 'DevToolPortalPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_tool_portal_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['DevToolPortalPropertiesArgs', 'DevToolPortalPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Dev Tool Portal resource
@@ -145,10 +145,10 @@ class DevToolPortal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dev_tool_portal_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['DevToolPortalPropertiesArgs', 'DevToolPortalPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dev_tool_portal_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['DevToolPortalPropertiesArgs', 'DevToolPortalPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

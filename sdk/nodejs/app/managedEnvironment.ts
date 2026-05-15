@@ -272,71 +272,71 @@ export interface ManagedEnvironmentArgs {
     /**
      * Environment level Application Insights configuration
      */
-    appInsightsConfiguration?: pulumi.Input<inputs.app.AppInsightsConfigurationArgs | undefined>;
+    appInsightsConfiguration?: pulumi.Input<inputs.app.AppInsightsConfigurationArgs>;
     /**
      * Cluster configuration which enables the log daemon to export app logs to configured destination
      */
-    appLogsConfiguration?: pulumi.Input<inputs.app.AppLogsConfigurationArgs | undefined>;
+    appLogsConfiguration?: pulumi.Input<inputs.app.AppLogsConfigurationArgs>;
     /**
      * The list of availability zones to use for managed environment
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Custom domain configuration for the environment
      */
-    customDomainConfiguration?: pulumi.Input<inputs.app.CustomDomainConfigurationArgs | undefined>;
+    customDomainConfiguration?: pulumi.Input<inputs.app.CustomDomainConfigurationArgs>;
     /**
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry
      */
-    daprAIConnectionString?: pulumi.Input<string | undefined>;
+    daprAIConnectionString?: pulumi.Input<string>;
     /**
      * Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
      */
-    daprAIInstrumentationKey?: pulumi.Input<string | undefined>;
+    daprAIInstrumentationKey?: pulumi.Input<string>;
     /**
      * Disk encryption configuration for the Managed Environment.
      */
-    diskEncryptionConfiguration?: pulumi.Input<inputs.app.DiskEncryptionConfigurationArgs | undefined>;
+    diskEncryptionConfiguration?: pulumi.Input<inputs.app.DiskEncryptionConfigurationArgs>;
     /**
      * Name of the Environment.
      */
-    environmentName?: pulumi.Input<string | undefined>;
+    environmentName?: pulumi.Input<string>;
     /**
      * Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
      */
-    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs>;
     /**
      * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
      */
-    infrastructureResourceGroup?: pulumi.Input<string | undefined>;
+    infrastructureResourceGroup?: pulumi.Input<string>;
     /**
      * Ingress configuration for the Managed Environment.
      */
-    ingressConfiguration?: pulumi.Input<inputs.app.IngressConfigurationArgs | undefined>;
+    ingressConfiguration?: pulumi.Input<inputs.app.IngressConfigurationArgs>;
     /**
      * Kind of the Environment.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Environment Open Telemetry configuration
      */
-    openTelemetryConfiguration?: pulumi.Input<inputs.app.OpenTelemetryConfigurationArgs | undefined>;
+    openTelemetryConfiguration?: pulumi.Input<inputs.app.OpenTelemetryConfigurationArgs>;
     /**
      * Peer authentication settings for the Managed Environment
      */
-    peerAuthentication?: pulumi.Input<inputs.app.ManagedEnvironmentPeerAuthenticationArgs | undefined>;
+    peerAuthentication?: pulumi.Input<inputs.app.ManagedEnvironmentPeerAuthenticationArgs>;
     /**
      * Peer traffic settings for the Managed Environment
      */
-    peerTrafficConfiguration?: pulumi.Input<inputs.app.ManagedEnvironmentPeerTrafficConfigurationArgs | undefined>;
+    peerTrafficConfiguration?: pulumi.Input<inputs.app.ManagedEnvironmentPeerTrafficConfigurationArgs>;
     /**
      * Property to allow or block all public traffic. Allowed Values: 'Enabled', 'Disabled'.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.app.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.app.PublicNetworkAccess>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -344,17 +344,17 @@ export interface ManagedEnvironmentArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Vnet configuration for the environment
      */
-    vnetConfiguration?: pulumi.Input<inputs.app.VnetConfigurationArgs | undefined>;
+    vnetConfiguration?: pulumi.Input<inputs.app.VnetConfigurationArgs>;
     /**
      * Workload profiles configured for the Managed Environment.
      */
-    workloadProfiles?: pulumi.Input<pulumi.Input<inputs.app.WorkloadProfileArgs>[] | undefined>;
+    workloadProfiles?: pulumi.Input<pulumi.Input<inputs.app.WorkloadProfileArgs>[]>;
     /**
      * Whether or not this Managed Environment is zone-redundant.
      */
-    zoneRedundant?: pulumi.Input<boolean | undefined>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

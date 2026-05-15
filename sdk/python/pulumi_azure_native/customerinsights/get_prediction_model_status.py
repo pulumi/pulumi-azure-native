@@ -202,9 +202,9 @@ def get_prediction_model_status(hub_name: Optional[_builtins.str] = None,
         training_accuracy=pulumi.get(__ret__, 'training_accuracy'),
         training_set_count=pulumi.get(__ret__, 'training_set_count'),
         validation_set_count=pulumi.get(__ret__, 'validation_set_count'))
-def get_prediction_model_status_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       prediction_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_prediction_model_status_output(hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       prediction_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPredictionModelStatusResult]:
     """
     Gets model status of the prediction.

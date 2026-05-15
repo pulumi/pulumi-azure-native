@@ -656,8 +656,8 @@ def list_web_app_auth_settings(name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         unauthenticated_client_action=pulumi.get(__ret__, 'unauthenticated_client_action'),
         validate_issuer=pulumi.get(__ret__, 'validate_issuer'))
-def list_web_app_auth_settings_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_web_app_auth_settings_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppAuthSettingsResult]:
     """
     Description for Gets the Authentication/Authorization settings of an app.

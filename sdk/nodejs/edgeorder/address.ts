@@ -140,19 +140,19 @@ export interface AddressArgs {
     /**
      * Type of address based on its usage context.
      */
-    addressClassification?: pulumi.Input<string | enums.edgeorder.AddressClassification | undefined>;
+    addressClassification?: pulumi.Input<string | enums.edgeorder.AddressClassification>;
     /**
      * The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
      */
-    addressName?: pulumi.Input<string | undefined>;
+    addressName?: pulumi.Input<string>;
     /**
      * Contact details for the address.
      */
-    contactDetails?: pulumi.Input<inputs.edgeorder.ContactDetailsArgs | undefined>;
+    contactDetails?: pulumi.Input<inputs.edgeorder.ContactDetailsArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,9 +160,9 @@ export interface AddressArgs {
     /**
      * Shipping details for the address.
      */
-    shippingAddress?: pulumi.Input<inputs.edgeorder.ShippingAddressArgs | undefined>;
+    shippingAddress?: pulumi.Input<inputs.edgeorder.ShippingAddressArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

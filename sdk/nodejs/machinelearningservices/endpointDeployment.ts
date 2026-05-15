@@ -110,7 +110,7 @@ export interface EndpointDeploymentArgs {
     /**
      * Name of the deployment resource
      */
-    deploymentName?: pulumi.Input<string | undefined>;
+    deploymentName?: pulumi.Input<string>;
     /**
      * Name of the endpoint resource.
      */

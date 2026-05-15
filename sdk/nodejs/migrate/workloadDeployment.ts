@@ -114,7 +114,7 @@ export interface WorkloadDeploymentArgs {
     /**
      * Workload deployment model properties.
      */
-    properties?: pulumi.Input<inputs.migrate.WorkloadDeploymentModelPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.WorkloadDeploymentModelPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */
@@ -122,13 +122,13 @@ export interface WorkloadDeploymentArgs {
     /**
      * Azure Subscription Id in which project was created.
      */
-    subscriptionId?: pulumi.Input<string | undefined>;
+    subscriptionId?: pulumi.Input<string>;
     /**
      * Gets or sets the resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Workload deployment name.
      */
-    workloadDeploymentName?: pulumi.Input<string | undefined>;
+    workloadDeploymentName?: pulumi.Input<string>;
 }

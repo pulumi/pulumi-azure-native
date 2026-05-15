@@ -87,9 +87,9 @@ def get_app_resource_upload_url(app_name: Optional[_builtins.str] = None,
     return AwaitableGetAppResourceUploadUrlResult(
         relative_path=pulumi.get(__ret__, 'relative_path'),
         upload_url=pulumi.get(__ret__, 'upload_url'))
-def get_app_resource_upload_url_output(app_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_app_resource_upload_url_output(app_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResourceUploadUrlResult]:
     """
     Get an resource upload URL for an App, which may be artifacts or source archive.

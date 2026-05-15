@@ -198,24 +198,24 @@ export interface ScriptExecutionArgs {
      * Error message if the script was able to run, but if the script itself had
      * errors or powershell threw an exception
      */
-    failureReason?: pulumi.Input<string | undefined>;
+    failureReason?: pulumi.Input<string>;
     /**
      * Parameters that will be hidden/not visible to ARM, such as passwords and
      * credentials
      */
-    hiddenParameters?: pulumi.Input<pulumi.Input<inputs.avs.PSCredentialExecutionParameterArgs | inputs.avs.ScriptSecureStringExecutionParameterArgs | inputs.avs.ScriptStringExecutionParameterArgs>[] | undefined>;
+    hiddenParameters?: pulumi.Input<pulumi.Input<inputs.avs.PSCredentialExecutionParameterArgs | inputs.avs.ScriptSecureStringExecutionParameterArgs | inputs.avs.ScriptStringExecutionParameterArgs>[]>;
     /**
      * User-defined dictionary.
      */
-    namedOutputs?: pulumi.Input<{[key: string]: any} | undefined>;
+    namedOutputs?: pulumi.Input<{[key: string]: any}>;
     /**
      * Standard output stream from the powershell execution
      */
-    output?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    output?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Parameters the script will accept
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.avs.PSCredentialExecutionParameterArgs | inputs.avs.ScriptSecureStringExecutionParameterArgs | inputs.avs.ScriptStringExecutionParameterArgs>[] | undefined>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.avs.PSCredentialExecutionParameterArgs | inputs.avs.ScriptSecureStringExecutionParameterArgs | inputs.avs.ScriptStringExecutionParameterArgs>[]>;
     /**
      * Name of the private cloud
      */
@@ -227,15 +227,15 @@ export interface ScriptExecutionArgs {
     /**
      * Time to live for the resource. If not provided, will be available for 60 days
      */
-    retention?: pulumi.Input<string | undefined>;
+    retention?: pulumi.Input<string>;
     /**
      * A reference to the script cmdlet resource if user is running a AVS script
      */
-    scriptCmdletId?: pulumi.Input<string | undefined>;
+    scriptCmdletId?: pulumi.Input<string>;
     /**
      * Name of the script cmdlet.
      */
-    scriptExecutionName?: pulumi.Input<string | undefined>;
+    scriptExecutionName?: pulumi.Input<string>;
     /**
      * Time limit for execution
      */

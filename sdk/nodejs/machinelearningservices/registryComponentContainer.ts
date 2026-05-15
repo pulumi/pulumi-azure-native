@@ -83,7 +83,7 @@ export class RegistryComponentContainer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["componentName"] = args?.componentName;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.machinelearningservices.componentContainerPropertiesArgsProvideDefaults) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.machinelearningservices.componentContainerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["registryName"] = args?.registryName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -111,7 +111,7 @@ export interface RegistryComponentContainerArgs {
     /**
      * Container name.
      */
-    componentName?: pulumi.Input<string | undefined>;
+    componentName?: pulumi.Input<string>;
     /**
      * [Required] Additional attributes of the entity.
      */

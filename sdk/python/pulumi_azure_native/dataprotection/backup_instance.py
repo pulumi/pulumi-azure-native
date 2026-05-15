@@ -24,9 +24,9 @@ class BackupInstanceInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
-                 backup_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['BackupInstanceArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 backup_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['BackupInstanceArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BackupInstance resource.
 
@@ -71,38 +71,38 @@ class BackupInstanceInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="backupInstanceName")
-    def backup_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def backup_instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the backup instance.
         """
         return pulumi.get(self, "backup_instance_name")
 
     @backup_instance_name.setter
-    def backup_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def backup_instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "backup_instance_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['BackupInstanceArgs']]:
+    def properties(self) -> Optional[pulumi.Input['BackupInstanceArgs']]:
         """
         BackupInstanceResource properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['BackupInstanceArgs']]):
+    def properties(self, value: Optional[pulumi.Input['BackupInstanceArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Proxy Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -112,11 +112,11 @@ class BackupInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BackupInstanceArgs', 'BackupInstanceArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['BackupInstanceArgs', 'BackupInstanceArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         BackupInstance Resource
@@ -163,11 +163,11 @@ class BackupInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BackupInstanceArgs', 'BackupInstanceArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 backup_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['BackupInstanceArgs', 'BackupInstanceArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

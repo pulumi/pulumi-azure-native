@@ -124,9 +124,9 @@ def get_network_interface_status(network_device_name: Optional[_builtins.str] = 
         operational_status=pulumi.get(__ret__, 'operational_status'),
         phy_status=pulumi.get(__ret__, 'phy_status'),
         transceiver_status=pulumi.get(__ret__, 'transceiver_status'))
-def get_network_interface_status_output(network_device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_network_interface_status_output(network_device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceStatusResult]:
     """
     Get the running status of the Network Interface.

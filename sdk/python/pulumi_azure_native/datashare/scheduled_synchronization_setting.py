@@ -27,7 +27,7 @@ class ScheduledSynchronizationSettingArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
                  synchronization_time: pulumi.Input[_builtins.str],
-                 synchronization_setting_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 synchronization_setting_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledSynchronizationSetting resource.
 
@@ -124,14 +124,14 @@ class ScheduledSynchronizationSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="synchronizationSettingName")
-    def synchronization_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def synchronization_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the synchronizationSetting.
         """
         return pulumi.get(self, "synchronization_setting_name")
 
     @synchronization_setting_name.setter
-    def synchronization_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def synchronization_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "synchronization_setting_name", value)
 
 
@@ -141,13 +141,13 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 recurrence_interval: pulumi.Input[Optional[Union[_builtins.str, 'RecurrenceInterval']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 synchronization_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 synchronization_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 recurrence_interval: Optional[pulumi.Input[Union[_builtins.str, 'RecurrenceInterval']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 synchronization_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 synchronization_time: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A type of synchronization setting based on schedule
@@ -193,13 +193,13 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 recurrence_interval: pulumi.Input[Optional[Union[_builtins.str, 'RecurrenceInterval']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 synchronization_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 synchronization_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 recurrence_interval: Optional[pulumi.Input[Union[_builtins.str, 'RecurrenceInterval']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 synchronization_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 synchronization_time: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

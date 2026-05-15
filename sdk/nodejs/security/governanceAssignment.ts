@@ -133,7 +133,7 @@ export interface GovernanceAssignmentArgs {
     /**
      * The additional data for the governance assignment - e.g. links to ticket (optional), see example
      */
-    additionalData?: pulumi.Input<inputs.security.GovernanceAssignmentAdditionalDataArgs | undefined>;
+    additionalData?: pulumi.Input<inputs.security.GovernanceAssignmentAdditionalDataArgs>;
     /**
      * The Assessment Key - A unique key for the assessment type
      */
@@ -141,19 +141,19 @@ export interface GovernanceAssignmentArgs {
     /**
      * The governance assignment key - the assessment key of the required governance assignment
      */
-    assignmentKey?: pulumi.Input<string | undefined>;
+    assignmentKey?: pulumi.Input<string>;
     /**
      * The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
      */
-    governanceEmailNotification?: pulumi.Input<inputs.security.GovernanceEmailNotificationArgs | undefined>;
+    governanceEmailNotification?: pulumi.Input<inputs.security.GovernanceEmailNotificationArgs>;
     /**
      * Defines whether there is a grace period on the governance assignment
      */
-    isGracePeriod?: pulumi.Input<boolean | undefined>;
+    isGracePeriod?: pulumi.Input<boolean>;
     /**
      * The Owner for the governance assignment - e.g. user@contoso.com - see example
      */
-    owner?: pulumi.Input<string | undefined>;
+    owner?: pulumi.Input<string>;
     /**
      * The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
      */
@@ -161,7 +161,7 @@ export interface GovernanceAssignmentArgs {
     /**
      * The ETA (estimated time of arrival) for remediation (optional), see example
      */
-    remediationEta?: pulumi.Input<inputs.security.RemediationEtaArgs | undefined>;
+    remediationEta?: pulumi.Input<inputs.security.RemediationEtaArgs>;
     /**
      * The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
      */

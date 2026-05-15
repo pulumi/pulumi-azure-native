@@ -294,11 +294,11 @@ export interface ContentTemplateArgs {
     /**
      * The creator of the content item.
      */
-    author?: pulumi.Input<inputs.securityinsights.MetadataAuthorArgs | undefined>;
+    author?: pulumi.Input<inputs.securityinsights.MetadataAuthorArgs>;
     /**
      * Categories for the item
      */
-    categories?: pulumi.Input<inputs.securityinsights.MetadataCategoriesArgs | undefined>;
+    categories?: pulumi.Input<inputs.securityinsights.MetadataCategoriesArgs>;
     /**
      * Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
      */
@@ -314,15 +314,15 @@ export interface ContentTemplateArgs {
     /**
      * Schema version of the content. Can be used to distinguish between different flow based on the schema version
      */
-    contentSchemaVersion?: pulumi.Input<string | undefined>;
+    contentSchemaVersion?: pulumi.Input<string>;
     /**
      * The custom version of the content. A optional free text
      */
-    customVersion?: pulumi.Input<string | undefined>;
+    customVersion?: pulumi.Input<string>;
     /**
      * Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
      */
-    dependencies?: pulumi.Input<inputs.securityinsights.MetadataDependenciesArgs | undefined>;
+    dependencies?: pulumi.Input<inputs.securityinsights.MetadataDependenciesArgs>;
     /**
      * The display name of the template
      */
@@ -330,19 +330,19 @@ export interface ContentTemplateArgs {
     /**
      * first publish date content item
      */
-    firstPublishDate?: pulumi.Input<string | undefined>;
+    firstPublishDate?: pulumi.Input<string>;
     /**
      * the icon identifier. this id can later be fetched from the content metadata
      */
-    icon?: pulumi.Input<string | undefined>;
+    icon?: pulumi.Input<string>;
     /**
      * last publish date for the content item
      */
-    lastPublishDate?: pulumi.Input<string | undefined>;
+    lastPublishDate?: pulumi.Input<string>;
     /**
      * The JSON of the ARM template to deploy active content. Expandable.
      */
-    mainTemplate?: any | undefined;
+    mainTemplate?: any;
     /**
      * the package Id contains this template
      */
@@ -350,11 +350,11 @@ export interface ContentTemplateArgs {
     /**
      * the packageKind of the package contains this template
      */
-    packageKind?: pulumi.Input<string | enums.securityinsights.PackageKind | undefined>;
+    packageKind?: pulumi.Input<string | enums.securityinsights.PackageKind>;
     /**
      * the name of the package contains this template
      */
-    packageName?: pulumi.Input<string | undefined>;
+    packageName?: pulumi.Input<string>;
     /**
      * Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
      */
@@ -362,15 +362,15 @@ export interface ContentTemplateArgs {
     /**
      * preview image file names. These will be taken from the solution artifacts
      */
-    previewImages?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    previewImages?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * preview image file names. These will be taken from the solution artifacts. used for dark theme support
      */
-    previewImagesDark?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    previewImagesDark?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Providers for the content item
      */
-    providers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    providers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -382,19 +382,19 @@ export interface ContentTemplateArgs {
     /**
      * Support information for the template - type, name, contact information
      */
-    support?: pulumi.Input<inputs.securityinsights.MetadataSupportArgs | undefined>;
+    support?: pulumi.Input<inputs.securityinsights.MetadataSupportArgs>;
     /**
      * template Id
      */
-    templateId?: pulumi.Input<string | undefined>;
+    templateId?: pulumi.Input<string>;
     /**
      * the tactics the resource covers
      */
-    threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    threatAnalysisTactics?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * the techniques the resource covers, these have to be aligned with the tactics being used
      */
-    threatAnalysisTechniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    threatAnalysisTechniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
      */

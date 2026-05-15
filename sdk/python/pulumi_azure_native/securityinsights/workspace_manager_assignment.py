@@ -25,7 +25,7 @@ class WorkspaceManagerAssignmentArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_resource_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 workspace_manager_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 workspace_manager_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceManagerAssignment resource.
 
@@ -92,14 +92,14 @@ class WorkspaceManagerAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="workspaceManagerAssignmentName")
-    def workspace_manager_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def workspace_manager_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the workspace manager assignment
         """
         return pulumi.get(self, "workspace_manager_assignment_name")
 
     @workspace_manager_assignment_name.setter
-    def workspace_manager_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def workspace_manager_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "workspace_manager_assignment_name", value)
 
 
@@ -109,11 +109,11 @@ class WorkspaceManagerAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 items: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssignmentItemArgs', 'AssignmentItemArgsDict']]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_manager_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssignmentItemArgs', 'AssignmentItemArgsDict']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_manager_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The workspace manager assignment
@@ -160,11 +160,11 @@ class WorkspaceManagerAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 items: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AssignmentItemArgs', 'AssignmentItemArgsDict']]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_manager_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AssignmentItemArgs', 'AssignmentItemArgsDict']]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_manager_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

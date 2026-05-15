@@ -104,7 +104,7 @@ export interface GetWorkspacePolicyFragmentOutputArgs {
     /**
      * Policy fragment content format.
      */
-    format?: pulumi.Input<string | undefined>;
+    format?: pulumi.Input<string>;
     /**
      * A resource identifier.
      */

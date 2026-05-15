@@ -87,9 +87,9 @@ def list_serverless_endpoint_keys(name: Optional[_builtins.str] = None,
     return AwaitableListServerlessEndpointKeysResult(
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_serverless_endpoint_keys_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_serverless_endpoint_keys_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServerlessEndpointKeysResult]:
     """
     List EndpointAuthKeys for an Endpoint using Key-based authentication.

@@ -126,7 +126,7 @@ export interface ServerTrustGroupArgs {
     /**
      * The name of the server trust group.
      */
-    serverTrustGroupName?: pulumi.Input<string | undefined>;
+    serverTrustGroupName?: pulumi.Input<string>;
     /**
      * Trust scope of the server trust group.
      */

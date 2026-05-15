@@ -128,15 +128,15 @@ export interface PrivateAccessArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the private access resource that is being created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
-    privateAccessName?: pulumi.Input<string | undefined>;
+    privateAccessName?: pulumi.Input<string>;
     /**
      * Public Network Access Control for PrivateAccess resource.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.chaos.PublicNetworkAccessOption | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.chaos.PublicNetworkAccessOption>;
     /**
      * String that represents an Azure resource group.
      */
@@ -144,5 +144,5 @@ export interface PrivateAccessArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

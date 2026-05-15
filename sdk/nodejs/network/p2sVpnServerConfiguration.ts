@@ -103,19 +103,19 @@ export interface P2sVpnServerConfigurationArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the P2SVpnServerConfiguration.
      */
-    p2SVpnServerConfigurationName?: pulumi.Input<string | undefined>;
+    p2SVpnServerConfigurationName?: pulumi.Input<string>;
     /**
      * Properties of the P2SVpnServer configuration.
      */
-    properties?: pulumi.Input<inputs.network.P2SVpnServerConfigurationPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.network.P2SVpnServerConfigurationPropertiesArgs>;
     /**
      * The resource group name of the VirtualWan.
      */

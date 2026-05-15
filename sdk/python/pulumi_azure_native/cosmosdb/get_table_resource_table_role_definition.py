@@ -166,9 +166,9 @@ def get_table_resource_table_role_definition(account_name: Optional[_builtins.st
         role_name=pulumi.get(__ret__, 'role_name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_table_resource_table_role_definition_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_table_resource_table_role_definition_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                    role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResourceTableRoleDefinitionResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB Table Role Definition with the given Id.

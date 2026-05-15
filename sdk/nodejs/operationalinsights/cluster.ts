@@ -176,31 +176,31 @@ export interface ClusterArgs {
     /**
      * The cluster's billing type.
      */
-    billingType?: pulumi.Input<string | enums.operationalinsights.BillingType | undefined>;
+    billingType?: pulumi.Input<string | enums.operationalinsights.BillingType>;
     /**
      * The name of the Log Analytics cluster.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Resource's identity.
      */
-    identity?: pulumi.Input<inputs.operationalinsights.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.operationalinsights.ManagedServiceIdentityArgs>;
     /**
      * Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
      */
-    isAvailabilityZonesEnabled?: pulumi.Input<boolean | undefined>;
+    isAvailabilityZonesEnabled?: pulumi.Input<boolean>;
     /**
      * Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
      */
-    isDoubleEncryptionEnabled?: pulumi.Input<boolean | undefined>;
+    isDoubleEncryptionEnabled?: pulumi.Input<boolean>;
     /**
      * The associated key properties.
      */
-    keyVaultProperties?: pulumi.Input<inputs.operationalinsights.KeyVaultPropertiesArgs | undefined>;
+    keyVaultProperties?: pulumi.Input<inputs.operationalinsights.KeyVaultPropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -208,9 +208,9 @@ export interface ClusterArgs {
     /**
      * The sku properties.
      */
-    sku?: pulumi.Input<inputs.operationalinsights.ClusterSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.operationalinsights.ClusterSkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

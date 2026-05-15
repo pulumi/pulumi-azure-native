@@ -134,19 +134,19 @@ export interface NamespaceArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.deviceregistry.SystemAssignedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.deviceregistry.SystemAssignedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Assigned and unassigned messaging endpoints.
      */
-    messaging?: pulumi.Input<inputs.deviceregistry.MessagingArgs | undefined>;
+    messaging?: pulumi.Input<inputs.deviceregistry.MessagingArgs>;
     /**
      * The name of the namespace.
      */
-    namespaceName?: pulumi.Input<string | undefined>;
+    namespaceName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -154,5 +154,5 @@ export interface NamespaceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

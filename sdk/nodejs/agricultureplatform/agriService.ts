@@ -126,19 +126,19 @@ export interface AgriServiceArgs {
     /**
      * The name of the AgriService resource.
      */
-    agriServiceResourceName?: pulumi.Input<string | undefined>;
+    agriServiceResourceName?: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.agricultureplatform.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.agricultureplatform.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.agricultureplatform.AgriServiceResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.agricultureplatform.AgriServiceResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -146,9 +146,9 @@ export interface AgriServiceArgs {
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    sku?: pulumi.Input<inputs.agricultureplatform.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.agricultureplatform.SkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

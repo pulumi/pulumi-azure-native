@@ -130,11 +130,11 @@ export interface PrefixListGlobalRulestackArgs {
     /**
      * comment for this object
      */
-    auditComment?: pulumi.Input<string | undefined>;
+    auditComment?: pulumi.Input<string>;
     /**
      * prefix description
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * GlobalRulestack resource name
      */
@@ -142,7 +142,7 @@ export interface PrefixListGlobalRulestackArgs {
     /**
      * Local Rule priority
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * prefix list
      */

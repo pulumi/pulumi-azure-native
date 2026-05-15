@@ -131,7 +131,7 @@ export interface EyesOnArgs {
     /**
      * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
      */
-    settingsName?: pulumi.Input<string | undefined>;
+    settingsName?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

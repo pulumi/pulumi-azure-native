@@ -132,11 +132,11 @@ def get_workspace_tag_product_link(product_link_id: Optional[_builtins.str] = No
         name=pulumi.get(__ret__, 'name'),
         product_id=pulumi.get(__ret__, 'product_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_workspace_tag_product_link_output(product_link_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          tag_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                          workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_workspace_tag_product_link_output(product_link_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                          tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                          workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceTagProductLinkResult]:
     """
     Gets the product link for the tag.

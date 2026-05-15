@@ -194,39 +194,39 @@ export interface UpdateRunArgs {
     /**
      * More detailed description of the step.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Duration of the update run.
      */
-    duration?: pulumi.Input<string | undefined>;
+    duration?: pulumi.Input<string>;
     /**
      * When the step reached a terminal state.
      */
-    endTimeUtc?: pulumi.Input<string | undefined>;
+    endTimeUtc?: pulumi.Input<string>;
     /**
      * Error message, specified if the step is in a failed state.
      */
-    errorMessage?: pulumi.Input<string | undefined>;
+    errorMessage?: pulumi.Input<string>;
     /**
      * Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
      */
-    expectedExecutionTime?: pulumi.Input<string | undefined>;
+    expectedExecutionTime?: pulumi.Input<string>;
     /**
      * Timestamp of the most recently completed step in the update run.
      */
-    lastUpdatedTime?: pulumi.Input<string | undefined>;
+    lastUpdatedTime?: pulumi.Input<string>;
     /**
      * Completion time of this step or the last completed sub-step.
      */
-    lastUpdatedTimeUtc?: pulumi.Input<string | undefined>;
+    lastUpdatedTimeUtc?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the step.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -234,23 +234,23 @@ export interface UpdateRunArgs {
     /**
      * When the step started, or empty if it has not started executing.
      */
-    startTimeUtc?: pulumi.Input<string | undefined>;
+    startTimeUtc?: pulumi.Input<string>;
     /**
      * State of the update run.
      */
-    state?: pulumi.Input<string | enums.azurestackhci.UpdateRunPropertiesState | undefined>;
+    state?: pulumi.Input<string | enums.azurestackhci.UpdateRunPropertiesState>;
     /**
      * Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
      */
-    status?: pulumi.Input<string | undefined>;
+    status?: pulumi.Input<string>;
     /**
      * Recursive model for child steps of this step.
      */
-    steps?: pulumi.Input<pulumi.Input<inputs.azurestackhci.StepArgs>[] | undefined>;
+    steps?: pulumi.Input<pulumi.Input<inputs.azurestackhci.StepArgs>[]>;
     /**
      * Timestamp of the update run was started.
      */
-    timeStarted?: pulumi.Input<string | undefined>;
+    timeStarted?: pulumi.Input<string>;
     /**
      * The name of the Update
      */
@@ -258,5 +258,5 @@ export interface UpdateRunArgs {
     /**
      * The name of the Update Run
      */
-    updateRunName?: pulumi.Input<string | undefined>;
+    updateRunName?: pulumi.Input<string>;
 }

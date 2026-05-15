@@ -247,23 +247,23 @@ export interface VirtualMachineArgs {
     /**
      * Virtual machine properties
      */
-    customization?: pulumi.Input<inputs.vmwarecloudsimple.GuestOSCustomizationArgs | undefined>;
+    customization?: pulumi.Input<inputs.vmwarecloudsimple.GuestOSCustomizationArgs>;
     /**
      * The list of Virtual Disks
      */
-    disks?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.VirtualDiskArgs>[] | undefined>;
+    disks?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.VirtualDiskArgs>[]>;
     /**
      * Expose Guest OS or not
      */
-    exposeToGuestVM?: pulumi.Input<boolean | undefined>;
+    exposeToGuestVM?: pulumi.Input<boolean>;
     /**
      * Azure region
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The list of Virtual NICs
      */
-    nics?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.VirtualNicArgs>[] | undefined>;
+    nics?: pulumi.Input<pulumi.Input<inputs.vmwarecloudsimple.VirtualNicArgs>[]>;
     /**
      * The number of CPU cores
      */
@@ -271,7 +271,7 @@ export interface VirtualMachineArgs {
     /**
      * Password for login. Deprecated - use customization property
      */
-    password?: pulumi.Input<string | undefined>;
+    password?: pulumi.Input<string>;
     /**
      * Private Cloud Id
      */
@@ -283,25 +283,25 @@ export interface VirtualMachineArgs {
     /**
      * Virtual Machines Resource Pool
      */
-    resourcePool?: pulumi.Input<inputs.vmwarecloudsimple.ResourcePoolArgs | undefined>;
+    resourcePool?: pulumi.Input<inputs.vmwarecloudsimple.ResourcePoolArgs>;
     /**
      * The list of tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Virtual Machine Template Id
      */
-    templateId?: pulumi.Input<string | undefined>;
+    templateId?: pulumi.Input<string>;
     /**
      * Username for login. Deprecated - use customization property
      */
-    username?: pulumi.Input<string | undefined>;
+    username?: pulumi.Input<string>;
     /**
      * The list of Virtual VSphere Networks
      */
-    vSphereNetworks?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    vSphereNetworks?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * virtual machine name
      */
-    virtualMachineName?: pulumi.Input<string | undefined>;
+    virtualMachineName?: pulumi.Input<string>;
 }

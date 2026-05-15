@@ -135,11 +135,11 @@ export interface EnclaveEndpointArgs {
     /**
      * The name of the Enclave Endpoint Resource
      */
-    enclaveEndpointName?: pulumi.Input<string | undefined>;
+    enclaveEndpointName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -151,7 +151,7 @@ export interface EnclaveEndpointArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the enclaveResource Resource
      */

@@ -24,8 +24,8 @@ class BuildServiceAgentPoolArgs:
                  build_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['BuildServiceAgentPoolPropertiesArgs']] = None):
+                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['BuildServiceAgentPoolPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BuildServiceAgentPool resource.
 
@@ -81,26 +81,26 @@ class BuildServiceAgentPoolArgs:
 
     @_builtins.property
     @pulumi.getter(name="agentPoolName")
-    def agent_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def agent_pool_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the build service agent pool resource.
         """
         return pulumi.get(self, "agent_pool_name")
 
     @agent_pool_name.setter
-    def agent_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def agent_pool_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['BuildServiceAgentPoolPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['BuildServiceAgentPoolPropertiesArgs']]:
         """
         build service agent pool properties
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['BuildServiceAgentPoolPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['BuildServiceAgentPoolPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -110,11 +110,11 @@ class BuildServiceAgentPool(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BuildServiceAgentPoolPropertiesArgs', 'BuildServiceAgentPoolPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['BuildServiceAgentPoolPropertiesArgs', 'BuildServiceAgentPoolPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The build service agent pool resource
@@ -161,11 +161,11 @@ class BuildServiceAgentPool(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['BuildServiceAgentPoolPropertiesArgs', 'BuildServiceAgentPoolPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['BuildServiceAgentPoolPropertiesArgs', 'BuildServiceAgentPoolPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

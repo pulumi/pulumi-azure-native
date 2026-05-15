@@ -136,11 +136,11 @@ export interface MECRoleArgs {
     /**
      * Activation key of the MEC.
      */
-    connectionString?: pulumi.Input<inputs.databoxedge.AsymmetricEncryptedSecretArgs | undefined>;
+    connectionString?: pulumi.Input<inputs.databoxedge.AsymmetricEncryptedSecretArgs>;
     /**
      * Controller Endpoint.
      */
-    controllerEndpoint?: pulumi.Input<string | undefined>;
+    controllerEndpoint?: pulumi.Input<string>;
     /**
      * The device name.
      */
@@ -153,7 +153,7 @@ export interface MECRoleArgs {
     /**
      * The role name.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
@@ -161,7 +161,7 @@ export interface MECRoleArgs {
     /**
      * Unique Id of the Resource.
      */
-    resourceUniqueId?: pulumi.Input<string | undefined>;
+    resourceUniqueId?: pulumi.Input<string>;
     /**
      * Role status.
      */

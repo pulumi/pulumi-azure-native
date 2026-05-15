@@ -116,11 +116,11 @@ export interface SchedulerArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.durabletask.SchedulerPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.durabletask.SchedulerPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -128,9 +128,9 @@ export interface SchedulerArgs {
     /**
      * The name of the Scheduler
      */
-    schedulerName?: pulumi.Input<string | undefined>;
+    schedulerName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

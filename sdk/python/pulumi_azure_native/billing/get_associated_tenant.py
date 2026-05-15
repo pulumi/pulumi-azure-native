@@ -148,8 +148,8 @@ def get_associated_tenant(associated_tenant_name: Optional[_builtins.str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_associated_tenant_output(associated_tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_associated_tenant_output(associated_tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociatedTenantResult]:
     """
     Gets an associated tenant by ID.

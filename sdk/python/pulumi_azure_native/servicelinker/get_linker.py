@@ -241,8 +241,8 @@ def get_linker(linker_name: Optional[_builtins.str] = None,
         target_service=pulumi.get(__ret__, 'target_service'),
         type=pulumi.get(__ret__, 'type'),
         v_net_solution=pulumi.get(__ret__, 'v_net_solution'))
-def get_linker_output(linker_name: pulumi.Input[Optional[_builtins.str]] = None,
-                      resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+def get_linker_output(linker_name: Optional[pulumi.Input[_builtins.str]] = None,
+                      resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkerResult]:
     """
     Returns Linker resource for a given name.

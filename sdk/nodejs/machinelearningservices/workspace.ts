@@ -226,7 +226,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["keyVault"] = args?.keyVault;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
-            resourceInputs["managedNetwork"] = args ? pulumi.output(args.managedNetwork).apply(v => v === undefined ? undefined : inputs.machinelearningservices.managedNetworkSettingsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["managedNetwork"] = args ? (args.managedNetwork ? pulumi.output(args.managedNetwork).apply(inputs.machinelearningservices.managedNetworkSettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["primaryUserAssignedIdentity"] = args?.primaryUserAssignedIdentity;
             resourceInputs["provisionNetworkNow"] = args?.provisionNetworkNow;
             resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
@@ -314,70 +314,70 @@ export interface WorkspaceArgs {
     /**
      * The flag to indicate whether to allow public access when behind VNet.
      */
-    allowPublicAccessWhenBehindVnet?: pulumi.Input<boolean | undefined>;
+    allowPublicAccessWhenBehindVnet?: pulumi.Input<boolean>;
     /**
      * ARM id of the application insights associated with this workspace.
      */
-    applicationInsights?: pulumi.Input<string | undefined>;
-    associatedWorkspaces?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    applicationInsights?: pulumi.Input<string>;
+    associatedWorkspaces?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * ARM id of the container registry associated with this workspace.
      */
-    containerRegistry?: pulumi.Input<string | undefined>;
+    containerRegistry?: pulumi.Input<string>;
     /**
      * The description of this workspace.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Url for the discovery service to identify regional endpoints for machine learning experimentation services
      */
-    discoveryUrl?: pulumi.Input<string | undefined>;
-    enableDataIsolation?: pulumi.Input<boolean | undefined>;
-    enableServiceSideCMKEncryption?: pulumi.Input<boolean | undefined>;
-    encryption?: pulumi.Input<inputs.machinelearningservices.EncryptionPropertyArgs | undefined>;
+    discoveryUrl?: pulumi.Input<string>;
+    enableDataIsolation?: pulumi.Input<boolean>;
+    enableServiceSideCMKEncryption?: pulumi.Input<boolean>;
+    encryption?: pulumi.Input<inputs.machinelearningservices.EncryptionPropertyArgs>;
     /**
      * Settings for feature store type workspace.
      */
-    featureStoreSettings?: pulumi.Input<inputs.machinelearningservices.FeatureStoreSettingsArgs | undefined>;
+    featureStoreSettings?: pulumi.Input<inputs.machinelearningservices.FeatureStoreSettingsArgs>;
     /**
      * The friendly name for this workspace. This name in mutable
      */
-    friendlyName?: pulumi.Input<string | undefined>;
+    friendlyName?: pulumi.Input<string>;
     /**
      * The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service
      */
-    hbiWorkspace?: pulumi.Input<boolean | undefined>;
-    hubResourceId?: pulumi.Input<string | undefined>;
+    hbiWorkspace?: pulumi.Input<boolean>;
+    hubResourceId?: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.machinelearningservices.ManagedServiceIdentityArgs>;
     /**
      * The compute name for image build
      */
-    imageBuildCompute?: pulumi.Input<string | undefined>;
+    imageBuildCompute?: pulumi.Input<string>;
     /**
      * ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created
      */
-    keyVault?: pulumi.Input<string | undefined>;
-    kind?: pulumi.Input<string | undefined>;
-    location?: pulumi.Input<string | undefined>;
+    keyVault?: pulumi.Input<string>;
+    kind?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Managed Network settings for a machine learning workspace.
      */
-    managedNetwork?: pulumi.Input<inputs.machinelearningservices.ManagedNetworkSettingsArgs | undefined>;
+    managedNetwork?: pulumi.Input<inputs.machinelearningservices.ManagedNetworkSettingsArgs>;
     /**
      * The user assigned identity resource id that represents the workspace identity.
      */
-    primaryUserAssignedIdentity?: pulumi.Input<string | undefined>;
+    primaryUserAssignedIdentity?: pulumi.Input<string>;
     /**
      * Set to trigger the provisioning of the managed VNet with the default Options when creating a Workspace with the managed VNet enabled, or else it does nothing.
      */
-    provisionNetworkNow?: pulumi.Input<boolean | undefined>;
+    provisionNetworkNow?: pulumi.Input<boolean>;
     /**
      * Whether requests from Public Network are allowed.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.machinelearningservices.PublicNetworkAccessType | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.machinelearningservices.PublicNetworkAccessType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -385,38 +385,38 @@ export interface WorkspaceArgs {
     /**
      * Settings for serverless compute in a workspace
      */
-    serverlessComputeSettings?: pulumi.Input<inputs.machinelearningservices.ServerlessComputeSettingsArgs | undefined>;
+    serverlessComputeSettings?: pulumi.Input<inputs.machinelearningservices.ServerlessComputeSettingsArgs>;
     /**
      * The service managed resource settings.
      */
-    serviceManagedResourcesSettings?: pulumi.Input<inputs.machinelearningservices.ServiceManagedResourcesSettingsArgs | undefined>;
+    serviceManagedResourcesSettings?: pulumi.Input<inputs.machinelearningservices.ServiceManagedResourcesSettingsArgs>;
     /**
      * The list of shared private link resources in this workspace.
      */
-    sharedPrivateLinkResources?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.SharedPrivateLinkResourceArgs>[] | undefined>;
+    sharedPrivateLinkResources?: pulumi.Input<pulumi.Input<inputs.machinelearningservices.SharedPrivateLinkResourceArgs>[]>;
     /**
      * Optional. This field is required to be implemented by the RP because AML is supporting more than one tier
      */
-    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.machinelearningservices.SkuArgs>;
     /**
      * ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
      */
-    storageAccount?: pulumi.Input<string | undefined>;
+    storageAccount?: pulumi.Input<string>;
     /**
      * The auth mode used for accessing the system datastores of the workspace.
      */
-    systemDatastoresAuthMode?: pulumi.Input<string | enums.machinelearningservices.SystemDatastoresAuthMode | undefined>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    systemDatastoresAuthMode?: pulumi.Input<string | enums.machinelearningservices.SystemDatastoresAuthMode>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
      */
-    v1LegacyMode?: pulumi.Input<boolean | undefined>;
+    v1LegacyMode?: pulumi.Input<boolean>;
     /**
      * WorkspaceHub's configuration object.
      */
-    workspaceHubConfig?: pulumi.Input<inputs.machinelearningservices.WorkspaceHubConfigArgs | undefined>;
+    workspaceHubConfig?: pulumi.Input<inputs.machinelearningservices.WorkspaceHubConfigArgs>;
     /**
      * Azure Machine Learning Workspace Name
      */
-    workspaceName?: pulumi.Input<string | undefined>;
+    workspaceName?: pulumi.Input<string>;
 }

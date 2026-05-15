@@ -161,23 +161,23 @@ export interface PolicyArgs {
     /**
      * Describes custom rules inside the policy.
      */
-    customRules?: pulumi.Input<inputs.frontdoor.CustomRuleListArgs | undefined>;
+    customRules?: pulumi.Input<inputs.frontdoor.CustomRuleListArgs>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Describes managed rules inside the policy.
      */
-    managedRules?: pulumi.Input<inputs.frontdoor.ManagedRuleSetListArgs | undefined>;
+    managedRules?: pulumi.Input<inputs.frontdoor.ManagedRuleSetListArgs>;
     /**
      * The name of the Web Application Firewall Policy.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string>;
     /**
      * Describes settings for the policy.
      */
-    policySettings?: pulumi.Input<inputs.frontdoor.PolicySettingsArgs | undefined>;
+    policySettings?: pulumi.Input<inputs.frontdoor.PolicySettingsArgs>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -185,9 +185,9 @@ export interface PolicyArgs {
     /**
      * The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
      */
-    sku?: pulumi.Input<inputs.frontdoor.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.frontdoor.SkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

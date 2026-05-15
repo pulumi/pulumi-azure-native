@@ -161,15 +161,15 @@ export interface AFDCustomDomainArgs {
     /**
      * Resource reference to the Azure DNS zone
      */
-    azureDnsZone?: pulumi.Input<inputs.cdn.ResourceReferenceArgs | undefined>;
+    azureDnsZone?: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
     /**
      * Name of the domain under the profile which is unique globally.
      */
-    customDomainName?: pulumi.Input<string | undefined>;
+    customDomainName?: pulumi.Input<string>;
     /**
      * Key-Value pair representing migration properties for domains.
      */
-    extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    extendedProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The host name of the domain. Must be a domain name.
      */
@@ -177,7 +177,7 @@ export interface AFDCustomDomainArgs {
     /**
      * Resource reference to the Azure resource where custom domain ownership was prevalidated
      */
-    preValidatedCustomDomainResourceId?: pulumi.Input<inputs.cdn.ResourceReferenceArgs | undefined>;
+    preValidatedCustomDomainResourceId?: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -189,5 +189,5 @@ export interface AFDCustomDomainArgs {
     /**
      * The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
      */
-    tlsSettings?: pulumi.Input<inputs.cdn.AFDDomainHttpsParametersArgs | undefined>;
+    tlsSettings?: pulumi.Input<inputs.cdn.AFDDomainHttpsParametersArgs>;
 }

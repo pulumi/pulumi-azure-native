@@ -179,9 +179,9 @@ def get_mongo_mi_resource_mongo_mi_role_assignment(account_name: Optional[_built
         scope=pulumi.get(__ret__, 'scope'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_mongo_mi_resource_mongo_mi_role_assignment_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          role_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_mongo_mi_resource_mongo_mi_role_assignment_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                          role_assignment_id: Optional[pulumi.Input[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMongoMIResourceMongoMIRoleAssignmentResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB MongoMI Role Assignment with the given Id.

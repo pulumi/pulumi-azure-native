@@ -106,7 +106,7 @@ export interface MachineAssessmentsV2OperationArgs {
     /**
      * Machine Assessment V2 ARM name
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */
@@ -114,7 +114,7 @@ export interface MachineAssessmentsV2OperationArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.migrate.MachineAssessmentV2PropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.MachineAssessmentV2PropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

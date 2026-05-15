@@ -127,15 +127,15 @@ export interface WorkspacePolicyFragmentArgs {
     /**
      * Policy fragment description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Format of the policy fragment content.
      */
-    format?: pulumi.Input<string | enums.apimanagement.PolicyFragmentContentFormat | undefined>;
+    format?: pulumi.Input<string | enums.apimanagement.PolicyFragmentContentFormat>;
     /**
      * A resource identifier.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

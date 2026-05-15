@@ -122,11 +122,11 @@ export interface DynamicSchemaVersionArgs {
     /**
      * The name of the DynamicSchemaVersion
      */
-    dynamicSchemaVersionName?: pulumi.Input<string | undefined>;
+    dynamicSchemaVersionName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.SchemaVersionPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.edge.SchemaVersionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -124,11 +124,11 @@ export interface HybridIdentityMetadatumArgs {
     /**
      * Name of the hybridIdentityMetadata.
      */
-    metadataName?: pulumi.Input<string | undefined>;
+    metadataName?: pulumi.Input<string>;
     /**
      * The Public Key.
      */
-    publicKey?: pulumi.Input<string | undefined>;
+    publicKey?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,7 +136,7 @@ export interface HybridIdentityMetadatumArgs {
     /**
      * The unique identifier for the resource.
      */
-    resourceUid?: pulumi.Input<string | undefined>;
+    resourceUid?: pulumi.Input<string>;
     /**
      * Name of the vm.
      */

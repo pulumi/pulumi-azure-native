@@ -122,19 +122,19 @@ export interface HealthModelArgs {
     /**
      * Name of health model resource
      */
-    healthModelName?: pulumi.Input<string | undefined>;
+    healthModelName?: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.cloudhealth.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.cloudhealth.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.cloudhealth.HealthModelPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.cloudhealth.HealthModelPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -142,5 +142,5 @@ export interface HealthModelArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

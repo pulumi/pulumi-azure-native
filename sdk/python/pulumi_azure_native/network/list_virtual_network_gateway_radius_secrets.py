@@ -85,8 +85,8 @@ def list_virtual_network_gateway_radius_secrets(resource_group_name: Optional[_b
     return AwaitableListVirtualNetworkGatewayRadiusSecretsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_virtual_network_gateway_radius_secrets_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                       virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_virtual_network_gateway_radius_secrets_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                       virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVirtualNetworkGatewayRadiusSecretsResult]:
     """
     List all Radius servers with respective radius secrets from virtual network gateway VpnClientConfiguration.

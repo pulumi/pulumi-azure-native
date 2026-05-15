@@ -112,23 +112,23 @@ export interface ProactiveDetectionConfigurationArgs {
     /**
      * The ProactiveDetection configuration ID. This is unique within a Application Insights component.
      */
-    configurationId?: pulumi.Input<string | undefined>;
+    configurationId?: pulumi.Input<string>;
     /**
      * Custom email addresses for this rule notifications
      */
-    customEmails?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    customEmails?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A flag that indicates whether this rule is enabled by the user
      */
-    enabled?: pulumi.Input<boolean | undefined>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource name
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -140,9 +140,9 @@ export interface ProactiveDetectionConfigurationArgs {
     /**
      * Static definitions of the ProactiveDetection configuration rule (same values for all components).
      */
-    ruleDefinitions?: pulumi.Input<inputs.applicationinsights.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs | undefined>;
+    ruleDefinitions?: pulumi.Input<inputs.applicationinsights.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs>;
     /**
      * A flag that indicated whether notifications on this rule should be sent to subscription owners
      */
-    sendEmailsToSubscriptionOwners?: pulumi.Input<boolean | undefined>;
+    sendEmailsToSubscriptionOwners?: pulumi.Input<boolean>;
 }

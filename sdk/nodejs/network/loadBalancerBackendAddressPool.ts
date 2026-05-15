@@ -175,19 +175,19 @@ export interface LoadBalancerBackendAddressPoolArgs {
     /**
      * The name of the backend address pool.
      */
-    backendAddressPoolName?: pulumi.Input<string | undefined>;
+    backendAddressPoolName?: pulumi.Input<string>;
     /**
      * Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
      */
-    drainPeriodInSeconds?: pulumi.Input<number | undefined>;
+    drainPeriodInSeconds?: pulumi.Input<number>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * An array of backend addresses.
      */
-    loadBalancerBackendAddresses?: pulumi.Input<pulumi.Input<inputs.network.LoadBalancerBackendAddressArgs>[] | undefined>;
+    loadBalancerBackendAddresses?: pulumi.Input<pulumi.Input<inputs.network.LoadBalancerBackendAddressArgs>[]>;
     /**
      * The name of the load balancer.
      */
@@ -195,11 +195,11 @@ export interface LoadBalancerBackendAddressPoolArgs {
     /**
      * The location of the backend address pool.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -207,13 +207,13 @@ export interface LoadBalancerBackendAddressPoolArgs {
     /**
      * Backend address synchronous mode for the backend pool
      */
-    syncMode?: pulumi.Input<string | enums.network.SyncMode | undefined>;
+    syncMode?: pulumi.Input<string | enums.network.SyncMode>;
     /**
      * An array of gateway load balancer tunnel interfaces.
      */
-    tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.network.GatewayLoadBalancerTunnelInterfaceArgs>[] | undefined>;
+    tunnelInterfaces?: pulumi.Input<pulumi.Input<inputs.network.GatewayLoadBalancerTunnelInterfaceArgs>[]>;
     /**
      * A reference to a virtual network.
      */
-    virtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    virtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs>;
 }

@@ -116,15 +116,15 @@ export class VirtualNetworkRetrieve extends pulumi.CustomResource {
  * The set of arguments for constructing a VirtualNetworkRetrieve resource.
  */
 export interface VirtualNetworkRetrieveArgs {
-    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
      */
-    properties?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.hybridcontainerservice.VirtualNetworksPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,9 +132,9 @@ export interface VirtualNetworkRetrieveArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Parameter for the name of the virtual network
      */
-    virtualNetworksName?: pulumi.Input<string | undefined>;
+    virtualNetworksName?: pulumi.Input<string>;
 }

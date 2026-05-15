@@ -23,8 +23,8 @@ class EndpointArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'Type']],
-                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
 
@@ -66,26 +66,26 @@ class EndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The endpoint name.
         """
         return pulumi.get(self, "endpoint_name")
 
     @endpoint_name.setter
-    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The resource Id of the connectivity endpoint (optional).
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -95,10 +95,10 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 type: pulumi.Input[Optional[Union[_builtins.str, 'Type']]] = None,
+                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None,
                  __props__=None):
         """
         The endpoint for the target resource.
@@ -144,10 +144,10 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 type: pulumi.Input[Optional[Union[_builtins.str, 'Type']]] = None,
+                 endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

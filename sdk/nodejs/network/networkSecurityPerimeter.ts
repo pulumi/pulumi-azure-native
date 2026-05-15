@@ -114,15 +114,15 @@ export interface NetworkSecurityPerimeterArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the network security perimeter.
      */
-    networkSecurityPerimeterName?: pulumi.Input<string | undefined>;
+    networkSecurityPerimeterName?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -130,5 +130,5 @@ export interface NetworkSecurityPerimeterArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

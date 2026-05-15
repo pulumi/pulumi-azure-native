@@ -22,7 +22,7 @@ class RuleSetArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RuleSet resource.
 
@@ -61,14 +61,14 @@ class RuleSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleSetName")
-    def rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rule_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the rule set under the profile which is unique globally.
         """
         return pulumi.get(self, "rule_set_name")
 
     @rule_set_name.setter
-    def rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rule_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "rule_set_name", value)
 
 
@@ -78,9 +78,9 @@ class RuleSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Friendly RuleSet name mapping to the any RuleSet or secret related information.
@@ -125,9 +125,9 @@ class RuleSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_set_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

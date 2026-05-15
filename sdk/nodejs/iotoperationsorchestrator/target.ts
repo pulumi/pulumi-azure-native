@@ -152,7 +152,7 @@ export interface TargetArgs {
     /**
      * A list of components.
      */
-    components?: pulumi.Input<pulumi.Input<inputs.iotoperationsorchestrator.ComponentPropertiesArgs>[] | undefined>;
+    components?: pulumi.Input<pulumi.Input<inputs.iotoperationsorchestrator.ComponentPropertiesArgs>[]>;
     /**
      * Edge location of the resource.
      */
@@ -160,15 +160,15 @@ export interface TargetArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of target.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Reconciliation Policy.
      */
-    reconciliationPolicy?: pulumi.Input<inputs.iotoperationsorchestrator.ReconciliationPolicyArgs | undefined>;
+    reconciliationPolicy?: pulumi.Input<inputs.iotoperationsorchestrator.ReconciliationPolicyArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,17 +176,17 @@ export interface TargetArgs {
     /**
      * Deployment scope (such as Kubernetes namespace).
      */
-    scope?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Defines the device topology for a target or instance.
      */
-    topologies?: pulumi.Input<pulumi.Input<inputs.iotoperationsorchestrator.TopologiesPropertiesArgs>[] | undefined>;
+    topologies?: pulumi.Input<pulumi.Input<inputs.iotoperationsorchestrator.TopologiesPropertiesArgs>[]>;
     /**
      * Version of the particular resource.
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

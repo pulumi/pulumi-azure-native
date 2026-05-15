@@ -101,10 +101,10 @@ export interface GroupQuotaArgs {
     /**
      * The GroupQuota name. The name should be unique for the provided context tenantId/MgId.
      */
-    groupQuotaName?: pulumi.Input<string | undefined>;
+    groupQuotaName?: pulumi.Input<string>;
     /**
      * Management Group Id.
      */
     managementGroupId: pulumi.Input<string>;
-    properties?: pulumi.Input<inputs.quota.GroupQuotasEntityPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.quota.GroupQuotasEntityPropertiesArgs>;
 }

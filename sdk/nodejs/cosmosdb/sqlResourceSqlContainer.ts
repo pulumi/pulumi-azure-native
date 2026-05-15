@@ -92,7 +92,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
             resourceInputs["databaseName"] = args?.databaseName;
             resourceInputs["location"] = args?.location;
             resourceInputs["options"] = args?.options;
-            resourceInputs["resource"] = args ? pulumi.output(args.resource).apply(inputs.cosmosdb.sqlContainerResourceArgsProvideDefaults) : undefined;
+            resourceInputs["resource"] = args ? (args.resource ? pulumi.output(args.resource).apply(inputs.cosmosdb.sqlContainerResourceArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -125,7 +125,7 @@ export interface SqlResourceSqlContainerArgs {
     /**
      * Cosmos DB container name.
      */
-    containerName?: pulumi.Input<string | undefined>;
+    containerName?: pulumi.Input<string>;
     /**
      * Cosmos DB database name.
      */
@@ -133,11 +133,11 @@ export interface SqlResourceSqlContainerArgs {
     /**
      * The location of the resource group to which the resource belongs.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    options?: pulumi.Input<inputs.cosmosdb.CreateUpdateOptionsArgs | undefined>;
+    options?: pulumi.Input<inputs.cosmosdb.CreateUpdateOptionsArgs>;
     /**
      * The standard JSON format of a container
      */
@@ -149,5 +149,5 @@ export interface SqlResourceSqlContainerArgs {
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

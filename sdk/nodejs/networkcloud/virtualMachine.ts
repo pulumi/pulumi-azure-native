@@ -221,7 +221,7 @@ export class VirtualMachine extends pulumi.CustomResource {
             resourceInputs["placementHints"] = args?.placementHints;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sshPublicKeys"] = args?.sshPublicKeys;
-            resourceInputs["storageProfile"] = args ? pulumi.output(args.storageProfile).apply(inputs.networkcloud.storageProfileArgsProvideDefaults) : undefined;
+            resourceInputs["storageProfile"] = args ? (args.storageProfile ? pulumi.output(args.storageProfile).apply(inputs.networkcloud.storageProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["userData"] = args?.userData;
             resourceInputs["virtioInterface"] = (args?.virtioInterface) ?? "Modern";
@@ -295,7 +295,7 @@ export interface VirtualMachineArgs {
     /**
      * Selects the boot method for the virtual machine.
      */
-    bootMethod?: pulumi.Input<string | enums.networkcloud.VirtualMachineBootMethod | undefined>;
+    bootMethod?: pulumi.Input<string | enums.networkcloud.VirtualMachineBootMethod>;
     /**
      * The cloud service network that provides platform-level services for the virtual machine.
      */
@@ -303,7 +303,7 @@ export interface VirtualMachineArgs {
     /**
      * The extended location to use for creation of a VM console resource.
      */
-    consoleExtendedLocation?: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs | undefined>;
+    consoleExtendedLocation?: pulumi.Input<inputs.networkcloud.ExtendedLocationArgs>;
     /**
      * The number of CPU cores in the virtual machine.
      */
@@ -315,11 +315,11 @@ export interface VirtualMachineArgs {
     /**
      * Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine.
      */
-    isolateEmulatorThread?: pulumi.Input<string | enums.networkcloud.VirtualMachineIsolateEmulatorThread | undefined>;
+    isolateEmulatorThread?: pulumi.Input<string | enums.networkcloud.VirtualMachineIsolateEmulatorThread>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The memory size of the virtual machine. Allocations are measured in gibibytes.
      */
@@ -327,15 +327,15 @@ export interface VirtualMachineArgs {
     /**
      * The list of network attachments to the virtual machine.
      */
-    networkAttachments?: pulumi.Input<pulumi.Input<inputs.networkcloud.NetworkAttachmentArgs>[] | undefined>;
+    networkAttachments?: pulumi.Input<pulumi.Input<inputs.networkcloud.NetworkAttachmentArgs>[]>;
     /**
      * The Base64 encoded cloud-init network data.
      */
-    networkData?: pulumi.Input<string | undefined>;
+    networkData?: pulumi.Input<string>;
     /**
      * The scheduling hints for the virtual machine.
      */
-    placementHints?: pulumi.Input<pulumi.Input<inputs.networkcloud.VirtualMachinePlacementHintArgs>[] | undefined>;
+    placementHints?: pulumi.Input<pulumi.Input<inputs.networkcloud.VirtualMachinePlacementHintArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -343,7 +343,7 @@ export interface VirtualMachineArgs {
     /**
      * The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername.
      */
-    sshPublicKeys?: pulumi.Input<pulumi.Input<inputs.networkcloud.SshPublicKeyArgs>[] | undefined>;
+    sshPublicKeys?: pulumi.Input<pulumi.Input<inputs.networkcloud.SshPublicKeyArgs>[]>;
     /**
      * The storage profile that specifies size and other parameters about the disks related to the virtual machine.
      */
@@ -351,23 +351,23 @@ export interface VirtualMachineArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Base64 encoded cloud-init user data.
      */
-    userData?: pulumi.Input<string | undefined>;
+    userData?: pulumi.Input<string>;
     /**
      * Field Deprecated, use virtualizationModel instead. The type of the virtio interface.
      */
-    virtioInterface?: pulumi.Input<string | enums.networkcloud.VirtualMachineVirtioInterfaceType | undefined>;
+    virtioInterface?: pulumi.Input<string | enums.networkcloud.VirtualMachineVirtioInterfaceType>;
     /**
      * The name of the virtual machine.
      */
-    virtualMachineName?: pulumi.Input<string | undefined>;
+    virtualMachineName?: pulumi.Input<string>;
     /**
      * The type of the device model to use.
      */
-    vmDeviceModel?: pulumi.Input<string | enums.networkcloud.VirtualMachineDeviceModelType | undefined>;
+    vmDeviceModel?: pulumi.Input<string | enums.networkcloud.VirtualMachineDeviceModelType>;
     /**
      * The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image.
      */
@@ -375,5 +375,5 @@ export interface VirtualMachineArgs {
     /**
      * The credentials used to login to the image repository that has access to the specified image.
      */
-    vmImageRepositoryCredentials?: pulumi.Input<inputs.networkcloud.ImageRepositoryCredentialsArgs | undefined>;
+    vmImageRepositoryCredentials?: pulumi.Input<inputs.networkcloud.ImageRepositoryCredentialsArgs>;
 }

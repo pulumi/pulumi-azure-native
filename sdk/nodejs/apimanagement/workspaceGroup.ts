@@ -127,7 +127,7 @@ export interface WorkspaceGroupArgs {
     /**
      * Group description.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Group name.
      */
@@ -135,11 +135,11 @@ export interface WorkspaceGroupArgs {
     /**
      * Identifier of the external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
      */
-    externalId?: pulumi.Input<string | undefined>;
+    externalId?: pulumi.Input<string>;
     /**
      * Group identifier. Must be unique in the current API Management service instance.
      */
-    groupId?: pulumi.Input<string | undefined>;
+    groupId?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -151,7 +151,7 @@ export interface WorkspaceGroupArgs {
     /**
      * Group type.
      */
-    type?: pulumi.Input<enums.apimanagement.GroupType | undefined>;
+    type?: pulumi.Input<enums.apimanagement.GroupType>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

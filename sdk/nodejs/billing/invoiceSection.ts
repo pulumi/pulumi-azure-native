@@ -120,13 +120,13 @@ export interface InvoiceSectionArgs {
     /**
      * The ID that uniquely identifies an invoice section.
      */
-    invoiceSectionName?: pulumi.Input<string | undefined>;
+    invoiceSectionName?: pulumi.Input<string>;
     /**
      * An invoice section.
      */
-    properties?: pulumi.Input<inputs.billing.InvoiceSectionPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.billing.InvoiceSectionPropertiesArgs>;
     /**
      * Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \ ? /
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

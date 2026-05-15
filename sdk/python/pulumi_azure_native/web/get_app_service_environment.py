@@ -411,8 +411,8 @@ def get_app_service_environment(name: Optional[_builtins.str] = None,
         user_whitelisted_ip_ranges=pulumi.get(__ret__, 'user_whitelisted_ip_ranges'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'),
         zone_redundant=pulumi.get(__ret__, 'zone_redundant'))
-def get_app_service_environment_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_app_service_environment_output(name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceEnvironmentResult]:
     """
     Description for Get the properties of an App Service Environment.

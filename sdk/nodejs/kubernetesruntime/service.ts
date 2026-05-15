@@ -112,5 +112,5 @@ export interface ServiceArgs {
     /**
      * The name of the the service
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName?: pulumi.Input<string>;
 }

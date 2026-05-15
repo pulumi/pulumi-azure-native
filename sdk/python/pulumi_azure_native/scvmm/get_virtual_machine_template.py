@@ -397,8 +397,8 @@ def get_virtual_machine_template(resource_group_name: Optional[_builtins.str] = 
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'),
         vmm_server_id=pulumi.get(__ret__, 'vmm_server_id'))
-def get_virtual_machine_template_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        virtual_machine_template_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_machine_template_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        virtual_machine_template_name: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineTemplateResult]:
     """
     Implements VirtualMachineTemplate GET method.

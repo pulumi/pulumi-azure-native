@@ -67,7 +67,7 @@ def get_provider_action_overview_status(type: Optional[_builtins.str] = None,
 
     return AwaitableGetProviderActionOverviewStatusResult(
         status_list=pulumi.get(__ret__, 'status_list'))
-def get_provider_action_overview_status_output(type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_provider_action_overview_status_output(type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderActionOverviewStatusResult]:
     """
     Get the resource overview status.

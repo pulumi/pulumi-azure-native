@@ -91,10 +91,10 @@ def get_test_base_account_file_upload_url(blob_name: Optional[_builtins.str] = N
     return AwaitableGetTestBaseAccountFileUploadUrlResult(
         blob_path=pulumi.get(__ret__, 'blob_path'),
         upload_url=pulumi.get(__ret__, 'upload_url'))
-def get_test_base_account_file_upload_url_output(blob_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 resource_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'FileUploadResourceType']]]] = None,
-                                                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_test_base_account_file_upload_url_output(blob_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 resource_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'FileUploadResourceType']]]] = None,
+                                                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTestBaseAccountFileUploadUrlResult]:
     """
     Gets the file upload URL of a Test Base Account.

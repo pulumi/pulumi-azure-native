@@ -120,15 +120,15 @@ export interface MeshMembershipArgs {
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    managedBy?: pulumi.Input<string | undefined>;
+    managedBy?: pulumi.Input<string>;
     /**
      * The name of the mesh membership.
      */
-    meshMembershipName?: pulumi.Input<string | undefined>;
+    meshMembershipName?: pulumi.Input<string>;
     /**
      * Mesh membership properties of a managed cluster.
      */
-    properties?: pulumi.Input<inputs.containerservice.MeshMembershipPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.containerservice.MeshMembershipPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

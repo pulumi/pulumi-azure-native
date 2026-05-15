@@ -120,7 +120,7 @@ export interface ApplicationArgs {
     /**
      * The constant value for the application name.
      */
-    applicationName?: pulumi.Input<string | undefined>;
+    applicationName?: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */
@@ -128,7 +128,7 @@ export interface ApplicationArgs {
     /**
      * The properties of the application.
      */
-    properties?: pulumi.Input<inputs.hdinsight.ApplicationPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.hdinsight.ApplicationPropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -136,5 +136,5 @@ export interface ApplicationArgs {
     /**
      * The tags for the application.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -107,11 +107,11 @@ export interface FileShareSnapshotArgs {
     /**
      * The name of the FileShareSnapshot
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.fileshares.FileShareSnapshotPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.fileshares.FileShareSnapshotPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

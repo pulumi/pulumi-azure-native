@@ -216,9 +216,9 @@ def get_change_data_capture(change_data_capture_name: Optional[_builtins.str] = 
         status=pulumi.get(__ret__, 'status'),
         target_connections_info=pulumi.get(__ret__, 'target_connections_info'),
         type=pulumi.get(__ret__, 'type'))
-def get_change_data_capture_output(change_data_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   factory_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_change_data_capture_output(change_data_capture_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   factory_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChangeDataCaptureResult]:
     """
     Gets a change data capture.

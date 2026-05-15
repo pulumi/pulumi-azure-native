@@ -114,7 +114,7 @@ export interface ConfigurationProfileHCRPAssignmentArgs {
     /**
      * Name of the configuration profile assignment. Only default is supported.
      */
-    configurationProfileAssignmentName?: pulumi.Input<string | undefined>;
+    configurationProfileAssignmentName?: pulumi.Input<string>;
     /**
      * The name of the Arc machine.
      */
@@ -122,7 +122,7 @@ export interface ConfigurationProfileHCRPAssignmentArgs {
     /**
      * Properties of the configuration profile assignment.
      */
-    properties?: pulumi.Input<inputs.automanage.ConfigurationProfileAssignmentPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.automanage.ConfigurationProfileAssignmentPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

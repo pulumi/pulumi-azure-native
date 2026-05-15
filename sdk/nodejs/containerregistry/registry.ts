@@ -158,8 +158,8 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["networkRuleBypassOptions"] = (args?.networkRuleBypassOptions) ?? "AzureServices";
-            resourceInputs["networkRuleSet"] = args ? pulumi.output(args.networkRuleSet).apply(v => v === undefined ? undefined : inputs.containerregistry.networkRuleSetArgsProvideDefaults(v)) : undefined;
-            resourceInputs["policies"] = args ? pulumi.output(args.policies).apply(v => v === undefined ? undefined : inputs.containerregistry.policiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["networkRuleSet"] = args ? (args.networkRuleSet ? pulumi.output(args.networkRuleSet).apply(inputs.containerregistry.networkRuleSetArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["policies"] = args ? (args.policies ? pulumi.output(args.policies).apply(inputs.containerregistry.policiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
             resourceInputs["registryName"] = args?.registryName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -215,47 +215,47 @@ export interface RegistryArgs {
     /**
      * The value that indicates whether the admin user is enabled.
      */
-    adminUserEnabled?: pulumi.Input<boolean | undefined>;
+    adminUserEnabled?: pulumi.Input<boolean>;
     /**
      * Enables registry-wide pull from unauthenticated clients.
      */
-    anonymousPullEnabled?: pulumi.Input<boolean | undefined>;
+    anonymousPullEnabled?: pulumi.Input<boolean>;
     /**
      * Enable a single data endpoint per region for serving data.
      */
-    dataEndpointEnabled?: pulumi.Input<boolean | undefined>;
+    dataEndpointEnabled?: pulumi.Input<boolean>;
     /**
      * The encryption settings of container registry.
      */
-    encryption?: pulumi.Input<inputs.containerregistry.EncryptionPropertyArgs | undefined>;
+    encryption?: pulumi.Input<inputs.containerregistry.EncryptionPropertyArgs>;
     /**
      * The identity of the container registry.
      */
-    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs | undefined>;
+    identity?: pulumi.Input<inputs.containerregistry.IdentityPropertiesArgs>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Whether to allow trusted Azure services to access a network restricted registry.
      */
-    networkRuleBypassOptions?: pulumi.Input<string | enums.containerregistry.NetworkRuleBypassOptions | undefined>;
+    networkRuleBypassOptions?: pulumi.Input<string | enums.containerregistry.NetworkRuleBypassOptions>;
     /**
      * The network rule set for a container registry.
      */
-    networkRuleSet?: pulumi.Input<inputs.containerregistry.NetworkRuleSetArgs | undefined>;
+    networkRuleSet?: pulumi.Input<inputs.containerregistry.NetworkRuleSetArgs>;
     /**
      * The policies for a container registry.
      */
-    policies?: pulumi.Input<inputs.containerregistry.PoliciesArgs | undefined>;
+    policies?: pulumi.Input<inputs.containerregistry.PoliciesArgs>;
     /**
      * Whether or not public network access is allowed for the container registry.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.containerregistry.PublicNetworkAccess | undefined>;
+    publicNetworkAccess?: pulumi.Input<string | enums.containerregistry.PublicNetworkAccess>;
     /**
      * The name of the container registry.
      */
-    registryName?: pulumi.Input<string | undefined>;
+    registryName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -267,9 +267,9 @@ export interface RegistryArgs {
     /**
      * The tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether or not zone redundancy is enabled for this container registry
      */
-    zoneRedundancy?: pulumi.Input<string | enums.containerregistry.ZoneRedundancy | undefined>;
+    zoneRedundancy?: pulumi.Input<string | enums.containerregistry.ZoneRedundancy>;
 }

@@ -111,23 +111,23 @@ export interface GetLogAnalyticExportThrottledRequestsOutputArgs {
     /**
      * Group query result by Client Application ID.
      */
-    groupByClientApplicationId?: pulumi.Input<boolean | undefined>;
+    groupByClientApplicationId?: pulumi.Input<boolean>;
     /**
      * Group query result by Operation Name.
      */
-    groupByOperationName?: pulumi.Input<boolean | undefined>;
+    groupByOperationName?: pulumi.Input<boolean>;
     /**
      * Group query result by Resource Name.
      */
-    groupByResourceName?: pulumi.Input<boolean | undefined>;
+    groupByResourceName?: pulumi.Input<boolean>;
     /**
      * Group query result by Throttle Policy applied.
      */
-    groupByThrottlePolicy?: pulumi.Input<boolean | undefined>;
+    groupByThrottlePolicy?: pulumi.Input<boolean>;
     /**
      * Group query result by User Agent.
      */
-    groupByUserAgent?: pulumi.Input<boolean | undefined>;
+    groupByUserAgent?: pulumi.Input<boolean>;
     /**
      * The name of Azure region.
      */

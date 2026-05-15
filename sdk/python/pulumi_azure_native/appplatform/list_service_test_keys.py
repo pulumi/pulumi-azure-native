@@ -123,8 +123,8 @@ def list_service_test_keys(resource_group_name: Optional[_builtins.str] = None,
         primary_test_endpoint=pulumi.get(__ret__, 'primary_test_endpoint'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'),
         secondary_test_endpoint=pulumi.get(__ret__, 'secondary_test_endpoint'))
-def list_service_test_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_service_test_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServiceTestKeysResult]:
     """
     List test keys for a Service.

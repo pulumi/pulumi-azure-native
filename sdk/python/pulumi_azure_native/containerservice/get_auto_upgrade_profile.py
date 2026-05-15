@@ -208,9 +208,9 @@ def get_auto_upgrade_profile(auto_upgrade_profile_name: Optional[_builtins.str] 
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         update_strategy_id=pulumi.get(__ret__, 'update_strategy_id'))
-def get_auto_upgrade_profile_output(auto_upgrade_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_auto_upgrade_profile_output(auto_upgrade_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoUpgradeProfileResult]:
     """
     Get a AutoUpgradeProfile

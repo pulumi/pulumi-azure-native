@@ -132,7 +132,7 @@ export interface ProtectedItemArgs {
     /**
      * Optional ETag.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Fabric name associated with the backup item.
      */
@@ -140,15 +140,15 @@ export interface ProtectedItemArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * ProtectedItemResource properties
      */
-    properties?: pulumi.Input<inputs.recoveryservices.AzureFileshareProtectedItemArgs | inputs.recoveryservices.AzureIaaSClassicComputeVMProtectedItemArgs | inputs.recoveryservices.AzureIaaSComputeVMProtectedItemArgs | inputs.recoveryservices.AzureIaaSVMProtectedItemArgs | inputs.recoveryservices.AzureSqlProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPAseDatabaseProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSQLDatabaseProtectedItemArgs | inputs.recoveryservices.DPMProtectedItemArgs | inputs.recoveryservices.GenericProtectedItemArgs | inputs.recoveryservices.MabFileFolderProtectedItemArgs | undefined>;
+    properties?: pulumi.Input<inputs.recoveryservices.AzureFileshareProtectedItemArgs | inputs.recoveryservices.AzureIaaSClassicComputeVMProtectedItemArgs | inputs.recoveryservices.AzureIaaSComputeVMProtectedItemArgs | inputs.recoveryservices.AzureIaaSVMProtectedItemArgs | inputs.recoveryservices.AzureSqlProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPAseDatabaseProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs | inputs.recoveryservices.AzureVmWorkloadSQLDatabaseProtectedItemArgs | inputs.recoveryservices.DPMProtectedItemArgs | inputs.recoveryservices.GenericProtectedItemArgs | inputs.recoveryservices.MabFileFolderProtectedItemArgs>;
     /**
      * Item name to be backed up.
      */
-    protectedItemName?: pulumi.Input<string | undefined>;
+    protectedItemName?: pulumi.Input<string>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -156,7 +156,7 @@ export interface ProtectedItemArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */

@@ -24,7 +24,7 @@ class WorkspaceTagOperationLinkArgs:
                  service_name: pulumi.Input[_builtins.str],
                  tag_id: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 operation_link_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 operation_link_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceTagOperationLink resource.
 
@@ -105,14 +105,14 @@ class WorkspaceTagOperationLinkArgs:
 
     @_builtins.property
     @pulumi.getter(name="operationLinkId")
-    def operation_link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def operation_link_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Tag-operation link identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "operation_link_id")
 
     @operation_link_id.setter
-    def operation_link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def operation_link_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "operation_link_id", value)
 
 
@@ -122,12 +122,12 @@ class WorkspaceTagOperationLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 operation_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 operation_link_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 operation_link_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Tag-operation link details.
@@ -175,12 +175,12 @@ class WorkspaceTagOperationLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 operation_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 operation_link_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 operation_link_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

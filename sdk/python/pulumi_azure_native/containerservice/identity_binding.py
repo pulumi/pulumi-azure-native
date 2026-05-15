@@ -23,8 +23,8 @@ class IdentityBindingArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 identity_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['IdentityBindingPropertiesArgs']] = None):
+                 identity_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['IdentityBindingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a IdentityBinding resource.
 
@@ -66,26 +66,26 @@ class IdentityBindingArgs:
 
     @_builtins.property
     @pulumi.getter(name="identityBindingName")
-    def identity_binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def identity_binding_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the identity binding.
         """
         return pulumi.get(self, "identity_binding_name")
 
     @identity_binding_name.setter
-    def identity_binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def identity_binding_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "identity_binding_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['IdentityBindingPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['IdentityBindingPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['IdentityBindingPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['IdentityBindingPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class IdentityBinding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['IdentityBindingPropertiesArgs', 'IdentityBindingPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['IdentityBindingPropertiesArgs', 'IdentityBindingPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The IdentityBinding resource.
@@ -144,10 +144,10 @@ class IdentityBinding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 identity_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['IdentityBindingPropertiesArgs', 'IdentityBindingPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_binding_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['IdentityBindingPropertiesArgs', 'IdentityBindingPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

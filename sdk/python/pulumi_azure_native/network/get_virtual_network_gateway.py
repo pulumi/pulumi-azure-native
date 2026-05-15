@@ -514,8 +514,8 @@ def get_virtual_network_gateway(resource_group_name: Optional[_builtins.str] = N
         vpn_client_configuration=pulumi.get(__ret__, 'vpn_client_configuration'),
         vpn_gateway_generation=pulumi.get(__ret__, 'vpn_gateway_generation'),
         vpn_type=pulumi.get(__ret__, 'vpn_type'))
-def get_virtual_network_gateway_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_virtual_network_gateway_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayResult]:
     """
     Gets the specified virtual network gateway by resource group.

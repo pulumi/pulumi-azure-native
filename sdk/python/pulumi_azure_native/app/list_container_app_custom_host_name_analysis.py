@@ -218,9 +218,9 @@ def list_container_app_custom_host_name_analysis(container_app_name: Optional[_b
         host_name=pulumi.get(__ret__, 'host_name'),
         is_hostname_already_verified=pulumi.get(__ret__, 'is_hostname_already_verified'),
         txt_records=pulumi.get(__ret__, 'txt_records'))
-def list_container_app_custom_host_name_analysis_output(container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        custom_hostname: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_container_app_custom_host_name_analysis_output(container_app_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                        custom_hostname: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListContainerAppCustomHostNameAnalysisResult]:
     """
     Custom domain analysis.

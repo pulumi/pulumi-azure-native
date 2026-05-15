@@ -125,9 +125,9 @@ def get_outbound_firewall_rule(outbound_rule_fqdn: Optional[_builtins.str] = Non
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_outbound_firewall_rule_output(outbound_rule_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
-                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      server_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_outbound_firewall_rule_output(outbound_rule_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      server_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutboundFirewallRuleResult]:
     """
     Gets an outbound firewall rule.

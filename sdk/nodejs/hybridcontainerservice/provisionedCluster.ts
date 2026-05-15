@@ -87,7 +87,7 @@ export class ProvisionedCluster extends pulumi.CustomResource {
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.hybridcontainerservice.provisionedClustersAllPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.hybridcontainerservice.provisionedClustersAllPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["tags"] = args?.tags;
@@ -117,19 +117,19 @@ export class ProvisionedCluster extends pulumi.CustomResource {
  * The set of arguments for constructing a ProvisionedCluster resource.
  */
 export interface ProvisionedClusterArgs {
-    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClustersExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClustersExtendedLocationArgs>;
     /**
      * Identity for the Provisioned cluster.
      */
-    identity?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClusterIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClusterIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * All properties of the provisioned cluster
      */
-    properties?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClustersAllPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.hybridcontainerservice.ProvisionedClustersAllPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -137,9 +137,9 @@ export interface ProvisionedClusterArgs {
     /**
      * Parameter for the name of the provisioned cluster
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

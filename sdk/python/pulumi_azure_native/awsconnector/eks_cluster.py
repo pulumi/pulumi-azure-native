@@ -23,7 +23,7 @@ __all__ = ['EksClusterArgs', 'EksCluster']
 class EksClusterArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['EksClusterPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['EksClusterPropertiesArgs']] = None):
         """
         The set of arguments for constructing a EksCluster resource.
 
@@ -48,14 +48,14 @@ class EksClusterArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['EksClusterPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['EksClusterPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['EksClusterPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['EksClusterPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -65,8 +65,8 @@ class EksCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['EksClusterPropertiesArgs', 'EksClusterPropertiesArgsDict']]] = None,
-                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['EksClusterPropertiesArgs', 'EksClusterPropertiesArgsDict']]] = None,
+                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A Microsoft.AwsConnector resource
@@ -106,8 +106,8 @@ class EksCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['EksClusterPropertiesArgs', 'EksClusterPropertiesArgsDict']]] = None,
-                 resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['EksClusterPropertiesArgs', 'EksClusterPropertiesArgsDict']]] = None,
+                 resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

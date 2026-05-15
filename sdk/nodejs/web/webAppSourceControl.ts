@@ -142,31 +142,31 @@ export interface WebAppSourceControlArgs {
     /**
      * Name of branch to use for deployment.
      */
-    branch?: pulumi.Input<string | undefined>;
+    branch?: pulumi.Input<string>;
     /**
      * <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
      */
-    deploymentRollbackEnabled?: pulumi.Input<boolean | undefined>;
+    deploymentRollbackEnabled?: pulumi.Input<boolean>;
     /**
      * If GitHub Action is selected, than the associated configuration.
      */
-    gitHubActionConfiguration?: pulumi.Input<inputs.web.GitHubActionConfigurationArgs | undefined>;
+    gitHubActionConfiguration?: pulumi.Input<inputs.web.GitHubActionConfigurationArgs>;
     /**
      * <code>true</code> if this is deployed via GitHub action.
      */
-    isGitHubAction?: pulumi.Input<boolean | undefined>;
+    isGitHubAction?: pulumi.Input<boolean>;
     /**
      * <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
      */
-    isManualIntegration?: pulumi.Input<boolean | undefined>;
+    isManualIntegration?: pulumi.Input<boolean>;
     /**
      * <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
      */
-    isMercurial?: pulumi.Input<boolean | undefined>;
+    isMercurial?: pulumi.Input<boolean>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of the app.
      */
@@ -174,7 +174,7 @@ export interface WebAppSourceControlArgs {
     /**
      * Repository or source control URL.
      */
-    repoUrl?: pulumi.Input<string | undefined>;
+    repoUrl?: pulumi.Input<string>;
     /**
      * Name of the resource group to which the resource belongs.
      */

@@ -106,7 +106,7 @@ export class BotConnection extends pulumi.CustomResource {
             resourceInputs["connectionName"] = args?.connectionName;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.botservice.connectionSettingPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.botservice.connectionSettingPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["sku"] = args?.sku;
@@ -144,19 +144,19 @@ export interface BotConnectionArgs {
     /**
      * The name of the Bot Service Connection Setting resource.
      */
-    connectionName?: pulumi.Input<string | undefined>;
+    connectionName?: pulumi.Input<string>;
     /**
      * Required. Gets or sets the Kind of the resource.
      */
-    kind?: pulumi.Input<string | enums.botservice.Kind | undefined>;
+    kind?: pulumi.Input<string | enums.botservice.Kind>;
     /**
      * Specifies the location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The set of properties specific to bot channel resource
      */
-    properties?: pulumi.Input<inputs.botservice.ConnectionSettingPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.botservice.ConnectionSettingPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -168,9 +168,9 @@ export interface BotConnectionArgs {
     /**
      * Gets or sets the SKU of the resource.
      */
-    sku?: pulumi.Input<inputs.botservice.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.botservice.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

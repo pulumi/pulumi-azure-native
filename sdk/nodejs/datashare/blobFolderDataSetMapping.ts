@@ -192,7 +192,7 @@ export interface BlobFolderDataSetMappingArgs {
     /**
      * The name of the data set mapping to be created.
      */
-    dataSetMappingName?: pulumi.Input<string | undefined>;
+    dataSetMappingName?: pulumi.Input<string>;
     /**
      * Kind of data set mapping.
      * Expected value is 'BlobFolder'.

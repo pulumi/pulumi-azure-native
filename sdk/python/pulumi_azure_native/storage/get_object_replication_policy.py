@@ -192,9 +192,9 @@ def get_object_replication_policy(account_name: Optional[_builtins.str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         source_account=pulumi.get(__ret__, 'source_account'),
         type=pulumi.get(__ret__, 'type'))
-def get_object_replication_policy_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         object_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_object_replication_policy_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         object_replication_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectReplicationPolicyResult]:
     """
     Get the object replication policy of the storage account by policy ID.

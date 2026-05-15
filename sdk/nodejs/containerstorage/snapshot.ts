@@ -129,7 +129,7 @@ export interface SnapshotArgs {
     /**
      * Volume Snapshot Resource
      */
-    snapshotName?: pulumi.Input<string | undefined>;
+    snapshotName?: pulumi.Input<string>;
     /**
      * Reference to the source volume
      */

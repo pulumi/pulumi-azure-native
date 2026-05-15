@@ -183,39 +183,39 @@ export interface PrivateLinkServiceArgs {
     /**
      * The auto-approval list of the private link service.
      */
-    autoApproval?: pulumi.Input<inputs.network.PrivateLinkServicePropertiesAutoApprovalArgs | undefined>;
+    autoApproval?: pulumi.Input<inputs.network.PrivateLinkServicePropertiesAutoApprovalArgs>;
     /**
      * The destination IP address of the private link service.
      */
-    destinationIPAddress?: pulumi.Input<string | undefined>;
+    destinationIPAddress?: pulumi.Input<string>;
     /**
      * Whether the private link service is enabled for proxy protocol or not.
      */
-    enableProxyProtocol?: pulumi.Input<boolean | undefined>;
+    enableProxyProtocol?: pulumi.Input<boolean>;
     /**
      * The extended location of the load balancer.
      */
-    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
     /**
      * The list of Fqdn.
      */
-    fqdns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    fqdns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * An array of private link service IP configurations.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.PrivateLinkServiceIpConfigurationArgs>[] | undefined>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.PrivateLinkServiceIpConfigurationArgs>[]>;
     /**
      * An array of references to the load balancer IP configurations.
      */
-    loadBalancerFrontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FrontendIPConfigurationArgs>[] | undefined>;
+    loadBalancerFrontendIpConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FrontendIPConfigurationArgs>[]>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -223,13 +223,13 @@ export interface PrivateLinkServiceArgs {
     /**
      * The name of the private link service.
      */
-    serviceName?: pulumi.Input<string | undefined>;
+    serviceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The visibility list of the private link service.
      */
-    visibility?: pulumi.Input<inputs.network.PrivateLinkServicePropertiesVisibilityArgs | undefined>;
+    visibility?: pulumi.Input<inputs.network.PrivateLinkServicePropertiesVisibilityArgs>;
 }

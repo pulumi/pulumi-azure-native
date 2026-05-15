@@ -23,9 +23,9 @@ __all__ = ['AssociatedTenantArgs', 'AssociatedTenant']
 class AssociatedTenantArgs:
     def __init__(__self__, *,
                  billing_account_name: pulumi.Input[_builtins.str],
-                 associated_tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional['AssociatedTenantPropertiesArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 associated_tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input['AssociatedTenantPropertiesArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AssociatedTenant resource.
 
@@ -56,38 +56,38 @@ class AssociatedTenantArgs:
 
     @_builtins.property
     @pulumi.getter(name="associatedTenantName")
-    def associated_tenant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def associated_tenant_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ID that uniquely identifies a tenant.
         """
         return pulumi.get(self, "associated_tenant_name")
 
     @associated_tenant_name.setter
-    def associated_tenant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def associated_tenant_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "associated_tenant_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['AssociatedTenantPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['AssociatedTenantPropertiesArgs']]:
         """
         An associated tenant.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['AssociatedTenantPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['AssociatedTenantPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -97,10 +97,10 @@ class AssociatedTenant(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['AssociatedTenantPropertiesArgs', 'AssociatedTenantPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 associated_tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['AssociatedTenantPropertiesArgs', 'AssociatedTenantPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         An associated tenant.
@@ -142,10 +142,10 @@ class AssociatedTenant(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['AssociatedTenantPropertiesArgs', 'AssociatedTenantPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 associated_tenant_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 billing_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['AssociatedTenantPropertiesArgs', 'AssociatedTenantPropertiesArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

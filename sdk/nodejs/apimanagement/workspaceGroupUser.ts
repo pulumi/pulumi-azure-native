@@ -164,7 +164,7 @@ export interface WorkspaceGroupUserArgs {
     /**
      * User identifier. Must be unique in the current API Management service instance.
      */
-    userId?: pulumi.Input<string | undefined>;
+    userId?: pulumi.Input<string>;
     /**
      * Workspace identifier. Must be unique in the current API Management service instance.
      */

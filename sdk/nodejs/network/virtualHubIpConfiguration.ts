@@ -102,7 +102,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
             resourceInputs["privateIPAllocationMethod"] = args?.privateIPAllocationMethod;
             resourceInputs["publicIPAddress"] = args?.publicIPAddress;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["subnet"] = args ? pulumi.output(args.subnet).apply(v => v === undefined ? undefined : inputs.network.subnetArgsProvideDefaults(v)) : undefined;
+            resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.subnetArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["virtualHubName"] = args?.virtualHubName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
@@ -133,27 +133,27 @@ export interface VirtualHubIpConfigurationArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The name of the ipconfig.
      */
-    ipConfigName?: pulumi.Input<string | undefined>;
+    ipConfigName?: pulumi.Input<string>;
     /**
      * Name of the Ip Configuration.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The private IP address of the IP configuration.
      */
-    privateIPAddress?: pulumi.Input<string | undefined>;
+    privateIPAddress?: pulumi.Input<string>;
     /**
      * The private IP address allocation method.
      */
-    privateIPAllocationMethod?: pulumi.Input<string | enums.network.IPAllocationMethod | undefined>;
+    privateIPAllocationMethod?: pulumi.Input<string | enums.network.IPAllocationMethod>;
     /**
      * The reference to the public IP resource.
      */
-    publicIPAddress?: pulumi.Input<inputs.network.PublicIPAddressArgs | undefined>;
+    publicIPAddress?: pulumi.Input<inputs.network.PublicIPAddressArgs>;
     /**
      * The resource group name of the VirtualHub.
      */
@@ -161,7 +161,7 @@ export interface VirtualHubIpConfigurationArgs {
     /**
      * The reference to the subnet resource.
      */
-    subnet?: pulumi.Input<inputs.network.SubnetArgs | undefined>;
+    subnet?: pulumi.Input<inputs.network.SubnetArgs>;
     /**
      * The name of the VirtualHub.
      */

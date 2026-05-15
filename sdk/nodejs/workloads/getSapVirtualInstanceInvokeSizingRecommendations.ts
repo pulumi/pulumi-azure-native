@@ -117,7 +117,7 @@ export interface GetSapVirtualInstanceInvokeSizingRecommendationsOutputArgs {
     /**
      * The DB scale method.
      */
-    dbScaleMethod?: pulumi.Input<string | enums.workloads.SAPDatabaseScaleMethod | undefined>;
+    dbScaleMethod?: pulumi.Input<string | enums.workloads.SAPDatabaseScaleMethod>;
     /**
      * The deployment type. Eg: SingleServer/ThreeTier
      */
@@ -129,7 +129,7 @@ export interface GetSapVirtualInstanceInvokeSizingRecommendationsOutputArgs {
     /**
      * The high availability type.
      */
-    highAvailabilityType?: pulumi.Input<string | enums.workloads.SAPHighAvailabilityType | undefined>;
+    highAvailabilityType?: pulumi.Input<string | enums.workloads.SAPHighAvailabilityType>;
     /**
      * The name of the Azure region.
      */

@@ -156,23 +156,23 @@ export interface BusinessProcessArgs {
     /**
      * The business process mapping.
      */
-    businessProcessMapping?: pulumi.Input<{[key: string]: pulumi.Input<inputs.integrationspaces.BusinessProcessMappingItemArgs>} | undefined>;
+    businessProcessMapping?: pulumi.Input<{[key: string]: pulumi.Input<inputs.integrationspaces.BusinessProcessMappingItemArgs>}>;
     /**
      * The name of the business process
      */
-    businessProcessName?: pulumi.Input<string | undefined>;
+    businessProcessName?: pulumi.Input<string>;
     /**
      * The business process stages.
      */
-    businessProcessStages?: pulumi.Input<{[key: string]: pulumi.Input<inputs.integrationspaces.BusinessProcessStageArgs>} | undefined>;
+    businessProcessStages?: pulumi.Input<{[key: string]: pulumi.Input<inputs.integrationspaces.BusinessProcessStageArgs>}>;
     /**
      * The description of the business process.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The business process identifier.
      */
-    identifier?: pulumi.Input<inputs.integrationspaces.BusinessProcessIdentifierArgs | undefined>;
+    identifier?: pulumi.Input<inputs.integrationspaces.BusinessProcessIdentifierArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -184,9 +184,9 @@ export interface BusinessProcessArgs {
     /**
      * The table name of the business process.
      */
-    tableName?: pulumi.Input<string | undefined>;
+    tableName?: pulumi.Input<string>;
     /**
      * The tracking data store reference name.
      */
-    trackingDataStoreReferenceName?: pulumi.Input<string | undefined>;
+    trackingDataStoreReferenceName?: pulumi.Input<string>;
 }

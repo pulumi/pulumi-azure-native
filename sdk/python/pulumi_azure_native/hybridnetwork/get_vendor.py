@@ -145,7 +145,7 @@ def get_vendor(vendor_name: Optional[_builtins.str] = None,
         skus=pulumi.get(__ret__, 'skus'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_vendor_output(vendor_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_vendor_output(vendor_name: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVendorResult]:
     """
     Gets information about the specified vendor.

@@ -113,15 +113,15 @@ export interface SageMakerNotebookInstanceSummaryArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of SageMakerNotebookInstanceSummary
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.awsconnector.SageMakerNotebookInstanceSummaryPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.awsconnector.SageMakerNotebookInstanceSummaryPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,5 +129,5 @@ export interface SageMakerNotebookInstanceSummaryArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

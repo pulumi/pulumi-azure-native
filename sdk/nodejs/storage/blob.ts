@@ -119,7 +119,7 @@ export interface BlobArgs {
     /**
      * The access tier of the storage blob. Only supported for standard storage accounts, not premium.
      */
-    accessTier?: pulumi.Input<enums.storage.BlobAccessTier | undefined>;
+    accessTier?: pulumi.Input<enums.storage.BlobAccessTier>;
     /**
      * Specifies the storage account in which to create the storage container.
      */
@@ -127,7 +127,7 @@ export interface BlobArgs {
     /**
      * The name of the storage blob. Must be unique within the storage container the blob is located. If this property is not specified it will be set to the name of the resource.
      */
-    blobName?: pulumi.Input<string | undefined>;
+    blobName?: pulumi.Input<string>;
     /**
      * The name of the storage container in which this blob should be created.
      */
@@ -135,15 +135,15 @@ export interface BlobArgs {
     /**
      * The MD5 sum of the blob contents, base64-encoded. Cannot be defined if blob type is Append.
      */
-    contentMd5?: pulumi.Input<string | undefined>;
+    contentMd5?: pulumi.Input<string>;
     /**
      * The content type of the storage blob. Defaults to `application/octet-stream`.
      */
-    contentType?: pulumi.Input<string | undefined>;
+    contentType?: pulumi.Input<string>;
     /**
      * A map of custom blob metadata.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -151,9 +151,9 @@ export interface BlobArgs {
     /**
      * An asset to copy to the blob contents. This field cannot be specified for Append blobs.
      */
-    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive | undefined>;
+    source?: pulumi.Input<pulumi.asset.Asset | pulumi.asset.Archive>;
     /**
      * The type of the storage blob to be created. Defaults to 'Block'.
      */
-    type?: pulumi.Input<enums.storage.BlobType | undefined>;
+    type?: pulumi.Input<enums.storage.BlobType>;
 }

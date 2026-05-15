@@ -75,9 +75,9 @@ def list_managed_namespace_credential(managed_namespace_name: Optional[_builtins
 
     return AwaitableListManagedNamespaceCredentialResult(
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'))
-def list_managed_namespace_credential_output(managed_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_managed_namespace_credential_output(managed_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListManagedNamespaceCredentialResult]:
     """
     The list credential result response.

@@ -191,19 +191,19 @@ export interface SapVirtualInstanceArgs {
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.workloads.SAPVirtualInstanceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.workloads.SAPVirtualInstanceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Managed resource group configuration
      */
-    managedResourceGroupConfiguration?: pulumi.Input<inputs.workloads.ManagedRGConfigurationArgs | undefined>;
+    managedResourceGroupConfiguration?: pulumi.Input<inputs.workloads.ManagedRGConfigurationArgs>;
     /**
      * Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
      */
-    managedResourcesNetworkAccessType?: pulumi.Input<string | enums.workloads.ManagedResourcesNetworkAccessType | undefined>;
+    managedResourcesNetworkAccessType?: pulumi.Input<string | enums.workloads.ManagedResourcesNetworkAccessType>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -215,9 +215,9 @@ export interface SapVirtualInstanceArgs {
     /**
      * The name of the Virtual Instances for SAP solutions resource
      */
-    sapVirtualInstanceName?: pulumi.Input<string | undefined>;
+    sapVirtualInstanceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

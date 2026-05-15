@@ -100,7 +100,7 @@ export class PostgresInstance extends pulumi.CustomResource {
             resourceInputs["postgresInstanceName"] = args?.postgresInstanceName;
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["sku"] = args ? pulumi.output(args.sku).apply(v => v === undefined ? undefined : inputs.azurearcdata.postgresInstanceSkuArgsProvideDefaults(v)) : undefined;
+            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.azurearcdata.postgresInstanceSkuArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -131,15 +131,15 @@ export interface PostgresInstanceArgs {
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurearcdata.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.azurearcdata.ExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of Postgres Instance
      */
-    postgresInstanceName?: pulumi.Input<string | undefined>;
+    postgresInstanceName?: pulumi.Input<string>;
     /**
      * null
      */
@@ -151,9 +151,9 @@ export interface PostgresInstanceArgs {
     /**
      * Resource sku.
      */
-    sku?: pulumi.Input<inputs.azurearcdata.PostgresInstanceSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.azurearcdata.PostgresInstanceSkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

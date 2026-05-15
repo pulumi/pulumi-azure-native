@@ -122,7 +122,7 @@ export interface EntityAnalyticsArgs {
     /**
      * The relevant entity providers that are synced
      */
-    entityProviders?: pulumi.Input<pulumi.Input<string | enums.securityinsights.EntityProviders>[] | undefined>;
+    entityProviders?: pulumi.Input<pulumi.Input<string | enums.securityinsights.EntityProviders>[]>;
     /**
      * The kind of the setting
      * Expected value is 'EntityAnalytics'.
@@ -135,7 +135,7 @@ export interface EntityAnalyticsArgs {
     /**
      * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
      */
-    settingsName?: pulumi.Input<string | undefined>;
+    settingsName?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

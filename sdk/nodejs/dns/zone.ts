@@ -164,15 +164,15 @@ export interface ZoneArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
      */
-    registrationVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.dns.SubResourceArgs>[] | undefined>;
+    registrationVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.dns.SubResourceArgs>[]>;
     /**
      * A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
      */
-    resolutionVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.dns.SubResourceArgs>[] | undefined>;
+    resolutionVirtualNetworks?: pulumi.Input<pulumi.Input<inputs.dns.SubResourceArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -180,13 +180,13 @@ export interface ZoneArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the DNS zone (without a terminating dot).
      */
-    zoneName?: pulumi.Input<string | undefined>;
+    zoneName?: pulumi.Input<string>;
     /**
      * The type of this DNS zone (Public or Private).
      */
-    zoneType?: pulumi.Input<enums.dns.ZoneType | undefined>;
+    zoneType?: pulumi.Input<enums.dns.ZoneType>;
 }

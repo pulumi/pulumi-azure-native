@@ -85,8 +85,8 @@ def list_edge_site_l2_connections(edge_site_name: Optional[_builtins.str] = None
     return AwaitableListEdgeSiteL2ConnectionsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_edge_site_l2_connections_output(edge_site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_edge_site_l2_connections_output(edge_site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEdgeSiteL2ConnectionsResult]:
     """
     Returns a list of L2 Connections attached to an edge site.

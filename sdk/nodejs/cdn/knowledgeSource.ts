@@ -142,11 +142,11 @@ export interface KnowledgeSourceArgs {
     /**
      * Description of the knowledge source.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the knowledge source.
      */
-    knowledgeSourceName?: pulumi.Input<string | undefined>;
+    knowledgeSourceName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -158,7 +158,7 @@ export interface KnowledgeSourceArgs {
     /**
      * Specifies the units of time for scheduling update intervals for the knowledge source.
      */
-    updateFrequency?: pulumi.Input<string | enums.cdn.KnowledgeSourceUpdateFrequency | undefined>;
+    updateFrequency?: pulumi.Input<string | enums.cdn.KnowledgeSourceUpdateFrequency>;
     /**
      * Endpoint or location of the knowledge source.
      */

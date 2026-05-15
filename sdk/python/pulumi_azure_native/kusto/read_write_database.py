@@ -24,12 +24,12 @@ class ReadWriteDatabaseArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 caller_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 hot_cache_period: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_properties: pulumi.Input[Optional['KeyVaultPropertiesArgs']] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 soft_delete_period: pulumi.Input[Optional[_builtins.str]] = None):
+                 caller_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 hot_cache_period: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_properties: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 soft_delete_period: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReadWriteDatabase resource.
 
@@ -99,74 +99,74 @@ class ReadWriteDatabaseArgs:
 
     @_builtins.property
     @pulumi.getter(name="callerRole")
-    def caller_role(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def caller_role(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
         """
         return pulumi.get(self, "caller_role")
 
     @caller_role.setter
-    def caller_role(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def caller_role(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "caller_role", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the database in the Kusto cluster.
         """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
-    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hotCachePeriod")
-    def hot_cache_period(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def hot_cache_period(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The time the data should be kept in cache for fast queries in TimeSpan.
         """
         return pulumi.get(self, "hot_cache_period")
 
     @hot_cache_period.setter
-    def hot_cache_period(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def hot_cache_period(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "hot_cache_period", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultProperties")
-    def key_vault_properties(self) -> pulumi.Input[Optional['KeyVaultPropertiesArgs']]:
+    def key_vault_properties(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
         """
         KeyVault properties for the database encryption.
         """
         return pulumi.get(self, "key_vault_properties")
 
     @key_vault_properties.setter
-    def key_vault_properties(self, value: pulumi.Input[Optional['KeyVaultPropertiesArgs']]):
+    def key_vault_properties(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault_properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="softDeletePeriod")
-    def soft_delete_period(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def soft_delete_period(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The time the data should be kept before it stops being accessible to queries in TimeSpan.
         """
         return pulumi.get(self, "soft_delete_period")
 
     @soft_delete_period.setter
-    def soft_delete_period(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def soft_delete_period(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "soft_delete_period", value)
 
 
@@ -176,15 +176,15 @@ class ReadWriteDatabase(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 caller_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 hot_cache_period: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_properties: pulumi.Input[Optional[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 soft_delete_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 caller_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 hot_cache_period: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_properties: Optional[pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 soft_delete_period: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Class representing a read write database.
@@ -232,15 +232,15 @@ class ReadWriteDatabase(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 caller_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 hot_cache_period: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_properties: pulumi.Input[Optional[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 soft_delete_period: pulumi.Input[Optional[_builtins.str]] = None,
+                 caller_role: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 hot_cache_period: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_vault_properties: Optional[pulumi.Input[Union['KeyVaultPropertiesArgs', 'KeyVaultPropertiesArgsDict']]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 soft_delete_period: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

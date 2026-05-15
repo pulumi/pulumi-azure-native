@@ -171,8 +171,8 @@ export interface NotificationHubAuthorizationRuleArgs {
     /**
      * Authorization Rule Name
      */
-    authorizationRuleName?: pulumi.Input<string | undefined>;
-    location?: pulumi.Input<string | undefined>;
+    authorizationRuleName?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Namespace name
      */
@@ -185,7 +185,7 @@ export interface NotificationHubAuthorizationRuleArgs {
      * Gets a base64-encoded 256-bit primary key for signing and
      * validating the SAS token.
      */
-    primaryKey?: pulumi.Input<string | undefined>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -198,6 +198,6 @@ export interface NotificationHubAuthorizationRuleArgs {
      * Gets a base64-encoded 256-bit primary key for signing and
      * validating the SAS token.
      */
-    secondaryKey?: pulumi.Input<string | undefined>;
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    secondaryKey?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

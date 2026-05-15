@@ -182,7 +182,7 @@ export interface DefaultUserRuleArgs {
     /**
      * Default rule flag.
      */
-    flag?: pulumi.Input<string | undefined>;
+    flag?: pulumi.Input<string>;
     /**
      * Whether the rule is custom or default.
      * Expected value is 'Default'.
@@ -203,5 +203,5 @@ export interface DefaultUserRuleArgs {
     /**
      * The name of the rule.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName?: pulumi.Input<string>;
 }

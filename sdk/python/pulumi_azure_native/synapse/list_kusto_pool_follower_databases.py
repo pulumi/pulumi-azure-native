@@ -73,9 +73,9 @@ def list_kusto_pool_follower_databases(kusto_pool_name: Optional[_builtins.str] 
 
     return AwaitableListKustoPoolFollowerDatabasesResult(
         value=pulumi.get(__ret__, 'value'))
-def list_kusto_pool_follower_databases_output(kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_kusto_pool_follower_databases_output(kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListKustoPoolFollowerDatabasesResult]:
     """
     Returns a list of databases that are owned by this Kusto Pool and were followed by another Kusto Pool.

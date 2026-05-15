@@ -112,23 +112,23 @@ export interface LinkedServiceArgs {
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.machinelearningservices.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.machinelearningservices.IdentityArgs>;
     /**
      * Friendly name of the linked workspace
      */
-    linkName?: pulumi.Input<string | undefined>;
+    linkName?: pulumi.Input<string>;
     /**
      * location of the linked service.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Friendly name of the linked service
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * LinkedService specific properties.
      */
-    properties?: pulumi.Input<inputs.machinelearningservices.LinkedServicePropsArgs | undefined>;
+    properties?: pulumi.Input<inputs.machinelearningservices.LinkedServicePropsArgs>;
     /**
      * Name of the resource group in which workspace is located.
      */

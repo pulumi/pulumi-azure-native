@@ -146,19 +146,19 @@ export interface LogicalNetworkArgs {
     /**
      * DhcpOptions contains an array of DNS servers available to VMs deployed in the logical network. Standard DHCP option for a subnet overrides logical network DHCP options.
      */
-    dhcpOptions?: pulumi.Input<inputs.azurestackhci.LogicalNetworkPropertiesDhcpOptionsArgs | undefined>;
+    dhcpOptions?: pulumi.Input<inputs.azurestackhci.LogicalNetworkPropertiesDhcpOptionsArgs>;
     /**
      * The extendedLocation of the resource.
      */
-    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.azurestackhci.ExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Name of the logical network
      */
-    logicalNetworkName?: pulumi.Input<string | undefined>;
+    logicalNetworkName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -166,13 +166,13 @@ export interface LogicalNetworkArgs {
     /**
      * Subnet - list of subnets under the logical network
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.azurestackhci.SubnetArgs>[] | undefined>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.azurestackhci.SubnetArgs>[]>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * name of the network switch to be used for VMs
      */
-    vmSwitchName?: pulumi.Input<string | undefined>;
+    vmSwitchName?: pulumi.Input<string>;
 }

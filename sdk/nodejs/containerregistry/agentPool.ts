@@ -145,19 +145,19 @@ export interface AgentPoolArgs {
     /**
      * The name of the agent pool.
      */
-    agentPoolName?: pulumi.Input<string | undefined>;
+    agentPoolName?: pulumi.Input<string>;
     /**
      * The count of agent machine
      */
-    count?: pulumi.Input<number | undefined>;
+    count?: pulumi.Input<number>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The OS of agent machine
      */
-    os?: pulumi.Input<string | enums.containerregistry.OS | undefined>;
+    os?: pulumi.Input<string | enums.containerregistry.OS>;
     /**
      * The name of the container registry.
      */
@@ -169,13 +169,13 @@ export interface AgentPoolArgs {
     /**
      * The tags of the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Tier of agent machine
      */
-    tier?: pulumi.Input<string | undefined>;
+    tier?: pulumi.Input<string>;
     /**
      * The Virtual Network Subnet Resource Id of the agent machine
      */
-    virtualNetworkSubnetResourceId?: pulumi.Input<string | undefined>;
+    virtualNetworkSubnetResourceId?: pulumi.Input<string>;
 }

@@ -27,11 +27,11 @@ class ChangeDataCaptureArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_connections_info: pulumi.Input[Sequence[pulumi.Input['MapperSourceConnectionsInfoArgs']]],
                  target_connections_info: pulumi.Input[Sequence[pulumi.Input['MapperTargetConnectionsInfoArgs']]],
-                 allow_v_net_override: pulumi.Input[Optional[_builtins.bool]] = None,
-                 change_data_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 folder: pulumi.Input[Optional['ChangeDataCaptureFolderArgs']] = None,
-                 status: pulumi.Input[Optional[_builtins.str]] = None):
+                 allow_v_net_override: Optional[pulumi.Input[_builtins.bool]] = None,
+                 change_data_capture_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 folder: Optional[pulumi.Input['ChangeDataCaptureFolderArgs']] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChangeDataCapture resource.
 
@@ -124,62 +124,62 @@ class ChangeDataCaptureArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowVNetOverride")
-    def allow_v_net_override(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def allow_v_net_override(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         A boolean to determine if the vnet configuration needs to be overwritten.
         """
         return pulumi.get(self, "allow_v_net_override")
 
     @allow_v_net_override.setter
-    def allow_v_net_override(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def allow_v_net_override(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "allow_v_net_override", value)
 
     @_builtins.property
     @pulumi.getter(name="changeDataCaptureName")
-    def change_data_capture_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def change_data_capture_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The change data capture name.
         """
         return pulumi.get(self, "change_data_capture_name")
 
     @change_data_capture_name.setter
-    def change_data_capture_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def change_data_capture_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "change_data_capture_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The description of the change data capture.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def folder(self) -> pulumi.Input[Optional['ChangeDataCaptureFolderArgs']]:
+    def folder(self) -> Optional[pulumi.Input['ChangeDataCaptureFolderArgs']]:
         """
         The folder that this CDC is in. If not specified, CDC will appear at the root level.
         """
         return pulumi.get(self, "folder")
 
     @folder.setter
-    def folder(self, value: pulumi.Input[Optional['ChangeDataCaptureFolderArgs']]):
+    def folder(self, value: Optional[pulumi.Input['ChangeDataCaptureFolderArgs']]):
         pulumi.set(self, "folder", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Status of the CDC as to if it is running or stopped.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def status(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "status", value)
 
 
@@ -189,16 +189,16 @@ class ChangeDataCapture(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_v_net_override: pulumi.Input[Optional[_builtins.bool]] = None,
-                 change_data_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 folder: pulumi.Input[Optional[Union['ChangeDataCaptureFolderArgs', 'ChangeDataCaptureFolderArgsDict']]] = None,
-                 policy: pulumi.Input[Optional[Union['MapperPolicyArgs', 'MapperPolicyArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_connections_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MapperSourceConnectionsInfoArgs', 'MapperSourceConnectionsInfoArgsDict']]]]] = None,
-                 status: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_connections_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MapperTargetConnectionsInfoArgs', 'MapperTargetConnectionsInfoArgsDict']]]]] = None,
+                 allow_v_net_override: Optional[pulumi.Input[_builtins.bool]] = None,
+                 change_data_capture_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 folder: Optional[pulumi.Input[Union['ChangeDataCaptureFolderArgs', 'ChangeDataCaptureFolderArgsDict']]] = None,
+                 policy: Optional[pulumi.Input[Union['MapperPolicyArgs', 'MapperPolicyArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapperSourceConnectionsInfoArgs', 'MapperSourceConnectionsInfoArgsDict']]]]] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapperTargetConnectionsInfoArgs', 'MapperTargetConnectionsInfoArgsDict']]]]] = None,
                  __props__=None):
         """
         Change data capture resource type.
@@ -246,16 +246,16 @@ class ChangeDataCapture(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allow_v_net_override: pulumi.Input[Optional[_builtins.bool]] = None,
-                 change_data_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 factory_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 folder: pulumi.Input[Optional[Union['ChangeDataCaptureFolderArgs', 'ChangeDataCaptureFolderArgsDict']]] = None,
-                 policy: pulumi.Input[Optional[Union['MapperPolicyArgs', 'MapperPolicyArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_connections_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MapperSourceConnectionsInfoArgs', 'MapperSourceConnectionsInfoArgsDict']]]]] = None,
-                 status: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_connections_info: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MapperTargetConnectionsInfoArgs', 'MapperTargetConnectionsInfoArgsDict']]]]] = None,
+                 allow_v_net_override: Optional[pulumi.Input[_builtins.bool]] = None,
+                 change_data_capture_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 factory_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 folder: Optional[pulumi.Input[Union['ChangeDataCaptureFolderArgs', 'ChangeDataCaptureFolderArgsDict']]] = None,
+                 policy: Optional[pulumi.Input[Union['MapperPolicyArgs', 'MapperPolicyArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapperSourceConnectionsInfoArgs', 'MapperSourceConnectionsInfoArgsDict']]]]] = None,
+                 status: Optional[pulumi.Input[_builtins.str]] = None,
+                 target_connections_info: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapperTargetConnectionsInfoArgs', 'MapperTargetConnectionsInfoArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

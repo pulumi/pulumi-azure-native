@@ -112,7 +112,7 @@ export interface BuildServiceAgentPoolArgs {
     /**
      * The name of the build service agent pool resource.
      */
-    agentPoolName?: pulumi.Input<string | undefined>;
+    agentPoolName?: pulumi.Input<string>;
     /**
      * The name of the build service resource.
      */
@@ -120,7 +120,7 @@ export interface BuildServiceAgentPoolArgs {
     /**
      * build service agent pool properties
      */
-    properties?: pulumi.Input<inputs.appplatform.BuildServiceAgentPoolPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.appplatform.BuildServiceAgentPoolPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

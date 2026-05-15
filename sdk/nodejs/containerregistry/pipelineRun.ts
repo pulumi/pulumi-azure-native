@@ -94,7 +94,7 @@ export class PipelineRun extends pulumi.CustomResource {
             resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
             resourceInputs["pipelineRunName"] = args?.pipelineRunName;
             resourceInputs["registryName"] = args?.registryName;
-            resourceInputs["request"] = args ? pulumi.output(args.request).apply(v => v === undefined ? undefined : inputs.containerregistry.pipelineRunRequestArgsProvideDefaults(v)) : undefined;
+            resourceInputs["request"] = args ? (args.request ? pulumi.output(args.request).apply(inputs.containerregistry.pipelineRunRequestArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -126,11 +126,11 @@ export interface PipelineRunArgs {
     /**
      * How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
      */
-    forceUpdateTag?: pulumi.Input<string | undefined>;
+    forceUpdateTag?: pulumi.Input<string>;
     /**
      * The name of the pipeline run.
      */
-    pipelineRunName?: pulumi.Input<string | undefined>;
+    pipelineRunName?: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */
@@ -138,7 +138,7 @@ export interface PipelineRunArgs {
     /**
      * The request parameters for a pipeline run.
      */
-    request?: pulumi.Input<inputs.containerregistry.PipelineRunRequestArgs | undefined>;
+    request?: pulumi.Input<inputs.containerregistry.PipelineRunRequestArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

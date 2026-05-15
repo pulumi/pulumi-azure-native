@@ -126,11 +126,11 @@ export interface HybridIdentityMetadataArgs {
     /**
      * Name of the hybridIdentityMetadata.
      */
-    metadataName?: pulumi.Input<string | undefined>;
+    metadataName?: pulumi.Input<string>;
     /**
      * Gets or sets the Public Key.
      */
-    publicKey?: pulumi.Input<string | undefined>;
+    publicKey?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -138,7 +138,7 @@ export interface HybridIdentityMetadataArgs {
     /**
      * Gets or sets the Vm Id.
      */
-    resourceUid?: pulumi.Input<string | undefined>;
+    resourceUid?: pulumi.Input<string>;
     /**
      * Name of the vm.
      */

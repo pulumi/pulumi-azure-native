@@ -150,11 +150,11 @@ export interface SchemaArgs {
     /**
      * Human-readable description of the schema.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Human-readable display name.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * Format of the schema.
      */
@@ -166,7 +166,7 @@ export interface SchemaArgs {
     /**
      * Schema name parameter.
      */
-    schemaName?: pulumi.Input<string | undefined>;
+    schemaName?: pulumi.Input<string>;
     /**
      * Schema registry name parameter.
      */
@@ -178,5 +178,5 @@ export interface SchemaArgs {
     /**
      * Schema tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

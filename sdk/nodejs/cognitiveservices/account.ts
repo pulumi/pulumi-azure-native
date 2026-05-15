@@ -104,7 +104,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["identity"] = args?.identity;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.cognitiveservices.accountPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.cognitiveservices.accountPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
@@ -140,23 +140,23 @@ export interface AccountArgs {
     /**
      * The name of Cognitive Services account.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string>;
     /**
      * Identity for the resource.
      */
-    identity?: pulumi.Input<inputs.cognitiveservices.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.cognitiveservices.IdentityArgs>;
     /**
      * The Kind of the resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of Cognitive Services account.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.AccountPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.cognitiveservices.AccountPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -164,9 +164,9 @@ export interface AccountArgs {
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.cognitiveservices.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.cognitiveservices.SkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

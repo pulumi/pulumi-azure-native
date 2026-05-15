@@ -224,11 +224,11 @@ def get_schedule(pool_name: Optional[_builtins.str] = None,
         time=pulumi.get(__ret__, 'time'),
         time_zone=pulumi.get(__ret__, 'time_zone'),
         type=pulumi.get(__ret__, 'type'))
-def get_schedule_output(pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
+def get_schedule_output(pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        schedule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                        top: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Gets a schedule resource.

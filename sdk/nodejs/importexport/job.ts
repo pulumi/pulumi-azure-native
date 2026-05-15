@@ -88,7 +88,7 @@ export class Job extends pulumi.CustomResource {
             }
             resourceInputs["jobName"] = args?.jobName;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.importexport.jobDetailsArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.importexport.jobDetailsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -120,15 +120,15 @@ export interface JobArgs {
     /**
      * The name of the import/export job.
      */
-    jobName?: pulumi.Input<string | undefined>;
+    jobName?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the job should be created
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies the job properties
      */
-    properties?: pulumi.Input<inputs.importexport.JobDetailsArgs | undefined>;
+    properties?: pulumi.Input<inputs.importexport.JobDetailsArgs>;
     /**
      * The resource group name uniquely identifies the resource group within the user subscription.
      */
@@ -136,5 +136,5 @@ export interface JobArgs {
     /**
      * Specifies the tags that will be assigned to the job.
      */
-    tags?: any | undefined;
+    tags?: any;
 }

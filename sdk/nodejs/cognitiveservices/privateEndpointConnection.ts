@@ -124,15 +124,15 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The location of the private endpoint connection
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the private endpoint connection associated with the Cognitive Services Account
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Resource properties.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.PrivateEndpointConnectionPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.cognitiveservices.PrivateEndpointConnectionPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

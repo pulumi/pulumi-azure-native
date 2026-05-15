@@ -465,9 +465,9 @@ def get_network_interface(expand: Optional[_builtins.str] = None,
         virtual_machine=pulumi.get(__ret__, 'virtual_machine'),
         vnet_encryption_supported=pulumi.get(__ret__, 'vnet_encryption_supported'),
         workload_type=pulumi.get(__ret__, 'workload_type'))
-def get_network_interface_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_network_interface_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceResult]:
     """
     Gets information about the specified network interface.

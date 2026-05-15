@@ -124,5 +124,5 @@ export interface RuleSetArgs {
     /**
      * Name of the rule set under the profile which is unique globally.
      */
-    ruleSetName?: pulumi.Input<string | undefined>;
+    ruleSetName?: pulumi.Input<string>;
 }

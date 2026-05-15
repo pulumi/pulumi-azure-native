@@ -113,11 +113,11 @@ export interface EndpointArgs {
     /**
      * The endpoint name.
      */
-    endpointName?: pulumi.Input<string | undefined>;
+    endpointName?: pulumi.Input<string>;
     /**
      * The resource Id of the connectivity endpoint (optional).
      */
-    resourceId?: pulumi.Input<string | undefined>;
+    resourceId?: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

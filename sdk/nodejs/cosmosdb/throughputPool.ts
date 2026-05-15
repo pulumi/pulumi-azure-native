@@ -122,11 +122,11 @@ export interface ThroughputPoolArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Value for throughput to be shared among CosmosDB resources in the pool.
      */
-    maxThroughput?: pulumi.Input<number | undefined>;
+    maxThroughput?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -134,9 +134,9 @@ export interface ThroughputPoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Cosmos DB Throughput Pool name.
      */
-    throughputPoolName?: pulumi.Input<string | undefined>;
+    throughputPoolName?: pulumi.Input<string>;
 }

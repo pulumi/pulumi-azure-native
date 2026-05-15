@@ -179,7 +179,7 @@ export class NetworkFabric extends pulumi.CustomResource {
             resourceInputs["ipv4Prefix"] = args?.ipv4Prefix;
             resourceInputs["ipv6Prefix"] = args?.ipv6Prefix;
             resourceInputs["location"] = args?.location;
-            resourceInputs["managementNetworkConfiguration"] = args ? pulumi.output(args.managementNetworkConfiguration).apply(inputs.managednetworkfabric.managementNetworkConfigurationPropertiesArgsProvideDefaults) : undefined;
+            resourceInputs["managementNetworkConfiguration"] = args ? (args.managementNetworkConfiguration ? pulumi.output(args.managementNetworkConfiguration).apply(inputs.managednetworkfabric.managementNetworkConfigurationPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["networkFabricControllerId"] = args?.networkFabricControllerId;
             resourceInputs["networkFabricName"] = args?.networkFabricName;
             resourceInputs["networkFabricSku"] = args?.networkFabricSku;
@@ -239,7 +239,7 @@ export interface NetworkFabricArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string | undefined>;
+    annotation?: pulumi.Input<string>;
     /**
      * ASN of CE devices for CE/PE connectivity.
      */
@@ -247,7 +247,7 @@ export interface NetworkFabricArgs {
     /**
      * The version of Network Fabric.
      */
-    fabricVersion?: pulumi.Input<string | undefined>;
+    fabricVersion?: pulumi.Input<string>;
     /**
      * IPv4Prefix for Management Network. Example: 10.1.0.0/19.
      */
@@ -255,11 +255,11 @@ export interface NetworkFabricArgs {
     /**
      * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
      */
-    ipv6Prefix?: pulumi.Input<string | undefined>;
+    ipv6Prefix?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Configuration to be used to setup the management network.
      */
@@ -271,7 +271,7 @@ export interface NetworkFabricArgs {
     /**
      * Name of the Network Fabric.
      */
-    networkFabricName?: pulumi.Input<string | undefined>;
+    networkFabricName?: pulumi.Input<string>;
     /**
      * Supported Network Fabric SKU.Example: Compute / Aggregate racks. Once the user chooses a particular SKU, only supported racks can be added to the Network Fabric. The SKU determines whether it is a single / multi rack Network Fabric.
      */
@@ -279,7 +279,7 @@ export interface NetworkFabricArgs {
     /**
      * Number of compute racks associated to Network Fabric.
      */
-    rackCount?: pulumi.Input<number | undefined>;
+    rackCount?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -291,7 +291,7 @@ export interface NetworkFabricArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Network and credentials configuration currently applied to terminal server.
      */

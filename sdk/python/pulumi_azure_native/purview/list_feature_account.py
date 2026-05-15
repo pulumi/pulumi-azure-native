@@ -74,9 +74,9 @@ def list_feature_account(account_name: Optional[_builtins.str] = None,
 
     return AwaitableListFeatureAccountResult(
         features=pulumi.get(__ret__, 'features'))
-def list_feature_account_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                features: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
-                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_feature_account_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                features: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFeatureAccountResult]:
     """
     Gets details from a list of feature names.

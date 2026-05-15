@@ -97,8 +97,8 @@ def get_host_pool_registration_token(host_pool_name: Optional[_builtins.str] = N
         expiration_time=pulumi.get(__ret__, 'expiration_time'),
         registration_token_operation=pulumi.get(__ret__, 'registration_token_operation'),
         token=pulumi.get(__ret__, 'token'))
-def get_host_pool_registration_token_output(host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_host_pool_registration_token_output(host_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHostPoolRegistrationTokenResult]:
     """
     Registration token of the host pool.

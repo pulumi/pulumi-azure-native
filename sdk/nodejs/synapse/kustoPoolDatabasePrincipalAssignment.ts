@@ -173,7 +173,7 @@ export interface KustoPoolDatabasePrincipalAssignmentArgs {
     /**
      * The name of the Kusto principalAssignment.
      */
-    principalAssignmentName?: pulumi.Input<string | undefined>;
+    principalAssignmentName?: pulumi.Input<string>;
     /**
      * The principal ID assigned to the database principal. It can be a user email, application ID, or security group name.
      */
@@ -193,7 +193,7 @@ export interface KustoPoolDatabasePrincipalAssignmentArgs {
     /**
      * The tenant id of the principal
      */
-    tenantId?: pulumi.Input<string | undefined>;
+    tenantId?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

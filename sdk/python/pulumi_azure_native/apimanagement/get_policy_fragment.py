@@ -168,10 +168,10 @@ def get_policy_fragment(format: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_policy_fragment_output(format: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                               id: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_policy_fragment_output(format: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                               id: Optional[pulumi.Input[_builtins.str]] = None,
+                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyFragmentResult]:
     """
     Gets a policy fragment.

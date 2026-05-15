@@ -128,7 +128,7 @@ export interface GetGen2EnvironmentOutputArgs {
     /**
      * Setting $expand=status will include the status of the internal services of the environment in the Time Series Insights service.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * Name of an Azure Resource group.
      */

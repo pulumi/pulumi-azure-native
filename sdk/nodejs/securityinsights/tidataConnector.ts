@@ -140,7 +140,7 @@ export interface TIDataConnectorArgs {
     /**
      * Connector ID
      */
-    dataConnectorId?: pulumi.Input<string | undefined>;
+    dataConnectorId?: pulumi.Input<string>;
     /**
      * The available data types for the connector.
      */
@@ -161,7 +161,7 @@ export interface TIDataConnectorArgs {
     /**
      * The lookback period for the feed to be imported.
      */
-    tipLookbackPeriod?: pulumi.Input<string | undefined>;
+    tipLookbackPeriod?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

@@ -370,48 +370,48 @@ export interface AssessmentsOperationArgs {
     /**
      * Machine Assessment ARM name
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * Gets or sets the azure storage type. Premium, Standard etc.
      */
-    azureDiskTypes?: pulumi.Input<pulumi.Input<string | enums.migrate.AzureDiskType>[] | undefined>;
+    azureDiskTypes?: pulumi.Input<pulumi.Input<string | enums.migrate.AzureDiskType>[]>;
     /**
      * Gets or sets the user configurable setting to display the azure hybrid use
      * benefit.
      */
-    azureHybridUseBenefit?: pulumi.Input<string | enums.migrate.AzureHybridUseBenefit | undefined>;
+    azureHybridUseBenefit?: pulumi.Input<string | enums.migrate.AzureHybridUseBenefit>;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
-    azureLocation?: pulumi.Input<string | undefined>;
+    azureLocation?: pulumi.Input<string>;
     /**
      * Azure Offer Code.
      */
-    azureOfferCode?: pulumi.Input<string | enums.migrate.AzureOfferCode | undefined>;
+    azureOfferCode?: pulumi.Input<string | enums.migrate.AzureOfferCode>;
     /**
      * Gets or sets Azure Pricing Tier - Free, Basic, etc.
      */
-    azurePricingTier?: pulumi.Input<string | enums.migrate.AzurePricingTier | undefined>;
+    azurePricingTier?: pulumi.Input<string | enums.migrate.AzurePricingTier>;
     /**
      * Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
      */
-    azureStorageRedundancy?: pulumi.Input<string | enums.migrate.AzureStorageRedundancy | undefined>;
+    azureStorageRedundancy?: pulumi.Input<string | enums.migrate.AzureStorageRedundancy>;
     /**
      * Gets or sets the Azure VM families.
      */
-    azureVmFamilies?: pulumi.Input<pulumi.Input<string | enums.migrate.AzureVmFamily>[] | undefined>;
+    azureVmFamilies?: pulumi.Input<pulumi.Input<string | enums.migrate.AzureVmFamily>[]>;
     /**
      * Currency in which prices should be reported.
      */
-    currency?: pulumi.Input<string | enums.migrate.AzureCurrency | undefined>;
+    currency?: pulumi.Input<string | enums.migrate.AzureCurrency>;
     /**
      * Custom discount percentage.
      */
-    discountPercentage?: pulumi.Input<number | undefined>;
+    discountPercentage?: pulumi.Input<number>;
     /**
      * Gets or sets enterprise agreement subscription id.
      */
-    eaSubscriptionId?: pulumi.Input<string | undefined>;
+    eaSubscriptionId?: pulumi.Input<string>;
     /**
      * Group ARM name
      */
@@ -420,20 +420,20 @@ export interface AssessmentsOperationArgs {
      * Gets or sets the user configurable setting to display the linux azure hybrid use
      * benefit.
      */
-    linuxAzureHybridUseBenefit?: pulumi.Input<string | enums.migrate.AzureHybridUseBenefit | undefined>;
+    linuxAzureHybridUseBenefit?: pulumi.Input<string | enums.migrate.AzureHybridUseBenefit>;
     /**
      * Percentile of the utilization data values to be considered while assessing
      * machines.
      */
-    percentile?: pulumi.Input<string | enums.migrate.Percentile | undefined>;
+    percentile?: pulumi.Input<string | enums.migrate.Percentile>;
     /**
      * Gets or sets the end time to consider performance data for assessment.
      */
-    perfDataEndTime?: pulumi.Input<string | undefined>;
+    perfDataEndTime?: pulumi.Input<string>;
     /**
      * Gets or sets the start time to consider performance data for assessment.
      */
-    perfDataStartTime?: pulumi.Input<string | undefined>;
+    perfDataStartTime?: pulumi.Input<string>;
     /**
      * Assessment Project Name
      */
@@ -441,11 +441,11 @@ export interface AssessmentsOperationArgs {
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.migrate.ProvisioningState>;
     /**
      * Gets or sets the Azure Reserved Instance - 1-Year, 3-Year.
      */
-    reservedInstance?: pulumi.Input<string | enums.migrate.AzureReservedInstance | undefined>;
+    reservedInstance?: pulumi.Input<string | enums.migrate.AzureReservedInstance>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -454,19 +454,19 @@ export interface AssessmentsOperationArgs {
      * Percentage of buffer that user wants on performance metrics when recommending
      * Azure sizes.
      */
-    scalingFactor?: pulumi.Input<number | undefined>;
+    scalingFactor?: pulumi.Input<number>;
     /**
      * Assessment sizing criterion.
      */
-    sizingCriterion?: pulumi.Input<string | enums.migrate.AssessmentSizingCriterion | undefined>;
+    sizingCriterion?: pulumi.Input<string | enums.migrate.AssessmentSizingCriterion>;
     /**
      * Time Range for which the historic utilization data should be considered for
      * assessment.
      */
-    timeRange?: pulumi.Input<string | enums.migrate.TimeRange | undefined>;
+    timeRange?: pulumi.Input<string | enums.migrate.TimeRange>;
     /**
      * Gets or sets the duration for which the VMs are up in the on-premises
      * environment.
      */
-    vmUptime?: pulumi.Input<inputs.migrate.VmUptimeArgs | undefined>;
+    vmUptime?: pulumi.Input<inputs.migrate.VmUptimeArgs>;
 }

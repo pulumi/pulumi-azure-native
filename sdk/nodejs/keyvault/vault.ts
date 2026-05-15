@@ -88,7 +88,7 @@ export class Vault extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.keyvault.vaultPropertiesArgsProvideDefaults) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.keyvault.vaultPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vaultName"] = args?.vaultName;
@@ -119,7 +119,7 @@ export interface VaultArgs {
     /**
      * The supported Azure location where the key vault should be created.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the vault
      */
@@ -131,9 +131,9 @@ export interface VaultArgs {
     /**
      * The tags that will be assigned to the key vault.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the vault
      */
-    vaultName?: pulumi.Input<string | undefined>;
+    vaultName?: pulumi.Input<string>;
 }

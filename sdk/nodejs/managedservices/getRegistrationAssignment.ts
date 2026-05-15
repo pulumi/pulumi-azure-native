@@ -83,7 +83,7 @@ export interface GetRegistrationAssignmentOutputArgs {
     /**
      * The flag indicating whether to return the registration definition details along with the registration assignment details.
      */
-    expandRegistrationDefinition?: pulumi.Input<boolean | undefined>;
+    expandRegistrationDefinition?: pulumi.Input<boolean>;
     /**
      * The GUID of the registration assignment.
      */

@@ -23,15 +23,15 @@ __all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
-                 dns_settings: pulumi.Input[Optional['InterfaceDNSSettingsArgs']] = None,
-                 extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
-                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['IPConfigurationArgs']]]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_security_group: pulumi.Input[Optional['NetworkSecurityGroupArmReferenceArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 create_from_local: Optional[pulumi.Input[_builtins.bool]] = None,
+                 dns_settings: Optional[pulumi.Input['InterfaceDNSSettingsArgs']] = None,
+                 extended_location: Optional[pulumi.Input['ExtendedLocationArgs']] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
 
@@ -82,110 +82,110 @@ class NetworkInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter(name="createFromLocal")
-    def create_from_local(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def create_from_local(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Boolean indicating whether this is a existing local network interface or if one should be created.
         """
         return pulumi.get(self, "create_from_local")
 
     @create_from_local.setter
-    def create_from_local(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def create_from_local(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "create_from_local", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsSettings")
-    def dns_settings(self) -> pulumi.Input[Optional['InterfaceDNSSettingsArgs']]:
+    def dns_settings(self) -> Optional[pulumi.Input['InterfaceDNSSettingsArgs']]:
         """
         DNS Settings for the interface
         """
         return pulumi.get(self, "dns_settings")
 
     @dns_settings.setter
-    def dns_settings(self, value: pulumi.Input[Optional['InterfaceDNSSettingsArgs']]):
+    def dns_settings(self, value: Optional[pulumi.Input['InterfaceDNSSettingsArgs']]):
         pulumi.set(self, "dns_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> pulumi.Input[Optional['ExtendedLocationArgs']]:
+    def extended_location(self) -> Optional[pulumi.Input['ExtendedLocationArgs']]:
         """
         The extendedLocation of the resource.
         """
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
+    def extended_location(self, value: Optional[pulumi.Input['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
-    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IPConfigurationArgs']]]]:
+    def ip_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]]]:
         """
         IPConfigurations - A list of IPConfigurations of the network interface.
         """
         return pulumi.get(self, "ip_configurations")
 
     @ip_configurations.setter
-    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IPConfigurationArgs']]]]):
+    def ip_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]]]):
         pulumi.set(self, "ip_configurations", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def mac_address(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         MacAddress - The MAC address of the network interface.
         """
         return pulumi.get(self, "mac_address")
 
     @mac_address.setter
-    def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def mac_address(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "mac_address", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterfaceName")
-    def network_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def network_interface_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the network interface
         """
         return pulumi.get(self, "network_interface_name")
 
     @network_interface_name.setter
-    def network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def network_interface_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "network_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroup")
-    def network_security_group(self) -> pulumi.Input[Optional['NetworkSecurityGroupArmReferenceArgs']]:
+    def network_security_group(self) -> Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']]:
         """
         NetworkSecurityGroup - Network Security Group attached to the network interface.
         """
         return pulumi.get(self, "network_security_group")
 
     @network_security_group.setter
-    def network_security_group(self, value: pulumi.Input[Optional['NetworkSecurityGroupArmReferenceArgs']]):
+    def network_security_group(self, value: Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']]):
         pulumi.set(self, "network_security_group", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -195,16 +195,16 @@ class NetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
-                 dns_settings: pulumi.Input[Optional[Union['InterfaceDNSSettingsArgs', 'InterfaceDNSSettingsArgsDict']]] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IPConfigurationArgs', 'IPConfigurationArgsDict']]]]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_security_group: pulumi.Input[Optional[Union['NetworkSecurityGroupArmReferenceArgs', 'NetworkSecurityGroupArmReferenceArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 create_from_local: Optional[pulumi.Input[_builtins.bool]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['InterfaceDNSSettingsArgs', 'InterfaceDNSSettingsArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IPConfigurationArgs', 'IPConfigurationArgsDict']]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArmReferenceArgs', 'NetworkSecurityGroupArmReferenceArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The network interface resource definition.
@@ -256,16 +256,16 @@ class NetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
-                 dns_settings: pulumi.Input[Optional[Union['InterfaceDNSSettingsArgs', 'InterfaceDNSSettingsArgsDict']]] = None,
-                 extended_location: pulumi.Input[Optional[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
-                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['IPConfigurationArgs', 'IPConfigurationArgsDict']]]]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 mac_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_security_group: pulumi.Input[Optional[Union['NetworkSecurityGroupArmReferenceArgs', 'NetworkSecurityGroupArmReferenceArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 create_from_local: Optional[pulumi.Input[_builtins.bool]] = None,
+                 dns_settings: Optional[pulumi.Input[Union['InterfaceDNSSettingsArgs', 'InterfaceDNSSettingsArgsDict']]] = None,
+                 extended_location: Optional[pulumi.Input[Union['ExtendedLocationArgs', 'ExtendedLocationArgsDict']]] = None,
+                 ip_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['IPConfigurationArgs', 'IPConfigurationArgsDict']]]]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 mac_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_interface_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 network_security_group: Optional[pulumi.Input[Union['NetworkSecurityGroupArmReferenceArgs', 'NetworkSecurityGroupArmReferenceArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

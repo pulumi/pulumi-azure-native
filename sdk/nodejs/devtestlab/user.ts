@@ -141,7 +141,7 @@ export interface UserArgs {
     /**
      * The identity of the user.
      */
-    identity?: pulumi.Input<inputs.devtestlab.UserIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.devtestlab.UserIdentityArgs>;
     /**
      * The name of the lab.
      */
@@ -149,11 +149,11 @@ export interface UserArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the user profile.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -161,9 +161,9 @@ export interface UserArgs {
     /**
      * The secret store of the user.
      */
-    secretStore?: pulumi.Input<inputs.devtestlab.UserSecretStoreArgs | undefined>;
+    secretStore?: pulumi.Input<inputs.devtestlab.UserSecretStoreArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

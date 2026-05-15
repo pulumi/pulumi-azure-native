@@ -113,7 +113,7 @@ export interface FirewallRuleArgs {
     /**
      * The name of the server firewall rule.
      */
-    firewallRuleName?: pulumi.Input<string | undefined>;
+    firewallRuleName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

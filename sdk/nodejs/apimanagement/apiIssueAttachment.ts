@@ -132,7 +132,7 @@ export interface ApiIssueAttachmentArgs {
     /**
      * Attachment identifier within an Issue. Must be unique in the current Issue.
      */
-    attachmentId?: pulumi.Input<string | undefined>;
+    attachmentId?: pulumi.Input<string>;
     /**
      * An HTTP link or Base64-encoded binary data.
      */

@@ -139,20 +139,20 @@ export interface ChannelArgs {
     /**
      * Name of the channel.
      */
-    channelName?: pulumi.Input<string | undefined>;
+    channelName?: pulumi.Input<string>;
     /**
      * The type of the event channel which represents the direction flow of events.
      */
-    channelType?: pulumi.Input<string | enums.eventgrid.ChannelType | undefined>;
+    channelType?: pulumi.Input<string | enums.eventgrid.ChannelType>;
     /**
      * Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
      * the channel and corresponding partner topic are deleted.
      */
-    expirationTimeIfNotActivatedUtc?: pulumi.Input<string | undefined>;
+    expirationTimeIfNotActivatedUtc?: pulumi.Input<string>;
     /**
      * Context or helpful message that can be used during the approval process by the subscriber.
      */
-    messageForActivation?: pulumi.Input<string | undefined>;
+    messageForActivation?: pulumi.Input<string>;
     /**
      * Name of the partner namespace.
      */
@@ -160,15 +160,15 @@ export interface ChannelArgs {
     /**
      * This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
      */
-    partnerTopicInfo?: pulumi.Input<inputs.eventgrid.PartnerTopicInfoArgs | undefined>;
+    partnerTopicInfo?: pulumi.Input<inputs.eventgrid.PartnerTopicInfoArgs>;
     /**
      * Provisioning state of the channel.
      */
-    provisioningState?: pulumi.Input<string | enums.eventgrid.ChannelProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.eventgrid.ChannelProvisioningState>;
     /**
      * The readiness state of the corresponding partner topic.
      */
-    readinessState?: pulumi.Input<string | enums.eventgrid.ReadinessState | undefined>;
+    readinessState?: pulumi.Input<string | enums.eventgrid.ReadinessState>;
     /**
      * The name of the resource group within the partners subscription.
      */

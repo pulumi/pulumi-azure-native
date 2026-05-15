@@ -132,7 +132,7 @@ export interface WorkspaceManagerGroupArgs {
     /**
      * The description of the workspace manager group
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the workspace manager group
      */
@@ -148,7 +148,7 @@ export interface WorkspaceManagerGroupArgs {
     /**
      * The name of the workspace manager group
      */
-    workspaceManagerGroupName?: pulumi.Input<string | undefined>;
+    workspaceManagerGroupName?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

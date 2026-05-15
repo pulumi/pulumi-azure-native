@@ -24,8 +24,8 @@ class PrivateResolverVirtualNetworkLinkArgs:
                  dns_forwarding_ruleset_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network: pulumi.Input['SubResourceArgs'],
-                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateResolverVirtualNetworkLink resource.
 
@@ -81,26 +81,26 @@ class PrivateResolverVirtualNetworkLinkArgs:
 
     @_builtins.property
     @pulumi.getter
-    def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Metadata attached to the virtual network link.
         """
         return pulumi.get(self, "metadata")
 
     @metadata.setter
-    def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkLinkName")
-    def virtual_network_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def virtual_network_link_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the virtual network link.
         """
         return pulumi.get(self, "virtual_network_link_name")
 
     @virtual_network_link_name.setter
-    def virtual_network_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def virtual_network_link_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "virtual_network_link_name", value)
 
 
@@ -110,11 +110,11 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_forwarding_ruleset_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_forwarding_ruleset_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Describes a virtual network link.
@@ -161,11 +161,11 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_forwarding_ruleset_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_network: pulumi.Input[Optional[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
-                 virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_forwarding_ruleset_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_network: Optional[pulumi.Input[Union['SubResourceArgs', 'SubResourceArgsDict']]] = None,
+                 virtual_network_link_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

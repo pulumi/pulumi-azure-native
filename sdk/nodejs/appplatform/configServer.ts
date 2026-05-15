@@ -107,7 +107,7 @@ export interface ConfigServerArgs {
     /**
      * Properties of the Config Server resource
      */
-    properties?: pulumi.Input<inputs.appplatform.ConfigServerPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.appplatform.ConfigServerPropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

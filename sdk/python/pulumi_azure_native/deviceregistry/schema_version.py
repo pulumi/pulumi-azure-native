@@ -24,8 +24,8 @@ class SchemaVersionArgs:
                  schema_content: pulumi.Input[_builtins.str],
                  schema_name: pulumi.Input[_builtins.str],
                  schema_registry_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_version_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_version_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SchemaVersion resource.
 
@@ -95,26 +95,26 @@ class SchemaVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Human-readable description of the schema.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaVersionName")
-    def schema_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def schema_version_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Schema version name parameter.
         """
         return pulumi.get(self, "schema_version_name")
 
     @schema_version_name.setter
-    def schema_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def schema_version_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "schema_version_name", value)
 
 
@@ -124,12 +124,12 @@ class SchemaVersion(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_content: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_content: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_version_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Schema version's definition.
@@ -177,12 +177,12 @@ class SchemaVersion(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_content: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schema_version_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_content: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 schema_version_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -124,9 +124,9 @@ def get_namespace_virtual_network_rule(namespace_name: Optional[_builtins.str] =
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
-def get_namespace_virtual_network_rule_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_namespace_virtual_network_rule_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceVirtualNetworkRuleResult]:
     """
     Gets an VirtualNetworkRule for a Namespace by rule name.

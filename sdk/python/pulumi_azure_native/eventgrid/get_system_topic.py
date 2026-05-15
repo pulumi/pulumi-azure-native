@@ -215,8 +215,8 @@ def get_system_topic(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         topic_type=pulumi.get(__ret__, 'topic_type'),
         type=pulumi.get(__ret__, 'type'))
-def get_system_topic_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            system_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_system_topic_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                            system_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemTopicResult]:
     """
     Get properties of a system topic.

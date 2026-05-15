@@ -23,8 +23,8 @@ class TagInheritanceSettingArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['TagInheritancePropertiesArgs']] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['TagInheritancePropertiesArgs']] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagInheritanceSetting resource.
 
@@ -68,26 +68,26 @@ class TagInheritanceSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['TagInheritancePropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['TagInheritancePropertiesArgs']]:
         """
         The properties of the tag inheritance setting.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['TagInheritancePropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['TagInheritancePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Setting type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 
@@ -97,10 +97,10 @@ class TagInheritanceSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['TagInheritancePropertiesArgs', 'TagInheritancePropertiesArgsDict']]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['TagInheritancePropertiesArgs', 'TagInheritancePropertiesArgsDict']]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Tag Inheritance Setting definition.
@@ -143,10 +143,10 @@ class TagInheritanceSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['TagInheritancePropertiesArgs', 'TagInheritancePropertiesArgsDict']]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['TagInheritancePropertiesArgs', 'TagInheritancePropertiesArgsDict']]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 type: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

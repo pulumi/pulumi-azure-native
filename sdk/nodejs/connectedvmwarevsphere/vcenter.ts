@@ -185,11 +185,11 @@ export interface VCenterArgs {
     /**
      * Username / Password Credentials to connect to vcenter.
      */
-    credentials?: pulumi.Input<inputs.connectedvmwarevsphere.VICredentialArgs | undefined>;
+    credentials?: pulumi.Input<inputs.connectedvmwarevsphere.VICredentialArgs>;
     /**
      * Gets or sets the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.ExtendedLocationArgs>;
     /**
      * Gets or sets the FQDN/IPAddress of the vCenter.
      */
@@ -197,15 +197,15 @@ export interface VCenterArgs {
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Gets or sets the location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Gets or sets the port of the vCenter.
      */
-    port?: pulumi.Input<number | undefined>;
+    port?: pulumi.Input<number>;
     /**
      * The Resource Group Name.
      */
@@ -213,9 +213,9 @@ export interface VCenterArgs {
     /**
      * Gets or sets the Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Name of the vCenter.
      */
-    vcenterName?: pulumi.Input<string | undefined>;
+    vcenterName?: pulumi.Input<string>;
 }

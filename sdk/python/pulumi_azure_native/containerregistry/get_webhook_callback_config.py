@@ -87,9 +87,9 @@ def get_webhook_callback_config(registry_name: Optional[_builtins.str] = None,
     return AwaitableGetWebhookCallbackConfigResult(
         custom_headers=pulumi.get(__ret__, 'custom_headers'),
         service_uri=pulumi.get(__ret__, 'service_uri'))
-def get_webhook_callback_config_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       webhook_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_webhook_callback_config_output(registry_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       webhook_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebhookCallbackConfigResult]:
     """
     Gets the configuration of service URI and custom headers for the webhook.

@@ -138,9 +138,9 @@ def get_heterogeneous_assessment_operation(assessment_name: Optional[_builtins.s
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_heterogeneous_assessment_operation_output(assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  project_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_heterogeneous_assessment_operation_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  project_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHeterogeneousAssessmentOperationResult]:
     """
     Get a HeterogeneousAssessment

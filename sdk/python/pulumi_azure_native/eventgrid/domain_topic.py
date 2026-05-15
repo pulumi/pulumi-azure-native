@@ -22,7 +22,7 @@ class DomainTopicArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 domain_topic_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 domain_topic_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainTopic resource.
 
@@ -61,14 +61,14 @@ class DomainTopicArgs:
 
     @_builtins.property
     @pulumi.getter(name="domainTopicName")
-    def domain_topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def domain_topic_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the domain topic.
         """
         return pulumi.get(self, "domain_topic_name")
 
     @domain_topic_name.setter
-    def domain_topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def domain_topic_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "domain_topic_name", value)
 
 
@@ -78,9 +78,9 @@ class DomainTopic(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Domain Topic.
@@ -125,9 +125,9 @@ class DomainTopic(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain_topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

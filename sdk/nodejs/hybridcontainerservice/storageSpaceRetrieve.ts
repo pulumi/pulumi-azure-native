@@ -114,15 +114,15 @@ export class StorageSpaceRetrieve extends pulumi.CustomResource {
  * The set of arguments for constructing a StorageSpaceRetrieve resource.
  */
 export interface StorageSpaceRetrieveArgs {
-    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.StorageSpacesExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.StorageSpacesExtendedLocationArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * HybridAKSStorageSpec defines the desired state of HybridAKSStorage
      */
-    properties?: pulumi.Input<inputs.hybridcontainerservice.StorageSpacesPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.hybridcontainerservice.StorageSpacesPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,9 +130,9 @@ export interface StorageSpaceRetrieveArgs {
     /**
      * Parameter for the name of the storage object
      */
-    storageSpacesName?: pulumi.Input<string | undefined>;
+    storageSpacesName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

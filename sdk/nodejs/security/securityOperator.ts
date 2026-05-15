@@ -100,5 +100,5 @@ export interface SecurityOperatorArgs {
     /**
      * name of the securityOperator
      */
-    securityOperatorName?: pulumi.Input<string | undefined>;
+    securityOperatorName?: pulumi.Input<string>;
 }

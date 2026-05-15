@@ -183,15 +183,15 @@ export interface ClusterManagerArgs {
     /**
      * The resource ID of the Log Analytics workspace that is used for the logs collection.
      */
-    analyticsWorkspaceId?: pulumi.Input<string | undefined>;
+    analyticsWorkspaceId?: pulumi.Input<string>;
     /**
      * Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource.
      */
-    availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the cluster manager.
      */
-    clusterManagerName?: pulumi.Input<string | undefined>;
+    clusterManagerName?: pulumi.Input<string>;
     /**
      * The resource ID of the fabric controller that has one to one mapping with the cluster manager.
      */
@@ -199,15 +199,15 @@ export interface ClusterManagerArgs {
     /**
      * The identity of the cluster manager.
      */
-    identity?: pulumi.Input<inputs.networkcloud.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.networkcloud.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The configuration of the managed resource group associated with the resource.
      */
-    managedResourceGroupConfiguration?: pulumi.Input<inputs.networkcloud.ManagedResourceGroupConfigurationArgs | undefined>;
+    managedResourceGroupConfiguration?: pulumi.Input<inputs.networkcloud.ManagedResourceGroupConfigurationArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -215,9 +215,9 @@ export interface ClusterManagerArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource.
      */
-    vmSize?: pulumi.Input<string | undefined>;
+    vmSize?: pulumi.Input<string>;
 }

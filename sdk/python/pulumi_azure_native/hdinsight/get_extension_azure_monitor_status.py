@@ -111,8 +111,8 @@ def get_extension_azure_monitor_status(cluster_name: Optional[_builtins.str] = N
         cluster_monitoring_enabled=pulumi.get(__ret__, 'cluster_monitoring_enabled'),
         selected_configurations=pulumi.get(__ret__, 'selected_configurations'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
-def get_extension_azure_monitor_status_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_extension_azure_monitor_status_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionAzureMonitorStatusResult]:
     """
     Gets the status of Azure Monitor on the HDInsight cluster.

@@ -24,7 +24,7 @@ class IncidentCommentArgs:
                  message: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 incident_comment_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 incident_comment_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a IncidentComment resource.
 
@@ -91,14 +91,14 @@ class IncidentCommentArgs:
 
     @_builtins.property
     @pulumi.getter(name="incidentCommentId")
-    def incident_comment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def incident_comment_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Incident comment ID
         """
         return pulumi.get(self, "incident_comment_id")
 
     @incident_comment_id.setter
-    def incident_comment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def incident_comment_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "incident_comment_id", value)
 
 
@@ -108,11 +108,11 @@ class IncidentComment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 incident_comment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 incident_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 message: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_comment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 incident_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 message: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Represents an incident comment
@@ -159,11 +159,11 @@ class IncidentComment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 incident_comment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 incident_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 message: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_comment_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 incident_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 message: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

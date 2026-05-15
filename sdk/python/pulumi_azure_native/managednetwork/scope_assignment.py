@@ -20,9 +20,9 @@ __all__ = ['ScopeAssignmentArgs', 'ScopeAssignment']
 class ScopeAssignmentArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
-                 assigned_managed_network: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 assigned_managed_network: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScopeAssignment resource.
 
@@ -53,38 +53,38 @@ class ScopeAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter(name="assignedManagedNetwork")
-    def assigned_managed_network(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def assigned_managed_network(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The managed network ID with scope will be assigned to.
         """
         return pulumi.get(self, "assigned_managed_network")
 
     @assigned_managed_network.setter
-    def assigned_managed_network(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def assigned_managed_network(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "assigned_managed_network", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="scopeAssignmentName")
-    def scope_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def scope_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the scope assignment to create.
         """
         return pulumi.get(self, "scope_assignment_name")
 
     @scope_assignment_name.setter
-    def scope_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def scope_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "scope_assignment_name", value)
 
 
@@ -94,10 +94,10 @@ class ScopeAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_managed_network: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assigned_managed_network: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The Managed Network resource
@@ -139,10 +139,10 @@ class ScopeAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assigned_managed_network: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope: pulumi.Input[Optional[_builtins.str]] = None,
-                 scope_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 assigned_managed_network: Optional[pulumi.Input[_builtins.str]] = None,
+                 location: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 scope_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

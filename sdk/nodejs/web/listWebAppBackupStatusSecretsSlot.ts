@@ -158,7 +158,7 @@ export function listWebAppBackupStatusSecretsSlotOutput(args: ListWebAppBackupSt
     return pulumi.runtime.invokeOutput("azure-native:web:listWebAppBackupStatusSecretsSlot", {
         "backupId": args.backupId,
         "backupName": args.backupName,
-        "backupSchedule": pulumi.output(args.backupSchedule).apply(v => v === undefined ? undefined : inputs.web.backupScheduleProvideDefaults(v)),
+        "backupSchedule": args.backupSchedule ? pulumi.output(args.backupSchedule).apply(inputs.web.backupScheduleProvideDefaults) : undefined,
         "databases": args.databases,
         "enabled": args.enabled,
         "kind": args.kind,
@@ -177,23 +177,23 @@ export interface ListWebAppBackupStatusSecretsSlotOutputArgs {
     /**
      * Name of the backup.
      */
-    backupName?: pulumi.Input<string | undefined>;
+    backupName?: pulumi.Input<string>;
     /**
      * Schedule for the backup if it is executed periodically.
      */
-    backupSchedule?: pulumi.Input<inputs.web.BackupScheduleArgs | undefined>;
+    backupSchedule?: pulumi.Input<inputs.web.BackupScheduleArgs>;
     /**
      * Databases included in the backup.
      */
-    databases?: pulumi.Input<pulumi.Input<inputs.web.DatabaseBackupSettingArgs>[] | undefined>;
+    databases?: pulumi.Input<pulumi.Input<inputs.web.DatabaseBackupSettingArgs>[]>;
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
      */
-    enabled?: pulumi.Input<boolean | undefined>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Name of web app.
      */

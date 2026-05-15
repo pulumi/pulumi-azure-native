@@ -145,23 +145,23 @@ export interface InstanceArgs {
     /**
      * Customer-initiated diagnostic log collection storage properties
      */
-    diagnosticStorageProperties?: pulumi.Input<inputs.deviceupdate.DiagnosticStoragePropertiesArgs | undefined>;
+    diagnosticStorageProperties?: pulumi.Input<inputs.deviceupdate.DiagnosticStoragePropertiesArgs>;
     /**
      * Enables or Disables the diagnostic logs collection
      */
-    enableDiagnostics?: pulumi.Input<boolean | undefined>;
+    enableDiagnostics?: pulumi.Input<boolean>;
     /**
      * Instance name.
      */
-    instanceName?: pulumi.Input<string | undefined>;
+    instanceName?: pulumi.Input<string>;
     /**
      * List of IoT Hubs associated with the account.
      */
-    iotHubs?: pulumi.Input<pulumi.Input<inputs.deviceupdate.IotHubSettingsArgs>[] | undefined>;
+    iotHubs?: pulumi.Input<pulumi.Input<inputs.deviceupdate.IotHubSettingsArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
@@ -169,5 +169,5 @@ export interface InstanceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

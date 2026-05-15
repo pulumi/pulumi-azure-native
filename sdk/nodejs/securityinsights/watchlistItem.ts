@@ -174,19 +174,19 @@ export interface WatchlistItemArgs {
     /**
      * The time the watchlist item was created
      */
-    created?: pulumi.Input<string | undefined>;
+    created?: pulumi.Input<string>;
     /**
      * Describes a user that created the watchlist item
      */
-    createdBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs | undefined>;
+    createdBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs>;
     /**
      * key-value pairs for a watchlist item entity mapping
      */
-    entityMapping?: any | undefined;
+    entityMapping?: any;
     /**
      * A flag that indicates if the watchlist item is deleted or not
      */
-    isDeleted?: pulumi.Input<boolean | undefined>;
+    isDeleted?: pulumi.Input<boolean>;
     /**
      * key-value pairs for a watchlist item
      */
@@ -198,15 +198,15 @@ export interface WatchlistItemArgs {
     /**
      * The tenantId to which the watchlist item belongs to
      */
-    tenantId?: pulumi.Input<string | undefined>;
+    tenantId?: pulumi.Input<string>;
     /**
      * The last time the watchlist item was updated
      */
-    updated?: pulumi.Input<string | undefined>;
+    updated?: pulumi.Input<string>;
     /**
      * Describes a user that updated the watchlist item
      */
-    updatedBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs | undefined>;
+    updatedBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs>;
     /**
      * The watchlist alias
      */
@@ -214,11 +214,11 @@ export interface WatchlistItemArgs {
     /**
      * The id (a Guid) of the watchlist item
      */
-    watchlistItemId?: pulumi.Input<string | undefined>;
+    watchlistItemId?: pulumi.Input<string>;
     /**
      * The type of the watchlist item
      */
-    watchlistItemType?: pulumi.Input<string | undefined>;
+    watchlistItemType?: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

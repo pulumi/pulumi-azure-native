@@ -122,19 +122,19 @@ export interface NetworkExperimentProfileArgs {
     /**
      * The state of the Experiment
      */
-    enabledState?: pulumi.Input<string | enums.frontdoor.State | undefined>;
+    enabledState?: pulumi.Input<string | enums.frontdoor.State>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the Profile
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
-    profileName?: pulumi.Input<string | undefined>;
+    profileName?: pulumi.Input<string>;
     /**
      * Name of the Resource group within the Azure subscription.
      */
@@ -142,5 +142,5 @@ export interface NetworkExperimentProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

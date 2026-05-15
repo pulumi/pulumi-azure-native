@@ -262,67 +262,67 @@ export interface DraftPackageArgs {
     /**
      * The name of the app file.
      */
-    appFileName?: pulumi.Input<string | undefined>;
+    appFileName?: pulumi.Input<string>;
     /**
      * Application name
      */
-    applicationName?: pulumi.Input<string | undefined>;
+    applicationName?: pulumi.Input<string>;
     /**
      * Comments added by user.
      */
-    comments?: pulumi.Input<string | undefined>;
+    comments?: pulumi.Input<string>;
     /**
      * The resource name of the Test Base Draft Package.
      */
-    draftPackageName?: pulumi.Input<string | undefined>;
+    draftPackageName?: pulumi.Input<string>;
     /**
      * Specifies whether this draft package is used to edit a package.
      */
-    editPackage?: pulumi.Input<boolean | undefined>;
+    editPackage?: pulumi.Input<boolean>;
     /**
      * The executable launch command for script auto-fill. Will be used to run the application.
      */
-    executableLaunchCommand?: pulumi.Input<string | undefined>;
+    executableLaunchCommand?: pulumi.Input<string>;
     /**
      * The list of first party applications to test along with user application.
      */
-    firstPartyApps?: pulumi.Input<pulumi.Input<inputs.testbase.FirstPartyAppDefinitionArgs>[] | undefined>;
+    firstPartyApps?: pulumi.Input<pulumi.Input<inputs.testbase.FirstPartyAppDefinitionArgs>[]>;
     /**
      * The flighting ring for feature update.
      */
-    flightingRing?: pulumi.Input<string | undefined>;
+    flightingRing?: pulumi.Input<string>;
     /**
      * The list of gallery apps to test along with user application.
      */
-    galleryApps?: pulumi.Input<pulumi.Input<inputs.testbase.GalleryAppDefinitionArgs>[] | undefined>;
+    galleryApps?: pulumi.Input<pulumi.Input<inputs.testbase.GalleryAppDefinitionArgs>[]>;
     /**
      * The highlight files in the package.
      */
-    highlightedFiles?: pulumi.Input<pulumi.Input<inputs.testbase.HighlightedFileArgs>[] | undefined>;
+    highlightedFiles?: pulumi.Input<pulumi.Input<inputs.testbase.HighlightedFileArgs>[]>;
     /**
      * Specifies the baseline os and target os for inplace upgrade.
      */
-    inplaceUpgradeOSPair?: pulumi.Input<inputs.testbase.InplaceUpgradeOSInfoArgs | undefined>;
+    inplaceUpgradeOSPair?: pulumi.Input<inputs.testbase.InplaceUpgradeOSInfoArgs>;
     /**
      * The metadata of Intune enrollment.
      */
-    intuneEnrollmentMetadata?: pulumi.Input<inputs.testbase.IntuneEnrollmentMetadataArgs | undefined>;
+    intuneEnrollmentMetadata?: pulumi.Input<inputs.testbase.IntuneEnrollmentMetadataArgs>;
     /**
      * Metadata used to generate draft package folder and scripts.
      */
-    intuneMetadata?: pulumi.Input<inputs.testbase.DraftPackageIntuneAppMetadataArgs | undefined>;
+    intuneMetadata?: pulumi.Input<inputs.testbase.DraftPackageIntuneAppMetadataArgs>;
     /**
      * Specifies the package id from which the draft package copied.
      */
-    packageId?: pulumi.Input<string | undefined>;
+    packageId?: pulumi.Input<string>;
     /**
      * Tags of the package to be created.
      */
-    packageTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    packageTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The process name for script auto-fill. Will be used to identify the application process.
      */
-    processName?: pulumi.Input<string | undefined>;
+    processName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -330,15 +330,15 @@ export interface DraftPackageArgs {
     /**
      * The source type.
      */
-    sourceType?: pulumi.Input<string | enums.testbase.DraftPackageSourceType | undefined>;
+    sourceType?: pulumi.Input<string | enums.testbase.DraftPackageSourceType>;
     /**
      * Tab state.
      */
-    tabState?: pulumi.Input<inputs.testbase.TabStateArgs | undefined>;
+    tabState?: pulumi.Input<inputs.testbase.TabStateArgs>;
     /**
      * Specifies the target OSs of specific OS Update types.
      */
-    targetOSList?: pulumi.Input<pulumi.Input<inputs.testbase.TargetOSInfoArgs>[] | undefined>;
+    targetOSList?: pulumi.Input<pulumi.Input<inputs.testbase.TargetOSInfoArgs>[]>;
     /**
      * The resource name of the Test Base Account.
      */
@@ -346,21 +346,21 @@ export interface DraftPackageArgs {
     /**
      * OOB, functional or flow driven. Mapped to the data in 'tests' property.
      */
-    testTypes?: pulumi.Input<pulumi.Input<string | enums.testbase.TestType>[] | undefined>;
+    testTypes?: pulumi.Input<pulumi.Input<string | enums.testbase.TestType>[]>;
     /**
      * The detailed test information.
      */
-    tests?: pulumi.Input<pulumi.Input<inputs.testbase.TestArgs>[] | undefined>;
+    tests?: pulumi.Input<pulumi.Input<inputs.testbase.TestArgs>[]>;
     /**
      * Indicates whether user choose to enable script auto-fill.
      */
-    useAutofill?: pulumi.Input<boolean | undefined>;
+    useAutofill?: pulumi.Input<boolean>;
     /**
      * Specifies whether a sample package should be used instead of the one uploaded by the user.
      */
-    useSample?: pulumi.Input<boolean | undefined>;
+    useSample?: pulumi.Input<boolean>;
     /**
      * Application version
      */
-    version?: pulumi.Input<string | undefined>;
+    version?: pulumi.Input<string>;
 }

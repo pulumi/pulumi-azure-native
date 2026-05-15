@@ -24,7 +24,7 @@ class DevOpsConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  security_connector_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['DevOpsConfigurationPropertiesArgs']] = None):
+                 properties: Optional[pulumi.Input['DevOpsConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DevOpsConfiguration resource.
 
@@ -63,14 +63,14 @@ class DevOpsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['DevOpsConfigurationPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['DevOpsConfigurationPropertiesArgs']]:
         """
         DevOps Configuration properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['DevOpsConfigurationPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['DevOpsConfigurationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -80,9 +80,9 @@ class DevOpsConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['DevOpsConfigurationPropertiesArgs', 'DevOpsConfigurationPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['DevOpsConfigurationPropertiesArgs', 'DevOpsConfigurationPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 security_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         DevOps Configuration resource.
@@ -127,9 +127,9 @@ class DevOpsConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['DevOpsConfigurationPropertiesArgs', 'DevOpsConfigurationPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['DevOpsConfigurationPropertiesArgs', 'DevOpsConfigurationPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 security_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

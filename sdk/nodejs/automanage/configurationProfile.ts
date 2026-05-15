@@ -116,15 +116,15 @@ export interface ConfigurationProfileArgs {
     /**
      * Name of the configuration profile.
      */
-    configurationProfileName?: pulumi.Input<string | undefined>;
+    configurationProfileName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the configuration profile.
      */
-    properties?: pulumi.Input<inputs.automanage.ConfigurationProfilePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.automanage.ConfigurationProfilePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,5 +132,5 @@ export interface ConfigurationProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

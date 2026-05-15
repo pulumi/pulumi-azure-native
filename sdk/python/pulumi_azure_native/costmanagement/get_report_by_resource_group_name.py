@@ -174,8 +174,8 @@ def get_report_by_resource_group_name(report_name: Optional[_builtins.str] = Non
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_report_by_resource_group_name_output(report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_report_by_resource_group_name_output(report_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportByResourceGroupNameResult]:
     """
     Gets the report for a resource group under a subscription by report name.

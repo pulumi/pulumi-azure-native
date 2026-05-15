@@ -103,7 +103,7 @@ export interface GatewayCertificateAuthorityArgs {
     /**
      * Identifier of the certificate entity. Must be unique in the current API Management service instance.
      */
-    certificateId?: pulumi.Input<string | undefined>;
+    certificateId?: pulumi.Input<string>;
     /**
      * Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
      */
@@ -111,7 +111,7 @@ export interface GatewayCertificateAuthorityArgs {
     /**
      * Determines whether certificate authority is trusted.
      */
-    isTrusted?: pulumi.Input<boolean | undefined>;
+    isTrusted?: pulumi.Input<boolean>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

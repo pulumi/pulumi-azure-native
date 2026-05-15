@@ -306,8 +306,8 @@ def get_device_extended_information(device_name: Optional[_builtins.str] = None,
         resource_key=pulumi.get(__ret__, 'resource_key'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_device_extended_information_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_device_extended_information_output(device_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceExtendedInformationResult]:
     """
     Gets additional information for the specified Azure Stack Edge/Data Box Gateway device.

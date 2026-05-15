@@ -98,9 +98,9 @@ export interface WorkloadImpactArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.impact.WorkloadImpactPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.impact.WorkloadImpactPropertiesArgs>;
     /**
      * workloadImpact resource 
      */
-    workloadImpactName?: pulumi.Input<string | undefined>;
+    workloadImpactName?: pulumi.Input<string>;
 }

@@ -170,39 +170,39 @@ export interface LocalRulestackArgs {
     /**
      * subscription scope of global rulestack
      */
-    associatedSubscriptions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    associatedSubscriptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Mode for default rules creation
      */
-    defaultMode?: pulumi.Input<string | enums.cloudngfw.DefaultMode | undefined>;
+    defaultMode?: pulumi.Input<string | enums.cloudngfw.DefaultMode>;
     /**
      * rulestack description
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.cloudngfw.AzureResourceManagerManagedIdentityPropertiesArgs | undefined>;
+    identity?: pulumi.Input<inputs.cloudngfw.AzureResourceManagerManagedIdentityPropertiesArgs>;
     /**
      * LocalRulestack resource name
      */
-    localRulestackName?: pulumi.Input<string | undefined>;
+    localRulestackName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * minimum version
      */
-    minAppIdVersion?: pulumi.Input<string | undefined>;
+    minAppIdVersion?: pulumi.Input<string>;
     /**
      * PanEtag info
      */
-    panEtag?: pulumi.Input<string | undefined>;
+    panEtag?: pulumi.Input<string>;
     /**
      * Rulestack Location, Required for GlobalRulestacks, Not for LocalRulestacks
      */
-    panLocation?: pulumi.Input<string | undefined>;
+    panLocation?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -210,13 +210,13 @@ export interface LocalRulestackArgs {
     /**
      * Rulestack Type
      */
-    scope?: pulumi.Input<string | enums.cloudngfw.ScopeType | undefined>;
+    scope?: pulumi.Input<string | enums.cloudngfw.ScopeType>;
     /**
      * Security Profile
      */
-    securityServices?: pulumi.Input<inputs.cloudngfw.SecurityServicesArgs | undefined>;
+    securityServices?: pulumi.Input<inputs.cloudngfw.SecurityServicesArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

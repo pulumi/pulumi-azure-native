@@ -150,11 +150,11 @@ export interface WebhookArgs {
     /**
      * Custom headers that will be added to the webhook notifications.
      */
-    customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    customHeaders?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The location of the webhook. This cannot be changed after the resource is created.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the container registry.
      */
@@ -166,7 +166,7 @@ export interface WebhookArgs {
     /**
      * The scope of repositories where the event can be triggered. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events.
      */
-    scope?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<string>;
     /**
      * The service URI for the webhook to post notifications.
      */
@@ -174,13 +174,13 @@ export interface WebhookArgs {
     /**
      * The status of the webhook at the time the operation was called.
      */
-    status?: pulumi.Input<string | enums.containerregistry.WebhookStatus | undefined>;
+    status?: pulumi.Input<string | enums.containerregistry.WebhookStatus>;
     /**
      * The tags for the webhook.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the webhook.
      */
-    webhookName?: pulumi.Input<string | undefined>;
+    webhookName?: pulumi.Input<string>;
 }

@@ -144,11 +144,11 @@ export interface LoadBalancerArgs {
     /**
      * Whether to automatically place services on the load balancer. If not supplied, the default value is true. If set to false manually, both of the external and the internal load balancer will not be selected for services unless they explicitly target it.
      */
-    allowServicePlacement?: pulumi.Input<boolean | undefined>;
+    allowServicePlacement?: pulumi.Input<boolean>;
     /**
      * The name of the load balancer.
      */
-    loadBalancerName?: pulumi.Input<string | undefined>;
+    loadBalancerName?: pulumi.Input<string>;
     /**
      * Name of the public load balancer. There will be an internal load balancer created if needed, and the name will be `<name>-internal`. The internal lb shares the same configurations as the external one. The internal lbs are not needed to be included in LoadBalancer list. There must be a name of kubernetes in the list.
      */
@@ -156,7 +156,7 @@ export interface LoadBalancerArgs {
     /**
      * Nodes that match this selector will be possible members of this load balancer.
      */
-    nodeSelector?: pulumi.Input<inputs.containerservice.LabelSelectorArgs | undefined>;
+    nodeSelector?: pulumi.Input<inputs.containerservice.LabelSelectorArgs>;
     /**
      * Required field. A string value that must specify the ID of an existing agent pool. All nodes in the given pool will always be added to this load balancer. This agent pool must have at least one node and minCount>=1 for autoscaling operations. An agent pool can only be the primary pool for a single load balancer.
      */
@@ -172,9 +172,9 @@ export interface LoadBalancerArgs {
     /**
      * Only services that must match this selector can be placed on this load balancer.
      */
-    serviceLabelSelector?: pulumi.Input<inputs.containerservice.LabelSelectorArgs | undefined>;
+    serviceLabelSelector?: pulumi.Input<inputs.containerservice.LabelSelectorArgs>;
     /**
      * Services created in namespaces that match the selector can be placed on this load balancer.
      */
-    serviceNamespaceSelector?: pulumi.Input<inputs.containerservice.LabelSelectorArgs | undefined>;
+    serviceNamespaceSelector?: pulumi.Input<inputs.containerservice.LabelSelectorArgs>;
 }

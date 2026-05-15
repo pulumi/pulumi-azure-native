@@ -102,15 +102,15 @@ export interface ManagementConfigurationArgs {
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * User Management Configuration Name.
      */
-    managementConfigurationName?: pulumi.Input<string | undefined>;
+    managementConfigurationName?: pulumi.Input<string>;
     /**
      * Properties for ManagementConfiguration object supported by the OperationsManagement resource provider.
      */
-    properties?: pulumi.Input<inputs.operationsmanagement.ManagementConfigurationPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.operationsmanagement.ManagementConfigurationPropertiesArgs>;
     /**
      * The name of the resource group to get. The name is case insensitive.
      */

@@ -199,7 +199,7 @@ export interface JobDefinitionArgs {
     /**
      * Name of the Agent to assign for new Job Runs of this Job Definition.
      */
-    agentName?: pulumi.Input<string | undefined>;
+    agentName?: pulumi.Input<string>;
     /**
      * Strategy to use for copy.
      */
@@ -207,11 +207,11 @@ export interface JobDefinitionArgs {
     /**
      * A description for the Job Definition. OnPremToCloud is for migrating data from on-premises to cloud. CloudToCloud is for migrating data between cloud to cloud.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the Job Definition resource.
      */
-    jobDefinitionName?: pulumi.Input<string | undefined>;
+    jobDefinitionName?: pulumi.Input<string>;
     /**
      * The name of the Project resource.
      */
@@ -227,7 +227,7 @@ export interface JobDefinitionArgs {
     /**
      * The subpath to use when reading from the source Endpoint.
      */
-    sourceSubpath?: pulumi.Input<string | undefined>;
+    sourceSubpath?: pulumi.Input<string>;
     /**
      * The name of the Storage Mover resource.
      */
@@ -239,5 +239,5 @@ export interface JobDefinitionArgs {
     /**
      * The subpath to use when writing to the target Endpoint.
      */
-    targetSubpath?: pulumi.Input<string | undefined>;
+    targetSubpath?: pulumi.Input<string>;
 }

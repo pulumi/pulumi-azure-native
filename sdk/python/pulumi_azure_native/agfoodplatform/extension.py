@@ -23,9 +23,9 @@ class ExtensionArgs:
     def __init__(__self__, *,
                  data_manager_for_agriculture_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 additional_api_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]] = None,
-                 extension_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 extension_version: pulumi.Input[Optional[_builtins.str]] = None):
+                 additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]] = None,
+                 extension_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 extension_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
 
@@ -70,38 +70,38 @@ class ExtensionArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalApiProperties")
-    def additional_api_properties(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]]:
+    def additional_api_properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]]:
         """
         Additional Api Properties.
         """
         return pulumi.get(self, "additional_api_properties")
 
     @additional_api_properties.setter
-    def additional_api_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]]):
+    def additional_api_properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]]):
         pulumi.set(self, "additional_api_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionId")
-    def extension_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def extension_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Id of extension resource.
         """
         return pulumi.get(self, "extension_id")
 
     @extension_id.setter
-    def extension_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def extension_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "extension_id", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionVersion")
-    def extension_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def extension_version(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Extension Version.
         """
         return pulumi.get(self, "extension_version")
 
     @extension_version.setter
-    def extension_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def extension_version(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "extension_version", value)
 
 
@@ -111,11 +111,11 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_api_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ApiPropertiesArgs', 'ApiPropertiesArgsDict']]]]] = None,
-                 data_manager_for_agriculture_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extension_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 extension_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ApiPropertiesArgs', 'ApiPropertiesArgsDict']]]]] = None,
+                 data_manager_for_agriculture_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extension_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 extension_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Extension resource.
@@ -158,11 +158,11 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_api_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ApiPropertiesArgs', 'ApiPropertiesArgsDict']]]]] = None,
-                 data_manager_for_agriculture_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 extension_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 extension_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 additional_api_properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ApiPropertiesArgs', 'ApiPropertiesArgsDict']]]]] = None,
+                 data_manager_for_agriculture_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extension_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 extension_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

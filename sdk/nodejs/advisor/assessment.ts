@@ -148,17 +148,17 @@ export interface AssessmentArgs {
     /**
      * Advisor assessment name.
      */
-    assessmentName?: pulumi.Input<string | undefined>;
+    assessmentName?: pulumi.Input<string>;
     /**
      * Assessment Type Locale.
      */
-    locale?: pulumi.Input<string | undefined>;
+    locale?: pulumi.Input<string>;
     /**
      * Assessment Type Id.
      */
-    typeId?: pulumi.Input<string | undefined>;
+    typeId?: pulumi.Input<string>;
     /**
      * Workload Id.
      */
-    workloadId?: pulumi.Input<string | undefined>;
+    workloadId?: pulumi.Input<string>;
 }

@@ -186,7 +186,7 @@ def get_deployment_safeguard(resource_uri: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         system_excluded_namespaces=pulumi.get(__ret__, 'system_excluded_namespaces'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_safeguard_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+def get_deployment_safeguard_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentSafeguardResult]:
     """
     Fetch a deployment safeguard by name

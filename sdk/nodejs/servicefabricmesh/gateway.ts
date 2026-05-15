@@ -162,7 +162,7 @@ export interface GatewayArgs {
     /**
      * User readable description of the gateway.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Network that the Application is using.
      */
@@ -170,15 +170,15 @@ export interface GatewayArgs {
     /**
      * The identity of the gateway.
      */
-    gatewayResourceName?: pulumi.Input<string | undefined>;
+    gatewayResourceName?: pulumi.Input<string>;
     /**
      * Configuration for http connectivity for this gateway.
      */
-    http?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.HttpConfigArgs>[] | undefined>;
+    http?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.HttpConfigArgs>[]>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Azure resource group name
      */
@@ -190,9 +190,9 @@ export interface GatewayArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration for tcp connectivity for this gateway.
      */
-    tcp?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.TcpConfigArgs>[] | undefined>;
+    tcp?: pulumi.Input<pulumi.Input<inputs.servicefabricmesh.TcpConfigArgs>[]>;
 }

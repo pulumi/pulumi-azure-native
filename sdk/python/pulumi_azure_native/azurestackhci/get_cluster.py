@@ -475,8 +475,8 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
         trial_days_remaining=pulumi.get(__ret__, 'trial_days_remaining'),
         type=pulumi.get(__ret__, 'type'),
         user_assigned_identities=pulumi.get(__ret__, 'user_assigned_identities'))
-def get_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Get HCI cluster.

@@ -187,8 +187,8 @@ def get_custom_resource_provider(resource_group_name: Optional[_builtins.str] = 
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         validations=pulumi.get(__ret__, 'validations'))
-def get_custom_resource_provider_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        resource_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_custom_resource_provider_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                        resource_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomResourceProviderResult]:
     """
     Gets the custom resource provider manifest.

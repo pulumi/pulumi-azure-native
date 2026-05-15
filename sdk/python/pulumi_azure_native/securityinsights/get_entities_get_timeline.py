@@ -101,13 +101,13 @@ def get_entities_get_timeline(end_time: Optional[_builtins.str] = None,
     return AwaitableGetEntitiesGetTimelineResult(
         meta_data=pulumi.get(__ret__, 'meta_data'),
         value=pulumi.get(__ret__, 'value'))
-def get_entities_get_timeline_output(end_time: pulumi.Input[Optional[_builtins.str]] = None,
-                                     entity_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                     kinds: pulumi.Input[Optional[Optional[Sequence[Union[_builtins.str, 'EntityTimelineKind']]]]] = None,
-                                     number_of_bucket: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
-                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                                     workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_entities_get_timeline_output(end_time: Optional[pulumi.Input[_builtins.str]] = None,
+                                     entity_id: Optional[pulumi.Input[_builtins.str]] = None,
+                                     kinds: Optional[pulumi.Input[Optional[Sequence[Union[_builtins.str, 'EntityTimelineKind']]]]] = None,
+                                     number_of_bucket: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                     start_time: Optional[pulumi.Input[_builtins.str]] = None,
+                                     workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntitiesGetTimelineResult]:
     """
     Timeline for an entity.

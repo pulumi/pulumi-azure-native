@@ -102,11 +102,11 @@ export interface JobArgs {
     /**
      * The job name.
      */
-    jobName?: pulumi.Input<string | undefined>;
+    jobName?: pulumi.Input<string>;
     /**
      * Gets or sets the job properties.
      */
-    properties?: pulumi.Input<inputs.scheduler.JobPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.scheduler.JobPropertiesArgs>;
     /**
      * The resource group name.
      */

@@ -179,7 +179,7 @@ export interface GetSqlVirtualMachineOutputArgs {
     /**
      * The child resources to include in the response.
      */
-    expand?: pulumi.Input<string | undefined>;
+    expand?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -22,7 +22,7 @@ class TaskHubArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  scheduler_name: pulumi.Input[_builtins.str],
-                 task_hub_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 task_hub_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a TaskHub resource.
 
@@ -61,14 +61,14 @@ class TaskHubArgs:
 
     @_builtins.property
     @pulumi.getter(name="taskHubName")
-    def task_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def task_hub_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the TaskHub
         """
         return pulumi.get(self, "task_hub_name")
 
     @task_hub_name.setter
-    def task_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def task_hub_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "task_hub_name", value)
 
 
@@ -78,9 +78,9 @@ class TaskHub(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scheduler_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 task_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduler_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 task_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         A Task Hub resource belonging to the scheduler
@@ -125,9 +125,9 @@ class TaskHub(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scheduler_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 task_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 scheduler_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 task_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -114,11 +114,11 @@ export interface EnterpriseKnowledgeGraphArgs {
     /**
      * Specifies the location of the resource.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The set of properties specific to EnterpriseKnowledgeGraph resource
      */
-    properties?: pulumi.Input<inputs.enterpriseknowledgegraph.EnterpriseKnowledgeGraphPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.enterpriseknowledgegraph.EnterpriseKnowledgeGraphPropertiesArgs>;
     /**
      * The name of the EnterpriseKnowledgeGraph resource group in the user subscription.
      */
@@ -126,13 +126,13 @@ export interface EnterpriseKnowledgeGraphArgs {
     /**
      * The name of the EnterpriseKnowledgeGraph resource.
      */
-    resourceName?: pulumi.Input<string | undefined>;
+    resourceName?: pulumi.Input<string>;
     /**
      * Gets or sets the SKU of the resource.
      */
-    sku?: pulumi.Input<inputs.enterpriseknowledgegraph.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.enterpriseknowledgegraph.SkuArgs>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

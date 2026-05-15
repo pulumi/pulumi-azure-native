@@ -140,9 +140,9 @@ def list_integration_account_assembly_content_callback_url(assembly_artifact_nam
         relative_path=pulumi.get(__ret__, 'relative_path'),
         relative_path_parameters=pulumi.get(__ret__, 'relative_path_parameters'),
         value=pulumi.get(__ret__, 'value'))
-def list_integration_account_assembly_content_callback_url_output(assembly_artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                  integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_integration_account_assembly_content_callback_url_output(assembly_artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                  integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountAssemblyContentCallbackUrlResult]:
     """
     Get the content callback url for an integration account assembly.

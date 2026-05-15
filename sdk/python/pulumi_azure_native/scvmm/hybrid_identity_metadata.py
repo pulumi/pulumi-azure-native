@@ -22,9 +22,9 @@ class HybridIdentityMetadataArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_machine_name: pulumi.Input[_builtins.str],
-                 metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None):
+                 metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridIdentityMetadata resource.
 
@@ -69,38 +69,38 @@ class HybridIdentityMetadataArgs:
 
     @_builtins.property
     @pulumi.getter(name="metadataName")
-    def metadata_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def metadata_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the hybridIdentityMetadata.
         """
         return pulumi.get(self, "metadata_name")
 
     @metadata_name.setter
-    def metadata_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def metadata_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "metadata_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
-    def public_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def public_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Gets or sets the Public Key.
         """
         return pulumi.get(self, "public_key")
 
     @public_key.setter
-    def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def public_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "public_key", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUid")
-    def resource_uid(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def resource_uid(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Gets or sets the Vm Id.
         """
         return pulumi.get(self, "resource_uid")
 
     @resource_uid.setter
-    def resource_uid(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def resource_uid(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "resource_uid", value)
 
 
@@ -110,11 +110,11 @@ class HybridIdentityMetadata(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Defines the HybridIdentityMetadata.
@@ -161,11 +161,11 @@ class HybridIdentityMetadata(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 public_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_uid: pulumi.Input[Optional[_builtins.str]] = None,
-                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_uid: Optional[pulumi.Input[_builtins.str]] = None,
+                 virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

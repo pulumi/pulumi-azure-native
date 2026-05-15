@@ -272,19 +272,19 @@ export interface ScheduledAlertRuleArgs {
     /**
      * The alert details override settings
      */
-    alertDetailsOverride?: pulumi.Input<inputs.securityinsights.AlertDetailsOverrideArgs | undefined>;
+    alertDetailsOverride?: pulumi.Input<inputs.securityinsights.AlertDetailsOverrideArgs>;
     /**
      * The Name of the alert rule template used to create this rule.
      */
-    alertRuleTemplateName?: pulumi.Input<string | undefined>;
+    alertRuleTemplateName?: pulumi.Input<string>;
     /**
      * Dictionary of string key-value pairs of columns to be attached to the alert
      */
-    customDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    customDetails?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The description of the alert rule.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The display name for alerts created by this alert rule.
      */
@@ -296,15 +296,15 @@ export interface ScheduledAlertRuleArgs {
     /**
      * Array of the entity mappings of the alert rule
      */
-    entityMappings?: pulumi.Input<pulumi.Input<inputs.securityinsights.EntityMappingArgs>[] | undefined>;
+    entityMappings?: pulumi.Input<pulumi.Input<inputs.securityinsights.EntityMappingArgs>[]>;
     /**
      * The event grouping settings.
      */
-    eventGroupingSettings?: pulumi.Input<inputs.securityinsights.EventGroupingSettingsArgs | undefined>;
+    eventGroupingSettings?: pulumi.Input<inputs.securityinsights.EventGroupingSettingsArgs>;
     /**
      * The settings of the incidents that created from alerts triggered by this analytics rule
      */
-    incidentConfiguration?: pulumi.Input<inputs.securityinsights.IncidentConfigurationArgs | undefined>;
+    incidentConfiguration?: pulumi.Input<inputs.securityinsights.IncidentConfigurationArgs>;
     /**
      * The kind of the alert rule
      * Expected value is 'Scheduled'.
@@ -329,7 +329,7 @@ export interface ScheduledAlertRuleArgs {
     /**
      * Alert rule ID
      */
-    ruleId?: pulumi.Input<string | undefined>;
+    ruleId?: pulumi.Input<string>;
     /**
      * The severity for alerts created by this alert rule.
      */
@@ -345,15 +345,15 @@ export interface ScheduledAlertRuleArgs {
     /**
      * The tactics of the alert rule
      */
-    tactics?: pulumi.Input<pulumi.Input<string | enums.securityinsights.AttackTactic>[] | undefined>;
+    tactics?: pulumi.Input<pulumi.Input<string | enums.securityinsights.AttackTactic>[]>;
     /**
      * The techniques of the alert rule
      */
-    techniques?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    techniques?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
      */
-    templateVersion?: pulumi.Input<string | undefined>;
+    templateVersion?: pulumi.Input<string>;
     /**
      * The operation against the threshold that triggers alert rule.
      */

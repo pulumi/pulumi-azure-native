@@ -118,12 +118,12 @@ export interface ManagedInstancePrivateEndpointConnectionArgs {
     /**
      * Private endpoint which the connection belongs to.
      */
-    privateEndpoint?: pulumi.Input<inputs.sql.ManagedInstancePrivateEndpointPropertyArgs | undefined>;
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpoint?: pulumi.Input<inputs.sql.ManagedInstancePrivateEndpointPropertyArgs>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * Connection State of the Private Endpoint Connection.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.sql.ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs | undefined>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.sql.ManagedInstancePrivateLinkServiceConnectionStatePropertyArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

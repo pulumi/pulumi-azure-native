@@ -89,7 +89,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["identity"] = args?.identity;
             resourceInputs["instanceName"] = args?.instanceName;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.scom.monitoringInstancePropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.scom.monitoringInstancePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["validationMode"] = args?.validationMode;
@@ -121,19 +121,19 @@ export interface InstanceArgs {
     /**
      * The Azure Active Directory identity of the SCOM instance
      */
-    identity?: pulumi.Input<inputs.scom.ManagedIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.scom.ManagedIdentityArgs>;
     /**
      * Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)
      */
-    instanceName?: pulumi.Input<string | undefined>;
+    instanceName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The properties of a SCOM instance resource
      */
-    properties?: pulumi.Input<inputs.scom.MonitoringInstancePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.scom.MonitoringInstancePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -141,9 +141,9 @@ export interface InstanceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Validation mode for the SCOM managed instance
      */
-    validationMode?: pulumi.Input<boolean | undefined>;
+    validationMode?: pulumi.Input<boolean>;
 }

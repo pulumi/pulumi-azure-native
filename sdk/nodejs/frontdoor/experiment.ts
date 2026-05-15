@@ -150,27 +150,27 @@ export interface ExperimentArgs {
     /**
      * The description of the details or intents of the Experiment
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The state of the Experiment
      */
-    enabledState?: pulumi.Input<string | enums.frontdoor.State | undefined>;
+    enabledState?: pulumi.Input<string | enums.frontdoor.State>;
     /**
      * The endpoint A of an experiment
      */
-    endpointA?: pulumi.Input<inputs.frontdoor.EndpointArgs | undefined>;
+    endpointA?: pulumi.Input<inputs.frontdoor.EndpointArgs>;
     /**
      * The endpoint B of an experiment
      */
-    endpointB?: pulumi.Input<inputs.frontdoor.EndpointArgs | undefined>;
+    endpointB?: pulumi.Input<inputs.frontdoor.EndpointArgs>;
     /**
      * The Experiment identifier associated with the Experiment
      */
-    experimentName?: pulumi.Input<string | undefined>;
+    experimentName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The Profile identifier associated with the Tenant and Partner
      */
@@ -182,5 +182,5 @@ export interface ExperimentArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

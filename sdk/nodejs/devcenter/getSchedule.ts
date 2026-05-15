@@ -139,5 +139,5 @@ export interface GetScheduleOutputArgs {
     /**
      * The maximum number of resources to return from the operation. Example: '$top=10'.
      */
-    top?: pulumi.Input<number | undefined>;
+    top?: pulumi.Input<number>;
 }

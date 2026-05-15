@@ -153,23 +153,23 @@ export interface VirtualWanArgs {
     /**
      * True if branch to branch traffic is allowed.
      */
-    allowBranchToBranchTraffic?: pulumi.Input<boolean | undefined>;
+    allowBranchToBranchTraffic?: pulumi.Input<boolean>;
     /**
      * True if Vnet to Vnet traffic is allowed.
      */
-    allowVnetToVnetTraffic?: pulumi.Input<boolean | undefined>;
+    allowVnetToVnetTraffic?: pulumi.Input<boolean>;
     /**
      * Vpn encryption to be disabled or not.
      */
-    disableVpnEncryption?: pulumi.Input<boolean | undefined>;
+    disableVpnEncryption?: pulumi.Input<boolean>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The resource group name of the VirtualWan.
      */
@@ -177,13 +177,13 @@ export interface VirtualWanArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the VirtualWAN.
      */
-    type?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string>;
     /**
      * The name of the VirtualWAN being created or updated.
      */
-    virtualWANName?: pulumi.Input<string | undefined>;
+    virtualWANName?: pulumi.Input<string>;
 }

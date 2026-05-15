@@ -113,5 +113,5 @@ export interface GetAppOutputArgs {
     /**
      * Indicates whether sync status
      */
-    syncStatus?: pulumi.Input<string | undefined>;
+    syncStatus?: pulumi.Input<string>;
 }

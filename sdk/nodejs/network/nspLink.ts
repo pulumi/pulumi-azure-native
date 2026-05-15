@@ -159,19 +159,19 @@ export interface NspLinkArgs {
     /**
      * Perimeter ARM Id for the remote NSP with which the link gets created in Auto-approval mode. It should be used when the NSP admin have Microsoft.Network/networkSecurityPerimeters/linkPerimeter/action permission on the remote NSP resource.
      */
-    autoApprovedRemotePerimeterResourceId?: pulumi.Input<string | undefined>;
+    autoApprovedRemotePerimeterResourceId?: pulumi.Input<string>;
     /**
      * A message passed to the owner of the remote NSP link resource with this connection request. In case of Auto-approved flow, it is default to 'Auto Approved'. Restricted to 140 chars.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The name of the NSP link.
      */
-    linkName?: pulumi.Input<string | undefined>;
+    linkName?: pulumi.Input<string>;
     /**
      * Local Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles.
      */
-    localInboundProfiles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    localInboundProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the network security perimeter.
      */
@@ -179,7 +179,7 @@ export interface NspLinkArgs {
     /**
      * Remote Inbound profile names to which Inbound is allowed. Use ['*'] to allow inbound to all profiles. This property can only be updated in auto-approval mode.
      */
-    remoteInboundProfiles?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    remoteInboundProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the resource group.
      */

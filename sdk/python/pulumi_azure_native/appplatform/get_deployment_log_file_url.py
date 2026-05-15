@@ -77,10 +77,10 @@ def get_deployment_log_file_url(app_name: Optional[_builtins.str] = None,
 
     return AwaitableGetDeploymentLogFileUrlResult(
         url=pulumi.get(__ret__, 'url'))
-def get_deployment_log_file_url_output(app_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_deployment_log_file_url_output(app_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       service_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentLogFileUrlResult]:
     """
     Get deployment log file URL

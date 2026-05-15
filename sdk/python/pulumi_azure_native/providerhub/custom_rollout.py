@@ -24,7 +24,7 @@ class CustomRolloutArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['CustomRolloutPropertiesArgs'],
                  provider_namespace: pulumi.Input[_builtins.str],
-                 rollout_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 rollout_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomRollout resource.
 
@@ -63,14 +63,14 @@ class CustomRolloutArgs:
 
     @_builtins.property
     @pulumi.getter(name="rolloutName")
-    def rollout_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def rollout_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The rollout name.
         """
         return pulumi.get(self, "rollout_name")
 
     @rollout_name.setter
-    def rollout_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def rollout_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "rollout_name", value)
 
 
@@ -80,9 +80,9 @@ class CustomRollout(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['CustomRolloutPropertiesArgs', 'CustomRolloutPropertiesArgsDict']]] = None,
-                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                 rollout_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['CustomRolloutPropertiesArgs', 'CustomRolloutPropertiesArgsDict']]] = None,
+                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 rollout_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
@@ -123,9 +123,9 @@ class CustomRollout(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['CustomRolloutPropertiesArgs', 'CustomRolloutPropertiesArgsDict']]] = None,
-                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                 rollout_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['CustomRolloutPropertiesArgs', 'CustomRolloutPropertiesArgsDict']]] = None,
+                 provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
+                 rollout_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

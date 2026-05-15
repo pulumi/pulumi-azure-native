@@ -79,5 +79,5 @@ export interface ListConfigurationStoreKeysOutputArgs {
     /**
      * A skip token is used to continue retrieving items after an operation returns a partial result. If a previous response contains a nextLink element, the value of the nextLink element will include a skipToken parameter that specifies a starting point to use for subsequent calls.
      */
-    skipToken?: pulumi.Input<string | undefined>;
+    skipToken?: pulumi.Input<string>;
 }

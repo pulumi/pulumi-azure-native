@@ -236,11 +236,11 @@ def get_capacity_pool_subvolume_metadata(account_name: Optional[_builtins.str] =
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         size=pulumi.get(__ret__, 'size'),
         type=pulumi.get(__ret__, 'type'))
-def get_capacity_pool_subvolume_metadata_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                subvolume_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                volume_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_capacity_pool_subvolume_metadata_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                subvolume_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                volume_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityPoolSubvolumeMetadataResult]:
     """
     Get details of the specified subvolume

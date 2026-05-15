@@ -27,7 +27,7 @@ class ADLSGen1FolderDataSetArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
                  subscription_id: pulumi.Input[_builtins.str],
-                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 data_set_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ADLSGen1FolderDataSet resource.
 
@@ -138,14 +138,14 @@ class ADLSGen1FolderDataSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSetName")
-    def data_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def data_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the dataSet.
         """
         return pulumi.get(self, "data_set_name")
 
     @data_set_name.setter
-    def data_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def data_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "data_set_name", value)
 
 
@@ -155,14 +155,14 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         An ADLS Gen 1 folder data set.
@@ -209,14 +209,14 @@ class ADLSGen1FolderDataSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 data_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

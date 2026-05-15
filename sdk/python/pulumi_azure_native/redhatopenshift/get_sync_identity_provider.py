@@ -137,9 +137,9 @@ def get_sync_identity_provider(child_resource_name: Optional[_builtins.str] = No
         resources=pulumi.get(__ret__, 'resources'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_sync_identity_provider_output(child_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_sync_identity_provider_output(child_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      resource_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncIdentityProviderResult]:
     """
     The operation returns properties of a SyncIdentityProvider.

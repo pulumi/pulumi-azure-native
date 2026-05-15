@@ -226,43 +226,43 @@ export interface RecordSetArgs {
     /**
      * The list of A records in the record set.
      */
-    aRecords?: pulumi.Input<pulumi.Input<inputs.dns.ARecordArgs>[] | undefined>;
+    aRecords?: pulumi.Input<pulumi.Input<inputs.dns.ARecordArgs>[]>;
     /**
      * The list of AAAA records in the record set.
      */
-    aaaaRecords?: pulumi.Input<pulumi.Input<inputs.dns.AaaaRecordArgs>[] | undefined>;
+    aaaaRecords?: pulumi.Input<pulumi.Input<inputs.dns.AaaaRecordArgs>[]>;
     /**
      * The list of CAA records in the record set.
      */
-    caaRecords?: pulumi.Input<pulumi.Input<inputs.dns.CaaRecordArgs>[] | undefined>;
+    caaRecords?: pulumi.Input<pulumi.Input<inputs.dns.CaaRecordArgs>[]>;
     /**
      * The CNAME record in the  record set.
      */
-    cnameRecord?: pulumi.Input<inputs.dns.CnameRecordArgs | undefined>;
+    cnameRecord?: pulumi.Input<inputs.dns.CnameRecordArgs>;
     /**
      * The list of DS records in the record set.
      */
-    dsRecords?: pulumi.Input<pulumi.Input<inputs.dns.DsRecordArgs>[] | undefined>;
+    dsRecords?: pulumi.Input<pulumi.Input<inputs.dns.DsRecordArgs>[]>;
     /**
      * The metadata attached to the record set.
      */
-    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The list of MX records in the record set.
      */
-    mxRecords?: pulumi.Input<pulumi.Input<inputs.dns.MxRecordArgs>[] | undefined>;
+    mxRecords?: pulumi.Input<pulumi.Input<inputs.dns.MxRecordArgs>[]>;
     /**
      * The list of NAPTR records in the record set.
      */
-    naptrRecords?: pulumi.Input<pulumi.Input<inputs.dns.NaptrRecordArgs>[] | undefined>;
+    naptrRecords?: pulumi.Input<pulumi.Input<inputs.dns.NaptrRecordArgs>[]>;
     /**
      * The list of NS records in the record set.
      */
-    nsRecords?: pulumi.Input<pulumi.Input<inputs.dns.NsRecordArgs>[] | undefined>;
+    nsRecords?: pulumi.Input<pulumi.Input<inputs.dns.NsRecordArgs>[]>;
     /**
      * The list of PTR records in the record set.
      */
-    ptrRecords?: pulumi.Input<pulumi.Input<inputs.dns.PtrRecordArgs>[] | undefined>;
+    ptrRecords?: pulumi.Input<pulumi.Input<inputs.dns.PtrRecordArgs>[]>;
     /**
      * The type of DNS record in this record set.
      */
@@ -270,7 +270,7 @@ export interface RecordSetArgs {
     /**
      * The name of the record set, relative to the name of the zone.
      */
-    relativeRecordSetName?: pulumi.Input<string | undefined>;
+    relativeRecordSetName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -278,31 +278,31 @@ export interface RecordSetArgs {
     /**
      * The SOA record in the record set.
      */
-    soaRecord?: pulumi.Input<inputs.dns.SoaRecordArgs | undefined>;
+    soaRecord?: pulumi.Input<inputs.dns.SoaRecordArgs>;
     /**
      * The list of SRV records in the record set.
      */
-    srvRecords?: pulumi.Input<pulumi.Input<inputs.dns.SrvRecordArgs>[] | undefined>;
+    srvRecords?: pulumi.Input<pulumi.Input<inputs.dns.SrvRecordArgs>[]>;
     /**
      * A reference to an azure resource from where the dns resource value is taken.
      */
-    targetResource?: pulumi.Input<inputs.dns.SubResourceArgs | undefined>;
+    targetResource?: pulumi.Input<inputs.dns.SubResourceArgs>;
     /**
      * The list of TLSA records in the record set.
      */
-    tlsaRecords?: pulumi.Input<pulumi.Input<inputs.dns.TlsaRecordArgs>[] | undefined>;
+    tlsaRecords?: pulumi.Input<pulumi.Input<inputs.dns.TlsaRecordArgs>[]>;
     /**
      * A reference to an azure traffic manager profile resource from where the dns resource value is taken.
      */
-    trafficManagementProfile?: pulumi.Input<inputs.dns.SubResourceArgs | undefined>;
+    trafficManagementProfile?: pulumi.Input<inputs.dns.SubResourceArgs>;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
-    ttl?: pulumi.Input<number | undefined>;
+    ttl?: pulumi.Input<number>;
     /**
      * The list of TXT records in the record set.
      */
-    txtRecords?: pulumi.Input<pulumi.Input<inputs.dns.TxtRecordArgs>[] | undefined>;
+    txtRecords?: pulumi.Input<pulumi.Input<inputs.dns.TxtRecordArgs>[]>;
     /**
      * The name of the DNS zone (without a terminating dot).
      */

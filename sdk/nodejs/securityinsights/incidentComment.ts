@@ -139,7 +139,7 @@ export interface IncidentCommentArgs {
     /**
      * Incident comment ID
      */
-    incidentCommentId?: pulumi.Input<string | undefined>;
+    incidentCommentId?: pulumi.Input<string>;
     /**
      * Incident ID
      */

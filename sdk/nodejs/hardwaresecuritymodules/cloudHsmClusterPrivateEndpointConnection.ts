@@ -139,7 +139,7 @@ export interface CloudHsmClusterPrivateEndpointConnectionArgs {
     /**
      * Name of the private endpoint connection associated with the Cloud HSM Cluster.
      */
-    peConnectionName?: pulumi.Input<string | undefined>;
+    peConnectionName?: pulumi.Input<string>;
     /**
      * A collection of information about the state of the connection between service consumer and provider.
      */

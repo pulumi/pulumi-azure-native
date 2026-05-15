@@ -358,8 +358,8 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
         used_memory_gb=pulumi.get(__ret__, 'used_memory_gb'),
         uuid=pulumi.get(__ret__, 'uuid'),
         v_center_id=pulumi.get(__ret__, 'v_center_id'))
-def get_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_cluster_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Implements cluster GET method.

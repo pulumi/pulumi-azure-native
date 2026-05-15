@@ -171,8 +171,8 @@ def get_resource_guard(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_guard_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              resource_guards_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_resource_guard_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                              resource_guards_name: Optional[pulumi.Input[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceGuardResult]:
     """
     Uses Azure REST API version 2025-01-01.

@@ -129,10 +129,10 @@ def list_web_app_function_keys_slot(function_name: Optional[_builtins.str] = Non
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def list_web_app_function_keys_slot_output(function_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           slot: pulumi.Input[Optional[_builtins.str]] = None,
+def list_web_app_function_keys_slot_output(function_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                           slot: Optional[pulumi.Input[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppFunctionKeysSlotResult]:
     """
     Description for Get function keys for a function in a web site, or a deployment slot.

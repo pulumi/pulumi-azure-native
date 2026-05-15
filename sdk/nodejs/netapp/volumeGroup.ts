@@ -124,11 +124,11 @@ export interface VolumeGroupArgs {
     /**
      * Volume group details
      */
-    groupMetaData?: pulumi.Input<inputs.netapp.VolumeGroupMetaDataArgs | undefined>;
+    groupMetaData?: pulumi.Input<inputs.netapp.VolumeGroupMetaDataArgs>;
     /**
      * Resource location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -136,9 +136,9 @@ export interface VolumeGroupArgs {
     /**
      * The name of the volumeGroup
      */
-    volumeGroupName?: pulumi.Input<string | undefined>;
+    volumeGroupName?: pulumi.Input<string>;
     /**
      * List of volumes from group
      */
-    volumes?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeGroupVolumePropertiesArgs>[] | undefined>;
+    volumes?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeGroupVolumePropertiesArgs>[]>;
 }

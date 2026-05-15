@@ -131,7 +131,7 @@ export interface ActionArgs {
     /**
      * Action ID
      */
-    actionId?: pulumi.Input<string | undefined>;
+    actionId?: pulumi.Input<string>;
     /**
      * Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
      */

@@ -81,7 +81,7 @@ export interface GetIntegrationRuntimeObjectMetadatumOutputArgs {
     /**
      * Metadata path.
      */
-    metadataPath?: pulumi.Input<string | undefined>;
+    metadataPath?: pulumi.Input<string>;
     /**
      * The resource group name.
      */

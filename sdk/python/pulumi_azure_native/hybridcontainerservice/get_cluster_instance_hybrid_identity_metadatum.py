@@ -160,7 +160,7 @@ def get_cluster_instance_hybrid_identity_metadatum(connected_cluster_resource_ur
         resource_uid=pulumi.get(__ret__, 'resource_uid'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_cluster_instance_hybrid_identity_metadatum_output(connected_cluster_resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
+def get_cluster_instance_hybrid_identity_metadatum_output(connected_cluster_resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterInstanceHybridIdentityMetadatumResult]:
     """
     Get the hybrid identity metadata proxy resource.

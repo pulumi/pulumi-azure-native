@@ -98,8 +98,8 @@ def get_network_fabric_topology(network_fabric_name: Optional[_builtins.str] = N
         configuration_state=pulumi.get(__ret__, 'configuration_state'),
         error=pulumi.get(__ret__, 'error'),
         url=pulumi.get(__ret__, 'url'))
-def get_network_fabric_topology_output(network_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_network_fabric_topology_output(network_fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFabricTopologyResult]:
     """
     Gets Topology of the underlying resources in the given Network Fabric instance.

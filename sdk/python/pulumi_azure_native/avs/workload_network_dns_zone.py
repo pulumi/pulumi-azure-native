@@ -22,13 +22,13 @@ class WorkloadNetworkDnsZoneArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_server_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dns_services: pulumi.Input[Optional[_builtins.float]] = None,
-                 dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 revision: pulumi.Input[Optional[_builtins.float]] = None,
-                 source_ip: pulumi.Input[Optional[_builtins.str]] = None):
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns_server_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns_services: Optional[pulumi.Input[_builtins.float]] = None,
+                 dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 revision: Optional[pulumi.Input[_builtins.float]] = None,
+                 source_ip: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkDnsZone resource.
 
@@ -85,86 +85,86 @@ class WorkloadNetworkDnsZoneArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Display name of the DNS Zone.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServerIps")
-    def dns_server_ips(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dns_server_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         DNS Server IP array of the DNS Zone.
         """
         return pulumi.get(self, "dns_server_ips")
 
     @dns_server_ips.setter
-    def dns_server_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dns_server_ips(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dns_server_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsServices")
-    def dns_services(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def dns_services(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         Number of DNS Services using the DNS zone.
         """
         return pulumi.get(self, "dns_services")
 
     @dns_services.setter
-    def dns_services(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def dns_services(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "dns_services", value)
 
     @_builtins.property
     @pulumi.getter(name="dnsZoneId")
-    def dns_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def dns_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         ID of the DNS zone.
         """
         return pulumi.get(self, "dns_zone_id")
 
     @dns_zone_id.setter
-    def dns_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def dns_zone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dns_zone_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def domain(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def domain(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Domain names of the DNS Zone.
         """
         return pulumi.get(self, "domain")
 
     @domain.setter
-    def domain(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def domain(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "domain", value)
 
     @_builtins.property
     @pulumi.getter
-    def revision(self) -> pulumi.Input[Optional[_builtins.float]]:
+    def revision(self) -> Optional[pulumi.Input[_builtins.float]]:
         """
         NSX revision number.
         """
         return pulumi.get(self, "revision")
 
     @revision.setter
-    def revision(self, value: pulumi.Input[Optional[_builtins.float]]):
+    def revision(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "revision", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceIp")
-    def source_ip(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def source_ip(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Source IP of the DNS Zone.
         """
         return pulumi.get(self, "source_ip")
 
     @source_ip.setter
-    def source_ip(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def source_ip(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "source_ip", value)
 
 
@@ -174,15 +174,15 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_server_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dns_services: pulumi.Input[Optional[_builtins.float]] = None,
-                 dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 revision: pulumi.Input[Optional[_builtins.float]] = None,
-                 source_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns_server_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns_services: Optional[pulumi.Input[_builtins.float]] = None,
+                 dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 revision: Optional[pulumi.Input[_builtins.float]] = None,
+                 source_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         NSX DNS Zone
@@ -233,15 +233,15 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_server_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 dns_services: pulumi.Input[Optional[_builtins.float]] = None,
-                 dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 revision: pulumi.Input[Optional[_builtins.float]] = None,
-                 source_ip: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 dns_server_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dns_services: Optional[pulumi.Input[_builtins.float]] = None,
+                 dns_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 domain: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 revision: Optional[pulumi.Input[_builtins.float]] = None,
+                 source_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

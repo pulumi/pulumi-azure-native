@@ -175,16 +175,16 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * The Assessment Key - Unique key for the assessment type
      */
-    assessmentMetadataName?: pulumi.Input<string | undefined>;
+    assessmentMetadataName?: pulumi.Input<string>;
     /**
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
     assessmentType: pulumi.Input<string | enums.security.AssessmentType>;
-    categories?: pulumi.Input<pulumi.Input<string | enums.security.Categories>[] | undefined>;
+    categories?: pulumi.Input<pulumi.Input<string | enums.security.Categories>[]>;
     /**
      * Human readable description of the assessment
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * User friendly display name of the assessment
      */
@@ -192,30 +192,30 @@ export interface AssessmentMetadataInSubscriptionArgs {
     /**
      * The implementation effort required to remediate this assessment
      */
-    implementationEffort?: pulumi.Input<string | enums.security.ImplementationEffort | undefined>;
+    implementationEffort?: pulumi.Input<string | enums.security.ImplementationEffort>;
     /**
      * Describes the partner that created the assessment
      */
-    partnerData?: pulumi.Input<inputs.security.SecurityAssessmentMetadataPartnerDataArgs | undefined>;
-    plannedDeprecationDate?: pulumi.Input<string | undefined>;
+    partnerData?: pulumi.Input<inputs.security.SecurityAssessmentMetadataPartnerDataArgs>;
+    plannedDeprecationDate?: pulumi.Input<string>;
     /**
      * True if this assessment is in preview release status
      */
-    preview?: pulumi.Input<boolean | undefined>;
-    publishDates?: pulumi.Input<inputs.security.SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs | undefined>;
+    preview?: pulumi.Input<boolean>;
+    publishDates?: pulumi.Input<inputs.security.SecurityAssessmentMetadataPropertiesResponsePublishDatesArgs>;
     /**
      * Human readable description of what you should do to mitigate this security issue
      */
-    remediationDescription?: pulumi.Input<string | undefined>;
+    remediationDescription?: pulumi.Input<string>;
     /**
      * The severity level of the assessment
      */
     severity: pulumi.Input<string | enums.security.Severity>;
-    tactics?: pulumi.Input<pulumi.Input<string | enums.security.Tactics>[] | undefined>;
-    techniques?: pulumi.Input<pulumi.Input<string | enums.security.Techniques>[] | undefined>;
-    threats?: pulumi.Input<pulumi.Input<string | enums.security.Threats>[] | undefined>;
+    tactics?: pulumi.Input<pulumi.Input<string | enums.security.Tactics>[]>;
+    techniques?: pulumi.Input<pulumi.Input<string | enums.security.Techniques>[]>;
+    threats?: pulumi.Input<pulumi.Input<string | enums.security.Threats>[]>;
     /**
      * The user impact of the assessment
      */
-    userImpact?: pulumi.Input<string | enums.security.UserImpact | undefined>;
+    userImpact?: pulumi.Input<string | enums.security.UserImpact>;
 }

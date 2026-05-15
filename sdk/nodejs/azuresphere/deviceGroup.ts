@@ -146,7 +146,7 @@ export interface DeviceGroupArgs {
     /**
      * Flag to define if the user allows for crash dump collection.
      */
-    allowCrashDumpsCollection?: pulumi.Input<string | enums.azuresphere.AllowCrashDumpCollection | undefined>;
+    allowCrashDumpsCollection?: pulumi.Input<string | enums.azuresphere.AllowCrashDumpCollection>;
     /**
      * Name of catalog
      */
@@ -154,15 +154,15 @@ export interface DeviceGroupArgs {
     /**
      * Description of the device group.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * Name of device group.
      */
-    deviceGroupName?: pulumi.Input<string | undefined>;
+    deviceGroupName?: pulumi.Input<string>;
     /**
      * Operating system feed type of the device group.
      */
-    osFeedType?: pulumi.Input<string | enums.azuresphere.OSFeedType | undefined>;
+    osFeedType?: pulumi.Input<string | enums.azuresphere.OSFeedType>;
     /**
      * Name of product.
      */
@@ -170,7 +170,7 @@ export interface DeviceGroupArgs {
     /**
      * Regional data boundary for the device group.
      */
-    regionalDataBoundary?: pulumi.Input<string | enums.azuresphere.RegionalDataBoundary | undefined>;
+    regionalDataBoundary?: pulumi.Input<string | enums.azuresphere.RegionalDataBoundary>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -178,5 +178,5 @@ export interface DeviceGroupArgs {
     /**
      * Update policy of the device group.
      */
-    updatePolicy?: pulumi.Input<string | enums.azuresphere.UpdatePolicy | undefined>;
+    updatePolicy?: pulumi.Input<string | enums.azuresphere.UpdatePolicy>;
 }

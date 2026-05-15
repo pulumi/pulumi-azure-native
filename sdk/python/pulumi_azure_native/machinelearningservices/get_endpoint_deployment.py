@@ -135,10 +135,10 @@ def get_endpoint_deployment(deployment_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_endpoint_deployment_output(deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_endpoint_deployment_output(deployment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointDeploymentResult]:
     """
     Uses Azure REST API version 2025-01-01-preview.

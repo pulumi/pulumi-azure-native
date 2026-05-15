@@ -106,7 +106,7 @@ export interface ExtensionAzureMonitorAgentStatusArgs {
     /**
      * The Log Analytics workspace key.
      */
-    primaryKey?: pulumi.Input<string | undefined>;
+    primaryKey?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -114,9 +114,9 @@ export interface ExtensionAzureMonitorAgentStatusArgs {
     /**
      * The selected configurations.
      */
-    selectedConfigurations?: pulumi.Input<inputs.hdinsight.AzureMonitorSelectedConfigurationsArgs | undefined>;
+    selectedConfigurations?: pulumi.Input<inputs.hdinsight.AzureMonitorSelectedConfigurationsArgs>;
     /**
      * The Log Analytics workspace ID.
      */
-    workspaceId?: pulumi.Input<string | undefined>;
+    workspaceId?: pulumi.Input<string>;
 }

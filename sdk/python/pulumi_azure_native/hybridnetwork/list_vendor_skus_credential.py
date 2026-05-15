@@ -121,8 +121,8 @@ def list_vendor_skus_credential(sku_name: Optional[_builtins.str] = None,
         expiry=pulumi.get(__ret__, 'expiry'),
         repositories=pulumi.get(__ret__, 'repositories'),
         username=pulumi.get(__ret__, 'username'))
-def list_vendor_skus_credential_output(sku_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       vendor_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_vendor_skus_credential_output(sku_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       vendor_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVendorSkusCredentialResult]:
     """
     Generate credentials for publishing SKU images.

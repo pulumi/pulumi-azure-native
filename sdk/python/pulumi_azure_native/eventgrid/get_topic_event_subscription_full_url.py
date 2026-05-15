@@ -74,9 +74,9 @@ def get_topic_event_subscription_full_url(event_subscription_name: Optional[_bui
 
     return AwaitableGetTopicEventSubscriptionFullUrlResult(
         endpoint_url=pulumi.get(__ret__, 'endpoint_url'))
-def get_topic_event_subscription_full_url_output(event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 topic_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_topic_event_subscription_full_url_output(event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                 topic_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicEventSubscriptionFullUrlResult]:
     """
     Get the full endpoint URL for an event subscription for topic.

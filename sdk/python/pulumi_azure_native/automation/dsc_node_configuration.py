@@ -26,10 +26,10 @@ class DscNodeConfigurationArgs:
                  configuration: pulumi.Input['DscConfigurationAssociationPropertyArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input['ContentSourceArgs'],
-                 increment_node_configuration_build: pulumi.Input[Optional[_builtins.bool]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 increment_node_configuration_build: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DscNodeConfiguration resource.
 
@@ -105,50 +105,50 @@ class DscNodeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="incrementNodeConfigurationBuild")
-    def increment_node_configuration_build(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    def increment_node_configuration_build(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         If a new build version of NodeConfiguration is required.
         """
         return pulumi.get(self, "increment_node_configuration_build")
 
     @increment_node_configuration_build.setter
-    def increment_node_configuration_build(self, value: pulumi.Input[Optional[_builtins.bool]]):
+    def increment_node_configuration_build(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "increment_node_configuration_build", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the node configuration.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="nodeConfigurationName")
-    def node_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def node_configuration_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Dsc node configuration name.
         """
         return pulumi.get(self, "node_configuration_name")
 
     @node_configuration_name.setter
-    def node_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def node_configuration_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "node_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Gets or sets the tags attached to the resource.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,14 +158,14 @@ class DscNodeConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['DscConfigurationAssociationPropertyArgs', 'DscConfigurationAssociationPropertyArgsDict']]] = None,
-                 increment_node_configuration_build: pulumi.Input[Optional[_builtins.bool]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['ContentSourceArgs', 'ContentSourceArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: Optional[pulumi.Input[Union['DscConfigurationAssociationPropertyArgs', 'DscConfigurationAssociationPropertyArgsDict']]] = None,
+                 increment_node_configuration_build: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source: Optional[pulumi.Input[Union['ContentSourceArgs', 'ContentSourceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Definition of the dsc node configuration.
@@ -215,14 +215,14 @@ class DscNodeConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['DscConfigurationAssociationPropertyArgs', 'DscConfigurationAssociationPropertyArgsDict']]] = None,
-                 increment_node_configuration_build: pulumi.Input[Optional[_builtins.bool]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 source: pulumi.Input[Optional[Union['ContentSourceArgs', 'ContentSourceArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration: Optional[pulumi.Input[Union['DscConfigurationAssociationPropertyArgs', 'DscConfigurationAssociationPropertyArgsDict']]] = None,
+                 increment_node_configuration_build: Optional[pulumi.Input[_builtins.bool]] = None,
+                 name: Optional[pulumi.Input[_builtins.str]] = None,
+                 node_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 source: Optional[pulumi.Input[Union['ContentSourceArgs', 'ContentSourceArgsDict']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

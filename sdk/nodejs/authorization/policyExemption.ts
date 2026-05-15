@@ -158,15 +158,15 @@ export interface PolicyExemptionArgs {
     /**
      * The option whether validate the exemption is at or under the assignment scope.
      */
-    assignmentScopeValidation?: pulumi.Input<string | enums.authorization.AssignmentScopeValidation | undefined>;
+    assignmentScopeValidation?: pulumi.Input<string | enums.authorization.AssignmentScopeValidation>;
     /**
      * The description of the policy exemption.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The display name of the policy exemption.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The policy exemption category. Possible values are Waiver and Mitigated.
      */
@@ -174,11 +174,11 @@ export interface PolicyExemptionArgs {
     /**
      * The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
      */
-    expiresOn?: pulumi.Input<string | undefined>;
+    expiresOn?: pulumi.Input<string>;
     /**
      * The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    metadata?: any | undefined;
+    metadata?: any;
     /**
      * The ID of the policy assignment that is being exempted.
      */
@@ -186,15 +186,15 @@ export interface PolicyExemptionArgs {
     /**
      * The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
      */
-    policyDefinitionReferenceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    policyDefinitionReferenceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the policy exemption to delete.
      */
-    policyExemptionName?: pulumi.Input<string | undefined>;
+    policyExemptionName?: pulumi.Input<string>;
     /**
      * The resource selector list to filter policies by resource properties.
      */
-    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.authorization.ResourceSelectorArgs>[] | undefined>;
+    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.authorization.ResourceSelectorArgs>[]>;
     /**
      * The scope of the policy exemption. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

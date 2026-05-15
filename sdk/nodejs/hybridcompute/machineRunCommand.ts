@@ -192,19 +192,19 @@ export interface MachineRunCommandArgs {
     /**
      * Optional. If set to true, provisioning will complete as soon as script starts and will not wait for script to complete.
      */
-    asyncExecution?: pulumi.Input<boolean | undefined>;
+    asyncExecution?: pulumi.Input<boolean>;
     /**
      * User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
      */
-    errorBlobManagedIdentity?: pulumi.Input<inputs.hybridcompute.RunCommandManagedIdentityArgs | undefined>;
+    errorBlobManagedIdentity?: pulumi.Input<inputs.hybridcompute.RunCommandManagedIdentityArgs>;
     /**
      * Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
      */
-    errorBlobUri?: pulumi.Input<string | undefined>;
+    errorBlobUri?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the hybrid machine.
      */
@@ -212,19 +212,19 @@ export interface MachineRunCommandArgs {
     /**
      * User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged 
      */
-    outputBlobManagedIdentity?: pulumi.Input<inputs.hybridcompute.RunCommandManagedIdentityArgs | undefined>;
+    outputBlobManagedIdentity?: pulumi.Input<inputs.hybridcompute.RunCommandManagedIdentityArgs>;
     /**
      * Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter. 
      */
-    outputBlobUri?: pulumi.Input<string | undefined>;
+    outputBlobUri?: pulumi.Input<string>;
     /**
      * The parameters used by the script.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.hybridcompute.RunCommandInputParameterArgs>[] | undefined>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.hybridcompute.RunCommandInputParameterArgs>[]>;
     /**
      * The parameters used by the script.
      */
-    protectedParameters?: pulumi.Input<pulumi.Input<inputs.hybridcompute.RunCommandInputParameterArgs>[] | undefined>;
+    protectedParameters?: pulumi.Input<pulumi.Input<inputs.hybridcompute.RunCommandInputParameterArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -232,25 +232,25 @@ export interface MachineRunCommandArgs {
     /**
      * Specifies the user account password on the machine when executing the run command.
      */
-    runAsPassword?: pulumi.Input<string | undefined>;
+    runAsPassword?: pulumi.Input<string>;
     /**
      * Specifies the user account on the machine when executing the run command.
      */
-    runAsUser?: pulumi.Input<string | undefined>;
+    runAsUser?: pulumi.Input<string>;
     /**
      * The name of the run command.
      */
-    runCommandName?: pulumi.Input<string | undefined>;
+    runCommandName?: pulumi.Input<string>;
     /**
      * The source of the run command script.
      */
-    source?: pulumi.Input<inputs.hybridcompute.MachineRunCommandScriptSourceArgs | undefined>;
+    source?: pulumi.Input<inputs.hybridcompute.MachineRunCommandScriptSourceArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The timeout in seconds to execute the run command.
      */
-    timeoutInSeconds?: pulumi.Input<number | undefined>;
+    timeoutInSeconds?: pulumi.Input<number>;
 }

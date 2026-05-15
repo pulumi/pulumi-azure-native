@@ -163,10 +163,10 @@ def get_gremlin_resource_gremlin_graph(account_name: Optional[_builtins.str] = N
         resource=pulumi.get(__ret__, 'resource'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_gremlin_resource_gremlin_graph_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              graph_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_gremlin_resource_gremlin_graph_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              graph_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGremlinResourceGremlinGraphResult]:
     """
     Gets the Gremlin graph under an existing Azure Cosmos DB database account.

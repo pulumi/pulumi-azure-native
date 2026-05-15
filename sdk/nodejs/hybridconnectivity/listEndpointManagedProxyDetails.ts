@@ -87,7 +87,7 @@ export interface ListEndpointManagedProxyDetailsOutputArgs {
     /**
      * The target host name.
      */
-    hostname?: pulumi.Input<string | undefined>;
+    hostname?: pulumi.Input<string>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */
@@ -99,5 +99,5 @@ export interface ListEndpointManagedProxyDetailsOutputArgs {
     /**
      * The name of the service. It is an optional property, if not provided, service configuration tokens issue code would be by passed.
      */
-    serviceName?: pulumi.Input<string | enums.hybridconnectivity.ServiceName | undefined>;
+    serviceName?: pulumi.Input<string | enums.hybridconnectivity.ServiceName>;
 }

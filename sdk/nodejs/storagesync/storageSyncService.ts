@@ -164,15 +164,15 @@ export interface StorageSyncServiceArgs {
     /**
      * managed identities for the Storage Sync to interact with other Azure services without maintaining any secrets or credentials in code.
      */
-    identity?: pulumi.Input<inputs.storagesync.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.storagesync.ManagedServiceIdentityArgs>;
     /**
      * Incoming Traffic Policy
      */
-    incomingTrafficPolicy?: pulumi.Input<string | enums.storagesync.IncomingTrafficPolicy | undefined>;
+    incomingTrafficPolicy?: pulumi.Input<string | enums.storagesync.IncomingTrafficPolicy>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -180,13 +180,13 @@ export interface StorageSyncServiceArgs {
     /**
      * Name of Storage Sync Service resource.
      */
-    storageSyncServiceName?: pulumi.Input<string | undefined>;
+    storageSyncServiceName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Use Identity authorization when customer have finished setup RBAC permissions.
      */
-    useIdentity?: pulumi.Input<boolean | undefined>;
+    useIdentity?: pulumi.Input<boolean>;
 }

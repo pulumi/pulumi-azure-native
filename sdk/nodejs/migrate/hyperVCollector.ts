@@ -89,16 +89,16 @@ export class HyperVCollector extends pulumi.CustomResource {
  * The set of arguments for constructing a HyperVCollector resource.
  */
 export interface HyperVCollectorArgs {
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Unique name of a Hyper-V collector within a project.
      */
-    hyperVCollectorName?: pulumi.Input<string | undefined>;
+    hyperVCollectorName?: pulumi.Input<string>;
     /**
      * Name of the Azure Migrate project.
      */
     projectName: pulumi.Input<string>;
-    properties?: pulumi.Input<inputs.migrate.CollectorPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.migrate.CollectorPropertiesArgs>;
     /**
      * Name of the Azure Resource Group that project is part of.
      */

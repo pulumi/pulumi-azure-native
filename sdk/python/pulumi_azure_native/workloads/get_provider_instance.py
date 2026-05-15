@@ -179,9 +179,9 @@ def get_provider_instance(monitor_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_provider_instance_output(monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 provider_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_provider_instance_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 provider_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderInstanceResult]:
     """
     Gets properties of a provider instance for the specified subscription, resource group, SAP monitor name, and resource name.

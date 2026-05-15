@@ -145,11 +145,11 @@ export interface ServiceFabricArgs {
     /**
      * The resource id of the environment under which the service fabric resource is present
      */
-    environmentId?: pulumi.Input<string | undefined>;
+    environmentId?: pulumi.Input<string>;
     /**
      * The backing service fabric resource's id
      */
-    externalServiceFabricId?: pulumi.Input<string | undefined>;
+    externalServiceFabricId?: pulumi.Input<string>;
     /**
      * The name of the lab.
      */
@@ -157,11 +157,11 @@ export interface ServiceFabricArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the service fabric.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -169,7 +169,7 @@ export interface ServiceFabricArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the user profile.
      */

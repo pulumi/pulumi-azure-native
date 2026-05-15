@@ -144,31 +144,31 @@ export interface AvailabilityGroupListenerArgs {
     /**
      * Availability Group configuration.
      */
-    availabilityGroupConfiguration?: pulumi.Input<inputs.sqlvirtualmachine.AgConfigurationArgs | undefined>;
+    availabilityGroupConfiguration?: pulumi.Input<inputs.sqlvirtualmachine.AgConfigurationArgs>;
     /**
      * Name of the availability group listener.
      */
-    availabilityGroupListenerName?: pulumi.Input<string | undefined>;
+    availabilityGroupListenerName?: pulumi.Input<string>;
     /**
      * Name of the availability group.
      */
-    availabilityGroupName?: pulumi.Input<string | undefined>;
+    availabilityGroupName?: pulumi.Input<string>;
     /**
      * Create a default availability group if it does not exist.
      */
-    createDefaultAvailabilityGroupIfNotExist?: pulumi.Input<boolean | undefined>;
+    createDefaultAvailabilityGroupIfNotExist?: pulumi.Input<boolean>;
     /**
      * List of load balancer configurations for an availability group listener.
      */
-    loadBalancerConfigurations?: pulumi.Input<pulumi.Input<inputs.sqlvirtualmachine.LoadBalancerConfigurationArgs>[] | undefined>;
+    loadBalancerConfigurations?: pulumi.Input<pulumi.Input<inputs.sqlvirtualmachine.LoadBalancerConfigurationArgs>[]>;
     /**
      * List of multi subnet IP configurations for an AG listener.
      */
-    multiSubnetIpConfigurations?: pulumi.Input<pulumi.Input<inputs.sqlvirtualmachine.MultiSubnetIpConfigurationArgs>[] | undefined>;
+    multiSubnetIpConfigurations?: pulumi.Input<pulumi.Input<inputs.sqlvirtualmachine.MultiSubnetIpConfigurationArgs>[]>;
     /**
      * Listener port.
      */
-    port?: pulumi.Input<number | undefined>;
+    port?: pulumi.Input<number>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -141,16 +141,16 @@ export interface WebPubSubReplicaArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Enable or disable the regional endpoint. Default to "Enabled".
      * When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
      */
-    regionEndpointEnabled?: pulumi.Input<string | undefined>;
+    regionEndpointEnabled?: pulumi.Input<string>;
     /**
      * The name of the replica.
      */
-    replicaName?: pulumi.Input<string | undefined>;
+    replicaName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -164,13 +164,13 @@ export interface WebPubSubReplicaArgs {
      * When it's true, the data plane of the resource is shutdown.
      * When it's false, the data plane of the resource is started.
      */
-    resourceStopped?: pulumi.Input<string | undefined>;
+    resourceStopped?: pulumi.Input<string>;
     /**
      * The billing information of the resource.
      */
-    sku?: pulumi.Input<inputs.webpubsub.ResourceSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.webpubsub.ResourceSkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

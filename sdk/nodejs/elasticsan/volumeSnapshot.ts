@@ -145,7 +145,7 @@ export interface VolumeSnapshotArgs {
     /**
      * The name of the volume snapshot within the given volume group.
      */
-    snapshotName?: pulumi.Input<string | undefined>;
+    snapshotName?: pulumi.Input<string>;
     /**
      * The name of the VolumeGroup.
      */

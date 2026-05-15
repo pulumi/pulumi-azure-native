@@ -194,10 +194,10 @@ def get_sql_pool_workload_group(resource_group_name: Optional[_builtins.str] = N
         name=pulumi.get(__ret__, 'name'),
         query_execution_timeout=pulumi.get(__ret__, 'query_execution_timeout'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_pool_workload_group_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       workload_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_sql_pool_workload_group_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       workload_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                       workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolWorkloadGroupResult]:
     """
     Get a Sql pool's workload group.

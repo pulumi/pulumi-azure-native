@@ -144,11 +144,11 @@ export interface RestorePointArgs {
     /**
      * ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
      */
-    consistencyMode?: pulumi.Input<string | enums.compute.ConsistencyModeTypes | undefined>;
+    consistencyMode?: pulumi.Input<string | enums.compute.ConsistencyModeTypes>;
     /**
      * List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
      */
-    excludeDisks?: pulumi.Input<pulumi.Input<inputs.compute.ApiEntityReferenceArgs>[] | undefined>;
+    excludeDisks?: pulumi.Input<pulumi.Input<inputs.compute.ApiEntityReferenceArgs>[]>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,17 +160,17 @@ export interface RestorePointArgs {
     /**
      * The name of the restore point.
      */
-    restorePointName?: pulumi.Input<string | undefined>;
+    restorePointName?: pulumi.Input<string>;
     /**
      * Gets the details of the VM captured at the time of the restore point creation.
      */
-    sourceMetadata?: pulumi.Input<inputs.compute.RestorePointSourceMetadataArgs | undefined>;
+    sourceMetadata?: pulumi.Input<inputs.compute.RestorePointSourceMetadataArgs>;
     /**
      * Resource Id of the source restore point from which a copy needs to be created.
      */
-    sourceRestorePoint?: pulumi.Input<inputs.compute.ApiEntityReferenceArgs | undefined>;
+    sourceRestorePoint?: pulumi.Input<inputs.compute.ApiEntityReferenceArgs>;
     /**
      * Gets the creation time of the restore point.
      */
-    timeCreated?: pulumi.Input<string | undefined>;
+    timeCreated?: pulumi.Input<string>;
 }

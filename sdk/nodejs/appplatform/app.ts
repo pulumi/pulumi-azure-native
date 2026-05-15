@@ -90,7 +90,7 @@ export class App extends pulumi.CustomResource {
             resourceInputs["appName"] = args?.appName;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.appplatform.appResourcePropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.appResourcePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -120,19 +120,19 @@ export interface AppArgs {
     /**
      * The name of the App resource.
      */
-    appName?: pulumi.Input<string | undefined>;
+    appName?: pulumi.Input<string>;
     /**
      * The Managed Identity type of the app resource
      */
-    identity?: pulumi.Input<inputs.appplatform.ManagedIdentityPropertiesArgs | undefined>;
+    identity?: pulumi.Input<inputs.appplatform.ManagedIdentityPropertiesArgs>;
     /**
      * The GEO location of the application, always the same with its parent resource
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Properties of the App resource
      */
-    properties?: pulumi.Input<inputs.appplatform.AppResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.appplatform.AppResourcePropertiesArgs>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

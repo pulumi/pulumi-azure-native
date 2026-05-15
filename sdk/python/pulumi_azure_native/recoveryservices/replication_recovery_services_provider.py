@@ -25,7 +25,7 @@ class ReplicationRecoveryServicesProviderArgs:
                  properties: pulumi.Input['AddRecoveryServicesProviderInputPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 provider_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 provider_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationRecoveryServicesProvider resource.
 
@@ -92,14 +92,14 @@ class ReplicationRecoveryServicesProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def provider_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Recovery services provider name.
         """
         return pulumi.get(self, "provider_name")
 
     @provider_name.setter
-    def provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def provider_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "provider_name", value)
 
 
@@ -109,11 +109,11 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['AddRecoveryServicesProviderInputPropertiesArgs', 'AddRecoveryServicesProviderInputPropertiesArgsDict']]] = None,
-                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['AddRecoveryServicesProviderInputPropertiesArgs', 'AddRecoveryServicesProviderInputPropertiesArgsDict']]] = None,
+                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Provider details.
@@ -160,11 +160,11 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Union['AddRecoveryServicesProviderInputPropertiesArgs', 'AddRecoveryServicesProviderInputPropertiesArgsDict']]] = None,
-                 provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['AddRecoveryServicesProviderInputPropertiesArgs', 'AddRecoveryServicesProviderInputPropertiesArgsDict']]] = None,
+                 provider_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

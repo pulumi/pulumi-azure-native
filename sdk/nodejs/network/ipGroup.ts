@@ -135,19 +135,19 @@ export interface IpGroupArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * IpAddresses/IpAddressPrefixes in the IpGroups resource.
      */
-    ipAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the ipGroups.
      */
-    ipGroupsName?: pulumi.Input<string | undefined>;
+    ipGroupsName?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -155,5 +155,5 @@ export interface IpGroupArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

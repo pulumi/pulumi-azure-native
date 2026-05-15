@@ -88,9 +88,9 @@ def list_configuration_store_keys(config_store_name: Optional[_builtins.str] = N
     return AwaitableListConfigurationStoreKeysResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_configuration_store_keys_output(config_store_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def list_configuration_store_keys_output(config_store_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                         skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConfigurationStoreKeysResult]:
     """
     Lists the access key for the specified configuration store.

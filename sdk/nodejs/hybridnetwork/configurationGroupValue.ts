@@ -116,15 +116,15 @@ export interface ConfigurationGroupValueArgs {
     /**
      * The name of the configuration group value.
      */
-    configurationGroupValueName?: pulumi.Input<string | undefined>;
+    configurationGroupValueName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Hybrid configuration group value properties.
      */
-    properties?: pulumi.Input<inputs.hybridnetwork.ConfigurationValueWithSecretsArgs | inputs.hybridnetwork.ConfigurationValueWithoutSecretsArgs | undefined>;
+    properties?: pulumi.Input<inputs.hybridnetwork.ConfigurationValueWithSecretsArgs | inputs.hybridnetwork.ConfigurationValueWithoutSecretsArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,5 +132,5 @@ export interface ConfigurationGroupValueArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

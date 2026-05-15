@@ -86,9 +86,9 @@ def list_network_manager_effective_security_admin_rule(resource_group_name: Opti
     return AwaitableListNetworkManagerEffectiveSecurityAdminRuleResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
-def list_network_manager_effective_security_admin_rule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                              skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                              virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_network_manager_effective_security_admin_rule_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                              skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                                                              virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListNetworkManagerEffectiveSecurityAdminRuleResult]:
     """
     List all effective security admin rules applied on a virtual network.

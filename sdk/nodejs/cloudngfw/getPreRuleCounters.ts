@@ -97,7 +97,7 @@ export function getPreRuleCountersOutput(args: GetPreRuleCountersOutputArgs, opt
 }
 
 export interface GetPreRuleCountersOutputArgs {
-    firewallName?: pulumi.Input<string | undefined>;
+    firewallName?: pulumi.Input<string>;
     /**
      * GlobalRulestack resource name
      */

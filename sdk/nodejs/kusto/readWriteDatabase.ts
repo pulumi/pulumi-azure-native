@@ -153,7 +153,7 @@ export interface ReadWriteDatabaseArgs {
     /**
      * By default, any user who run operation on a database become an Admin on it. This property allows the caller to exclude the caller from Admins list.
      */
-    callerRole?: pulumi.Input<string | undefined>;
+    callerRole?: pulumi.Input<string>;
     /**
      * The name of the Kusto cluster.
      */
@@ -161,15 +161,15 @@ export interface ReadWriteDatabaseArgs {
     /**
      * The name of the database in the Kusto cluster.
      */
-    databaseName?: pulumi.Input<string | undefined>;
+    databaseName?: pulumi.Input<string>;
     /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
-    hotCachePeriod?: pulumi.Input<string | undefined>;
+    hotCachePeriod?: pulumi.Input<string>;
     /**
      * KeyVault properties for the database encryption.
      */
-    keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultPropertiesArgs | undefined>;
+    keyVaultProperties?: pulumi.Input<inputs.kusto.KeyVaultPropertiesArgs>;
     /**
      * Kind of the database
      * Expected value is 'ReadWrite'.
@@ -178,7 +178,7 @@ export interface ReadWriteDatabaseArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -186,5 +186,5 @@ export interface ReadWriteDatabaseArgs {
     /**
      * The time the data should be kept before it stops being accessible to queries in TimeSpan.
      */
-    softDeletePeriod?: pulumi.Input<string | undefined>;
+    softDeletePeriod?: pulumi.Input<string>;
 }

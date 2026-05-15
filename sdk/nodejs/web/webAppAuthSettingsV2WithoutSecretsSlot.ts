@@ -134,23 +134,23 @@ export interface WebAppAuthSettingsV2WithoutSecretsSlotArgs {
     /**
      * The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
      */
-    globalValidation?: pulumi.Input<inputs.web.GlobalValidationArgs | undefined>;
+    globalValidation?: pulumi.Input<inputs.web.GlobalValidationArgs>;
     /**
      * The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
      */
-    httpSettings?: pulumi.Input<inputs.web.HttpSettingsArgs | undefined>;
+    httpSettings?: pulumi.Input<inputs.web.HttpSettingsArgs>;
     /**
      * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
      */
-    identityProviders?: pulumi.Input<inputs.web.IdentityProvidersArgs | undefined>;
+    identityProviders?: pulumi.Input<inputs.web.IdentityProvidersArgs>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The configuration settings of the login flow of users using App Service Authentication/Authorization.
      */
-    login?: pulumi.Input<inputs.web.LoginArgs | undefined>;
+    login?: pulumi.Input<inputs.web.LoginArgs>;
     /**
      * Name of web app.
      */
@@ -158,7 +158,7 @@ export interface WebAppAuthSettingsV2WithoutSecretsSlotArgs {
     /**
      * The configuration settings of the platform of App Service Authentication/Authorization.
      */
-    platform?: pulumi.Input<inputs.web.AuthPlatformArgs | undefined>;
+    platform?: pulumi.Input<inputs.web.AuthPlatformArgs>;
     /**
      * Name of the resource group to which the resource belongs.
      */

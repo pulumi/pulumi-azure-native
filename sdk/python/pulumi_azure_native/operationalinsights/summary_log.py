@@ -24,11 +24,11 @@ class SummaryLogArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_definition: pulumi.Input[Optional['RuleDefinitionArgs']] = None,
-                 rule_type: pulumi.Input[Optional[Union[_builtins.str, 'RuleTypeEnum']]] = None,
-                 summary_logs_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_definition: Optional[pulumi.Input['RuleDefinitionArgs']] = None,
+                 rule_type: Optional[pulumi.Input[Union[_builtins.str, 'RuleTypeEnum']]] = None,
+                 summary_logs_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SummaryLog resource.
 
@@ -79,62 +79,62 @@ class SummaryLogArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The description of the Summary rule.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The display name of the Summary rule.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleDefinition")
-    def rule_definition(self) -> pulumi.Input[Optional['RuleDefinitionArgs']]:
+    def rule_definition(self) -> Optional[pulumi.Input['RuleDefinitionArgs']]:
         """
         Rule definition parameters.
         """
         return pulumi.get(self, "rule_definition")
 
     @rule_definition.setter
-    def rule_definition(self, value: pulumi.Input[Optional['RuleDefinitionArgs']]):
+    def rule_definition(self, value: Optional[pulumi.Input['RuleDefinitionArgs']]):
         pulumi.set(self, "rule_definition", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleType")
-    def rule_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'RuleTypeEnum']]]:
+    def rule_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'RuleTypeEnum']]]:
         """
         SummaryRules rule type: User.
         """
         return pulumi.get(self, "rule_type")
 
     @rule_type.setter
-    def rule_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RuleTypeEnum']]]):
+    def rule_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'RuleTypeEnum']]]):
         pulumi.set(self, "rule_type", value)
 
     @_builtins.property
     @pulumi.getter(name="summaryLogsName")
-    def summary_logs_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def summary_logs_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the summary logs. Must not contain '/'.
         """
         return pulumi.get(self, "summary_logs_name")
 
     @summary_logs_name.setter
-    def summary_logs_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def summary_logs_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "summary_logs_name", value)
 
 
@@ -144,13 +144,13 @@ class SummaryLog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_definition: pulumi.Input[Optional[Union['RuleDefinitionArgs', 'RuleDefinitionArgsDict']]] = None,
-                 rule_type: pulumi.Input[Optional[Union[_builtins.str, 'RuleTypeEnum']]] = None,
-                 summary_logs_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_definition: Optional[pulumi.Input[Union['RuleDefinitionArgs', 'RuleDefinitionArgsDict']]] = None,
+                 rule_type: Optional[pulumi.Input[Union[_builtins.str, 'RuleTypeEnum']]] = None,
+                 summary_logs_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Workspace data summary rules definition.
@@ -195,13 +195,13 @@ class SummaryLog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rule_definition: pulumi.Input[Optional[Union['RuleDefinitionArgs', 'RuleDefinitionArgsDict']]] = None,
-                 rule_type: pulumi.Input[Optional[Union[_builtins.str, 'RuleTypeEnum']]] = None,
-                 summary_logs_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 rule_definition: Optional[pulumi.Input[Union['RuleDefinitionArgs', 'RuleDefinitionArgsDict']]] = None,
+                 rule_type: Optional[pulumi.Input[Union[_builtins.str, 'RuleTypeEnum']]] = None,
+                 summary_logs_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -104,7 +104,7 @@ export interface LinkedStorageAccountArgs {
     /**
      * Linked storage accounts type.
      */
-    dataSourceType?: pulumi.Input<string | undefined>;
+    dataSourceType?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -112,7 +112,7 @@ export interface LinkedStorageAccountArgs {
     /**
      * Linked storage accounts resources ids.
      */
-    storageAccountIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    storageAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the workspace.
      */

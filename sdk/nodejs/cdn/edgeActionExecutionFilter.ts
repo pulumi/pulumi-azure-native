@@ -157,7 +157,7 @@ export interface EdgeActionExecutionFilterArgs {
     /**
      * The name of the execution filter
      */
-    executionFilter?: pulumi.Input<string | undefined>;
+    executionFilter?: pulumi.Input<string>;
     /**
      * Custom Header Key associated with the execution filter
      */
@@ -169,7 +169,7 @@ export interface EdgeActionExecutionFilterArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -177,7 +177,7 @@ export interface EdgeActionExecutionFilterArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The referenced versionId of the edgeaction version
      */

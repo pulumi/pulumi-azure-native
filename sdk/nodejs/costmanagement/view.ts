@@ -190,55 +190,55 @@ export interface ViewArgs {
     /**
      * Show costs accumulated over time.
      */
-    accumulated?: pulumi.Input<string | enums.costmanagement.AccumulatedType | undefined>;
+    accumulated?: pulumi.Input<string | enums.costmanagement.AccumulatedType>;
     /**
      * Chart type of the main view in Cost Analysis. Required.
      */
-    chart?: pulumi.Input<string | enums.costmanagement.ChartType | undefined>;
+    chart?: pulumi.Input<string | enums.costmanagement.ChartType>;
     /**
      * Has definition for data in this report config.
      */
-    dataSet?: pulumi.Input<inputs.costmanagement.ReportConfigDatasetArgs | undefined>;
+    dataSet?: pulumi.Input<inputs.costmanagement.ReportConfigDatasetArgs>;
     /**
      * Date range of the current view.
      */
-    dateRange?: pulumi.Input<string | undefined>;
+    dateRange?: pulumi.Input<string>;
     /**
      * User input name of the view. Required.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * If true, report includes monetary commitment.
      */
-    includeMonetaryCommitment?: pulumi.Input<boolean | undefined>;
+    includeMonetaryCommitment?: pulumi.Input<boolean>;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */
-    kpis?: pulumi.Input<pulumi.Input<inputs.costmanagement.KpiPropertiesArgs>[] | undefined>;
+    kpis?: pulumi.Input<pulumi.Input<inputs.costmanagement.KpiPropertiesArgs>[]>;
     /**
      * Metric to use when displaying costs.
      */
-    metric?: pulumi.Input<string | enums.costmanagement.MetricType | undefined>;
+    metric?: pulumi.Input<string | enums.costmanagement.MetricType>;
     /**
      * Date when the user last modified this view.
      */
-    modifiedOn?: pulumi.Input<string | undefined>;
+    modifiedOn?: pulumi.Input<string>;
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */
-    pivots?: pulumi.Input<pulumi.Input<inputs.costmanagement.PivotPropertiesArgs>[] | undefined>;
+    pivots?: pulumi.Input<pulumi.Input<inputs.costmanagement.PivotPropertiesArgs>[]>;
     /**
      * Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
-    scope?: pulumi.Input<string | undefined>;
+    scope?: pulumi.Input<string>;
     /**
      * Has time period for pulling data for the report.
      */
-    timePeriod?: pulumi.Input<inputs.costmanagement.ReportConfigTimePeriodArgs | undefined>;
+    timePeriod?: pulumi.Input<inputs.costmanagement.ReportConfigTimePeriodArgs>;
     /**
      * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
      */
@@ -250,5 +250,5 @@ export interface ViewArgs {
     /**
      * View name
      */
-    viewName?: pulumi.Input<string | undefined>;
+    viewName?: pulumi.Input<string>;
 }

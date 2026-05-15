@@ -282,9 +282,9 @@ def get_event_hub_event_source(environment_name: Optional[_builtins.str] = None,
         time=pulumi.get(__ret__, 'time'),
         timestamp_property_name=pulumi.get(__ret__, 'timestamp_property_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_event_hub_event_source_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      event_source_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_event_hub_event_source_output(environment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      event_source_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventHubEventSourceResult]:
     """
     Gets the event source with the specified name in the specified environment.

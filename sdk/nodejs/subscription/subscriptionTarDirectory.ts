@@ -94,9 +94,9 @@ export interface SubscriptionTarDirectoryArgs {
     /**
      * Target Directory request properties.
      */
-    properties?: pulumi.Input<inputs.subscription.TargetDirectoryRequestPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.subscription.TargetDirectoryRequestPropertiesArgs>;
     /**
      * Subscription Id.
      */
-    subscriptionId?: pulumi.Input<string | undefined>;
+    subscriptionId?: pulumi.Input<string>;
 }

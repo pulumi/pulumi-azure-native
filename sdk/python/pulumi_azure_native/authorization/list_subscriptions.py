@@ -78,7 +78,7 @@ def list_subscriptions(api_version: Optional[_builtins.str] = None,
     return AwaitableListSubscriptionsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_subscriptions_output(api_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def list_subscriptions_output(api_version: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSubscriptionsResult]:
     """
     Use this function to list all subscriptions for the authenticated account. See https://learn.microsoft.com/en-us/rest/api/resources/subscriptions/list for details.

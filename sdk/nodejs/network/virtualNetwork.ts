@@ -207,55 +207,55 @@ export interface VirtualNetworkArgs {
     /**
      * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
      */
-    addressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs | undefined>;
+    addressSpace?: pulumi.Input<inputs.network.AddressSpaceArgs>;
     /**
      * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
      */
-    bgpCommunities?: pulumi.Input<inputs.network.VirtualNetworkBgpCommunitiesArgs | undefined>;
+    bgpCommunities?: pulumi.Input<inputs.network.VirtualNetworkBgpCommunitiesArgs>;
     /**
      * The DDoS protection plan associated with the virtual network.
      */
-    ddosProtectionPlan?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
+    ddosProtectionPlan?: pulumi.Input<inputs.network.SubResourceArgs>;
     /**
      * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
      */
-    dhcpOptions?: pulumi.Input<inputs.network.DhcpOptionsArgs | undefined>;
+    dhcpOptions?: pulumi.Input<inputs.network.DhcpOptionsArgs>;
     /**
      * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
      */
-    enableDdosProtection?: pulumi.Input<boolean | undefined>;
+    enableDdosProtection?: pulumi.Input<boolean>;
     /**
      * Indicates if VM protection is enabled for all the subnets in the virtual network.
      */
-    enableVmProtection?: pulumi.Input<boolean | undefined>;
+    enableVmProtection?: pulumi.Input<boolean>;
     /**
      * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
      */
-    encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryptionArgs | undefined>;
+    encryption?: pulumi.Input<inputs.network.VirtualNetworkEncryptionArgs>;
     /**
      * The extended location of the virtual network.
      */
-    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
     /**
      * The FlowTimeout value (in minutes) for the Virtual Network
      */
-    flowTimeoutInMinutes?: pulumi.Input<number | undefined>;
+    flowTimeoutInMinutes?: pulumi.Input<number>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Array of IpAllocation which reference this VNET.
      */
-    ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[] | undefined>;
+    ipAllocations?: pulumi.Input<pulumi.Input<inputs.network.SubResourceArgs>[]>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Private Endpoint VNet Policies.
      */
-    privateEndpointVNetPolicies?: pulumi.Input<string | enums.network.PrivateEndpointVNetPolicies | undefined>;
+    privateEndpointVNetPolicies?: pulumi.Input<string | enums.network.PrivateEndpointVNetPolicies>;
     /**
      * The name of the resource group.
      */
@@ -264,18 +264,18 @@ export interface VirtualNetworkArgs {
      * A list of subnets in a Virtual Network.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    subnets?: pulumi.Input<pulumi.Input<inputs.network.SubnetArgs>[] | undefined>;
+    subnets?: pulumi.Input<pulumi.Input<inputs.network.SubnetArgs>[]>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the virtual network.
      */
-    virtualNetworkName?: pulumi.Input<string | undefined>;
+    virtualNetworkName?: pulumi.Input<string>;
     /**
      * A list of peerings in a Virtual Network.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkPeeringArgs>[] | undefined>;
+    virtualNetworkPeerings?: pulumi.Input<pulumi.Input<inputs.network.VirtualNetworkPeeringArgs>[]>;
 }

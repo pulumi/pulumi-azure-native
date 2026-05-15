@@ -80,11 +80,11 @@ export interface GetImageUploadUrlForEntityTypeOutputArgs {
     /**
      * Type of entity. Can be Profile or Interaction.
      */
-    entityType?: pulumi.Input<string | undefined>;
+    entityType?: pulumi.Input<string>;
     /**
      * Name of the entity type.
      */
-    entityTypeName?: pulumi.Input<string | undefined>;
+    entityTypeName?: pulumi.Input<string>;
     /**
      * The name of the hub.
      */
@@ -92,7 +92,7 @@ export interface GetImageUploadUrlForEntityTypeOutputArgs {
     /**
      * Relative path of the image.
      */
-    relativePath?: pulumi.Input<string | undefined>;
+    relativePath?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */

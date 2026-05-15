@@ -24,11 +24,11 @@ class StorageInsightConfigArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_account: pulumi.Input['StorageAccountArgs'],
                  workspace_name: pulumi.Input[_builtins.str],
-                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_insight_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tables: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_insight_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageInsightConfig resource.
 
@@ -93,62 +93,62 @@ class StorageInsightConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def containers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the blob containers that the workspace should read
         """
         return pulumi.get(self, "containers")
 
     @containers.setter
-    def containers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "containers", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
-    def e_tag(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def e_tag(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The ETag of the storage insight.
         """
         return pulumi.get(self, "e_tag")
 
     @e_tag.setter
-    def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def e_tag(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
 
     @_builtins.property
     @pulumi.getter(name="storageInsightName")
-    def storage_insight_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def storage_insight_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Name of the storageInsightsConfigs resource
         """
         return pulumi.get(self, "storage_insight_name")
 
     @storage_insight_name.setter
-    def storage_insight_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def storage_insight_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "storage_insight_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tables(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The names of the Azure tables that the workspace should read
         """
         return pulumi.get(self, "tables")
 
     @tables.setter
-    def tables(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tables", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -158,14 +158,14 @@ class StorageInsightConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_account: pulumi.Input[Optional[Union['StorageAccountArgs', 'StorageAccountArgsDict']]] = None,
-                 storage_insight_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tables: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account: Optional[pulumi.Input[Union['StorageAccountArgs', 'StorageAccountArgsDict']]] = None,
+                 storage_insight_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The top level storage insight resource container.
@@ -215,14 +215,14 @@ class StorageInsightConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 containers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_account: pulumi.Input[Optional[Union['StorageAccountArgs', 'StorageAccountArgsDict']]] = None,
-                 storage_insight_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tables: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 e_tag: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 storage_account: Optional[pulumi.Input[Union['StorageAccountArgs', 'StorageAccountArgsDict']]] = None,
+                 storage_insight_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

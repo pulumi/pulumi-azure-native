@@ -149,7 +149,7 @@ export interface GalleryApplicationVersionArgs {
     /**
      * The name of the gallery Application Version to be retrieved.
      */
-    galleryApplicationVersionName?: pulumi.Input<string | undefined>;
+    galleryApplicationVersionName?: pulumi.Input<string>;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -157,7 +157,7 @@ export interface GalleryApplicationVersionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The publishing profile of a gallery image version.
      */
@@ -169,9 +169,9 @@ export interface GalleryApplicationVersionArgs {
     /**
      * The safety profile of the Gallery Application Version.
      */
-    safetyProfile?: pulumi.Input<inputs.compute.GalleryApplicationVersionSafetyProfileArgs | undefined>;
+    safetyProfile?: pulumi.Input<inputs.compute.GalleryApplicationVersionSafetyProfileArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

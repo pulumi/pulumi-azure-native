@@ -116,7 +116,7 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
             resourceInputs["automationAccountName"] = args?.automationAccountName;
             resourceInputs["error"] = args?.error;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["scheduleInfo"] = args ? pulumi.output(args.scheduleInfo).apply(inputs.automation.sucschedulePropertiesArgsProvideDefaults) : undefined;
+            resourceInputs["scheduleInfo"] = args ? (args.scheduleInfo ? pulumi.output(args.scheduleInfo).apply(inputs.automation.sucschedulePropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["softwareUpdateConfigurationName"] = args?.softwareUpdateConfigurationName;
             resourceInputs["tasks"] = args?.tasks;
             resourceInputs["updateConfiguration"] = args?.updateConfiguration;
@@ -160,7 +160,7 @@ export interface SoftwareUpdateConfigurationByNameArgs {
     /**
      * Details of provisioning error
      */
-    error?: pulumi.Input<inputs.automation.ErrorResponseArgs | undefined>;
+    error?: pulumi.Input<inputs.automation.ErrorResponseArgs>;
     /**
      * Name of an Azure Resource group.
      */
@@ -172,11 +172,11 @@ export interface SoftwareUpdateConfigurationByNameArgs {
     /**
      * The name of the software update configuration to be created.
      */
-    softwareUpdateConfigurationName?: pulumi.Input<string | undefined>;
+    softwareUpdateConfigurationName?: pulumi.Input<string>;
     /**
      * Tasks information for the Software update configuration.
      */
-    tasks?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTasksArgs | undefined>;
+    tasks?: pulumi.Input<inputs.automation.SoftwareUpdateConfigurationTasksArgs>;
     /**
      * update specific properties for the Software update configuration
      */

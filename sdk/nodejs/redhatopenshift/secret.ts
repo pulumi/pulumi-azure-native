@@ -108,7 +108,7 @@ export interface SecretArgs {
     /**
      * The name of the Secret resource.
      */
-    childResourceName?: pulumi.Input<string | undefined>;
+    childResourceName?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,5 +120,5 @@ export interface SecretArgs {
     /**
      * The Secrets Resources.
      */
-    secretResources?: pulumi.Input<string | undefined>;
+    secretResources?: pulumi.Input<string>;
 }

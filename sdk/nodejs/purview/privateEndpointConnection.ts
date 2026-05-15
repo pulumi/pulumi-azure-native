@@ -124,15 +124,15 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The private endpoint information.
      */
-    privateEndpoint?: pulumi.Input<inputs.purview.PrivateEndpointArgs | undefined>;
+    privateEndpoint?: pulumi.Input<inputs.purview.PrivateEndpointArgs>;
     /**
      * Name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
+    privateEndpointConnectionName?: pulumi.Input<string>;
     /**
      * The private link service connection state.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.purview.PrivateLinkServiceConnectionStateArgs | undefined>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.purview.PrivateLinkServiceConnectionStateArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

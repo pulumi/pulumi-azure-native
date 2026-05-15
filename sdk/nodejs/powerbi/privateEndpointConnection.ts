@@ -120,19 +120,19 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * Specifies the private endpoint.
      */
-    privateEndpoint?: pulumi.Input<inputs.powerbi.PrivateEndpointArgs | undefined>;
+    privateEndpoint?: pulumi.Input<inputs.powerbi.PrivateEndpointArgs>;
     /**
      * The name of the private endpoint.
      */
-    privateEndpointName?: pulumi.Input<string | undefined>;
+    privateEndpointName?: pulumi.Input<string>;
     /**
      * Specifies the connection state.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.powerbi.ConnectionStateArgs | undefined>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.powerbi.ConnectionStateArgs>;
     /**
      * Provisioning state of the Private Endpoint Connection.
      */
-    provisioningState?: pulumi.Input<string | enums.powerbi.ResourceProvisioningState | undefined>;
+    provisioningState?: pulumi.Input<string | enums.powerbi.ResourceProvisioningState>;
     /**
      * The name of the resource group.
      */

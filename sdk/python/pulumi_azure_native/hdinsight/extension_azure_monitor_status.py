@@ -23,9 +23,9 @@ class ExtensionAzureMonitorStatusArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 selected_configurations: pulumi.Input[Optional['AzureMonitorSelectedConfigurationsArgs']] = None,
-                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 selected_configurations: Optional[pulumi.Input['AzureMonitorSelectedConfigurationsArgs']] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ExtensionAzureMonitorStatus resource.
 
@@ -70,38 +70,38 @@ class ExtensionAzureMonitorStatusArgs:
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
-    def primary_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def primary_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Log Analytics workspace key.
         """
         return pulumi.get(self, "primary_key")
 
     @primary_key.setter
-    def primary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def primary_key(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "primary_key", value)
 
     @_builtins.property
     @pulumi.getter(name="selectedConfigurations")
-    def selected_configurations(self) -> pulumi.Input[Optional['AzureMonitorSelectedConfigurationsArgs']]:
+    def selected_configurations(self) -> Optional[pulumi.Input['AzureMonitorSelectedConfigurationsArgs']]:
         """
         The selected configurations.
         """
         return pulumi.get(self, "selected_configurations")
 
     @selected_configurations.setter
-    def selected_configurations(self, value: pulumi.Input[Optional['AzureMonitorSelectedConfigurationsArgs']]):
+    def selected_configurations(self, value: Optional[pulumi.Input['AzureMonitorSelectedConfigurationsArgs']]):
         pulumi.set(self, "selected_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The Log Analytics workspace ID.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
 
@@ -111,11 +111,11 @@ class ExtensionAzureMonitorStatus(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 selected_configurations: pulumi.Input[Optional[Union['AzureMonitorSelectedConfigurationsArgs', 'AzureMonitorSelectedConfigurationsArgsDict']]] = None,
-                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 selected_configurations: Optional[pulumi.Input[Union['AzureMonitorSelectedConfigurationsArgs', 'AzureMonitorSelectedConfigurationsArgsDict']]] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The azure monitor status response.
@@ -162,11 +162,11 @@ class ExtensionAzureMonitorStatus(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 selected_configurations: pulumi.Input[Optional[Union['AzureMonitorSelectedConfigurationsArgs', 'AzureMonitorSelectedConfigurationsArgsDict']]] = None,
-                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 primary_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 selected_configurations: Optional[pulumi.Input[Union['AzureMonitorSelectedConfigurationsArgs', 'AzureMonitorSelectedConfigurationsArgsDict']]] = None,
+                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

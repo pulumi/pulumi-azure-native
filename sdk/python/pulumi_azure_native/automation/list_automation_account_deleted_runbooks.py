@@ -85,8 +85,8 @@ def list_automation_account_deleted_runbooks(automation_account_name: Optional[_
     return AwaitableListAutomationAccountDeletedRunbooksResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_automation_account_deleted_runbooks_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_automation_account_deleted_runbooks_output(automation_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAutomationAccountDeletedRunbooksResult]:
     """
     Retrieve the deleted runbooks for an automation account.

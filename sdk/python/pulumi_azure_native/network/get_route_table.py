@@ -218,9 +218,9 @@ def get_route_table(expand: Optional[_builtins.str] = None,
         subnets=pulumi.get(__ret__, 'subnets'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_route_table_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           route_table_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_route_table_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                           route_table_name: Optional[pulumi.Input[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteTableResult]:
     """
     Gets the specified route table.

@@ -120,19 +120,19 @@ export interface ProtectionPolicyArgs {
     /**
      * Optional ETag.
      */
-    eTag?: pulumi.Input<string | undefined>;
+    eTag?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Backup policy to be created.
      */
-    policyName?: pulumi.Input<string | undefined>;
+    policyName?: pulumi.Input<string>;
     /**
      * ProtectionPolicyResource properties
      */
-    properties?: pulumi.Input<inputs.recoveryservices.AzureFileShareProtectionPolicyArgs | inputs.recoveryservices.AzureIaaSVMProtectionPolicyArgs | inputs.recoveryservices.AzureSqlProtectionPolicyArgs | inputs.recoveryservices.AzureVmWorkloadProtectionPolicyArgs | inputs.recoveryservices.GenericProtectionPolicyArgs | inputs.recoveryservices.MabProtectionPolicyArgs | undefined>;
+    properties?: pulumi.Input<inputs.recoveryservices.AzureFileShareProtectionPolicyArgs | inputs.recoveryservices.AzureIaaSVMProtectionPolicyArgs | inputs.recoveryservices.AzureSqlProtectionPolicyArgs | inputs.recoveryservices.AzureVmWorkloadProtectionPolicyArgs | inputs.recoveryservices.GenericProtectionPolicyArgs | inputs.recoveryservices.MabProtectionPolicyArgs>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -140,7 +140,7 @@ export interface ProtectionPolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the recovery services vault.
      */

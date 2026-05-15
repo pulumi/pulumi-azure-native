@@ -263,35 +263,35 @@ export interface ClusterArgs {
     /**
      * Object id of cluster AAD identity.
      */
-    aadApplicationObjectId?: pulumi.Input<string | undefined>;
+    aadApplicationObjectId?: pulumi.Input<string>;
     /**
      * App id of cluster AAD identity.
      */
-    aadClientId?: pulumi.Input<string | undefined>;
+    aadClientId?: pulumi.Input<string>;
     /**
      * Id of cluster identity service principal.
      */
-    aadServicePrincipalObjectId?: pulumi.Input<string | undefined>;
+    aadServicePrincipalObjectId?: pulumi.Input<string>;
     /**
      * Tenant id of cluster AAD identity.
      */
-    aadTenantId?: pulumi.Input<string | undefined>;
+    aadTenantId?: pulumi.Input<string>;
     /**
      * Endpoint configured for management from the Azure portal.
      */
-    cloudManagementEndpoint?: pulumi.Input<string | undefined>;
+    cloudManagementEndpoint?: pulumi.Input<string>;
     /**
      * The name of the cluster.
      */
-    clusterName?: pulumi.Input<string | undefined>;
+    clusterName?: pulumi.Input<string>;
     /**
      * Desired properties of the cluster.
      */
-    desiredProperties?: pulumi.Input<inputs.azurestackhci.ClusterDesiredPropertiesArgs | undefined>;
+    desiredProperties?: pulumi.Input<inputs.azurestackhci.ClusterDesiredPropertiesArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -299,11 +299,11 @@ export interface ClusterArgs {
     /**
      * Software Assurance properties of the cluster.
      */
-    softwareAssuranceProperties?: pulumi.Input<inputs.azurestackhci.SoftwareAssurancePropertiesArgs | undefined>;
+    softwareAssuranceProperties?: pulumi.Input<inputs.azurestackhci.SoftwareAssurancePropertiesArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
      */
@@ -311,5 +311,5 @@ export interface ClusterArgs {
     /**
      * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
      */
-    userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    userAssignedIdentities?: pulumi.Input<pulumi.Input<string>[]>;
 }

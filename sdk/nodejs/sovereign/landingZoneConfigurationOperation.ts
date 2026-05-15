@@ -110,11 +110,11 @@ export interface LandingZoneConfigurationOperationArgs {
     /**
      * The landing zone configuration name
      */
-    landingZoneConfigurationName?: pulumi.Input<string | undefined>;
+    landingZoneConfigurationName?: pulumi.Input<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.sovereign.LandingZoneConfigurationResourcePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.sovereign.LandingZoneConfigurationResourcePropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

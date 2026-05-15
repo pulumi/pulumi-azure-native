@@ -187,9 +187,9 @@ def get_long_running_backup(backup_name: Optional[_builtins.str] = None,
         source=pulumi.get(__ret__, 'source'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_long_running_backup_output(backup_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   server_name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_long_running_backup_output(backup_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                   server_name: Optional[pulumi.Input[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLongRunningBackupResult]:
     """
     Get backup for a given server.

@@ -101,19 +101,19 @@ export interface ListConnectionKeysOutputArgs {
     /**
      * Resource Id
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Kind of resource
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * Resource Location
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Resource Name
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * The resource group name.
      */
@@ -121,13 +121,13 @@ export interface ListConnectionKeysOutputArgs {
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Resource type
      */
-    type?: pulumi.Input<string | undefined>;
+    type?: pulumi.Input<string>;
     /**
      * time span for how long the keys will be valid
      */
-    validityTimeSpan?: pulumi.Input<string | undefined>;
+    validityTimeSpan?: pulumi.Input<string>;
 }

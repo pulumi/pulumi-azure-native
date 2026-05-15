@@ -186,15 +186,15 @@ export interface RouteArgs {
     /**
      * The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
      */
-    cacheConfiguration?: pulumi.Input<inputs.cdn.AfdRouteCacheConfigurationArgs | undefined>;
+    cacheConfiguration?: pulumi.Input<inputs.cdn.AfdRouteCacheConfigurationArgs>;
     /**
      * Domains referenced by this endpoint.
      */
-    customDomains?: pulumi.Input<pulumi.Input<inputs.cdn.ActivatedResourceReferenceArgs>[] | undefined>;
+    customDomains?: pulumi.Input<pulumi.Input<inputs.cdn.ActivatedResourceReferenceArgs>[]>;
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
      */
-    enabledState?: pulumi.Input<string | enums.cdn.EnabledState | undefined>;
+    enabledState?: pulumi.Input<string | enums.cdn.EnabledState>;
     /**
      * Name of the endpoint under the profile which is unique globally.
      */
@@ -202,27 +202,27 @@ export interface RouteArgs {
     /**
      * Protocol this rule will use when forwarding traffic to backends.
      */
-    forwardingProtocol?: pulumi.Input<string | enums.cdn.ForwardingProtocol | undefined>;
+    forwardingProtocol?: pulumi.Input<string | enums.cdn.ForwardingProtocol>;
     /**
      * Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
      */
-    httpsRedirect?: pulumi.Input<string | enums.cdn.HttpsRedirect | undefined>;
+    httpsRedirect?: pulumi.Input<string | enums.cdn.HttpsRedirect>;
     /**
      * whether this route will be linked to the default endpoint domain.
      */
-    linkToDefaultDomain?: pulumi.Input<string | enums.cdn.LinkToDefaultDomain | undefined>;
+    linkToDefaultDomain?: pulumi.Input<string | enums.cdn.LinkToDefaultDomain>;
     /**
      * A reference to the origin group.
      */
-    originGroup?: pulumi.Input<inputs.cdn.ResourceReferenceArgs | undefined>;
+    originGroup?: pulumi.Input<inputs.cdn.ResourceReferenceArgs>;
     /**
      * A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
      */
-    originPath?: pulumi.Input<string | undefined>;
+    originPath?: pulumi.Input<string>;
     /**
      * The route patterns of the rule.
      */
-    patternsToMatch?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    patternsToMatch?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -234,13 +234,13 @@ export interface RouteArgs {
     /**
      * Name of the routing rule.
      */
-    routeName?: pulumi.Input<string | undefined>;
+    routeName?: pulumi.Input<string>;
     /**
      * rule sets referenced by this endpoint.
      */
-    ruleSets?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[] | undefined>;
+    ruleSets?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
     /**
      * List of supported protocols for this route.
      */
-    supportedProtocols?: pulumi.Input<pulumi.Input<string | enums.cdn.AFDEndpointProtocols>[] | undefined>;
+    supportedProtocols?: pulumi.Input<pulumi.Input<string | enums.cdn.AFDEndpointProtocols>[]>;
 }

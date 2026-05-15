@@ -72,8 +72,8 @@ def list_redis_enterprise_skus_for_scaling(cluster_name: Optional[_builtins.str]
 
     return AwaitableListRedisEnterpriseSkusForScalingResult(
         skus=pulumi.get(__ret__, 'skus'))
-def list_redis_enterprise_skus_for_scaling_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_redis_enterprise_skus_for_scaling_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListRedisEnterpriseSkusForScalingResult]:
     """
     Lists the available SKUs for scaling the Redis Enterprise cluster.

@@ -135,7 +135,7 @@ export interface CommunityEndpointArgs {
     /**
      * The name of the Community Endpoint Resource
      */
-    communityEndpointName?: pulumi.Input<string | undefined>;
+    communityEndpointName?: pulumi.Input<string>;
     /**
      * The name of the communityResource Resource
      */
@@ -143,7 +143,7 @@ export interface CommunityEndpointArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -155,5 +155,5 @@ export interface CommunityEndpointArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

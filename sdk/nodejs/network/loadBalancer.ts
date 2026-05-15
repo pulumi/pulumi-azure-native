@@ -178,48 +178,48 @@ export interface LoadBalancerArgs {
      * Collection of backend address pools used by a load balancer.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.BackendAddressPoolArgs>[] | undefined>;
+    backendAddressPools?: pulumi.Input<pulumi.Input<inputs.network.BackendAddressPoolArgs>[]>;
     /**
      * The extended location of the load balancer.
      */
-    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs | undefined>;
+    extendedLocation?: pulumi.Input<inputs.network.ExtendedLocationArgs>;
     /**
      * Object representing the frontend IPs to be used for the load balancer.
      */
-    frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FrontendIPConfigurationArgs>[] | undefined>;
+    frontendIPConfigurations?: pulumi.Input<pulumi.Input<inputs.network.FrontendIPConfigurationArgs>[]>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound NAT rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.InboundNatPoolArgs>[] | undefined>;
+    inboundNatPools?: pulumi.Input<pulumi.Input<inputs.network.InboundNatPoolArgs>[]>;
     /**
      * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.InboundNatRuleArgs>[] | undefined>;
+    inboundNatRules?: pulumi.Input<pulumi.Input<inputs.network.InboundNatRuleArgs>[]>;
     /**
      * The name of the load balancer.
      */
-    loadBalancerName?: pulumi.Input<string | undefined>;
+    loadBalancerName?: pulumi.Input<string>;
     /**
      * Object collection representing the load balancing rules Gets the provisioning.
      */
-    loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.LoadBalancingRuleArgs>[] | undefined>;
+    loadBalancingRules?: pulumi.Input<pulumi.Input<inputs.network.LoadBalancingRuleArgs>[]>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The outbound rules.
      */
-    outboundRules?: pulumi.Input<pulumi.Input<inputs.network.OutboundRuleArgs>[] | undefined>;
+    outboundRules?: pulumi.Input<pulumi.Input<inputs.network.OutboundRuleArgs>[]>;
     /**
      * Collection of probe objects used in the load balancer.
      */
-    probes?: pulumi.Input<pulumi.Input<inputs.network.ProbeArgs>[] | undefined>;
+    probes?: pulumi.Input<pulumi.Input<inputs.network.ProbeArgs>[]>;
     /**
      * The name of the resource group.
      */
@@ -227,9 +227,9 @@ export interface LoadBalancerArgs {
     /**
      * The load balancer SKU.
      */
-    sku?: pulumi.Input<inputs.network.LoadBalancerSkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.network.LoadBalancerSkuArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

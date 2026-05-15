@@ -135,23 +135,23 @@ export interface AnalyticsItemArgs {
     /**
      * The content of this item
      */
-    content?: pulumi.Input<string | undefined>;
+    content?: pulumi.Input<string>;
     /**
      * Internally assigned unique id of the item definition.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * The user-defined name of the item.
      */
-    name?: pulumi.Input<string | undefined>;
+    name?: pulumi.Input<string>;
     /**
      * Flag indicating whether or not to force save an item. This allows overriding an item if it already exists.
      */
-    overrideItem?: pulumi.Input<boolean | undefined>;
+    overrideItem?: pulumi.Input<boolean>;
     /**
      * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
      */
-    properties?: pulumi.Input<inputs.applicationinsights.ApplicationInsightsComponentAnalyticsItemPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.applicationinsights.ApplicationInsightsComponentAnalyticsItemPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -163,7 +163,7 @@ export interface AnalyticsItemArgs {
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    scope?: pulumi.Input<string | enums.applicationinsights.ItemScope | undefined>;
+    scope?: pulumi.Input<string | enums.applicationinsights.ItemScope>;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
@@ -171,5 +171,5 @@ export interface AnalyticsItemArgs {
     /**
      * Enum indicating the type of the Analytics item.
      */
-    type?: pulumi.Input<string | enums.applicationinsights.ItemType | undefined>;
+    type?: pulumi.Input<string | enums.applicationinsights.ItemType>;
 }

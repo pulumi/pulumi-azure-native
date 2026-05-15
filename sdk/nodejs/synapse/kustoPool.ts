@@ -189,23 +189,23 @@ export interface KustoPoolArgs {
     /**
      * A boolean value that indicates if the purge operations are enabled.
      */
-    enablePurge?: pulumi.Input<boolean | undefined>;
+    enablePurge?: pulumi.Input<boolean>;
     /**
      * A boolean value that indicates if the streaming ingest is enabled.
      */
-    enableStreamingIngest?: pulumi.Input<boolean | undefined>;
+    enableStreamingIngest?: pulumi.Input<boolean>;
     /**
      * The name of the Kusto pool.
      */
-    kustoPoolName?: pulumi.Input<string | undefined>;
+    kustoPoolName?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Optimized auto scale definition.
      */
-    optimizedAutoscale?: pulumi.Input<inputs.synapse.OptimizedAutoscaleArgs | undefined>;
+    optimizedAutoscale?: pulumi.Input<inputs.synapse.OptimizedAutoscaleArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -217,7 +217,7 @@ export interface KustoPoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace.
      */
@@ -225,5 +225,5 @@ export interface KustoPoolArgs {
     /**
      * The workspace unique identifier.
      */
-    workspaceUID?: pulumi.Input<string | undefined>;
+    workspaceUID?: pulumi.Input<string>;
 }

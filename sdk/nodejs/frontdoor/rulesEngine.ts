@@ -116,9 +116,9 @@ export interface RulesEngineArgs {
     /**
      * A list of rules that define a particular Rules Engine Configuration.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.frontdoor.RulesEngineRuleArgs>[] | undefined>;
+    rules?: pulumi.Input<pulumi.Input<inputs.frontdoor.RulesEngineRuleArgs>[]>;
     /**
      * Name of the Rules Engine which is unique within the Front Door.
      */
-    rulesEngineName?: pulumi.Input<string | undefined>;
+    rulesEngineName?: pulumi.Input<string>;
 }

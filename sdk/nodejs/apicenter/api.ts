@@ -172,23 +172,23 @@ export interface ApiArgs {
     /**
      * The name of the API.
      */
-    apiName?: pulumi.Input<string | undefined>;
+    apiName?: pulumi.Input<string>;
     /**
      * The set of contacts
      */
-    contacts?: pulumi.Input<pulumi.Input<inputs.apicenter.ContactArgs>[] | undefined>;
+    contacts?: pulumi.Input<pulumi.Input<inputs.apicenter.ContactArgs>[]>;
     /**
      * The custom metadata defined for API catalog entities.
      */
-    customProperties?: any | undefined;
+    customProperties?: any;
     /**
      * Description of the API.
      */
-    description?: pulumi.Input<string | undefined>;
+    description?: pulumi.Input<string>;
     /**
      * The set of external documentation
      */
-    externalDocumentation?: pulumi.Input<pulumi.Input<inputs.apicenter.ExternalDocumentationArgs>[] | undefined>;
+    externalDocumentation?: pulumi.Input<pulumi.Input<inputs.apicenter.ExternalDocumentationArgs>[]>;
     /**
      * Kind of API. For example, REST or GraphQL.
      */
@@ -196,7 +196,7 @@ export interface ApiArgs {
     /**
      * The license information for the API.
      */
-    license?: pulumi.Input<inputs.apicenter.LicenseArgs | undefined>;
+    license?: pulumi.Input<inputs.apicenter.LicenseArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -208,11 +208,11 @@ export interface ApiArgs {
     /**
      * Short description of the API.
      */
-    summary?: pulumi.Input<string | undefined>;
+    summary?: pulumi.Input<string>;
     /**
      * Terms of service for the API.
      */
-    termsOfService?: pulumi.Input<inputs.apicenter.TermsOfServiceArgs | undefined>;
+    termsOfService?: pulumi.Input<inputs.apicenter.TermsOfServiceArgs>;
     /**
      * API title.
      */

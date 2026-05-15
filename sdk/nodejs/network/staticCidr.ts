@@ -120,7 +120,7 @@ export interface StaticCidrArgs {
     /**
      * Properties of static CIDR resource.
      */
-    properties?: pulumi.Input<inputs.network.StaticCidrPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.network.StaticCidrPropertiesArgs>;
     /**
      * The name of the resource group.
      */
@@ -128,5 +128,5 @@ export interface StaticCidrArgs {
     /**
      * Static Cidr allocation name.
      */
-    staticCidrName?: pulumi.Input<string | undefined>;
+    staticCidrName?: pulumi.Input<string>;
 }

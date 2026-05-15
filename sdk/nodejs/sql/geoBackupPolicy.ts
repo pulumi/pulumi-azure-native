@@ -131,7 +131,7 @@ export interface GeoBackupPolicyArgs {
     /**
      * The name of the Geo backup policy. This should always be 'Default'.
      */
-    geoBackupPolicyName?: pulumi.Input<string | undefined>;
+    geoBackupPolicyName?: pulumi.Input<string>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */

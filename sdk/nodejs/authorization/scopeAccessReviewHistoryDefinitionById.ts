@@ -174,27 +174,27 @@ export interface ScopeAccessReviewHistoryDefinitionByIdArgs {
     /**
      * Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
      */
-    decisions?: pulumi.Input<pulumi.Input<string | enums.authorization.AccessReviewResult>[] | undefined>;
+    decisions?: pulumi.Input<pulumi.Input<string | enums.authorization.AccessReviewResult>[]>;
     /**
      * The display name for the history definition.
      */
-    displayName?: pulumi.Input<string | undefined>;
+    displayName?: pulumi.Input<string>;
     /**
      * The id of the access review history definition.
      */
-    historyDefinitionId?: pulumi.Input<string | undefined>;
+    historyDefinitionId?: pulumi.Input<string>;
     /**
      * Set of access review history instances for this history definition.
      */
-    instances?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewHistoryInstanceArgs>[] | undefined>;
+    instances?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewHistoryInstanceArgs>[]>;
     /**
      * The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
      */
-    interval?: pulumi.Input<number | undefined>;
+    interval?: pulumi.Input<number>;
     /**
      * Access Review History Definition recurrence settings.
      */
-    range?: pulumi.Input<inputs.authorization.AccessReviewRecurrenceRangeArgs | undefined>;
+    range?: pulumi.Input<inputs.authorization.AccessReviewRecurrenceRangeArgs>;
     /**
      * The scope of the resource.
      */
@@ -202,9 +202,9 @@ export interface ScopeAccessReviewHistoryDefinitionByIdArgs {
     /**
      * A collection of scopes used when selecting review history data
      */
-    scopes?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewScopeArgs>[] | undefined>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.authorization.AccessReviewScopeArgs>[]>;
     /**
      * The recurrence type : weekly, monthly, etc.
      */
-    type?: pulumi.Input<string | enums.authorization.AccessReviewRecurrencePatternType | undefined>;
+    type?: pulumi.Input<string | enums.authorization.AccessReviewRecurrencePatternType>;
 }

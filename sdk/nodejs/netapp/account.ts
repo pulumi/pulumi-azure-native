@@ -106,7 +106,7 @@ export class Account extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["activeDirectories"] = args?.activeDirectories;
-            resourceInputs["encryption"] = args ? pulumi.output(args.encryption).apply(v => v === undefined ? undefined : inputs.netapp.accountEncryptionArgsProvideDefaults(v)) : undefined;
+            resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.netapp.accountEncryptionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
@@ -146,23 +146,23 @@ export interface AccountArgs {
     /**
      * The name of the NetApp account
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string>;
     /**
      * Active Directories
      */
-    activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.ActiveDirectoryArgs>[] | undefined>;
+    activeDirectories?: pulumi.Input<pulumi.Input<inputs.netapp.ActiveDirectoryArgs>[]>;
     /**
      * Encryption settings
      */
-    encryption?: pulumi.Input<inputs.netapp.AccountEncryptionArgs | undefined>;
+    encryption?: pulumi.Input<inputs.netapp.AccountEncryptionArgs>;
     /**
      * The identity used for the resource.
      */
-    identity?: pulumi.Input<inputs.netapp.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.netapp.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -170,5 +170,5 @@ export interface AccountArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

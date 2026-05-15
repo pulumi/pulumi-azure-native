@@ -25,7 +25,7 @@ class ManagementPolicyArgs:
                  account_name: pulumi.Input[_builtins.str],
                  policy: pulumi.Input['ManagementPolicySchemaArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 management_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 management_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagementPolicy resource.
 
@@ -78,14 +78,14 @@ class ManagementPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="managementPolicyName")
-    def management_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def management_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the Storage Account Management Policy. It should always be 'default'
         """
         return pulumi.get(self, "management_policy_name")
 
     @management_policy_name.setter
-    def management_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def management_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "management_policy_name", value)
 
 
@@ -95,10 +95,10 @@ class ManagementPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy: pulumi.Input[Optional[Union['ManagementPolicySchemaArgs', 'ManagementPolicySchemaArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union['ManagementPolicySchemaArgs', 'ManagementPolicySchemaArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The Get Storage Account ManagementPolicies operation response.
@@ -144,10 +144,10 @@ class ManagementPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 management_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy: pulumi.Input[Optional[Union['ManagementPolicySchemaArgs', 'ManagementPolicySchemaArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 management_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 policy: Optional[pulumi.Input[Union['ManagementPolicySchemaArgs', 'ManagementPolicySchemaArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

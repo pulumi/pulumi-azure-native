@@ -117,5 +117,5 @@ export interface GetConnectorDryrunOutputArgs {
     /**
      * The ID of the target subscription.
      */
-    subscriptionId?: pulumi.Input<string | undefined>;
+    subscriptionId?: pulumi.Input<string>;
 }

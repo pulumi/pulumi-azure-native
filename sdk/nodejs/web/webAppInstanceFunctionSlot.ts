@@ -180,43 +180,43 @@ export interface WebAppInstanceFunctionSlotArgs {
     /**
      * Config information.
      */
-    config?: any | undefined;
+    config?: any;
     /**
      * Config URI.
      */
-    configHref?: pulumi.Input<string | undefined>;
+    configHref?: pulumi.Input<string>;
     /**
      * File list.
      */
-    files?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    files?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Function App ID.
      */
-    functionAppId?: pulumi.Input<string | undefined>;
+    functionAppId?: pulumi.Input<string>;
     /**
      * Function name.
      */
-    functionName?: pulumi.Input<string | undefined>;
+    functionName?: pulumi.Input<string>;
     /**
      * Function URI.
      */
-    href?: pulumi.Input<string | undefined>;
+    href?: pulumi.Input<string>;
     /**
      * The invocation URL
      */
-    invokeUrlTemplate?: pulumi.Input<string | undefined>;
+    invokeUrlTemplate?: pulumi.Input<string>;
     /**
      * Gets or sets a value indicating whether the function is disabled
      */
-    isDisabled?: pulumi.Input<boolean | undefined>;
+    isDisabled?: pulumi.Input<boolean>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string | undefined>;
+    kind?: pulumi.Input<string>;
     /**
      * The function language
      */
-    language?: pulumi.Input<string | undefined>;
+    language?: pulumi.Input<string>;
     /**
      * Site name.
      */
@@ -228,15 +228,15 @@ export interface WebAppInstanceFunctionSlotArgs {
     /**
      * Script URI.
      */
-    scriptHref?: pulumi.Input<string | undefined>;
+    scriptHref?: pulumi.Input<string>;
     /**
      * Script root path URI.
      */
-    scriptRootPathHref?: pulumi.Input<string | undefined>;
+    scriptRootPathHref?: pulumi.Input<string>;
     /**
      * Secrets file URI.
      */
-    secretsFileHref?: pulumi.Input<string | undefined>;
+    secretsFileHref?: pulumi.Input<string>;
     /**
      * Name of the deployment slot.
      */
@@ -244,9 +244,9 @@ export interface WebAppInstanceFunctionSlotArgs {
     /**
      * Test data used when testing via the Azure Portal.
      */
-    testData?: pulumi.Input<string | undefined>;
+    testData?: pulumi.Input<string>;
     /**
      * Test data URI.
      */
-    testDataHref?: pulumi.Input<string | undefined>;
+    testDataHref?: pulumi.Input<string>;
 }

@@ -120,11 +120,11 @@ export interface LinkedServiceArgs {
     /**
      * Name of the linkedServices resource
      */
-    linkedServiceName?: pulumi.Input<string | undefined>;
+    linkedServiceName?: pulumi.Input<string>;
     /**
      * The provisioning state of the linked service.
      */
-    provisioningState?: pulumi.Input<string | enums.operationalinsights.LinkedServiceEntityStatus | undefined>;
+    provisioningState?: pulumi.Input<string | enums.operationalinsights.LinkedServiceEntityStatus>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -132,11 +132,11 @@ export interface LinkedServiceArgs {
     /**
      * The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
      */
-    resourceId?: pulumi.Input<string | undefined>;
+    resourceId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the workspace.
      */
@@ -144,5 +144,5 @@ export interface LinkedServiceArgs {
     /**
      * The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
      */
-    writeAccessResourceId?: pulumi.Input<string | undefined>;
+    writeAccessResourceId?: pulumi.Input<string>;
 }

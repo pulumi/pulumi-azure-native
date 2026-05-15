@@ -103,7 +103,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["identity"] = args?.identity;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.maps.mapsAccountPropertiesArgsProvideDefaults(v)) : undefined;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.maps.mapsAccountPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
@@ -137,23 +137,23 @@ export interface AccountArgs {
     /**
      * The name of the Maps Account.
      */
-    accountName?: pulumi.Input<string | undefined>;
+    accountName?: pulumi.Input<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.maps.ManagedServiceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.maps.ManagedServiceIdentityArgs>;
     /**
      * Get or Set Kind property.
      */
-    kind?: pulumi.Input<string | enums.maps.Kind | undefined>;
+    kind?: pulumi.Input<string | enums.maps.Kind>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The map account properties.
      */
-    properties?: pulumi.Input<inputs.maps.MapsAccountPropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.maps.MapsAccountPropertiesArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -165,5 +165,5 @@ export interface AccountArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

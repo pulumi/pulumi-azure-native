@@ -336,63 +336,63 @@ export interface ManagedInstanceArgs {
     /**
      * Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
      */
-    administratorLogin?: pulumi.Input<string | undefined>;
+    administratorLogin?: pulumi.Input<string>;
     /**
      * The administrator login password (required for managed instance creation).
      */
-    administratorLoginPassword?: pulumi.Input<string | undefined>;
+    administratorLoginPassword?: pulumi.Input<string>;
     /**
      * The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
-    administrators?: pulumi.Input<inputs.sql.ManagedInstanceExternalAdministratorArgs | undefined>;
+    administrators?: pulumi.Input<inputs.sql.ManagedInstanceExternalAdministratorArgs>;
     /**
      * The managed instance's authentication metadata lookup mode.
      */
-    authenticationMetadata?: pulumi.Input<string | enums.sql.AuthMetadataLookupModes | undefined>;
+    authenticationMetadata?: pulumi.Input<string | enums.sql.AuthMetadataLookupModes>;
     /**
      * Collation of the managed instance.
      */
-    collation?: pulumi.Input<string | undefined>;
+    collation?: pulumi.Input<string>;
     /**
      * Specifies the internal format of instance databases specific to the SQL engine version.
      */
-    databaseFormat?: pulumi.Input<string | enums.sql.ManagedInstanceDatabaseFormat | undefined>;
+    databaseFormat?: pulumi.Input<string | enums.sql.ManagedInstanceDatabaseFormat>;
     /**
      * The resource id of another managed instance whose DNS zone this managed instance will share after creation.
      */
-    dnsZonePartner?: pulumi.Input<string | undefined>;
+    dnsZonePartner?: pulumi.Input<string>;
     /**
      * Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
      */
-    hybridSecondaryUsage?: pulumi.Input<string | enums.sql.HybridSecondaryUsage | undefined>;
+    hybridSecondaryUsage?: pulumi.Input<string | enums.sql.HybridSecondaryUsage>;
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    identity?: pulumi.Input<inputs.sql.ResourceIdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.sql.ResourceIdentityArgs>;
     /**
      * The Id of the instance pool this managed server belongs to.
      */
-    instancePoolId?: pulumi.Input<string | undefined>;
+    instancePoolId?: pulumi.Input<string>;
     /**
      * Whether or not this is a GPv2 variant of General Purpose edition.
      */
-    isGeneralPurposeV2?: pulumi.Input<boolean | undefined>;
+    isGeneralPurposeV2?: pulumi.Input<boolean>;
     /**
      * A CMK URI of the key to use for encryption.
      */
-    keyId?: pulumi.Input<string | undefined>;
+    keyId?: pulumi.Input<string>;
     /**
      * The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
      */
-    licenseType?: pulumi.Input<string | enums.sql.ManagedInstanceLicenseType | undefined>;
+    licenseType?: pulumi.Input<string | enums.sql.ManagedInstanceLicenseType>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Specifies maintenance configuration id to apply to this managed instance.
      */
-    maintenanceConfigurationId?: pulumi.Input<string | undefined>;
+    maintenanceConfigurationId?: pulumi.Input<string>;
     /**
      * Specifies the mode of database creation.
      * 
@@ -400,35 +400,35 @@ export interface ManagedInstanceArgs {
      * 
      * Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
      */
-    managedInstanceCreateMode?: pulumi.Input<string | enums.sql.ManagedServerCreateMode | undefined>;
+    managedInstanceCreateMode?: pulumi.Input<string | enums.sql.ManagedServerCreateMode>;
     /**
      * The name of the managed instance.
      */
-    managedInstanceName?: pulumi.Input<string | undefined>;
+    managedInstanceName?: pulumi.Input<string>;
     /**
      * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
-    minimalTlsVersion?: pulumi.Input<string | undefined>;
+    minimalTlsVersion?: pulumi.Input<string>;
     /**
      * Pricing model of Managed Instance.
      */
-    pricingModel?: pulumi.Input<string | enums.sql.PricingModel | undefined>;
+    pricingModel?: pulumi.Input<string | enums.sql.PricingModel>;
     /**
      * The resource id of a user assigned identity to be used by default.
      */
-    primaryUserAssignedIdentityId?: pulumi.Input<string | undefined>;
+    primaryUserAssignedIdentityId?: pulumi.Input<string>;
     /**
      * Connection type used for connecting to the instance.
      */
-    proxyOverride?: pulumi.Input<string | enums.sql.ManagedInstanceProxyOverride | undefined>;
+    proxyOverride?: pulumi.Input<string | enums.sql.ManagedInstanceProxyOverride>;
     /**
      * Whether or not the public data endpoint is enabled.
      */
-    publicDataEndpointEnabled?: pulumi.Input<boolean | undefined>;
+    publicDataEndpointEnabled?: pulumi.Input<boolean>;
     /**
      * The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
      */
-    requestedBackupStorageRedundancy?: pulumi.Input<string | enums.sql.BackupStorageRedundancy | undefined>;
+    requestedBackupStorageRedundancy?: pulumi.Input<string | enums.sql.BackupStorageRedundancy>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -436,39 +436,39 @@ export interface ManagedInstanceArgs {
     /**
      * Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
      */
-    restorePointInTime?: pulumi.Input<string | undefined>;
+    restorePointInTime?: pulumi.Input<string>;
     /**
      * The managed instance's service principal.
      */
-    servicePrincipal?: pulumi.Input<inputs.sql.ServicePrincipalArgs | undefined>;
+    servicePrincipal?: pulumi.Input<inputs.sql.ServicePrincipalArgs>;
     /**
      * Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
      */
-    sku?: pulumi.Input<inputs.sql.SkuArgs | undefined>;
+    sku?: pulumi.Input<inputs.sql.SkuArgs>;
     /**
      * The resource identifier of the source managed instance associated with create operation of this instance.
      */
-    sourceManagedInstanceId?: pulumi.Input<string | undefined>;
+    sourceManagedInstanceId?: pulumi.Input<string>;
     /**
      * Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
      */
-    storageIOps?: pulumi.Input<number | undefined>;
+    storageIOps?: pulumi.Input<number>;
     /**
      * Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
      */
-    storageSizeInGB?: pulumi.Input<number | undefined>;
+    storageSizeInGB?: pulumi.Input<number>;
     /**
      * Storage throughput MBps parameter is not supported in the instance create/update operation.
      */
-    storageThroughputMBps?: pulumi.Input<number | undefined>;
+    storageThroughputMBps?: pulumi.Input<number>;
     /**
      * Subnet resource ID for the managed instance.
      */
-    subnetId?: pulumi.Input<string | undefined>;
+    subnetId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Id of the timezone. Allowed values are timezones supported by Windows.
      * Windows keeps details on supported timezones, including the id, in registry under
@@ -477,13 +477,13 @@ export interface ManagedInstanceArgs {
      * List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
      * An example of valid timezone id is "Pacific Standard Time" or "W. Europe Standard Time".
      */
-    timezoneId?: pulumi.Input<string | undefined>;
+    timezoneId?: pulumi.Input<string>;
     /**
      * The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
      */
-    vCores?: pulumi.Input<number | undefined>;
+    vCores?: pulumi.Input<number>;
     /**
      * Whether or not the multi-az is enabled.
      */
-    zoneRedundant?: pulumi.Input<boolean | undefined>;
+    zoneRedundant?: pulumi.Input<boolean>;
 }

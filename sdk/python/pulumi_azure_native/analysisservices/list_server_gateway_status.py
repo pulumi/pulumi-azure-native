@@ -69,8 +69,8 @@ def list_server_gateway_status(resource_group_name: Optional[_builtins.str] = No
 
     return AwaitableListServerGatewayStatusResult(
         status=pulumi.get(__ret__, 'status'))
-def list_server_gateway_status_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      server_name: pulumi.Input[Optional[_builtins.str]] = None,
+def list_server_gateway_status_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                                      server_name: Optional[pulumi.Input[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServerGatewayStatusResult]:
     """
     Return the gateway status of the specified Analysis Services server instance.

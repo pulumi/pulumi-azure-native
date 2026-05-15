@@ -86,13 +86,13 @@ def get_sap_virtual_instance_invoke_sap_supported_sku(app_location: Optional[_bu
 
     return AwaitableGetSapVirtualInstanceInvokeSapSupportedSkuResult(
         supported_skus=pulumi.get(__ret__, 'supported_skus'))
-def get_sap_virtual_instance_invoke_sap_supported_sku_output(app_location: pulumi.Input[Optional[_builtins.str]] = None,
-                                                             database_type: pulumi.Input[Optional[Union[_builtins.str, 'SAPDatabaseType']]] = None,
-                                                             deployment_type: pulumi.Input[Optional[Union[_builtins.str, 'SAPDeploymentType']]] = None,
-                                                             environment: pulumi.Input[Optional[Union[_builtins.str, 'SAPEnvironmentType']]] = None,
-                                                             high_availability_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SAPHighAvailabilityType']]]] = None,
-                                                             location: pulumi.Input[Optional[_builtins.str]] = None,
-                                                             sap_product: pulumi.Input[Optional[Union[_builtins.str, 'SAPProductType']]] = None,
+def get_sap_virtual_instance_invoke_sap_supported_sku_output(app_location: Optional[pulumi.Input[_builtins.str]] = None,
+                                                             database_type: Optional[pulumi.Input[Union[_builtins.str, 'SAPDatabaseType']]] = None,
+                                                             deployment_type: Optional[pulumi.Input[Union[_builtins.str, 'SAPDeploymentType']]] = None,
+                                                             environment: Optional[pulumi.Input[Union[_builtins.str, 'SAPEnvironmentType']]] = None,
+                                                             high_availability_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SAPHighAvailabilityType']]]] = None,
+                                                             location: Optional[pulumi.Input[_builtins.str]] = None,
+                                                             sap_product: Optional[pulumi.Input[Union[_builtins.str, 'SAPProductType']]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapVirtualInstanceInvokeSapSupportedSkuResult]:
     """
     Get a list of SAP supported SKUs for ASCS, Application and Database tier.

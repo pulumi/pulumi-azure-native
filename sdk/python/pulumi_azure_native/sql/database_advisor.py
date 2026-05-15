@@ -25,7 +25,7 @@ class DatabaseAdvisorArgs:
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 advisor_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 advisor_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabaseAdvisor resource.
 
@@ -92,14 +92,14 @@ class DatabaseAdvisorArgs:
 
     @_builtins.property
     @pulumi.getter(name="advisorName")
-    def advisor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def advisor_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The name of the Database Advisor.
         """
         return pulumi.get(self, "advisor_name")
 
     @advisor_name.setter
-    def advisor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def advisor_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "advisor_name", value)
 
 
@@ -109,11 +109,11 @@ class DatabaseAdvisor(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advisor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_execute_status: pulumi.Input[Optional['AutoExecuteStatus']] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 advisor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_execute_status: Optional[pulumi.Input['AutoExecuteStatus']] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         Database, Server or Elastic Pool Advisor.
@@ -160,11 +160,11 @@ class DatabaseAdvisor(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advisor_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_execute_status: pulumi.Input[Optional['AutoExecuteStatus']] = None,
-                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 advisor_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 auto_execute_status: Optional[pulumi.Input['AutoExecuteStatus']] = None,
+                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

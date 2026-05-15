@@ -121,8 +121,8 @@ export class LabPlan extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["allowedRegions"] = args?.allowedRegions;
-            resourceInputs["defaultAutoShutdownProfile"] = args ? pulumi.output(args.defaultAutoShutdownProfile).apply(v => v === undefined ? undefined : inputs.labservices.autoShutdownProfileArgsProvideDefaults(v)) : undefined;
-            resourceInputs["defaultConnectionProfile"] = args ? pulumi.output(args.defaultConnectionProfile).apply(v => v === undefined ? undefined : inputs.labservices.connectionProfileArgsProvideDefaults(v)) : undefined;
+            resourceInputs["defaultAutoShutdownProfile"] = args ? (args.defaultAutoShutdownProfile ? pulumi.output(args.defaultAutoShutdownProfile).apply(inputs.labservices.autoShutdownProfileArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["defaultConnectionProfile"] = args ? (args.defaultConnectionProfile ? pulumi.output(args.defaultConnectionProfile).apply(inputs.labservices.connectionProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["defaultNetworkProfile"] = args?.defaultNetworkProfile;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["labPlanName"] = args?.labPlanName;
@@ -170,35 +170,35 @@ export interface LabPlanArgs {
     /**
      * The allowed regions for the lab creator to use when creating labs using this lab plan.
      */
-    allowedRegions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    allowedRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The default lab shutdown profile. This can be changed on a lab resource and only provides a default profile.
      */
-    defaultAutoShutdownProfile?: pulumi.Input<inputs.labservices.AutoShutdownProfileArgs | undefined>;
+    defaultAutoShutdownProfile?: pulumi.Input<inputs.labservices.AutoShutdownProfileArgs>;
     /**
      * The default lab connection profile. This can be changed on a lab resource and only provides a default profile.
      */
-    defaultConnectionProfile?: pulumi.Input<inputs.labservices.ConnectionProfileArgs | undefined>;
+    defaultConnectionProfile?: pulumi.Input<inputs.labservices.ConnectionProfileArgs>;
     /**
      * The lab plan network profile. To enforce lab network policies they must be defined here and cannot be changed when there are existing labs associated with this lab plan.
      */
-    defaultNetworkProfile?: pulumi.Input<inputs.labservices.LabPlanNetworkProfileArgs | undefined>;
+    defaultNetworkProfile?: pulumi.Input<inputs.labservices.LabPlanNetworkProfileArgs>;
     /**
      * Managed Identity Information
      */
-    identity?: pulumi.Input<inputs.labservices.IdentityArgs | undefined>;
+    identity?: pulumi.Input<inputs.labservices.IdentityArgs>;
     /**
      * The name of the lab plan that uniquely identifies it within containing resource group. Used in resource URIs and in UI.
      */
-    labPlanName?: pulumi.Input<string | undefined>;
+    labPlanName?: pulumi.Input<string>;
     /**
      * Base Url of the lms instance this lab plan can link lab rosters against.
      */
-    linkedLmsInstance?: pulumi.Input<string | undefined>;
+    linkedLmsInstance?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -206,13 +206,13 @@ export interface LabPlanArgs {
     /**
      * Resource ID of the Shared Image Gallery attached to this lab plan. When saving a lab template virtual machine image it will be persisted in this gallery. Shared images from the gallery can be made available to use when creating new labs.
      */
-    sharedGalleryId?: pulumi.Input<string | undefined>;
+    sharedGalleryId?: pulumi.Input<string>;
     /**
      * Support contact information and instructions for users of the lab plan. This information is displayed to lab owners and virtual machine users for all labs in the lab plan.
      */
-    supportInfo?: pulumi.Input<inputs.labservices.SupportInfoArgs | undefined>;
+    supportInfo?: pulumi.Input<inputs.labservices.SupportInfoArgs>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -24,8 +24,8 @@ class SpringbootserverArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SpringbootserversPropertiesArgs']] = None,
-                 springbootservers_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 properties: Optional[pulumi.Input['SpringbootserversPropertiesArgs']] = None,
+                 springbootservers_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Springbootserver resource.
 
@@ -67,26 +67,26 @@ class SpringbootserverArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> pulumi.Input[Optional['SpringbootserversPropertiesArgs']]:
+    def properties(self) -> Optional[pulumi.Input['SpringbootserversPropertiesArgs']]:
         """
         The springbootservers resource definition.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input[Optional['SpringbootserversPropertiesArgs']]):
+    def properties(self, value: Optional[pulumi.Input['SpringbootserversPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="springbootserversName")
-    def springbootservers_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+    def springbootservers_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The springbootservers name.
         """
         return pulumi.get(self, "springbootservers_name")
 
     @springbootservers_name.setter
-    def springbootservers_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+    def springbootservers_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "springbootservers_name", value)
 
 
@@ -96,10 +96,10 @@ class Springbootserver(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['SpringbootserversPropertiesArgs', 'SpringbootserversPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 springbootservers_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['SpringbootserversPropertiesArgs', 'SpringbootserversPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 springbootservers_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
         The springbootservers envelope resource definition.
@@ -145,10 +145,10 @@ class Springbootserver(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: pulumi.Input[Optional[Union['SpringbootserversPropertiesArgs', 'SpringbootserversPropertiesArgsDict']]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 springbootservers_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: Optional[pulumi.Input[Union['SpringbootserversPropertiesArgs', 'SpringbootserversPropertiesArgsDict']]] = None,
+                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 springbootservers_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

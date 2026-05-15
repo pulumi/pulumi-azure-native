@@ -189,11 +189,11 @@ export interface NamespaceDiscoveredDeviceArgs {
     /**
      * A set of key-value pairs that contain custom attributes.
      */
-    attributes?: any | undefined;
+    attributes?: any;
     /**
      * The name of the discovered device.
      */
-    discoveredDeviceName?: pulumi.Input<string | undefined>;
+    discoveredDeviceName?: pulumi.Input<string>;
     /**
      * Identifier used to detect changes in the discovered device.
      */
@@ -201,7 +201,7 @@ export interface NamespaceDiscoveredDeviceArgs {
     /**
      * Endpoints for discovered devices.
      */
-    endpoints?: pulumi.Input<inputs.deviceregistry.DiscoveredMessagingEndpointsArgs | undefined>;
+    endpoints?: pulumi.Input<inputs.deviceregistry.DiscoveredMessagingEndpointsArgs>;
     /**
      * The extended location.
      */
@@ -209,19 +209,19 @@ export interface NamespaceDiscoveredDeviceArgs {
     /**
      * A device ID that represents the device in a system external to Azure. Unique within scope of an Azure tenant.
      */
-    externalDeviceId?: pulumi.Input<string | undefined>;
+    externalDeviceId?: pulumi.Input<string>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * Device manufacturer.
      */
-    manufacturer?: pulumi.Input<string | undefined>;
+    manufacturer?: pulumi.Input<string>;
     /**
      * Device model.
      */
-    model?: pulumi.Input<string | undefined>;
+    model?: pulumi.Input<string>;
     /**
      * The name of the namespace.
      */
@@ -229,11 +229,11 @@ export interface NamespaceDiscoveredDeviceArgs {
     /**
      * Device operating system name.
      */
-    operatingSystem?: pulumi.Input<string | undefined>;
+    operatingSystem?: pulumi.Input<string>;
     /**
      * Device operating system version.
      */
-    operatingSystemVersion?: pulumi.Input<string | undefined>;
+    operatingSystemVersion?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -241,7 +241,7 @@ export interface NamespaceDiscoveredDeviceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * An integer that is incremented each time the resource is modified.
      */

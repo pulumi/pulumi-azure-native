@@ -102,9 +102,9 @@ export interface CostAllocationRuleArgs {
     /**
      * Cost allocation rule properties
      */
-    properties?: pulumi.Input<inputs.costmanagement.CostAllocationRulePropertiesArgs | undefined>;
+    properties?: pulumi.Input<inputs.costmanagement.CostAllocationRulePropertiesArgs>;
     /**
      * Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
      */
-    ruleName?: pulumi.Input<string | undefined>;
+    ruleName?: pulumi.Input<string>;
 }

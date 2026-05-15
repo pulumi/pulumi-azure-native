@@ -153,15 +153,15 @@ export interface ServiceEndpointPolicyArgs {
     /**
      * A collection of contextual service endpoint policy.
      */
-    contextualServiceEndpointPolicies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    contextualServiceEndpointPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string | undefined>;
+    id?: pulumi.Input<string>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string | undefined>;
+    location?: pulumi.Input<string>;
     /**
      * The name of the resource group.
      */
@@ -169,18 +169,18 @@ export interface ServiceEndpointPolicyArgs {
     /**
      * The alias indicating if the policy belongs to a service
      */
-    serviceAlias?: pulumi.Input<string | undefined>;
+    serviceAlias?: pulumi.Input<string>;
     /**
      * A collection of service endpoint policy definitions of the service endpoint policy.
      * These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
      */
-    serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPolicyDefinitionArgs>[] | undefined>;
+    serviceEndpointPolicyDefinitions?: pulumi.Input<pulumi.Input<inputs.network.ServiceEndpointPolicyDefinitionArgs>[]>;
     /**
      * The name of the service endpoint policy.
      */
-    serviceEndpointPolicyName?: pulumi.Input<string | undefined>;
+    serviceEndpointPolicyName?: pulumi.Input<string>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

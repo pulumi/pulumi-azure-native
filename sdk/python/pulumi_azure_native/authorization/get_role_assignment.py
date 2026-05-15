@@ -269,9 +269,9 @@ def get_role_assignment(role_assignment_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         updated_by=pulumi.get(__ret__, 'updated_by'),
         updated_on=pulumi.get(__ret__, 'updated_on'))
-def get_role_assignment_output(role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               scope: pulumi.Input[Optional[_builtins.str]] = None,
-                               tenant_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_role_assignment_output(role_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
+                               scope: Optional[pulumi.Input[_builtins.str]] = None,
+                               tenant_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAssignmentResult]:
     """
     Get a role assignment by scope and name.

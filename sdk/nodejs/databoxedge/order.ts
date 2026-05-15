@@ -176,9 +176,9 @@ export interface OrderArgs {
     /**
      * ShipmentType of the order
      */
-    shipmentType?: pulumi.Input<string | enums.databoxedge.ShipmentType | undefined>;
+    shipmentType?: pulumi.Input<string | enums.databoxedge.ShipmentType>;
     /**
      * The shipping address.
      */
-    shippingAddress?: pulumi.Input<inputs.databoxedge.AddressArgs | undefined>;
+    shippingAddress?: pulumi.Input<inputs.databoxedge.AddressArgs>;
 }
