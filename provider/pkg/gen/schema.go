@@ -1181,7 +1181,7 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		parameters = swagger.MergeParameters(readOp.Parameters, path.Parameters)
 		requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &methodParametersOptions{
 			bodySchema:       resource.body,
-			namer:            &autoNamer,
+			namer:            nil,
 			isResourceGetter: true,
 			listParameters:   false,
 		})
