@@ -257,7 +257,8 @@
      "configurationName",
      "networkManagerName",
      "resourceGroupName",
-     "ruleCollectionName"
+     "ruleCollectionName",
+     "ruleName"
     ],
     "type": "object"
    },
@@ -399,7 +400,8 @@
     "required": [
      "configurationName",
      "networkManagerName",
-     "resourceGroupName"
+     "resourceGroupName",
+     "ruleCollectionName"
     ],
     "type": "object"
    },
@@ -482,6 +484,7 @@
      }
     },
     "required": [
+     "applicationGatewayName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -895,6 +898,7 @@
     },
     "required": [
      "applicationGatewayName",
+     "connectionName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -968,6 +972,7 @@
      }
     },
     "required": [
+     "applicationSecurityGroupName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -1042,6 +1047,7 @@
      }
     },
     "required": [
+     "azureFirewallName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -1195,6 +1201,7 @@
      }
     },
     "required": [
+     "bastionHostName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -1368,6 +1375,7 @@
      }
     },
     "required": [
+     "configurationPolicyGroupName",
      "resourceGroupName",
      "vpnServerConfigurationName"
     ],
@@ -1456,6 +1464,7 @@
      }
     },
     "required": [
+     "connectionMonitorName",
      "networkWatcherName",
      "resourceGroupName"
     ],
@@ -1603,6 +1612,7 @@
      }
     },
     "required": [
+     "configurationName",
      "networkManagerName",
      "resourceGroupName"
     ],
@@ -1712,6 +1722,7 @@
      }
     },
     "required": [
+     "customIpPrefixName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -1862,6 +1873,7 @@
      }
     },
     "required": [
+     "ddosCustomPolicyName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -1936,6 +1948,7 @@
      }
     },
     "required": [
+     "ddosProtectionPlanName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -2047,7 +2060,8 @@
      "configurationName",
      "networkManagerName",
      "resourceGroupName",
-     "ruleCollectionName"
+     "ruleCollectionName",
+     "ruleName"
     ],
     "type": "object"
    },
@@ -2186,6 +2200,7 @@
      }
     },
     "required": [
+     "dscpConfigurationName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -2325,6 +2340,7 @@
      }
     },
     "required": [
+     "circuitName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -2476,6 +2492,7 @@
      }
     },
     "required": [
+     "authorizationName",
      "circuitName",
      "resourceGroupName"
     ],
@@ -2553,6 +2570,7 @@
     },
     "required": [
      "circuitName",
+     "connectionName",
      "peeringName",
      "resourceGroupName"
     ],
@@ -2645,6 +2663,7 @@
     },
     "required": [
      "circuitName",
+     "peeringName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -2798,6 +2817,7 @@
      }
     },
     "required": [
+     "connectionName",
      "expressRouteGatewayName",
      "resourceGroupName"
     ],
@@ -2884,6 +2904,7 @@
     },
     "required": [
      "crossConnectionName",
+     "peeringName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -2998,6 +3019,7 @@
      }
     },
     "required": [
+     "expressRouteGatewayName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -3090,6 +3112,7 @@
      }
     },
     "required": [
+     "expressRoutePortName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -3227,6 +3250,7 @@
      }
     },
     "required": [
+     "authorizationName",
      "expressRoutePortName",
      "resourceGroupName"
     ],
@@ -3304,6 +3328,7 @@
      }
     },
     "required": [
+     "firewallPolicyName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -3465,7 +3490,8 @@
     },
     "required": [
      "firewallPolicyName",
-     "resourceGroupName"
+     "resourceGroupName",
+     "ruleCollectionGroupName"
     ],
     "type": "object"
    },
@@ -3554,6 +3580,7 @@
      }
     },
     "required": [
+     "flowLogName",
      "networkWatcherName",
      "resourceGroupName"
     ],
@@ -3664,6 +3691,7 @@
     },
     "required": [
      "resourceGroupName",
+     "routeTableName",
      "virtualHubName"
     ],
     "type": "object"
@@ -3757,6 +3785,7 @@
      }
     },
     "required": [
+     "connectionName",
      "resourceGroupName",
      "virtualHubName"
     ],
@@ -3841,6 +3870,7 @@
      }
     },
     "required": [
+     "inboundNatRuleName",
      "loadBalancerName",
      "resourceGroupName"
     ],
@@ -3951,6 +3981,7 @@
      }
     },
     "required": [
+     "ipAllocationName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -4055,6 +4086,7 @@
      }
     },
     "required": [
+     "ipGroupsName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -4153,6 +4185,7 @@
      }
     },
     "required": [
+     "loadBalancerName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -4298,6 +4331,7 @@
      }
     },
     "required": [
+     "backendAddressPoolName",
      "loadBalancerName",
      "resourceGroupName"
     ],
@@ -4427,6 +4461,7 @@
      }
     },
     "required": [
+     "localNetworkGatewayName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -4519,7 +4554,8 @@
      }
     },
     "required": [
-     "managementGroupId"
+     "managementGroupId",
+     "networkManagerConnectionName"
     ],
     "type": "object"
    },
@@ -4591,6 +4627,7 @@
      }
     },
     "required": [
+     "natGatewayName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -4712,6 +4749,7 @@
     },
     "required": [
      "gatewayName",
+     "natRuleName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -4816,6 +4854,7 @@
      }
     },
     "required": [
+     "networkGroupName",
      "networkManagerName",
      "resourceGroupName"
     ],
@@ -4895,6 +4934,7 @@
      }
     },
     "required": [
+     "networkInterfaceName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -5085,7 +5125,8 @@
     },
     "required": [
      "networkInterfaceName",
-     "resourceGroupName"
+     "resourceGroupName",
+     "tapConfigurationName"
     ],
     "type": "object"
    },
@@ -5147,6 +5188,7 @@
      }
     },
     "required": [
+     "networkManagerName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -5249,6 +5291,7 @@
      }
     },
     "required": [
+     "networkProfileName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -5344,6 +5387,7 @@
      }
     },
     "required": [
+     "networkSecurityGroupName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -5470,6 +5514,7 @@
      }
     },
     "required": [
+     "networkVirtualApplianceName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -5649,6 +5694,7 @@
      }
     },
     "required": [
+     "connectionName",
      "networkVirtualApplianceName",
      "resourceGroupName"
     ],
@@ -5698,6 +5744,7 @@
      }
     },
     "required": [
+     "networkWatcherName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -5767,6 +5814,7 @@
      }
     },
     "required": [
+     "gatewayName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -6030,6 +6078,7 @@
     },
     "required": [
      "networkWatcherName",
+     "packetCaptureName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -6132,6 +6181,7 @@
      }
     },
     "required": [
+     "privateDnsZoneGroupName",
      "privateEndpointName",
      "resourceGroupName"
     ],
@@ -6197,6 +6247,7 @@
      }
     },
     "required": [
+     "privateEndpointName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -6333,7 +6384,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "serviceName"
     ],
     "type": "object"
    },
@@ -6476,6 +6528,7 @@
      }
     },
     "required": [
+     "peConnectionName",
      "resourceGroupName",
      "serviceName"
     ],
@@ -6559,6 +6612,7 @@
      }
     },
     "required": [
+     "publicIpAddressName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -6722,6 +6776,7 @@
      }
     },
     "required": [
+     "publicIpPrefixName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -6865,6 +6920,7 @@
     },
     "required": [
      "resourceGroupName",
+     "routeName",
      "routeTableName"
     ],
     "type": "object"
@@ -6942,7 +6998,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "routeFilterName"
     ],
     "type": "object"
    },
@@ -7044,7 +7101,8 @@
     },
     "required": [
      "resourceGroupName",
-     "routeFilterName"
+     "routeFilterName",
+     "ruleName"
     ],
     "type": "object"
    },
@@ -7124,6 +7182,7 @@
     },
     "required": [
      "resourceGroupName",
+     "routeMapName",
      "virtualHubName"
     ],
     "type": "object"
@@ -7209,7 +7268,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "routeTableName"
     ],
     "type": "object"
    },
@@ -7310,6 +7370,7 @@
     },
     "required": [
      "resourceGroupName",
+     "routingIntentName",
      "virtualHubName"
     ],
     "type": "object"
@@ -7381,7 +7442,8 @@
     },
     "required": [
      "networkManagerName",
-     "resourceGroupName"
+     "resourceGroupName",
+     "scopeConnectionName"
     ],
     "type": "object"
    },
@@ -7458,6 +7520,7 @@
      }
     },
     "required": [
+     "configurationName",
      "networkManagerName",
      "resourceGroupName"
     ],
@@ -7540,7 +7603,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "securityPartnerProviderName"
     ],
     "type": "object"
    },
@@ -7629,7 +7693,8 @@
     },
     "required": [
      "networkSecurityGroupName",
-     "resourceGroupName"
+     "resourceGroupName",
+     "securityRuleName"
     ],
     "type": "object"
    },
@@ -7773,7 +7838,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "serviceEndpointPolicyName"
     ],
     "type": "object"
    },
@@ -7886,6 +7952,7 @@
     },
     "required": [
      "resourceGroupName",
+     "serviceEndpointPolicyDefinitionName",
      "serviceEndpointPolicyName"
     ],
     "type": "object"
@@ -7969,7 +8036,8 @@
     "required": [
      "networkGroupName",
      "networkManagerName",
-     "resourceGroupName"
+     "resourceGroupName",
+     "staticMemberName"
     ],
     "type": "object"
    },
@@ -8053,6 +8121,7 @@
     },
     "required": [
      "resourceGroupName",
+     "subnetName",
      "virtualNetworkName"
     ],
     "type": "object"
@@ -8229,6 +8298,9 @@
       "willReplaceOnChanges": true
      }
     },
+    "required": [
+     "networkManagerConnectionName"
+    ],
     "type": "object"
    },
    "outputs": {
@@ -8301,7 +8373,8 @@
     },
     "required": [
      "networkVirtualApplianceName",
-     "resourceGroupName"
+     "resourceGroupName",
+     "siteName"
     ],
     "type": "object"
    },
@@ -8367,7 +8440,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "virtualHubName"
     ],
     "type": "object"
    },
@@ -8562,6 +8636,7 @@
      }
     },
     "required": [
+     "connectionName",
      "resourceGroupName",
      "virtualHubName"
     ],
@@ -8643,6 +8718,7 @@
      }
     },
     "required": [
+     "ipConfigName",
      "resourceGroupName",
      "virtualHubName"
     ],
@@ -8725,6 +8801,7 @@
     },
     "required": [
      "resourceGroupName",
+     "routeTableName",
      "virtualHubName"
     ],
     "type": "object"
@@ -8796,7 +8873,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "virtualNetworkName"
     ],
     "type": "object"
    },
@@ -8947,7 +9025,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "virtualNetworkGatewayName"
     ],
     "type": "object"
    },
@@ -9213,7 +9292,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "virtualNetworkGatewayConnectionName"
     ],
     "type": "object"
    },
@@ -9492,6 +9572,7 @@
      }
     },
     "required": [
+     "natRuleName",
      "resourceGroupName",
      "virtualNetworkGatewayName"
     ],
@@ -9716,7 +9797,8 @@
     },
     "required": [
      "resourceGroupName",
-     "virtualNetworkName"
+     "virtualNetworkName",
+     "virtualNetworkPeeringName"
     ],
     "type": "object"
    },
@@ -9831,7 +9913,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "tapName"
     ],
     "type": "object"
    },
@@ -9932,7 +10015,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "virtualRouterName"
     ],
     "type": "object"
    },
@@ -10036,6 +10120,7 @@
      }
     },
     "required": [
+     "peeringName",
      "resourceGroupName",
      "virtualRouterName"
     ],
@@ -10102,7 +10187,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "virtualWANName"
     ],
     "type": "object"
    },
@@ -10212,6 +10298,7 @@
      }
     },
     "required": [
+     "connectionName",
      "gatewayName",
      "resourceGroupName"
     ],
@@ -10354,6 +10441,7 @@
      }
     },
     "required": [
+     "gatewayName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -10513,7 +10601,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "vpnServerConfigurationName"
     ],
     "type": "object"
    },
@@ -10583,7 +10672,8 @@
      }
     },
     "required": [
-     "resourceGroupName"
+     "resourceGroupName",
+     "vpnSiteName"
     ],
     "type": "object"
    },
@@ -10698,6 +10788,7 @@
      }
     },
     "required": [
+     "policyName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -49312,7 +49403,6 @@
      "name": "ruleName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -49448,7 +49538,6 @@
      "name": "ruleCollectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -49509,7 +49598,6 @@
      "name": "applicationGatewayName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -49933,7 +50021,6 @@
      "name": "connectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -49994,7 +50081,6 @@
      "name": "applicationSecurityGroupName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -50049,7 +50135,6 @@
      "name": "azureFirewallName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -50192,7 +50277,6 @@
      "name": "bastionHostName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -50374,7 +50458,6 @@
      "name": "configurationPolicyGroupName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -50446,7 +50529,6 @@
      "name": "connectionMonitorName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -50592,7 +50674,6 @@
      "name": "configurationName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -50680,7 +50761,6 @@
      "name": "customIpPrefixName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -50825,7 +50905,6 @@
      "name": "ddosCustomPolicyName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -50880,7 +50959,6 @@
      "name": "ddosProtectionPlanName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -50985,7 +51063,6 @@
      "name": "ruleName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -51102,7 +51179,6 @@
      "name": "dscpConfigurationName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -51229,7 +51305,6 @@
      "name": "circuitName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -51375,7 +51450,6 @@
      "name": "authorizationName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -51445,7 +51519,6 @@
      "name": "connectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -51530,7 +51603,6 @@
      "name": "peeringName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -51690,7 +51762,6 @@
      "name": "connectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -51777,7 +51848,6 @@
      "name": "peeringName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -51892,7 +51962,6 @@
      "name": "expressRouteGatewayName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -51976,7 +52045,6 @@
      "name": "expressRoutePortName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     }
@@ -52092,7 +52160,6 @@
      "name": "authorizationName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -52151,7 +52218,6 @@
      "name": "firewallPolicyName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -52312,7 +52378,6 @@
      "name": "ruleCollectionGroupName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -52380,7 +52445,6 @@
      "name": "flowLogName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -52484,7 +52548,6 @@
      "name": "routeTableName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -52569,7 +52632,6 @@
      "name": "connectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -52639,7 +52701,6 @@
      "name": "inboundNatRuleName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -52749,7 +52810,6 @@
      "name": "ipAllocationName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -52843,7 +52903,6 @@
      "name": "ipGroupsName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -52927,7 +52986,6 @@
      "name": "loadBalancerName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -53067,7 +53125,6 @@
      "name": "backendAddressPoolName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -53187,7 +53244,6 @@
      "name": "localNetworkGatewayName",
      "required": true,
      "value": {
-      "autoname": "random",
       "minLength": 1,
       "type": "string"
      }
@@ -53265,7 +53321,6 @@
      "name": "networkManagerConnectionName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     }
@@ -53309,7 +53364,6 @@
      "name": "natGatewayName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -53428,7 +53482,6 @@
      "name": "natRuleName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -53526,7 +53579,6 @@
      "name": "networkGroupName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -53575,7 +53627,6 @@
      "name": "networkInterfaceName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -53766,7 +53817,6 @@
      "name": "tapConfigurationName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -53824,7 +53874,6 @@
      "name": "networkManagerName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     }
@@ -53893,7 +53942,6 @@
      "name": "networkProfileName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -53974,7 +54022,6 @@
      "name": "networkSecurityGroupName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -54087,7 +54134,6 @@
      "name": "networkVirtualApplianceName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -54274,7 +54320,6 @@
      "name": "connectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -54306,7 +54351,6 @@
      "name": "networkWatcherName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -54364,7 +54408,6 @@
      "name": "gatewayName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     }
@@ -54607,7 +54650,6 @@
      "name": "packetCaptureName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -54707,7 +54749,6 @@
      "name": "privateDnsZoneGroupName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -54759,7 +54800,6 @@
      "name": "privateEndpointName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -54885,7 +54925,6 @@
      "name": "serviceName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -55020,7 +55059,6 @@
      "name": "peConnectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -55094,7 +55132,6 @@
      "name": "publicIpAddressName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -55249,7 +55286,6 @@
      "name": "publicIpPrefixName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -55382,7 +55418,6 @@
      "name": "routeName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -55446,7 +55481,6 @@
      "name": "routeFilterName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -55539,7 +55573,6 @@
      "name": "ruleName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -55617,7 +55650,6 @@
      "name": "routeMapName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -55678,7 +55710,6 @@
      "name": "routeTableName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -55780,7 +55811,6 @@
      "name": "routingIntentName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -55841,7 +55871,6 @@
      "name": "scopeConnectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -55906,7 +55935,6 @@
      "name": "configurationName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -55963,7 +55991,6 @@
      "name": "securityPartnerProviderName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -56037,7 +56064,6 @@
      "name": "securityRuleName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -56176,7 +56202,6 @@
      "name": "serviceEndpointPolicyName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -56279,7 +56304,6 @@
      "name": "serviceEndpointPolicyDefinitionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -56365,7 +56389,6 @@
      "name": "staticMemberName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -56422,7 +56445,6 @@
      "name": "subnetName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -56612,7 +56634,6 @@
      "name": "networkManagerConnectionName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     }
@@ -56664,7 +56685,6 @@
      "name": "siteName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -56727,7 +56747,6 @@
      "name": "virtualHubName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     }
@@ -56918,7 +56937,6 @@
      "name": "connectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -56991,7 +57009,6 @@
      "name": "ipConfigName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -57065,7 +57082,6 @@
      "name": "routeTableName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -57117,7 +57133,6 @@
      "name": "virtualNetworkName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -57266,7 +57281,6 @@
      "name": "virtualNetworkGatewayName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -57546,7 +57560,6 @@
      "name": "virtualNetworkGatewayConnectionName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -57847,7 +57860,6 @@
      "name": "natRuleName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -58038,7 +58050,6 @@
      "name": "virtualNetworkPeeringName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -58152,7 +58163,6 @@
      "name": "tapName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -58233,7 +58243,6 @@
      "name": "virtualRouterName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     },
@@ -58333,7 +58342,6 @@
      "name": "peeringName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     },
@@ -58387,7 +58395,6 @@
      "name": "VirtualWANName",
      "required": true,
      "value": {
-      "autoname": "random",
       "sdkName": "virtualWANName",
       "type": "string"
      }
@@ -58492,7 +58499,6 @@
      "name": "connectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "type": "string"
      }
     }
@@ -58639,7 +58645,6 @@
      "name": "gatewayName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     }
@@ -58796,7 +58801,6 @@
      "name": "vpnServerConfigurationName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     }
@@ -58844,7 +58848,6 @@
      "name": "vpnSiteName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     }
@@ -58940,7 +58943,6 @@
      "name": "policyName",
      "required": true,
      "value": {
-      "autoname": "random",
       "maxLength": 128,
       "type": "string"
      }

@@ -120,6 +120,7 @@
     },
     "required": [
      "policyName",
+     "privateEndpointConnectionName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -184,6 +185,7 @@
      }
     },
     "required": [
+     "policyName",
      "resourceGroupName"
     ],
     "type": "object"
@@ -1188,7 +1190,6 @@
      "name": "privateEndpointConnectionName",
      "required": true,
      "value": {
-      "autoname": "copy",
       "minLength": 1,
       "type": "string"
      }
@@ -1255,7 +1256,6 @@
      "name": "policyName",
      "required": true,
      "value": {
-      "autoname": "random",
       "type": "string"
      }
     }
