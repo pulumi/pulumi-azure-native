@@ -22,23 +22,24 @@ __all__ = ['FleetspaceAccountArgs', 'FleetspaceAccount']
 class FleetspaceAccountArgs:
     def __init__(__self__, *,
                  fleet_name: pulumi.Input[_builtins.str],
-                 fleetspace_account_name: pulumi.Input[_builtins.str],
                  fleetspace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 fleetspace_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  global_database_account_properties: pulumi.Input[Optional['FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs']] = None):
         """
         The set of arguments for constructing a FleetspaceAccount resource.
 
         :param pulumi.Input[_builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
-        :param pulumi.Input[_builtins.str] fleetspace_account_name: Cosmos DB fleetspace account name.
         :param pulumi.Input[_builtins.str] fleetspace_name: Cosmos DB fleetspace name. Needs to be unique under a fleet.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] fleetspace_account_name: Cosmos DB fleetspace account name.
         :param pulumi.Input['FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgs'] global_database_account_properties: Configuration for fleetspace Account in the fleetspace.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
-        pulumi.set(__self__, "fleetspace_account_name", fleetspace_account_name)
         pulumi.set(__self__, "fleetspace_name", fleetspace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if fleetspace_account_name is not None:
+            pulumi.set(__self__, "fleetspace_account_name", fleetspace_account_name)
         if global_database_account_properties is not None:
             pulumi.set(__self__, "global_database_account_properties", global_database_account_properties)
 
@@ -53,18 +54,6 @@ class FleetspaceAccountArgs:
     @fleet_name.setter
     def fleet_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "fleet_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fleetspaceAccountName")
-    def fleetspace_account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Cosmos DB fleetspace account name.
-        """
-        return pulumi.get(self, "fleetspace_account_name")
-
-    @fleetspace_account_name.setter
-    def fleetspace_account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fleetspace_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetspaceName")
@@ -89,6 +78,18 @@ class FleetspaceAccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fleetspaceAccountName")
+    def fleetspace_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Cosmos DB fleetspace account name.
+        """
+        return pulumi.get(self, "fleetspace_account_name")
+
+    @fleetspace_account_name.setter
+    def fleetspace_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fleetspace_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="globalDatabaseAccountProperties")
@@ -177,8 +178,6 @@ class FleetspaceAccount(pulumi.CustomResource):
             if fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_name'")
             __props__.__dict__["fleet_name"] = fleet_name
-            if fleetspace_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fleetspace_account_name'")
             __props__.__dict__["fleetspace_account_name"] = fleetspace_account_name
             if fleetspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleetspace_name'")

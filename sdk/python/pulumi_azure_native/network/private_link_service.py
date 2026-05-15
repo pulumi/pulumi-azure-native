@@ -23,7 +23,6 @@ __all__ = ['PrivateLinkServiceInitArgs', 'PrivateLinkService']
 class PrivateLinkServiceInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 service_name: pulumi.Input[_builtins.str],
                  auto_approval: pulumi.Input[Optional['PrivateLinkServicePropertiesAutoApprovalArgs']] = None,
                  destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -33,13 +32,13 @@ class PrivateLinkServiceInitArgs:
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]]] = None,
                  load_balancer_frontend_ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  visibility: pulumi.Input[Optional['PrivateLinkServicePropertiesVisibilityArgs']] = None):
         """
         The set of arguments for constructing a PrivateLinkService resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] service_name: The name of the private link service.
         :param pulumi.Input['PrivateLinkServicePropertiesAutoApprovalArgs'] auto_approval: The auto-approval list of the private link service.
         :param pulumi.Input[_builtins.str] destination_ip_address: The destination IP address of the private link service.
         :param pulumi.Input[_builtins.bool] enable_proxy_protocol: Whether the private link service is enabled for proxy protocol or not.
@@ -49,11 +48,11 @@ class PrivateLinkServiceInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceIpConfigurationArgs']]] ip_configurations: An array of private link service IP configurations.
         :param pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]] load_balancer_frontend_ip_configurations: An array of references to the load balancer IP configurations.
         :param pulumi.Input[_builtins.str] location: Resource location.
+        :param pulumi.Input[_builtins.str] service_name: The name of the private link service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['PrivateLinkServicePropertiesVisibilityArgs'] visibility: The visibility list of the private link service.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
         if auto_approval is not None:
             pulumi.set(__self__, "auto_approval", auto_approval)
         if destination_ip_address is not None:
@@ -72,6 +71,8 @@ class PrivateLinkServiceInitArgs:
             pulumi.set(__self__, "load_balancer_frontend_ip_configurations", load_balancer_frontend_ip_configurations)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if visibility is not None:
@@ -88,18 +89,6 @@ class PrivateLinkServiceInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the private link service.
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoApproval")
@@ -208,6 +197,18 @@ class PrivateLinkServiceInitArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the private link service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -341,8 +342,6 @@ class PrivateLinkService(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["visibility"] = visibility

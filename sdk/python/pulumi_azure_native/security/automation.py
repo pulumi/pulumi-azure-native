@@ -22,9 +22,9 @@ __all__ = ['AutomationArgs', 'Automation']
 @pulumi.input_type
 class AutomationArgs:
     def __init__(__self__, *,
-                 automation_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]]] = None,
+                 automation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,9 +35,9 @@ class AutomationArgs:
         """
         The set of arguments for constructing a Automation resource.
 
-        :param pulumi.Input[_builtins.str] automation_name: The security automation name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]] actions: A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
+        :param pulumi.Input[_builtins.str] automation_name: The security automation name.
         :param pulumi.Input[_builtins.str] description: The security automation description.
         :param pulumi.Input[_builtins.bool] is_enabled: Indicates whether the security automation is enabled.
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
@@ -46,10 +46,11 @@ class AutomationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AutomationSourceArgs']]] sources: A collection of the source event types which evaluate the security automation set of rules.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
         """
-        pulumi.set(__self__, "automation_name", automation_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
+        if automation_name is not None:
+            pulumi.set(__self__, "automation_name", automation_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if is_enabled is not None:
@@ -64,18 +65,6 @@ class AutomationArgs:
             pulumi.set(__self__, "sources", sources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="automationName")
-    def automation_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The security automation name.
-        """
-        return pulumi.get(self, "automation_name")
-
-    @automation_name.setter
-    def automation_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "automation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -100,6 +89,18 @@ class AutomationArgs:
     @actions.setter
     def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationActionEventHubArgs', 'AutomationActionLogicAppArgs', 'AutomationActionWorkspaceArgs']]]]]):
         pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automationName")
+    def automation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The security automation name.
+        """
+        return pulumi.get(self, "automation_name")
+
+    @automation_name.setter
+    def automation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "automation_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -273,8 +274,6 @@ class Automation(pulumi.CustomResource):
             __props__ = AutomationArgs.__new__(AutomationArgs)
 
             __props__.__dict__["actions"] = actions
-            if automation_name is None and not opts.urn:
-                raise TypeError("Missing required property 'automation_name'")
             __props__.__dict__["automation_name"] = automation_name
             __props__.__dict__["description"] = description
             __props__.__dict__["is_enabled"] = is_enabled

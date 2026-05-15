@@ -22,28 +22,29 @@ __all__ = ['ImageInitArgs', 'Image']
 class ImageInitArgs:
     def __init__(__self__, *,
                  catalog_name: pulumi.Input[_builtins.str],
-                 image_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  image: pulumi.Input[Optional[_builtins.str]] = None,
                  image_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_name: pulumi.Input[Optional[_builtins.str]] = None,
                  regional_data_boundary: pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]] = None):
         """
         The set of arguments for constructing a Image resource.
 
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
-        :param pulumi.Input[_builtins.str] image_name: Image name. Use an image GUID for GA versions of the API.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] image: Image as a UTF-8 encoded base 64 string on image create. This field contains the image URI on image reads.
         :param pulumi.Input[_builtins.str] image_id: Image ID
+        :param pulumi.Input[_builtins.str] image_name: Image name. Use an image GUID for GA versions of the API.
         :param pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']] regional_data_boundary: Regional data boundary for an image
         """
         pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "image_name", image_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if image is not None:
             pulumi.set(__self__, "image", image)
         if image_id is not None:
             pulumi.set(__self__, "image_id", image_id)
+        if image_name is not None:
+            pulumi.set(__self__, "image_name", image_name)
         if regional_data_boundary is not None:
             pulumi.set(__self__, "regional_data_boundary", regional_data_boundary)
 
@@ -58,18 +59,6 @@ class ImageInitArgs:
     @catalog_name.setter
     def catalog_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "catalog_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="imageName")
-    def image_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Image name. Use an image GUID for GA versions of the API.
-        """
-        return pulumi.get(self, "image_name")
-
-    @image_name.setter
-    def image_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -106,6 +95,18 @@ class ImageInitArgs:
     @image_id.setter
     def image_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="imageName")
+    def image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Image name. Use an image GUID for GA versions of the API.
+        """
+        return pulumi.get(self, "image_name")
+
+    @image_name.setter
+    def image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="regionalDataBoundary")
@@ -195,8 +196,6 @@ class Image(pulumi.CustomResource):
             __props__.__dict__["catalog_name"] = catalog_name
             __props__.__dict__["image"] = image
             __props__.__dict__["image_id"] = image_id
-            if image_name is None and not opts.urn:
-                raise TypeError("Missing required property 'image_name'")
             __props__.__dict__["image_name"] = image_name
             __props__.__dict__["regional_data_boundary"] = regional_data_boundary
             if resource_group_name is None and not opts.urn:

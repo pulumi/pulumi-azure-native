@@ -21,7 +21,6 @@ __all__ = ['ADLSGen2FolderDataSetArgs', 'ADLSGen2FolderDataSet']
 class ADLSGen2FolderDataSetArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 data_set_name: pulumi.Input[_builtins.str],
                  file_system: pulumi.Input[_builtins.str],
                  folder_path: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
@@ -29,12 +28,12 @@ class ADLSGen2FolderDataSetArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
                  storage_account_name: pulumi.Input[_builtins.str],
-                 subscription_id: pulumi.Input[_builtins.str]):
+                 subscription_id: pulumi.Input[_builtins.str],
+                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ADLSGen2FolderDataSet resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
-        :param pulumi.Input[_builtins.str] data_set_name: The name of the dataSet.
         :param pulumi.Input[_builtins.str] file_system: File system to which the folder belongs.
         :param pulumi.Input[_builtins.str] folder_path: Folder path within the file system.
         :param pulumi.Input[_builtins.str] kind: Kind of data set.
@@ -44,9 +43,9 @@ class ADLSGen2FolderDataSetArgs:
         :param pulumi.Input[_builtins.str] share_name: The name of the share to add the data set to.
         :param pulumi.Input[_builtins.str] storage_account_name: Storage account name of the source data set
         :param pulumi.Input[_builtins.str] subscription_id: Subscription id of storage account
+        :param pulumi.Input[_builtins.str] data_set_name: The name of the dataSet.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "data_set_name", data_set_name)
         pulumi.set(__self__, "file_system", file_system)
         pulumi.set(__self__, "folder_path", folder_path)
         pulumi.set(__self__, "kind", 'AdlsGen2Folder')
@@ -55,6 +54,8 @@ class ADLSGen2FolderDataSetArgs:
         pulumi.set(__self__, "share_name", share_name)
         pulumi.set(__self__, "storage_account_name", storage_account_name)
         pulumi.set(__self__, "subscription_id", subscription_id)
+        if data_set_name is not None:
+            pulumi.set(__self__, "data_set_name", data_set_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -67,18 +68,6 @@ class ADLSGen2FolderDataSetArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSetName")
-    def data_set_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the dataSet.
-        """
-        return pulumi.get(self, "data_set_name")
-
-    @data_set_name.setter
-    def data_set_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystem")
@@ -177,6 +166,18 @@ class ADLSGen2FolderDataSetArgs:
     def subscription_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "subscription_id", value)
 
+    @_builtins.property
+    @pulumi.getter(name="dataSetName")
+    def data_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the dataSet.
+        """
+        return pulumi.get(self, "data_set_name")
+
+    @data_set_name.setter
+    def data_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_set_name", value)
+
 
 @pulumi.type_token("azure-native:datashare:ADLSGen2FolderDataSet")
 class ADLSGen2FolderDataSet(pulumi.CustomResource):
@@ -264,8 +265,6 @@ class ADLSGen2FolderDataSet(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if data_set_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_set_name'")
             __props__.__dict__["data_set_name"] = data_set_name
             if file_system is None and not opts.urn:
                 raise TypeError("Missing required property 'file_system'")

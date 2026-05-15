@@ -22,36 +22,25 @@ __all__ = ['AssociatedTenantArgs', 'AssociatedTenant']
 @pulumi.input_type
 class AssociatedTenantArgs:
     def __init__(__self__, *,
-                 associated_tenant_name: pulumi.Input[_builtins.str],
                  billing_account_name: pulumi.Input[_builtins.str],
+                 associated_tenant_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['AssociatedTenantPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AssociatedTenant resource.
 
-        :param pulumi.Input[_builtins.str] associated_tenant_name: The ID that uniquely identifies a tenant.
         :param pulumi.Input[_builtins.str] billing_account_name: The ID that uniquely identifies a billing account.
+        :param pulumi.Input[_builtins.str] associated_tenant_name: The ID that uniquely identifies a tenant.
         :param pulumi.Input['AssociatedTenantPropertiesArgs'] properties: An associated tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \\ ? /
         """
-        pulumi.set(__self__, "associated_tenant_name", associated_tenant_name)
         pulumi.set(__self__, "billing_account_name", billing_account_name)
+        if associated_tenant_name is not None:
+            pulumi.set(__self__, "associated_tenant_name", associated_tenant_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="associatedTenantName")
-    def associated_tenant_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID that uniquely identifies a tenant.
-        """
-        return pulumi.get(self, "associated_tenant_name")
-
-    @associated_tenant_name.setter
-    def associated_tenant_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "associated_tenant_name", value)
 
     @_builtins.property
     @pulumi.getter(name="billingAccountName")
@@ -64,6 +53,18 @@ class AssociatedTenantArgs:
     @billing_account_name.setter
     def billing_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "billing_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associatedTenantName")
+    def associated_tenant_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID that uniquely identifies a tenant.
+        """
+        return pulumi.get(self, "associated_tenant_name")
+
+    @associated_tenant_name.setter
+    def associated_tenant_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "associated_tenant_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -154,8 +155,6 @@ class AssociatedTenant(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssociatedTenantArgs.__new__(AssociatedTenantArgs)
 
-            if associated_tenant_name is None and not opts.urn:
-                raise TypeError("Missing required property 'associated_tenant_name'")
             __props__.__dict__["associated_tenant_name"] = associated_tenant_name
             if billing_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'billing_account_name'")

@@ -216,7 +216,7 @@ def get_graph_query(resource_group_name: Optional[_builtins.str] = None,
         time_modified=pulumi.get(__ret__, 'time_modified'),
         type=pulumi.get(__ret__, 'type'))
 def get_graph_query_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphQueryResult]:
     """
     Get a single graph query by its resourceName.

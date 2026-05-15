@@ -351,7 +351,7 @@ def get_profile(hub_name: Optional[_builtins.str] = None,
         type_name=pulumi.get(__ret__, 'type_name'))
 def get_profile_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                        locale_code: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                       profile_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResult]:
     """

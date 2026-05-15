@@ -164,7 +164,7 @@ def get_storage_discovery_workspace(resource_group_name: Optional[_builtins.str]
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_storage_discovery_workspace_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           storage_discovery_workspace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           storage_discovery_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageDiscoveryWorkspaceResult]:
     """
     Get a StorageDiscoveryWorkspace

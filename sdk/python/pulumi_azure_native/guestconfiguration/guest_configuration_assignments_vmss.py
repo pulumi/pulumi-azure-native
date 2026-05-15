@@ -22,39 +22,28 @@ __all__ = ['GuestConfigurationAssignmentsVMSSArgs', 'GuestConfigurationAssignmen
 @pulumi.input_type
 class GuestConfigurationAssignmentsVMSSArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vmss_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['GuestConfigurationAssignmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a GuestConfigurationAssignmentsVMSS resource.
 
-        :param pulumi.Input[_builtins.str] name: The guest configuration assignment name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vmss_name: The name of the virtual machine scale set.
         :param pulumi.Input[_builtins.str] location: Region where the VM is located.
+        :param pulumi.Input[_builtins.str] name: The guest configuration assignment name.
         :param pulumi.Input['GuestConfigurationAssignmentPropertiesArgs'] properties: Properties of the Guest configuration assignment.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vmss_name", vmss_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The guest configuration assignment name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -91,6 +80,18 @@ class GuestConfigurationAssignmentsVMSSArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The guest configuration assignment name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,8 +178,6 @@ class GuestConfigurationAssignmentsVMSS(pulumi.CustomResource):
             __props__ = GuestConfigurationAssignmentsVMSSArgs.__new__(GuestConfigurationAssignmentsVMSSArgs)
 
             __props__.__dict__["location"] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

@@ -21,8 +21,8 @@ __all__ = ['ConnectionArgs', 'Connection']
 @pulumi.input_type
 class ConnectionArgs:
     def __init__(__self__, *,
-                 connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ApiConnectionDefinitionPropertiesArgs']] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -30,14 +30,15 @@ class ConnectionArgs:
         """
         The set of arguments for constructing a Connection resource.
 
-        :param pulumi.Input[_builtins.str] connection_name: Connection name
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group
+        :param pulumi.Input[_builtins.str] connection_name: Connection name
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input[_builtins.str] subscription_id: Subscription Id
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -46,18 +47,6 @@ class ConnectionArgs:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Connection name
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -70,6 +59,18 @@ class ConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Connection name
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -190,8 +191,6 @@ class Connection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectionArgs.__new__(ConnectionArgs)
 
-            if connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

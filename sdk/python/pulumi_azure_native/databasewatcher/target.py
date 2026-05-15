@@ -23,22 +23,23 @@ __all__ = ['TargetArgs', 'Target']
 class TargetArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 target_name: pulumi.Input[_builtins.str],
                  watcher_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]] = None):
+                 properties: pulumi.Input[Optional[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Target resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] target_name: The target resource name.
         :param pulumi.Input[_builtins.str] watcher_name: The database watcher name.
         :param pulumi.Input[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[_builtins.str] target_name: The target resource name.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_name", target_name)
         pulumi.set(__self__, "watcher_name", watcher_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if target_name is not None:
+            pulumi.set(__self__, "target_name", target_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -51,18 +52,6 @@ class TargetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetName")
-    def target_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The target resource name.
-        """
-        return pulumi.get(self, "target_name")
-
-    @target_name.setter
-    def target_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "target_name", value)
 
     @_builtins.property
     @pulumi.getter(name="watcherName")
@@ -87,6 +76,18 @@ class TargetArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional[Union['SqlDbElasticPoolTargetPropertiesArgs', 'SqlDbSingleDatabaseTargetPropertiesArgs', 'SqlMiTargetPropertiesArgs', 'SqlVmTargetPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The target resource name.
+        """
+        return pulumi.get(self, "target_name")
+
+    @target_name.setter
+    def target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_name", value)
 
 
 @pulumi.type_token("azure-native:databasewatcher:Target")
@@ -161,8 +162,6 @@ class Target(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if target_name is None and not opts.urn:
-                raise TypeError("Missing required property 'target_name'")
             __props__.__dict__["target_name"] = target_name
             if watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'watcher_name'")

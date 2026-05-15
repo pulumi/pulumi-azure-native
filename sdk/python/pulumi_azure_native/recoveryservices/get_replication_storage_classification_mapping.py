@@ -149,7 +149,7 @@ def get_replication_storage_classification_mapping(fabric_name: Optional[_builti
 def get_replication_storage_classification_mapping_output(fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                          storage_classification_mapping_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                          storage_classification_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           storage_classification_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationStorageClassificationMappingResult]:
     """

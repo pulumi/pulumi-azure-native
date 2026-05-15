@@ -19,7 +19,6 @@ __all__ = ['WebAppInstanceFunctionSlotArgs', 'WebAppInstanceFunctionSlot']
 @pulumi.input_type
 class WebAppInstanceFunctionSlotArgs:
     def __init__(__self__, *,
-                 function_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
@@ -27,6 +26,7 @@ class WebAppInstanceFunctionSlotArgs:
                  config_href: pulumi.Input[Optional[_builtins.str]] = None,
                  files: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  function_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  href: pulumi.Input[Optional[_builtins.str]] = None,
                  invoke_url_template: pulumi.Input[Optional[_builtins.str]] = None,
                  is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -40,7 +40,6 @@ class WebAppInstanceFunctionSlotArgs:
         """
         The set of arguments for constructing a WebAppInstanceFunctionSlot resource.
 
-        :param pulumi.Input[_builtins.str] function_name: Function name.
         :param pulumi.Input[_builtins.str] name: Site name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] slot: Name of the deployment slot.
@@ -48,6 +47,7 @@ class WebAppInstanceFunctionSlotArgs:
         :param pulumi.Input[_builtins.str] config_href: Config URI.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] files: File list.
         :param pulumi.Input[_builtins.str] function_app_id: Function App ID.
+        :param pulumi.Input[_builtins.str] function_name: Function name.
         :param pulumi.Input[_builtins.str] href: Function URI.
         :param pulumi.Input[_builtins.str] invoke_url_template: The invocation URL
         :param pulumi.Input[_builtins.bool] is_disabled: Gets or sets a value indicating whether the function is disabled
@@ -59,7 +59,6 @@ class WebAppInstanceFunctionSlotArgs:
         :param pulumi.Input[_builtins.str] test_data: Test data used when testing via the Azure Portal.
         :param pulumi.Input[_builtins.str] test_data_href: Test data URI.
         """
-        pulumi.set(__self__, "function_name", function_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "slot", slot)
@@ -71,6 +70,8 @@ class WebAppInstanceFunctionSlotArgs:
             pulumi.set(__self__, "files", files)
         if function_app_id is not None:
             pulumi.set(__self__, "function_app_id", function_app_id)
+        if function_name is not None:
+            pulumi.set(__self__, "function_name", function_name)
         if href is not None:
             pulumi.set(__self__, "href", href)
         if invoke_url_template is not None:
@@ -91,18 +92,6 @@ class WebAppInstanceFunctionSlotArgs:
             pulumi.set(__self__, "test_data", test_data)
         if test_data_href is not None:
             pulumi.set(__self__, "test_data_href", test_data_href)
-
-    @_builtins.property
-    @pulumi.getter(name="functionName")
-    def function_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Function name.
-        """
-        return pulumi.get(self, "function_name")
-
-    @function_name.setter
-    def function_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "function_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -187,6 +176,18 @@ class WebAppInstanceFunctionSlotArgs:
     @function_app_id.setter
     def function_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_app_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="functionName")
+    def function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Function name.
+        """
+        return pulumi.get(self, "function_name")
+
+    @function_name.setter
+    def function_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "function_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -423,8 +424,6 @@ class WebAppInstanceFunctionSlot(pulumi.CustomResource):
             __props__.__dict__["config_href"] = config_href
             __props__.__dict__["files"] = files
             __props__.__dict__["function_app_id"] = function_app_id
-            if function_name is None and not opts.urn:
-                raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
             __props__.__dict__["href"] = href
             __props__.__dict__["invoke_url_template"] = invoke_url_template

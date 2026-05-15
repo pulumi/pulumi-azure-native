@@ -20,39 +20,28 @@ __all__ = ['SapCentralServerInstanceArgs', 'SapCentralServerInstance']
 @pulumi.input_type
 class SapCentralServerInstanceArgs:
     def __init__(__self__, *,
-                 central_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sap_virtual_instance_name: pulumi.Input[_builtins.str],
+                 central_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapCentralServerInstance resource.
 
-        :param pulumi.Input[_builtins.str] central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
+        :param pulumi.Input[_builtins.str] central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "central_instance_name", central_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sap_virtual_instance_name", sap_virtual_instance_name)
+        if central_instance_name is not None:
+            pulumi.set(__self__, "central_instance_name", central_instance_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="centralInstanceName")
-    def central_instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
-        """
-        return pulumi.get(self, "central_instance_name")
-
-    @central_instance_name.setter
-    def central_instance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "central_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -77,6 +66,18 @@ class SapCentralServerInstanceArgs:
     @sap_virtual_instance_name.setter
     def sap_virtual_instance_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sap_virtual_instance_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="centralInstanceName")
+    def central_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
+        """
+        return pulumi.get(self, "central_instance_name")
+
+    @central_instance_name.setter
+    def central_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "central_instance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -170,8 +171,6 @@ class SapCentralServerInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SapCentralServerInstanceArgs.__new__(SapCentralServerInstanceArgs)
 
-            if central_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'central_instance_name'")
             __props__.__dict__["central_instance_name"] = central_instance_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

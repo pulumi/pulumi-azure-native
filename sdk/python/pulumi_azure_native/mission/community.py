@@ -22,10 +22,10 @@ __all__ = ['CommunityArgs', 'Community']
 @pulumi.input_type
 class CommunityArgs:
     def __init__(__self__, *,
-                 community_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  address_space: pulumi.Input[Optional[_builtins.str]] = None,
                  approval_settings: pulumi.Input[Optional['ApprovalSettingsArgs']] = None,
+                 community_name: pulumi.Input[Optional[_builtins.str]] = None,
                  community_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  firewall_sku: pulumi.Input[Optional[Union[_builtins.str, 'FirewallSKU']]] = None,
@@ -38,10 +38,10 @@ class CommunityArgs:
         """
         The set of arguments for constructing a Community resource.
 
-        :param pulumi.Input[_builtins.str] community_name: The name of the communityResource Resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] address_space: Address Space.
         :param pulumi.Input['ApprovalSettingsArgs'] approval_settings: Approval requirements for various actions on the community's resources.
+        :param pulumi.Input[_builtins.str] community_name: The name of the communityResource Resource
         :param pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]] community_role_assignments: Community role assignments
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: DNS Servers.
         :param pulumi.Input[Union[_builtins.str, 'FirewallSKU']] firewall_sku: SKU of the community's Azure Firewall (Basic, Standard, Premium). Standard is the default
@@ -52,12 +52,13 @@ class CommunityArgs:
         :param pulumi.Input[Union[_builtins.str, 'PolicyOverride']] policy_override: Policy override setting for the community. Specifies whether to apply enclave-specific policies or disable policy enforcement.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "community_name", community_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if address_space is not None:
             pulumi.set(__self__, "address_space", address_space)
         if approval_settings is not None:
             pulumi.set(__self__, "approval_settings", approval_settings)
+        if community_name is not None:
+            pulumi.set(__self__, "community_name", community_name)
         if community_role_assignments is not None:
             pulumi.set(__self__, "community_role_assignments", community_role_assignments)
         if dns_servers is not None:
@@ -78,18 +79,6 @@ class CommunityArgs:
             pulumi.set(__self__, "policy_override", policy_override)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="communityName")
-    def community_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the communityResource Resource
-        """
-        return pulumi.get(self, "community_name")
-
-    @community_name.setter
-    def community_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "community_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -126,6 +115,18 @@ class CommunityArgs:
     @approval_settings.setter
     def approval_settings(self, value: pulumi.Input[Optional['ApprovalSettingsArgs']]):
         pulumi.set(self, "approval_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="communityName")
+    def community_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the communityResource Resource
+        """
+        return pulumi.get(self, "community_name")
+
+    @community_name.setter
+    def community_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "community_name", value)
 
     @_builtins.property
     @pulumi.getter(name="communityRoleAssignments")
@@ -333,8 +334,6 @@ class Community(pulumi.CustomResource):
 
             __props__.__dict__["address_space"] = address_space
             __props__.__dict__["approval_settings"] = approval_settings
-            if community_name is None and not opts.urn:
-                raise TypeError("Missing required property 'community_name'")
             __props__.__dict__["community_name"] = community_name
             __props__.__dict__["community_role_assignments"] = community_role_assignments
             __props__.__dict__["dns_servers"] = dns_servers

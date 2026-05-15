@@ -152,7 +152,7 @@ def get_private_endpoint(cluster_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
 def get_private_endpoint_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                private_endpoint_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointResult]:
     """

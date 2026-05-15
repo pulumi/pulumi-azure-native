@@ -23,7 +23,6 @@ __all__ = ['BareMetalMachineKeySetArgs', 'BareMetalMachineKeySet']
 class BareMetalMachineKeySetArgs:
     def __init__(__self__, *,
                  azure_group_id: pulumi.Input[_builtins.str],
-                 bare_metal_machine_key_set_name: pulumi.Input[_builtins.str],
                  cluster_name: pulumi.Input[_builtins.str],
                  expiration: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
@@ -31,6 +30,7 @@ class BareMetalMachineKeySetArgs:
                  privilege_level: pulumi.Input[Union[_builtins.str, 'BareMetalMachineKeySetPrivilegeLevel']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_list: pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]],
+                 bare_metal_machine_key_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  os_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -38,7 +38,6 @@ class BareMetalMachineKeySetArgs:
         The set of arguments for constructing a BareMetalMachineKeySet resource.
 
         :param pulumi.Input[_builtins.str] azure_group_id: The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
-        :param pulumi.Input[_builtins.str] bare_metal_machine_key_set_name: The name of the bare metal machine key set.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] expiration: The date and time after which the users in this key set will be removed from the bare metal machines.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
@@ -46,12 +45,12 @@ class BareMetalMachineKeySetArgs:
         :param pulumi.Input[Union[_builtins.str, 'BareMetalMachineKeySetPrivilegeLevel']] privilege_level: The access level allowed for the users in this key set.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]] user_list: The unique list of permitted users.
+        :param pulumi.Input[_builtins.str] bare_metal_machine_key_set_name: The name of the bare metal machine key set.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] os_group_name: The name of the group that users will be assigned to on the operating system of the machines.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "azure_group_id", azure_group_id)
-        pulumi.set(__self__, "bare_metal_machine_key_set_name", bare_metal_machine_key_set_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "expiration", expiration)
         pulumi.set(__self__, "extended_location", extended_location)
@@ -59,6 +58,8 @@ class BareMetalMachineKeySetArgs:
         pulumi.set(__self__, "privilege_level", privilege_level)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "user_list", user_list)
+        if bare_metal_machine_key_set_name is not None:
+            pulumi.set(__self__, "bare_metal_machine_key_set_name", bare_metal_machine_key_set_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if os_group_name is not None:
@@ -77,18 +78,6 @@ class BareMetalMachineKeySetArgs:
     @azure_group_id.setter
     def azure_group_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "azure_group_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bareMetalMachineKeySetName")
-    def bare_metal_machine_key_set_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the bare metal machine key set.
-        """
-        return pulumi.get(self, "bare_metal_machine_key_set_name")
-
-    @bare_metal_machine_key_set_name.setter
-    def bare_metal_machine_key_set_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "bare_metal_machine_key_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -173,6 +162,18 @@ class BareMetalMachineKeySetArgs:
     @user_list.setter
     def user_list(self, value: pulumi.Input[Sequence[pulumi.Input['KeySetUserArgs']]]):
         pulumi.set(self, "user_list", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bareMetalMachineKeySetName")
+    def bare_metal_machine_key_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the bare metal machine key set.
+        """
+        return pulumi.get(self, "bare_metal_machine_key_set_name")
+
+    @bare_metal_machine_key_set_name.setter
+    def bare_metal_machine_key_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bare_metal_machine_key_set_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -302,8 +303,6 @@ class BareMetalMachineKeySet(pulumi.CustomResource):
             if azure_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_group_id'")
             __props__.__dict__["azure_group_id"] = azure_group_id
-            if bare_metal_machine_key_set_name is None and not opts.urn:
-                raise TypeError("Missing required property 'bare_metal_machine_key_set_name'")
             __props__.__dict__["bare_metal_machine_key_set_name"] = bare_metal_machine_key_set_name
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")

@@ -24,23 +24,24 @@ class StaticCidrArgs:
                  network_manager_name: pulumi.Input[_builtins.str],
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 static_cidr_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['StaticCidrPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['StaticCidrPropertiesArgs']] = None,
+                 static_cidr_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticCidr resource.
 
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input[_builtins.str] pool_name: IP Address Manager Pool resource name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] static_cidr_name: Static Cidr allocation name.
         :param pulumi.Input['StaticCidrPropertiesArgs'] properties: Properties of static CIDR resource.
+        :param pulumi.Input[_builtins.str] static_cidr_name: Static Cidr allocation name.
         """
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "static_cidr_name", static_cidr_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if static_cidr_name is not None:
+            pulumi.set(__self__, "static_cidr_name", static_cidr_name)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerName")
@@ -79,18 +80,6 @@ class StaticCidrArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="staticCidrName")
-    def static_cidr_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Static Cidr allocation name.
-        """
-        return pulumi.get(self, "static_cidr_name")
-
-    @static_cidr_name.setter
-    def static_cidr_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "static_cidr_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['StaticCidrPropertiesArgs']]:
         """
@@ -101,6 +90,18 @@ class StaticCidrArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['StaticCidrPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="staticCidrName")
+    def static_cidr_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Static Cidr allocation name.
+        """
+        return pulumi.get(self, "static_cidr_name")
+
+    @static_cidr_name.setter
+    def static_cidr_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "static_cidr_name", value)
 
 
 @pulumi.type_token("azure-native:network:StaticCidr")
@@ -184,8 +185,6 @@ class StaticCidr(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if static_cidr_name is None and not opts.urn:
-                raise TypeError("Missing required property 'static_cidr_name'")
             __props__.__dict__["static_cidr_name"] = static_cidr_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

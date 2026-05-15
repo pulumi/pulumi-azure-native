@@ -21,38 +21,27 @@ __all__ = ['FileArgs', 'File']
 @pulumi.input_type
 class FileArgs:
     def __init__(__self__, *,
-                 file_name: pulumi.Input[_builtins.str],
                  group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 file_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ProjectFilePropertiesArgs']] = None):
         """
         The set of arguments for constructing a File resource.
 
-        :param pulumi.Input[_builtins.str] file_name: Name of the File
         :param pulumi.Input[_builtins.str] group_name: Name of the resource group
         :param pulumi.Input[_builtins.str] project_name: Name of the project
         :param pulumi.Input[_builtins.str] service_name: Name of the service
+        :param pulumi.Input[_builtins.str] file_name: Name of the File
         :param pulumi.Input['ProjectFilePropertiesArgs'] properties: Custom file properties
         """
-        pulumi.set(__self__, "file_name", file_name)
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "service_name", service_name)
+        if file_name is not None:
+            pulumi.set(__self__, "file_name", file_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="fileName")
-    def file_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the File
-        """
-        return pulumi.get(self, "file_name")
-
-    @file_name.setter
-    def file_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "file_name", value)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
@@ -89,6 +78,18 @@ class FileArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the File
+        """
+        return pulumi.get(self, "file_name")
+
+    @file_name.setter
+    def file_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "file_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,8 +175,6 @@ class File(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FileArgs.__new__(FileArgs)
 
-            if file_name is None and not opts.urn:
-                raise TypeError("Missing required property 'file_name'")
             __props__.__dict__["file_name"] = file_name
             if group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'group_name'")

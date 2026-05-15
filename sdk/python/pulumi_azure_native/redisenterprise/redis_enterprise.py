@@ -22,9 +22,9 @@ __all__ = ['RedisEnterpriseArgs', 'RedisEnterprise']
 @pulumi.input_type
 class RedisEnterpriseArgs:
     def __init__(__self__, *,
-                 cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption: pulumi.Input[Optional['ClusterPropertiesEncryptionArgs']] = None,
                  high_availability: pulumi.Input[Optional[Union[_builtins.str, 'HighAvailability']]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
@@ -35,9 +35,9 @@ class RedisEnterpriseArgs:
         """
         The set of arguments for constructing a RedisEnterprise resource.
 
-        :param pulumi.Input[_builtins.str] cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU to create, which affects price, performance, and features.
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         :param pulumi.Input['ClusterPropertiesEncryptionArgs'] encryption: Encryption-at-rest configuration for the cluster.
         :param pulumi.Input[Union[_builtins.str, 'HighAvailability']] high_availability: Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
@@ -46,9 +46,10 @@ class RedisEnterpriseArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The Availability Zones where this cluster will be deployed.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if high_availability is not None:
@@ -63,18 +64,6 @@ class RedisEnterpriseArgs:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -99,6 +88,18 @@ class RedisEnterpriseArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -271,8 +272,6 @@ class RedisEnterprise(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RedisEnterpriseArgs.__new__(RedisEnterpriseArgs)
 
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["high_availability"] = high_availability

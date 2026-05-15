@@ -19,45 +19,34 @@ __all__ = ['CacheArgs', 'Cache']
 @pulumi.input_type
 class CacheArgs:
     def __init__(__self__, *,
-                 cache_id: pulumi.Input[_builtins.str],
                  connection_string: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  use_from_location: pulumi.Input[_builtins.str],
+                 cache_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Cache resource.
 
-        :param pulumi.Input[_builtins.str] cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
         :param pulumi.Input[_builtins.str] connection_string: Runtime connection string to cache
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] use_from_location: Location identifier to use cache from (should be either 'default' or valid Azure region identifier)
+        :param pulumi.Input[_builtins.str] cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
         :param pulumi.Input[_builtins.str] description: Cache description
         :param pulumi.Input[_builtins.str] resource_id: Original uri of entity in external system cache points to
         """
-        pulumi.set(__self__, "cache_id", cache_id)
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "use_from_location", use_from_location)
+        if cache_id is not None:
+            pulumi.set(__self__, "cache_id", cache_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @_builtins.property
-    @pulumi.getter(name="cacheId")
-    def cache_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
-        """
-        return pulumi.get(self, "cache_id")
-
-    @cache_id.setter
-    def cache_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cache_id", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionString")
@@ -106,6 +95,18 @@ class CacheArgs:
     @use_from_location.setter
     def use_from_location(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "use_from_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cacheId")
+    def cache_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
+        """
+        return pulumi.get(self, "cache_id")
+
+    @cache_id.setter
+    def cache_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cache_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -209,8 +210,6 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CacheArgs.__new__(CacheArgs)
 
-            if cache_id is None and not opts.urn:
-                raise TypeError("Missing required property 'cache_id'")
             __props__.__dict__["cache_id"] = cache_id
             if connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_string'")

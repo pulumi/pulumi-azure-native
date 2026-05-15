@@ -292,7 +292,7 @@ def get_webhook(report_name: Optional[_builtins.str] = None,
         webhook_key=pulumi.get(__ret__, 'webhook_key'),
         webhook_key_enabled=pulumi.get(__ret__, 'webhook_key_enabled'))
 def get_webhook_output(report_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       webhook_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       webhook_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebhookResult]:
     """
     Get the AppComplianceAutomation webhook and its properties.

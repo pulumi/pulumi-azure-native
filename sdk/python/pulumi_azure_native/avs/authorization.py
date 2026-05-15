@@ -20,35 +20,24 @@ __all__ = ['AuthorizationArgs', 'Authorization']
 @pulumi.input_type
 class AuthorizationArgs:
     def __init__(__self__, *,
-                 authorization_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 authorization_name: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Authorization resource.
 
-        :param pulumi.Input[_builtins.str] authorization_name: Name of the ExpressRoute Circuit Authorization
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] authorization_name: Name of the ExpressRoute Circuit Authorization
         :param pulumi.Input[_builtins.str] express_route_id: The ID of the ExpressRoute Circuit
         """
-        pulumi.set(__self__, "authorization_name", authorization_name)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authorization_name is not None:
+            pulumi.set(__self__, "authorization_name", authorization_name)
         if express_route_id is not None:
             pulumi.set(__self__, "express_route_id", express_route_id)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationName")
-    def authorization_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the ExpressRoute Circuit Authorization
-        """
-        return pulumi.get(self, "authorization_name")
-
-    @authorization_name.setter
-    def authorization_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -73,6 +62,18 @@ class AuthorizationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationName")
+    def authorization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the ExpressRoute Circuit Authorization
+        """
+        return pulumi.get(self, "authorization_name")
+
+    @authorization_name.setter
+    def authorization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="expressRouteId")
@@ -155,8 +156,6 @@ class Authorization(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AuthorizationArgs.__new__(AuthorizationArgs)
 
-            if authorization_name is None and not opts.urn:
-                raise TypeError("Missing required property 'authorization_name'")
             __props__.__dict__["authorization_name"] = authorization_name
             __props__.__dict__["express_route_id"] = express_route_id
             if private_cloud_name is None and not opts.urn:

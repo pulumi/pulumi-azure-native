@@ -21,24 +21,25 @@ __all__ = ['PrivateAtlaseArgs', 'PrivateAtlase']
 class PrivateAtlaseArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 private_atlas_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_atlas_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateAtlase resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the Maps Account.
-        :param pulumi.Input[_builtins.str] private_atlas_name: The name of the Private Atlas instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The location of the resource.
+        :param pulumi.Input[_builtins.str] private_atlas_name: The name of the Private Atlas instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "private_atlas_name", private_atlas_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if private_atlas_name is not None:
+            pulumi.set(__self__, "private_atlas_name", private_atlas_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -53,18 +54,6 @@ class PrivateAtlaseArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateAtlasName")
-    def private_atlas_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Private Atlas instance.
-        """
-        return pulumi.get(self, "private_atlas_name")
-
-    @private_atlas_name.setter
-    def private_atlas_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "private_atlas_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -89,6 +78,18 @@ class PrivateAtlaseArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateAtlasName")
+    def private_atlas_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Private Atlas instance.
+        """
+        return pulumi.get(self, "private_atlas_name")
+
+    @private_atlas_name.setter
+    def private_atlas_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_atlas_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,8 +175,6 @@ class PrivateAtlase(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["location"] = location
-            if private_atlas_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_atlas_name'")
             __props__.__dict__["private_atlas_name"] = private_atlas_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

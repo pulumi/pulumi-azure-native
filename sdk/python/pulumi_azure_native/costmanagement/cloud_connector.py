@@ -21,8 +21,8 @@ __all__ = ['CloudConnectorArgs', 'CloudConnector']
 @pulumi.input_type
 class CloudConnectorArgs:
     def __init__(__self__, *,
-                 connector_name: pulumi.Input[_builtins.str],
                  billing_model: pulumi.Input[Optional[Union[_builtins.str, 'ConnectorBillingModel']]] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  credentials_key: pulumi.Input[Optional[_builtins.str]] = None,
                  credentials_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  default_management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,8 +33,8 @@ class CloudConnectorArgs:
         """
         The set of arguments for constructing a CloudConnector resource.
 
-        :param pulumi.Input[_builtins.str] connector_name: Connector Name.
         :param pulumi.Input[Union[_builtins.str, 'ConnectorBillingModel']] billing_model: Connector billing model
+        :param pulumi.Input[_builtins.str] connector_name: Connector Name.
         :param pulumi.Input[_builtins.str] credentials_key: Credentials authentication key (eg AWS ARN)
         :param pulumi.Input[_builtins.str] credentials_secret: Credentials secret (eg AWS ExternalId)
         :param pulumi.Input[_builtins.str] default_management_group_id: Default ManagementGroupId
@@ -43,9 +43,10 @@ class CloudConnectorArgs:
         :param pulumi.Input[_builtins.str] report_id: Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
         :param pulumi.Input[_builtins.str] subscription_id: Billing SubscriptionId
         """
-        pulumi.set(__self__, "connector_name", connector_name)
         if billing_model is not None:
             pulumi.set(__self__, "billing_model", billing_model)
+        if connector_name is not None:
+            pulumi.set(__self__, "connector_name", connector_name)
         if credentials_key is not None:
             pulumi.set(__self__, "credentials_key", credentials_key)
         if credentials_secret is not None:
@@ -62,18 +63,6 @@ class CloudConnectorArgs:
             pulumi.set(__self__, "subscription_id", subscription_id)
 
     @_builtins.property
-    @pulumi.getter(name="connectorName")
-    def connector_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Connector Name.
-        """
-        return pulumi.get(self, "connector_name")
-
-    @connector_name.setter
-    def connector_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "connector_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="billingModel")
     def billing_model(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ConnectorBillingModel']]]:
         """
@@ -84,6 +73,18 @@ class CloudConnectorArgs:
     @billing_model.setter
     def billing_model(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ConnectorBillingModel']]]):
         pulumi.set(self, "billing_model", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorName")
+    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Connector Name.
+        """
+        return pulumi.get(self, "connector_name")
+
+    @connector_name.setter
+    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialsKey")
@@ -208,7 +209,7 @@ class CloudConnector(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: CloudConnectorArgs,
+                 args: Optional[CloudConnectorArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Connector model definition
@@ -250,8 +251,6 @@ class CloudConnector(pulumi.CustomResource):
             __props__ = CloudConnectorArgs.__new__(CloudConnectorArgs)
 
             __props__.__dict__["billing_model"] = billing_model
-            if connector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connector_name'")
             __props__.__dict__["connector_name"] = connector_name
             __props__.__dict__["credentials_key"] = credentials_key
             __props__.__dict__["credentials_secret"] = credentials_secret

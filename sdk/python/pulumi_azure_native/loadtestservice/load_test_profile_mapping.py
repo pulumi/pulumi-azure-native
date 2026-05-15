@@ -20,40 +20,29 @@ __all__ = ['LoadTestProfileMappingArgs', 'LoadTestProfileMapping']
 @pulumi.input_type
 class LoadTestProfileMappingArgs:
     def __init__(__self__, *,
-                 load_test_profile_mapping_name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
                  azure_load_testing_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 load_test_profile_mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  test_profile_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LoadTestProfileMapping resource.
 
-        :param pulumi.Input[_builtins.str] load_test_profile_mapping_name: Load Test Profile Mapping name
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[_builtins.str] azure_load_testing_resource_id: Mapped Azure Load Test resource Id.
+        :param pulumi.Input[_builtins.str] load_test_profile_mapping_name: Load Test Profile Mapping name
         :param pulumi.Input[_builtins.str] source_resource_id: Mapped source resource Id.
         :param pulumi.Input[_builtins.str] test_profile_id: Mapped Azure Load Test resource test-profile-id.
         """
-        pulumi.set(__self__, "load_test_profile_mapping_name", load_test_profile_mapping_name)
         pulumi.set(__self__, "resource_uri", resource_uri)
         if azure_load_testing_resource_id is not None:
             pulumi.set(__self__, "azure_load_testing_resource_id", azure_load_testing_resource_id)
+        if load_test_profile_mapping_name is not None:
+            pulumi.set(__self__, "load_test_profile_mapping_name", load_test_profile_mapping_name)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
         if test_profile_id is not None:
             pulumi.set(__self__, "test_profile_id", test_profile_id)
-
-    @_builtins.property
-    @pulumi.getter(name="loadTestProfileMappingName")
-    def load_test_profile_mapping_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Load Test Profile Mapping name
-        """
-        return pulumi.get(self, "load_test_profile_mapping_name")
-
-    @load_test_profile_mapping_name.setter
-    def load_test_profile_mapping_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "load_test_profile_mapping_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUri")
@@ -78,6 +67,18 @@ class LoadTestProfileMappingArgs:
     @azure_load_testing_resource_id.setter
     def azure_load_testing_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_load_testing_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadTestProfileMappingName")
+    def load_test_profile_mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Load Test Profile Mapping name
+        """
+        return pulumi.get(self, "load_test_profile_mapping_name")
+
+    @load_test_profile_mapping_name.setter
+    def load_test_profile_mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "load_test_profile_mapping_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
@@ -176,8 +177,6 @@ class LoadTestProfileMapping(pulumi.CustomResource):
             __props__ = LoadTestProfileMappingArgs.__new__(LoadTestProfileMappingArgs)
 
             __props__.__dict__["azure_load_testing_resource_id"] = azure_load_testing_resource_id
-            if load_test_profile_mapping_name is None and not opts.urn:
-                raise TypeError("Missing required property 'load_test_profile_mapping_name'")
             __props__.__dict__["load_test_profile_mapping_name"] = load_test_profile_mapping_name
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")

@@ -210,7 +210,7 @@ def get_scheduled_synchronization_setting(account_name: Optional[_builtins.str] 
 def get_scheduled_synchronization_setting_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  share_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 synchronization_setting_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                 synchronization_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledSynchronizationSettingResult]:
     """
     Get a synchronizationSetting in a share

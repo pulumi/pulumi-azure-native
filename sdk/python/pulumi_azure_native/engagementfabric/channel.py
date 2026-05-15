@@ -20,27 +20,28 @@ __all__ = ['ChannelArgs', 'Channel']
 class ChannelArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 channel_name: pulumi.Input[_builtins.str],
                  channel_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  channel_functions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  credentials: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Channel resource.
 
         :param pulumi.Input[_builtins.str] account_name: Account Name
-        :param pulumi.Input[_builtins.str] channel_name: Channel Name
         :param pulumi.Input[_builtins.str] channel_type: The channel type
         :param pulumi.Input[_builtins.str] resource_group_name: Resource Group Name
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_functions: The functions to be enabled for the channel
+        :param pulumi.Input[_builtins.str] channel_name: Channel Name
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] credentials: The channel credentials
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "channel_name", channel_name)
         pulumi.set(__self__, "channel_type", channel_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if channel_functions is not None:
             pulumi.set(__self__, "channel_functions", channel_functions)
+        if channel_name is not None:
+            pulumi.set(__self__, "channel_name", channel_name)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
 
@@ -55,18 +56,6 @@ class ChannelArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Channel Name
-        """
-        return pulumi.get(self, "channel_name")
-
-    @channel_name.setter
-    def channel_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="channelType")
@@ -103,6 +92,18 @@ class ChannelArgs:
     @channel_functions.setter
     def channel_functions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "channel_functions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Channel Name
+        """
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -191,8 +192,6 @@ class Channel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["channel_functions"] = channel_functions
-            if channel_name is None and not opts.urn:
-                raise TypeError("Missing required property 'channel_name'")
             __props__.__dict__["channel_name"] = channel_name
             if channel_type is None and not opts.urn:
                 raise TypeError("Missing required property 'channel_type'")

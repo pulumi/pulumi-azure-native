@@ -22,7 +22,6 @@ __all__ = ['VirtualMachineScaleSetVMArgs', 'VirtualMachineScaleSetVM']
 @pulumi.input_type
 class VirtualMachineScaleSetVMArgs:
     def __init__(__self__, *,
-                 instance_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vm_scale_set_name: pulumi.Input[_builtins.str],
                  additional_capabilities: pulumi.Input[Optional['AdditionalCapabilitiesArgs']] = None,
@@ -30,6 +29,7 @@ class VirtualMachineScaleSetVMArgs:
                  diagnostics_profile: pulumi.Input[Optional['DiagnosticsProfileArgs']] = None,
                  hardware_profile: pulumi.Input[Optional['HardwareProfileArgs']] = None,
                  identity: pulumi.Input[Optional['VirtualMachineIdentityArgs']] = None,
+                 instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  license_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  network_profile: pulumi.Input[Optional['NetworkProfileArgs']] = None,
@@ -45,7 +45,6 @@ class VirtualMachineScaleSetVMArgs:
         """
         The set of arguments for constructing a VirtualMachineScaleSetVM resource.
 
-        :param pulumi.Input[_builtins.str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vm_scale_set_name: The name of the VM scale set.
         :param pulumi.Input['AdditionalCapabilitiesArgs'] additional_capabilities: Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
@@ -53,6 +52,7 @@ class VirtualMachineScaleSetVMArgs:
         :param pulumi.Input['DiagnosticsProfileArgs'] diagnostics_profile: Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: Specifies the hardware settings for the virtual machine.
         :param pulumi.Input['VirtualMachineIdentityArgs'] identity: The identity of the virtual machine, if configured.
+        :param pulumi.Input[_builtins.str] instance_id: The instance ID of the virtual machine.
         :param pulumi.Input[_builtins.str] license_type: Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Specifies the network interfaces of the virtual machine.
@@ -66,7 +66,6 @@ class VirtualMachineScaleSetVMArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] user_data: UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
         """
-        pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_scale_set_name", vm_scale_set_name)
         if additional_capabilities is not None:
@@ -79,6 +78,8 @@ class VirtualMachineScaleSetVMArgs:
             pulumi.set(__self__, "hardware_profile", hardware_profile)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -103,18 +104,6 @@ class VirtualMachineScaleSetVMArgs:
             pulumi.set(__self__, "tags", tags)
         if user_data is not None:
             pulumi.set(__self__, "user_data", user_data)
-
-    @_builtins.property
-    @pulumi.getter(name="instanceId")
-    def instance_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The instance ID of the virtual machine.
-        """
-        return pulumi.get(self, "instance_id")
-
-    @instance_id.setter
-    def instance_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -199,6 +188,18 @@ class VirtualMachineScaleSetVMArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['VirtualMachineIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The instance ID of the virtual machine.
+        """
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
@@ -466,8 +467,6 @@ class VirtualMachineScaleSetVM(pulumi.CustomResource):
             __props__.__dict__["diagnostics_profile"] = diagnostics_profile
             __props__.__dict__["hardware_profile"] = hardware_profile
             __props__.__dict__["identity"] = identity
-            if instance_id is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location

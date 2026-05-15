@@ -23,10 +23,10 @@ __all__ = ['ServiceGatewayArgs', 'ServiceGateway']
 class ServiceGatewayArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 service_gateway_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  route_target_address: pulumi.Input[Optional['RouteTargetAddressPropertiesFormatArgs']] = None,
                  route_target_address_v6: pulumi.Input[Optional['RouteTargetAddressPropertiesFormatArgs']] = None,
+                 service_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['ServiceGatewaySkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network: pulumi.Input[Optional['VirtualNetworkArgs']] = None,
@@ -35,10 +35,10 @@ class ServiceGatewayArgs:
         The set of arguments for constructing a ServiceGateway resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] service_gateway_name: The name of the service gateway.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['RouteTargetAddressPropertiesFormatArgs'] route_target_address: Route Target address of Service gateway
         :param pulumi.Input['RouteTargetAddressPropertiesFormatArgs'] route_target_address_v6: Route Target address V6 of Service gateway
+        :param pulumi.Input[_builtins.str] service_gateway_name: The name of the service gateway.
         :param pulumi.Input['ServiceGatewaySkuArgs'] sku: The service gateway SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['VirtualNetworkArgs'] virtual_network: Reference to an existing virtual network.
@@ -47,13 +47,14 @@ class ServiceGatewayArgs:
                - The zone values must be provided as strings representing numeric identifiers like "1", "2", "3" etc.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_gateway_name", service_gateway_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if route_target_address is not None:
             pulumi.set(__self__, "route_target_address", route_target_address)
         if route_target_address_v6 is not None:
             pulumi.set(__self__, "route_target_address_v6", route_target_address_v6)
+        if service_gateway_name is not None:
+            pulumi.set(__self__, "service_gateway_name", service_gateway_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -74,18 +75,6 @@ class ServiceGatewayArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceGatewayName")
-    def service_gateway_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the service gateway.
-        """
-        return pulumi.get(self, "service_gateway_name")
-
-    @service_gateway_name.setter
-    def service_gateway_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "service_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -122,6 +111,18 @@ class ServiceGatewayArgs:
     @route_target_address_v6.setter
     def route_target_address_v6(self, value: pulumi.Input[Optional['RouteTargetAddressPropertiesFormatArgs']]):
         pulumi.set(self, "route_target_address_v6", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceGatewayName")
+    def service_gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the service gateway.
+        """
+        return pulumi.get(self, "service_gateway_name")
+
+    @service_gateway_name.setter
+    def service_gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -261,8 +262,6 @@ class ServiceGateway(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["route_target_address"] = route_target_address
             __props__.__dict__["route_target_address_v6"] = route_target_address_v6
-            if service_gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_gateway_name'")
             __props__.__dict__["service_gateway_name"] = service_gateway_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags

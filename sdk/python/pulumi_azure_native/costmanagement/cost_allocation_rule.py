@@ -23,19 +23,20 @@ __all__ = ['CostAllocationRuleArgs', 'CostAllocationRule']
 class CostAllocationRuleArgs:
     def __init__(__self__, *,
                  billing_account_id: pulumi.Input[_builtins.str],
-                 rule_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['CostAllocationRulePropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['CostAllocationRulePropertiesArgs']] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CostAllocationRule resource.
 
         :param pulumi.Input[_builtins.str] billing_account_id: BillingAccount ID
-        :param pulumi.Input[_builtins.str] rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
         :param pulumi.Input['CostAllocationRulePropertiesArgs'] properties: Cost allocation rule properties
+        :param pulumi.Input[_builtins.str] rule_name: Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
         """
         pulumi.set(__self__, "billing_account_id", billing_account_id)
-        pulumi.set(__self__, "rule_name", rule_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
 
     @_builtins.property
     @pulumi.getter(name="billingAccountId")
@@ -50,18 +51,6 @@ class CostAllocationRuleArgs:
         pulumi.set(self, "billing_account_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rule_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['CostAllocationRulePropertiesArgs']]:
         """
@@ -72,6 +61,18 @@ class CostAllocationRuleArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['CostAllocationRulePropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Cost allocation rule name. The name cannot include spaces or any non alphanumeric characters other than '_' and '-'. The max length is 260 characters.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_name", value)
 
 
 @pulumi.type_token("azure-native:costmanagement:CostAllocationRule")
@@ -143,8 +144,6 @@ class CostAllocationRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'billing_account_id'")
             __props__.__dict__["billing_account_id"] = billing_account_id
             __props__.__dict__["properties"] = properties
-            if rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

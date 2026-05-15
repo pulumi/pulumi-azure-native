@@ -20,40 +20,29 @@ __all__ = ['CapabilityArgs', 'Capability']
 @pulumi.input_type
 class CapabilityArgs:
     def __init__(__self__, *,
-                 capability_name: pulumi.Input[_builtins.str],
                  parent_provider_namespace: pulumi.Input[_builtins.str],
                  parent_resource_name: pulumi.Input[_builtins.str],
                  parent_resource_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 target_name: pulumi.Input[_builtins.str]):
+                 target_name: pulumi.Input[_builtins.str],
+                 capability_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Capability resource.
 
-        :param pulumi.Input[_builtins.str] capability_name: String that represents a Capability resource name.
         :param pulumi.Input[_builtins.str] parent_provider_namespace: String that represents a resource provider namespace.
         :param pulumi.Input[_builtins.str] parent_resource_name: String that represents a resource name.
         :param pulumi.Input[_builtins.str] parent_resource_type: String that represents a resource type.
         :param pulumi.Input[_builtins.str] resource_group_name: String that represents an Azure resource group.
         :param pulumi.Input[_builtins.str] target_name: String that represents a Target resource name.
+        :param pulumi.Input[_builtins.str] capability_name: String that represents a Capability resource name.
         """
-        pulumi.set(__self__, "capability_name", capability_name)
         pulumi.set(__self__, "parent_provider_namespace", parent_provider_namespace)
         pulumi.set(__self__, "parent_resource_name", parent_resource_name)
         pulumi.set(__self__, "parent_resource_type", parent_resource_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "target_name", target_name)
-
-    @_builtins.property
-    @pulumi.getter(name="capabilityName")
-    def capability_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        String that represents a Capability resource name.
-        """
-        return pulumi.get(self, "capability_name")
-
-    @capability_name.setter
-    def capability_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "capability_name", value)
+        if capability_name is not None:
+            pulumi.set(__self__, "capability_name", capability_name)
 
     @_builtins.property
     @pulumi.getter(name="parentProviderNamespace")
@@ -114,6 +103,18 @@ class CapabilityArgs:
     @target_name.setter
     def target_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "target_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capabilityName")
+    def capability_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        String that represents a Capability resource name.
+        """
+        return pulumi.get(self, "capability_name")
+
+    @capability_name.setter
+    def capability_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "capability_name", value)
 
 
 @pulumi.type_token("azure-native:chaos:Capability")
@@ -190,8 +191,6 @@ class Capability(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CapabilityArgs.__new__(CapabilityArgs)
 
-            if capability_name is None and not opts.urn:
-                raise TypeError("Missing required property 'capability_name'")
             __props__.__dict__["capability_name"] = capability_name
             if parent_provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_provider_namespace'")

@@ -193,7 +193,7 @@ def get_security_policies_interface(resource_group_name: Optional[_builtins.str]
         type=pulumi.get(__ret__, 'type'),
         waf_policy=pulumi.get(__ret__, 'waf_policy'))
 def get_security_policies_interface_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           security_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            traffic_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPoliciesInterfaceResult]:
     """

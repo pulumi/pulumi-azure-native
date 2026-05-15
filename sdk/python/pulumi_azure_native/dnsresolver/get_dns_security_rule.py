@@ -232,7 +232,7 @@ def get_dns_security_rule(dns_resolver_policy_name: Optional[_builtins.str] = No
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_dns_security_rule_output(dns_resolver_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 dns_security_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 dns_security_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsSecurityRuleResult]:
     """

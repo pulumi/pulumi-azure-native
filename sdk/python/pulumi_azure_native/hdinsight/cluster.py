@@ -22,8 +22,8 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ClusterIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ClusterCreatePropertiesArgs']] = None,
@@ -32,16 +32,17 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
 
-        :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input['ClusterIdentityArgs'] identity: The identity of the cluster, if configured.
         :param pulumi.Input[_builtins.str] location: The location of the cluster.
         :param pulumi.Input['ClusterCreatePropertiesArgs'] properties: The cluster create parameters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -54,18 +55,6 @@ class ClusterArgs:
             pulumi.set(__self__, "zones", zones)
 
     @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the cluster.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -76,6 +65,18 @@ class ClusterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the cluster.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -215,8 +216,6 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

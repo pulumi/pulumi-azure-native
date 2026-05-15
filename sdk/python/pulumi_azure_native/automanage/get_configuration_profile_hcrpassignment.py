@@ -153,7 +153,7 @@ def get_configuration_profile_hcrpassignment(configuration_profile_assignment_na
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_configuration_profile_hcrpassignment_output(configuration_profile_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_configuration_profile_hcrpassignment_output(configuration_profile_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileHCRPAssignmentResult]:

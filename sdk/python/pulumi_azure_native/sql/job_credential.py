@@ -19,40 +19,29 @@ __all__ = ['JobCredentialArgs', 'JobCredential']
 @pulumi.input_type
 class JobCredentialArgs:
     def __init__(__self__, *,
-                 credential_name: pulumi.Input[_builtins.str],
                  job_agent_name: pulumi.Input[_builtins.str],
                  password: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 username: pulumi.Input[_builtins.str]):
+                 username: pulumi.Input[_builtins.str],
+                 credential_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobCredential resource.
 
-        :param pulumi.Input[_builtins.str] credential_name: The name of the credential.
         :param pulumi.Input[_builtins.str] job_agent_name: The name of the job agent.
         :param pulumi.Input[_builtins.str] password: The credential password.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] username: The credential user name.
+        :param pulumi.Input[_builtins.str] credential_name: The name of the credential.
         """
-        pulumi.set(__self__, "credential_name", credential_name)
         pulumi.set(__self__, "job_agent_name", job_agent_name)
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "username", username)
-
-    @_builtins.property
-    @pulumi.getter(name="credentialName")
-    def credential_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the credential.
-        """
-        return pulumi.get(self, "credential_name")
-
-    @credential_name.setter
-    def credential_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "credential_name", value)
+        if credential_name is not None:
+            pulumi.set(__self__, "credential_name", credential_name)
 
     @_builtins.property
     @pulumi.getter(name="jobAgentName")
@@ -113,6 +102,18 @@ class JobCredentialArgs:
     @username.setter
     def username(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "username", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialName")
+    def credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the credential.
+        """
+        return pulumi.get(self, "credential_name")
+
+    @credential_name.setter
+    def credential_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "credential_name", value)
 
 
 @pulumi.type_token("azure-native:sql:JobCredential")
@@ -189,8 +190,6 @@ class JobCredential(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobCredentialArgs.__new__(JobCredentialArgs)
 
-            if credential_name is None and not opts.urn:
-                raise TypeError("Missing required property 'credential_name'")
             __props__.__dict__["credential_name"] = credential_name
             if job_agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_name'")

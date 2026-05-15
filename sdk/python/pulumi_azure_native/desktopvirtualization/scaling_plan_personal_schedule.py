@@ -24,7 +24,6 @@ class ScalingPlanPersonalScheduleArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  scaling_plan_name: pulumi.Input[_builtins.str],
-                 scaling_plan_schedule_name: pulumi.Input[_builtins.str],
                  days_of_week: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]]] = None,
                  off_peak_action_on_disconnect: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
                  off_peak_action_on_logoff: pulumi.Input[Optional[Union[_builtins.str, 'SessionHandlingOperation']]] = None,
@@ -50,13 +49,13 @@ class ScalingPlanPersonalScheduleArgs:
                  ramp_up_minutes_to_wait_on_disconnect: pulumi.Input[Optional[_builtins.int]] = None,
                  ramp_up_minutes_to_wait_on_logoff: pulumi.Input[Optional[_builtins.int]] = None,
                  ramp_up_start_time: pulumi.Input[Optional['TimeArgs']] = None,
-                 ramp_up_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None):
+                 ramp_up_start_vm_on_connect: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]] = None,
+                 scaling_plan_schedule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScalingPlanPersonalSchedule resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] scaling_plan_name: The name of the scaling plan.
-        :param pulumi.Input[_builtins.str] scaling_plan_schedule_name: The name of the ScalingPlanSchedule
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'DayOfWeek']]]] days_of_week: Set of days of the week on which this schedule is active.
         :param pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']] off_peak_action_on_disconnect: Action to be taken after a user disconnect during the off-peak period.
         :param pulumi.Input[Union[_builtins.str, 'SessionHandlingOperation']] off_peak_action_on_logoff: Action to be taken after a logoff during the off-peak period.
@@ -83,10 +82,10 @@ class ScalingPlanPersonalScheduleArgs:
         :param pulumi.Input[_builtins.int] ramp_up_minutes_to_wait_on_logoff: The time in minutes to wait before performing the desired session handling action when a user logs off during the ramp up period.
         :param pulumi.Input['TimeArgs'] ramp_up_start_time: Starting time for ramp up period.
         :param pulumi.Input[Union[_builtins.str, 'SetStartVMOnConnect']] ramp_up_start_vm_on_connect: The desired configuration of Start VM On Connect for the hostpool during the ramp up phase. If this is disabled, session hosts must be turned on using rampUpAutoStartHosts or by turning them on manually.
+        :param pulumi.Input[_builtins.str] scaling_plan_schedule_name: The name of the ScalingPlanSchedule
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scaling_plan_name", scaling_plan_name)
-        pulumi.set(__self__, "scaling_plan_schedule_name", scaling_plan_schedule_name)
         if days_of_week is not None:
             pulumi.set(__self__, "days_of_week", days_of_week)
         if off_peak_action_on_disconnect is not None:
@@ -147,6 +146,8 @@ class ScalingPlanPersonalScheduleArgs:
             ramp_up_start_vm_on_connect = 'Enable'
         if ramp_up_start_vm_on_connect is not None:
             pulumi.set(__self__, "ramp_up_start_vm_on_connect", ramp_up_start_vm_on_connect)
+        if scaling_plan_schedule_name is not None:
+            pulumi.set(__self__, "scaling_plan_schedule_name", scaling_plan_schedule_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -171,18 +172,6 @@ class ScalingPlanPersonalScheduleArgs:
     @scaling_plan_name.setter
     def scaling_plan_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "scaling_plan_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scalingPlanScheduleName")
-    def scaling_plan_schedule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the ScalingPlanSchedule
-        """
-        return pulumi.get(self, "scaling_plan_schedule_name")
-
-    @scaling_plan_schedule_name.setter
-    def scaling_plan_schedule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "scaling_plan_schedule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="daysOfWeek")
@@ -496,6 +485,18 @@ class ScalingPlanPersonalScheduleArgs:
     def ramp_up_start_vm_on_connect(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SetStartVMOnConnect']]]):
         pulumi.set(self, "ramp_up_start_vm_on_connect", value)
 
+    @_builtins.property
+    @pulumi.getter(name="scalingPlanScheduleName")
+    def scaling_plan_schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the ScalingPlanSchedule
+        """
+        return pulumi.get(self, "scaling_plan_schedule_name")
+
+    @scaling_plan_schedule_name.setter
+    def scaling_plan_schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "scaling_plan_schedule_name", value)
+
 
 @pulumi.type_token("azure-native:desktopvirtualization:ScalingPlanPersonalSchedule")
 class ScalingPlanPersonalSchedule(pulumi.CustomResource):
@@ -680,8 +681,6 @@ class ScalingPlanPersonalSchedule(pulumi.CustomResource):
             if scaling_plan_name is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_plan_name'")
             __props__.__dict__["scaling_plan_name"] = scaling_plan_name
-            if scaling_plan_schedule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'scaling_plan_schedule_name'")
             __props__.__dict__["scaling_plan_schedule_name"] = scaling_plan_schedule_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

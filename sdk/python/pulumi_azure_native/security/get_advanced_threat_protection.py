@@ -124,7 +124,7 @@ def get_advanced_threat_protection(resource_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
 def get_advanced_threat_protection_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                          setting_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdvancedThreatProtectionResult]:
     """
     Gets the Advanced Threat Protection settings for the specified resource.

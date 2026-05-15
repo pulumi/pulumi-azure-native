@@ -319,7 +319,7 @@ def get_aml_filesystem(aml_filesystem_name: Optional[_builtins.str] = None,
         throughput_provisioned_m_bps=pulumi.get(__ret__, 'throughput_provisioned_m_bps'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_aml_filesystem_output(aml_filesystem_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_aml_filesystem_output(aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAmlFilesystemResult]:
     """

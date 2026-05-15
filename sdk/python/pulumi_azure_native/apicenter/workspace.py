@@ -23,23 +23,24 @@ class WorkspaceArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
         :param pulumi.Input[_builtins.str] title: Workspace title.
-        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] description: Workspace description.
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "workspace_name", workspace_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if workspace_name is not None:
+            pulumi.set(__self__, "workspace_name", workspace_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -78,18 +79,6 @@ class WorkspaceArgs:
         pulumi.set(self, "title", value)
 
     @_builtins.property
-    @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the workspace.
-        """
-        return pulumi.get(self, "workspace_name")
-
-    @workspace_name.setter
-    def workspace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "workspace_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -100,6 +89,18 @@ class WorkspaceArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "workspace_name", value)
 
 
 @pulumi.type_token("azure-native:apicenter:Workspace")
@@ -183,8 +184,6 @@ class Workspace(pulumi.CustomResource):
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__.__dict__["title"] = title
-            if workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

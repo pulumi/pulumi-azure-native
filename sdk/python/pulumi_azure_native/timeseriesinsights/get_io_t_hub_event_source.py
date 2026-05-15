@@ -270,7 +270,7 @@ def get_io_t_hub_event_source(environment_name: Optional[_builtins.str] = None,
         timestamp_property_name=pulumi.get(__ret__, 'timestamp_property_name'),
         type=pulumi.get(__ret__, 'type'))
 def get_io_t_hub_event_source_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     event_source_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     event_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIoTHubEventSourceResult]:
     """

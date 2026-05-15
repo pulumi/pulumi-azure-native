@@ -22,23 +22,22 @@ __all__ = ['SecurityContactArgs', 'SecurityContact']
 @pulumi.input_type
 class SecurityContactArgs:
     def __init__(__self__, *,
-                 security_contact_name: pulumi.Input[_builtins.str],
                  emails: pulumi.Input[Optional[_builtins.str]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  notifications_by_role: pulumi.Input[Optional['SecurityContactPropertiesNotificationsByRoleArgs']] = None,
                  notifications_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationsSourceAlertArgs', 'NotificationsSourceAttackPathArgs']]]]] = None,
-                 phone: pulumi.Input[Optional[_builtins.str]] = None):
+                 phone: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_contact_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityContact resource.
 
-        :param pulumi.Input[_builtins.str] security_contact_name: Name of the security contact object
         :param pulumi.Input[_builtins.str] emails: List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
         :param pulumi.Input[_builtins.bool] is_enabled: Indicates whether the security contact is enabled.
         :param pulumi.Input['SecurityContactPropertiesNotificationsByRoleArgs'] notifications_by_role: Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationsSourceAlertArgs', 'NotificationsSourceAttackPathArgs']]]] notifications_sources: A collection of sources types which evaluate the email notification.
         :param pulumi.Input[_builtins.str] phone: The security contact's phone number
+        :param pulumi.Input[_builtins.str] security_contact_name: Name of the security contact object
         """
-        pulumi.set(__self__, "security_contact_name", security_contact_name)
         if emails is not None:
             pulumi.set(__self__, "emails", emails)
         if is_enabled is not None:
@@ -49,18 +48,8 @@ class SecurityContactArgs:
             pulumi.set(__self__, "notifications_sources", notifications_sources)
         if phone is not None:
             pulumi.set(__self__, "phone", phone)
-
-    @_builtins.property
-    @pulumi.getter(name="securityContactName")
-    def security_contact_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the security contact object
-        """
-        return pulumi.get(self, "security_contact_name")
-
-    @security_contact_name.setter
-    def security_contact_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "security_contact_name", value)
+        if security_contact_name is not None:
+            pulumi.set(__self__, "security_contact_name", security_contact_name)
 
     @_builtins.property
     @pulumi.getter
@@ -122,6 +111,18 @@ class SecurityContactArgs:
     def phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone", value)
 
+    @_builtins.property
+    @pulumi.getter(name="securityContactName")
+    def security_contact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the security contact object
+        """
+        return pulumi.get(self, "security_contact_name")
+
+    @security_contact_name.setter
+    def security_contact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "security_contact_name", value)
+
 
 @pulumi.type_token("azure-native:security:SecurityContact")
 class SecurityContact(pulumi.CustomResource):
@@ -157,7 +158,7 @@ class SecurityContact(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SecurityContactArgs,
+                 args: Optional[SecurityContactArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
@@ -202,8 +203,6 @@ class SecurityContact(pulumi.CustomResource):
             __props__.__dict__["notifications_by_role"] = notifications_by_role
             __props__.__dict__["notifications_sources"] = notifications_sources
             __props__.__dict__["phone"] = phone
-            if security_contact_name is None and not opts.urn:
-                raise TypeError("Missing required property 'security_contact_name'")
             __props__.__dict__["security_contact_name"] = security_contact_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

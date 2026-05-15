@@ -20,27 +20,28 @@ __all__ = ['WorkspaceTagProductLinkArgs', 'WorkspaceTagProductLink']
 class WorkspaceTagProductLinkArgs:
     def __init__(__self__, *,
                  product_id: pulumi.Input[_builtins.str],
-                 product_link_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  tag_id: pulumi.Input[_builtins.str],
-                 workspace_id: pulumi.Input[_builtins.str]):
+                 workspace_id: pulumi.Input[_builtins.str],
+                 product_link_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceTagProductLink resource.
 
         :param pulumi.Input[_builtins.str] product_id: Full resource Id of a product.
-        :param pulumi.Input[_builtins.str] product_link_id: Tag-product link identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] tag_id: Tag identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[_builtins.str] product_link_id: Tag-product link identifier. Must be unique in the current API Management service instance.
         """
         pulumi.set(__self__, "product_id", product_id)
-        pulumi.set(__self__, "product_link_id", product_link_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "tag_id", tag_id)
         pulumi.set(__self__, "workspace_id", workspace_id)
+        if product_link_id is not None:
+            pulumi.set(__self__, "product_link_id", product_link_id)
 
     @_builtins.property
     @pulumi.getter(name="productId")
@@ -53,18 +54,6 @@ class WorkspaceTagProductLinkArgs:
     @product_id.setter
     def product_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "product_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="productLinkId")
-    def product_link_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Tag-product link identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "product_link_id")
-
-    @product_link_id.setter
-    def product_link_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "product_link_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -113,6 +102,18 @@ class WorkspaceTagProductLinkArgs:
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productLinkId")
+    def product_link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Tag-product link identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "product_link_id")
+
+    @product_link_id.setter
+    def product_link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "product_link_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:WorkspaceTagProductLink")
@@ -192,8 +193,6 @@ class WorkspaceTagProductLink(pulumi.CustomResource):
             if product_id is None and not opts.urn:
                 raise TypeError("Missing required property 'product_id'")
             __props__.__dict__["product_id"] = product_id
-            if product_link_id is None and not opts.urn:
-                raise TypeError("Missing required property 'product_link_id'")
             __props__.__dict__["product_link_id"] = product_link_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

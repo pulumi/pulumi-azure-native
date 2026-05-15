@@ -23,21 +23,22 @@ class SolutionArgs:
     def __init__(__self__, *,
                  data_manager_for_agriculture_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 solution_id: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SolutionPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['SolutionPropertiesArgs']] = None,
+                 solution_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Solution resource.
 
         :param pulumi.Input[_builtins.str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] solution_id: SolutionId for Data Manager For Agriculture Resource.
         :param pulumi.Input['SolutionPropertiesArgs'] properties: Solution resource properties.
+        :param pulumi.Input[_builtins.str] solution_id: SolutionId for Data Manager For Agriculture Resource.
         """
         pulumi.set(__self__, "data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "solution_id", solution_id)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if solution_id is not None:
+            pulumi.set(__self__, "solution_id", solution_id)
 
     @_builtins.property
     @pulumi.getter(name="dataManagerForAgricultureResourceName")
@@ -64,18 +65,6 @@ class SolutionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="solutionId")
-    def solution_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        SolutionId for Data Manager For Agriculture Resource.
-        """
-        return pulumi.get(self, "solution_id")
-
-    @solution_id.setter
-    def solution_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "solution_id", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['SolutionPropertiesArgs']]:
         """
@@ -86,6 +75,18 @@ class SolutionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SolutionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="solutionId")
+    def solution_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SolutionId for Data Manager For Agriculture Resource.
+        """
+        return pulumi.get(self, "solution_id")
+
+    @solution_id.setter
+    def solution_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "solution_id", value)
 
 
 @pulumi.type_token("azure-native:agfoodplatform:Solution")
@@ -159,8 +160,6 @@ class Solution(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if solution_id is None and not opts.urn:
-                raise TypeError("Missing required property 'solution_id'")
             __props__.__dict__["solution_id"] = solution_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None

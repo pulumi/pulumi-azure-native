@@ -21,23 +21,24 @@ __all__ = ['FleetMemberArgs', 'FleetMember']
 class FleetMemberArgs:
     def __init__(__self__, *,
                  cluster_resource_id: pulumi.Input[_builtins.str],
-                 fleet_member_name: pulumi.Input[_builtins.str],
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 fleet_member_name: pulumi.Input[Optional[_builtins.str]] = None,
                  group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetMember resource.
 
         :param pulumi.Input[_builtins.str] cluster_resource_id: The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
-        :param pulumi.Input[_builtins.str] fleet_member_name: The name of the Fleet member resource.
         :param pulumi.Input[_builtins.str] fleet_name: The name of the Fleet resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] fleet_member_name: The name of the Fleet member resource.
         :param pulumi.Input[_builtins.str] group: The group this member belongs to for multi-cluster update management.
         """
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
-        pulumi.set(__self__, "fleet_member_name", fleet_member_name)
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if fleet_member_name is not None:
+            pulumi.set(__self__, "fleet_member_name", fleet_member_name)
         if group is not None:
             pulumi.set(__self__, "group", group)
 
@@ -52,18 +53,6 @@ class FleetMemberArgs:
     @cluster_resource_id.setter
     def cluster_resource_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fleetMemberName")
-    def fleet_member_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Fleet member resource.
-        """
-        return pulumi.get(self, "fleet_member_name")
-
-    @fleet_member_name.setter
-    def fleet_member_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fleet_member_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetName")
@@ -88,6 +77,18 @@ class FleetMemberArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fleetMemberName")
+    def fleet_member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Fleet member resource.
+        """
+        return pulumi.get(self, "fleet_member_name")
+
+    @fleet_member_name.setter
+    def fleet_member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fleet_member_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,8 +177,6 @@ class FleetMember(pulumi.CustomResource):
             if cluster_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_resource_id'")
             __props__.__dict__["cluster_resource_id"] = cluster_resource_id
-            if fleet_member_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fleet_member_name'")
             __props__.__dict__["fleet_member_name"] = fleet_member_name
             if fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_name'")

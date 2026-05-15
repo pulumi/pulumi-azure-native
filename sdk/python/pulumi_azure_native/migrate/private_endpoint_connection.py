@@ -22,38 +22,27 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 @pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 private_endpoint_connection_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 e_tag: pulumi.Input[Optional[_builtins.str]] = None):
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: Unique name of a private endpoint connection within a project.
         :param pulumi.Input[_builtins.str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: Properties of the private endpoint endpoint connection.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[_builtins.str] e_tag: For optimistic concurrency control.
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: Unique name of a private endpoint connection within a project.
         """
-        pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique name of a private endpoint connection within a project.
-        """
-        return pulumi.get(self, "private_endpoint_connection_name")
-
-    @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "private_endpoint_connection_name", value)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -102,6 +91,18 @@ class PrivateEndpointConnectionArgs:
     @e_tag.setter
     def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Unique name of a private endpoint connection within a project.
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
 
 
 @pulumi.type_token("azure-native:migrate:PrivateEndpointConnection")
@@ -172,8 +173,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__ = PrivateEndpointConnectionArgs.__new__(PrivateEndpointConnectionArgs)
 
             __props__.__dict__["e_tag"] = e_tag
-            if private_endpoint_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

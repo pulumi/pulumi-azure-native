@@ -22,19 +22,20 @@ __all__ = ['SitesByServiceGroupArgs', 'SitesByServiceGroup']
 class SitesByServiceGroupArgs:
     def __init__(__self__, *,
                  servicegroup_name: pulumi.Input[_builtins.str],
-                 site_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SitePropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['SitePropertiesArgs']] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SitesByServiceGroup resource.
 
         :param pulumi.Input[_builtins.str] servicegroup_name: The name of the service group
-        :param pulumi.Input[_builtins.str] site_name: The name of the Site
         :param pulumi.Input['SitePropertiesArgs'] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[_builtins.str] site_name: The name of the Site
         """
         pulumi.set(__self__, "servicegroup_name", servicegroup_name)
-        pulumi.set(__self__, "site_name", site_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if site_name is not None:
+            pulumi.set(__self__, "site_name", site_name)
 
     @_builtins.property
     @pulumi.getter(name="servicegroupName")
@@ -49,18 +50,6 @@ class SitesByServiceGroupArgs:
         pulumi.set(self, "servicegroup_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="siteName")
-    def site_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Site
-        """
-        return pulumi.get(self, "site_name")
-
-    @site_name.setter
-    def site_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "site_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['SitePropertiesArgs']]:
         """
@@ -71,6 +60,18 @@ class SitesByServiceGroupArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SitePropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Site
+        """
+        return pulumi.get(self, "site_name")
+
+    @site_name.setter
+    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "site_name", value)
 
 
 @pulumi.type_token("azure-native:edge:SitesByServiceGroup")
@@ -142,8 +143,6 @@ class SitesByServiceGroup(pulumi.CustomResource):
             if servicegroup_name is None and not opts.urn:
                 raise TypeError("Missing required property 'servicegroup_name'")
             __props__.__dict__["servicegroup_name"] = servicegroup_name
-            if site_name is None and not opts.urn:
-                raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

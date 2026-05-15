@@ -20,29 +20,28 @@ __all__ = ['WorkloadNetworkDnsZoneArgs', 'WorkloadNetworkDnsZone']
 @pulumi.input_type
 class WorkloadNetworkDnsZoneArgs:
     def __init__(__self__, *,
-                 dns_zone_id: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_server_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dns_services: pulumi.Input[Optional[_builtins.float]] = None,
+                 dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  domain: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  revision: pulumi.Input[Optional[_builtins.float]] = None,
                  source_ip: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkDnsZone resource.
 
-        :param pulumi.Input[_builtins.str] dns_zone_id: ID of the DNS zone.
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] display_name: Display name of the DNS Zone.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_server_ips: DNS Server IP array of the DNS Zone.
         :param pulumi.Input[_builtins.float] dns_services: Number of DNS Services using the DNS zone.
+        :param pulumi.Input[_builtins.str] dns_zone_id: ID of the DNS zone.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] domain: Domain names of the DNS Zone.
         :param pulumi.Input[_builtins.float] revision: NSX revision number.
         :param pulumi.Input[_builtins.str] source_ip: Source IP of the DNS Zone.
         """
-        pulumi.set(__self__, "dns_zone_id", dns_zone_id)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if display_name is not None:
@@ -51,24 +50,14 @@ class WorkloadNetworkDnsZoneArgs:
             pulumi.set(__self__, "dns_server_ips", dns_server_ips)
         if dns_services is not None:
             pulumi.set(__self__, "dns_services", dns_services)
+        if dns_zone_id is not None:
+            pulumi.set(__self__, "dns_zone_id", dns_zone_id)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
         if revision is not None:
             pulumi.set(__self__, "revision", revision)
         if source_ip is not None:
             pulumi.set(__self__, "source_ip", source_ip)
-
-    @_builtins.property
-    @pulumi.getter(name="dnsZoneId")
-    def dns_zone_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of the DNS zone.
-        """
-        return pulumi.get(self, "dns_zone_id")
-
-    @dns_zone_id.setter
-    def dns_zone_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dns_zone_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -129,6 +118,18 @@ class WorkloadNetworkDnsZoneArgs:
     @dns_services.setter
     def dns_services(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "dns_services", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsZoneId")
+    def dns_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of the DNS zone.
+        """
+        return pulumi.get(self, "dns_zone_id")
+
+    @dns_zone_id.setter
+    def dns_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dns_zone_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -253,8 +254,6 @@ class WorkloadNetworkDnsZone(pulumi.CustomResource):
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["dns_server_ips"] = dns_server_ips
             __props__.__dict__["dns_services"] = dns_services
-            if dns_zone_id is None and not opts.urn:
-                raise TypeError("Missing required property 'dns_zone_id'")
             __props__.__dict__["dns_zone_id"] = dns_zone_id
             __props__.__dict__["domain"] = domain
             if private_cloud_name is None and not opts.urn:

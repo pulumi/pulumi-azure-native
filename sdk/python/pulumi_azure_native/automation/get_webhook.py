@@ -272,7 +272,7 @@ def get_webhook(automation_account_name: Optional[_builtins.str] = None,
         uri=pulumi.get(__ret__, 'uri'))
 def get_webhook_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       webhook_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       webhook_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebhookResult]:
     """
     Retrieve the webhook identified by webhook name.

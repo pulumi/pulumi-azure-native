@@ -22,18 +22,17 @@ __all__ = ['ClientArgs', 'Client']
 @pulumi.input_type
 class ClientArgs:
     def __init__(__self__, *,
-                 client_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  attributes: Optional[Any] = None,
                  authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
                  client_certificate_authentication: pulumi.Input[Optional['ClientCertificateAuthenticationArgs']] = None,
+                 client_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[Union[_builtins.str, 'ClientState']]] = None):
         """
         The set of arguments for constructing a Client resource.
 
-        :param pulumi.Input[_builtins.str] client_name: The client name.
         :param pulumi.Input[_builtins.str] namespace_name: Name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param Any attributes: Attributes for the client. Supported values are int, bool, string, string[].
@@ -41,10 +40,10 @@ class ClientArgs:
                "attributes": { "room": "345", "floor": 12, "deviceTypes": ["Fan", "Light"] }
         :param pulumi.Input[_builtins.str] authentication_name: The name presented by the client for authentication. The default value is the name of the resource.
         :param pulumi.Input['ClientCertificateAuthenticationArgs'] client_certificate_authentication: The client certificate authentication information.
+        :param pulumi.Input[_builtins.str] client_name: The client name.
         :param pulumi.Input[_builtins.str] description: Description for the Client resource.
         :param pulumi.Input[Union[_builtins.str, 'ClientState']] state: Indicates if the client is enabled or not. Default value is Enabled.
         """
-        pulumi.set(__self__, "client_name", client_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if attributes is not None:
@@ -53,24 +52,14 @@ class ClientArgs:
             pulumi.set(__self__, "authentication_name", authentication_name)
         if client_certificate_authentication is not None:
             pulumi.set(__self__, "client_certificate_authentication", client_certificate_authentication)
+        if client_name is not None:
+            pulumi.set(__self__, "client_name", client_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if state is None:
             state = 'Enabled'
         if state is not None:
             pulumi.set(__self__, "state", state)
-
-    @_builtins.property
-    @pulumi.getter(name="clientName")
-    def client_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The client name.
-        """
-        return pulumi.get(self, "client_name")
-
-    @client_name.setter
-    def client_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "client_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -133,6 +122,18 @@ class ClientArgs:
     @client_certificate_authentication.setter
     def client_certificate_authentication(self, value: pulumi.Input[Optional['ClientCertificateAuthenticationArgs']]):
         pulumi.set(self, "client_certificate_authentication", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientName")
+    def client_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The client name.
+        """
+        return pulumi.get(self, "client_name")
+
+    @client_name.setter
+    def client_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -244,8 +245,6 @@ class Client(pulumi.CustomResource):
             __props__.__dict__["attributes"] = attributes
             __props__.__dict__["authentication_name"] = authentication_name
             __props__.__dict__["client_certificate_authentication"] = client_certificate_authentication
-            if client_name is None and not opts.urn:
-                raise TypeError("Missing required property 'client_name'")
             __props__.__dict__["client_name"] = client_name
             __props__.__dict__["description"] = description
             if namespace_name is None and not opts.urn:

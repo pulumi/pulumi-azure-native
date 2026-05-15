@@ -423,7 +423,7 @@ def get_certificate(name: Optional[_builtins.str] = None,
         thumbprint=pulumi.get(__ret__, 'thumbprint'),
         type=pulumi.get(__ret__, 'type'),
         valid=pulumi.get(__ret__, 'valid'))
-def get_certificate_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_certificate_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateResult]:
     """

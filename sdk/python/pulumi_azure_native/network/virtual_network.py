@@ -23,7 +23,6 @@ __all__ = ['VirtualNetworkInitArgs', 'VirtualNetwork']
 class VirtualNetworkInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_network_name: pulumi.Input[_builtins.str],
                  address_space: pulumi.Input[Optional['AddressSpaceArgs']] = None,
                  bgp_communities: pulumi.Input[Optional['VirtualNetworkBgpCommunitiesArgs']] = None,
                  ddos_protection_plan: pulumi.Input[Optional['SubResourceArgs']] = None,
@@ -39,12 +38,12 @@ class VirtualNetworkInitArgs:
                  private_endpoint_v_net_policies: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointVNetPolicies']]] = None,
                  subnets: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_peerings: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input['AddressSpaceArgs'] address_space: The AddressSpace that contains an array of IP address ranges that can be used by subnets.
         :param pulumi.Input['VirtualNetworkBgpCommunitiesArgs'] bgp_communities: Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
         :param pulumi.Input['SubResourceArgs'] ddos_protection_plan: The DDoS protection plan associated with the virtual network.
@@ -61,11 +60,11 @@ class VirtualNetworkInitArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SubnetArgs']]] subnets: A list of subnets in a Virtual Network.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]] virtual_network_peerings: A list of peerings in a Virtual Network.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if address_space is not None:
             pulumi.set(__self__, "address_space", address_space)
         if bgp_communities is not None:
@@ -100,6 +99,8 @@ class VirtualNetworkInitArgs:
             pulumi.set(__self__, "subnets", subnets)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_name is not None:
+            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if virtual_network_peerings is not None:
             pulumi.set(__self__, "virtual_network_peerings", virtual_network_peerings)
 
@@ -114,18 +115,6 @@ class VirtualNetworkInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkName")
-    def virtual_network_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the virtual network.
-        """
-        return pulumi.get(self, "virtual_network_name")
-
-    @virtual_network_name.setter
-    def virtual_network_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="addressSpace")
@@ -309,6 +298,18 @@ class VirtualNetworkInitArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
+    @pulumi.getter(name="virtualNetworkName")
+    def virtual_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the virtual network.
+        """
+        return pulumi.get(self, "virtual_network_name")
+
+    @virtual_network_name.setter
+    def virtual_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_network_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="virtualNetworkPeerings")
     def virtual_network_peerings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPeeringArgs']]]]:
         """
@@ -456,8 +457,6 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subnets"] = subnets
             __props__.__dict__["tags"] = tags
-            if virtual_network_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_name'")
             __props__.__dict__["virtual_network_name"] = virtual_network_name
             __props__.__dict__["virtual_network_peerings"] = virtual_network_peerings
             __props__.__dict__["azure_api_version"] = None

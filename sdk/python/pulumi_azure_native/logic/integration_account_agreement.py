@@ -22,7 +22,6 @@ __all__ = ['IntegrationAccountAgreementArgs', 'IntegrationAccountAgreement']
 @pulumi.input_type
 class IntegrationAccountAgreementArgs:
     def __init__(__self__, *,
-                 agreement_name: pulumi.Input[_builtins.str],
                  agreement_type: pulumi.Input['AgreementType'],
                  content: pulumi.Input['AgreementContentArgs'],
                  guest_identity: pulumi.Input['BusinessIdentityArgs'],
@@ -31,13 +30,13 @@ class IntegrationAccountAgreementArgs:
                  host_partner: pulumi.Input[_builtins.str],
                  integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 agreement_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IntegrationAccountAgreement resource.
 
-        :param pulumi.Input[_builtins.str] agreement_name: The integration account agreement name.
         :param pulumi.Input['AgreementType'] agreement_type: The agreement type.
         :param pulumi.Input['AgreementContentArgs'] content: The agreement content.
         :param pulumi.Input['BusinessIdentityArgs'] guest_identity: The business identity of the guest partner.
@@ -46,11 +45,11 @@ class IntegrationAccountAgreementArgs:
         :param pulumi.Input[_builtins.str] host_partner: The integration account partner that is set as host partner for this agreement.
         :param pulumi.Input[_builtins.str] integration_account_name: The integration account name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] agreement_name: The integration account agreement name.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param Any metadata: The metadata.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "agreement_name", agreement_name)
         pulumi.set(__self__, "agreement_type", agreement_type)
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "guest_identity", guest_identity)
@@ -59,24 +58,14 @@ class IntegrationAccountAgreementArgs:
         pulumi.set(__self__, "host_partner", host_partner)
         pulumi.set(__self__, "integration_account_name", integration_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if agreement_name is not None:
+            pulumi.set(__self__, "agreement_name", agreement_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="agreementName")
-    def agreement_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The integration account agreement name.
-        """
-        return pulumi.get(self, "agreement_name")
-
-    @agreement_name.setter
-    def agreement_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "agreement_name", value)
 
     @_builtins.property
     @pulumi.getter(name="agreementType")
@@ -173,6 +162,18 @@ class IntegrationAccountAgreementArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agreementName")
+    def agreement_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The integration account agreement name.
+        """
+        return pulumi.get(self, "agreement_name")
+
+    @agreement_name.setter
+    def agreement_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "agreement_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -303,8 +304,6 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationAccountAgreementArgs.__new__(IntegrationAccountAgreementArgs)
 
-            if agreement_name is None and not opts.urn:
-                raise TypeError("Missing required property 'agreement_name'")
             __props__.__dict__["agreement_name"] = agreement_name
             if agreement_type is None and not opts.urn:
                 raise TypeError("Missing required property 'agreement_type'")

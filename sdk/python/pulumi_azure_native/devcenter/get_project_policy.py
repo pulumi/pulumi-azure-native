@@ -167,7 +167,7 @@ def get_project_policy(dev_center_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_project_policy_output(dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              project_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              project_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectPolicyResult]:
     """

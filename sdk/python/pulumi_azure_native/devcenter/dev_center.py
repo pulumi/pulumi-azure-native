@@ -22,8 +22,8 @@ __all__ = ['DevCenterArgs', 'DevCenter']
 @pulumi.input_type
 class DevCenterArgs:
     def __init__(__self__, *,
-                 dev_center_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
@@ -33,8 +33,8 @@ class DevCenterArgs:
         """
         The set of arguments for constructing a DevCenter resource.
 
-        :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[_builtins.str] display_name: The display name of the devcenter.
         :param pulumi.Input['EncryptionArgs'] encryption: Encryption settings to be used for server-side encryption for proprietary content (such as catalogs, logs, customizations).
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
@@ -42,8 +42,9 @@ class DevCenterArgs:
         :param pulumi.Input['DevCenterProjectCatalogSettingsArgs'] project_catalog_settings: Dev Center settings to be used when associating a project with a catalog.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "dev_center_name", dev_center_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dev_center_name is not None:
+            pulumi.set(__self__, "dev_center_name", dev_center_name)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if encryption is not None:
@@ -58,18 +59,6 @@ class DevCenterArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
-    @pulumi.getter(name="devCenterName")
-    def dev_center_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the devcenter.
-        """
-        return pulumi.get(self, "dev_center_name")
-
-    @dev_center_name.setter
-    def dev_center_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dev_center_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -80,6 +69,18 @@ class DevCenterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="devCenterName")
+    def dev_center_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the devcenter.
+        """
+        return pulumi.get(self, "dev_center_name")
+
+    @dev_center_name.setter
+    def dev_center_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dev_center_name", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -234,8 +235,6 @@ class DevCenter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DevCenterArgs.__new__(DevCenterArgs)
 
-            if dev_center_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dev_center_name'")
             __props__.__dict__["dev_center_name"] = dev_center_name
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["encryption"] = encryption

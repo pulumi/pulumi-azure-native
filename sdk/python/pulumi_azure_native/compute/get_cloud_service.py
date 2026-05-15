@@ -176,7 +176,7 @@ def get_cloud_service(cloud_service_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_cloud_service_output(cloud_service_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_cloud_service_output(cloud_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudServiceResult]:
     """

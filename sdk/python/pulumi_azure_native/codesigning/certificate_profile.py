@@ -23,20 +23,19 @@ class CertificateProfileArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  identity_validation_id: pulumi.Input[_builtins.str],
-                 profile_name: pulumi.Input[_builtins.str],
                  profile_type: pulumi.Input[Union[_builtins.str, 'ProfileType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  include_city: pulumi.Input[Optional[_builtins.bool]] = None,
                  include_country: pulumi.Input[Optional[_builtins.bool]] = None,
                  include_postal_code: pulumi.Input[Optional[_builtins.bool]] = None,
                  include_state: pulumi.Input[Optional[_builtins.bool]] = None,
-                 include_street_address: pulumi.Input[Optional[_builtins.bool]] = None):
+                 include_street_address: pulumi.Input[Optional[_builtins.bool]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CertificateProfile resource.
 
         :param pulumi.Input[_builtins.str] account_name: Artifact Signing account name.
         :param pulumi.Input[_builtins.str] identity_validation_id: Identity validation id used for the certificate subject name.
-        :param pulumi.Input[_builtins.str] profile_name: Certificate profile name.
         :param pulumi.Input[Union[_builtins.str, 'ProfileType']] profile_type: Profile type of the certificate.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] include_city: Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
@@ -44,10 +43,10 @@ class CertificateProfileArgs:
         :param pulumi.Input[_builtins.bool] include_postal_code: Whether to include PC in the certificate subject name.
         :param pulumi.Input[_builtins.bool] include_state: Whether to include S in the certificate subject name. Applicable only for private trust, private trust ci profile types
         :param pulumi.Input[_builtins.bool] include_street_address: Whether to include STREET in the certificate subject name.
+        :param pulumi.Input[_builtins.str] profile_name: Certificate profile name.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "identity_validation_id", identity_validation_id)
-        pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "profile_type", profile_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if include_city is None:
@@ -70,6 +69,8 @@ class CertificateProfileArgs:
             include_street_address = False
         if include_street_address is not None:
             pulumi.set(__self__, "include_street_address", include_street_address)
+        if profile_name is not None:
+            pulumi.set(__self__, "profile_name", profile_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -94,18 +95,6 @@ class CertificateProfileArgs:
     @identity_validation_id.setter
     def identity_validation_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "identity_validation_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="profileName")
-    def profile_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Certificate profile name.
-        """
-        return pulumi.get(self, "profile_name")
-
-    @profile_name.setter
-    def profile_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileType")
@@ -190,6 +179,18 @@ class CertificateProfileArgs:
     @include_street_address.setter
     def include_street_address(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_street_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Certificate profile name.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "profile_name", value)
 
 
 @pulumi.type_token("azure-native:codesigning:CertificateProfile")
@@ -299,8 +300,6 @@ class CertificateProfile(pulumi.CustomResource):
             if include_street_address is None:
                 include_street_address = False
             __props__.__dict__["include_street_address"] = include_street_address
-            if profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
             if profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_type'")

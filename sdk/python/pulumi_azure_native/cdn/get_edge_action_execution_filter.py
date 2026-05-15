@@ -219,7 +219,7 @@ def get_edge_action_execution_filter(edge_action_name: Optional[_builtins.str] =
         type=pulumi.get(__ret__, 'type'),
         version_id=pulumi.get(__ret__, 'version_id'))
 def get_edge_action_execution_filter_output(edge_action_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                            execution_filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            execution_filter: pulumi.Input[Optional[_builtins.str]] = None,
                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEdgeActionExecutionFilterResult]:
     """

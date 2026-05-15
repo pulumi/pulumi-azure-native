@@ -20,22 +20,23 @@ __all__ = ['RegisteredPrefixArgs', 'RegisteredPrefix']
 class RegisteredPrefixArgs:
     def __init__(__self__, *,
                  peering_name: pulumi.Input[_builtins.str],
-                 registered_prefix_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 registered_prefix_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegisteredPrefix resource.
 
         :param pulumi.Input[_builtins.str] peering_name: The name of the peering.
-        :param pulumi.Input[_builtins.str] registered_prefix_name: The name of the registered prefix.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] prefix: The customer's prefix from which traffic originates.
+        :param pulumi.Input[_builtins.str] registered_prefix_name: The name of the registered prefix.
         """
         pulumi.set(__self__, "peering_name", peering_name)
-        pulumi.set(__self__, "registered_prefix_name", registered_prefix_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
+        if registered_prefix_name is not None:
+            pulumi.set(__self__, "registered_prefix_name", registered_prefix_name)
 
     @_builtins.property
     @pulumi.getter(name="peeringName")
@@ -48,18 +49,6 @@ class RegisteredPrefixArgs:
     @peering_name.setter
     def peering_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "peering_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="registeredPrefixName")
-    def registered_prefix_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the registered prefix.
-        """
-        return pulumi.get(self, "registered_prefix_name")
-
-    @registered_prefix_name.setter
-    def registered_prefix_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "registered_prefix_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -84,6 +73,18 @@ class RegisteredPrefixArgs:
     @prefix.setter
     def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="registeredPrefixName")
+    def registered_prefix_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the registered prefix.
+        """
+        return pulumi.get(self, "registered_prefix_name")
+
+    @registered_prefix_name.setter
+    def registered_prefix_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "registered_prefix_name", value)
 
 
 @pulumi.type_token("azure-native:peering:RegisteredPrefix")
@@ -158,8 +159,6 @@ class RegisteredPrefix(pulumi.CustomResource):
                 raise TypeError("Missing required property 'peering_name'")
             __props__.__dict__["peering_name"] = peering_name
             __props__.__dict__["prefix"] = prefix
-            if registered_prefix_name is None and not opts.urn:
-                raise TypeError("Missing required property 'registered_prefix_name'")
             __props__.__dict__["registered_prefix_name"] = registered_prefix_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

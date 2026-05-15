@@ -180,7 +180,7 @@ def get_sandbox_custom_image(cluster_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_sandbox_custom_image_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    sandbox_custom_image_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    sandbox_custom_image_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSandboxCustomImageResult]:
     """
     Returns a sandbox custom image

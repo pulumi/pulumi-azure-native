@@ -22,12 +22,12 @@ __all__ = ['JobArgs', 'Job']
 @pulumi.input_type
 class JobArgs:
     def __init__(__self__, *,
-                 job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  configuration: pulumi.Input[Optional['JobConfigurationArgs']] = None,
                  environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  template: pulumi.Input[Optional['JobTemplateArgs']] = None,
@@ -35,18 +35,17 @@ class JobArgs:
         """
         The set of arguments for constructing a Job resource.
 
-        :param pulumi.Input[_builtins.str] job_name: Job Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['JobConfigurationArgs'] configuration: Container Apps Job configuration properties.
         :param pulumi.Input[_builtins.str] environment_id: Resource ID of environment.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
+        :param pulumi.Input[_builtins.str] job_name: Job Name
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['JobTemplateArgs'] template: Container Apps job definition.
         :param pulumi.Input[_builtins.str] workload_profile_name: Workload profile name to pin for container apps job execution.
         """
-        pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
@@ -56,6 +55,8 @@ class JobArgs:
             pulumi.set(__self__, "extended_location", extended_location)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if job_name is not None:
+            pulumi.set(__self__, "job_name", job_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -64,18 +65,6 @@ class JobArgs:
             pulumi.set(__self__, "template", template)
         if workload_profile_name is not None:
             pulumi.set(__self__, "workload_profile_name", workload_profile_name)
-
-    @_builtins.property
-    @pulumi.getter(name="jobName")
-    def job_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Job Name
-        """
-        return pulumi.get(self, "job_name")
-
-    @job_name.setter
-    def job_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -136,6 +125,18 @@ class JobArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Job Name
+        """
+        return pulumi.get(self, "job_name")
+
+    @job_name.setter
+    def job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -276,8 +277,6 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["identity"] = identity
-            if job_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_name'")
             __props__.__dict__["job_name"] = job_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

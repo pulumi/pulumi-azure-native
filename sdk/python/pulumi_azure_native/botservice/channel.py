@@ -22,9 +22,9 @@ __all__ = ['ChannelArgs', 'Channel']
 @pulumi.input_type
 class ChannelArgs:
     def __init__(__self__, *,
-                 channel_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['AcsChatChannelArgs', 'AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'M365ExtensionsArgs', 'MsTeamsChannelArgs', 'OmnichannelArgs', 'OutlookChannelArgs', 'SearchAssistantArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'TelephonyChannelArgs', 'WebChatChannelArgs']]] = None,
@@ -33,18 +33,19 @@ class ChannelArgs:
         """
         The set of arguments for constructing a Channel resource.
 
-        :param pulumi.Input[_builtins.str] channel_name: The name of the Channel resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Bot resource.
+        :param pulumi.Input[_builtins.str] channel_name: The name of the Channel resource.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input[Union['AcsChatChannelArgs', 'AlexaChannelArgs', 'DirectLineChannelArgs', 'DirectLineSpeechChannelArgs', 'EmailChannelArgs', 'FacebookChannelArgs', 'KikChannelArgs', 'LineChannelArgs', 'M365ExtensionsArgs', 'MsTeamsChannelArgs', 'OmnichannelArgs', 'OutlookChannelArgs', 'SearchAssistantArgs', 'SkypeChannelArgs', 'SlackChannelArgs', 'SmsChannelArgs', 'TelegramChannelArgs', 'TelephonyChannelArgs', 'WebChatChannelArgs']] properties: The set of properties specific to bot channel resource
         :param pulumi.Input['SkuArgs'] sku: Gets or sets the SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         """
-        pulumi.set(__self__, "channel_name", channel_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if channel_name is not None:
+            pulumi.set(__self__, "channel_name", channel_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -55,18 +56,6 @@ class ChannelArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Channel resource.
-        """
-        return pulumi.get(self, "channel_name")
-
-    @channel_name.setter
-    def channel_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -91,6 +80,18 @@ class ChannelArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Channel resource.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -233,8 +234,6 @@ class Channel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
-            if channel_name is None and not opts.urn:
-                raise TypeError("Missing required property 'channel_name'")
             __props__.__dict__["channel_name"] = channel_name
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location

@@ -23,8 +23,8 @@ __all__ = ['BlobContainerArgs', 'BlobContainer']
 class BlobContainerArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 container_name: pulumi.Input[Optional[_builtins.str]] = None,
                  default_encryption_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  deny_encryption_scope_override: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_nfs_v3_all_squash: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -36,8 +36,8 @@ class BlobContainerArgs:
         The set of arguments for constructing a BlobContainer resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[_builtins.str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
         :param pulumi.Input[_builtins.str] default_encryption_scope: Default the container to use specified encryption scope for all writes.
         :param pulumi.Input[_builtins.bool] deny_encryption_scope_override: Block override of encryption scope from the container default.
         :param pulumi.Input[_builtins.bool] enable_nfs_v3_all_squash: Enable NFSv3 all squash on blob container.
@@ -47,8 +47,9 @@ class BlobContainerArgs:
         :param pulumi.Input['PublicAccess'] public_access: Specifies whether data in the container may be accessed publicly and the level of access.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
         if default_encryption_scope is not None:
             pulumi.set(__self__, "default_encryption_scope", default_encryption_scope)
         if deny_encryption_scope_override is not None:
@@ -77,18 +78,6 @@ class BlobContainerArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="containerName")
-    def container_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
-        """
-        return pulumi.get(self, "container_name")
-
-    @container_name.setter
-    def container_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "container_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -99,6 +88,18 @@ class BlobContainerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultEncryptionScope")
@@ -274,8 +275,6 @@ class BlobContainer(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_name'")
             __props__.__dict__["container_name"] = container_name
             __props__.__dict__["default_encryption_scope"] = default_encryption_scope
             __props__.__dict__["deny_encryption_scope_override"] = deny_encryption_scope_override

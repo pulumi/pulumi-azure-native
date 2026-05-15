@@ -22,44 +22,33 @@ __all__ = ['CredentialSetArgs', 'CredentialSet']
 @pulumi.input_type
 class CredentialSetArgs:
     def __init__(__self__, *,
-                 credential_set_name: pulumi.Input[_builtins.str],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auth_credentials: pulumi.Input[Optional[Sequence[pulumi.Input['AuthCredentialArgs']]]] = None,
+                 credential_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
                  login_server: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CredentialSet resource.
 
-        :param pulumi.Input[_builtins.str] credential_set_name: The name of the credential set.
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['AuthCredentialArgs']]] auth_credentials: List of authentication credentials stored for an upstream.
                Usually consists of a primary and an optional secondary credential.
+        :param pulumi.Input[_builtins.str] credential_set_name: The name of the credential set.
         :param pulumi.Input['IdentityPropertiesArgs'] identity: Identities associated with the resource. This is used to access the KeyVault secrets.
         :param pulumi.Input[_builtins.str] login_server: The credentials are stored for this upstream or login server.
         """
-        pulumi.set(__self__, "credential_set_name", credential_set_name)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auth_credentials is not None:
             pulumi.set(__self__, "auth_credentials", auth_credentials)
+        if credential_set_name is not None:
+            pulumi.set(__self__, "credential_set_name", credential_set_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if login_server is not None:
             pulumi.set(__self__, "login_server", login_server)
-
-    @_builtins.property
-    @pulumi.getter(name="credentialSetName")
-    def credential_set_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the credential set.
-        """
-        return pulumi.get(self, "credential_set_name")
-
-    @credential_set_name.setter
-    def credential_set_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "credential_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
@@ -97,6 +86,18 @@ class CredentialSetArgs:
     @auth_credentials.setter
     def auth_credentials(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthCredentialArgs']]]]):
         pulumi.set(self, "auth_credentials", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialSetName")
+    def credential_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the credential set.
+        """
+        return pulumi.get(self, "credential_set_name")
+
+    @credential_set_name.setter
+    def credential_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "credential_set_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -199,8 +200,6 @@ class CredentialSet(pulumi.CustomResource):
             __props__ = CredentialSetArgs.__new__(CredentialSetArgs)
 
             __props__.__dict__["auth_credentials"] = auth_credentials
-            if credential_set_name is None and not opts.urn:
-                raise TypeError("Missing required property 'credential_set_name'")
             __props__.__dict__["credential_set_name"] = credential_set_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["login_server"] = login_server

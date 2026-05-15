@@ -23,7 +23,7 @@ class VariableValueArgs:
     def __init__(__self__, *,
                  values: pulumi.Input[Sequence[pulumi.Input['PolicyVariableValueColumnValueArgs']]],
                  variable_name: pulumi.Input[_builtins.str],
-                 variable_value_name: pulumi.Input[_builtins.str]):
+                 variable_value_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VariableValue resource.
 
@@ -33,7 +33,8 @@ class VariableValueArgs:
         """
         pulumi.set(__self__, "values", values)
         pulumi.set(__self__, "variable_name", variable_name)
-        pulumi.set(__self__, "variable_value_name", variable_value_name)
+        if variable_value_name is not None:
+            pulumi.set(__self__, "variable_value_name", variable_value_name)
 
     @_builtins.property
     @pulumi.getter
@@ -61,14 +62,14 @@ class VariableValueArgs:
 
     @_builtins.property
     @pulumi.getter(name="variableValueName")
-    def variable_value_name(self) -> pulumi.Input[_builtins.str]:
+    def variable_value_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the variable value to operate on.
         """
         return pulumi.get(self, "variable_value_name")
 
     @variable_value_name.setter
-    def variable_value_name(self, value: pulumi.Input[_builtins.str]):
+    def variable_value_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable_value_name", value)
 
 
@@ -143,8 +144,6 @@ class VariableValue(pulumi.CustomResource):
             if variable_name is None and not opts.urn:
                 raise TypeError("Missing required property 'variable_name'")
             __props__.__dict__["variable_name"] = variable_name
-            if variable_value_name is None and not opts.urn:
-                raise TypeError("Missing required property 'variable_value_name'")
             __props__.__dict__["variable_value_name"] = variable_value_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

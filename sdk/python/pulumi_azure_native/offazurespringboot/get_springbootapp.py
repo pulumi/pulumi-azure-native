@@ -140,7 +140,7 @@ def get_springbootapp(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_springbootapp_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              site_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             springbootapps_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             springbootapps_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSpringbootappResult]:
     """
     Get a springbootapps resource.

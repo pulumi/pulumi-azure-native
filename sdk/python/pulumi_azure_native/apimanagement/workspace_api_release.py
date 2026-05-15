@@ -20,28 +20,29 @@ __all__ = ['WorkspaceApiReleaseArgs', 'WorkspaceApiRelease']
 class WorkspaceApiReleaseArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
-                 release_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
-                 notes: pulumi.Input[Optional[_builtins.str]] = None):
+                 notes: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceApiRelease resource.
 
         :param pulumi.Input[_builtins.str] api_id: Identifier of the API the release belongs to.
-        :param pulumi.Input[_builtins.str] release_id: Release identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] notes: Release Notes
+        :param pulumi.Input[_builtins.str] release_id: Release identifier within an API. Must be unique in the current API Management service instance.
         """
         pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "release_id", release_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
+        if release_id is not None:
+            pulumi.set(__self__, "release_id", release_id)
 
     @_builtins.property
     @pulumi.getter(name="apiId")
@@ -54,18 +55,6 @@ class WorkspaceApiReleaseArgs:
     @api_id.setter
     def api_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "api_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="releaseId")
-    def release_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Release identifier within an API. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "release_id")
-
-    @release_id.setter
-    def release_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "release_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -114,6 +103,18 @@ class WorkspaceApiReleaseArgs:
     @notes.setter
     def notes(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="releaseId")
+    def release_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Release identifier within an API. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "release_id")
+
+    @release_id.setter
+    def release_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "release_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:WorkspaceApiRelease")
@@ -194,8 +195,6 @@ class WorkspaceApiRelease(pulumi.CustomResource):
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             __props__.__dict__["notes"] = notes
-            if release_id is None and not opts.urn:
-                raise TypeError("Missing required property 'release_id'")
             __props__.__dict__["release_id"] = release_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

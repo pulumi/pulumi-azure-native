@@ -241,7 +241,7 @@ def get_budget(budget_name: Optional[_builtins.str] = None,
         time_grain=pulumi.get(__ret__, 'time_grain'),
         time_period=pulumi.get(__ret__, 'time_period'),
         type=pulumi.get(__ret__, 'type'))
-def get_budget_output(budget_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_budget_output(budget_name: pulumi.Input[Optional[_builtins.str]] = None,
                       scope: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetResult]:
     """

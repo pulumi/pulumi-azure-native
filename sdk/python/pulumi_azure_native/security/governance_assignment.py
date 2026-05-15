@@ -22,10 +22,10 @@ __all__ = ['GovernanceAssignmentArgs', 'GovernanceAssignment']
 class GovernanceAssignmentArgs:
     def __init__(__self__, *,
                  assessment_name: pulumi.Input[_builtins.str],
-                 assignment_key: pulumi.Input[_builtins.str],
                  remediation_due_date: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  additional_data: pulumi.Input[Optional['GovernanceAssignmentAdditionalDataArgs']] = None,
+                 assignment_key: pulumi.Input[Optional[_builtins.str]] = None,
                  governance_email_notification: pulumi.Input[Optional['GovernanceEmailNotificationArgs']] = None,
                  is_grace_period: pulumi.Input[Optional[_builtins.bool]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,21 +34,22 @@ class GovernanceAssignmentArgs:
         The set of arguments for constructing a GovernanceAssignment resource.
 
         :param pulumi.Input[_builtins.str] assessment_name: The Assessment Key - A unique key for the assessment type
-        :param pulumi.Input[_builtins.str] assignment_key: The governance assignment key - the assessment key of the required governance assignment
         :param pulumi.Input[_builtins.str] remediation_due_date: The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
         :param pulumi.Input[_builtins.str] scope: The scope of the Governance assignments. Valid scopes are: subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
         :param pulumi.Input['GovernanceAssignmentAdditionalDataArgs'] additional_data: The additional data for the governance assignment - e.g. links to ticket (optional), see example
+        :param pulumi.Input[_builtins.str] assignment_key: The governance assignment key - the assessment key of the required governance assignment
         :param pulumi.Input['GovernanceEmailNotificationArgs'] governance_email_notification: The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         :param pulumi.Input[_builtins.bool] is_grace_period: Defines whether there is a grace period on the governance assignment
         :param pulumi.Input[_builtins.str] owner: The Owner for the governance assignment - e.g. user@contoso.com - see example
         :param pulumi.Input['RemediationEtaArgs'] remediation_eta: The ETA (estimated time of arrival) for remediation (optional), see example
         """
         pulumi.set(__self__, "assessment_name", assessment_name)
-        pulumi.set(__self__, "assignment_key", assignment_key)
         pulumi.set(__self__, "remediation_due_date", remediation_due_date)
         pulumi.set(__self__, "scope", scope)
         if additional_data is not None:
             pulumi.set(__self__, "additional_data", additional_data)
+        if assignment_key is not None:
+            pulumi.set(__self__, "assignment_key", assignment_key)
         if governance_email_notification is not None:
             pulumi.set(__self__, "governance_email_notification", governance_email_notification)
         if is_grace_period is not None:
@@ -69,18 +70,6 @@ class GovernanceAssignmentArgs:
     @assessment_name.setter
     def assessment_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "assessment_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="assignmentKey")
-    def assignment_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The governance assignment key - the assessment key of the required governance assignment
-        """
-        return pulumi.get(self, "assignment_key")
-
-    @assignment_key.setter
-    def assignment_key(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "assignment_key", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationDueDate")
@@ -117,6 +106,18 @@ class GovernanceAssignmentArgs:
     @additional_data.setter
     def additional_data(self, value: pulumi.Input[Optional['GovernanceAssignmentAdditionalDataArgs']]):
         pulumi.set(self, "additional_data", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assignmentKey")
+    def assignment_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The governance assignment key - the assessment key of the required governance assignment
+        """
+        return pulumi.get(self, "assignment_key")
+
+    @assignment_key.setter
+    def assignment_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assignment_key", value)
 
     @_builtins.property
     @pulumi.getter(name="governanceEmailNotification")
@@ -250,8 +251,6 @@ class GovernanceAssignment(pulumi.CustomResource):
             if assessment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_name'")
             __props__.__dict__["assessment_name"] = assessment_name
-            if assignment_key is None and not opts.urn:
-                raise TypeError("Missing required property 'assignment_key'")
             __props__.__dict__["assignment_key"] = assignment_key
             __props__.__dict__["governance_email_notification"] = governance_email_notification
             __props__.__dict__["is_grace_period"] = is_grace_period

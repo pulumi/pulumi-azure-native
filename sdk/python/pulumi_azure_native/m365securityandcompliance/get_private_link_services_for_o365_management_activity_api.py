@@ -201,7 +201,7 @@ def get_private_link_services_for_o365_management_activity_api(resource_group_na
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_private_link_services_for_o365_management_activity_api_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                      resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                                      resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicesForO365ManagementActivityAPIResult]:
     """
     Get the metadata of a privateLinkServicesForO365ManagementActivityAPI resource.

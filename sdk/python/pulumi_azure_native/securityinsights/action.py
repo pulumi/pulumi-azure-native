@@ -20,40 +20,29 @@ __all__ = ['ActionArgs', 'Action']
 @pulumi.input_type
 class ActionArgs:
     def __init__(__self__, *,
-                 action_id: pulumi.Input[_builtins.str],
                  logic_app_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_id: pulumi.Input[_builtins.str],
                  trigger_uri: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 action_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Action resource.
 
-        :param pulumi.Input[_builtins.str] action_id: Action ID
         :param pulumi.Input[_builtins.str] logic_app_resource_id: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] rule_id: Alert rule ID
         :param pulumi.Input[_builtins.str] trigger_uri: Logic App Callback URL for this specific workflow.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] action_id: Action ID
         """
-        pulumi.set(__self__, "action_id", action_id)
         pulumi.set(__self__, "logic_app_resource_id", logic_app_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rule_id", rule_id)
         pulumi.set(__self__, "trigger_uri", trigger_uri)
         pulumi.set(__self__, "workspace_name", workspace_name)
-
-    @_builtins.property
-    @pulumi.getter(name="actionId")
-    def action_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Action ID
-        """
-        return pulumi.get(self, "action_id")
-
-    @action_id.setter
-    def action_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "action_id", value)
+        if action_id is not None:
+            pulumi.set(__self__, "action_id", action_id)
 
     @_builtins.property
     @pulumi.getter(name="logicAppResourceId")
@@ -114,6 +103,18 @@ class ActionArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionId")
+    def action_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Action ID
+        """
+        return pulumi.get(self, "action_id")
+
+    @action_id.setter
+    def action_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "action_id", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:Action")
@@ -190,8 +191,6 @@ class Action(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActionArgs.__new__(ActionArgs)
 
-            if action_id is None and not opts.urn:
-                raise TypeError("Missing required property 'action_id'")
             __props__.__dict__["action_id"] = action_id
             if logic_app_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'logic_app_resource_id'")

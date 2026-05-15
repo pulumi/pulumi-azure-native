@@ -20,11 +20,11 @@ __all__ = ['ManagedPrivateEndpointArgs', 'ManagedPrivateEndpoint']
 @pulumi.input_type
 class ManagedPrivateEndpointArgs:
     def __init__(__self__, *,
-                 managed_private_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,24 +33,25 @@ class ManagedPrivateEndpointArgs:
         """
         The set of arguments for constructing a ManagedPrivateEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] managed_private_endpoint_name: The managed private endpoint name of Azure Managed Grafana.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The workspace name of Azure Managed Grafana.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_ids: The group Ids of the managed private endpoint.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] managed_private_endpoint_name: The managed private endpoint name of Azure Managed Grafana.
         :param pulumi.Input[_builtins.str] private_link_resource_id: The ARM resource ID of the resource for which the managed private endpoint is pointing to.
         :param pulumi.Input[_builtins.str] private_link_resource_region: The region of the resource to which the managed private endpoint is pointing to.
         :param pulumi.Input[_builtins.str] private_link_service_url: The URL of the data store behind the private link service. It would be the URL in the Grafana data source configuration page without the protocol and port.
         :param pulumi.Input[_builtins.str] request_message: User input request message of the managed private endpoint.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "managed_private_endpoint_name", managed_private_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if group_ids is not None:
             pulumi.set(__self__, "group_ids", group_ids)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_private_endpoint_name is not None:
+            pulumi.set(__self__, "managed_private_endpoint_name", managed_private_endpoint_name)
         if private_link_resource_id is not None:
             pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
         if private_link_resource_region is not None:
@@ -61,18 +62,6 @@ class ManagedPrivateEndpointArgs:
             pulumi.set(__self__, "request_message", request_message)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="managedPrivateEndpointName")
-    def managed_private_endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The managed private endpoint name of Azure Managed Grafana.
-        """
-        return pulumi.get(self, "managed_private_endpoint_name")
-
-    @managed_private_endpoint_name.setter
-    def managed_private_endpoint_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "managed_private_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -121,6 +110,18 @@ class ManagedPrivateEndpointArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedPrivateEndpointName")
+    def managed_private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The managed private endpoint name of Azure Managed Grafana.
+        """
+        return pulumi.get(self, "managed_private_endpoint_name")
+
+    @managed_private_endpoint_name.setter
+    def managed_private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "managed_private_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceId")
@@ -271,8 +272,6 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
 
             __props__.__dict__["group_ids"] = group_ids
             __props__.__dict__["location"] = location
-            if managed_private_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_private_endpoint_name'")
             __props__.__dict__["managed_private_endpoint_name"] = managed_private_endpoint_name
             __props__.__dict__["private_link_resource_id"] = private_link_resource_id
             __props__.__dict__["private_link_resource_region"] = private_link_resource_region

@@ -21,37 +21,26 @@ __all__ = ['CustomerEventArgs', 'CustomerEvent']
 @pulumi.input_type
 class CustomerEventArgs:
     def __init__(__self__, *,
-                 customer_event_name: pulumi.Input[_builtins.str],
                  event_name: pulumi.Input[_builtins.str],
                  receivers: pulumi.Input[Sequence[pulumi.Input['NotificationEventReceiverArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 test_base_account_name: pulumi.Input[_builtins.str]):
+                 test_base_account_name: pulumi.Input[_builtins.str],
+                 customer_event_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerEvent resource.
 
-        :param pulumi.Input[_builtins.str] customer_event_name: The resource name of the Test Base Customer event.
         :param pulumi.Input[_builtins.str] event_name: The name of the event subscribed to.
         :param pulumi.Input[Sequence[pulumi.Input['NotificationEventReceiverArgs']]] receivers: The notification event receivers.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
+        :param pulumi.Input[_builtins.str] customer_event_name: The resource name of the Test Base Customer event.
         """
-        pulumi.set(__self__, "customer_event_name", customer_event_name)
         pulumi.set(__self__, "event_name", event_name)
         pulumi.set(__self__, "receivers", receivers)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "test_base_account_name", test_base_account_name)
-
-    @_builtins.property
-    @pulumi.getter(name="customerEventName")
-    def customer_event_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The resource name of the Test Base Customer event.
-        """
-        return pulumi.get(self, "customer_event_name")
-
-    @customer_event_name.setter
-    def customer_event_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "customer_event_name", value)
+        if customer_event_name is not None:
+            pulumi.set(__self__, "customer_event_name", customer_event_name)
 
     @_builtins.property
     @pulumi.getter(name="eventName")
@@ -100,6 +89,18 @@ class CustomerEventArgs:
     @test_base_account_name.setter
     def test_base_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "test_base_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customerEventName")
+    def customer_event_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource name of the Test Base Customer event.
+        """
+        return pulumi.get(self, "customer_event_name")
+
+    @customer_event_name.setter
+    def customer_event_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "customer_event_name", value)
 
 
 @pulumi.type_token("azure-native:testbase:CustomerEvent")
@@ -173,8 +174,6 @@ class CustomerEvent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomerEventArgs.__new__(CustomerEventArgs)
 
-            if customer_event_name is None and not opts.urn:
-                raise TypeError("Missing required property 'customer_event_name'")
             __props__.__dict__["customer_event_name"] = customer_event_name
             if event_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_name'")

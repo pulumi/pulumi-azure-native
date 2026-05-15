@@ -140,7 +140,7 @@ def get_trigger(factory_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_trigger_output(factory_name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       trigger_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTriggerResult]:
     """
     Gets a trigger.

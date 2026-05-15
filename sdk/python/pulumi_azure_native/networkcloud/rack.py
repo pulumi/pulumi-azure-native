@@ -24,11 +24,11 @@ class RackArgs:
                  availability_zone: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  rack_location: pulumi.Input[_builtins.str],
-                 rack_name: pulumi.Input[_builtins.str],
                  rack_serial_number: pulumi.Input[_builtins.str],
                  rack_sku_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 rack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Rack resource.
@@ -36,22 +36,23 @@ class RackArgs:
         :param pulumi.Input[_builtins.str] availability_zone: The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[_builtins.str] rack_location: The free-form description of the rack location. (e.g. “DTN Datacenter, Floor 3, Isle 9, Rack 2B”)
-        :param pulumi.Input[_builtins.str] rack_name: The name of the rack.
         :param pulumi.Input[_builtins.str] rack_serial_number: The unique identifier for the rack within Network Cloud cluster. An alternate unique alphanumeric value other than a serial number may be provided if desired.
         :param pulumi.Input[_builtins.str] rack_sku_id: The SKU for the rack.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] rack_name: The name of the rack.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "rack_location", rack_location)
-        pulumi.set(__self__, "rack_name", rack_name)
         pulumi.set(__self__, "rack_serial_number", rack_serial_number)
         pulumi.set(__self__, "rack_sku_id", rack_sku_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if rack_name is not None:
+            pulumi.set(__self__, "rack_name", rack_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -90,18 +91,6 @@ class RackArgs:
     @rack_location.setter
     def rack_location(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "rack_location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="rackName")
-    def rack_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the rack.
-        """
-        return pulumi.get(self, "rack_name")
-
-    @rack_name.setter
-    def rack_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rack_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rackSerialNumber")
@@ -150,6 +139,18 @@ class RackArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rackName")
+    def rack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the rack.
+        """
+        return pulumi.get(self, "rack_name")
+
+    @rack_name.setter
+    def rack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rack_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -253,8 +254,6 @@ class Rack(pulumi.CustomResource):
             if rack_location is None and not opts.urn:
                 raise TypeError("Missing required property 'rack_location'")
             __props__.__dict__["rack_location"] = rack_location
-            if rack_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rack_name'")
             __props__.__dict__["rack_name"] = rack_name
             if rack_serial_number is None and not opts.urn:
                 raise TypeError("Missing required property 'rack_serial_number'")

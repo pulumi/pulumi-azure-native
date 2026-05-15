@@ -22,10 +22,10 @@ __all__ = ['DscpConfigurationArgs', 'DscpConfiguration']
 @pulumi.input_type
 class DscpConfigurationArgs:
     def __init__(__self__, *,
-                 dscp_configuration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  destination_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['QosIpRangeArgs']]]] = None,
                  destination_port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input['QosPortRangeArgs']]]] = None,
+                 dscp_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  markings: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
@@ -37,10 +37,10 @@ class DscpConfigurationArgs:
         """
         The set of arguments for constructing a DscpConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] dscp_configuration_name: The name of the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['QosIpRangeArgs']]] destination_ip_ranges: Destination IP ranges.
         :param pulumi.Input[Sequence[pulumi.Input['QosPortRangeArgs']]] destination_port_ranges: Destination port ranges.
+        :param pulumi.Input[_builtins.str] dscp_configuration_name: The name of the resource.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] markings: List of markings to be used in the configuration.
@@ -50,12 +50,13 @@ class DscpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['QosPortRangeArgs']]] source_port_ranges: Sources port ranges.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "dscp_configuration_name", dscp_configuration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if destination_ip_ranges is not None:
             pulumi.set(__self__, "destination_ip_ranges", destination_ip_ranges)
         if destination_port_ranges is not None:
             pulumi.set(__self__, "destination_port_ranges", destination_port_ranges)
+        if dscp_configuration_name is not None:
+            pulumi.set(__self__, "dscp_configuration_name", dscp_configuration_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -72,18 +73,6 @@ class DscpConfigurationArgs:
             pulumi.set(__self__, "source_port_ranges", source_port_ranges)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="dscpConfigurationName")
-    def dscp_configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the resource.
-        """
-        return pulumi.get(self, "dscp_configuration_name")
-
-    @dscp_configuration_name.setter
-    def dscp_configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dscp_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -120,6 +109,18 @@ class DscpConfigurationArgs:
     @destination_port_ranges.setter
     def destination_port_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['QosPortRangeArgs']]]]):
         pulumi.set(self, "destination_port_ranges", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dscpConfigurationName")
+    def dscp_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "dscp_configuration_name")
+
+    @dscp_configuration_name.setter
+    def dscp_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dscp_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -312,8 +313,6 @@ class DscpConfiguration(pulumi.CustomResource):
 
             __props__.__dict__["destination_ip_ranges"] = destination_ip_ranges
             __props__.__dict__["destination_port_ranges"] = destination_port_ranges
-            if dscp_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dscp_configuration_name'")
             __props__.__dict__["dscp_configuration_name"] = dscp_configuration_name
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location

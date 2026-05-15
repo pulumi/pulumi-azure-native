@@ -21,35 +21,24 @@ __all__ = ['MigrationEntityGroupArgs', 'MigrationEntityGroup']
 @pulumi.input_type
 class MigrationEntityGroupArgs:
     def __init__(__self__, *,
-                 migration_entity_group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 migration_entity_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['MigrationEntityGroupPropertiesArgs']] = None):
         """
         The set of arguments for constructing a MigrationEntityGroup resource.
 
-        :param pulumi.Input[_builtins.str] migration_entity_group_name: Migration Entity Group ARM name
         :param pulumi.Input[_builtins.str] project_name: Migrate Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] migration_entity_group_name: Migration Entity Group ARM name
         :param pulumi.Input['MigrationEntityGroupPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "migration_entity_group_name", migration_entity_group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if migration_entity_group_name is not None:
+            pulumi.set(__self__, "migration_entity_group_name", migration_entity_group_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="migrationEntityGroupName")
-    def migration_entity_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Migration Entity Group ARM name
-        """
-        return pulumi.get(self, "migration_entity_group_name")
-
-    @migration_entity_group_name.setter
-    def migration_entity_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "migration_entity_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -74,6 +63,18 @@ class MigrationEntityGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="migrationEntityGroupName")
+    def migration_entity_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Migration Entity Group ARM name
+        """
+        return pulumi.get(self, "migration_entity_group_name")
+
+    @migration_entity_group_name.setter
+    def migration_entity_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "migration_entity_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -156,8 +157,6 @@ class MigrationEntityGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MigrationEntityGroupArgs.__new__(MigrationEntityGroupArgs)
 
-            if migration_entity_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'migration_entity_group_name'")
             __props__.__dict__["migration_entity_group_name"] = migration_entity_group_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

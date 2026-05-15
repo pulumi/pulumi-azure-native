@@ -218,7 +218,7 @@ def get_capacity_reservation_group(capacity_reservation_group_name: Optional[_bu
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated=pulumi.get(__ret__, 'virtual_machines_associated'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_capacity_reservation_group_output(capacity_reservation_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_capacity_reservation_group_output(capacity_reservation_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationGroupResult]:

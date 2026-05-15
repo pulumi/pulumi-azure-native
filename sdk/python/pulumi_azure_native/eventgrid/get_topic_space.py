@@ -172,7 +172,7 @@ def get_topic_space(namespace_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_topic_space_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           topic_space_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           topic_space_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicSpaceResult]:
     """
     Get properties of a topic space.

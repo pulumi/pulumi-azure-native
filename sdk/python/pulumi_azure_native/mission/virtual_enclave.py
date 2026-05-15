@@ -25,7 +25,6 @@ class VirtualEnclaveArgs:
                  community_resource_id: pulumi.Input[_builtins.str],
                  enclave_virtual_network: pulumi.Input['EnclaveVirtualNetworkModelArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_enclave_name: pulumi.Input[_builtins.str],
                  bastion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  enclave_default_settings: pulumi.Input[Optional['EnclaveDefaultSettingsModelArgs']] = None,
                  enclave_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]] = None,
@@ -34,6 +33,7 @@ class VirtualEnclaveArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maintenance_mode_configuration: pulumi.Input[Optional['MaintenanceModeConfigurationModelArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_enclave_name: pulumi.Input[Optional[_builtins.str]] = None,
                  workload_role_assignments: pulumi.Input[Optional[Sequence[pulumi.Input['RoleAssignmentItemArgs']]]] = None):
         """
         The set of arguments for constructing a VirtualEnclave resource.
@@ -41,7 +41,6 @@ class VirtualEnclaveArgs:
         :param pulumi.Input[_builtins.str] community_resource_id: Community Resource Id.
         :param pulumi.Input['EnclaveVirtualNetworkModelArgs'] enclave_virtual_network: Virtual Network.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] virtual_enclave_name: The name of the enclaveResource Resource
         :param pulumi.Input[_builtins.bool] bastion_enabled: Deploy Bastion service (True or False).
         :param pulumi.Input['EnclaveDefaultSettingsModelArgs'] enclave_default_settings: Enclave default settings.
         :param pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]] enclave_role_assignments: Enclave role assignments
@@ -50,12 +49,12 @@ class VirtualEnclaveArgs:
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['MaintenanceModeConfigurationModelArgs'] maintenance_mode_configuration: Maintenance Mode configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] virtual_enclave_name: The name of the enclaveResource Resource
         :param pulumi.Input[Sequence[pulumi.Input['RoleAssignmentItemArgs']]] workload_role_assignments: Workload role assignments
         """
         pulumi.set(__self__, "community_resource_id", community_resource_id)
         pulumi.set(__self__, "enclave_virtual_network", enclave_virtual_network)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_enclave_name", virtual_enclave_name)
         if bastion_enabled is None:
             bastion_enabled = False
         if bastion_enabled is not None:
@@ -74,6 +73,8 @@ class VirtualEnclaveArgs:
             pulumi.set(__self__, "maintenance_mode_configuration", maintenance_mode_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_enclave_name is not None:
+            pulumi.set(__self__, "virtual_enclave_name", virtual_enclave_name)
         if workload_role_assignments is not None:
             pulumi.set(__self__, "workload_role_assignments", workload_role_assignments)
 
@@ -112,18 +113,6 @@ class VirtualEnclaveArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualEnclaveName")
-    def virtual_enclave_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the enclaveResource Resource
-        """
-        return pulumi.get(self, "virtual_enclave_name")
-
-    @virtual_enclave_name.setter
-    def virtual_enclave_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_enclave_name", value)
 
     @_builtins.property
     @pulumi.getter(name="bastionEnabled")
@@ -220,6 +209,18 @@ class VirtualEnclaveArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualEnclaveName")
+    def virtual_enclave_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the enclaveResource Resource
+        """
+        return pulumi.get(self, "virtual_enclave_name")
+
+    @virtual_enclave_name.setter
+    def virtual_enclave_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_enclave_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workloadRoleAssignments")
@@ -348,8 +349,6 @@ class VirtualEnclave(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if virtual_enclave_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_enclave_name'")
             __props__.__dict__["virtual_enclave_name"] = virtual_enclave_name
             __props__.__dict__["workload_role_assignments"] = workload_role_assignments
             __props__.__dict__["azure_api_version"] = None

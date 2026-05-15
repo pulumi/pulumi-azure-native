@@ -370,7 +370,7 @@ def get_l3_network(l3_network_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'),
         vlan=pulumi.get(__ret__, 'vlan'))
-def get_l3_network_output(l3_network_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_l3_network_output(l3_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL3NetworkResult]:
     """

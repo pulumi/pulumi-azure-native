@@ -214,7 +214,7 @@ def get_sap_discovery_site(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_sap_discovery_site_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  sap_discovery_site_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  sap_discovery_site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSapDiscoverySiteResult]:
     """
     Gets a SAP Migration discovery site resource.

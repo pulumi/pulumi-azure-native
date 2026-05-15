@@ -22,8 +22,8 @@ __all__ = ['PowerBIResourceArgs', 'PowerBIResource']
 @pulumi.input_type
 class PowerBIResourceArgs:
     def __init__(__self__, *,
-                 azure_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 azure_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -31,16 +31,17 @@ class PowerBIResourceArgs:
         """
         The set of arguments for constructing a PowerBIResource resource.
 
-        :param pulumi.Input[_builtins.str] azure_resource_name: The name of the Azure resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] azure_resource_name: The name of the Azure resource.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: Specifies the private endpoint connections of the resource.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Specifies the tags of the resource.
         :param pulumi.Input[_builtins.str] tenant_id: Specifies the tenant id of the resource.
         """
-        pulumi.set(__self__, "azure_resource_name", azure_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if azure_resource_name is not None:
+            pulumi.set(__self__, "azure_resource_name", azure_resource_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if private_endpoint_connections is not None:
@@ -49,18 +50,6 @@ class PowerBIResourceArgs:
             pulumi.set(__self__, "tags", tags)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @_builtins.property
-    @pulumi.getter(name="azureResourceName")
-    def azure_resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Azure resource.
-        """
-        return pulumi.get(self, "azure_resource_name")
-
-    @azure_resource_name.setter
-    def azure_resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "azure_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -73,6 +62,18 @@ class PowerBIResourceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureResourceName")
+    def azure_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Azure resource.
+        """
+        return pulumi.get(self, "azure_resource_name")
+
+    @azure_resource_name.setter
+    def azure_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "azure_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -191,8 +192,6 @@ class PowerBIResource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PowerBIResourceArgs.__new__(PowerBIResourceArgs)
 
-            if azure_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_resource_name'")
             __props__.__dict__["azure_resource_name"] = azure_resource_name
             __props__.__dict__["location"] = location
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections

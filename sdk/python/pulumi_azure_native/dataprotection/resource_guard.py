@@ -22,29 +22,30 @@ __all__ = ['ResourceGuardInitArgs', 'ResourceGuard']
 class ResourceGuardInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_guards_name: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ResourceGuardArgs']] = None,
+                 resource_guards_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceGuard resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_guards_name: The name of ResourceGuard
         :param pulumi.Input[_builtins.str] e_tag: Optional ETag.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['ResourceGuardArgs'] properties: ResourceGuardResource properties
+        :param pulumi.Input[_builtins.str] resource_guards_name: The name of ResourceGuard
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_guards_name", resource_guards_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if resource_guards_name is not None:
+            pulumi.set(__self__, "resource_guards_name", resource_guards_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -59,18 +60,6 @@ class ResourceGuardInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGuardsName")
-    def resource_guards_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of ResourceGuard
-        """
-        return pulumi.get(self, "resource_guards_name")
-
-    @resource_guards_name.setter
-    def resource_guards_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_guards_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
@@ -107,6 +96,18 @@ class ResourceGuardInitArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['ResourceGuardArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGuardsName")
+    def resource_guards_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of ResourceGuard
+        """
+        return pulumi.get(self, "resource_guards_name")
+
+    @resource_guards_name.setter
+    def resource_guards_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_guards_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -197,8 +198,6 @@ class ResourceGuard(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_guards_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_guards_name'")
             __props__.__dict__["resource_guards_name"] = resource_guards_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

@@ -218,7 +218,7 @@ def get_web_app_premier_add_on(name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         vendor=pulumi.get(__ret__, 'vendor'))
 def get_web_app_premier_add_on_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      premier_add_on_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      premier_add_on_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppPremierAddOnResult]:
     """

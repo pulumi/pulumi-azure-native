@@ -24,25 +24,24 @@ class AutoScaleVCoreArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['AutoScaleVCoreSkuArgs'],
-                 vcore_name: pulumi.Input[_builtins.str],
                  capacity_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  capacity_object_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcore_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AutoScaleVCore resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AutoScaleVCoreSkuArgs'] sku: The SKU of the auto scale v-core resource.
-        :param pulumi.Input[_builtins.str] vcore_name: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[_builtins.int] capacity_limit: The maximum capacity of an auto scale v-core resource.
         :param pulumi.Input[_builtins.str] capacity_object_id: The object ID of the capacity resource associated with the auto scale v-core resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] vcore_name: The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "vcore_name", vcore_name)
         if capacity_limit is not None:
             pulumi.set(__self__, "capacity_limit", capacity_limit)
         if capacity_object_id is not None:
@@ -51,6 +50,8 @@ class AutoScaleVCoreArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vcore_name is not None:
+            pulumi.set(__self__, "vcore_name", vcore_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -75,18 +76,6 @@ class AutoScaleVCoreArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['AutoScaleVCoreSkuArgs']):
         pulumi.set(self, "sku", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vcoreName")
-    def vcore_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
-        """
-        return pulumi.get(self, "vcore_name")
-
-    @vcore_name.setter
-    def vcore_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "vcore_name", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityLimit")
@@ -135,6 +124,18 @@ class AutoScaleVCoreArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vcoreName")
+    def vcore_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the auto scale v-core. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "vcore_name")
+
+    @vcore_name.setter
+    def vcore_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vcore_name", value)
 
 
 @pulumi.type_token("azure-native:powerbidedicated:AutoScaleVCore")
@@ -220,8 +221,6 @@ class AutoScaleVCore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            if vcore_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vcore_name'")
             __props__.__dict__["vcore_name"] = vcore_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

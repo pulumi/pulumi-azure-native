@@ -22,9 +22,9 @@ __all__ = ['ContainerAppArgs', 'ContainerApp']
 @pulumi.input_type
 class ContainerAppArgs:
     def __init__(__self__, *,
-                 container_app_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  configuration: pulumi.Input[Optional['ConfigurationArgs']] = None,
+                 container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
@@ -39,9 +39,9 @@ class ContainerAppArgs:
         """
         The set of arguments for constructing a ContainerApp resource.
 
-        :param pulumi.Input[_builtins.str] container_app_name: Name of the Container App.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ConfigurationArgs'] configuration: Non versioned Container App configuration properties.
+        :param pulumi.Input[_builtins.str] container_app_name: Name of the Container App.
         :param pulumi.Input[_builtins.str] environment_id: Resource ID of environment.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
@@ -54,10 +54,11 @@ class ContainerAppArgs:
         :param pulumi.Input['TemplateArgs'] template: Container App versioned application definition.
         :param pulumi.Input[_builtins.str] workload_profile_name: Workload profile name to pin for container app execution.
         """
-        pulumi.set(__self__, "container_app_name", container_app_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if container_app_name is not None:
+            pulumi.set(__self__, "container_app_name", container_app_name)
         if environment_id is not None:
             pulumi.set(__self__, "environment_id", environment_id)
         if extended_location is not None:
@@ -82,18 +83,6 @@ class ContainerAppArgs:
             pulumi.set(__self__, "workload_profile_name", workload_profile_name)
 
     @_builtins.property
-    @pulumi.getter(name="containerAppName")
-    def container_app_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Container App.
-        """
-        return pulumi.get(self, "container_app_name")
-
-    @container_app_name.setter
-    def container_app_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "container_app_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -116,6 +105,18 @@ class ContainerAppArgs:
     @configuration.setter
     def configuration(self, value: pulumi.Input[Optional['ConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerAppName")
+    def container_app_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Container App.
+        """
+        return pulumi.get(self, "container_app_name")
+
+    @container_app_name.setter
+    def container_app_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "container_app_name", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
@@ -349,8 +350,6 @@ class ContainerApp(pulumi.CustomResource):
             __props__ = ContainerAppArgs.__new__(ContainerAppArgs)
 
             __props__.__dict__["configuration"] = configuration
-            if container_app_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_app_name'")
             __props__.__dict__["container_app_name"] = container_app_name
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["extended_location"] = extended_location

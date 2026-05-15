@@ -219,7 +219,7 @@ def get_kusto_pool_attached_database_configuration(attached_database_configurati
         system_data=pulumi.get(__ret__, 'system_data'),
         table_level_sharing_properties=pulumi.get(__ret__, 'table_level_sharing_properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_kusto_pool_attached_database_configuration_output(attached_database_configuration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_kusto_pool_attached_database_configuration_output(attached_database_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           workspace_name: pulumi.Input[Optional[_builtins.str]] = None,

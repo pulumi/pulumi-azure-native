@@ -382,7 +382,7 @@ def get_discovered_asset(discovered_asset_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_discovered_asset_output(discovered_asset_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_discovered_asset_output(discovered_asset_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscoveredAssetResult]:
     """

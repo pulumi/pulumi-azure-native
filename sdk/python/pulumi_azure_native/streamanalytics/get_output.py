@@ -193,7 +193,7 @@ def get_output(job_name: Optional[_builtins.str] = None,
         time_window=pulumi.get(__ret__, 'time_window'),
         type=pulumi.get(__ret__, 'type'))
 def get_output_output(job_name: pulumi.Input[Optional[_builtins.str]] = None,
-                      output_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      output_name: pulumi.Input[Optional[_builtins.str]] = None,
                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutputResult]:
     """

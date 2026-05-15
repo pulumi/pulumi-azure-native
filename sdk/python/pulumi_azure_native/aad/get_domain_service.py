@@ -397,7 +397,7 @@ def get_domain_service(domain_service_name: Optional[_builtins.str] = None,
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_domain_service_output(domain_service_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_domain_service_output(domain_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainServiceResult]:
     """

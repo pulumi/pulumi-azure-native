@@ -22,39 +22,28 @@ __all__ = ['AppAttachPackageArgs', 'AppAttachPackage']
 @pulumi.input_type
 class AppAttachPackageArgs:
     def __init__(__self__, *,
-                 app_attach_package_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['AppAttachPackagePropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 app_attach_package_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AppAttachPackage resource.
 
-        :param pulumi.Input[_builtins.str] app_attach_package_name: The name of the App Attach package
         :param pulumi.Input['AppAttachPackagePropertiesArgs'] properties: Detailed properties for App Attach Package
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] app_attach_package_name: The name of the App Attach package
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "app_attach_package_name", app_attach_package_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if app_attach_package_name is not None:
+            pulumi.set(__self__, "app_attach_package_name", app_attach_package_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="appAttachPackageName")
-    def app_attach_package_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the App Attach package
-        """
-        return pulumi.get(self, "app_attach_package_name")
-
-    @app_attach_package_name.setter
-    def app_attach_package_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "app_attach_package_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -79,6 +68,18 @@ class AppAttachPackageArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="appAttachPackageName")
+    def app_attach_package_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the App Attach package
+        """
+        return pulumi.get(self, "app_attach_package_name")
+
+    @app_attach_package_name.setter
+    def app_attach_package_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "app_attach_package_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,8 +177,6 @@ class AppAttachPackage(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AppAttachPackageArgs.__new__(AppAttachPackageArgs)
 
-            if app_attach_package_name is None and not opts.urn:
-                raise TypeError("Missing required property 'app_attach_package_name'")
             __props__.__dict__["app_attach_package_name"] = app_attach_package_name
             __props__.__dict__["location"] = location
             if properties is None and not opts.urn:

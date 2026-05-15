@@ -22,7 +22,6 @@ __all__ = ['GalleryImageArgs', 'GalleryImage']
 @pulumi.input_type
 class GalleryImageArgs:
     def __init__(__self__, *,
-                 gallery_image_name: pulumi.Input[_builtins.str],
                  gallery_name: pulumi.Input[_builtins.str],
                  identifier: pulumi.Input['GalleryImageIdentifierArgs'],
                  os_state: pulumi.Input['OperatingSystemStateTypes'],
@@ -35,6 +34,7 @@ class GalleryImageArgs:
                  end_of_life_date: pulumi.Input[Optional[_builtins.str]] = None,
                  eula: pulumi.Input[Optional[_builtins.str]] = None,
                  features: pulumi.Input[Optional[Sequence[pulumi.Input['GalleryImageFeatureArgs']]]] = None,
+                 gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  privacy_statement_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -45,7 +45,6 @@ class GalleryImageArgs:
         """
         The set of arguments for constructing a GalleryImage resource.
 
-        :param pulumi.Input[_builtins.str] gallery_image_name: The name of the gallery image definition to be retrieved.
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input['GalleryImageIdentifierArgs'] identifier: This is the gallery image definition identifier.
         :param pulumi.Input['OperatingSystemStateTypes'] os_state: This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
@@ -58,6 +57,7 @@ class GalleryImageArgs:
         :param pulumi.Input[_builtins.str] end_of_life_date: The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
         :param pulumi.Input[_builtins.str] eula: The Eula agreement for the gallery image definition.
         :param pulumi.Input[Sequence[pulumi.Input['GalleryImageFeatureArgs']]] features: A list of gallery image features.
+        :param pulumi.Input[_builtins.str] gallery_image_name: The name of the gallery image definition to be retrieved.
         :param pulumi.Input[Union[_builtins.str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] privacy_statement_uri: The privacy statement uri.
@@ -66,7 +66,6 @@ class GalleryImageArgs:
         :param pulumi.Input[_builtins.str] release_note_uri: The release note uri.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "gallery_image_name", gallery_image_name)
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "identifier", identifier)
         pulumi.set(__self__, "os_state", os_state)
@@ -86,6 +85,8 @@ class GalleryImageArgs:
             pulumi.set(__self__, "eula", eula)
         if features is not None:
             pulumi.set(__self__, "features", features)
+        if gallery_image_name is not None:
+            pulumi.set(__self__, "gallery_image_name", gallery_image_name)
         if hyper_v_generation is not None:
             pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if location is not None:
@@ -100,18 +101,6 @@ class GalleryImageArgs:
             pulumi.set(__self__, "release_note_uri", release_note_uri)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="galleryImageName")
-    def gallery_image_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the gallery image definition to be retrieved.
-        """
-        return pulumi.get(self, "gallery_image_name")
-
-    @gallery_image_name.setter
-    def gallery_image_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "gallery_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryName")
@@ -256,6 +245,18 @@ class GalleryImageArgs:
     @features.setter
     def features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GalleryImageFeatureArgs']]]]):
         pulumi.set(self, "features", value)
+
+    @_builtins.property
+    @pulumi.getter(name="galleryImageName")
+    def gallery_image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the gallery image definition to be retrieved.
+        """
+        return pulumi.get(self, "gallery_image_name")
+
+    @gallery_image_name.setter
+    def gallery_image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gallery_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
@@ -465,8 +466,6 @@ class GalleryImage(pulumi.CustomResource):
             __props__.__dict__["end_of_life_date"] = end_of_life_date
             __props__.__dict__["eula"] = eula
             __props__.__dict__["features"] = features
-            if gallery_image_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gallery_image_name'")
             __props__.__dict__["gallery_image_name"] = gallery_image_name
             if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")

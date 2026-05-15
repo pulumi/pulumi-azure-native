@@ -207,7 +207,7 @@ def get_storage_account(device_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_storage_account_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               storage_account_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageAccountResult]:
     """
     Represents a Storage Account on the  Data Box Edge/Gateway device.

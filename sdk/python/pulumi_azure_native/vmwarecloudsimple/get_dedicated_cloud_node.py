@@ -161,7 +161,7 @@ def get_dedicated_cloud_node(dedicated_cloud_node_name: Optional[_builtins.str] 
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_dedicated_cloud_node_output(dedicated_cloud_node_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_dedicated_cloud_node_output(dedicated_cloud_node_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedCloudNodeResult]:
     """

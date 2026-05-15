@@ -26,7 +26,6 @@ class NetworkFabricArgs:
                  ipv4_prefix: pulumi.Input[_builtins.str],
                  management_network_configuration: pulumi.Input['ManagementNetworkConfigurationPropertiesArgs'],
                  network_fabric_controller_id: pulumi.Input[_builtins.str],
-                 network_fabric_name: pulumi.Input[_builtins.str],
                  network_fabric_sku: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_count_per_rack: pulumi.Input[_builtins.int],
@@ -35,6 +34,7 @@ class NetworkFabricArgs:
                  fabric_version: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv6_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rack_count: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -44,7 +44,6 @@ class NetworkFabricArgs:
         :param pulumi.Input[_builtins.str] ipv4_prefix: IPv4Prefix for Management Network. Example: 10.1.0.0/19.
         :param pulumi.Input['ManagementNetworkConfigurationPropertiesArgs'] management_network_configuration: Configuration to be used to setup the management network.
         :param pulumi.Input[_builtins.str] network_fabric_controller_id: Azure resource ID for the NetworkFabricController the NetworkFabric belongs.
-        :param pulumi.Input[_builtins.str] network_fabric_name: Name of the Network Fabric.
         :param pulumi.Input[_builtins.str] network_fabric_sku: Supported Network Fabric SKU.Example: Compute / Aggregate racks. Once the user chooses a particular SKU, only supported racks can be added to the Network Fabric. The SKU determines whether it is a single / multi rack Network Fabric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.int] server_count_per_rack: Number of servers.Possible values are from 1-16.
@@ -53,6 +52,7 @@ class NetworkFabricArgs:
         :param pulumi.Input[_builtins.str] fabric_version: The version of Network Fabric.
         :param pulumi.Input[_builtins.str] ipv6_prefix: IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] network_fabric_name: Name of the Network Fabric.
         :param pulumi.Input[_builtins.int] rack_count: Number of compute racks associated to Network Fabric.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
@@ -60,7 +60,6 @@ class NetworkFabricArgs:
         pulumi.set(__self__, "ipv4_prefix", ipv4_prefix)
         pulumi.set(__self__, "management_network_configuration", management_network_configuration)
         pulumi.set(__self__, "network_fabric_controller_id", network_fabric_controller_id)
-        pulumi.set(__self__, "network_fabric_name", network_fabric_name)
         pulumi.set(__self__, "network_fabric_sku", network_fabric_sku)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_count_per_rack", server_count_per_rack)
@@ -73,6 +72,8 @@ class NetworkFabricArgs:
             pulumi.set(__self__, "ipv6_prefix", ipv6_prefix)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_fabric_name is not None:
+            pulumi.set(__self__, "network_fabric_name", network_fabric_name)
         if rack_count is not None:
             pulumi.set(__self__, "rack_count", rack_count)
         if tags is not None:
@@ -125,18 +126,6 @@ class NetworkFabricArgs:
     @network_fabric_controller_id.setter
     def network_fabric_controller_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_fabric_controller_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkFabricName")
-    def network_fabric_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Network Fabric.
-        """
-        return pulumi.get(self, "network_fabric_name")
-
-    @network_fabric_name.setter
-    def network_fabric_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_fabric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFabricSku")
@@ -233,6 +222,18 @@ class NetworkFabricArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkFabricName")
+    def network_fabric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Network Fabric.
+        """
+        return pulumi.get(self, "network_fabric_name")
+
+    @network_fabric_name.setter
+    def network_fabric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_fabric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="rackCount")
@@ -376,8 +377,6 @@ class NetworkFabric(pulumi.CustomResource):
             if network_fabric_controller_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_fabric_controller_id'")
             __props__.__dict__["network_fabric_controller_id"] = network_fabric_controller_id
-            if network_fabric_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_fabric_name'")
             __props__.__dict__["network_fabric_name"] = network_fabric_name
             if network_fabric_sku is None and not opts.urn:
                 raise TypeError("Missing required property 'network_fabric_sku'")

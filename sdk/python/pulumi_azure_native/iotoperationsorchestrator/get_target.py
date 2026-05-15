@@ -239,7 +239,7 @@ def get_target(name: Optional[_builtins.str] = None,
         topologies=pulumi.get(__ret__, 'topologies'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_target_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_target_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetResult]:
     """

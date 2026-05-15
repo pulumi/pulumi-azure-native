@@ -183,7 +183,7 @@ def get_workspace_api_version_set(resource_group_name: Optional[_builtins.str] =
         versioning_scheme=pulumi.get(__ret__, 'versioning_scheme'))
 def get_workspace_api_version_set_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         version_set_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         version_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceApiVersionSetResult]:
     """

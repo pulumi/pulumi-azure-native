@@ -23,7 +23,6 @@ class IntegrationAccountSchemaArgs:
     def __init__(__self__, *,
                  integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 schema_name: pulumi.Input[_builtins.str],
                  schema_type: pulumi.Input[Union[_builtins.str, 'SchemaType']],
                  content: pulumi.Input[Optional[_builtins.str]] = None,
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -31,6 +30,7 @@ class IntegrationAccountSchemaArgs:
                  file_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -38,7 +38,6 @@ class IntegrationAccountSchemaArgs:
 
         :param pulumi.Input[_builtins.str] integration_account_name: The integration account name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
-        :param pulumi.Input[_builtins.str] schema_name: The integration account schema name.
         :param pulumi.Input[Union[_builtins.str, 'SchemaType']] schema_type: The schema type.
         :param pulumi.Input[_builtins.str] content: The content.
         :param pulumi.Input[_builtins.str] content_type: The content type.
@@ -46,12 +45,12 @@ class IntegrationAccountSchemaArgs:
         :param pulumi.Input[_builtins.str] file_name: The file name.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param Any metadata: The metadata.
+        :param pulumi.Input[_builtins.str] schema_name: The integration account schema name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         :param pulumi.Input[_builtins.str] target_namespace: The target namespace of the schema.
         """
         pulumi.set(__self__, "integration_account_name", integration_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schema_name", schema_name)
         pulumi.set(__self__, "schema_type", schema_type)
         if content is not None:
             pulumi.set(__self__, "content", content)
@@ -65,6 +64,8 @@ class IntegrationAccountSchemaArgs:
             pulumi.set(__self__, "location", location)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_namespace is not None:
@@ -93,18 +94,6 @@ class IntegrationAccountSchemaArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="schemaName")
-    def schema_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The integration account schema name.
-        """
-        return pulumi.get(self, "schema_name")
-
-    @schema_name.setter
-    def schema_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "schema_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaType")
@@ -189,6 +178,18 @@ class IntegrationAccountSchemaArgs:
     @metadata.setter
     def metadata(self, value: Optional[Any]):
         pulumi.set(self, "metadata", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The integration account schema name.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -319,8 +320,6 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schema_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_name'")
             __props__.__dict__["schema_name"] = schema_name
             if schema_type is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_type'")

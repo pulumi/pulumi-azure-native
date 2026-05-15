@@ -22,38 +22,27 @@ __all__ = ['DataflowEndpointArgs', 'DataflowEndpoint']
 @pulumi.input_type
 class DataflowEndpointArgs:
     def __init__(__self__, *,
-                 dataflow_endpoint_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 dataflow_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DataflowEndpointPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataflowEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] dataflow_endpoint_name: Name of Instance dataflowEndpoint resource
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] dataflow_endpoint_name: Name of Instance dataflowEndpoint resource
         :param pulumi.Input['DataflowEndpointPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "dataflow_endpoint_name", dataflow_endpoint_name)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dataflow_endpoint_name is not None:
+            pulumi.set(__self__, "dataflow_endpoint_name", dataflow_endpoint_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="dataflowEndpointName")
-    def dataflow_endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of Instance dataflowEndpoint resource
-        """
-        return pulumi.get(self, "dataflow_endpoint_name")
-
-    @dataflow_endpoint_name.setter
-    def dataflow_endpoint_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dataflow_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -90,6 +79,18 @@ class DataflowEndpointArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataflowEndpointName")
+    def dataflow_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of Instance dataflowEndpoint resource
+        """
+        return pulumi.get(self, "dataflow_endpoint_name")
+
+    @dataflow_endpoint_name.setter
+    def dataflow_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dataflow_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -175,8 +176,6 @@ class DataflowEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataflowEndpointArgs.__new__(DataflowEndpointArgs)
 
-            if dataflow_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dataflow_endpoint_name'")
             __props__.__dict__["dataflow_endpoint_name"] = dataflow_endpoint_name
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")

@@ -22,51 +22,40 @@ __all__ = ['BrokerAuthorizationArgs', 'BrokerAuthorization']
 @pulumi.input_type
 class BrokerAuthorizationArgs:
     def __init__(__self__, *,
-                 authorization_name: pulumi.Input[_builtins.str],
                  authorization_policies: pulumi.Input['AuthorizationConfigArgs'],
                  broker_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationPropertyArgs'],
                  listener_ref: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 authorization_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrokerAuthorization resource.
 
-        :param pulumi.Input[_builtins.str] authorization_name: Name of MQ broker/authorization resource
         :param pulumi.Input['AuthorizationConfigArgs'] authorization_policies: The list of authorization policies supported by the Authorization Resource.
         :param pulumi.Input[_builtins.str] broker_name: Name of MQ broker resource
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] listener_ref: The array of listener Resources it supports.
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] authorization_name: Name of MQ broker/authorization resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "authorization_name", authorization_name)
         pulumi.set(__self__, "authorization_policies", authorization_policies)
         pulumi.set(__self__, "broker_name", broker_name)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "listener_ref", listener_ref)
         pulumi.set(__self__, "mq_name", mq_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authorization_name is not None:
+            pulumi.set(__self__, "authorization_name", authorization_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationName")
-    def authorization_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of MQ broker/authorization resource
-        """
-        return pulumi.get(self, "authorization_name")
-
-    @authorization_name.setter
-    def authorization_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationPolicies")
@@ -139,6 +128,18 @@ class BrokerAuthorizationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationName")
+    def authorization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of MQ broker/authorization resource
+        """
+        return pulumi.get(self, "authorization_name")
+
+    @authorization_name.setter
+    def authorization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -244,8 +245,6 @@ class BrokerAuthorization(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BrokerAuthorizationArgs.__new__(BrokerAuthorizationArgs)
 
-            if authorization_name is None and not opts.urn:
-                raise TypeError("Missing required property 'authorization_name'")
             __props__.__dict__["authorization_name"] = authorization_name
             if authorization_policies is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_policies'")

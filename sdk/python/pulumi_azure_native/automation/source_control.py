@@ -24,7 +24,6 @@ class SourceControlArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 source_control_name: pulumi.Input[_builtins.str],
                  auto_sync: pulumi.Input[Optional[_builtins.bool]] = None,
                  branch: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,13 +31,13 @@ class SourceControlArgs:
                  publish_runbook: pulumi.Input[Optional[_builtins.bool]] = None,
                  repo_url: pulumi.Input[Optional[_builtins.str]] = None,
                  security_token: pulumi.Input[Optional['SourceControlSecurityTokenPropertiesArgs']] = None,
+                 source_control_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_type: pulumi.Input[Optional[Union[_builtins.str, 'SourceType']]] = None):
         """
         The set of arguments for constructing a SourceControl resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[_builtins.str] source_control_name: The source control name.
         :param pulumi.Input[_builtins.bool] auto_sync: The auto async of the source control. Default is false.
         :param pulumi.Input[_builtins.str] branch: The repo branch of the source control. Include branch as empty string for VsoTfvc.
         :param pulumi.Input[_builtins.str] description: The user description of the source control.
@@ -46,11 +45,11 @@ class SourceControlArgs:
         :param pulumi.Input[_builtins.bool] publish_runbook: The auto publish of the source control. Default is true.
         :param pulumi.Input[_builtins.str] repo_url: The repo url of the source control.
         :param pulumi.Input['SourceControlSecurityTokenPropertiesArgs'] security_token: The authorization token for the repo of the source control.
+        :param pulumi.Input[_builtins.str] source_control_name: The source control name.
         :param pulumi.Input[Union[_builtins.str, 'SourceType']] source_type: The source type. Must be one of VsoGit, VsoTfvc, GitHub, case sensitive.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_control_name", source_control_name)
         if auto_sync is not None:
             pulumi.set(__self__, "auto_sync", auto_sync)
         if branch is not None:
@@ -65,6 +64,8 @@ class SourceControlArgs:
             pulumi.set(__self__, "repo_url", repo_url)
         if security_token is not None:
             pulumi.set(__self__, "security_token", security_token)
+        if source_control_name is not None:
+            pulumi.set(__self__, "source_control_name", source_control_name)
         if source_type is not None:
             pulumi.set(__self__, "source_type", source_type)
 
@@ -91,18 +92,6 @@ class SourceControlArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceControlName")
-    def source_control_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The source control name.
-        """
-        return pulumi.get(self, "source_control_name")
-
-    @source_control_name.setter
-    def source_control_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "source_control_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoSync")
@@ -187,6 +176,18 @@ class SourceControlArgs:
     @security_token.setter
     def security_token(self, value: pulumi.Input[Optional['SourceControlSecurityTokenPropertiesArgs']]):
         pulumi.set(self, "security_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceControlName")
+    def source_control_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The source control name.
+        """
+        return pulumi.get(self, "source_control_name")
+
+    @source_control_name.setter
+    def source_control_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_control_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceType")
@@ -303,8 +304,6 @@ class SourceControl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["security_token"] = security_token
-            if source_control_name is None and not opts.urn:
-                raise TypeError("Missing required property 'source_control_name'")
             __props__.__dict__["source_control_name"] = source_control_name
             __props__.__dict__["source_type"] = source_type
             __props__.__dict__["azure_api_version"] = None

@@ -190,7 +190,7 @@ def get_grafana(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_grafana_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       workspace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrafanaResult]:
     """
     The grafana resource type.

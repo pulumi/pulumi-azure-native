@@ -22,39 +22,28 @@ __all__ = ['GatewayArgs', 'Gateway']
 @pulumi.input_type
 class GatewayArgs:
     def __init__(__self__, *,
-                 gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['GatewayPropertiesArgs']] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
-        :param pulumi.Input[_builtins.str] gateway_name: The name of Spring Cloud Gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
+        :param pulumi.Input[_builtins.str] gateway_name: The name of Spring Cloud Gateway.
         :param pulumi.Input['GatewayPropertiesArgs'] properties: Spring Cloud Gateway properties payload
         :param pulumi.Input['SkuArgs'] sku: Sku of the Spring Cloud Gateway resource
         """
-        pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        if gateway_name is not None:
+            pulumi.set(__self__, "gateway_name", gateway_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
-
-    @_builtins.property
-    @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of Spring Cloud Gateway.
-        """
-        return pulumi.get(self, "gateway_name")
-
-    @gateway_name.setter
-    def gateway_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -79,6 +68,18 @@ class GatewayArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of Spring Cloud Gateway.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,8 +177,6 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GatewayArgs.__new__(GatewayArgs)
 
-            if gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gateway_name'")
             __props__.__dict__["gateway_name"] = gateway_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

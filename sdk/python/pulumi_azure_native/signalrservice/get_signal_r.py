@@ -491,7 +491,7 @@ def get_signal_r(resource_group_name: Optional[_builtins.str] = None,
         upstream=pulumi.get(__ret__, 'upstream'),
         version=pulumi.get(__ret__, 'version'))
 def get_signal_r_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalRResult]:
     """
     Get the resource and its properties.

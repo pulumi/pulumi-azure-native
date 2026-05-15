@@ -21,7 +21,7 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 service_name: pulumi.Input[_builtins.str]):
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Service resource.
 
@@ -29,7 +29,8 @@ class ServiceArgs:
         :param pulumi.Input[_builtins.str] service_name: The name of the the service
         """
         pulumi.set(__self__, "resource_uri", resource_uri)
-        pulumi.set(__self__, "service_name", service_name)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceUri")
@@ -45,14 +46,14 @@ class ServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[_builtins.str]:
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the the service
         """
         return pulumi.get(self, "service_name")
 
     @service_name.setter
-    def service_name(self, value: pulumi.Input[_builtins.str]):
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_name", value)
 
 
@@ -117,8 +118,6 @@ class Service(pulumi.CustomResource):
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
-            if service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

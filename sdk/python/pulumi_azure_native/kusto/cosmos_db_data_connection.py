@@ -23,12 +23,12 @@ class CosmosDbDataConnectionArgs:
                  cosmos_db_account_resource_id: pulumi.Input[_builtins.str],
                  cosmos_db_container: pulumi.Input[_builtins.str],
                  cosmos_db_database: pulumi.Input[_builtins.str],
-                 data_connection_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  managed_identity_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
+                 data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mapping_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retrieval_start_date: pulumi.Input[Optional[_builtins.str]] = None):
@@ -39,13 +39,13 @@ class CosmosDbDataConnectionArgs:
         :param pulumi.Input[_builtins.str] cosmos_db_account_resource_id: The resource ID of the Cosmos DB account used to create the data connection.
         :param pulumi.Input[_builtins.str] cosmos_db_container: The name of an existing container in the Cosmos DB database.
         :param pulumi.Input[_builtins.str] cosmos_db_database: The name of an existing database in the Cosmos DB account.
-        :param pulumi.Input[_builtins.str] data_connection_name: The name of the data connection.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the Kusto cluster.
         :param pulumi.Input[_builtins.str] kind: Kind of the endpoint for the data connection
                Expected value is 'CosmosDb'.
         :param pulumi.Input[_builtins.str] managed_identity_resource_id: The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] table_name: The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table.
+        :param pulumi.Input[_builtins.str] data_connection_name: The name of the data connection.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[_builtins.str] mapping_rule_name: The name of an existing mapping rule to use when ingesting the retrieved data.
         :param pulumi.Input[_builtins.str] retrieval_start_date: Optional. If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date.
@@ -54,12 +54,13 @@ class CosmosDbDataConnectionArgs:
         pulumi.set(__self__, "cosmos_db_account_resource_id", cosmos_db_account_resource_id)
         pulumi.set(__self__, "cosmos_db_container", cosmos_db_container)
         pulumi.set(__self__, "cosmos_db_database", cosmos_db_database)
-        pulumi.set(__self__, "data_connection_name", data_connection_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "kind", 'CosmosDb')
         pulumi.set(__self__, "managed_identity_resource_id", managed_identity_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "table_name", table_name)
+        if data_connection_name is not None:
+            pulumi.set(__self__, "data_connection_name", data_connection_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mapping_rule_name is not None:
@@ -114,18 +115,6 @@ class CosmosDbDataConnectionArgs:
     @cosmos_db_database.setter
     def cosmos_db_database(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cosmos_db_database", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataConnectionName")
-    def data_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the data connection.
-        """
-        return pulumi.get(self, "data_connection_name")
-
-    @data_connection_name.setter
-    def data_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -187,6 +176,18 @@ class CosmosDbDataConnectionArgs:
     @table_name.setter
     def table_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "table_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectionName")
+    def data_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the data connection.
+        """
+        return pulumi.get(self, "data_connection_name")
+
+    @data_connection_name.setter
+    def data_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -329,8 +330,6 @@ class CosmosDbDataConnection(pulumi.CustomResource):
             if cosmos_db_database is None and not opts.urn:
                 raise TypeError("Missing required property 'cosmos_db_database'")
             __props__.__dict__["cosmos_db_database"] = cosmos_db_database
-            if data_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_connection_name'")
             __props__.__dict__["data_connection_name"] = data_connection_name
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")

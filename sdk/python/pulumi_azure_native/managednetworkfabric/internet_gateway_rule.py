@@ -22,43 +22,32 @@ __all__ = ['InternetGatewayRuleArgs', 'InternetGatewayRule']
 @pulumi.input_type
 class InternetGatewayRuleArgs:
     def __init__(__self__, *,
-                 internet_gateway_rule_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_properties: pulumi.Input['RulePropertiesArgs'],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 internet_gateway_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InternetGatewayRule resource.
 
-        :param pulumi.Input[_builtins.str] internet_gateway_rule_name: Name of the Internet Gateway rule.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['RulePropertiesArgs'] rule_properties: Rules for the InternetGateways
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
+        :param pulumi.Input[_builtins.str] internet_gateway_rule_name: Name of the Internet Gateway rule.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "internet_gateway_rule_name", internet_gateway_rule_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rule_properties", rule_properties)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
+        if internet_gateway_rule_name is not None:
+            pulumi.set(__self__, "internet_gateway_rule_name", internet_gateway_rule_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="internetGatewayRuleName")
-    def internet_gateway_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Internet Gateway rule.
-        """
-        return pulumi.get(self, "internet_gateway_rule_name")
-
-    @internet_gateway_rule_name.setter
-    def internet_gateway_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "internet_gateway_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -95,6 +84,18 @@ class InternetGatewayRuleArgs:
     @annotation.setter
     def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="internetGatewayRuleName")
+    def internet_gateway_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Internet Gateway rule.
+        """
+        return pulumi.get(self, "internet_gateway_rule_name")
+
+    @internet_gateway_rule_name.setter
+    def internet_gateway_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "internet_gateway_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,8 +197,6 @@ class InternetGatewayRule(pulumi.CustomResource):
             __props__ = InternetGatewayRuleArgs.__new__(InternetGatewayRuleArgs)
 
             __props__.__dict__["annotation"] = annotation
-            if internet_gateway_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'internet_gateway_rule_name'")
             __props__.__dict__["internet_gateway_rule_name"] = internet_gateway_rule_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

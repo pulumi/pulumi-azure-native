@@ -19,10 +19,10 @@ __all__ = ['ManagedServerDnsAliasArgs', 'ManagedServerDnsAlias']
 @pulumi.input_type
 class ManagedServerDnsAliasArgs:
     def __init__(__self__, *,
-                 dns_alias_name: pulumi.Input[_builtins.str],
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 create_dns_record: pulumi.Input[Optional[_builtins.bool]] = None):
+                 create_dns_record: pulumi.Input[Optional[_builtins.bool]] = None,
+                 dns_alias_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedServerDnsAlias resource.
 
@@ -30,22 +30,14 @@ class ManagedServerDnsAliasArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.bool] create_dns_record: Whether or not DNS record should be created for this alias.
         """
-        pulumi.set(__self__, "dns_alias_name", dns_alias_name)
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if create_dns_record is None:
             create_dns_record = True
         if create_dns_record is not None:
             pulumi.set(__self__, "create_dns_record", create_dns_record)
-
-    @_builtins.property
-    @pulumi.getter(name="dnsAliasName")
-    def dns_alias_name(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "dns_alias_name")
-
-    @dns_alias_name.setter
-    def dns_alias_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dns_alias_name", value)
+        if dns_alias_name is not None:
+            pulumi.set(__self__, "dns_alias_name", dns_alias_name)
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceName")
@@ -82,6 +74,15 @@ class ManagedServerDnsAliasArgs:
     @create_dns_record.setter
     def create_dns_record(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "create_dns_record", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsAliasName")
+    def dns_alias_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "dns_alias_name")
+
+    @dns_alias_name.setter
+    def dns_alias_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dns_alias_name", value)
 
 
 @pulumi.type_token("azure-native:sql:ManagedServerDnsAlias")
@@ -154,8 +155,6 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
             if create_dns_record is None:
                 create_dns_record = True
             __props__.__dict__["create_dns_record"] = create_dns_record
-            if dns_alias_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dns_alias_name'")
             __props__.__dict__["dns_alias_name"] = dns_alias_name
             if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")

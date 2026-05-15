@@ -23,29 +23,28 @@ __all__ = ['ApplianceArgs', 'Appliance']
 class ApplianceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  distro: pulumi.Input[Optional[Union[_builtins.str, 'Distro']]] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
                  infrastructure_config: pulumi.Input[Optional['AppliancePropertiesInfrastructureConfigArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Appliance resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_name: Appliances name.
         :param pulumi.Input[Union[_builtins.str, 'Distro']] distro: Represents a supported Fabric/Infra. (AKSEdge etc...).
         :param pulumi.Input['IdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input['AppliancePropertiesInfrastructureConfigArgs'] infrastructure_config: Contains infrastructure information about the Appliance
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] public_key: Certificates pair used to download MSI certificate from HIS. Can only be set once.
+        :param pulumi.Input[_builtins.str] resource_name: Appliances name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] version: Version of the Appliance
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         if distro is None:
             distro = 'AKSEdge'
         if distro is not None:
@@ -58,6 +57,8 @@ class ApplianceArgs:
             pulumi.set(__self__, "location", location)
         if public_key is not None:
             pulumi.set(__self__, "public_key", public_key)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -74,18 +75,6 @@ class ApplianceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Appliances name.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -146,6 +135,18 @@ class ApplianceArgs:
     @public_key.setter
     def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Appliances name.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -265,8 +266,6 @@ class Appliance(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version

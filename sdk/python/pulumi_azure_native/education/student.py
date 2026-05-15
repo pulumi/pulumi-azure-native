@@ -31,7 +31,7 @@ class StudentArgs:
                  invoice_section_name: pulumi.Input[_builtins.str],
                  last_name: pulumi.Input[_builtins.str],
                  role: pulumi.Input[Union[_builtins.str, 'StudentRole']],
-                 student_alias: pulumi.Input[_builtins.str],
+                 student_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription_invite_last_sent_date: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -59,7 +59,8 @@ class StudentArgs:
         pulumi.set(__self__, "invoice_section_name", invoice_section_name)
         pulumi.set(__self__, "last_name", last_name)
         pulumi.set(__self__, "role", role)
-        pulumi.set(__self__, "student_alias", student_alias)
+        if student_alias is not None:
+            pulumi.set(__self__, "student_alias", student_alias)
         if subscription_alias is not None:
             pulumi.set(__self__, "subscription_alias", subscription_alias)
         if subscription_invite_last_sent_date is not None:
@@ -175,14 +176,14 @@ class StudentArgs:
 
     @_builtins.property
     @pulumi.getter(name="studentAlias")
-    def student_alias(self) -> pulumi.Input[_builtins.str]:
+    def student_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Student alias.
         """
         return pulumi.get(self, "student_alias")
 
     @student_alias.setter
-    def student_alias(self, value: pulumi.Input[_builtins.str]):
+    def student_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "student_alias", value)
 
     @_builtins.property
@@ -325,8 +326,6 @@ class Student(pulumi.CustomResource):
             if role is None and not opts.urn:
                 raise TypeError("Missing required property 'role'")
             __props__.__dict__["role"] = role
-            if student_alias is None and not opts.urn:
-                raise TypeError("Missing required property 'student_alias'")
             __props__.__dict__["student_alias"] = student_alias
             __props__.__dict__["subscription_alias"] = subscription_alias
             __props__.__dict__["subscription_invite_last_sent_date"] = subscription_invite_last_sent_date

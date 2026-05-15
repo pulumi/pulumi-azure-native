@@ -22,12 +22,12 @@ __all__ = ['GalleryImageArgs', 'GalleryImage']
 @pulumi.input_type
 class GalleryImageArgs:
     def __init__(__self__, *,
-                 gallery_image_name: pulumi.Input[_builtins.str],
                  os_type: pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  cloud_init_data_source: pulumi.Input[Optional[Union[_builtins.str, 'CloudInitDataSource']]] = None,
                  container_id: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 gallery_image_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hyper_v_generation: pulumi.Input[Optional[Union[_builtins.str, 'HyperVGeneration']]] = None,
                  identifier: pulumi.Input[Optional['GalleryImageIdentifierArgs']] = None,
                  image_path: pulumi.Input[Optional[_builtins.str]] = None,
@@ -38,12 +38,12 @@ class GalleryImageArgs:
         """
         The set of arguments for constructing a GalleryImage resource.
 
-        :param pulumi.Input[_builtins.str] gallery_image_name: Name of the gallery image
         :param pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']] os_type: Operating system type that the gallery image uses [Windows, Linux]
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'CloudInitDataSource']] cloud_init_data_source: Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
         :param pulumi.Input[_builtins.str] container_id: Storage ContainerID of the storage container to be used for gallery image
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
+        :param pulumi.Input[_builtins.str] gallery_image_name: Name of the gallery image
         :param pulumi.Input[Union[_builtins.str, 'HyperVGeneration']] hyper_v_generation: The hypervisor generation of the Virtual Machine [V1, V2]
         :param pulumi.Input['GalleryImageIdentifierArgs'] identifier: This is the gallery image definition identifier.
         :param pulumi.Input[_builtins.str] image_path: location of the image the gallery image should be created from
@@ -52,7 +52,6 @@ class GalleryImageArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['GalleryImageVersionArgs'] version: Specifies information about the gallery image version that you want to create or update.
         """
-        pulumi.set(__self__, "gallery_image_name", gallery_image_name)
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cloud_init_data_source is not None:
@@ -61,6 +60,8 @@ class GalleryImageArgs:
             pulumi.set(__self__, "container_id", container_id)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
+        if gallery_image_name is not None:
+            pulumi.set(__self__, "gallery_image_name", gallery_image_name)
         if hyper_v_generation is not None:
             pulumi.set(__self__, "hyper_v_generation", hyper_v_generation)
         if identifier is not None:
@@ -75,18 +76,6 @@ class GalleryImageArgs:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter(name="galleryImageName")
-    def gallery_image_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the gallery image
-        """
-        return pulumi.get(self, "gallery_image_name")
-
-    @gallery_image_name.setter
-    def gallery_image_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "gallery_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
@@ -147,6 +136,18 @@ class GalleryImageArgs:
     @extended_location.setter
     def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="galleryImageName")
+    def gallery_image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the gallery image
+        """
+        return pulumi.get(self, "gallery_image_name")
+
+    @gallery_image_name.setter
+    def gallery_image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gallery_image_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hyperVGeneration")
@@ -331,8 +332,6 @@ class GalleryImage(pulumi.CustomResource):
             __props__.__dict__["cloud_init_data_source"] = cloud_init_data_source
             __props__.__dict__["container_id"] = container_id
             __props__.__dict__["extended_location"] = extended_location
-            if gallery_image_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gallery_image_name'")
             __props__.__dict__["gallery_image_name"] = gallery_image_name
             __props__.__dict__["hyper_v_generation"] = hyper_v_generation
             __props__.__dict__["identifier"] = identifier

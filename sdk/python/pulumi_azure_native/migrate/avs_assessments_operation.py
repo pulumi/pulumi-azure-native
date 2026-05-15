@@ -21,10 +21,10 @@ __all__ = ['AvsAssessmentsOperationArgs', 'AvsAssessmentsOperation']
 @pulumi.input_type
 class AvsAssessmentsOperationArgs:
     def __init__(__self__, *,
-                 assessment_name: pulumi.Input[_builtins.str],
                  group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  avs_assessment_scenario: pulumi.Input[Optional[Union[_builtins.str, 'AvsAssessmentScenario']]] = None,
                  azure_location: pulumi.Input[Optional[Union[_builtins.str, 'AzureLocation']]] = None,
                  azure_offer_code: pulumi.Input[Optional[Union[_builtins.str, 'AzureOfferCode']]] = None,
@@ -52,10 +52,10 @@ class AvsAssessmentsOperationArgs:
         """
         The set of arguments for constructing a AvsAssessmentsOperation resource.
 
-        :param pulumi.Input[_builtins.str] assessment_name: AVS Assessment ARM name
         :param pulumi.Input[_builtins.str] group_name: Group ARM name
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] assessment_name: AVS Assessment ARM name
         :param pulumi.Input[Union[_builtins.str, 'AvsAssessmentScenario']] avs_assessment_scenario: AVS Assessment Scenario.
         :param pulumi.Input[Union[_builtins.str, 'AzureLocation']] azure_location: Azure Location or Azure region where to which the machines will be migrated.
         :param pulumi.Input[Union[_builtins.str, 'AzureOfferCode']] azure_offer_code: Azure Offer code according to which cost estimation is done.
@@ -84,10 +84,11 @@ class AvsAssessmentsOperationArgs:
                assessment.
         :param pulumi.Input[_builtins.float] vcpu_oversubscription: VCPU over subscription.
         """
-        pulumi.set(__self__, "assessment_name", assessment_name)
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if assessment_name is not None:
+            pulumi.set(__self__, "assessment_name", assessment_name)
         if avs_assessment_scenario is not None:
             pulumi.set(__self__, "avs_assessment_scenario", avs_assessment_scenario)
         if azure_location is not None:
@@ -138,18 +139,6 @@ class AvsAssessmentsOperationArgs:
             pulumi.set(__self__, "vcpu_oversubscription", vcpu_oversubscription)
 
     @_builtins.property
-    @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        AVS Assessment ARM name
-        """
-        return pulumi.get(self, "assessment_name")
-
-    @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "assessment_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -184,6 +173,18 @@ class AvsAssessmentsOperationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assessmentName")
+    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        AVS Assessment ARM name
+        """
+        return pulumi.get(self, "assessment_name")
+
+    @assessment_name.setter
+    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="avsAssessmentScenario")
@@ -620,8 +621,6 @@ class AvsAssessmentsOperation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AvsAssessmentsOperationArgs.__new__(AvsAssessmentsOperationArgs)
 
-            if assessment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'assessment_name'")
             __props__.__dict__["assessment_name"] = assessment_name
             __props__.__dict__["avs_assessment_scenario"] = avs_assessment_scenario
             __props__.__dict__["azure_location"] = azure_location

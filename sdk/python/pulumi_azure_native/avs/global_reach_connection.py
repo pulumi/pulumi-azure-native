@@ -20,46 +20,35 @@ __all__ = ['GlobalReachConnectionArgs', 'GlobalReachConnection']
 @pulumi.input_type
 class GlobalReachConnectionArgs:
     def __init__(__self__, *,
-                 global_reach_connection_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
                  express_route_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_reach_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_express_route_circuit: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GlobalReachConnection resource.
 
-        :param pulumi.Input[_builtins.str] global_reach_connection_name: Name of the global reach connection
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] authorization_key: Authorization key from the peer express route used for the global reach
                connection
         :param pulumi.Input[_builtins.str] express_route_id: The ID of the Private Cloud's ExpressRoute Circuit that is participating in the
                global reach connection
+        :param pulumi.Input[_builtins.str] global_reach_connection_name: Name of the global reach connection
         :param pulumi.Input[_builtins.str] peer_express_route_circuit: Identifier of the ExpressRoute Circuit to peer with in the global reach
                connection
         """
-        pulumi.set(__self__, "global_reach_connection_name", global_reach_connection_name)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if authorization_key is not None:
             pulumi.set(__self__, "authorization_key", authorization_key)
         if express_route_id is not None:
             pulumi.set(__self__, "express_route_id", express_route_id)
+        if global_reach_connection_name is not None:
+            pulumi.set(__self__, "global_reach_connection_name", global_reach_connection_name)
         if peer_express_route_circuit is not None:
             pulumi.set(__self__, "peer_express_route_circuit", peer_express_route_circuit)
-
-    @_builtins.property
-    @pulumi.getter(name="globalReachConnectionName")
-    def global_reach_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the global reach connection
-        """
-        return pulumi.get(self, "global_reach_connection_name")
-
-    @global_reach_connection_name.setter
-    def global_reach_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "global_reach_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -110,6 +99,18 @@ class GlobalReachConnectionArgs:
     @express_route_id.setter
     def express_route_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "express_route_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalReachConnectionName")
+    def global_reach_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the global reach connection
+        """
+        return pulumi.get(self, "global_reach_connection_name")
+
+    @global_reach_connection_name.setter
+    def global_reach_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "global_reach_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="peerExpressRouteCircuit")
@@ -204,8 +205,6 @@ class GlobalReachConnection(pulumi.CustomResource):
 
             __props__.__dict__["authorization_key"] = authorization_key
             __props__.__dict__["express_route_id"] = express_route_id
-            if global_reach_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'global_reach_connection_name'")
             __props__.__dict__["global_reach_connection_name"] = global_reach_connection_name
             __props__.__dict__["peer_express_route_circuit"] = peer_express_route_circuit
             if private_cloud_name is None and not opts.urn:

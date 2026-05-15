@@ -25,9 +25,9 @@ class EdgeActionVersionArgs:
                  edge_action_name: pulumi.Input[_builtins.str],
                  is_default_version: pulumi.Input[Union[_builtins.str, 'EdgeActionIsDefaultVersion']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 version: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EdgeActionVersion resource.
 
@@ -35,19 +35,20 @@ class EdgeActionVersionArgs:
         :param pulumi.Input[_builtins.str] edge_action_name: The name of the Edge Action
         :param pulumi.Input[Union[_builtins.str, 'EdgeActionIsDefaultVersion']] is_default_version: The active state
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] version: The name of the Edge Action version
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] version: The name of the Edge Action version
         """
         pulumi.set(__self__, "deployment_type", deployment_type)
         pulumi.set(__self__, "edge_action_name", edge_action_name)
         pulumi.set(__self__, "is_default_version", is_default_version)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "version", version)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter(name="deploymentType")
@@ -99,18 +100,6 @@ class EdgeActionVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Edge Action version
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "version", value)
-
-    @_builtins.property
-    @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
@@ -132,6 +121,18 @@ class EdgeActionVersionArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Edge Action version
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.type_token("azure-native:cdn:EdgeActionVersion")
@@ -225,8 +226,6 @@ class EdgeActionVersion(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if version is None and not opts.urn:
-                raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["last_package_update_time"] = None

@@ -25,10 +25,10 @@ class RouteFilterRuleInitArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  route_filter_name: pulumi.Input[_builtins.str],
                  route_filter_rule_type: pulumi.Input[Union[_builtins.str, 'RouteFilterRuleType']],
-                 rule_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RouteFilterRule resource.
 
@@ -37,23 +37,24 @@ class RouteFilterRuleInitArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] route_filter_name: The name of the route filter.
         :param pulumi.Input[Union[_builtins.str, 'RouteFilterRuleType']] route_filter_rule_type: The rule type of the rule.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the route filter rule.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[_builtins.str] rule_name: The name of the route filter rule.
         """
         pulumi.set(__self__, "access", access)
         pulumi.set(__self__, "communities", communities)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "route_filter_name", route_filter_name)
         pulumi.set(__self__, "route_filter_rule_type", route_filter_rule_type)
-        pulumi.set(__self__, "rule_name", rule_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
 
     @_builtins.property
     @pulumi.getter
@@ -116,18 +117,6 @@ class RouteFilterRuleInitArgs:
         pulumi.set(self, "route_filter_rule_type", value)
 
     @_builtins.property
-    @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the route filter rule.
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rule_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -162,6 +151,18 @@ class RouteFilterRuleInitArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the route filter rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_name", value)
 
 
 @pulumi.type_token("azure-native:network:RouteFilterRule")
@@ -265,8 +266,6 @@ class RouteFilterRule(pulumi.CustomResource):
             if route_filter_rule_type is None and not opts.urn:
                 raise TypeError("Missing required property 'route_filter_rule_type'")
             __props__.__dict__["route_filter_rule_type"] = route_filter_rule_type
-            if rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

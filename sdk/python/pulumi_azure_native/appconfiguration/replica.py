@@ -21,22 +21,23 @@ __all__ = ['ReplicaArgs', 'Replica']
 class ReplicaArgs:
     def __init__(__self__, *,
                  config_store_name: pulumi.Input[_builtins.str],
-                 replica_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 location: pulumi.Input[Optional[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Replica resource.
 
         :param pulumi.Input[_builtins.str] config_store_name: The name of the configuration store.
-        :param pulumi.Input[_builtins.str] replica_name: The name of the replica.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input[_builtins.str] location: The location of the replica.
+        :param pulumi.Input[_builtins.str] replica_name: The name of the replica.
         """
         pulumi.set(__self__, "config_store_name", config_store_name)
-        pulumi.set(__self__, "replica_name", replica_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if replica_name is not None:
+            pulumi.set(__self__, "replica_name", replica_name)
 
     @_builtins.property
     @pulumi.getter(name="configStoreName")
@@ -49,18 +50,6 @@ class ReplicaArgs:
     @config_store_name.setter
     def config_store_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "config_store_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="replicaName")
-    def replica_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the replica.
-        """
-        return pulumi.get(self, "replica_name")
-
-    @replica_name.setter
-    def replica_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "replica_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -85,6 +74,18 @@ class ReplicaArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicaName")
+    def replica_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the replica.
+        """
+        return pulumi.get(self, "replica_name")
+
+    @replica_name.setter
+    def replica_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "replica_name", value)
 
 
 @pulumi.type_token("azure-native:appconfiguration:Replica")
@@ -159,8 +160,6 @@ class Replica(pulumi.CustomResource):
                 raise TypeError("Missing required property 'config_store_name'")
             __props__.__dict__["config_store_name"] = config_store_name
             __props__.__dict__["location"] = location
-            if replica_name is None and not opts.urn:
-                raise TypeError("Missing required property 'replica_name'")
             __props__.__dict__["replica_name"] = replica_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

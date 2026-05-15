@@ -25,9 +25,9 @@ class ManagedClusterServiceArgs:
                  application_name: pulumi.Input[_builtins.str],
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 service_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['StatefulServicePropertiesArgs', 'StatelessServicePropertiesArgs']]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedClusterService resource.
@@ -35,19 +35,20 @@ class ManagedClusterServiceArgs:
         :param pulumi.Input[_builtins.str] application_name: The name of the application resource.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
         :param pulumi.Input[_builtins.str] location: Resource location depends on the parent resource.
         :param pulumi.Input[Union['StatefulServicePropertiesArgs', 'StatelessServicePropertiesArgs']] properties: The service resource properties.
+        :param pulumi.Input[_builtins.str] service_name: The name of the service resource in the format of {applicationName}~{serviceName}.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Azure resource tags.
         """
         pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -88,18 +89,6 @@ class ManagedClusterServiceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the service resource in the format of {applicationName}~{serviceName}.
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "service_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -122,6 +111,18 @@ class ManagedClusterServiceArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional[Union['StatefulServicePropertiesArgs', 'StatelessServicePropertiesArgs']]]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the service resource in the format of {applicationName}~{serviceName}.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -224,8 +225,6 @@ class ManagedClusterService(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

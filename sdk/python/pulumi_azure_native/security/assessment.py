@@ -22,46 +22,35 @@ __all__ = ['AssessmentArgs', 'Assessment']
 @pulumi.input_type
 class AssessmentArgs:
     def __init__(__self__, *,
-                 assessment_name: pulumi.Input[_builtins.str],
                  resource_details: pulumi.Input[Union['AzureResourceDetailsArgs', 'OnPremiseResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgs']],
                  resource_id: pulumi.Input[_builtins.str],
                  status: pulumi.Input['AssessmentStatusArgs'],
                  additional_data: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional['SecurityAssessmentMetadataPropertiesArgs']] = None,
                  partners_data: pulumi.Input[Optional['SecurityAssessmentPartnerDataArgs']] = None):
         """
         The set of arguments for constructing a Assessment resource.
 
-        :param pulumi.Input[_builtins.str] assessment_name: The Assessment Key - Unique key for the assessment type
         :param pulumi.Input[Union['AzureResourceDetailsArgs', 'OnPremiseResourceDetailsArgs', 'OnPremiseSqlResourceDetailsArgs']] resource_details: Details of the resource that was assessed
         :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
         :param pulumi.Input['AssessmentStatusArgs'] status: The result of the assessment
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_data: Additional data regarding the assessment
+        :param pulumi.Input[_builtins.str] assessment_name: The Assessment Key - Unique key for the assessment type
         :param pulumi.Input['SecurityAssessmentMetadataPropertiesArgs'] metadata: Describes properties of an assessment metadata.
         :param pulumi.Input['SecurityAssessmentPartnerDataArgs'] partners_data: Data regarding 3rd party partner integration
         """
-        pulumi.set(__self__, "assessment_name", assessment_name)
         pulumi.set(__self__, "resource_details", resource_details)
         pulumi.set(__self__, "resource_id", resource_id)
         pulumi.set(__self__, "status", status)
         if additional_data is not None:
             pulumi.set(__self__, "additional_data", additional_data)
+        if assessment_name is not None:
+            pulumi.set(__self__, "assessment_name", assessment_name)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if partners_data is not None:
             pulumi.set(__self__, "partners_data", partners_data)
-
-    @_builtins.property
-    @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Assessment Key - Unique key for the assessment type
-        """
-        return pulumi.get(self, "assessment_name")
-
-    @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceDetails")
@@ -110,6 +99,18 @@ class AssessmentArgs:
     @additional_data.setter
     def additional_data(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "additional_data", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assessmentName")
+    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Assessment Key - Unique key for the assessment type
+        """
+        return pulumi.get(self, "assessment_name")
+
+    @assessment_name.setter
+    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -214,8 +215,6 @@ class Assessment(pulumi.CustomResource):
             __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
             __props__.__dict__["additional_data"] = additional_data
-            if assessment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'assessment_name'")
             __props__.__dict__["assessment_name"] = assessment_name
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["partners_data"] = partners_data

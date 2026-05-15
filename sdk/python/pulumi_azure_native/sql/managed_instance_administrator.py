@@ -20,12 +20,12 @@ __all__ = ['ManagedInstanceAdministratorArgs', 'ManagedInstanceAdministrator']
 @pulumi.input_type
 class ManagedInstanceAdministratorArgs:
     def __init__(__self__, *,
-                 administrator_name: pulumi.Input[_builtins.str],
                  administrator_type: pulumi.Input[Union[_builtins.str, 'ManagedInstanceAdministratorType']],
                  login: pulumi.Input[_builtins.str],
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sid: pulumi.Input[_builtins.str],
+                 administrator_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceAdministrator resource.
@@ -37,23 +37,15 @@ class ManagedInstanceAdministratorArgs:
         :param pulumi.Input[_builtins.str] sid: SID (object ID) of the managed instance administrator.
         :param pulumi.Input[_builtins.str] tenant_id: Tenant ID of the managed instance administrator.
         """
-        pulumi.set(__self__, "administrator_name", administrator_name)
         pulumi.set(__self__, "administrator_type", administrator_type)
         pulumi.set(__self__, "login", login)
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sid", sid)
+        if administrator_name is not None:
+            pulumi.set(__self__, "administrator_name", administrator_name)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @_builtins.property
-    @pulumi.getter(name="administratorName")
-    def administrator_name(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "administrator_name")
-
-    @administrator_name.setter
-    def administrator_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "administrator_name", value)
 
     @_builtins.property
     @pulumi.getter(name="administratorType")
@@ -114,6 +106,15 @@ class ManagedInstanceAdministratorArgs:
     @sid.setter
     def sid(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sid", value)
+
+    @_builtins.property
+    @pulumi.getter(name="administratorName")
+    def administrator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "administrator_name")
+
+    @administrator_name.setter
+    def administrator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "administrator_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -204,8 +205,6 @@ class ManagedInstanceAdministrator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedInstanceAdministratorArgs.__new__(ManagedInstanceAdministratorArgs)
 
-            if administrator_name is None and not opts.urn:
-                raise TypeError("Missing required property 'administrator_name'")
             __props__.__dict__["administrator_name"] = administrator_name
             if administrator_type is None and not opts.urn:
                 raise TypeError("Missing required property 'administrator_type'")

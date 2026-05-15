@@ -129,7 +129,7 @@ def get_storage_task_assignment(account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_storage_task_assignment_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       storage_task_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       storage_task_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageTaskAssignmentResult]:
     """
     Get the storage task assignment properties

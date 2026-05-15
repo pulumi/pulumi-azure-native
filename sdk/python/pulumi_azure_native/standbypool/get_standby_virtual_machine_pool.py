@@ -203,7 +203,7 @@ def get_standby_virtual_machine_pool(resource_group_name: Optional[_builtins.str
         type=pulumi.get(__ret__, 'type'),
         virtual_machine_state=pulumi.get(__ret__, 'virtual_machine_state'))
 def get_standby_virtual_machine_pool_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                            standby_virtual_machine_pool_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            standby_virtual_machine_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandbyVirtualMachinePoolResult]:
     """
     Get a StandbyVirtualMachinePoolResource

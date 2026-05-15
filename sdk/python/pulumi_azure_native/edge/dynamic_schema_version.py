@@ -22,23 +22,24 @@ __all__ = ['DynamicSchemaVersionArgs', 'DynamicSchemaVersion']
 class DynamicSchemaVersionArgs:
     def __init__(__self__, *,
                  dynamic_schema_name: pulumi.Input[_builtins.str],
-                 dynamic_schema_version_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  schema_name: pulumi.Input[_builtins.str],
+                 dynamic_schema_version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['SchemaVersionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DynamicSchemaVersion resource.
 
         :param pulumi.Input[_builtins.str] dynamic_schema_name: The name of the DynamicSchema
-        :param pulumi.Input[_builtins.str] dynamic_schema_version_name: The name of the DynamicSchemaVersion
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] schema_name: The name of the Schema
+        :param pulumi.Input[_builtins.str] dynamic_schema_version_name: The name of the DynamicSchemaVersion
         :param pulumi.Input['SchemaVersionPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
         pulumi.set(__self__, "dynamic_schema_name", dynamic_schema_name)
-        pulumi.set(__self__, "dynamic_schema_version_name", dynamic_schema_version_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "schema_name", schema_name)
+        if dynamic_schema_version_name is not None:
+            pulumi.set(__self__, "dynamic_schema_version_name", dynamic_schema_version_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -53,18 +54,6 @@ class DynamicSchemaVersionArgs:
     @dynamic_schema_name.setter
     def dynamic_schema_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "dynamic_schema_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dynamicSchemaVersionName")
-    def dynamic_schema_version_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the DynamicSchemaVersion
-        """
-        return pulumi.get(self, "dynamic_schema_version_name")
-
-    @dynamic_schema_version_name.setter
-    def dynamic_schema_version_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dynamic_schema_version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -89,6 +78,18 @@ class DynamicSchemaVersionArgs:
     @schema_name.setter
     def schema_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "schema_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dynamicSchemaVersionName")
+    def dynamic_schema_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the DynamicSchemaVersion
+        """
+        return pulumi.get(self, "dynamic_schema_version_name")
+
+    @dynamic_schema_version_name.setter
+    def dynamic_schema_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dynamic_schema_version_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,8 +178,6 @@ class DynamicSchemaVersion(pulumi.CustomResource):
             if dynamic_schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dynamic_schema_name'")
             __props__.__dict__["dynamic_schema_name"] = dynamic_schema_name
-            if dynamic_schema_version_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dynamic_schema_version_name'")
             __props__.__dict__["dynamic_schema_version_name"] = dynamic_schema_version_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

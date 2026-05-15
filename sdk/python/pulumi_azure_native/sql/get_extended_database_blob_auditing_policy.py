@@ -317,7 +317,7 @@ def get_extended_database_blob_auditing_policy(blob_auditing_policy_name: Option
         storage_account_subscription_id=pulumi.get(__ret__, 'storage_account_subscription_id'),
         storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
         type=pulumi.get(__ret__, 'type'))
-def get_extended_database_blob_auditing_policy_output(blob_auditing_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_extended_database_blob_auditing_policy_output(blob_auditing_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       database_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       server_name: pulumi.Input[Optional[_builtins.str]] = None,

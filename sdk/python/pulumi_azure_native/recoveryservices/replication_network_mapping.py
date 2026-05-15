@@ -22,27 +22,28 @@ __all__ = ['ReplicationNetworkMappingArgs', 'ReplicationNetworkMapping']
 class ReplicationNetworkMappingArgs:
     def __init__(__self__, *,
                  fabric_name: pulumi.Input[_builtins.str],
-                 network_mapping_name: pulumi.Input[_builtins.str],
                  network_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['CreateNetworkMappingInputPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str]):
+                 resource_name: pulumi.Input[_builtins.str],
+                 network_mapping_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationNetworkMapping resource.
 
         :param pulumi.Input[_builtins.str] fabric_name: Primary fabric name.
-        :param pulumi.Input[_builtins.str] network_mapping_name: Network mapping name.
         :param pulumi.Input[_builtins.str] network_name: Primary network name.
         :param pulumi.Input['CreateNetworkMappingInputPropertiesArgs'] properties: Input properties for creating network mapping.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input[_builtins.str] network_mapping_name: Network mapping name.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "network_mapping_name", network_mapping_name)
         pulumi.set(__self__, "network_name", network_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if network_mapping_name is not None:
+            pulumi.set(__self__, "network_mapping_name", network_mapping_name)
 
     @_builtins.property
     @pulumi.getter(name="fabricName")
@@ -55,18 +56,6 @@ class ReplicationNetworkMappingArgs:
     @fabric_name.setter
     def fabric_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "fabric_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkMappingName")
-    def network_mapping_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Network mapping name.
-        """
-        return pulumi.get(self, "network_mapping_name")
-
-    @network_mapping_name.setter
-    def network_mapping_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_mapping_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkName")
@@ -115,6 +104,18 @@ class ReplicationNetworkMappingArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkMappingName")
+    def network_mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Network mapping name.
+        """
+        return pulumi.get(self, "network_mapping_name")
+
+    @network_mapping_name.setter
+    def network_mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_mapping_name", value)
 
 
 @pulumi.type_token("azure-native:recoveryservices:ReplicationNetworkMapping")
@@ -194,8 +195,6 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__.__dict__["fabric_name"] = fabric_name
-            if network_mapping_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_mapping_name'")
             __props__.__dict__["network_mapping_name"] = network_mapping_name
             if network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_name'")

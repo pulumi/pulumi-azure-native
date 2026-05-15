@@ -25,11 +25,11 @@ class ScheduleArgs:
                  pool_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 schedule_name: pulumi.Input[_builtins.str],
                  time: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'ScheduledType']],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[Union[_builtins.str, 'ScheduleEnableStatus']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  top: pulumi.Input[Optional[_builtins.int]] = None):
@@ -40,11 +40,11 @@ class ScheduleArgs:
         :param pulumi.Input[_builtins.str] pool_name: Name of the pool.
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] schedule_name: The name of the schedule that uniquely identifies it.
         :param pulumi.Input[_builtins.str] time: The target time to trigger the action. The format is HH:MM.
         :param pulumi.Input[_builtins.str] time_zone: The IANA timezone id at which the schedule should execute.
         :param pulumi.Input[Union[_builtins.str, 'ScheduledType']] type: Supported type this scheduled task represents.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] schedule_name: The name of the schedule that uniquely identifies it.
         :param pulumi.Input[Union[_builtins.str, 'ScheduleEnableStatus']] state: Indicates whether or not this scheduled task is enabled.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.int] top: The maximum number of resources to return from the operation. Example: '$top=10'.
@@ -53,12 +53,13 @@ class ScheduleArgs:
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schedule_name", schedule_name)
         pulumi.set(__self__, "time", time)
         pulumi.set(__self__, "time_zone", time_zone)
         pulumi.set(__self__, "type", type)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if schedule_name is not None:
+            pulumi.set(__self__, "schedule_name", schedule_name)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -115,18 +116,6 @@ class ScheduleArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="scheduleName")
-    def schedule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the schedule that uniquely identifies it.
-        """
-        return pulumi.get(self, "schedule_name")
-
-    @schedule_name.setter
-    def schedule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "schedule_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def time(self) -> pulumi.Input[_builtins.str]:
         """
@@ -173,6 +162,18 @@ class ScheduleArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scheduleName")
+    def schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the schedule that uniquely identifies it.
+        """
+        return pulumi.get(self, "schedule_name")
+
+    @schedule_name.setter
+    def schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schedule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -316,8 +317,6 @@ class Schedule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schedule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schedule_name'")
             __props__.__dict__["schedule_name"] = schedule_name
             __props__.__dict__["state"] = state
             __props__.__dict__["tags"] = tags

@@ -21,8 +21,8 @@ __all__ = ['SqlMigrationServiceArgs', 'SqlMigrationService']
 class SqlMigrationServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 sql_migration_service_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_migration_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlMigrationService resource.
@@ -31,9 +31,10 @@ class SqlMigrationServiceArgs:
         :param pulumi.Input[_builtins.str] sql_migration_service_name: Name of the SQL Migration Service.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_migration_service_name", sql_migration_service_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if sql_migration_service_name is not None:
+            pulumi.set(__self__, "sql_migration_service_name", sql_migration_service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -50,18 +51,6 @@ class SqlMigrationServiceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="sqlMigrationServiceName")
-    def sql_migration_service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the SQL Migration Service.
-        """
-        return pulumi.get(self, "sql_migration_service_name")
-
-    @sql_migration_service_name.setter
-    def sql_migration_service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sql_migration_service_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "location")
@@ -69,6 +58,18 @@ class SqlMigrationServiceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlMigrationServiceName")
+    def sql_migration_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the SQL Migration Service.
+        """
+        return pulumi.get(self, "sql_migration_service_name")
+
+    @sql_migration_service_name.setter
+    def sql_migration_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sql_migration_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -150,8 +151,6 @@ class SqlMigrationService(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sql_migration_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_migration_service_name'")
             __props__.__dict__["sql_migration_service_name"] = sql_migration_service_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

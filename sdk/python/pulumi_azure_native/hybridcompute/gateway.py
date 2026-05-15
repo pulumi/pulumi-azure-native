@@ -21,44 +21,33 @@ __all__ = ['GatewayArgs', 'Gateway']
 @pulumi.input_type
 class GatewayArgs:
     def __init__(__self__, *,
-                 gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allowed_features: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_type: pulumi.Input[Optional[Union[_builtins.str, 'GatewayType']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
-        :param pulumi.Input[_builtins.str] gateway_name: The name of the Gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_features: Specifies the list of features that are enabled for this Gateway.
+        :param pulumi.Input[_builtins.str] gateway_name: The name of the Gateway.
         :param pulumi.Input[Union[_builtins.str, 'GatewayType']] gateway_type: The type of the Gateway resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allowed_features is not None:
             pulumi.set(__self__, "allowed_features", allowed_features)
+        if gateway_name is not None:
+            pulumi.set(__self__, "gateway_name", gateway_name)
         if gateway_type is not None:
             pulumi.set(__self__, "gateway_type", gateway_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Gateway.
-        """
-        return pulumi.get(self, "gateway_name")
-
-    @gateway_name.setter
-    def gateway_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -83,6 +72,18 @@ class GatewayArgs:
     @allowed_features.setter
     def allowed_features(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_features", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Gateway.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayType")
@@ -196,8 +197,6 @@ class Gateway(pulumi.CustomResource):
             __props__ = GatewayArgs.__new__(GatewayArgs)
 
             __props__.__dict__["allowed_features"] = allowed_features
-            if gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gateway_name'")
             __props__.__dict__["gateway_name"] = gateway_name
             __props__.__dict__["gateway_type"] = gateway_type
             __props__.__dict__["location"] = location

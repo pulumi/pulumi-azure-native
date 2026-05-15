@@ -22,9 +22,9 @@ class ManagedPrivateEndpointArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  group_id: pulumi.Input[_builtins.str],
-                 managed_private_endpoint_name: pulumi.Input[_builtins.str],
                  private_link_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 managed_private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_resource_region: pulumi.Input[Optional[_builtins.str]] = None,
                  request_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -32,17 +32,18 @@ class ManagedPrivateEndpointArgs:
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] group_id: The groupId in which the managed private endpoint is created.
-        :param pulumi.Input[_builtins.str] managed_private_endpoint_name: The name of the managed private endpoint.
         :param pulumi.Input[_builtins.str] private_link_resource_id: The ARM resource ID of the resource for which the managed private endpoint is created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] managed_private_endpoint_name: The name of the managed private endpoint.
         :param pulumi.Input[_builtins.str] private_link_resource_region: The region of the resource to which the managed private endpoint is created.
         :param pulumi.Input[_builtins.str] request_message: The user request message.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "group_id", group_id)
-        pulumi.set(__self__, "managed_private_endpoint_name", managed_private_endpoint_name)
         pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if managed_private_endpoint_name is not None:
+            pulumi.set(__self__, "managed_private_endpoint_name", managed_private_endpoint_name)
         if private_link_resource_region is not None:
             pulumi.set(__self__, "private_link_resource_region", private_link_resource_region)
         if request_message is not None:
@@ -73,18 +74,6 @@ class ManagedPrivateEndpointArgs:
         pulumi.set(self, "group_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="managedPrivateEndpointName")
-    def managed_private_endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the managed private endpoint.
-        """
-        return pulumi.get(self, "managed_private_endpoint_name")
-
-    @managed_private_endpoint_name.setter
-    def managed_private_endpoint_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "managed_private_endpoint_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="privateLinkResourceId")
     def private_link_resource_id(self) -> pulumi.Input[_builtins.str]:
         """
@@ -107,6 +96,18 @@ class ManagedPrivateEndpointArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedPrivateEndpointName")
+    def managed_private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the managed private endpoint.
+        """
+        return pulumi.get(self, "managed_private_endpoint_name")
+
+    @managed_private_endpoint_name.setter
+    def managed_private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "managed_private_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkResourceRegion")
@@ -216,8 +217,6 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
-            if managed_private_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_private_endpoint_name'")
             __props__.__dict__["managed_private_endpoint_name"] = managed_private_endpoint_name
             if private_link_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_resource_id'")

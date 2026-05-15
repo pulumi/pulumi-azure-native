@@ -219,7 +219,7 @@ def get_nat_rule(gateway_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
 def get_nat_rule_output(gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        nat_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        nat_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNatRuleResult]:
     """

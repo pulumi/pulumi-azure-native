@@ -22,20 +22,21 @@ __all__ = ['ConfigurationProfileHCIAssignmentArgs', 'ConfigurationProfileHCIAssi
 class ConfigurationProfileHCIAssignmentArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 configuration_profile_assignment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 configuration_profile_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ConfigurationProfileAssignmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationProfileHCIAssignment resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Arc machine.
-        :param pulumi.Input[_builtins.str] configuration_profile_assignment_name: Name of the configuration profile assignment. Only default is supported.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] configuration_profile_assignment_name: Name of the configuration profile assignment. Only default is supported.
         :param pulumi.Input['ConfigurationProfileAssignmentPropertiesArgs'] properties: Properties of the configuration profile assignment.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "configuration_profile_assignment_name", configuration_profile_assignment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if configuration_profile_assignment_name is not None:
+            pulumi.set(__self__, "configuration_profile_assignment_name", configuration_profile_assignment_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -52,18 +53,6 @@ class ConfigurationProfileHCIAssignmentArgs:
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="configurationProfileAssignmentName")
-    def configuration_profile_assignment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the configuration profile assignment. Only default is supported.
-        """
-        return pulumi.get(self, "configuration_profile_assignment_name")
-
-    @configuration_profile_assignment_name.setter
-    def configuration_profile_assignment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "configuration_profile_assignment_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -74,6 +63,18 @@ class ConfigurationProfileHCIAssignmentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationProfileAssignmentName")
+    def configuration_profile_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the configuration profile assignment. Only default is supported.
+        """
+        return pulumi.get(self, "configuration_profile_assignment_name")
+
+    @configuration_profile_assignment_name.setter
+    def configuration_profile_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_profile_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -159,8 +160,6 @@ class ConfigurationProfileHCIAssignment(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if configuration_profile_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_profile_assignment_name'")
             __props__.__dict__["configuration_profile_assignment_name"] = configuration_profile_assignment_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

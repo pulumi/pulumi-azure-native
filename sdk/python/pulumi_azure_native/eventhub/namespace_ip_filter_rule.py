@@ -20,43 +20,32 @@ __all__ = ['NamespaceIpFilterRuleArgs', 'NamespaceIpFilterRule']
 @pulumi.input_type
 class NamespaceIpFilterRuleArgs:
     def __init__(__self__, *,
-                 ip_filter_rule_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  action: pulumi.Input[Optional[Union[_builtins.str, 'IPAction']]] = None,
                  filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_filter_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_mask: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NamespaceIpFilterRule resource.
 
-        :param pulumi.Input[_builtins.str] ip_filter_rule_name: The IP Filter Rule name.
         :param pulumi.Input[_builtins.str] namespace_name: The Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[Union[_builtins.str, 'IPAction']] action: The IP Filter Action
         :param pulumi.Input[_builtins.str] filter_name: IP Filter name
+        :param pulumi.Input[_builtins.str] ip_filter_rule_name: The IP Filter Rule name.
         :param pulumi.Input[_builtins.str] ip_mask: IP Mask
         """
-        pulumi.set(__self__, "ip_filter_rule_name", ip_filter_rule_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if action is not None:
             pulumi.set(__self__, "action", action)
         if filter_name is not None:
             pulumi.set(__self__, "filter_name", filter_name)
+        if ip_filter_rule_name is not None:
+            pulumi.set(__self__, "ip_filter_rule_name", ip_filter_rule_name)
         if ip_mask is not None:
             pulumi.set(__self__, "ip_mask", ip_mask)
-
-    @_builtins.property
-    @pulumi.getter(name="ipFilterRuleName")
-    def ip_filter_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The IP Filter Rule name.
-        """
-        return pulumi.get(self, "ip_filter_rule_name")
-
-    @ip_filter_rule_name.setter
-    def ip_filter_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "ip_filter_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -105,6 +94,18 @@ class NamespaceIpFilterRuleArgs:
     @filter_name.setter
     def filter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipFilterRuleName")
+    def ip_filter_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The IP Filter Rule name.
+        """
+        return pulumi.get(self, "ip_filter_rule_name")
+
+    @ip_filter_rule_name.setter
+    def ip_filter_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ip_filter_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipMask")
@@ -191,8 +192,6 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
 
             __props__.__dict__["action"] = action
             __props__.__dict__["filter_name"] = filter_name
-            if ip_filter_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ip_filter_rule_name'")
             __props__.__dict__["ip_filter_rule_name"] = ip_filter_rule_name
             __props__.__dict__["ip_mask"] = ip_mask
             if namespace_name is None and not opts.urn:

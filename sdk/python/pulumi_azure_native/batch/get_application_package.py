@@ -224,7 +224,7 @@ def get_application_package(account_name: Optional[_builtins.str] = None,
 def get_application_package_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    application_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   version_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   version_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationPackageResult]:
     """
     Gets information about the specified application package.

@@ -194,7 +194,7 @@ def get_workload(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_workload_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         virtual_enclave_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        workload_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        workload_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadResult]:
     """
     Get a WorkloadResource

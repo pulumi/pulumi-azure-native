@@ -20,52 +20,41 @@ __all__ = ['SuppressionListAddressArgs', 'SuppressionListAddress']
 @pulumi.input_type
 class SuppressionListAddressArgs:
     def __init__(__self__, *,
-                 address_id: pulumi.Input[_builtins.str],
                  domain_name: pulumi.Input[_builtins.str],
                  email: pulumi.Input[_builtins.str],
                  email_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  suppression_list_name: pulumi.Input[_builtins.str],
+                 address_id: pulumi.Input[Optional[_builtins.str]] = None,
                  first_name: pulumi.Input[Optional[_builtins.str]] = None,
                  last_name: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SuppressionListAddress resource.
 
-        :param pulumi.Input[_builtins.str] address_id: The id of the address in a suppression list.
         :param pulumi.Input[_builtins.str] domain_name: The name of the Domains resource.
         :param pulumi.Input[_builtins.str] email: Email address of the recipient.
         :param pulumi.Input[_builtins.str] email_service_name: The name of the EmailService resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] suppression_list_name: The name of the suppression list.
+        :param pulumi.Input[_builtins.str] address_id: The id of the address in a suppression list.
         :param pulumi.Input[_builtins.str] first_name: The first name of the email recipient.
         :param pulumi.Input[_builtins.str] last_name: The last name of the email recipient.
         :param pulumi.Input[_builtins.str] notes: An optional property to provide contextual notes or a description for an address.
         """
-        pulumi.set(__self__, "address_id", address_id)
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "email_service_name", email_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "suppression_list_name", suppression_list_name)
+        if address_id is not None:
+            pulumi.set(__self__, "address_id", address_id)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
         if last_name is not None:
             pulumi.set(__self__, "last_name", last_name)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
-
-    @_builtins.property
-    @pulumi.getter(name="addressId")
-    def address_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The id of the address in a suppression list.
-        """
-        return pulumi.get(self, "address_id")
-
-    @address_id.setter
-    def address_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
@@ -126,6 +115,18 @@ class SuppressionListAddressArgs:
     @suppression_list_name.setter
     def suppression_list_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "suppression_list_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressId")
+    def address_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The id of the address in a suppression list.
+        """
+        return pulumi.get(self, "address_id")
+
+    @address_id.setter
+    def address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "address_id", value)
 
     @_builtins.property
     @pulumi.getter(name="firstName")
@@ -247,8 +248,6 @@ class SuppressionListAddress(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SuppressionListAddressArgs.__new__(SuppressionListAddressArgs)
 
-            if address_id is None and not opts.urn:
-                raise TypeError("Missing required property 'address_id'")
             __props__.__dict__["address_id"] = address_id
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")

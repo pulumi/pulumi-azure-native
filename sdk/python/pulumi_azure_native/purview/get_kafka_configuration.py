@@ -219,7 +219,7 @@ def get_kafka_configuration(account_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_kafka_configuration_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   kafka_configuration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   kafka_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaConfigurationResult]:
     """

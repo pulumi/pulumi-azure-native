@@ -22,44 +22,33 @@ __all__ = ['MigrateProjectArgs', 'MigrateProject']
 @pulumi.input_type
 class MigrateProjectArgs:
     def __init__(__self__, *,
-                 migrate_project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['MigrateProjectPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional['MigrateProjectTagsArgs']] = None):
         """
         The set of arguments for constructing a MigrateProject resource.
 
-        :param pulumi.Input[_builtins.str] migrate_project_name: Name of the Azure Migrate project.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that migrate project is part of.
         :param pulumi.Input[_builtins.str] e_tag: Gets or sets the eTag for concurrency control.
         :param pulumi.Input[_builtins.str] location: Gets or sets the Azure location in which migrate project is created.
+        :param pulumi.Input[_builtins.str] migrate_project_name: Name of the Azure Migrate project.
         :param pulumi.Input['MigrateProjectPropertiesArgs'] properties: Gets or sets the nested properties.
         :param pulumi.Input['MigrateProjectTagsArgs'] tags: Gets or sets the tags.
         """
-        pulumi.set(__self__, "migrate_project_name", migrate_project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if migrate_project_name is not None:
+            pulumi.set(__self__, "migrate_project_name", migrate_project_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="migrateProjectName")
-    def migrate_project_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Azure Migrate project.
-        """
-        return pulumi.get(self, "migrate_project_name")
-
-    @migrate_project_name.setter
-    def migrate_project_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "migrate_project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -96,6 +85,18 @@ class MigrateProjectArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="migrateProjectName")
+    def migrate_project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Azure Migrate project.
+        """
+        return pulumi.get(self, "migrate_project_name")
+
+    @migrate_project_name.setter
+    def migrate_project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "migrate_project_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -194,8 +195,6 @@ class MigrateProject(pulumi.CustomResource):
 
             __props__.__dict__["e_tag"] = e_tag
             __props__.__dict__["location"] = location
-            if migrate_project_name is None and not opts.urn:
-                raise TypeError("Missing required property 'migrate_project_name'")
             __props__.__dict__["migrate_project_name"] = migrate_project_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

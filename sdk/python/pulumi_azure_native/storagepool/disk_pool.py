@@ -21,12 +21,12 @@ __all__ = ['DiskPoolArgs', 'DiskPool']
 @pulumi.input_type
 class DiskPoolArgs:
     def __init__(__self__, *,
-                 disk_pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  subnet_id: pulumi.Input[_builtins.str],
                  additional_capabilities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 disk_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disks: pulumi.Input[Optional[Sequence[pulumi.Input['DiskArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_by: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,19 +35,18 @@ class DiskPoolArgs:
         """
         The set of arguments for constructing a DiskPool resource.
 
-        :param pulumi.Input[_builtins.str] disk_pool_name: The name of the Disk Pool.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: Determines the SKU of the Disk Pool
         :param pulumi.Input[_builtins.str] subnet_id: Azure Resource ID of a Subnet for the Disk Pool.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_capabilities: List of additional capabilities for a Disk Pool.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: Logical zone for Disk Pool resource; example: ["1"].
+        :param pulumi.Input[_builtins.str] disk_pool_name: The name of the Disk Pool.
         :param pulumi.Input[Sequence[pulumi.Input['DiskArgs']]] disks: List of Azure Managed Disks to attach to a Disk Pool.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives.
         :param pulumi.Input[_builtins.str] managed_by: Azure resource id. Indicates if this resource is managed by another Azure resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_by_extended: List of Azure resource ids that manage this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "disk_pool_name", disk_pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -55,6 +54,8 @@ class DiskPoolArgs:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
+        if disk_pool_name is not None:
+            pulumi.set(__self__, "disk_pool_name", disk_pool_name)
         if disks is not None:
             pulumi.set(__self__, "disks", disks)
         if location is not None:
@@ -65,18 +66,6 @@ class DiskPoolArgs:
             pulumi.set(__self__, "managed_by_extended", managed_by_extended)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="diskPoolName")
-    def disk_pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Disk Pool.
-        """
-        return pulumi.get(self, "disk_pool_name")
-
-    @disk_pool_name.setter
-    def disk_pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "disk_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -137,6 +126,18 @@ class DiskPoolArgs:
     @availability_zones.setter
     def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
+
+    @_builtins.property
+    @pulumi.getter(name="diskPoolName")
+    def disk_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Disk Pool.
+        """
+        return pulumi.get(self, "disk_pool_name")
+
+    @disk_pool_name.setter
+    def disk_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "disk_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -286,8 +287,6 @@ class DiskPool(pulumi.CustomResource):
 
             __props__.__dict__["additional_capabilities"] = additional_capabilities
             __props__.__dict__["availability_zones"] = availability_zones
-            if disk_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'disk_pool_name'")
             __props__.__dict__["disk_pool_name"] = disk_pool_name
             __props__.__dict__["disks"] = disks
             __props__.__dict__["location"] = location

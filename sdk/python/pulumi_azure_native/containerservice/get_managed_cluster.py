@@ -801,7 +801,7 @@ def get_managed_cluster(resource_group_name: Optional[_builtins.str] = None,
         windows_profile=pulumi.get(__ret__, 'windows_profile'),
         workload_auto_scaler_profile=pulumi.get(__ret__, 'workload_auto_scaler_profile'))
 def get_managed_cluster_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterResult]:
     """
     Managed cluster.

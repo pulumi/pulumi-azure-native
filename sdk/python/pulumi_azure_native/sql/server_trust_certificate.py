@@ -19,35 +19,24 @@ __all__ = ['ServerTrustCertificateArgs', 'ServerTrustCertificate']
 @pulumi.input_type
 class ServerTrustCertificateArgs:
     def __init__(__self__, *,
-                 certificate_name: pulumi.Input[_builtins.str],
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_blob: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerTrustCertificate resource.
 
-        :param pulumi.Input[_builtins.str] certificate_name: Name of of the certificate to upload.
         :param pulumi.Input[_builtins.str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
+        :param pulumi.Input[_builtins.str] certificate_name: Name of of the certificate to upload.
         :param pulumi.Input[_builtins.str] public_blob: The certificate public blob
         """
-        pulumi.set(__self__, "certificate_name", certificate_name)
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if public_blob is not None:
             pulumi.set(__self__, "public_blob", public_blob)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of of the certificate to upload.
-        """
-        return pulumi.get(self, "certificate_name")
-
-    @certificate_name.setter
-    def certificate_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceName")
@@ -72,6 +61,18 @@ class ServerTrustCertificateArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of of the certificate to upload.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicBlob")
@@ -154,8 +155,6 @@ class ServerTrustCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerTrustCertificateArgs.__new__(ServerTrustCertificateArgs)
 
-            if certificate_name is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_name'")
             __props__.__dict__["certificate_name"] = certificate_name
             if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")

@@ -183,7 +183,7 @@ def get_api_schema(api_id: Optional[_builtins.str] = None,
         value=pulumi.get(__ret__, 'value'))
 def get_api_schema_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          schema_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          schema_id: pulumi.Input[Optional[_builtins.str]] = None,
                           service_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiSchemaResult]:
     """

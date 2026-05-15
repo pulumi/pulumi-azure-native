@@ -20,35 +20,24 @@ __all__ = ['NetworkManagerRoutingConfigurationArgs', 'NetworkManagerRoutingConfi
 @pulumi.input_type
 class NetworkManagerRoutingConfigurationArgs:
     def __init__(__self__, *,
-                 configuration_name: pulumi.Input[_builtins.str],
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkManagerRoutingConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] configuration_name: The name of the network manager Routing Configuration.
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] configuration_name: The name of the network manager Routing Configuration.
         :param pulumi.Input[_builtins.str] description: A description of the routing configuration.
         """
-        pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if configuration_name is not None:
+            pulumi.set(__self__, "configuration_name", configuration_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the network manager Routing Configuration.
-        """
-        return pulumi.get(self, "configuration_name")
-
-    @configuration_name.setter
-    def configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerName")
@@ -73,6 +62,18 @@ class NetworkManagerRoutingConfigurationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationName")
+    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the network manager Routing Configuration.
+        """
+        return pulumi.get(self, "configuration_name")
+
+    @configuration_name.setter
+    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -155,8 +156,6 @@ class NetworkManagerRoutingConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkManagerRoutingConfigurationArgs.__new__(NetworkManagerRoutingConfigurationArgs)
 
-            if configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
             __props__.__dict__["description"] = description
             if network_manager_name is None and not opts.urn:

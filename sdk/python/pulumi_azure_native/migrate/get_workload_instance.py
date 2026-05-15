@@ -154,7 +154,7 @@ def get_workload_instance(modernize_project_name: Optional[_builtins.str] = None
 def get_workload_instance_output(modernize_project_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                 workload_instance_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 workload_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadInstanceResult]:
     """
     Gets the details of the workload instance.

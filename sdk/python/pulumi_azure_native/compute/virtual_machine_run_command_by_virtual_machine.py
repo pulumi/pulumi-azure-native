@@ -22,7 +22,6 @@ __all__ = ['VirtualMachineRunCommandByVirtualMachineArgs', 'VirtualMachineRunCom
 class VirtualMachineRunCommandByVirtualMachineArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 run_command_name: pulumi.Input[_builtins.str],
                  vm_name: pulumi.Input[_builtins.str],
                  async_execution: pulumi.Input[Optional[_builtins.bool]] = None,
                  error_blob_managed_identity: pulumi.Input[Optional['RunCommandManagedIdentityArgs']] = None,
@@ -34,6 +33,7 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
                  protected_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['RunCommandInputParameterArgs']]]] = None,
                  run_as_password: pulumi.Input[Optional[_builtins.str]] = None,
                  run_as_user: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_command_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional['VirtualMachineRunCommandScriptSourceArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
@@ -42,7 +42,6 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
         The set of arguments for constructing a VirtualMachineRunCommandByVirtualMachine resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] run_command_name: The name of the VirtualMachineRunCommand
         :param pulumi.Input[_builtins.str] vm_name: The name of the VirtualMachine
         :param pulumi.Input[_builtins.bool] async_execution: Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
         :param pulumi.Input['RunCommandManagedIdentityArgs'] error_blob_managed_identity: User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged
@@ -54,13 +53,13 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RunCommandInputParameterArgs']]] protected_parameters: The parameters used by the script.
         :param pulumi.Input[_builtins.str] run_as_password: Specifies the user account password on the VM when executing the run command.
         :param pulumi.Input[_builtins.str] run_as_user: Specifies the user account on the VM when executing the run command.
+        :param pulumi.Input[_builtins.str] run_command_name: The name of the VirtualMachineRunCommand
         :param pulumi.Input['VirtualMachineRunCommandScriptSourceArgs'] source: The source of the run command script.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.int] timeout_in_seconds: The timeout in seconds to execute the run command.
         :param pulumi.Input[_builtins.bool] treat_failure_as_deployment_failure: Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "run_command_name", run_command_name)
         pulumi.set(__self__, "vm_name", vm_name)
         if async_execution is not None:
             pulumi.set(__self__, "async_execution", async_execution)
@@ -82,6 +81,8 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
             pulumi.set(__self__, "run_as_password", run_as_password)
         if run_as_user is not None:
             pulumi.set(__self__, "run_as_user", run_as_user)
+        if run_command_name is not None:
+            pulumi.set(__self__, "run_command_name", run_command_name)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if tags is not None:
@@ -102,18 +103,6 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="runCommandName")
-    def run_command_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the VirtualMachineRunCommand
-        """
-        return pulumi.get(self, "run_command_name")
-
-    @run_command_name.setter
-    def run_command_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "run_command_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmName")
@@ -246,6 +235,18 @@ class VirtualMachineRunCommandByVirtualMachineArgs:
     @run_as_user.setter
     def run_as_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_as_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runCommandName")
+    def run_command_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the VirtualMachineRunCommand
+        """
+        return pulumi.get(self, "run_command_name")
+
+    @run_command_name.setter
+    def run_command_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "run_command_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -416,8 +417,6 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["run_as_password"] = run_as_password
             __props__.__dict__["run_as_user"] = run_as_user
-            if run_command_name is None and not opts.urn:
-                raise TypeError("Missing required property 'run_command_name'")
             __props__.__dict__["run_command_name"] = run_command_name
             __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags

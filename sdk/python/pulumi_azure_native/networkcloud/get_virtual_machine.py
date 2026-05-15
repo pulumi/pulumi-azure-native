@@ -499,7 +499,7 @@ def get_virtual_machine(resource_group_name: Optional[_builtins.str] = None,
         vm_image_repository_credentials=pulumi.get(__ret__, 'vm_image_repository_credentials'),
         volumes=pulumi.get(__ret__, 'volumes'))
 def get_virtual_machine_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               virtual_machine_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Get properties of the provided virtual machine.

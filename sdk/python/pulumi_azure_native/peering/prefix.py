@@ -21,26 +21,27 @@ __all__ = ['PrefixArgs', 'Prefix']
 class PrefixArgs:
     def __init__(__self__, *,
                  peering_service_name: pulumi.Input[_builtins.str],
-                 prefix_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  peering_service_prefix_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 prefix: pulumi.Input[Optional[_builtins.str]] = None):
+                 prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 prefix_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Prefix resource.
 
         :param pulumi.Input[_builtins.str] peering_service_name: The name of the peering service.
-        :param pulumi.Input[_builtins.str] prefix_name: The name of the prefix.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] peering_service_prefix_key: The peering service prefix key
         :param pulumi.Input[_builtins.str] prefix: The prefix from which your traffic originates.
+        :param pulumi.Input[_builtins.str] prefix_name: The name of the prefix.
         """
         pulumi.set(__self__, "peering_service_name", peering_service_name)
-        pulumi.set(__self__, "prefix_name", prefix_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if peering_service_prefix_key is not None:
             pulumi.set(__self__, "peering_service_prefix_key", peering_service_prefix_key)
         if prefix is not None:
             pulumi.set(__self__, "prefix", prefix)
+        if prefix_name is not None:
+            pulumi.set(__self__, "prefix_name", prefix_name)
 
     @_builtins.property
     @pulumi.getter(name="peeringServiceName")
@@ -53,18 +54,6 @@ class PrefixArgs:
     @peering_service_name.setter
     def peering_service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "peering_service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="prefixName")
-    def prefix_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the prefix.
-        """
-        return pulumi.get(self, "prefix_name")
-
-    @prefix_name.setter
-    def prefix_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "prefix_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -101,6 +90,18 @@ class PrefixArgs:
     @prefix.setter
     def prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixName")
+    def prefix_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the prefix.
+        """
+        return pulumi.get(self, "prefix_name")
+
+    @prefix_name.setter
+    def prefix_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "prefix_name", value)
 
 
 @pulumi.type_token("azure-native:peering:Prefix")
@@ -179,8 +180,6 @@ class Prefix(pulumi.CustomResource):
             __props__.__dict__["peering_service_name"] = peering_service_name
             __props__.__dict__["peering_service_prefix_key"] = peering_service_prefix_key
             __props__.__dict__["prefix"] = prefix
-            if prefix_name is None and not opts.urn:
-                raise TypeError("Missing required property 'prefix_name'")
             __props__.__dict__["prefix_name"] = prefix_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

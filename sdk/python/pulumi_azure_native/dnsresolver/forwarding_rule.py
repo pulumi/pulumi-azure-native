@@ -24,9 +24,9 @@ class ForwardingRuleArgs:
     def __init__(__self__, *,
                  dns_forwarding_ruleset_name: pulumi.Input[_builtins.str],
                  domain_name: pulumi.Input[_builtins.str],
-                 forwarding_rule_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_dns_servers: pulumi.Input[Sequence[pulumi.Input['TargetDnsServerArgs']]],
+                 forwarding_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  forwarding_rule_state: pulumi.Input[Optional[Union[_builtins.str, 'ForwardingRuleState']]] = None,
                  metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -34,17 +34,18 @@ class ForwardingRuleArgs:
 
         :param pulumi.Input[_builtins.str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
         :param pulumi.Input[_builtins.str] domain_name: The domain name for the forwarding rule.
-        :param pulumi.Input[_builtins.str] forwarding_rule_name: The name of the forwarding rule.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['TargetDnsServerArgs']]] target_dns_servers: DNS servers to forward the DNS query to.
+        :param pulumi.Input[_builtins.str] forwarding_rule_name: The name of the forwarding rule.
         :param pulumi.Input[Union[_builtins.str, 'ForwardingRuleState']] forwarding_rule_state: The state of forwarding rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata attached to the forwarding rule.
         """
         pulumi.set(__self__, "dns_forwarding_ruleset_name", dns_forwarding_ruleset_name)
         pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "forwarding_rule_name", forwarding_rule_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "target_dns_servers", target_dns_servers)
+        if forwarding_rule_name is not None:
+            pulumi.set(__self__, "forwarding_rule_name", forwarding_rule_name)
         if forwarding_rule_state is not None:
             pulumi.set(__self__, "forwarding_rule_state", forwarding_rule_state)
         if metadata is not None:
@@ -75,18 +76,6 @@ class ForwardingRuleArgs:
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="forwardingRuleName")
-    def forwarding_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the forwarding rule.
-        """
-        return pulumi.get(self, "forwarding_rule_name")
-
-    @forwarding_rule_name.setter
-    def forwarding_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "forwarding_rule_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -109,6 +98,18 @@ class ForwardingRuleArgs:
     @target_dns_servers.setter
     def target_dns_servers(self, value: pulumi.Input[Sequence[pulumi.Input['TargetDnsServerArgs']]]):
         pulumi.set(self, "target_dns_servers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forwardingRuleName")
+    def forwarding_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the forwarding rule.
+        """
+        return pulumi.get(self, "forwarding_rule_name")
+
+    @forwarding_rule_name.setter
+    def forwarding_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "forwarding_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="forwardingRuleState")
@@ -218,8 +219,6 @@ class ForwardingRule(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
-            if forwarding_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'forwarding_rule_name'")
             __props__.__dict__["forwarding_rule_name"] = forwarding_rule_name
             __props__.__dict__["forwarding_rule_state"] = forwarding_rule_state
             __props__.__dict__["metadata"] = metadata

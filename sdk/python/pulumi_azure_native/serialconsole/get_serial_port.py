@@ -134,7 +134,7 @@ def get_serial_port_output(parent_resource: pulumi.Input[Optional[_builtins.str]
                            parent_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            resource_provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                           serial_port: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           serial_port: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSerialPortResult]:
     """
     Gets the configured settings for a serial port

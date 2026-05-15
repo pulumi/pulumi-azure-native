@@ -20,37 +20,26 @@ __all__ = ['BgpPeerArgs', 'BgpPeer']
 @pulumi.input_type
 class BgpPeerArgs:
     def __init__(__self__, *,
-                 bgp_peer_name: pulumi.Input[_builtins.str],
                  my_asn: pulumi.Input[_builtins.int],
                  peer_address: pulumi.Input[_builtins.str],
                  peer_asn: pulumi.Input[_builtins.int],
-                 resource_uri: pulumi.Input[_builtins.str]):
+                 resource_uri: pulumi.Input[_builtins.str],
+                 bgp_peer_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BgpPeer resource.
 
-        :param pulumi.Input[_builtins.str] bgp_peer_name: The name of the BgpPeer
         :param pulumi.Input[_builtins.int] my_asn: My ASN
         :param pulumi.Input[_builtins.str] peer_address: Peer Address
         :param pulumi.Input[_builtins.int] peer_asn: Peer ASN
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+        :param pulumi.Input[_builtins.str] bgp_peer_name: The name of the BgpPeer
         """
-        pulumi.set(__self__, "bgp_peer_name", bgp_peer_name)
         pulumi.set(__self__, "my_asn", my_asn)
         pulumi.set(__self__, "peer_address", peer_address)
         pulumi.set(__self__, "peer_asn", peer_asn)
         pulumi.set(__self__, "resource_uri", resource_uri)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpPeerName")
-    def bgp_peer_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the BgpPeer
-        """
-        return pulumi.get(self, "bgp_peer_name")
-
-    @bgp_peer_name.setter
-    def bgp_peer_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "bgp_peer_name", value)
+        if bgp_peer_name is not None:
+            pulumi.set(__self__, "bgp_peer_name", bgp_peer_name)
 
     @_builtins.property
     @pulumi.getter(name="myAsn")
@@ -99,6 +88,18 @@ class BgpPeerArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpPeerName")
+    def bgp_peer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the BgpPeer
+        """
+        return pulumi.get(self, "bgp_peer_name")
+
+    @bgp_peer_name.setter
+    def bgp_peer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bgp_peer_name", value)
 
 
 @pulumi.type_token("azure-native:kubernetesruntime:BgpPeer")
@@ -168,8 +169,6 @@ class BgpPeer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BgpPeerArgs.__new__(BgpPeerArgs)
 
-            if bgp_peer_name is None and not opts.urn:
-                raise TypeError("Missing required property 'bgp_peer_name'")
             __props__.__dict__["bgp_peer_name"] = bgp_peer_name
             if my_asn is None and not opts.urn:
                 raise TypeError("Missing required property 'my_asn'")

@@ -21,40 +21,29 @@ __all__ = ['EmployeeArgs', 'Employee']
 @pulumi.input_type
 class EmployeeArgs:
     def __init__(__self__, *,
-                 employee_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 employee_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['EmployeePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Employee resource.
 
-        :param pulumi.Input[_builtins.str] employee_name: The name of the Employee
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] employee_name: The name of the Employee
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['EmployeePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "employee_name", employee_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if employee_name is not None:
+            pulumi.set(__self__, "employee_name", employee_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="employeeName")
-    def employee_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Employee
-        """
-        return pulumi.get(self, "employee_name")
-
-    @employee_name.setter
-    def employee_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "employee_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -67,6 +56,18 @@ class EmployeeArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="employeeName")
+    def employee_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Employee
+        """
+        return pulumi.get(self, "employee_name")
+
+    @employee_name.setter
+    def employee_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "employee_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,8 +177,6 @@ class Employee(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EmployeeArgs.__new__(EmployeeArgs)
 
-            if employee_name is None and not opts.urn:
-                raise TypeError("Missing required property 'employee_name'")
             __props__.__dict__["employee_name"] = employee_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

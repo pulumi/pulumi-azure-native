@@ -23,7 +23,6 @@ __all__ = ['LinkArgs', 'Link']
 class LinkArgs:
     def __init__(__self__, *,
                  hub_name: pulumi.Input[_builtins.str],
-                 link_name: pulumi.Input[_builtins.str],
                  participant_property_references: pulumi.Input[Sequence[pulumi.Input['ParticipantPropertyReferenceArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_entity_type: pulumi.Input['EntityType'],
@@ -32,6 +31,7 @@ class LinkArgs:
                  target_entity_type_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 link_name: pulumi.Input[Optional[_builtins.str]] = None,
                  mappings: pulumi.Input[Optional[Sequence[pulumi.Input['TypePropertiesMappingArgs']]]] = None,
                  operation_type: pulumi.Input[Optional['InstanceOperationType']] = None,
                  reference_only: pulumi.Input[Optional[_builtins.bool]] = None):
@@ -39,7 +39,6 @@ class LinkArgs:
         The set of arguments for constructing a Link resource.
 
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
-        :param pulumi.Input[_builtins.str] link_name: The name of the link.
         :param pulumi.Input[Sequence[pulumi.Input['ParticipantPropertyReferenceArgs']]] participant_property_references: The properties that represent the participating profile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['EntityType'] source_entity_type: Type of source entity.
@@ -48,12 +47,12 @@ class LinkArgs:
         :param pulumi.Input[_builtins.str] target_entity_type_name: Name of the target Entity Type.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] description: Localized descriptions for the Link.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] display_name: Localized display name for the Link.
+        :param pulumi.Input[_builtins.str] link_name: The name of the link.
         :param pulumi.Input[Sequence[pulumi.Input['TypePropertiesMappingArgs']]] mappings: The set of properties mappings between the source and target Types.
         :param pulumi.Input['InstanceOperationType'] operation_type: Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
         :param pulumi.Input[_builtins.bool] reference_only: Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
         """
         pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "link_name", link_name)
         pulumi.set(__self__, "participant_property_references", participant_property_references)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source_entity_type", source_entity_type)
@@ -64,6 +63,8 @@ class LinkArgs:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if link_name is not None:
+            pulumi.set(__self__, "link_name", link_name)
         if mappings is not None:
             pulumi.set(__self__, "mappings", mappings)
         if operation_type is not None:
@@ -82,18 +83,6 @@ class LinkArgs:
     @hub_name.setter
     def hub_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "hub_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="linkName")
-    def link_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the link.
-        """
-        return pulumi.get(self, "link_name")
-
-    @link_name.setter
-    def link_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "link_name", value)
 
     @_builtins.property
     @pulumi.getter(name="participantPropertyReferences")
@@ -190,6 +179,18 @@ class LinkArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkName")
+    def link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the link.
+        """
+        return pulumi.get(self, "link_name")
+
+    @link_name.setter
+    def link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -324,8 +325,6 @@ class Link(pulumi.CustomResource):
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__.__dict__["hub_name"] = hub_name
-            if link_name is None and not opts.urn:
-                raise TypeError("Missing required property 'link_name'")
             __props__.__dict__["link_name"] = link_name
             __props__.__dict__["mappings"] = mappings
             __props__.__dict__["operation_type"] = operation_type

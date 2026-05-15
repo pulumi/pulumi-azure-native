@@ -19,32 +19,21 @@ __all__ = ['AssociationArgs', 'Association']
 @pulumi.input_type
 class AssociationArgs:
     def __init__(__self__, *,
-                 association_name: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
+                 association_name: pulumi.Input[Optional[_builtins.str]] = None,
                  target_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Association resource.
 
-        :param pulumi.Input[_builtins.str] association_name: The name of the association.
         :param pulumi.Input[_builtins.str] scope: The scope of the association. The scope can be any valid REST resource instance. For example, use '/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Compute/virtualMachines/{vm-name}' for a virtual machine resource.
+        :param pulumi.Input[_builtins.str] association_name: The name of the association.
         :param pulumi.Input[_builtins.str] target_resource_id: The REST resource instance of the target resource for this association.
         """
-        pulumi.set(__self__, "association_name", association_name)
         pulumi.set(__self__, "scope", scope)
+        if association_name is not None:
+            pulumi.set(__self__, "association_name", association_name)
         if target_resource_id is not None:
             pulumi.set(__self__, "target_resource_id", target_resource_id)
-
-    @_builtins.property
-    @pulumi.getter(name="associationName")
-    def association_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the association.
-        """
-        return pulumi.get(self, "association_name")
-
-    @association_name.setter
-    def association_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "association_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -57,6 +46,18 @@ class AssociationArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associationName")
+    def association_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the association.
+        """
+        return pulumi.get(self, "association_name")
+
+    @association_name.setter
+    def association_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "association_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetResourceId")
@@ -132,8 +133,6 @@ class Association(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssociationArgs.__new__(AssociationArgs)
 
-            if association_name is None and not opts.urn:
-                raise TypeError("Missing required property 'association_name'")
             __props__.__dict__["association_name"] = association_name
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

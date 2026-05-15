@@ -22,9 +22,9 @@ __all__ = ['BuilderArgs', 'Builder']
 @pulumi.input_type
 class BuilderArgs:
     def __init__(__self__, *,
-                 builder_name: pulumi.Input[_builtins.str],
                  environment_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 builder_name: pulumi.Input[Optional[_builtins.str]] = None,
                  container_registries: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRegistryArgs']]]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,17 +32,18 @@ class BuilderArgs:
         """
         The set of arguments for constructing a Builder resource.
 
-        :param pulumi.Input[_builtins.str] builder_name: The name of the builder.
         :param pulumi.Input[_builtins.str] environment_id: Resource ID of the container apps environment that the builder is associated with.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] builder_name: The name of the builder.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerRegistryArgs']]] container_registries: List of mappings of container registries and the managed identity used to connect to it.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "builder_name", builder_name)
         pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if builder_name is not None:
+            pulumi.set(__self__, "builder_name", builder_name)
         if container_registries is not None:
             pulumi.set(__self__, "container_registries", container_registries)
         if identity is not None:
@@ -51,18 +52,6 @@ class BuilderArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="builderName")
-    def builder_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the builder.
-        """
-        return pulumi.get(self, "builder_name")
-
-    @builder_name.setter
-    def builder_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "builder_name", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
@@ -87,6 +76,18 @@ class BuilderArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="builderName")
+    def builder_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the builder.
+        """
+        return pulumi.get(self, "builder_name")
+
+    @builder_name.setter
+    def builder_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "builder_name", value)
 
     @_builtins.property
     @pulumi.getter(name="containerRegistries")
@@ -214,8 +215,6 @@ class Builder(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BuilderArgs.__new__(BuilderArgs)
 
-            if builder_name is None and not opts.urn:
-                raise TypeError("Missing required property 'builder_name'")
             __props__.__dict__["builder_name"] = builder_name
             __props__.__dict__["container_registries"] = container_registries
             if environment_id is None and not opts.urn:

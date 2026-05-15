@@ -22,18 +22,17 @@ __all__ = ['PremiumMicrosoftDefenderForThreatIntelligenceArgs', 'PremiumMicrosof
 @pulumi.input_type
 class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
     def __init__(__self__, *,
-                 data_connector_id: pulumi.Input[_builtins.str],
                  data_types: pulumi.Input['PremiumMdtiDataConnectorDataTypesArgs'],
                  kind: pulumi.Input[_builtins.str],
                  lookback_period: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
+                 data_connector_id: pulumi.Input[Optional[_builtins.str]] = None,
                  required_skus_present: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a PremiumMicrosoftDefenderForThreatIntelligence resource.
 
-        :param pulumi.Input[_builtins.str] data_connector_id: Connector ID
         :param pulumi.Input['PremiumMdtiDataConnectorDataTypesArgs'] data_types: The available data types for the connector.
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector
                Expected value is 'PremiumMicrosoftDefenderForThreatIntelligence'.
@@ -41,29 +40,19 @@ class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] tenant_id: The tenant id to connect to, and get the data from.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] data_connector_id: Connector ID
         :param pulumi.Input[_builtins.bool] required_skus_present: The flag to indicate whether the tenant has the premium SKU required to access this connector.
         """
-        pulumi.set(__self__, "data_connector_id", data_connector_id)
         pulumi.set(__self__, "data_types", data_types)
         pulumi.set(__self__, "kind", 'PremiumMicrosoftDefenderForThreatIntelligence')
         pulumi.set(__self__, "lookback_period", lookback_period)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if data_connector_id is not None:
+            pulumi.set(__self__, "data_connector_id", data_connector_id)
         if required_skus_present is not None:
             pulumi.set(__self__, "required_skus_present", required_skus_present)
-
-    @_builtins.property
-    @pulumi.getter(name="dataConnectorId")
-    def data_connector_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Connector ID
-        """
-        return pulumi.get(self, "data_connector_id")
-
-    @data_connector_id.setter
-    def data_connector_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataTypes")
@@ -137,6 +126,18 @@ class PremiumMicrosoftDefenderForThreatIntelligenceArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectorId")
+    def data_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Connector ID
+        """
+        return pulumi.get(self, "data_connector_id")
+
+    @data_connector_id.setter
+    def data_connector_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_connector_id", value)
 
     @_builtins.property
     @pulumi.getter(name="requiredSKUsPresent")
@@ -228,8 +229,6 @@ class PremiumMicrosoftDefenderForThreatIntelligence(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PremiumMicrosoftDefenderForThreatIntelligenceArgs.__new__(PremiumMicrosoftDefenderForThreatIntelligenceArgs)
 
-            if data_connector_id is None and not opts.urn:
-                raise TypeError("Missing required property 'data_connector_id'")
             __props__.__dict__["data_connector_id"] = data_connector_id
             if data_types is None and not opts.urn:
                 raise TypeError("Missing required property 'data_types'")

@@ -589,7 +589,7 @@ def get_bare_metal_machine(bare_metal_machine_name: Optional[_builtins.str] = No
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'))
-def get_bare_metal_machine_output(bare_metal_machine_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_bare_metal_machine_output(bare_metal_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBareMetalMachineResult]:
     """

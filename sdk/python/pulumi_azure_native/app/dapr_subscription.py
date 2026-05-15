@@ -22,11 +22,11 @@ __all__ = ['DaprSubscriptionArgs', 'DaprSubscription']
 class DaprSubscriptionArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  bulk_subscribe: pulumi.Input[Optional['DaprSubscriptionBulkSubscribeOptionsArgs']] = None,
                  dead_letter_topic: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  pubsub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routes: pulumi.Input[Optional['DaprSubscriptionRoutesArgs']] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -35,18 +35,17 @@ class DaprSubscriptionArgs:
         The set of arguments for constructing a DaprSubscription resource.
 
         :param pulumi.Input[_builtins.str] environment_name: Name of the Managed Environment.
-        :param pulumi.Input[_builtins.str] name: Name of the Dapr subscription.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DaprSubscriptionBulkSubscribeOptionsArgs'] bulk_subscribe: Bulk subscription options
         :param pulumi.Input[_builtins.str] dead_letter_topic: Deadletter topic name
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Subscription metadata
+        :param pulumi.Input[_builtins.str] name: Name of the Dapr subscription.
         :param pulumi.Input[_builtins.str] pubsub_name: Dapr PubSub component name
         :param pulumi.Input['DaprSubscriptionRoutesArgs'] routes: Subscription routes
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Application scopes to restrict the subscription to specific apps.
         :param pulumi.Input[_builtins.str] topic: Topic name
         """
         pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if bulk_subscribe is not None:
             pulumi.set(__self__, "bulk_subscribe", bulk_subscribe)
@@ -54,6 +53,8 @@ class DaprSubscriptionArgs:
             pulumi.set(__self__, "dead_letter_topic", dead_letter_topic)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if pubsub_name is not None:
             pulumi.set(__self__, "pubsub_name", pubsub_name)
         if routes is not None:
@@ -74,18 +75,6 @@ class DaprSubscriptionArgs:
     @environment_name.setter
     def environment_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "environment_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Dapr subscription.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -134,6 +123,18 @@ class DaprSubscriptionArgs:
     @metadata.setter
     def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Dapr subscription.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="pubsubName")
@@ -276,8 +277,6 @@ class DaprSubscription(pulumi.CustomResource):
                 raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["metadata"] = metadata
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["pubsub_name"] = pubsub_name
             if resource_group_name is None and not opts.urn:

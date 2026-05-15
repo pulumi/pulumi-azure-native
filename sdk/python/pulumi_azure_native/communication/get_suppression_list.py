@@ -185,7 +185,7 @@ def get_suppression_list(domain_name: Optional[_builtins.str] = None,
 def get_suppression_list_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 email_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                suppression_list_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuppressionListResult]:
     """
     Get a SuppressionList resource.

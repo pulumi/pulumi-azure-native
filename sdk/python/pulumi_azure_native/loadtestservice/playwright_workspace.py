@@ -21,23 +21,22 @@ __all__ = ['PlaywrightWorkspaceArgs', 'PlaywrightWorkspace']
 @pulumi.input_type
 class PlaywrightWorkspaceArgs:
     def __init__(__self__, *,
-                 playwright_workspace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  local_auth: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 playwright_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  regional_affinity: pulumi.Input[Optional[Union[_builtins.str, 'EnablementStatus']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PlaywrightWorkspace resource.
 
-        :param pulumi.Input[_builtins.str] playwright_workspace_name: The name of the PlaywrightWorkspace
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'EnablementStatus']] local_auth: Enables the workspace to use local authentication through service access tokens for operations.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] playwright_workspace_name: The name of the PlaywrightWorkspace
         :param pulumi.Input[Union[_builtins.str, 'EnablementStatus']] regional_affinity: Controls the connection region for client workers to cloud-hosted browsers. When enabled, workers connect to browsers in the closest Azure region for lower latency. When disabled, workers connect to browsers in the Azure region where the workspace was created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "playwright_workspace_name", playwright_workspace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if local_auth is None:
             local_auth = 'Disabled'
@@ -45,24 +44,14 @@ class PlaywrightWorkspaceArgs:
             pulumi.set(__self__, "local_auth", local_auth)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if playwright_workspace_name is not None:
+            pulumi.set(__self__, "playwright_workspace_name", playwright_workspace_name)
         if regional_affinity is None:
             regional_affinity = 'Enabled'
         if regional_affinity is not None:
             pulumi.set(__self__, "regional_affinity", regional_affinity)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="playwrightWorkspaceName")
-    def playwright_workspace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the PlaywrightWorkspace
-        """
-        return pulumi.get(self, "playwright_workspace_name")
-
-    @playwright_workspace_name.setter
-    def playwright_workspace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "playwright_workspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -99,6 +88,18 @@ class PlaywrightWorkspaceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="playwrightWorkspaceName")
+    def playwright_workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the PlaywrightWorkspace
+        """
+        return pulumi.get(self, "playwright_workspace_name")
+
+    @playwright_workspace_name.setter
+    def playwright_workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "playwright_workspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="regionalAffinity")
@@ -203,8 +204,6 @@ class PlaywrightWorkspace(pulumi.CustomResource):
                 local_auth = 'Disabled'
             __props__.__dict__["local_auth"] = local_auth
             __props__.__dict__["location"] = location
-            if playwright_workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'playwright_workspace_name'")
             __props__.__dict__["playwright_workspace_name"] = playwright_workspace_name
             if regional_affinity is None:
                 regional_affinity = 'Enabled'

@@ -441,7 +441,7 @@ def get_sql_virtual_machine(expand: Optional[_builtins.str] = None,
         wsfc_static_ip=pulumi.get(__ret__, 'wsfc_static_ip'))
 def get_sql_virtual_machine_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   sql_virtual_machine_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   sql_virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlVirtualMachineResult]:
     """
     Gets a SQL virtual machine.

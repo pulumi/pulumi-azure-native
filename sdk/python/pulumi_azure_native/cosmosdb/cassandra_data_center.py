@@ -23,20 +23,21 @@ __all__ = ['CassandraDataCenterArgs', 'CassandraDataCenter']
 class CassandraDataCenterArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 data_center_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 data_center_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DataCenterResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a CassandraDataCenter resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: Managed Cassandra cluster name.
-        :param pulumi.Input[_builtins.str] data_center_name: Data center name in a managed Cassandra cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] data_center_name: Data center name in a managed Cassandra cluster.
         :param pulumi.Input['DataCenterResourcePropertiesArgs'] properties: Properties of a managed Cassandra data center.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "data_center_name", data_center_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data_center_name is not None:
+            pulumi.set(__self__, "data_center_name", data_center_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -53,18 +54,6 @@ class CassandraDataCenterArgs:
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="dataCenterName")
-    def data_center_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Data center name in a managed Cassandra cluster.
-        """
-        return pulumi.get(self, "data_center_name")
-
-    @data_center_name.setter
-    def data_center_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_center_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -75,6 +64,18 @@ class CassandraDataCenterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataCenterName")
+    def data_center_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Data center name in a managed Cassandra cluster.
+        """
+        return pulumi.get(self, "data_center_name")
+
+    @data_center_name.setter
+    def data_center_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_center_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -160,8 +161,6 @@ class CassandraDataCenter(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if data_center_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_center_name'")
             __props__.__dict__["data_center_name"] = data_center_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

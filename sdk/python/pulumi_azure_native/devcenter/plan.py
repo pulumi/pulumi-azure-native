@@ -22,40 +22,29 @@ __all__ = ['PlanArgs', 'Plan']
 @pulumi.input_type
 class PlanArgs:
     def __init__(__self__, *,
-                 plan_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 plan_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Plan resource.
 
-        :param pulumi.Input[_builtins.str] plan_name: The name of the devcenter plan.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] plan_name: The name of the devcenter plan.
         :param pulumi.Input['SkuArgs'] sku: The SKU for DevCenters created using this definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "plan_name", plan_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if plan_name is not None:
+            pulumi.set(__self__, "plan_name", plan_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="planName")
-    def plan_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the devcenter plan.
-        """
-        return pulumi.get(self, "plan_name")
-
-    @plan_name.setter
-    def plan_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "plan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -80,6 +69,18 @@ class PlanArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="planName")
+    def plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the devcenter plan.
+        """
+        return pulumi.get(self, "plan_name")
+
+    @plan_name.setter
+    def plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "plan_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,8 +179,6 @@ class Plan(pulumi.CustomResource):
             __props__ = PlanArgs.__new__(PlanArgs)
 
             __props__.__dict__["location"] = location
-            if plan_name is None and not opts.urn:
-                raise TypeError("Missing required property 'plan_name'")
             __props__.__dict__["plan_name"] = plan_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

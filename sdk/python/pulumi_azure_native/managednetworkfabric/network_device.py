@@ -20,27 +20,26 @@ __all__ = ['NetworkDeviceArgs', 'NetworkDevice']
 @pulumi.input_type
 class NetworkDeviceArgs:
     def __init__(__self__, *,
-                 network_device_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  serial_number: pulumi.Input[_builtins.str],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
                  host_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_device_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_device_sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkDevice resource.
 
-        :param pulumi.Input[_builtins.str] network_device_name: Name of the Network Device.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] serial_number: Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input[_builtins.str] host_name: The host name of the device.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] network_device_name: Name of the Network Device.
         :param pulumi.Input[_builtins.str] network_device_sku: Network Device SKU name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_device_name", network_device_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "serial_number", serial_number)
         if annotation is not None:
@@ -49,22 +48,12 @@ class NetworkDeviceArgs:
             pulumi.set(__self__, "host_name", host_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_device_name is not None:
+            pulumi.set(__self__, "network_device_name", network_device_name)
         if network_device_sku is not None:
             pulumi.set(__self__, "network_device_sku", network_device_sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="networkDeviceName")
-    def network_device_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Network Device.
-        """
-        return pulumi.get(self, "network_device_name")
-
-    @network_device_name.setter
-    def network_device_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -125,6 +114,18 @@ class NetworkDeviceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkDeviceName")
+    def network_device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Network Device.
+        """
+        return pulumi.get(self, "network_device_name")
+
+    @network_device_name.setter
+    def network_device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkDeviceSku")
@@ -234,8 +235,6 @@ class NetworkDevice(pulumi.CustomResource):
             __props__.__dict__["annotation"] = annotation
             __props__.__dict__["host_name"] = host_name
             __props__.__dict__["location"] = location
-            if network_device_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_device_name'")
             __props__.__dict__["network_device_name"] = network_device_name
             __props__.__dict__["network_device_sku"] = network_device_sku
             if resource_group_name is None and not opts.urn:

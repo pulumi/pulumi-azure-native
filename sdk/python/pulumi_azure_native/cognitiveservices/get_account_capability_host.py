@@ -128,7 +128,7 @@ def get_account_capability_host(account_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
 def get_account_capability_host_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       capability_host_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       capability_host_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountCapabilityHostResult]:
     """

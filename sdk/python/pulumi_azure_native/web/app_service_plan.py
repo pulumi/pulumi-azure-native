@@ -21,7 +21,6 @@ __all__ = ['AppServicePlanArgs', 'AppServicePlan']
 @pulumi.input_type
 class AppServicePlanArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  async_scaling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  elastic_scale_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -35,6 +34,7 @@ class AppServicePlanArgs:
                  kube_environment_profile: pulumi.Input[Optional['KubeEnvironmentProfileArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_elastic_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  per_site_scaling: pulumi.Input[Optional[_builtins.bool]] = None,
                  reserved: pulumi.Input[Optional[_builtins.bool]] = None,
                  sku: pulumi.Input[Optional['SkuDescriptionArgs']] = None,
@@ -47,7 +47,6 @@ class AppServicePlanArgs:
         """
         The set of arguments for constructing a AppServicePlan resource.
 
-        :param pulumi.Input[_builtins.str] name: Name of the App Service plan.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.bool] async_scaling_enabled: If <code>true</code>, this App Service Plan will attempt to scale asynchronously if there are insufficient workers to scale synchronously.
                If <code>false</code>, this App Service Plan will only attempt sync scaling.
@@ -62,6 +61,7 @@ class AppServicePlanArgs:
         :param pulumi.Input['KubeEnvironmentProfileArgs'] kube_environment_profile: Specification for the Kubernetes Environment to use for the App Service plan.
         :param pulumi.Input[_builtins.str] location: Resource Location.
         :param pulumi.Input[_builtins.int] maximum_elastic_worker_count: Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
+        :param pulumi.Input[_builtins.str] name: Name of the App Service plan.
         :param pulumi.Input[_builtins.bool] per_site_scaling: If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
                If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
         :param pulumi.Input[_builtins.bool] reserved: If Linux app service plan <code>true</code>, <code>false</code> otherwise.
@@ -74,7 +74,6 @@ class AppServicePlanArgs:
         :param pulumi.Input[_builtins.bool] zone_redundant: If <code>true</code>, this App Service Plan will perform availability zone balancing.
                If <code>false</code>, this App Service Plan will not perform availability zone balancing.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if async_scaling_enabled is not None:
             pulumi.set(__self__, "async_scaling_enabled", async_scaling_enabled)
@@ -104,6 +103,8 @@ class AppServicePlanArgs:
             pulumi.set(__self__, "location", location)
         if maximum_elastic_worker_count is not None:
             pulumi.set(__self__, "maximum_elastic_worker_count", maximum_elastic_worker_count)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if per_site_scaling is None:
             per_site_scaling = False
         if per_site_scaling is not None:
@@ -128,18 +129,6 @@ class AppServicePlanArgs:
             zone_redundant = False
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the App Service plan.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -297,6 +286,18 @@ class AppServicePlanArgs:
     @maximum_elastic_worker_count.setter
     def maximum_elastic_worker_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "maximum_elastic_worker_count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the App Service plan.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="perSiteScaling")
@@ -553,8 +554,6 @@ class AppServicePlan(pulumi.CustomResource):
             __props__.__dict__["kube_environment_profile"] = kube_environment_profile
             __props__.__dict__["location"] = location
             __props__.__dict__["maximum_elastic_worker_count"] = maximum_elastic_worker_count
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if per_site_scaling is None:
                 per_site_scaling = False

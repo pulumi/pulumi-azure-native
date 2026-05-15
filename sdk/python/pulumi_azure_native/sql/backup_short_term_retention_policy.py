@@ -20,27 +20,28 @@ __all__ = ['BackupShortTermRetentionPolicyArgs', 'BackupShortTermRetentionPolicy
 class BackupShortTermRetentionPolicyArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
-                 policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  diff_backup_interval_in_hours: pulumi.Input[Optional[_builtins.int]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_days: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a BackupShortTermRetentionPolicy resource.
 
         :param pulumi.Input[_builtins.str] database_name: The name of the database.
-        :param pulumi.Input[_builtins.str] policy_name: The policy name. Should always be "default".
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.int] diff_backup_interval_in_hours: The differential backup interval in hours. This is how many interval hours between each differential backup will be supported. This is only applicable to live databases but not dropped databases.
+        :param pulumi.Input[_builtins.str] policy_name: The policy name. Should always be "default".
         :param pulumi.Input[_builtins.int] retention_days: The backup retention period in days. This is how many days Point-in-Time Restore will be supported.
         """
         pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         if diff_backup_interval_in_hours is not None:
             pulumi.set(__self__, "diff_backup_interval_in_hours", diff_backup_interval_in_hours)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if retention_days is not None:
             pulumi.set(__self__, "retention_days", retention_days)
 
@@ -55,18 +56,6 @@ class BackupShortTermRetentionPolicyArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "database_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The policy name. Should always be "default".
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -103,6 +92,18 @@ class BackupShortTermRetentionPolicyArgs:
     @diff_backup_interval_in_hours.setter
     def diff_backup_interval_in_hours(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "diff_backup_interval_in_hours", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The policy name. Should always be "default".
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="retentionDays")
@@ -195,8 +196,6 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["diff_backup_interval_in_hours"] = diff_backup_interval_in_hours
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

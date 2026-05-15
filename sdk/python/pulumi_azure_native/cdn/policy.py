@@ -22,31 +22,30 @@ __all__ = ['PolicyArgs', 'Policy']
 @pulumi.input_type
 class PolicyArgs:
     def __init__(__self__, *,
-                 policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  custom_rules: pulumi.Input[Optional['CustomRuleListArgs']] = None,
                  extended_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_rules: pulumi.Input[Optional['ManagedRuleSetListArgs']] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_settings: pulumi.Input[Optional['PolicySettingsArgs']] = None,
                  rate_limit_rules: pulumi.Input[Optional['RateLimitRuleListArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
-        :param pulumi.Input[_builtins.str] policy_name: The name of the CdnWebApplicationFirewallPolicy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
         :param pulumi.Input['CustomRuleListArgs'] custom_rules: Describes custom rules inside the policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] extended_properties: Key-Value pair representing additional properties for Web Application Firewall policy.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedRuleSetListArgs'] managed_rules: Describes managed rules inside the policy.
+        :param pulumi.Input[_builtins.str] policy_name: The name of the CdnWebApplicationFirewallPolicy.
         :param pulumi.Input['PolicySettingsArgs'] policy_settings: Describes  policySettings for policy
         :param pulumi.Input['RateLimitRuleListArgs'] rate_limit_rules: Describes rate limit rules inside the policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if custom_rules is not None:
@@ -57,24 +56,14 @@ class PolicyArgs:
             pulumi.set(__self__, "location", location)
         if managed_rules is not None:
             pulumi.set(__self__, "managed_rules", managed_rules)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if policy_settings is not None:
             pulumi.set(__self__, "policy_settings", policy_settings)
         if rate_limit_rules is not None:
             pulumi.set(__self__, "rate_limit_rules", rate_limit_rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the CdnWebApplicationFirewallPolicy.
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -147,6 +136,18 @@ class PolicyArgs:
     @managed_rules.setter
     def managed_rules(self, value: pulumi.Input[Optional['ManagedRuleSetListArgs']]):
         pulumi.set(self, "managed_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the CdnWebApplicationFirewallPolicy.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policySettings")
@@ -275,8 +276,6 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["extended_properties"] = extended_properties
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_rules"] = managed_rules
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             __props__.__dict__["policy_settings"] = policy_settings
             __props__.__dict__["rate_limit_rules"] = rate_limit_rules

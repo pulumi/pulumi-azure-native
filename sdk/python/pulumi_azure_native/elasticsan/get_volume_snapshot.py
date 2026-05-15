@@ -184,7 +184,7 @@ def get_volume_snapshot(elastic_san_name: Optional[_builtins.str] = None,
         volume_name=pulumi.get(__ret__, 'volume_name'))
 def get_volume_snapshot_output(elastic_san_name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               snapshot_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                                volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeSnapshotResult]:
     """

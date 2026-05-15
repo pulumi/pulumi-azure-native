@@ -220,7 +220,7 @@ def get_workload_network_segment(private_cloud_name: Optional[_builtins.str] = N
         type=pulumi.get(__ret__, 'type'))
 def get_workload_network_segment_output(private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        segment_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        segment_id: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadNetworkSegmentResult]:
     """
     Get a WorkloadNetworkSegment

@@ -22,9 +22,9 @@ __all__ = ['IntegrationServiceEnvironmentArgs', 'IntegrationServiceEnvironment']
 @pulumi.input_type
 class IntegrationServiceEnvironmentArgs:
     def __init__(__self__, *,
-                 integration_service_environment_name: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 integration_service_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['IntegrationServiceEnvironmentPropertiesArgs']] = None,
                  sku: pulumi.Input[Optional['IntegrationServiceEnvironmentSkuArgs']] = None,
@@ -32,18 +32,19 @@ class IntegrationServiceEnvironmentArgs:
         """
         The set of arguments for constructing a IntegrationServiceEnvironment resource.
 
-        :param pulumi.Input[_builtins.str] integration_service_environment_name: The integration service environment name.
         :param pulumi.Input[_builtins.str] resource_group: The resource group.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity properties.
+        :param pulumi.Input[_builtins.str] integration_service_environment_name: The integration service environment name.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input['IntegrationServiceEnvironmentPropertiesArgs'] properties: The integration service environment properties.
         :param pulumi.Input['IntegrationServiceEnvironmentSkuArgs'] sku: The sku.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "integration_service_environment_name", integration_service_environment_name)
         pulumi.set(__self__, "resource_group", resource_group)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if integration_service_environment_name is not None:
+            pulumi.set(__self__, "integration_service_environment_name", integration_service_environment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -52,18 +53,6 @@ class IntegrationServiceEnvironmentArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="integrationServiceEnvironmentName")
-    def integration_service_environment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The integration service environment name.
-        """
-        return pulumi.get(self, "integration_service_environment_name")
-
-    @integration_service_environment_name.setter
-    def integration_service_environment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "integration_service_environment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroup")
@@ -88,6 +77,18 @@ class IntegrationServiceEnvironmentArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="integrationServiceEnvironmentName")
+    def integration_service_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The integration service environment name.
+        """
+        return pulumi.get(self, "integration_service_environment_name")
+
+    @integration_service_environment_name.setter
+    def integration_service_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "integration_service_environment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -212,8 +213,6 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
             __props__ = IntegrationServiceEnvironmentArgs.__new__(IntegrationServiceEnvironmentArgs)
 
             __props__.__dict__["identity"] = identity
-            if integration_service_environment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'integration_service_environment_name'")
             __props__.__dict__["integration_service_environment_name"] = integration_service_environment_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

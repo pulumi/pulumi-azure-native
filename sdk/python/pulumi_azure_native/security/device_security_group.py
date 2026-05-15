@@ -21,44 +21,33 @@ __all__ = ['DeviceSecurityGroupArgs', 'DeviceSecurityGroup']
 @pulumi.input_type
 class DeviceSecurityGroupArgs:
     def __init__(__self__, *,
-                 device_security_group_name: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
                  allowlist_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AllowlistCustomAlertRuleArgs']]]] = None,
                  denylist_rules: pulumi.Input[Optional[Sequence[pulumi.Input['DenylistCustomAlertRuleArgs']]]] = None,
+                 device_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  threshold_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ThresholdCustomAlertRuleArgs']]]] = None,
                  time_window_rules: pulumi.Input[Optional[Sequence[pulumi.Input['TimeWindowCustomAlertRuleArgs']]]] = None):
         """
         The set of arguments for constructing a DeviceSecurityGroup resource.
 
-        :param pulumi.Input[_builtins.str] device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
         :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AllowlistCustomAlertRuleArgs']]] allowlist_rules: The allow-list custom alert rules.
         :param pulumi.Input[Sequence[pulumi.Input['DenylistCustomAlertRuleArgs']]] denylist_rules: The deny-list custom alert rules.
+        :param pulumi.Input[_builtins.str] device_security_group_name: The name of the device security group. Note that the name of the device security group is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ThresholdCustomAlertRuleArgs']]] threshold_rules: The list of custom alert threshold rules.
         :param pulumi.Input[Sequence[pulumi.Input['TimeWindowCustomAlertRuleArgs']]] time_window_rules: The list of custom alert time-window rules.
         """
-        pulumi.set(__self__, "device_security_group_name", device_security_group_name)
         pulumi.set(__self__, "resource_id", resource_id)
         if allowlist_rules is not None:
             pulumi.set(__self__, "allowlist_rules", allowlist_rules)
         if denylist_rules is not None:
             pulumi.set(__self__, "denylist_rules", denylist_rules)
+        if device_security_group_name is not None:
+            pulumi.set(__self__, "device_security_group_name", device_security_group_name)
         if threshold_rules is not None:
             pulumi.set(__self__, "threshold_rules", threshold_rules)
         if time_window_rules is not None:
             pulumi.set(__self__, "time_window_rules", time_window_rules)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceSecurityGroupName")
-    def device_security_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the device security group. Note that the name of the device security group is case insensitive.
-        """
-        return pulumi.get(self, "device_security_group_name")
-
-    @device_security_group_name.setter
-    def device_security_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "device_security_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
@@ -95,6 +84,18 @@ class DeviceSecurityGroupArgs:
     @denylist_rules.setter
     def denylist_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DenylistCustomAlertRuleArgs']]]]):
         pulumi.set(self, "denylist_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceSecurityGroupName")
+    def device_security_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the device security group. Note that the name of the device security group is case insensitive.
+        """
+        return pulumi.get(self, "device_security_group_name")
+
+    @device_security_group_name.setter
+    def device_security_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "device_security_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="thresholdRules")
@@ -197,8 +198,6 @@ class DeviceSecurityGroup(pulumi.CustomResource):
 
             __props__.__dict__["allowlist_rules"] = allowlist_rules
             __props__.__dict__["denylist_rules"] = denylist_rules
-            if device_security_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'device_security_group_name'")
             __props__.__dict__["device_security_group_name"] = device_security_group_name
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")

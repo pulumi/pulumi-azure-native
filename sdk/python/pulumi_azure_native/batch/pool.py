@@ -23,7 +23,6 @@ __all__ = ['PoolArgs', 'Pool']
 class PoolArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  application_licenses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  application_packages: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationPackageReferenceArgs']]]] = None,
@@ -35,6 +34,7 @@ class PoolArgs:
                  metadata: pulumi.Input[Optional[Sequence[pulumi.Input['MetadataItemArgs']]]] = None,
                  mount_configuration: pulumi.Input[Optional[Sequence[pulumi.Input['MountConfigurationArgs']]]] = None,
                  network_configuration: pulumi.Input[Optional['NetworkConfigurationArgs']] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  scale_settings: pulumi.Input[Optional['ScaleSettingsArgs']] = None,
                  start_task: pulumi.Input[Optional['StartTaskArgs']] = None,
@@ -49,7 +49,6 @@ class PoolArgs:
         The set of arguments for constructing a Pool resource.
 
         :param pulumi.Input[_builtins.str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
-        :param pulumi.Input[_builtins.str] pool_name: The pool name. This must be unique within the account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_licenses: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationPackageReferenceArgs']]] application_packages: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
@@ -63,6 +62,7 @@ class PoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MetadataItemArgs']]] metadata: The Batch service does not assign any meaning to metadata; it is solely for the use of user code.
         :param pulumi.Input[Sequence[pulumi.Input['MountConfigurationArgs']]] mount_configuration: This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
         :param pulumi.Input['NetworkConfigurationArgs'] network_configuration: The network configuration for a pool.
+        :param pulumi.Input[_builtins.str] pool_name: The pool name. This must be unique within the account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
         :param pulumi.Input['ScaleSettingsArgs'] scale_settings: Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         :param pulumi.Input['StartTaskArgs'] start_task: In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
@@ -75,7 +75,6 @@ class PoolArgs:
         :param pulumi.Input[_builtins.str] vm_size: For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if application_licenses is not None:
             pulumi.set(__self__, "application_licenses", application_licenses)
@@ -97,6 +96,8 @@ class PoolArgs:
             pulumi.set(__self__, "mount_configuration", mount_configuration)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if pool_name is not None:
+            pulumi.set(__self__, "pool_name", pool_name)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if scale_settings is not None:
@@ -131,18 +132,6 @@ class PoolArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="poolName")
-    def pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The pool name. This must be unique within the account.
-        """
-        return pulumi.get(self, "pool_name")
-
-    @pool_name.setter
-    def pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -277,6 +266,18 @@ class PoolArgs:
     @network_configuration.setter
     def network_configuration(self, value: pulumi.Input[Optional['NetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="poolName")
+    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The pool name. This must be unique within the account.
+        """
+        return pulumi.get(self, "pool_name")
+
+    @pool_name.setter
+    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
@@ -539,8 +540,6 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["mount_configuration"] = mount_configuration
             __props__.__dict__["network_configuration"] = network_configuration
-            if pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

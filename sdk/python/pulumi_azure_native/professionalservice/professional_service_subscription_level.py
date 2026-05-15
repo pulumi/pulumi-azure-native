@@ -22,31 +22,32 @@ __all__ = ['ProfessionalServiceSubscriptionLevelArgs', 'ProfessionalServiceSubsc
 class ProfessionalServiceSubscriptionLevelArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ProfessionalServiceCreationPropertiesArgs']] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProfessionalServiceSubscriptionLevel resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the resource.
         :param pulumi.Input[_builtins.str] location: Resource location. Only value allowed for ProfessionalService is 'global'
         :param pulumi.Input[_builtins.str] name: The resource name
         :param pulumi.Input['ProfessionalServiceCreationPropertiesArgs'] properties: Properties of the ProfessionalService resource that are relevant for creation.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the resource.
         :param pulumi.Input[_builtins.str] subscription_id: The Azure subscription ID. This is a GUID-formatted string (e.g. 00000000-0000-0000-0000-000000000000)
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: the resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
@@ -63,18 +64,6 @@ class ProfessionalServiceSubscriptionLevelArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the resource.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -111,6 +100,18 @@ class ProfessionalServiceSubscriptionLevelArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['ProfessionalServiceCreationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
@@ -216,8 +217,6 @@ class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tags"] = tags

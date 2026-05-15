@@ -22,12 +22,12 @@ __all__ = ['L3IsolationDomainArgs', 'L3IsolationDomain']
 @pulumi.input_type
 class L3IsolationDomainArgs:
     def __init__(__self__, *,
-                 l3_isolation_domain_name: pulumi.Input[_builtins.str],
                  network_fabric_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  aggregate_route_configuration: pulumi.Input[Optional['AggregateRouteConfigurationArgs']] = None,
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
                  connected_subnet_route_policy: pulumi.Input[Optional['ConnectedSubnetRoutePolicyArgs']] = None,
+                 l3_isolation_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  redistribute_connected_subnets: pulumi.Input[Optional[Union[_builtins.str, 'RedistributeConnectedSubnets']]] = None,
                  redistribute_static_routes: pulumi.Input[Optional[Union[_builtins.str, 'RedistributeStaticRoutes']]] = None,
@@ -35,18 +35,17 @@ class L3IsolationDomainArgs:
         """
         The set of arguments for constructing a L3IsolationDomain resource.
 
-        :param pulumi.Input[_builtins.str] l3_isolation_domain_name: Name of the L3 Isolation Domain.
         :param pulumi.Input[_builtins.str] network_fabric_id: ARM Resource ID of the Network Fabric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AggregateRouteConfigurationArgs'] aggregate_route_configuration: Aggregate route configurations.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input['ConnectedSubnetRoutePolicyArgs'] connected_subnet_route_policy: Connected Subnet RoutePolicy
+        :param pulumi.Input[_builtins.str] l3_isolation_domain_name: Name of the L3 Isolation Domain.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'RedistributeConnectedSubnets']] redistribute_connected_subnets: Advertise Connected Subnets. Ex: "True" | "False".
         :param pulumi.Input[Union[_builtins.str, 'RedistributeStaticRoutes']] redistribute_static_routes: Advertise Static Routes. Ex: "True" | "False".
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "l3_isolation_domain_name", l3_isolation_domain_name)
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if aggregate_route_configuration is not None:
@@ -55,6 +54,8 @@ class L3IsolationDomainArgs:
             pulumi.set(__self__, "annotation", annotation)
         if connected_subnet_route_policy is not None:
             pulumi.set(__self__, "connected_subnet_route_policy", connected_subnet_route_policy)
+        if l3_isolation_domain_name is not None:
+            pulumi.set(__self__, "l3_isolation_domain_name", l3_isolation_domain_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if redistribute_connected_subnets is None:
@@ -67,18 +68,6 @@ class L3IsolationDomainArgs:
             pulumi.set(__self__, "redistribute_static_routes", redistribute_static_routes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="l3IsolationDomainName")
-    def l3_isolation_domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the L3 Isolation Domain.
-        """
-        return pulumi.get(self, "l3_isolation_domain_name")
-
-    @l3_isolation_domain_name.setter
-    def l3_isolation_domain_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "l3_isolation_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFabricId")
@@ -139,6 +128,18 @@ class L3IsolationDomainArgs:
     @connected_subnet_route_policy.setter
     def connected_subnet_route_policy(self, value: pulumi.Input[Optional['ConnectedSubnetRoutePolicyArgs']]):
         pulumi.set(self, "connected_subnet_route_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="l3IsolationDomainName")
+    def l3_isolation_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the L3 Isolation Domain.
+        """
+        return pulumi.get(self, "l3_isolation_domain_name")
+
+    @l3_isolation_domain_name.setter
+    def l3_isolation_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "l3_isolation_domain_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -278,8 +279,6 @@ class L3IsolationDomain(pulumi.CustomResource):
             __props__.__dict__["aggregate_route_configuration"] = aggregate_route_configuration
             __props__.__dict__["annotation"] = annotation
             __props__.__dict__["connected_subnet_route_policy"] = connected_subnet_route_policy
-            if l3_isolation_domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'l3_isolation_domain_name'")
             __props__.__dict__["l3_isolation_domain_name"] = l3_isolation_domain_name
             __props__.__dict__["location"] = location
             if network_fabric_id is None and not opts.urn:

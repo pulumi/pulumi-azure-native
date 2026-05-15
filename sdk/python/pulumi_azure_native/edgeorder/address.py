@@ -22,9 +22,9 @@ __all__ = ['AddressArgs', 'Address']
 @pulumi.input_type
 class AddressArgs:
     def __init__(__self__, *,
-                 address_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  address_classification: pulumi.Input[Optional[Union[_builtins.str, 'AddressClassification']]] = None,
+                 address_name: pulumi.Input[Optional[_builtins.str]] = None,
                  contact_details: pulumi.Input[Optional['ContactDetailsArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  shipping_address: pulumi.Input[Optional['ShippingAddressArgs']] = None,
@@ -32,18 +32,19 @@ class AddressArgs:
         """
         The set of arguments for constructing a Address resource.
 
-        :param pulumi.Input[_builtins.str] address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'AddressClassification']] address_classification: Type of address based on its usage context.
+        :param pulumi.Input[_builtins.str] address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
         :param pulumi.Input['ContactDetailsArgs'] contact_details: Contact details for the address.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ShippingAddressArgs'] shipping_address: Shipping details for the address.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "address_name", address_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if address_classification is not None:
             pulumi.set(__self__, "address_classification", address_classification)
+        if address_name is not None:
+            pulumi.set(__self__, "address_name", address_name)
         if contact_details is not None:
             pulumi.set(__self__, "contact_details", contact_details)
         if location is not None:
@@ -52,18 +53,6 @@ class AddressArgs:
             pulumi.set(__self__, "shipping_address", shipping_address)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="addressName")
-    def address_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
-        """
-        return pulumi.get(self, "address_name")
-
-    @address_name.setter
-    def address_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "address_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -88,6 +77,18 @@ class AddressArgs:
     @address_classification.setter
     def address_classification(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AddressClassification']]]):
         pulumi.set(self, "address_classification", value)
+
+    @_builtins.property
+    @pulumi.getter(name="addressName")
+    def address_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only.
+        """
+        return pulumi.get(self, "address_name")
+
+    @address_name.setter
+    def address_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "address_name", value)
 
     @_builtins.property
     @pulumi.getter(name="contactDetails")
@@ -216,8 +217,6 @@ class Address(pulumi.CustomResource):
             __props__ = AddressArgs.__new__(AddressArgs)
 
             __props__.__dict__["address_classification"] = address_classification
-            if address_name is None and not opts.urn:
-                raise TypeError("Missing required property 'address_name'")
             __props__.__dict__["address_name"] = address_name
             __props__.__dict__["contact_details"] = contact_details
             __props__.__dict__["location"] = location

@@ -22,37 +22,26 @@ __all__ = ['ConfigurationProfileArgs', 'ConfigurationProfile']
 @pulumi.input_type
 class ConfigurationProfileArgs:
     def __init__(__self__, *,
-                 profile_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ResourceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ConfigurationProfileResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationProfile resource.
 
-        :param pulumi.Input[_builtins.str] profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
         :param pulumi.Input['ResourceIdentityArgs'] identity: The identity block returned by ARM resource that supports managed identity.
         :param pulumi.Input[_builtins.str] location: The location where the resource is to be deployed.
+        :param pulumi.Input[_builtins.str] profile_name: The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
         :param pulumi.Input['ConfigurationProfileResourcePropertiesArgs'] properties: The properties of a configuration profile.
         """
-        pulumi.set(__self__, "profile_name", profile_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if profile_name is not None:
+            pulumi.set(__self__, "profile_name", profile_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="profileName")
-    def profile_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
-        """
-        return pulumi.get(self, "profile_name")
-
-    @profile_name.setter
-    def profile_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -77,6 +66,18 @@ class ConfigurationProfileArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the configuration profile. The profile name should be set to 'default', all other names will be overwritten.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -119,7 +120,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConfigurationProfileArgs,
+                 args: Optional[ConfigurationProfileArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A profile object that contains change analysis configuration, such as notification settings, for this subscription
@@ -157,8 +158,6 @@ class ConfigurationProfile(pulumi.CustomResource):
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            if profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
             __props__.__dict__["properties"] = properties
             __props__.__dict__["azure_api_version"] = None

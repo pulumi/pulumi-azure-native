@@ -22,19 +22,20 @@ __all__ = ['SchemaReferenceArgs', 'SchemaReference']
 class SchemaReferenceArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 schema_reference_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SchemaReferencePropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['SchemaReferencePropertiesArgs']] = None,
+                 schema_reference_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SchemaReference resource.
 
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
-        :param pulumi.Input[_builtins.str] schema_reference_name: The name of the SchemaReference
         :param pulumi.Input['SchemaReferencePropertiesArgs'] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[_builtins.str] schema_reference_name: The name of the SchemaReference
         """
         pulumi.set(__self__, "resource_uri", resource_uri)
-        pulumi.set(__self__, "schema_reference_name", schema_reference_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if schema_reference_name is not None:
+            pulumi.set(__self__, "schema_reference_name", schema_reference_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceUri")
@@ -49,18 +50,6 @@ class SchemaReferenceArgs:
         pulumi.set(self, "resource_uri", value)
 
     @_builtins.property
-    @pulumi.getter(name="schemaReferenceName")
-    def schema_reference_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the SchemaReference
-        """
-        return pulumi.get(self, "schema_reference_name")
-
-    @schema_reference_name.setter
-    def schema_reference_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "schema_reference_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['SchemaReferencePropertiesArgs']]:
         """
@@ -71,6 +60,18 @@ class SchemaReferenceArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SchemaReferencePropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaReferenceName")
+    def schema_reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the SchemaReference
+        """
+        return pulumi.get(self, "schema_reference_name")
+
+    @schema_reference_name.setter
+    def schema_reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_reference_name", value)
 
 
 @pulumi.type_token("azure-native:edge:SchemaReference")
@@ -142,8 +143,6 @@ class SchemaReference(pulumi.CustomResource):
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
-            if schema_reference_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_reference_name'")
             __props__.__dict__["schema_reference_name"] = schema_reference_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None

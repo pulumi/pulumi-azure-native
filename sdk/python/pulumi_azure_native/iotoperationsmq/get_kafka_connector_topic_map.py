@@ -274,7 +274,7 @@ def get_kafka_connector_topic_map(kafka_connector_name: Optional[_builtins.str] 
 def get_kafka_connector_topic_map_output(kafka_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          mq_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         topic_map_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         topic_map_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKafkaConnectorTopicMapResult]:
     """
     Get a KafkaTopicMapResource

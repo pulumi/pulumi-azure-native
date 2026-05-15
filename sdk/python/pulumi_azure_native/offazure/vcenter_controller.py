@@ -23,27 +23,26 @@ class VcenterControllerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
-                 vcenter_name: pulumi.Input[_builtins.str],
                  fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
-                 run_as_account_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 run_as_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 vcenter_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VcenterController resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: Site name
-        :param pulumi.Input[_builtins.str] vcenter_name:  VCenters name
         :param pulumi.Input[_builtins.str] fqdn: Gets or sets the FQDN/IPAddress of the vCenter.
         :param pulumi.Input[_builtins.str] friendly_name: Gets or sets the friendly name of the vCenter.
         :param pulumi.Input[_builtins.str] port: Gets or sets the port of the vCenter.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The status of the last operation.
         :param pulumi.Input[_builtins.str] run_as_account_id: Gets or sets the run as account ID of the vCenter.
+        :param pulumi.Input[_builtins.str] vcenter_name:  VCenters name
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "site_name", site_name)
-        pulumi.set(__self__, "vcenter_name", vcenter_name)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if friendly_name is not None:
@@ -54,6 +53,8 @@ class VcenterControllerArgs:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if run_as_account_id is not None:
             pulumi.set(__self__, "run_as_account_id", run_as_account_id)
+        if vcenter_name is not None:
+            pulumi.set(__self__, "vcenter_name", vcenter_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -78,18 +79,6 @@ class VcenterControllerArgs:
     @site_name.setter
     def site_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "site_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vcenterName")
-    def vcenter_name(self) -> pulumi.Input[_builtins.str]:
-        """
-         VCenters name
-        """
-        return pulumi.get(self, "vcenter_name")
-
-    @vcenter_name.setter
-    def vcenter_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "vcenter_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -150,6 +139,18 @@ class VcenterControllerArgs:
     @run_as_account_id.setter
     def run_as_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_as_account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vcenterName")
+    def vcenter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+         VCenters name
+        """
+        return pulumi.get(self, "vcenter_name")
+
+    @vcenter_name.setter
+    def vcenter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vcenter_name", value)
 
 
 @pulumi.type_token("azure-native:offazure:VcenterController")
@@ -243,8 +244,6 @@ class VcenterController(pulumi.CustomResource):
             if site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
-            if vcenter_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vcenter_name'")
             __props__.__dict__["vcenter_name"] = vcenter_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_timestamp"] = None

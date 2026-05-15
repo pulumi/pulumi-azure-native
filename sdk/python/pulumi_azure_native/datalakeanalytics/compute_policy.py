@@ -21,28 +21,29 @@ __all__ = ['ComputePolicyArgs', 'ComputePolicy']
 class ComputePolicyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 compute_policy_name: pulumi.Input[_builtins.str],
                  object_id: pulumi.Input[_builtins.str],
                  object_type: pulumi.Input[Union[_builtins.str, 'AADObjectType']],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 compute_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  max_degree_of_parallelism_per_job: pulumi.Input[Optional[_builtins.int]] = None,
                  min_priority_per_job: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ComputePolicy resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Analytics account.
-        :param pulumi.Input[_builtins.str] compute_policy_name: The name of the compute policy to create or update.
         :param pulumi.Input[_builtins.str] object_id: The AAD object identifier for the entity to create a policy for.
         :param pulumi.Input[Union[_builtins.str, 'AADObjectType']] object_type: The type of AAD object the object identifier refers to.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group.
+        :param pulumi.Input[_builtins.str] compute_policy_name: The name of the compute policy to create or update.
         :param pulumi.Input[_builtins.int] max_degree_of_parallelism_per_job: The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
         :param pulumi.Input[_builtins.int] min_priority_per_job: The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "compute_policy_name", compute_policy_name)
         pulumi.set(__self__, "object_id", object_id)
         pulumi.set(__self__, "object_type", object_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if compute_policy_name is not None:
+            pulumi.set(__self__, "compute_policy_name", compute_policy_name)
         if max_degree_of_parallelism_per_job is not None:
             pulumi.set(__self__, "max_degree_of_parallelism_per_job", max_degree_of_parallelism_per_job)
         if min_priority_per_job is not None:
@@ -59,18 +60,6 @@ class ComputePolicyArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="computePolicyName")
-    def compute_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the compute policy to create or update.
-        """
-        return pulumi.get(self, "compute_policy_name")
-
-    @compute_policy_name.setter
-    def compute_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "compute_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
@@ -107,6 +96,18 @@ class ComputePolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="computePolicyName")
+    def compute_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the compute policy to create or update.
+        """
+        return pulumi.get(self, "compute_policy_name")
+
+    @compute_policy_name.setter
+    def compute_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "compute_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
@@ -209,8 +210,6 @@ class ComputePolicy(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if compute_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'compute_policy_name'")
             __props__.__dict__["compute_policy_name"] = compute_policy_name
             __props__.__dict__["max_degree_of_parallelism_per_job"] = max_degree_of_parallelism_per_job
             __props__.__dict__["min_priority_per_job"] = min_priority_per_job

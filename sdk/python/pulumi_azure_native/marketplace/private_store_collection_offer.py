@@ -23,10 +23,10 @@ __all__ = ['PrivateStoreCollectionOfferArgs', 'PrivateStoreCollectionOffer']
 class PrivateStoreCollectionOfferArgs:
     def __init__(__self__, *,
                  collection_id: pulumi.Input[_builtins.str],
-                 offer_id: pulumi.Input[_builtins.str],
                  private_store_id: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  icon_file_uris: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 offer_id: pulumi.Input[Optional[_builtins.str]] = None,
                  plans: pulumi.Input[Optional[Sequence[pulumi.Input['PlanArgs']]]] = None,
                  specific_plan_ids_limitation: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  update_suppressed_due_idempotence: pulumi.Input[Optional[_builtins.bool]] = None):
@@ -34,21 +34,22 @@ class PrivateStoreCollectionOfferArgs:
         The set of arguments for constructing a PrivateStoreCollectionOffer resource.
 
         :param pulumi.Input[_builtins.str] collection_id: The collection ID
-        :param pulumi.Input[_builtins.str] offer_id: The offer ID to update or delete
         :param pulumi.Input[_builtins.str] private_store_id: The store ID - must use the tenant ID
         :param pulumi.Input[_builtins.str] e_tag: Identifier for purposes of race condition
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] icon_file_uris: Icon File Uris
+        :param pulumi.Input[_builtins.str] offer_id: The offer ID to update or delete
         :param pulumi.Input[Sequence[pulumi.Input['PlanArgs']]] plans: Offer plans
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] specific_plan_ids_limitation: Plan ids limitation for this offer
         :param pulumi.Input[_builtins.bool] update_suppressed_due_idempotence: Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
         """
         pulumi.set(__self__, "collection_id", collection_id)
-        pulumi.set(__self__, "offer_id", offer_id)
         pulumi.set(__self__, "private_store_id", private_store_id)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if icon_file_uris is not None:
             pulumi.set(__self__, "icon_file_uris", icon_file_uris)
+        if offer_id is not None:
+            pulumi.set(__self__, "offer_id", offer_id)
         if plans is not None:
             pulumi.set(__self__, "plans", plans)
         if specific_plan_ids_limitation is not None:
@@ -67,18 +68,6 @@ class PrivateStoreCollectionOfferArgs:
     @collection_id.setter
     def collection_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "collection_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="offerId")
-    def offer_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The offer ID to update or delete
-        """
-        return pulumi.get(self, "offer_id")
-
-    @offer_id.setter
-    def offer_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "offer_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateStoreId")
@@ -115,6 +104,18 @@ class PrivateStoreCollectionOfferArgs:
     @icon_file_uris.setter
     def icon_file_uris(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "icon_file_uris", value)
+
+    @_builtins.property
+    @pulumi.getter(name="offerId")
+    def offer_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The offer ID to update or delete
+        """
+        return pulumi.get(self, "offer_id")
+
+    @offer_id.setter
+    def offer_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "offer_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -238,8 +239,6 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
             __props__.__dict__["collection_id"] = collection_id
             __props__.__dict__["e_tag"] = e_tag
             __props__.__dict__["icon_file_uris"] = icon_file_uris
-            if offer_id is None and not opts.urn:
-                raise TypeError("Missing required property 'offer_id'")
             __props__.__dict__["offer_id"] = offer_id
             __props__.__dict__["plans"] = plans
             if private_store_id is None and not opts.urn:

@@ -19,41 +19,30 @@ __all__ = ['StaticSiteCustomDomainArgs', 'StaticSiteCustomDomain']
 @pulumi.input_type
 class StaticSiteCustomDomainArgs:
     def __init__(__self__, *,
-                 domain_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  validation_method: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticSiteCustomDomain resource.
 
-        :param pulumi.Input[_builtins.str] domain_name: The custom domain to create.
         :param pulumi.Input[_builtins.str] name: Name of the static site.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[_builtins.str] domain_name: The custom domain to create.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] validation_method: Validation method for adding a custom domain
         """
-        pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if validation_method is None:
             validation_method = 'cname-delegation'
         if validation_method is not None:
             pulumi.set(__self__, "validation_method", validation_method)
-
-    @_builtins.property
-    @pulumi.getter(name="domainName")
-    def domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The custom domain to create.
-        """
-        return pulumi.get(self, "domain_name")
-
-    @domain_name.setter
-    def domain_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -78,6 +67,18 @@ class StaticSiteCustomDomainArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The custom domain to create.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "domain_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -175,8 +176,6 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = StaticSiteCustomDomainArgs.__new__(StaticSiteCustomDomainArgs)
 
-            if domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["kind"] = kind
             if name is None and not opts.urn:

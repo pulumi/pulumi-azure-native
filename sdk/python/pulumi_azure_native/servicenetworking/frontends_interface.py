@@ -20,39 +20,28 @@ __all__ = ['FrontendsInterfaceArgs', 'FrontendsInterface']
 @pulumi.input_type
 class FrontendsInterfaceArgs:
     def __init__(__self__, *,
-                 frontend_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  traffic_controller_name: pulumi.Input[_builtins.str],
+                 frontend_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FrontendsInterface resource.
 
-        :param pulumi.Input[_builtins.str] frontend_name: Frontends
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] traffic_controller_name: traffic controller name for path
+        :param pulumi.Input[_builtins.str] frontend_name: Frontends
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "frontend_name", frontend_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "traffic_controller_name", traffic_controller_name)
+        if frontend_name is not None:
+            pulumi.set(__self__, "frontend_name", frontend_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="frontendName")
-    def frontend_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Frontends
-        """
-        return pulumi.get(self, "frontend_name")
-
-    @frontend_name.setter
-    def frontend_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "frontend_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -77,6 +66,18 @@ class FrontendsInterfaceArgs:
     @traffic_controller_name.setter
     def traffic_controller_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "traffic_controller_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendName")
+    def frontend_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Frontends
+        """
+        return pulumi.get(self, "frontend_name")
+
+    @frontend_name.setter
+    def frontend_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "frontend_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,8 +175,6 @@ class FrontendsInterface(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FrontendsInterfaceArgs.__new__(FrontendsInterfaceArgs)
 
-            if frontend_name is None and not opts.urn:
-                raise TypeError("Missing required property 'frontend_name'")
             __props__.__dict__["frontend_name"] = frontend_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

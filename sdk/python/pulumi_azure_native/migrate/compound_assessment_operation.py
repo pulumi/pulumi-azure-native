@@ -21,35 +21,24 @@ __all__ = ['CompoundAssessmentOperationArgs', 'CompoundAssessmentOperation']
 @pulumi.input_type
 class CompoundAssessmentOperationArgs:
     def __init__(__self__, *,
-                 compound_assessment_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 compound_assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['CompoundAssessmentPropertiesArgs']] = None):
         """
         The set of arguments for constructing a CompoundAssessmentOperation resource.
 
-        :param pulumi.Input[_builtins.str] compound_assessment_name: Compound Assessment ARM name
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] compound_assessment_name: Compound Assessment ARM name
         :param pulumi.Input['CompoundAssessmentPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "compound_assessment_name", compound_assessment_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if compound_assessment_name is not None:
+            pulumi.set(__self__, "compound_assessment_name", compound_assessment_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="compoundAssessmentName")
-    def compound_assessment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Compound Assessment ARM name
-        """
-        return pulumi.get(self, "compound_assessment_name")
-
-    @compound_assessment_name.setter
-    def compound_assessment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "compound_assessment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -74,6 +63,18 @@ class CompoundAssessmentOperationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compoundAssessmentName")
+    def compound_assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Compound Assessment ARM name
+        """
+        return pulumi.get(self, "compound_assessment_name")
+
+    @compound_assessment_name.setter
+    def compound_assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "compound_assessment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -152,8 +153,6 @@ class CompoundAssessmentOperation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CompoundAssessmentOperationArgs.__new__(CompoundAssessmentOperationArgs)
 
-            if compound_assessment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'compound_assessment_name'")
             __props__.__dict__["compound_assessment_name"] = compound_assessment_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

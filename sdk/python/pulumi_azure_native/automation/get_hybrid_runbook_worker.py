@@ -236,7 +236,7 @@ def get_hybrid_runbook_worker(automation_account_name: Optional[_builtins.str] =
         worker_type=pulumi.get(__ret__, 'worker_type'))
 def get_hybrid_runbook_worker_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      hybrid_runbook_worker_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     hybrid_runbook_worker_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     hybrid_runbook_worker_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridRunbookWorkerResult]:
     """

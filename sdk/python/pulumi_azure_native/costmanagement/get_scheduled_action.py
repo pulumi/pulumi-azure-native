@@ -251,7 +251,7 @@ def get_scheduled_action(name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         view_id=pulumi.get(__ret__, 'view_id'))
-def get_scheduled_action_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_scheduled_action_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledActionResult]:
     """
     Get the private scheduled action by name.

@@ -265,7 +265,7 @@ def get_application(application_resource_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         unhealthy_evaluation=pulumi.get(__ret__, 'unhealthy_evaluation'))
-def get_application_output(application_resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_application_output(application_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """

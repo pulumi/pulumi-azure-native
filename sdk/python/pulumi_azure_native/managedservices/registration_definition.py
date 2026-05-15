@@ -22,36 +22,25 @@ __all__ = ['RegistrationDefinitionArgs', 'RegistrationDefinition']
 @pulumi.input_type
 class RegistrationDefinitionArgs:
     def __init__(__self__, *,
-                 registration_definition_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  plan: pulumi.Input[Optional['PlanArgs']] = None,
-                 properties: pulumi.Input[Optional['RegistrationDefinitionPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['RegistrationDefinitionPropertiesArgs']] = None,
+                 registration_definition_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistrationDefinition resource.
 
-        :param pulumi.Input[_builtins.str] registration_definition_id: The GUID of the registration definition.
         :param pulumi.Input[_builtins.str] scope: The scope of the resource.
         :param pulumi.Input['PlanArgs'] plan: The details for the Managed Services offer’s plan in Azure Marketplace.
         :param pulumi.Input['RegistrationDefinitionPropertiesArgs'] properties: The properties of a registration definition.
+        :param pulumi.Input[_builtins.str] registration_definition_id: The GUID of the registration definition.
         """
-        pulumi.set(__self__, "registration_definition_id", registration_definition_id)
         pulumi.set(__self__, "scope", scope)
         if plan is not None:
             pulumi.set(__self__, "plan", plan)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="registrationDefinitionId")
-    def registration_definition_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The GUID of the registration definition.
-        """
-        return pulumi.get(self, "registration_definition_id")
-
-    @registration_definition_id.setter
-    def registration_definition_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "registration_definition_id", value)
+        if registration_definition_id is not None:
+            pulumi.set(__self__, "registration_definition_id", registration_definition_id)
 
     @_builtins.property
     @pulumi.getter
@@ -88,6 +77,18 @@ class RegistrationDefinitionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['RegistrationDefinitionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="registrationDefinitionId")
+    def registration_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The GUID of the registration definition.
+        """
+        return pulumi.get(self, "registration_definition_id")
+
+    @registration_definition_id.setter
+    def registration_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "registration_definition_id", value)
 
 
 @pulumi.type_token("azure-native:managedservices:RegistrationDefinition")
@@ -156,8 +157,6 @@ class RegistrationDefinition(pulumi.CustomResource):
 
             __props__.__dict__["plan"] = plan
             __props__.__dict__["properties"] = properties
-            if registration_definition_id is None and not opts.urn:
-                raise TypeError("Missing required property 'registration_definition_id'")
             __props__.__dict__["registration_definition_id"] = registration_definition_id
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

@@ -153,7 +153,7 @@ def get_solution(data_manager_for_agriculture_resource_name: Optional[_builtins.
         type=pulumi.get(__ret__, 'type'))
 def get_solution_output(data_manager_for_agriculture_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        solution_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        solution_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Get installed Solution details by Solution id.

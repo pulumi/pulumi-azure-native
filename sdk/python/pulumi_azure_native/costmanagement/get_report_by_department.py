@@ -175,7 +175,7 @@ def get_report_by_department(department_id: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_report_by_department_output(department_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                    report_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    report_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportByDepartmentResult]:
     """
     Gets the report for a department by report name.

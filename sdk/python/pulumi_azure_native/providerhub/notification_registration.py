@@ -22,31 +22,20 @@ __all__ = ['NotificationRegistrationArgs', 'NotificationRegistration']
 @pulumi.input_type
 class NotificationRegistrationArgs:
     def __init__(__self__, *,
-                 notification_registration_name: pulumi.Input[_builtins.str],
                  provider_namespace: pulumi.Input[_builtins.str],
+                 notification_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['NotificationRegistrationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a NotificationRegistration resource.
 
-        :param pulumi.Input[_builtins.str] notification_registration_name: The notification registration.
         :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
+        :param pulumi.Input[_builtins.str] notification_registration_name: The notification registration.
         """
-        pulumi.set(__self__, "notification_registration_name", notification_registration_name)
         pulumi.set(__self__, "provider_namespace", provider_namespace)
+        if notification_registration_name is not None:
+            pulumi.set(__self__, "notification_registration_name", notification_registration_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="notificationRegistrationName")
-    def notification_registration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The notification registration.
-        """
-        return pulumi.get(self, "notification_registration_name")
-
-    @notification_registration_name.setter
-    def notification_registration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "notification_registration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="providerNamespace")
@@ -59,6 +48,18 @@ class NotificationRegistrationArgs:
     @provider_namespace.setter
     def provider_namespace(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "provider_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notificationRegistrationName")
+    def notification_registration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The notification registration.
+        """
+        return pulumi.get(self, "notification_registration_name")
+
+    @notification_registration_name.setter
+    def notification_registration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "notification_registration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -134,8 +135,6 @@ class NotificationRegistration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NotificationRegistrationArgs.__new__(NotificationRegistrationArgs)
 
-            if notification_registration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'notification_registration_name'")
             __props__.__dict__["notification_registration_name"] = notification_registration_name
             __props__.__dict__["properties"] = properties
             if provider_namespace is None and not opts.urn:

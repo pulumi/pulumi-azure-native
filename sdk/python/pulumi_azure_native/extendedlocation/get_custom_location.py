@@ -255,7 +255,7 @@ def get_custom_location(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_custom_location_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomLocationResult]:
     """
     Gets the details of the customLocation with a specified resource group and name.

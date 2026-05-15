@@ -227,7 +227,7 @@ def get_schedule(pool_name: Optional[_builtins.str] = None,
 def get_schedule_output(pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                         project_name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        schedule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                         top: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """

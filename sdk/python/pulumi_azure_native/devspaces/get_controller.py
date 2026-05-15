@@ -210,7 +210,7 @@ def get_controller(name: Optional[_builtins.str] = None,
         target_container_host_api_server_fqdn=pulumi.get(__ret__, 'target_container_host_api_server_fqdn'),
         target_container_host_resource_id=pulumi.get(__ret__, 'target_container_host_resource_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_controller_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_controller_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControllerResult]:
     """

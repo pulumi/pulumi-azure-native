@@ -22,9 +22,9 @@ __all__ = ['AzureLargeInstanceArgs', 'AzureLargeInstance']
 @pulumi.input_type
 class AzureLargeInstanceArgs:
     def __init__(__self__, *,
-                 azure_large_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  azure_large_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_large_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hardware_profile: pulumi.Input[Optional['HardwareProfileArgs']] = None,
                  hw_revision: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,9 +37,9 @@ class AzureLargeInstanceArgs:
         """
         The set of arguments for constructing a AzureLargeInstance resource.
 
-        :param pulumi.Input[_builtins.str] azure_large_instance_name: Name of the AzureLargeInstance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] azure_large_instance_id: Specifies the Azure Large Instance unique ID.
+        :param pulumi.Input[_builtins.str] azure_large_instance_name: Name of the AzureLargeInstance.
         :param pulumi.Input['HardwareProfileArgs'] hardware_profile: Specifies the hardware settings for the Azure Large Instance.
         :param pulumi.Input[_builtins.str] hw_revision: Hardware revision of an Azure Large Instance
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -50,10 +50,11 @@ class AzureLargeInstanceArgs:
         :param pulumi.Input['StorageProfileArgs'] storage_profile: Specifies the storage settings for the Azure Large Instance disks.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "azure_large_instance_name", azure_large_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if azure_large_instance_id is not None:
             pulumi.set(__self__, "azure_large_instance_id", azure_large_instance_id)
+        if azure_large_instance_name is not None:
+            pulumi.set(__self__, "azure_large_instance_name", azure_large_instance_name)
         if hardware_profile is not None:
             pulumi.set(__self__, "hardware_profile", hardware_profile)
         if hw_revision is not None:
@@ -72,18 +73,6 @@ class AzureLargeInstanceArgs:
             pulumi.set(__self__, "storage_profile", storage_profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="azureLargeInstanceName")
-    def azure_large_instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the AzureLargeInstance.
-        """
-        return pulumi.get(self, "azure_large_instance_name")
-
-    @azure_large_instance_name.setter
-    def azure_large_instance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "azure_large_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -108,6 +97,18 @@ class AzureLargeInstanceArgs:
     @azure_large_instance_id.setter
     def azure_large_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "azure_large_instance_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureLargeInstanceName")
+    def azure_large_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the AzureLargeInstance.
+        """
+        return pulumi.get(self, "azure_large_instance_name")
+
+    @azure_large_instance_name.setter
+    def azure_large_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "azure_large_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hardwareProfile")
@@ -309,8 +310,6 @@ class AzureLargeInstance(pulumi.CustomResource):
             __props__ = AzureLargeInstanceArgs.__new__(AzureLargeInstanceArgs)
 
             __props__.__dict__["azure_large_instance_id"] = azure_large_instance_id
-            if azure_large_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_large_instance_name'")
             __props__.__dict__["azure_large_instance_name"] = azure_large_instance_name
             __props__.__dict__["hardware_profile"] = hardware_profile
             __props__.__dict__["hw_revision"] = hw_revision

@@ -20,37 +20,26 @@ __all__ = ['MigrationConfigArgs', 'MigrationConfig']
 @pulumi.input_type
 class MigrationConfigArgs:
     def __init__(__self__, *,
-                 config_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  post_migration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 target_namespace: pulumi.Input[_builtins.str]):
+                 target_namespace: pulumi.Input[_builtins.str],
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MigrationConfig resource.
 
-        :param pulumi.Input[_builtins.str] config_name: The configuration name. Should always be "$default".
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] post_migration_name: Name to access Standard Namespace after migration
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] target_namespace: Existing premium Namespace ARM Id name which has no entities, will be used for migration
+        :param pulumi.Input[_builtins.str] config_name: The configuration name. Should always be "$default".
         """
-        pulumi.set(__self__, "config_name", config_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "post_migration_name", post_migration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "target_namespace", target_namespace)
-
-    @_builtins.property
-    @pulumi.getter(name="configName")
-    def config_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The configuration name. Should always be "$default".
-        """
-        return pulumi.get(self, "config_name")
-
-    @config_name.setter
-    def config_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "config_name", value)
+        if config_name is not None:
+            pulumi.set(__self__, "config_name", config_name)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -99,6 +88,18 @@ class MigrationConfigArgs:
     @target_namespace.setter
     def target_namespace(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "target_namespace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configName")
+    def config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configuration name. Should always be "$default".
+        """
+        return pulumi.get(self, "config_name")
+
+    @config_name.setter
+    def config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "config_name", value)
 
 
 @pulumi.type_token("azure-native:servicebus:MigrationConfig")
@@ -172,8 +173,6 @@ class MigrationConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MigrationConfigArgs.__new__(MigrationConfigArgs)
 
-            if config_name is None and not opts.urn:
-                raise TypeError("Missing required property 'config_name'")
             __props__.__dict__["config_name"] = config_name
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")

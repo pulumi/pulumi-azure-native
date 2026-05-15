@@ -23,7 +23,6 @@ __all__ = ['SignalRArgs', 'SignalR']
 class SignalRArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  cors: pulumi.Input[Optional['SignalRCorsSettingsArgs']] = None,
                  disable_aad_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -36,6 +35,7 @@ class SignalRArgs:
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  region_endpoint_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_log_configuration: pulumi.Input[Optional['ResourceLogConfigurationArgs']] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_stopped: pulumi.Input[Optional[_builtins.str]] = None,
                  serverless: pulumi.Input[Optional['ServerlessSettingsArgs']] = None,
                  sku: pulumi.Input[Optional['ResourceSkuArgs']] = None,
@@ -46,7 +46,6 @@ class SignalRArgs:
         The set of arguments for constructing a SignalR resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the resource.
         :param pulumi.Input['SignalRCorsSettingsArgs'] cors: Cross-Origin Resource Sharing (CORS) settings.
         :param pulumi.Input[_builtins.bool] disable_aad_auth: DisableLocalAuth
                Enable or disable aad auth
@@ -72,6 +71,7 @@ class SignalRArgs:
                When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
                This property is replica specific. Disable the regional endpoint without replica is not allowed.
         :param pulumi.Input['ResourceLogConfigurationArgs'] resource_log_configuration: Resource log configuration of a Microsoft.SignalRService resource.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the resource.
         :param pulumi.Input[_builtins.str] resource_stopped: Stop or start the resource.  Default to "False".
                When it's true, the data plane of the resource is shutdown.
                When it's false, the data plane of the resource is started.
@@ -82,7 +82,6 @@ class SignalRArgs:
         :param pulumi.Input['ServerlessUpstreamSettingsArgs'] upstream: The settings for the Upstream when the service is in server-less mode.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
         if disable_aad_auth is None:
@@ -115,6 +114,8 @@ class SignalRArgs:
             pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
         if resource_log_configuration is not None:
             pulumi.set(__self__, "resource_log_configuration", resource_log_configuration)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if resource_stopped is None:
             resource_stopped = 'false'
         if resource_stopped is not None:
@@ -141,18 +142,6 @@ class SignalRArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the resource.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -310,6 +299,18 @@ class SignalRArgs:
     @resource_log_configuration.setter
     def resource_log_configuration(self, value: pulumi.Input[Optional['ResourceLogConfigurationArgs']]):
         pulumi.set(self, "resource_log_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceStopped")
@@ -540,8 +541,6 @@ class SignalR(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_log_configuration"] = resource_log_configuration
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             if resource_stopped is None:
                 resource_stopped = 'false'

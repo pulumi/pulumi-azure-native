@@ -22,43 +22,32 @@ __all__ = ['ManagedNamespaceArgs', 'ManagedNamespace']
 @pulumi.input_type
 class ManagedNamespaceArgs:
     def __init__(__self__, *,
-                 managed_namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['NamespacePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedNamespace resource.
 
-        :param pulumi.Input[_builtins.str] managed_namespace_name: The name of the managed namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input[_builtins.str] location: The location of the namespace.
+        :param pulumi.Input[_builtins.str] managed_namespace_name: The name of the managed namespace.
         :param pulumi.Input['NamespacePropertiesArgs'] properties: Properties of a namespace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to be persisted on the managed cluster namespace.
         """
-        pulumi.set(__self__, "managed_namespace_name", managed_namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_namespace_name is not None:
+            pulumi.set(__self__, "managed_namespace_name", managed_namespace_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="managedNamespaceName")
-    def managed_namespace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the managed namespace.
-        """
-        return pulumi.get(self, "managed_namespace_name")
-
-    @managed_namespace_name.setter
-    def managed_namespace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "managed_namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -95,6 +84,18 @@ class ManagedNamespaceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedNamespaceName")
+    def managed_namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the managed namespace.
+        """
+        return pulumi.get(self, "managed_namespace_name")
+
+    @managed_namespace_name.setter
+    def managed_namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "managed_namespace_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,8 +197,6 @@ class ManagedNamespace(pulumi.CustomResource):
             __props__ = ManagedNamespaceArgs.__new__(ManagedNamespaceArgs)
 
             __props__.__dict__["location"] = location
-            if managed_namespace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_namespace_name'")
             __props__.__dict__["managed_namespace_name"] = managed_namespace_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

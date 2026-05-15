@@ -24,27 +24,26 @@ class VirtualNetworkLinkArgs:
     def __init__(__self__, *,
                  private_zone_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_network_link_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  registration_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resolution_policy: pulumi.Input[Optional[Union[_builtins.str, 'ResolutionPolicy']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network: pulumi.Input[Optional['SubResourceArgs']] = None):
+                 virtual_network: pulumi.Input[Optional['SubResourceArgs']] = None,
+                 virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkLink resource.
 
         :param pulumi.Input[_builtins.str] private_zone_name: The name of the Private DNS zone (without a terminating dot).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] virtual_network_link_name: The name of the virtual network link.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the resource lives
         :param pulumi.Input[_builtins.bool] registration_enabled: Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
         :param pulumi.Input[Union[_builtins.str, 'ResolutionPolicy']] resolution_policy: The resolution policy on the virtual network link. Only applicable for virtual network links to privatelink zones, and for A,AAAA,CNAME queries. When set to 'NxDomainRedirect', Azure DNS resolver falls back to public resolution if private dns query resolution results in non-existent domain response.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['SubResourceArgs'] virtual_network: The reference of the virtual network.
+        :param pulumi.Input[_builtins.str] virtual_network_link_name: The name of the virtual network link.
         """
         pulumi.set(__self__, "private_zone_name", private_zone_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network_link_name", virtual_network_link_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if registration_enabled is not None:
@@ -55,6 +54,8 @@ class VirtualNetworkLinkArgs:
             pulumi.set(__self__, "tags", tags)
         if virtual_network is not None:
             pulumi.set(__self__, "virtual_network", virtual_network)
+        if virtual_network_link_name is not None:
+            pulumi.set(__self__, "virtual_network_link_name", virtual_network_link_name)
 
     @_builtins.property
     @pulumi.getter(name="privateZoneName")
@@ -79,18 +80,6 @@ class VirtualNetworkLinkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkLinkName")
-    def virtual_network_link_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the virtual network link.
-        """
-        return pulumi.get(self, "virtual_network_link_name")
-
-    @virtual_network_link_name.setter
-    def virtual_network_link_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_network_link_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -151,6 +140,18 @@ class VirtualNetworkLinkArgs:
     @virtual_network.setter
     def virtual_network(self, value: pulumi.Input[Optional['SubResourceArgs']]):
         pulumi.set(self, "virtual_network", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkLinkName")
+    def virtual_network_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the virtual network link.
+        """
+        return pulumi.get(self, "virtual_network_link_name")
+
+    @virtual_network_link_name.setter
+    def virtual_network_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_network_link_name", value)
 
 
 @pulumi.type_token("azure-native:privatedns:VirtualNetworkLink")
@@ -244,8 +245,6 @@ class VirtualNetworkLink(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_network"] = virtual_network
-            if virtual_network_link_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_link_name'")
             __props__.__dict__["virtual_network_link_name"] = virtual_network_link_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

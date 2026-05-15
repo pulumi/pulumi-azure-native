@@ -253,7 +253,7 @@ def get_project(group_name: Optional[_builtins.str] = None,
         target_platform=pulumi.get(__ret__, 'target_platform'),
         type=pulumi.get(__ret__, 'type'))
 def get_project_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       project_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       project_name: pulumi.Input[Optional[_builtins.str]] = None,
                        service_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """

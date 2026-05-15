@@ -164,7 +164,7 @@ def get_compute_policy(account_name: Optional[_builtins.str] = None,
         object_type=pulumi.get(__ret__, 'object_type'),
         type=pulumi.get(__ret__, 'type'))
 def get_compute_policy_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              compute_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              compute_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputePolicyResult]:
     """

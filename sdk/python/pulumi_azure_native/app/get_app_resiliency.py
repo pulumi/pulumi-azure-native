@@ -206,7 +206,7 @@ def get_app_resiliency(app_name: Optional[_builtins.str] = None,
         timeout_policy=pulumi.get(__ret__, 'timeout_policy'),
         type=pulumi.get(__ret__, 'type'))
 def get_app_resiliency_output(app_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppResiliencyResult]:
     """

@@ -154,7 +154,7 @@ def get_virtual_network_rule(resource_group_name: Optional[_builtins.str] = None
         virtual_network_subnet_id=pulumi.get(__ret__, 'virtual_network_subnet_id'))
 def get_virtual_network_rule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    virtual_network_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkRuleResult]:
     """
     Gets a virtual network rule.

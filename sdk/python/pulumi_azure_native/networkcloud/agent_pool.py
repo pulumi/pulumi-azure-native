@@ -22,7 +22,6 @@ __all__ = ['AgentPoolArgs', 'AgentPool']
 @pulumi.input_type
 class AgentPoolArgs:
     def __init__(__self__, *,
-                 agent_pool_name: pulumi.Input[_builtins.str],
                  count: pulumi.Input[_builtins.float],
                  kubernetes_cluster_name: pulumi.Input[_builtins.str],
                  mode: pulumi.Input[Union[_builtins.str, 'AgentPoolMode']],
@@ -30,6 +29,7 @@ class AgentPoolArgs:
                  vm_sku_name: pulumi.Input[_builtins.str],
                  administrator_configuration: pulumi.Input[Optional['AdministratorConfigurationArgs']] = None,
                  agent_options: pulumi.Input[Optional['AgentOptionsArgs']] = None,
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  attached_network_configuration: pulumi.Input[Optional['AttachedNetworkConfigurationArgs']] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
@@ -41,7 +41,6 @@ class AgentPoolArgs:
         """
         The set of arguments for constructing a AgentPool resource.
 
-        :param pulumi.Input[_builtins.str] agent_pool_name: The name of the Kubernetes cluster agent pool.
         :param pulumi.Input[_builtins.float] count: The number of virtual machines that use this configuration.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_name: The name of the Kubernetes cluster.
         :param pulumi.Input[Union[_builtins.str, 'AgentPoolMode']] mode: The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
@@ -49,6 +48,7 @@ class AgentPoolArgs:
         :param pulumi.Input[_builtins.str] vm_sku_name: The name of the VM SKU that determines the size of resources allocated for node VMs.
         :param pulumi.Input['AdministratorConfigurationArgs'] administrator_configuration: The administrator credentials to be used for the nodes in this agent pool.
         :param pulumi.Input['AgentOptionsArgs'] agent_options: The configurations that will be applied to each agent in this agent pool.
+        :param pulumi.Input[_builtins.str] agent_pool_name: The name of the Kubernetes cluster agent pool.
         :param pulumi.Input['AttachedNetworkConfigurationArgs'] attached_network_configuration: The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
@@ -58,7 +58,6 @@ class AgentPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesLabelArgs']]] taints: The taints applied to the nodes in this agent pool.
         :param pulumi.Input['AgentPoolUpgradeSettingsArgs'] upgrade_settings: The configuration of the agent pool.
         """
-        pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         pulumi.set(__self__, "count", count)
         pulumi.set(__self__, "kubernetes_cluster_name", kubernetes_cluster_name)
         pulumi.set(__self__, "mode", mode)
@@ -68,6 +67,8 @@ class AgentPoolArgs:
             pulumi.set(__self__, "administrator_configuration", administrator_configuration)
         if agent_options is not None:
             pulumi.set(__self__, "agent_options", agent_options)
+        if agent_pool_name is not None:
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         if attached_network_configuration is not None:
             pulumi.set(__self__, "attached_network_configuration", attached_network_configuration)
         if availability_zones is not None:
@@ -84,18 +85,6 @@ class AgentPoolArgs:
             pulumi.set(__self__, "taints", taints)
         if upgrade_settings is not None:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
-
-    @_builtins.property
-    @pulumi.getter(name="agentPoolName")
-    def agent_pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Kubernetes cluster agent pool.
-        """
-        return pulumi.get(self, "agent_pool_name")
-
-    @agent_pool_name.setter
-    def agent_pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -180,6 +169,18 @@ class AgentPoolArgs:
     @agent_options.setter
     def agent_options(self, value: pulumi.Input[Optional['AgentOptionsArgs']]):
         pulumi.set(self, "agent_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Kubernetes cluster agent pool.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @agent_pool_name.setter
+    def agent_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="attachedNetworkConfiguration")
@@ -380,8 +381,6 @@ class AgentPool(pulumi.CustomResource):
 
             __props__.__dict__["administrator_configuration"] = administrator_configuration
             __props__.__dict__["agent_options"] = agent_options
-            if agent_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'agent_pool_name'")
             __props__.__dict__["agent_pool_name"] = agent_pool_name
             __props__.__dict__["attached_network_configuration"] = attached_network_configuration
             __props__.__dict__["availability_zones"] = availability_zones

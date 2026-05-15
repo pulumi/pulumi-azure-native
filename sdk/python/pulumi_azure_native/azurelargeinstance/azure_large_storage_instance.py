@@ -22,8 +22,8 @@ __all__ = ['AzureLargeStorageInstanceArgs', 'AzureLargeStorageInstance']
 @pulumi.input_type
 class AzureLargeStorageInstanceArgs:
     def __init__(__self__, *,
-                 azure_large_storage_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 azure_large_storage_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_large_storage_instance_unique_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,16 +32,17 @@ class AzureLargeStorageInstanceArgs:
         """
         The set of arguments for constructing a AzureLargeStorageInstance resource.
 
-        :param pulumi.Input[_builtins.str] azure_large_storage_instance_name: Name of the AzureLargeStorageInstance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] azure_large_storage_instance_name: Name of the AzureLargeStorageInstance.
         :param pulumi.Input[_builtins.str] azure_large_storage_instance_unique_identifier: Specifies the AzureLargeStorageInstance unique ID.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['StoragePropertiesArgs'] storage_properties: Specifies the storage properties for the AzureLargeStorage instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "azure_large_storage_instance_name", azure_large_storage_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if azure_large_storage_instance_name is not None:
+            pulumi.set(__self__, "azure_large_storage_instance_name", azure_large_storage_instance_name)
         if azure_large_storage_instance_unique_identifier is not None:
             pulumi.set(__self__, "azure_large_storage_instance_unique_identifier", azure_large_storage_instance_unique_identifier)
         if identity is not None:
@@ -54,18 +55,6 @@ class AzureLargeStorageInstanceArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
-    @pulumi.getter(name="azureLargeStorageInstanceName")
-    def azure_large_storage_instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the AzureLargeStorageInstance.
-        """
-        return pulumi.get(self, "azure_large_storage_instance_name")
-
-    @azure_large_storage_instance_name.setter
-    def azure_large_storage_instance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "azure_large_storage_instance_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -76,6 +65,18 @@ class AzureLargeStorageInstanceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureLargeStorageInstanceName")
+    def azure_large_storage_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the AzureLargeStorageInstance.
+        """
+        return pulumi.get(self, "azure_large_storage_instance_name")
+
+    @azure_large_storage_instance_name.setter
+    def azure_large_storage_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "azure_large_storage_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureLargeStorageInstanceUniqueIdentifier")
@@ -213,8 +214,6 @@ class AzureLargeStorageInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AzureLargeStorageInstanceArgs.__new__(AzureLargeStorageInstanceArgs)
 
-            if azure_large_storage_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_large_storage_instance_name'")
             __props__.__dict__["azure_large_storage_instance_name"] = azure_large_storage_instance_name
             __props__.__dict__["azure_large_storage_instance_unique_identifier"] = azure_large_storage_instance_unique_identifier
             __props__.__dict__["identity"] = identity

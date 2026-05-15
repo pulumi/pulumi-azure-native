@@ -21,35 +21,24 @@ __all__ = ['WorkloadNetworkDhcpArgs', 'WorkloadNetworkDhcp']
 @pulumi.input_type
 class WorkloadNetworkDhcpArgs:
     def __init__(__self__, *,
-                 dhcp_id: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 dhcp_id: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkDhcp resource.
 
-        :param pulumi.Input[_builtins.str] dhcp_id: The ID of the DHCP configuration
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] dhcp_id: The ID of the DHCP configuration
         :param pulumi.Input[Union['WorkloadNetworkDhcpRelayArgs', 'WorkloadNetworkDhcpServerArgs']] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "dhcp_id", dhcp_id)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dhcp_id is not None:
+            pulumi.set(__self__, "dhcp_id", dhcp_id)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="dhcpId")
-    def dhcp_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the DHCP configuration
-        """
-        return pulumi.get(self, "dhcp_id")
-
-    @dhcp_id.setter
-    def dhcp_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dhcp_id", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -74,6 +63,18 @@ class WorkloadNetworkDhcpArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dhcpId")
+    def dhcp_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the DHCP configuration
+        """
+        return pulumi.get(self, "dhcp_id")
+
+    @dhcp_id.setter
+    def dhcp_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dhcp_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -156,8 +157,6 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkloadNetworkDhcpArgs.__new__(WorkloadNetworkDhcpArgs)
 
-            if dhcp_id is None and not opts.urn:
-                raise TypeError("Missing required property 'dhcp_id'")
             __props__.__dict__["dhcp_id"] = dhcp_id
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

@@ -193,7 +193,7 @@ def get_workspace_manager_assignment(resource_group_name: Optional[_builtins.str
         target_resource_name=pulumi.get(__ret__, 'target_resource_name'),
         type=pulumi.get(__ret__, 'type'))
 def get_workspace_manager_assignment_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                            workspace_manager_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            workspace_manager_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceManagerAssignmentResult]:
     """

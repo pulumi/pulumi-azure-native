@@ -206,7 +206,7 @@ def get_replication(registry_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         zone_redundancy=pulumi.get(__ret__, 'zone_redundancy'))
 def get_replication_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           replication_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           replication_name: pulumi.Input[Optional[_builtins.str]] = None,
                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationResult]:
     """

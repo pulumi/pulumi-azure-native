@@ -22,27 +22,26 @@ __all__ = ['PolicyArgs', 'Policy']
 @pulumi.input_type
 class PolicyArgs:
     def __init__(__self__, *,
-                 policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  custom_rules: pulumi.Input[Optional['CustomRuleListArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_rules: pulumi.Input[Optional['ManagedRuleSetListArgs']] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_settings: pulumi.Input[Optional['PolicySettingsArgs']] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Policy resource.
 
-        :param pulumi.Input[_builtins.str] policy_name: The name of the Web Application Firewall Policy.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input['CustomRuleListArgs'] custom_rules: Describes custom rules inside the policy.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['ManagedRuleSetListArgs'] managed_rules: Describes managed rules inside the policy.
+        :param pulumi.Input[_builtins.str] policy_name: The name of the Web Application Firewall Policy.
         :param pulumi.Input['PolicySettingsArgs'] policy_settings: Describes settings for the policy.
         :param pulumi.Input['SkuArgs'] sku: The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if custom_rules is not None:
             pulumi.set(__self__, "custom_rules", custom_rules)
@@ -50,24 +49,14 @@ class PolicyArgs:
             pulumi.set(__self__, "location", location)
         if managed_rules is not None:
             pulumi.set(__self__, "managed_rules", managed_rules)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if policy_settings is not None:
             pulumi.set(__self__, "policy_settings", policy_settings)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Web Application Firewall Policy.
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -116,6 +105,18 @@ class PolicyArgs:
     @managed_rules.setter
     def managed_rules(self, value: pulumi.Input[Optional['ManagedRuleSetListArgs']]):
         pulumi.set(self, "managed_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Web Application Firewall Policy.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policySettings")
@@ -237,8 +238,6 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["custom_rules"] = custom_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_rules"] = managed_rules
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             __props__.__dict__["policy_settings"] = policy_settings
             if resource_group_name is None and not opts.urn:

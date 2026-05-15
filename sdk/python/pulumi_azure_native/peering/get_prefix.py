@@ -210,7 +210,7 @@ def get_prefix(expand: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_prefix_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                       peering_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                      prefix_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      prefix_name: pulumi.Input[Optional[_builtins.str]] = None,
                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrefixResult]:
     """

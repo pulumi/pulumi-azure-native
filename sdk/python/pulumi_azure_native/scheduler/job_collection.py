@@ -22,8 +22,8 @@ __all__ = ['JobCollectionArgs', 'JobCollection']
 @pulumi.input_type
 class JobCollectionArgs:
     def __init__(__self__, *,
-                 job_collection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 job_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['JobCollectionPropertiesArgs']] = None,
@@ -31,15 +31,16 @@ class JobCollectionArgs:
         """
         The set of arguments for constructing a JobCollection resource.
 
-        :param pulumi.Input[_builtins.str] job_collection_name: The job collection name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] job_collection_name: The job collection name.
         :param pulumi.Input[_builtins.str] location: Gets or sets the storage account location.
         :param pulumi.Input[_builtins.str] name: Gets or sets the job collection resource name.
         :param pulumi.Input['JobCollectionPropertiesArgs'] properties: Gets or sets the job collection properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags.
         """
-        pulumi.set(__self__, "job_collection_name", job_collection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if job_collection_name is not None:
+            pulumi.set(__self__, "job_collection_name", job_collection_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -48,18 +49,6 @@ class JobCollectionArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="jobCollectionName")
-    def job_collection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The job collection name.
-        """
-        return pulumi.get(self, "job_collection_name")
-
-    @job_collection_name.setter
-    def job_collection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "job_collection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -72,6 +61,18 @@ class JobCollectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobCollectionName")
+    def job_collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The job collection name.
+        """
+        return pulumi.get(self, "job_collection_name")
+
+    @job_collection_name.setter
+    def job_collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "job_collection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -188,8 +189,6 @@ class JobCollection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobCollectionArgs.__new__(JobCollectionArgs)
 
-            if job_collection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_collection_name'")
             __props__.__dict__["job_collection_name"] = job_collection_name
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name

@@ -214,7 +214,7 @@ def get_volume(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_volume_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                      volume_resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      volume_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Gets the information about the volume resource with the given name. The information include the description and other properties of the volume.

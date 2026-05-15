@@ -21,22 +21,23 @@ __all__ = ['ProductArgs', 'Product']
 class ProductArgs:
     def __init__(__self__, *,
                  catalog_name: pulumi.Input[_builtins.str],
-                 product_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Product resource.
 
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
-        :param pulumi.Input[_builtins.str] product_name: Name of product.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: Description of the product
+        :param pulumi.Input[_builtins.str] product_name: Name of product.
         """
         pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "product_name", product_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if product_name is not None:
+            pulumi.set(__self__, "product_name", product_name)
 
     @_builtins.property
     @pulumi.getter(name="catalogName")
@@ -49,18 +50,6 @@ class ProductArgs:
     @catalog_name.setter
     def catalog_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "catalog_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="productName")
-    def product_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of product.
-        """
-        return pulumi.get(self, "product_name")
-
-    @product_name.setter
-    def product_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "product_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -85,6 +74,18 @@ class ProductArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productName")
+    def product_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of product.
+        """
+        return pulumi.get(self, "product_name")
+
+    @product_name.setter
+    def product_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "product_name", value)
 
 
 @pulumi.type_token("azure-native:azuresphere:Product")
@@ -155,8 +156,6 @@ class Product(pulumi.CustomResource):
                 raise TypeError("Missing required property 'catalog_name'")
             __props__.__dict__["catalog_name"] = catalog_name
             __props__.__dict__["description"] = description
-            if product_name is None and not opts.urn:
-                raise TypeError("Missing required property 'product_name'")
             __props__.__dict__["product_name"] = product_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

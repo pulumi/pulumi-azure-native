@@ -22,12 +22,12 @@ __all__ = ['DomainServiceArgs', 'DomainService']
 @pulumi.input_type
 class DomainServiceArgs:
     def __init__(__self__, *,
-                 domain_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  config_diagnostics: pulumi.Input[Optional['ConfigDiagnosticsArgs']] = None,
                  domain_configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_security_settings: pulumi.Input[Optional['DomainSecuritySettingsArgs']] = None,
+                 domain_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filtered_sync: pulumi.Input[Optional[Union[_builtins.str, 'FilteredSync']]] = None,
                  ldaps_settings: pulumi.Input[Optional['LdapsSettingsArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,12 +40,12 @@ class DomainServiceArgs:
         """
         The set of arguments for constructing a DomainService resource.
 
-        :param pulumi.Input[_builtins.str] domain_service_name: The name of the domain service.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input['ConfigDiagnosticsArgs'] config_diagnostics: Configuration diagnostics data containing latest execution from client.
         :param pulumi.Input[_builtins.str] domain_configuration_type: Domain Configuration Type
         :param pulumi.Input[_builtins.str] domain_name: The name of the Azure domain that the user would like to deploy Domain Services to.
         :param pulumi.Input['DomainSecuritySettingsArgs'] domain_security_settings: DomainSecurity Settings
+        :param pulumi.Input[_builtins.str] domain_service_name: The name of the domain service.
         :param pulumi.Input[Union[_builtins.str, 'FilteredSync']] filtered_sync: Enabled or Disabled flag to turn on Group-based filtered sync
         :param pulumi.Input['LdapsSettingsArgs'] ldaps_settings: Secure LDAP Settings
         :param pulumi.Input[_builtins.str] location: Resource location
@@ -56,7 +56,6 @@ class DomainServiceArgs:
         :param pulumi.Input[Union[_builtins.str, 'SyncScope']] sync_scope: All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "domain_service_name", domain_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if config_diagnostics is not None:
             pulumi.set(__self__, "config_diagnostics", config_diagnostics)
@@ -66,6 +65,8 @@ class DomainServiceArgs:
             pulumi.set(__self__, "domain_name", domain_name)
         if domain_security_settings is not None:
             pulumi.set(__self__, "domain_security_settings", domain_security_settings)
+        if domain_service_name is not None:
+            pulumi.set(__self__, "domain_service_name", domain_service_name)
         if filtered_sync is not None:
             pulumi.set(__self__, "filtered_sync", filtered_sync)
         if ldaps_settings is not None:
@@ -86,18 +87,6 @@ class DomainServiceArgs:
             pulumi.set(__self__, "sync_scope", sync_scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="domainServiceName")
-    def domain_service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the domain service.
-        """
-        return pulumi.get(self, "domain_service_name")
-
-    @domain_service_name.setter
-    def domain_service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "domain_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -158,6 +147,18 @@ class DomainServiceArgs:
     @domain_security_settings.setter
     def domain_security_settings(self, value: pulumi.Input[Optional['DomainSecuritySettingsArgs']]):
         pulumi.set(self, "domain_security_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainServiceName")
+    def domain_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the domain service.
+        """
+        return pulumi.get(self, "domain_service_name")
+
+    @domain_service_name.setter
+    def domain_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "domain_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="filteredSync")
@@ -373,8 +374,6 @@ class DomainService(pulumi.CustomResource):
             __props__.__dict__["domain_configuration_type"] = domain_configuration_type
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["domain_security_settings"] = domain_security_settings
-            if domain_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_service_name'")
             __props__.__dict__["domain_service_name"] = domain_service_name
             __props__.__dict__["filtered_sync"] = filtered_sync
             __props__.__dict__["ldaps_settings"] = ldaps_settings

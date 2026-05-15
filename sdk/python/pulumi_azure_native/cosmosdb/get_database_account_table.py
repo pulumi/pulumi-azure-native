@@ -141,7 +141,7 @@ def get_database_account_table(account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_database_account_table_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      table_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      table_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAccountTableResult]:
     """
     Gets the Tables under an existing Azure Cosmos DB database account with the provided name.

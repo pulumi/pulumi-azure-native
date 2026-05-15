@@ -266,7 +266,7 @@ def get_sync_member_output(database_name: pulumi.Input[Optional[_builtins.str]] 
                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            server_name: pulumi.Input[Optional[_builtins.str]] = None,
                            sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           sync_member_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           sync_member_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncMemberResult]:
     """
     Gets a sync member.

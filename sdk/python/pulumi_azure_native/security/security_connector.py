@@ -23,29 +23,28 @@ __all__ = ['SecurityConnectorArgs', 'SecurityConnector']
 class SecurityConnectorArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 security_connector_name: pulumi.Input[_builtins.str],
                  environment_data: pulumi.Input[Optional[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'DockerHubEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs', 'JFrogEnvironmentDataArgs']]] = None,
                  environment_name: pulumi.Input[Optional[Union[_builtins.str, 'CloudName']]] = None,
                  hierarchy_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  offerings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorDockerHubOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'CspmMonitorJFrogOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmDockerHubOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderCspmJFrogOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForContainersJFrogOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs']]]]] = None,
+                 security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecurityConnector resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] security_connector_name: The security connector name.
         :param pulumi.Input[Union['AwsEnvironmentDataArgs', 'AzureDevOpsScopeEnvironmentDataArgs', 'DockerHubEnvironmentDataArgs', 'GcpProjectEnvironmentDataArgs', 'GithubScopeEnvironmentDataArgs', 'GitlabScopeEnvironmentDataArgs', 'JFrogEnvironmentDataArgs']] environment_data: The security connector environment data.
         :param pulumi.Input[Union[_builtins.str, 'CloudName']] environment_name: The multi cloud resource's cloud name.
         :param pulumi.Input[_builtins.str] hierarchy_identifier: The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
         :param pulumi.Input[_builtins.str] location: Location where the resource is stored
         :param pulumi.Input[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorDockerHubOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'CspmMonitorJFrogOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmDockerHubOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderCspmJFrogOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForContainersJFrogOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs']]]] offerings: A collection of offerings for the security connector.
+        :param pulumi.Input[_builtins.str] security_connector_name: The security connector name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "security_connector_name", security_connector_name)
         if environment_data is not None:
             pulumi.set(__self__, "environment_data", environment_data)
         if environment_name is not None:
@@ -58,6 +57,8 @@ class SecurityConnectorArgs:
             pulumi.set(__self__, "location", location)
         if offerings is not None:
             pulumi.set(__self__, "offerings", offerings)
+        if security_connector_name is not None:
+            pulumi.set(__self__, "security_connector_name", security_connector_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -72,18 +73,6 @@ class SecurityConnectorArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securityConnectorName")
-    def security_connector_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The security connector name.
-        """
-        return pulumi.get(self, "security_connector_name")
-
-    @security_connector_name.setter
-    def security_connector_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "security_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentData")
@@ -156,6 +145,18 @@ class SecurityConnectorArgs:
     @offerings.setter
     def offerings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CspmMonitorAwsOfferingArgs', 'CspmMonitorAzureDevOpsOfferingArgs', 'CspmMonitorDockerHubOfferingArgs', 'CspmMonitorGcpOfferingArgs', 'CspmMonitorGitLabOfferingArgs', 'CspmMonitorGithubOfferingArgs', 'CspmMonitorJFrogOfferingArgs', 'DefenderCspmAwsOfferingArgs', 'DefenderCspmDockerHubOfferingArgs', 'DefenderCspmGcpOfferingArgs', 'DefenderCspmJFrogOfferingArgs', 'DefenderFoDatabasesAwsOfferingArgs', 'DefenderForContainersAwsOfferingArgs', 'DefenderForContainersDockerHubOfferingArgs', 'DefenderForContainersGcpOfferingArgs', 'DefenderForContainersJFrogOfferingArgs', 'DefenderForDatabasesGcpOfferingArgs', 'DefenderForServersAwsOfferingArgs', 'DefenderForServersGcpOfferingArgs']]]]]):
         pulumi.set(self, "offerings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityConnectorName")
+    def security_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The security connector name.
+        """
+        return pulumi.get(self, "security_connector_name")
+
+    @security_connector_name.setter
+    def security_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "security_connector_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -262,8 +263,6 @@ class SecurityConnector(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if security_connector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'security_connector_name'")
             __props__.__dict__["security_connector_name"] = security_connector_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

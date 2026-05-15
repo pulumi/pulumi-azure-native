@@ -469,7 +469,7 @@ def get_private_cloud(private_cloud_name: Optional[_builtins.str] = None,
         vcenter_password=pulumi.get(__ret__, 'vcenter_password'),
         virtual_network_id=pulumi.get(__ret__, 'virtual_network_id'),
         vmotion_network=pulumi.get(__ret__, 'vmotion_network'))
-def get_private_cloud_output(private_cloud_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_private_cloud_output(private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateCloudResult]:
     """

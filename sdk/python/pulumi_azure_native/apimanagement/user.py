@@ -27,14 +27,14 @@ class UserArgs:
                  last_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 user_id: pulumi.Input[_builtins.str],
                  app_type: pulumi.Input[Optional[Union[_builtins.str, 'AppType']]] = None,
                  confirmation: pulumi.Input[Optional[Union[_builtins.str, 'Confirmation']]] = None,
                  identities: pulumi.Input[Optional[Sequence[pulumi.Input['UserIdentityContractArgs']]]] = None,
                  note: pulumi.Input[Optional[_builtins.str]] = None,
                  notify: pulumi.Input[Optional[_builtins.bool]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 state: pulumi.Input[Optional[Union[_builtins.str, 'UserState']]] = None):
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'UserState']]] = None,
+                 user_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
@@ -43,7 +43,6 @@ class UserArgs:
         :param pulumi.Input[_builtins.str] last_name: Last name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] user_id: User identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[Union[_builtins.str, 'AppType']] app_type: Determines the type of application which send the create user request. Default is legacy portal.
         :param pulumi.Input[Union[_builtins.str, 'Confirmation']] confirmation: Determines the type of confirmation e-mail that will be sent to the newly created user.
         :param pulumi.Input[Sequence[pulumi.Input['UserIdentityContractArgs']]] identities: Collection of user identities.
@@ -51,13 +50,13 @@ class UserArgs:
         :param pulumi.Input[_builtins.bool] notify: Send an Email notification to the User.
         :param pulumi.Input[_builtins.str] password: User Password. If no value is provided, a default password is generated.
         :param pulumi.Input[Union[_builtins.str, 'UserState']] state: Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
+        :param pulumi.Input[_builtins.str] user_id: User identifier. Must be unique in the current API Management service instance.
         """
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "first_name", first_name)
         pulumi.set(__self__, "last_name", last_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "user_id", user_id)
         if app_type is not None:
             pulumi.set(__self__, "app_type", app_type)
         if confirmation is not None:
@@ -74,6 +73,8 @@ class UserArgs:
             state = 'active'
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if user_id is not None:
+            pulumi.set(__self__, "user_id", user_id)
 
     @_builtins.property
     @pulumi.getter
@@ -134,18 +135,6 @@ class UserArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="userId")
-    def user_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        User identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "user_id")
-
-    @user_id.setter
-    def user_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "user_id", value)
 
     @_builtins.property
     @pulumi.getter(name="appType")
@@ -230,6 +219,18 @@ class UserArgs:
     @state.setter
     def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'UserState']]]):
         pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "user_id")
+
+    @user_id.setter
+    def user_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:User")
@@ -351,8 +352,6 @@ class User(pulumi.CustomResource):
             if state is None:
                 state = 'active'
             __props__.__dict__["state"] = state
-            if user_id is None and not opts.urn:
-                raise TypeError("Missing required property 'user_id'")
             __props__.__dict__["user_id"] = user_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["groups"] = None

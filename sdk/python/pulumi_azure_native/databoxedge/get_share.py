@@ -258,7 +258,7 @@ def get_share(device_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_access_rights=pulumi.get(__ret__, 'user_access_rights'))
 def get_share_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     name: pulumi.Input[Optional[_builtins.str]] = None,
                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetShareResult]:
     """

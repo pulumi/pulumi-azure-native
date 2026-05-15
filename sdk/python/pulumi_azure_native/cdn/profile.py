@@ -22,27 +22,26 @@ __all__ = ['ProfileArgs', 'Profile']
 @pulumi.input_type
 class ProfileArgs:
     def __init__(__self__, *,
-                 profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  log_scrubbing: pulumi.Input[Optional['ProfileLogScrubbingArgs']] = None,
                  origin_response_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Profile resource.
 
-        :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ProfileLogScrubbingArgs'] log_scrubbing: Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
         :param pulumi.Input[_builtins.int] origin_response_timeout_seconds: Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
+        :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if identity is not None:
@@ -53,20 +52,10 @@ class ProfileArgs:
             pulumi.set(__self__, "log_scrubbing", log_scrubbing)
         if origin_response_timeout_seconds is not None:
             pulumi.set(__self__, "origin_response_timeout_seconds", origin_response_timeout_seconds)
+        if profile_name is not None:
+            pulumi.set(__self__, "profile_name", profile_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="profileName")
-    def profile_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
-        """
-        return pulumi.get(self, "profile_name")
-
-    @profile_name.setter
-    def profile_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -139,6 +128,18 @@ class ProfileArgs:
     @origin_response_timeout_seconds.setter
     def origin_response_timeout_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "origin_response_timeout_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -237,8 +238,6 @@ class Profile(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["log_scrubbing"] = log_scrubbing
             __props__.__dict__["origin_response_timeout_seconds"] = origin_response_timeout_seconds
-            if profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

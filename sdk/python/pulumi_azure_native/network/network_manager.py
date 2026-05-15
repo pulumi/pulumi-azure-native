@@ -22,27 +22,26 @@ __all__ = ['NetworkManagerArgs', 'NetworkManager']
 @pulumi.input_type
 class NetworkManagerArgs:
     def __init__(__self__, *,
-                 network_manager_name: pulumi.Input[_builtins.str],
                  network_manager_scopes: pulumi.Input['NetworkManagerPropertiesNetworkManagerScopesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_manager_scope_accesses: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ConfigurationType']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkManager resource.
 
-        :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input['NetworkManagerPropertiesNetworkManagerScopesArgs'] network_manager_scopes: Scope of Network Manager.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] description: A description of the network manager.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
+        :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ConfigurationType']]]] network_manager_scope_accesses: Scope Access.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "network_manager_scopes", network_manager_scopes)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
@@ -51,22 +50,12 @@ class NetworkManagerArgs:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_manager_name is not None:
+            pulumi.set(__self__, "network_manager_name", network_manager_name)
         if network_manager_scope_accesses is not None:
             pulumi.set(__self__, "network_manager_scope_accesses", network_manager_scope_accesses)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="networkManagerName")
-    def network_manager_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the network manager.
-        """
-        return pulumi.get(self, "network_manager_name")
-
-    @network_manager_name.setter
-    def network_manager_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_manager_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerScopes")
@@ -127,6 +116,18 @@ class NetworkManagerArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkManagerName")
+    def network_manager_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the network manager.
+        """
+        return pulumi.get(self, "network_manager_name")
+
+    @network_manager_name.setter
+    def network_manager_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_manager_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerScopeAccesses")
@@ -236,8 +237,6 @@ class NetworkManager(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
-            if network_manager_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_manager_name'")
             __props__.__dict__["network_manager_name"] = network_manager_name
             __props__.__dict__["network_manager_scope_accesses"] = network_manager_scope_accesses
             if network_manager_scopes is None and not opts.urn:

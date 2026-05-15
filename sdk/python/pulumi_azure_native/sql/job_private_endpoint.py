@@ -20,24 +20,25 @@ __all__ = ['JobPrivateEndpointArgs', 'JobPrivateEndpoint']
 class JobPrivateEndpointArgs:
     def __init__(__self__, *,
                  job_agent_name: pulumi.Input[_builtins.str],
-                 private_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 target_server_azure_resource_id: pulumi.Input[_builtins.str]):
+                 target_server_azure_resource_id: pulumi.Input[_builtins.str],
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobPrivateEndpoint resource.
 
         :param pulumi.Input[_builtins.str] job_agent_name: The name of the job agent.
-        :param pulumi.Input[_builtins.str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] target_server_azure_resource_id: ARM resource id of the server the private endpoint will target.
+        :param pulumi.Input[_builtins.str] private_endpoint_name: The name of the private endpoint.
         """
         pulumi.set(__self__, "job_agent_name", job_agent_name)
-        pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "target_server_azure_resource_id", target_server_azure_resource_id)
+        if private_endpoint_name is not None:
+            pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
 
     @_builtins.property
     @pulumi.getter(name="jobAgentName")
@@ -50,18 +51,6 @@ class JobPrivateEndpointArgs:
     @job_agent_name.setter
     def job_agent_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "job_agent_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointName")
-    def private_endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the private endpoint.
-        """
-        return pulumi.get(self, "private_endpoint_name")
-
-    @private_endpoint_name.setter
-    def private_endpoint_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "private_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -98,6 +87,18 @@ class JobPrivateEndpointArgs:
     @target_server_azure_resource_id.setter
     def target_server_azure_resource_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "target_server_azure_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointName")
+    def private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint_name")
+
+    @private_endpoint_name.setter
+    def private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_endpoint_name", value)
 
 
 @pulumi.type_token("azure-native:sql:JobPrivateEndpoint")
@@ -174,8 +175,6 @@ class JobPrivateEndpoint(pulumi.CustomResource):
             if job_agent_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_agent_name'")
             __props__.__dict__["job_agent_name"] = job_agent_name
-            if private_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_endpoint_name'")
             __props__.__dict__["private_endpoint_name"] = private_endpoint_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -20,25 +20,24 @@ __all__ = ['GraphQLApiResolverArgs', 'GraphQLApiResolver']
 class GraphQLApiResolverArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
-                 resolver_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 path: pulumi.Input[Optional[_builtins.str]] = None):
+                 path: pulumi.Input[Optional[_builtins.str]] = None,
+                 resolver_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GraphQLApiResolver resource.
 
         :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        :param pulumi.Input[_builtins.str] resolver_id: Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] description: Description of the resolver. May include HTML formatting tags.
         :param pulumi.Input[_builtins.str] display_name: Resolver Name.
         :param pulumi.Input[_builtins.str] path: Path is type/field being resolved.
+        :param pulumi.Input[_builtins.str] resolver_id: Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
         """
         pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "resolver_id", resolver_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         if description is not None:
@@ -47,6 +46,8 @@ class GraphQLApiResolverArgs:
             pulumi.set(__self__, "display_name", display_name)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if resolver_id is not None:
+            pulumi.set(__self__, "resolver_id", resolver_id)
 
     @_builtins.property
     @pulumi.getter(name="apiId")
@@ -59,18 +60,6 @@ class GraphQLApiResolverArgs:
     @api_id.setter
     def api_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "api_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resolverId")
-    def resolver_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "resolver_id")
-
-    @resolver_id.setter
-    def resolver_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resolver_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -131,6 +120,18 @@ class GraphQLApiResolverArgs:
     @path.setter
     def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resolverId")
+    def resolver_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Resolver identifier within a GraphQL API. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "resolver_id")
+
+    @resolver_id.setter
+    def resolver_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resolver_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:GraphQLApiResolver")
@@ -216,8 +217,6 @@ class GraphQLApiResolver(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["path"] = path
-            if resolver_id is None and not opts.urn:
-                raise TypeError("Missing required property 'resolver_id'")
             __props__.__dict__["resolver_id"] = resolver_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

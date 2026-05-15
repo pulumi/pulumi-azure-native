@@ -22,47 +22,36 @@ __all__ = ['ApiGatewayArgs', 'ApiGateway']
 @pulumi.input_type
 class ApiGatewayArgs:
     def __init__(__self__, *,
-                 gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['ApiManagementGatewaySkuPropertiesArgs'],
                  backend: pulumi.Input[Optional['BackendConfigurationArgs']] = None,
+                 gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_network_type: pulumi.Input[Optional[Union[_builtins.str, 'VirtualNetworkType']]] = None):
         """
         The set of arguments for constructing a ApiGateway resource.
 
-        :param pulumi.Input[_builtins.str] gateway_name: The name of the API Management gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ApiManagementGatewaySkuPropertiesArgs'] sku: SKU properties of the API Management gateway.
         :param pulumi.Input['BackendConfigurationArgs'] backend: Information regarding how the gateway should integrate with backend systems.
+        :param pulumi.Input[_builtins.str] gateway_name: The name of the API Management gateway.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union[_builtins.str, 'VirtualNetworkType']] virtual_network_type: The type of VPN in which API Management gateway needs to be configured in. 
         """
-        pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if backend is not None:
             pulumi.set(__self__, "backend", backend)
+        if gateway_name is not None:
+            pulumi.set(__self__, "gateway_name", gateway_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if virtual_network_type is not None:
             pulumi.set(__self__, "virtual_network_type", virtual_network_type)
-
-    @_builtins.property
-    @pulumi.getter(name="gatewayName")
-    def gateway_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the API Management gateway.
-        """
-        return pulumi.get(self, "gateway_name")
-
-    @gateway_name.setter
-    def gateway_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -99,6 +88,18 @@ class ApiGatewayArgs:
     @backend.setter
     def backend(self, value: pulumi.Input[Optional['BackendConfigurationArgs']]):
         pulumi.set(self, "backend", value)
+
+    @_builtins.property
+    @pulumi.getter(name="gatewayName")
+    def gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the API Management gateway.
+        """
+        return pulumi.get(self, "gateway_name")
+
+    @gateway_name.setter
+    def gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -215,8 +216,6 @@ class ApiGateway(pulumi.CustomResource):
             __props__ = ApiGatewayArgs.__new__(ApiGatewayArgs)
 
             __props__.__dict__["backend"] = backend
-            if gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gateway_name'")
             __props__.__dict__["gateway_name"] = gateway_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

@@ -23,31 +23,32 @@ class ContainerAppsSourceControlArgs:
     def __init__(__self__, *,
                  container_app_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 source_control_name: pulumi.Input[_builtins.str],
                  branch: pulumi.Input[Optional[_builtins.str]] = None,
                  github_action_configuration: pulumi.Input[Optional['GithubActionConfigurationArgs']] = None,
-                 repo_url: pulumi.Input[Optional[_builtins.str]] = None):
+                 repo_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_control_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ContainerAppsSourceControl resource.
 
         :param pulumi.Input[_builtins.str] container_app_name: Name of the Container App.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] source_control_name: Name of the Container App SourceControl.
         :param pulumi.Input[_builtins.str] branch: The branch which will trigger the auto deployment
         :param pulumi.Input['GithubActionConfigurationArgs'] github_action_configuration: Container App Revision Template with all possible settings and the
                defaults if user did not provide them. The defaults are populated
                as they were at the creation time
         :param pulumi.Input[_builtins.str] repo_url: The repo url which will be integrated to ContainerApp.
+        :param pulumi.Input[_builtins.str] source_control_name: Name of the Container App SourceControl.
         """
         pulumi.set(__self__, "container_app_name", container_app_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_control_name", source_control_name)
         if branch is not None:
             pulumi.set(__self__, "branch", branch)
         if github_action_configuration is not None:
             pulumi.set(__self__, "github_action_configuration", github_action_configuration)
         if repo_url is not None:
             pulumi.set(__self__, "repo_url", repo_url)
+        if source_control_name is not None:
+            pulumi.set(__self__, "source_control_name", source_control_name)
 
     @_builtins.property
     @pulumi.getter(name="containerAppName")
@@ -72,18 +73,6 @@ class ContainerAppsSourceControlArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceControlName")
-    def source_control_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Container App SourceControl.
-        """
-        return pulumi.get(self, "source_control_name")
-
-    @source_control_name.setter
-    def source_control_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "source_control_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -122,6 +111,18 @@ class ContainerAppsSourceControlArgs:
     @repo_url.setter
     def repo_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repo_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceControlName")
+    def source_control_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Container App SourceControl.
+        """
+        return pulumi.get(self, "source_control_name")
+
+    @source_control_name.setter
+    def source_control_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_control_name", value)
 
 
 @pulumi.type_token("azure-native:app:ContainerAppsSourceControl")
@@ -209,8 +210,6 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if source_control_name is None and not opts.urn:
-                raise TypeError("Missing required property 'source_control_name'")
             __props__.__dict__["source_control_name"] = source_control_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

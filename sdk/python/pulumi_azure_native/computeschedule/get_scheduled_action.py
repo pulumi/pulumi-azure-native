@@ -164,7 +164,7 @@ def get_scheduled_action(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_scheduled_action_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                scheduled_action_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                scheduled_action_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledActionResult]:
     """
     Get a ScheduledAction

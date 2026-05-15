@@ -282,7 +282,7 @@ def get_power_shell72_module(automation_account_name: Optional[_builtins.str] = 
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
 def get_power_shell72_module_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    module_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    module_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPowerShell72ModuleResult]:
     """

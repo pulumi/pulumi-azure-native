@@ -25,7 +25,6 @@ class OrchestratorInstanceServiceDetailsArgs:
                  controller_details: pulumi.Input['ControllerDetailsArgs'],
                  kind: pulumi.Input[Union[_builtins.str, 'OrchestratorKind']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  api_server_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_root_ca: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['OrchestratorIdentityArgs']] = None,
@@ -33,6 +32,7 @@ class OrchestratorInstanceServiceDetailsArgs:
                  orchestrator_app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  orchestrator_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OrchestratorInstanceServiceDetails resource.
@@ -40,7 +40,6 @@ class OrchestratorInstanceServiceDetailsArgs:
         :param pulumi.Input['ControllerDetailsArgs'] controller_details: Properties of the controller.
         :param pulumi.Input[Union[_builtins.str, 'OrchestratorKind']] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[_builtins.str] api_server_endpoint: K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
         :param pulumi.Input[_builtins.str] cluster_root_ca: RootCA certificate of kubernetes cluster base64 encoded
         :param pulumi.Input['OrchestratorIdentityArgs'] identity: The identity of the orchestrator
@@ -48,12 +47,12 @@ class OrchestratorInstanceServiceDetailsArgs:
         :param pulumi.Input[_builtins.str] orchestrator_app_id: AAD ID used with apiserver
         :param pulumi.Input[_builtins.str] orchestrator_tenant_id: TenantID of server App ID
         :param pulumi.Input[_builtins.str] private_link_resource_id: private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
+        :param pulumi.Input[_builtins.str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "controller_details", controller_details)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         if api_server_endpoint is not None:
             pulumi.set(__self__, "api_server_endpoint", api_server_endpoint)
         if cluster_root_ca is not None:
@@ -68,6 +67,8 @@ class OrchestratorInstanceServiceDetailsArgs:
             pulumi.set(__self__, "orchestrator_tenant_id", orchestrator_tenant_id)
         if private_link_resource_id is not None:
             pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -106,18 +107,6 @@ class OrchestratorInstanceServiceDetailsArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="apiServerEndpoint")
@@ -202,6 +191,18 @@ class OrchestratorInstanceServiceDetailsArgs:
     @private_link_resource_id.setter
     def private_link_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_link_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -324,8 +325,6 @@ class OrchestratorInstanceServiceDetails(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

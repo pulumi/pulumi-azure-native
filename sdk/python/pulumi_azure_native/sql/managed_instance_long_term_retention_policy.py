@@ -22,10 +22,10 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
                  managed_instance_name: pulumi.Input[_builtins.str],
-                 policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  backup_storage_access_tier: pulumi.Input[Optional[Union[_builtins.str, 'BackupStorageAccessTier']]] = None,
                  monthly_retention: pulumi.Input[Optional[_builtins.str]] = None,
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  week_of_year: pulumi.Input[Optional[_builtins.int]] = None,
                  weekly_retention: pulumi.Input[Optional[_builtins.str]] = None,
                  yearly_retention: pulumi.Input[Optional[_builtins.str]] = None):
@@ -34,22 +34,23 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
 
         :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] managed_instance_name: The name of the managed instance.
-        :param pulumi.Input[_builtins.str] policy_name: The policy name. Should always be Default.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Union[_builtins.str, 'BackupStorageAccessTier']] backup_storage_access_tier: The BackupStorageAccessTier for the LTR backups
         :param pulumi.Input[_builtins.str] monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format.
+        :param pulumi.Input[_builtins.str] policy_name: The policy name. Should always be Default.
         :param pulumi.Input[_builtins.int] week_of_year: The week of year to take the yearly backup in an ISO 8601 format.
         :param pulumi.Input[_builtins.str] weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format.
         :param pulumi.Input[_builtins.str] yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
-        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if backup_storage_access_tier is not None:
             pulumi.set(__self__, "backup_storage_access_tier", backup_storage_access_tier)
         if monthly_retention is not None:
             pulumi.set(__self__, "monthly_retention", monthly_retention)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if week_of_year is not None:
             pulumi.set(__self__, "week_of_year", week_of_year)
         if weekly_retention is not None:
@@ -80,18 +81,6 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
     @managed_instance_name.setter
     def managed_instance_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "managed_instance_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The policy name. Should always be Default.
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -128,6 +117,18 @@ class ManagedInstanceLongTermRetentionPolicyArgs:
     @monthly_retention.setter
     def monthly_retention(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "monthly_retention", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The policy name. Should always be Default.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="weekOfYear")
@@ -257,8 +258,6 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'managed_instance_name'")
             __props__.__dict__["managed_instance_name"] = managed_instance_name
             __props__.__dict__["monthly_retention"] = monthly_retention
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

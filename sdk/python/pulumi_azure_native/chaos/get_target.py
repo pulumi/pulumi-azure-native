@@ -163,7 +163,7 @@ def get_target_output(parent_provider_namespace: pulumi.Input[Optional[_builtins
                       parent_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                       parent_resource_type: pulumi.Input[Optional[_builtins.str]] = None,
                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                      target_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      target_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetResult]:
     """
     Get a Target resource that extends a tracked regional resource.

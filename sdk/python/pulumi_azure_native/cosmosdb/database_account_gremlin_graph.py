@@ -24,26 +24,27 @@ class DatabaseAccountGremlinGraphArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
-                 graph_name: pulumi.Input[_builtins.str],
                  options: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]],
                  resource: pulumi.Input['GremlinGraphResourceArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 graph_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DatabaseAccountGremlinGraph resource.
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
         :param pulumi.Input[_builtins.str] database_name: Cosmos DB database name.
-        :param pulumi.Input[_builtins.str] graph_name: Cosmos DB graph name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input['GremlinGraphResourceArgs'] resource: The standard JSON format of a Gremlin graph
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure resource group.
+        :param pulumi.Input[_builtins.str] graph_name: Cosmos DB graph name.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "graph_name", graph_name)
         pulumi.set(__self__, "options", options)
         pulumi.set(__self__, "resource", resource)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if graph_name is not None:
+            pulumi.set(__self__, "graph_name", graph_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -68,18 +69,6 @@ class DatabaseAccountGremlinGraphArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "database_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="graphName")
-    def graph_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Cosmos DB graph name.
-        """
-        return pulumi.get(self, "graph_name")
-
-    @graph_name.setter
-    def graph_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "graph_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -116,6 +105,18 @@ class DatabaseAccountGremlinGraphArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="graphName")
+    def graph_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Cosmos DB graph name.
+        """
+        return pulumi.get(self, "graph_name")
+
+    @graph_name.setter
+    def graph_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "graph_name", value)
 
 
 @pulumi.type_token("azure-native:cosmosdb:DatabaseAccountGremlinGraph")
@@ -198,8 +199,6 @@ class DatabaseAccountGremlinGraph(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
-            if graph_name is None and not opts.urn:
-                raise TypeError("Missing required property 'graph_name'")
             __props__.__dict__["graph_name"] = graph_name
             if options is None and not opts.urn:
                 raise TypeError("Missing required property 'options'")

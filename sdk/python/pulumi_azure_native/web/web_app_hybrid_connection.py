@@ -21,12 +21,12 @@ class WebAppHybridConnectionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
-                 relay_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  hostname: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  relay_arm_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
                  send_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  send_key_value: pulumi.Input[Optional[_builtins.str]] = None,
                  service_bus_namespace: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,12 +36,12 @@ class WebAppHybridConnectionArgs:
 
         :param pulumi.Input[_builtins.str] name: The name of the web app.
         :param pulumi.Input[_builtins.str] namespace_name: The namespace for this hybrid connection.
-        :param pulumi.Input[_builtins.str] relay_name: The name of the Service Bus relay.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] hostname: The hostname of the endpoint.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.int] port: The port of the endpoint.
         :param pulumi.Input[_builtins.str] relay_arm_uri: The ARM URI to the Service Bus relay.
+        :param pulumi.Input[_builtins.str] relay_name: The name of the Service Bus relay.
         :param pulumi.Input[_builtins.str] send_key_name: The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
         :param pulumi.Input[_builtins.str] send_key_value: The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
                normally, use the POST /listKeys API instead.
@@ -50,7 +50,6 @@ class WebAppHybridConnectionArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "relay_name", relay_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
@@ -60,6 +59,8 @@ class WebAppHybridConnectionArgs:
             pulumi.set(__self__, "port", port)
         if relay_arm_uri is not None:
             pulumi.set(__self__, "relay_arm_uri", relay_arm_uri)
+        if relay_name is not None:
+            pulumi.set(__self__, "relay_name", relay_name)
         if send_key_name is not None:
             pulumi.set(__self__, "send_key_name", send_key_name)
         if send_key_value is not None:
@@ -92,18 +93,6 @@ class WebAppHybridConnectionArgs:
     @namespace_name.setter
     def namespace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "namespace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="relayName")
-    def relay_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Service Bus relay.
-        """
-        return pulumi.get(self, "relay_name")
-
-    @relay_name.setter
-    def relay_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "relay_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -164,6 +153,18 @@ class WebAppHybridConnectionArgs:
     @relay_arm_uri.setter
     def relay_arm_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "relay_arm_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relayName")
+    def relay_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Service Bus relay.
+        """
+        return pulumi.get(self, "relay_name")
+
+    @relay_name.setter
+    def relay_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "relay_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sendKeyName")
@@ -318,8 +319,6 @@ class WebAppHybridConnection(pulumi.CustomResource):
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["port"] = port
             __props__.__dict__["relay_arm_uri"] = relay_arm_uri
-            if relay_name is None and not opts.urn:
-                raise TypeError("Missing required property 'relay_name'")
             __props__.__dict__["relay_name"] = relay_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

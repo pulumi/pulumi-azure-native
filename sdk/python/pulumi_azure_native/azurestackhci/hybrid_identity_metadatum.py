@@ -20,39 +20,28 @@ __all__ = ['HybridIdentityMetadatumArgs', 'HybridIdentityMetadatum']
 @pulumi.input_type
 class HybridIdentityMetadatumArgs:
     def __init__(__self__, *,
-                 metadata_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_machine_name: pulumi.Input[_builtins.str],
+                 metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_uid: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridIdentityMetadatum resource.
 
-        :param pulumi.Input[_builtins.str] metadata_name: Name of the hybridIdentityMetadata.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the vm.
+        :param pulumi.Input[_builtins.str] metadata_name: Name of the hybridIdentityMetadata.
         :param pulumi.Input[_builtins.str] public_key: The Public Key.
         :param pulumi.Input[_builtins.str] resource_uid: The unique identifier for the resource.
         """
-        pulumi.set(__self__, "metadata_name", metadata_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+        if metadata_name is not None:
+            pulumi.set(__self__, "metadata_name", metadata_name)
         if public_key is not None:
             pulumi.set(__self__, "public_key", public_key)
         if resource_uid is not None:
             pulumi.set(__self__, "resource_uid", resource_uid)
-
-    @_builtins.property
-    @pulumi.getter(name="metadataName")
-    def metadata_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the hybridIdentityMetadata.
-        """
-        return pulumi.get(self, "metadata_name")
-
-    @metadata_name.setter
-    def metadata_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "metadata_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -77,6 +66,18 @@ class HybridIdentityMetadatumArgs:
     @virtual_machine_name.setter
     def virtual_machine_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "virtual_machine_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataName")
+    def metadata_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the hybridIdentityMetadata.
+        """
+        return pulumi.get(self, "metadata_name")
+
+    @metadata_name.setter
+    def metadata_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metadata_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicKey")
@@ -170,8 +171,6 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HybridIdentityMetadatumArgs.__new__(HybridIdentityMetadatumArgs)
 
-            if metadata_name is None and not opts.urn:
-                raise TypeError("Missing required property 'metadata_name'")
             __props__.__dict__["metadata_name"] = metadata_name
             __props__.__dict__["public_key"] = public_key
             if resource_group_name is None and not opts.urn:

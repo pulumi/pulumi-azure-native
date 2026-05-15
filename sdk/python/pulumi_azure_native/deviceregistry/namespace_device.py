@@ -22,10 +22,10 @@ __all__ = ['NamespaceDeviceArgs', 'NamespaceDevice']
 @pulumi.input_type
 class NamespaceDeviceArgs:
     def __init__(__self__, *,
-                 device_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  attributes: Optional[Any] = None,
+                 device_name: pulumi.Input[Optional[_builtins.str]] = None,
                  discovered_device_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  endpoints: pulumi.Input[Optional['MessagingEndpointsArgs']] = None,
@@ -40,10 +40,10 @@ class NamespaceDeviceArgs:
         """
         The set of arguments for constructing a NamespaceDevice resource.
 
-        :param pulumi.Input[_builtins.str] device_name: The name of the device.
         :param pulumi.Input[_builtins.str] namespace_name: The name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param Any attributes: A set of key-value pairs that contain custom attributes set by the customer.
+        :param pulumi.Input[_builtins.str] device_name: The name of the device.
         :param pulumi.Input[_builtins.str] discovered_device_ref: Reference to a device. Populated only if the device had been created from discovery flow. Discovered device name must be provided.
         :param pulumi.Input[_builtins.bool] enabled: Indicates if the resource is enabled or not.
         :param pulumi.Input['MessagingEndpointsArgs'] endpoints: Property bag containing the device's unassigned and assigned endpoints.
@@ -56,11 +56,12 @@ class NamespaceDeviceArgs:
         :param pulumi.Input[_builtins.str] operating_system_version: Device operating system version.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
+        if device_name is not None:
+            pulumi.set(__self__, "device_name", device_name)
         if discovered_device_ref is not None:
             pulumi.set(__self__, "discovered_device_ref", discovered_device_ref)
         if enabled is None:
@@ -85,18 +86,6 @@ class NamespaceDeviceArgs:
             pulumi.set(__self__, "operating_system_version", operating_system_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceName")
-    def device_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the device.
-        """
-        return pulumi.get(self, "device_name")
-
-    @device_name.setter
-    def device_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -133,6 +122,18 @@ class NamespaceDeviceArgs:
     @attributes.setter
     def attributes(self, value: Optional[Any]):
         pulumi.set(self, "attributes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceName")
+    def device_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the device.
+        """
+        return pulumi.get(self, "device_name")
+
+    @device_name.setter
+    def device_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "device_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveredDeviceRef")
@@ -369,8 +370,6 @@ class NamespaceDevice(pulumi.CustomResource):
             __props__ = NamespaceDeviceArgs.__new__(NamespaceDeviceArgs)
 
             __props__.__dict__["attributes"] = attributes
-            if device_name is None and not opts.urn:
-                raise TypeError("Missing required property 'device_name'")
             __props__.__dict__["device_name"] = device_name
             __props__.__dict__["discovered_device_ref"] = discovered_device_ref
             if enabled is None:

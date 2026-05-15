@@ -130,7 +130,7 @@ def get_client_application_product_link(client_application_id: Optional[_builtin
         product_id=pulumi.get(__ret__, 'product_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_client_application_product_link_output(client_application_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                               client_application_product_link_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               client_application_product_link_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClientApplicationProductLinkResult]:

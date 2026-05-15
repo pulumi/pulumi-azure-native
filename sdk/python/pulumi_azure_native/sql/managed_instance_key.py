@@ -20,38 +20,27 @@ __all__ = ['ManagedInstanceKeyArgs', 'ManagedInstanceKey']
 @pulumi.input_type
 class ManagedInstanceKeyArgs:
     def __init__(__self__, *,
-                 key_name: pulumi.Input[_builtins.str],
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_key_type: pulumi.Input[Union[_builtins.str, 'ServerKeyType']],
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceKey resource.
 
-        :param pulumi.Input[_builtins.str] key_name: The name of the managed instance key to be operated on (updated or created).
         :param pulumi.Input[_builtins.str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Union[_builtins.str, 'ServerKeyType']] server_key_type: The key type like 'ServiceManaged', 'AzureKeyVault'.
+        :param pulumi.Input[_builtins.str] key_name: The name of the managed instance key to be operated on (updated or created).
         :param pulumi.Input[_builtins.str] uri: The URI of the key. If the ServerKeyType is AzureKeyVault, then the URI is required.
         """
-        pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_key_type", server_key_type)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
-
-    @_builtins.property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the managed instance key to be operated on (updated or created).
-        """
-        return pulumi.get(self, "key_name")
-
-    @key_name.setter
-    def key_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceName")
@@ -88,6 +77,18 @@ class ManagedInstanceKeyArgs:
     @server_key_type.setter
     def server_key_type(self, value: pulumi.Input[Union[_builtins.str, 'ServerKeyType']]):
         pulumi.set(self, "server_key_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the managed instance key to be operated on (updated or created).
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -173,8 +174,6 @@ class ManagedInstanceKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedInstanceKeyArgs.__new__(ManagedInstanceKeyArgs)
 
-            if key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'key_name'")
             __props__.__dict__["key_name"] = key_name
             if managed_instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_name'")

@@ -198,7 +198,7 @@ def get_admin_rule_collection(configuration_name: Optional[_builtins.str] = None
 def get_admin_rule_collection_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     rule_collection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAdminRuleCollectionResult]:
     """
     Gets a network manager security admin configuration rule collection.

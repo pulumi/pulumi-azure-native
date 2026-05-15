@@ -22,20 +22,21 @@ __all__ = ['DynamicConfigurationArgs', 'DynamicConfiguration']
 class DynamicConfigurationArgs:
     def __init__(__self__, *,
                  configuration_name: pulumi.Input[_builtins.str],
-                 dynamic_configuration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 dynamic_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DynamicConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DynamicConfiguration resource.
 
         :param pulumi.Input[_builtins.str] configuration_name: Name of the Configuration
-        :param pulumi.Input[_builtins.str] dynamic_configuration_name: Name of the dynamic configuration
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] dynamic_configuration_name: Name of the dynamic configuration
         :param pulumi.Input['DynamicConfigurationPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
         pulumi.set(__self__, "configuration_name", configuration_name)
-        pulumi.set(__self__, "dynamic_configuration_name", dynamic_configuration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dynamic_configuration_name is not None:
+            pulumi.set(__self__, "dynamic_configuration_name", dynamic_configuration_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -52,18 +53,6 @@ class DynamicConfigurationArgs:
         pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="dynamicConfigurationName")
-    def dynamic_configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the dynamic configuration
-        """
-        return pulumi.get(self, "dynamic_configuration_name")
-
-    @dynamic_configuration_name.setter
-    def dynamic_configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dynamic_configuration_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -74,6 +63,18 @@ class DynamicConfigurationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dynamicConfigurationName")
+    def dynamic_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the dynamic configuration
+        """
+        return pulumi.get(self, "dynamic_configuration_name")
+
+    @dynamic_configuration_name.setter
+    def dynamic_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dynamic_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -159,8 +160,6 @@ class DynamicConfiguration(pulumi.CustomResource):
             if configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
-            if dynamic_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dynamic_configuration_name'")
             __props__.__dict__["dynamic_configuration_name"] = dynamic_configuration_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

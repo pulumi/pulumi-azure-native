@@ -368,7 +368,7 @@ def get_deployment_stack_at_subscription(deployment_stack_name: Optional[_builti
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_stack_at_subscription_output(deployment_stack_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_deployment_stack_at_subscription_output(deployment_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStackAtSubscriptionResult]:
     """
     Gets the Deployment stack with the given name.

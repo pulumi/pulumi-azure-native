@@ -21,10 +21,10 @@ __all__ = ['EvidenceArgs', 'Evidence']
 @pulumi.input_type
 class EvidenceArgs:
     def __init__(__self__, *,
-                 evidence_name: pulumi.Input[_builtins.str],
                  file_path: pulumi.Input[_builtins.str],
                  report_name: pulumi.Input[_builtins.str],
                  control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 evidence_name: pulumi.Input[Optional[_builtins.str]] = None,
                  evidence_type: pulumi.Input[Optional[Union[_builtins.str, 'EvidenceType']]] = None,
                  extra_data: pulumi.Input[Optional[_builtins.str]] = None,
                  offer_guid: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,21 +33,22 @@ class EvidenceArgs:
         """
         The set of arguments for constructing a Evidence resource.
 
-        :param pulumi.Input[_builtins.str] evidence_name: The evidence name.
         :param pulumi.Input[_builtins.str] file_path: The path of the file in storage.
         :param pulumi.Input[_builtins.str] report_name: Report Name.
         :param pulumi.Input[_builtins.str] control_id: Control id.
+        :param pulumi.Input[_builtins.str] evidence_name: The evidence name.
         :param pulumi.Input[Union[_builtins.str, 'EvidenceType']] evidence_type: Evidence type.
         :param pulumi.Input[_builtins.str] extra_data: Extra data considered as evidence.
         :param pulumi.Input[_builtins.str] offer_guid: The offerGuid which mapping to the reports.
         :param pulumi.Input[_builtins.str] report_creator_tenant_id: The tenant id of the report creator.
         :param pulumi.Input[_builtins.str] responsibility_id: Responsibility id.
         """
-        pulumi.set(__self__, "evidence_name", evidence_name)
         pulumi.set(__self__, "file_path", file_path)
         pulumi.set(__self__, "report_name", report_name)
         if control_id is not None:
             pulumi.set(__self__, "control_id", control_id)
+        if evidence_name is not None:
+            pulumi.set(__self__, "evidence_name", evidence_name)
         if evidence_type is not None:
             pulumi.set(__self__, "evidence_type", evidence_type)
         if extra_data is not None:
@@ -58,18 +59,6 @@ class EvidenceArgs:
             pulumi.set(__self__, "report_creator_tenant_id", report_creator_tenant_id)
         if responsibility_id is not None:
             pulumi.set(__self__, "responsibility_id", responsibility_id)
-
-    @_builtins.property
-    @pulumi.getter(name="evidenceName")
-    def evidence_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The evidence name.
-        """
-        return pulumi.get(self, "evidence_name")
-
-    @evidence_name.setter
-    def evidence_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "evidence_name", value)
 
     @_builtins.property
     @pulumi.getter(name="filePath")
@@ -106,6 +95,18 @@ class EvidenceArgs:
     @control_id.setter
     def control_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "control_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="evidenceName")
+    def evidence_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The evidence name.
+        """
+        return pulumi.get(self, "evidence_name")
+
+    @evidence_name.setter
+    def evidence_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "evidence_name", value)
 
     @_builtins.property
     @pulumi.getter(name="evidenceType")
@@ -248,8 +249,6 @@ class Evidence(pulumi.CustomResource):
             __props__ = EvidenceArgs.__new__(EvidenceArgs)
 
             __props__.__dict__["control_id"] = control_id
-            if evidence_name is None and not opts.urn:
-                raise TypeError("Missing required property 'evidence_name'")
             __props__.__dict__["evidence_name"] = evidence_name
             __props__.__dict__["evidence_type"] = evidence_type
             __props__.__dict__["extra_data"] = extra_data

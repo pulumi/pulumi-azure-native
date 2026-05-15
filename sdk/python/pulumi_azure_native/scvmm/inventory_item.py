@@ -21,38 +21,27 @@ __all__ = ['InventoryItemArgs', 'InventoryItem']
 @pulumi.input_type
 class InventoryItemArgs:
     def __init__(__self__, *,
-                 inventory_item_name: pulumi.Input[_builtins.str],
                  inventory_type: pulumi.Input[Union[_builtins.str, 'InventoryType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vmm_server_name: pulumi.Input[_builtins.str],
+                 inventory_item_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a InventoryItem resource.
 
-        :param pulumi.Input[_builtins.str] inventory_item_name: Name of the inventoryItem.
         :param pulumi.Input[Union[_builtins.str, 'InventoryType']] inventory_type: They inventory type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] vmm_server_name: Name of the VMMServer.
+        :param pulumi.Input[_builtins.str] inventory_item_name: Name of the inventoryItem.
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         """
-        pulumi.set(__self__, "inventory_item_name", inventory_item_name)
         pulumi.set(__self__, "inventory_type", inventory_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vmm_server_name", vmm_server_name)
+        if inventory_item_name is not None:
+            pulumi.set(__self__, "inventory_item_name", inventory_item_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
-
-    @_builtins.property
-    @pulumi.getter(name="inventoryItemName")
-    def inventory_item_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the inventoryItem.
-        """
-        return pulumi.get(self, "inventory_item_name")
-
-    @inventory_item_name.setter
-    def inventory_item_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "inventory_item_name", value)
 
     @_builtins.property
     @pulumi.getter(name="inventoryType")
@@ -89,6 +78,18 @@ class InventoryItemArgs:
     @vmm_server_name.setter
     def vmm_server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vmm_server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inventoryItemName")
+    def inventory_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the inventoryItem.
+        """
+        return pulumi.get(self, "inventory_item_name")
+
+    @inventory_item_name.setter
+    def inventory_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "inventory_item_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,8 +175,6 @@ class InventoryItem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InventoryItemArgs.__new__(InventoryItemArgs)
 
-            if inventory_item_name is None and not opts.urn:
-                raise TypeError("Missing required property 'inventory_item_name'")
             __props__.__dict__["inventory_item_name"] = inventory_item_name
             if inventory_type is None and not opts.urn:
                 raise TypeError("Missing required property 'inventory_type'")

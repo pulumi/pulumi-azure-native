@@ -21,39 +21,28 @@ __all__ = ['FabricArgs', 'Fabric']
 @pulumi.input_type
 class FabricArgs:
     def __init__(__self__, *,
-                 fabric_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['FabricModelPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Fabric resource.
 
-        :param pulumi.Input[_builtins.str] fabric_name: The fabric name.
         :param pulumi.Input['FabricModelPropertiesArgs'] properties: Fabric model properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] fabric_name: The fabric name.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location of the fabric.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the resource tags.
         """
-        pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if fabric_name is not None:
+            pulumi.set(__self__, "fabric_name", fabric_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="fabricName")
-    def fabric_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The fabric name.
-        """
-        return pulumi.get(self, "fabric_name")
-
-    @fabric_name.setter
-    def fabric_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fabric_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -78,6 +67,18 @@ class FabricArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fabricName")
+    def fabric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The fabric name.
+        """
+        return pulumi.get(self, "fabric_name")
+
+    @fabric_name.setter
+    def fabric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fabric_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -175,8 +176,6 @@ class Fabric(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FabricArgs.__new__(FabricArgs)
 
-            if fabric_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fabric_name'")
             __props__.__dict__["fabric_name"] = fabric_name
             __props__.__dict__["location"] = location
             if properties is None and not opts.urn:

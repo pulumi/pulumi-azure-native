@@ -236,7 +236,7 @@ def get_scheduled_trigger(account_name: Optional[_builtins.str] = None,
 def get_scheduled_trigger_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 trigger_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledTriggerResult]:
     """
     Get a Trigger in a shareSubscription

@@ -23,11 +23,11 @@ __all__ = ['ElasticSanArgs', 'ElasticSan']
 class ElasticSanArgs:
     def __init__(__self__, *,
                  base_size_ti_b: pulumi.Input[_builtins.float],
-                 elastic_san_name: pulumi.Input[_builtins.str],
                  extended_capacity_size_ti_b: pulumi.Input[_builtins.float],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 elastic_san_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -35,22 +35,23 @@ class ElasticSanArgs:
         The set of arguments for constructing a ElasticSan resource.
 
         :param pulumi.Input[_builtins.float] base_size_ti_b: Base size of the Elastic San appliance in TiB.
-        :param pulumi.Input[_builtins.str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[_builtins.float] extended_capacity_size_ti_b: Extended size of the Elastic San appliance in TiB.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: resource sku
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: Logical zone for Elastic San resource; example: ["1"].
+        :param pulumi.Input[_builtins.str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "base_size_ti_b", base_size_ti_b)
-        pulumi.set(__self__, "elastic_san_name", elastic_san_name)
         pulumi.set(__self__, "extended_capacity_size_ti_b", extended_capacity_size_ti_b)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
+        if elastic_san_name is not None:
+            pulumi.set(__self__, "elastic_san_name", elastic_san_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if public_network_access is not None:
@@ -69,18 +70,6 @@ class ElasticSanArgs:
     @base_size_ti_b.setter
     def base_size_ti_b(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "base_size_ti_b", value)
-
-    @_builtins.property
-    @pulumi.getter(name="elasticSanName")
-    def elastic_san_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the ElasticSan.
-        """
-        return pulumi.get(self, "elastic_san_name")
-
-    @elastic_san_name.setter
-    def elastic_san_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "elastic_san_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedCapacitySizeTiB")
@@ -129,6 +118,18 @@ class ElasticSanArgs:
     @availability_zones.setter
     def availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "availability_zones", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elasticSanName")
+    def elastic_san_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the ElasticSan.
+        """
+        return pulumi.get(self, "elastic_san_name")
+
+    @elastic_san_name.setter
+    def elastic_san_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "elastic_san_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -254,8 +255,6 @@ class ElasticSan(pulumi.CustomResource):
             if base_size_ti_b is None and not opts.urn:
                 raise TypeError("Missing required property 'base_size_ti_b'")
             __props__.__dict__["base_size_ti_b"] = base_size_ti_b
-            if elastic_san_name is None and not opts.urn:
-                raise TypeError("Missing required property 'elastic_san_name'")
             __props__.__dict__["elastic_san_name"] = elastic_san_name
             if extended_capacity_size_ti_b is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_capacity_size_ti_b'")

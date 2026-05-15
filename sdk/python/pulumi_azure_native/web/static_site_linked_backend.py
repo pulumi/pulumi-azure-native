@@ -19,23 +19,22 @@ __all__ = ['StaticSiteLinkedBackendArgs', 'StaticSiteLinkedBackend']
 @pulumi.input_type
 class StaticSiteLinkedBackendArgs:
     def __init__(__self__, *,
-                 linked_backend_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  region: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  backend_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 kind: pulumi.Input[Optional[_builtins.str]] = None):
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 linked_backend_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticSiteLinkedBackend resource.
 
-        :param pulumi.Input[_builtins.str] linked_backend_name: Name of the backend to link to the static site
         :param pulumi.Input[_builtins.str] name: Name of the static site
         :param pulumi.Input[_builtins.str] region: The region of the backend linked to the static site
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] backend_resource_id: The resource id of the backend linked to the static site
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
+        :param pulumi.Input[_builtins.str] linked_backend_name: Name of the backend to link to the static site
         """
-        pulumi.set(__self__, "linked_backend_name", linked_backend_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "region", region)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -43,18 +42,8 @@ class StaticSiteLinkedBackendArgs:
             pulumi.set(__self__, "backend_resource_id", backend_resource_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedBackendName")
-    def linked_backend_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the backend to link to the static site
-        """
-        return pulumi.get(self, "linked_backend_name")
-
-    @linked_backend_name.setter
-    def linked_backend_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "linked_backend_name", value)
+        if linked_backend_name is not None:
+            pulumi.set(__self__, "linked_backend_name", linked_backend_name)
 
     @_builtins.property
     @pulumi.getter
@@ -115,6 +104,18 @@ class StaticSiteLinkedBackendArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedBackendName")
+    def linked_backend_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the backend to link to the static site
+        """
+        return pulumi.get(self, "linked_backend_name")
+
+    @linked_backend_name.setter
+    def linked_backend_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "linked_backend_name", value)
 
 
 @pulumi.type_token("azure-native:web:StaticSiteLinkedBackend")
@@ -193,8 +194,6 @@ class StaticSiteLinkedBackend(pulumi.CustomResource):
 
             __props__.__dict__["backend_resource_id"] = backend_resource_id
             __props__.__dict__["kind"] = kind
-            if linked_backend_name is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_backend_name'")
             __props__.__dict__["linked_backend_name"] = linked_backend_name
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")

@@ -21,29 +21,30 @@ __all__ = ['CredentialArgs', 'Credential']
 class CredentialArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
-                 credential_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  password: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_name: pulumi.Input[_builtins.str],
+                 credential_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Credential resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] credential_name: The parameters supplied to the create or update credential operation.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the credential.
         :param pulumi.Input[_builtins.str] password: Gets or sets the password of the credential.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[_builtins.str] user_name: Gets or sets the user name of the credential.
+        :param pulumi.Input[_builtins.str] credential_name: The parameters supplied to the create or update credential operation.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the credential.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "credential_name", credential_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "user_name", user_name)
+        if credential_name is not None:
+            pulumi.set(__self__, "credential_name", credential_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -58,18 +59,6 @@ class CredentialArgs:
     @automation_account_name.setter
     def automation_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "automation_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="credentialName")
-    def credential_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The parameters supplied to the create or update credential operation.
-        """
-        return pulumi.get(self, "credential_name")
-
-    @credential_name.setter
-    def credential_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "credential_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -118,6 +107,18 @@ class CredentialArgs:
     @user_name.setter
     def user_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "user_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="credentialName")
+    def credential_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The parameters supplied to the create or update credential operation.
+        """
+        return pulumi.get(self, "credential_name")
+
+    @credential_name.setter
+    def credential_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "credential_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -212,8 +213,6 @@ class Credential(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
-            if credential_name is None and not opts.urn:
-                raise TypeError("Missing required property 'credential_name'")
             __props__.__dict__["credential_name"] = credential_name
             __props__.__dict__["description"] = description
             if name is None and not opts.urn:

@@ -22,8 +22,8 @@ __all__ = ['WCFRelayArgs', 'WCFRelay']
 class WCFRelayArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
-                 relay_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 relay_name: pulumi.Input[Optional[_builtins.str]] = None,
                  relay_type: pulumi.Input[Optional['Relaytype']] = None,
                  requires_client_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
                  requires_transport_security: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -32,16 +32,17 @@ class WCFRelayArgs:
         The set of arguments for constructing a WCFRelay resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: The namespace name
-        :param pulumi.Input[_builtins.str] relay_name: The relay name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] relay_name: The relay name.
         :param pulumi.Input['Relaytype'] relay_type: WCF relay type.
         :param pulumi.Input[_builtins.bool] requires_client_authorization: Returns true if client authorization is needed for this relay; otherwise, false.
         :param pulumi.Input[_builtins.bool] requires_transport_security: Returns true if transport security is needed for this relay; otherwise, false.
         :param pulumi.Input[_builtins.str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "relay_name", relay_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if relay_name is not None:
+            pulumi.set(__self__, "relay_name", relay_name)
         if relay_type is not None:
             pulumi.set(__self__, "relay_type", relay_type)
         if requires_client_authorization is not None:
@@ -64,18 +65,6 @@ class WCFRelayArgs:
         pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="relayName")
-    def relay_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The relay name.
-        """
-        return pulumi.get(self, "relay_name")
-
-    @relay_name.setter
-    def relay_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "relay_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -86,6 +75,18 @@ class WCFRelayArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relayName")
+    def relay_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The relay name.
+        """
+        return pulumi.get(self, "relay_name")
+
+    @relay_name.setter
+    def relay_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "relay_name", value)
 
     @_builtins.property
     @pulumi.getter(name="relayType")
@@ -216,8 +217,6 @@ class WCFRelay(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
-            if relay_name is None and not opts.urn:
-                raise TypeError("Missing required property 'relay_name'")
             __props__.__dict__["relay_name"] = relay_name
             __props__.__dict__["relay_type"] = relay_type
             __props__.__dict__["requires_client_authorization"] = requires_client_authorization

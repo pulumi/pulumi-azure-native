@@ -22,8 +22,8 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 application_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 application_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  debug_params: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  diagnostics: pulumi.Input[Optional['DiagnosticsDescriptionArgs']] = None,
@@ -33,8 +33,8 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
 
-        :param pulumi.Input[_builtins.str] application_resource_name: The identity of the application.
         :param pulumi.Input[_builtins.str] resource_group_name: Azure resource group name
+        :param pulumi.Input[_builtins.str] application_resource_name: The identity of the application.
         :param pulumi.Input[_builtins.str] debug_params: Internal - used by Visual Studio to setup the debugging session on the local development environment.
         :param pulumi.Input[_builtins.str] description: User readable description of the application.
         :param pulumi.Input['DiagnosticsDescriptionArgs'] diagnostics: Describes the diagnostics definition and usage for an application resource.
@@ -42,8 +42,9 @@ class ApplicationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ServiceResourceDescriptionArgs']]] services: Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "application_resource_name", application_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if application_resource_name is not None:
+            pulumi.set(__self__, "application_resource_name", application_resource_name)
         if debug_params is not None:
             pulumi.set(__self__, "debug_params", debug_params)
         if description is not None:
@@ -58,18 +59,6 @@ class ApplicationArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
-    @pulumi.getter(name="applicationResourceName")
-    def application_resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identity of the application.
-        """
-        return pulumi.get(self, "application_resource_name")
-
-    @application_resource_name.setter
-    def application_resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "application_resource_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -80,6 +69,18 @@ class ApplicationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationResourceName")
+    def application_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identity of the application.
+        """
+        return pulumi.get(self, "application_resource_name")
+
+    @application_resource_name.setter
+    def application_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "application_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="debugParams")
@@ -230,8 +231,6 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-            if application_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_resource_name'")
             __props__.__dict__["application_resource_name"] = application_resource_name
             __props__.__dict__["debug_params"] = debug_params
             __props__.__dict__["description"] = description

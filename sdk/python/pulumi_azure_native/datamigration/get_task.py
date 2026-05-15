@@ -163,7 +163,7 @@ def get_task_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = No
                     group_name: pulumi.Input[Optional[_builtins.str]] = None,
                     project_name: pulumi.Input[Optional[_builtins.str]] = None,
                     service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                    task_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    task_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskResult]:
     """
     The tasks resource is a nested, proxy-only resource representing work performed by a DMS (classic) instance. The GET method retrieves information about a task.

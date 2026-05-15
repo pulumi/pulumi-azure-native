@@ -22,7 +22,6 @@ __all__ = ['NetworkVirtualApplianceArgs', 'NetworkVirtualAppliance']
 @pulumi.input_type
 class NetworkVirtualApplianceArgs:
     def __init__(__self__, *,
-                 network_virtual_appliance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  additional_nics: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualApplianceAdditionalNicPropertiesArgs']]]] = None,
                  boot_strap_configuration_blobs: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -34,6 +33,7 @@ class NetworkVirtualApplianceArgs:
                  internet_ingress_public_ips: pulumi.Input[Optional[Sequence[pulumi.Input['InternetIngressPublicIpsPropertiesArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  network_profile: pulumi.Input[Optional['NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs']] = None,
+                 network_virtual_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  nva_sku: pulumi.Input[Optional['VirtualApplianceSkuPropertiesArgs']] = None,
                  ssh_public_key: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -42,7 +42,6 @@ class NetworkVirtualApplianceArgs:
         """
         The set of arguments for constructing a NetworkVirtualAppliance resource.
 
-        :param pulumi.Input[_builtins.str] network_virtual_appliance_name: The name of Network Virtual Appliance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualApplianceAdditionalNicPropertiesArgs']]] additional_nics: Details required for Additional Network Interface.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] boot_strap_configuration_blobs: BootStrapConfigurationBlobs storage URLs.
@@ -54,13 +53,13 @@ class NetworkVirtualApplianceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InternetIngressPublicIpsPropertiesArgs']]] internet_ingress_public_ips: List of Resource Uri of Public IPs for Internet Ingress Scenario.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs'] network_profile: Network Profile containing configurations for Public and Private NIC.
+        :param pulumi.Input[_builtins.str] network_virtual_appliance_name: The name of Network Virtual Appliance.
         :param pulumi.Input['VirtualApplianceSkuPropertiesArgs'] nva_sku: Network Virtual Appliance SKU.
         :param pulumi.Input[_builtins.str] ssh_public_key: Public key for SSH login.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.float] virtual_appliance_asn: VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The Virtual Hub where Network Virtual Appliance is being deployed.
         """
-        pulumi.set(__self__, "network_virtual_appliance_name", network_virtual_appliance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_nics is not None:
             pulumi.set(__self__, "additional_nics", additional_nics)
@@ -82,6 +81,8 @@ class NetworkVirtualApplianceArgs:
             pulumi.set(__self__, "location", location)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
+        if network_virtual_appliance_name is not None:
+            pulumi.set(__self__, "network_virtual_appliance_name", network_virtual_appliance_name)
         if nva_sku is not None:
             pulumi.set(__self__, "nva_sku", nva_sku)
         if ssh_public_key is not None:
@@ -92,18 +93,6 @@ class NetworkVirtualApplianceArgs:
             pulumi.set(__self__, "virtual_appliance_asn", virtual_appliance_asn)
         if virtual_hub is not None:
             pulumi.set(__self__, "virtual_hub", virtual_hub)
-
-    @_builtins.property
-    @pulumi.getter(name="networkVirtualApplianceName")
-    def network_virtual_appliance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of Network Virtual Appliance.
-        """
-        return pulumi.get(self, "network_virtual_appliance_name")
-
-    @network_virtual_appliance_name.setter
-    def network_virtual_appliance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_virtual_appliance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -236,6 +225,18 @@ class NetworkVirtualApplianceArgs:
     @network_profile.setter
     def network_profile(self, value: pulumi.Input[Optional['NetworkVirtualAppliancePropertiesFormatNetworkProfileArgs']]):
         pulumi.set(self, "network_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkVirtualApplianceName")
+    def network_virtual_appliance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of Network Virtual Appliance.
+        """
+        return pulumi.get(self, "network_virtual_appliance_name")
+
+    @network_virtual_appliance_name.setter
+    def network_virtual_appliance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_virtual_appliance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="nvaSku")
@@ -415,8 +416,6 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
             __props__.__dict__["internet_ingress_public_ips"] = internet_ingress_public_ips
             __props__.__dict__["location"] = location
             __props__.__dict__["network_profile"] = network_profile
-            if network_virtual_appliance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_virtual_appliance_name'")
             __props__.__dict__["network_virtual_appliance_name"] = network_virtual_appliance_name
             __props__.__dict__["nva_sku"] = nva_sku
             if resource_group_name is None and not opts.urn:

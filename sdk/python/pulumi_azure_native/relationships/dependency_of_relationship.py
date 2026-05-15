@@ -21,32 +21,21 @@ __all__ = ['DependencyOfRelationshipArgs', 'DependencyOfRelationship']
 @pulumi.input_type
 class DependencyOfRelationshipArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DependencyOfRelationshipPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DependencyOfRelationship resource.
 
-        :param pulumi.Input[_builtins.str] name: Name of dependencyOf relationship.
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+        :param pulumi.Input[_builtins.str] name: Name of dependencyOf relationship.
         :param pulumi.Input['DependencyOfRelationshipPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_uri", resource_uri)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of dependencyOf relationship.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUri")
@@ -59,6 +48,18 @@ class DependencyOfRelationshipArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_uri", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of dependencyOf relationship.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -134,8 +135,6 @@ class DependencyOfRelationship(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DependencyOfRelationshipArgs.__new__(DependencyOfRelationshipArgs)
 
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
             if resource_uri is None and not opts.urn:

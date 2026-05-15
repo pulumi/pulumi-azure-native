@@ -24,31 +24,32 @@ class FirewallPolicyRuleCollectionGroupArgs:
     def __init__(__self__, *,
                  firewall_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_collection_group_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgs']]]]] = None):
         """
         The set of arguments for constructing a FirewallPolicyRuleCollectionGroup resource.
 
         :param pulumi.Input[_builtins.str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] rule_collection_group_name: The name of the FirewallPolicyRuleCollectionGroup.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[_builtins.int] priority: Priority of the Firewall Policy Rule Collection Group resource.
+        :param pulumi.Input[_builtins.str] rule_collection_group_name: The name of the FirewallPolicyRuleCollectionGroup.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleCollectionArgs', 'FirewallPolicyNatRuleCollectionArgs']]]] rule_collections: Group of Firewall Policy rule collections.
         """
         pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_collection_group_name", rule_collection_group_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if rule_collection_group_name is not None:
+            pulumi.set(__self__, "rule_collection_group_name", rule_collection_group_name)
         if rule_collections is not None:
             pulumi.set(__self__, "rule_collections", rule_collections)
 
@@ -75,18 +76,6 @@ class FirewallPolicyRuleCollectionGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleCollectionGroupName")
-    def rule_collection_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the FirewallPolicyRuleCollectionGroup.
-        """
-        return pulumi.get(self, "rule_collection_group_name")
-
-    @rule_collection_group_name.setter
-    def rule_collection_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rule_collection_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -123,6 +112,18 @@ class FirewallPolicyRuleCollectionGroupArgs:
     @priority.setter
     def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleCollectionGroupName")
+    def rule_collection_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the FirewallPolicyRuleCollectionGroup.
+        """
+        return pulumi.get(self, "rule_collection_group_name")
+
+    @rule_collection_group_name.setter
+    def rule_collection_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_collection_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleCollections")
@@ -223,8 +224,6 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if rule_collection_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_collection_group_name'")
             __props__.__dict__["rule_collection_group_name"] = rule_collection_group_name
             __props__.__dict__["rule_collections"] = rule_collections
             __props__.__dict__["azure_api_version"] = None

@@ -215,7 +215,7 @@ def get_controller_details(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_controller_details_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControllerDetailsResult]:
     """
     Gets details about the specified dnc controller.

@@ -22,7 +22,6 @@ __all__ = ['ArcSettingArgs', 'ArcSetting']
 @pulumi.input_type
 class ArcSettingArgs:
     def __init__(__self__, *,
-                 arc_setting_name: pulumi.Input[_builtins.str],
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  arc_application_client_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -30,11 +29,11 @@ class ArcSettingArgs:
                  arc_application_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  arc_instance_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  arc_service_principal_object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 arc_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                  connectivity_properties: pulumi.Input[Optional[Sequence[pulumi.Input['ArcConnectivityPropertiesArgs']]]] = None):
         """
         The set of arguments for constructing a ArcSetting resource.
 
-        :param pulumi.Input[_builtins.str] arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] arc_application_client_id: App id of arc AAD identity.
@@ -42,9 +41,9 @@ class ArcSettingArgs:
         :param pulumi.Input[_builtins.str] arc_application_tenant_id: Tenant id of arc AAD identity.
         :param pulumi.Input[_builtins.str] arc_instance_resource_group: The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
         :param pulumi.Input[_builtins.str] arc_service_principal_object_id: Object id of arc AAD service principal.
+        :param pulumi.Input[_builtins.str] arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
         :param pulumi.Input[Sequence[pulumi.Input['ArcConnectivityPropertiesArgs']]] connectivity_properties: contains connectivity related configuration for ARC resources
         """
-        pulumi.set(__self__, "arc_setting_name", arc_setting_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if arc_application_client_id is not None:
@@ -57,20 +56,10 @@ class ArcSettingArgs:
             pulumi.set(__self__, "arc_instance_resource_group", arc_instance_resource_group)
         if arc_service_principal_object_id is not None:
             pulumi.set(__self__, "arc_service_principal_object_id", arc_service_principal_object_id)
+        if arc_setting_name is not None:
+            pulumi.set(__self__, "arc_setting_name", arc_setting_name)
         if connectivity_properties is not None:
             pulumi.set(__self__, "connectivity_properties", connectivity_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="arcSettingName")
-    def arc_setting_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the proxy resource holding details of HCI ArcSetting information.
-        """
-        return pulumi.get(self, "arc_setting_name")
-
-    @arc_setting_name.setter
-    def arc_setting_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "arc_setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -155,6 +144,18 @@ class ArcSettingArgs:
     @arc_service_principal_object_id.setter
     def arc_service_principal_object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "arc_service_principal_object_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="arcSettingName")
+    def arc_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the proxy resource holding details of HCI ArcSetting information.
+        """
+        return pulumi.get(self, "arc_setting_name")
+
+    @arc_setting_name.setter
+    def arc_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "arc_setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="connectivityProperties")
@@ -257,8 +258,6 @@ class ArcSetting(pulumi.CustomResource):
             __props__.__dict__["arc_application_tenant_id"] = arc_application_tenant_id
             __props__.__dict__["arc_instance_resource_group"] = arc_instance_resource_group
             __props__.__dict__["arc_service_principal_object_id"] = arc_service_principal_object_id
-            if arc_setting_name is None and not opts.urn:
-                raise TypeError("Missing required property 'arc_setting_name'")
             __props__.__dict__["arc_setting_name"] = arc_setting_name
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")

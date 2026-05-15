@@ -24,27 +24,28 @@ class VolumeArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  size_mi_b: pulumi.Input[_builtins.float],
-                 volume_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 volume_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Volume resource.
 
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.float] size_mi_b: The size of the allocation for this volume in Mebibytes.
-        :param pulumi.Input[_builtins.str] volume_name: The name of the volume.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] volume_name: The name of the volume.
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "size_mi_b", size_mi_b)
-        pulumi.set(__self__, "volume_name", volume_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if volume_name is not None:
+            pulumi.set(__self__, "volume_name", volume_name)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -83,18 +84,6 @@ class VolumeArgs:
         pulumi.set(self, "size_mi_b", value)
 
     @_builtins.property
-    @pulumi.getter(name="volumeName")
-    def volume_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the volume.
-        """
-        return pulumi.get(self, "volume_name")
-
-    @volume_name.setter
-    def volume_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "volume_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -117,6 +106,18 @@ class VolumeArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the volume.
+        """
+        return pulumi.get(self, "volume_name")
+
+    @volume_name.setter
+    def volume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "volume_name", value)
 
 
 @pulumi.type_token("azure-native:networkcloud:Volume")
@@ -200,8 +201,6 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'size_mi_b'")
             __props__.__dict__["size_mi_b"] = size_mi_b
             __props__.__dict__["tags"] = tags
-            if volume_name is None and not opts.urn:
-                raise TypeError("Missing required property 'volume_name'")
             __props__.__dict__["volume_name"] = volume_name
             __props__.__dict__["attached_to"] = None
             __props__.__dict__["azure_api_version"] = None

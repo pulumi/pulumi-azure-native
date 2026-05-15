@@ -360,7 +360,7 @@ def get_kpi(hub_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         unit=pulumi.get(__ret__, 'unit'))
 def get_kpi_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
-                   kpi_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   kpi_name: pulumi.Input[Optional[_builtins.str]] = None,
                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKpiResult]:
     """

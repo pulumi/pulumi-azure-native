@@ -121,7 +121,7 @@ def get_support_plan_type(plan_type_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_support_plan_type_output(plan_type_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_support_plan_type_output(plan_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSupportPlanTypeResult]:
     """

@@ -23,9 +23,9 @@ __all__ = ['DatastoreArgs', 'Datastore']
 class DatastoreArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 datastore_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_pool_volume: pulumi.Input[Optional['DiskPoolVolumeArgs']] = None,
                  elastic_san_volume: pulumi.Input[Optional['ElasticSanVolumeArgs']] = None,
                  net_app_volume: pulumi.Input[Optional['NetAppVolumeArgs']] = None):
@@ -33,17 +33,18 @@ class DatastoreArgs:
         The set of arguments for constructing a Datastore resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: Name of the cluster
-        :param pulumi.Input[_builtins.str] datastore_name: Name of the datastore
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] datastore_name: Name of the datastore
         :param pulumi.Input['DiskPoolVolumeArgs'] disk_pool_volume: An iSCSI volume
         :param pulumi.Input['ElasticSanVolumeArgs'] elastic_san_volume: An Elastic SAN volume
         :param pulumi.Input['NetAppVolumeArgs'] net_app_volume: An Azure NetApp Files volume
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "datastore_name", datastore_name)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if datastore_name is not None:
+            pulumi.set(__self__, "datastore_name", datastore_name)
         if disk_pool_volume is not None:
             pulumi.set(__self__, "disk_pool_volume", disk_pool_volume)
         if elastic_san_volume is not None:
@@ -62,18 +63,6 @@ class DatastoreArgs:
     @cluster_name.setter
     def cluster_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="datastoreName")
-    def datastore_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the datastore
-        """
-        return pulumi.get(self, "datastore_name")
-
-    @datastore_name.setter
-    def datastore_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "datastore_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -98,6 +87,18 @@ class DatastoreArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datastoreName")
+    def datastore_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the datastore
+        """
+        return pulumi.get(self, "datastore_name")
+
+    @datastore_name.setter
+    def datastore_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "datastore_name", value)
 
     @_builtins.property
     @pulumi.getter(name="diskPoolVolume")
@@ -216,8 +217,6 @@ class Datastore(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if datastore_name is None and not opts.urn:
-                raise TypeError("Missing required property 'datastore_name'")
             __props__.__dict__["datastore_name"] = datastore_name
             __props__.__dict__["disk_pool_volume"] = disk_pool_volume
             __props__.__dict__["elastic_san_volume"] = elastic_san_volume

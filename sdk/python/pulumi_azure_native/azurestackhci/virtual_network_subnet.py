@@ -23,26 +23,27 @@ __all__ = ['VirtualNetworkSubnetArgs', 'VirtualNetworkSubnet']
 class VirtualNetworkSubnetArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 subnet_name: pulumi.Input[_builtins.str],
                  virtual_network_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
-                 properties: pulumi.Input[Optional['VirtualNetworkSubnetPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['VirtualNetworkSubnetPropertiesArgs']] = None,
+                 subnet_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkSubnet resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] subnet_name: Name of the virtual network subnet
         :param pulumi.Input[_builtins.str] virtual_network_name: Name of the virtual network
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input['VirtualNetworkSubnetPropertiesArgs'] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[_builtins.str] subnet_name: Name of the virtual network subnet
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subnet_name", subnet_name)
         pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if subnet_name is not None:
+            pulumi.set(__self__, "subnet_name", subnet_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -55,18 +56,6 @@ class VirtualNetworkSubnetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="subnetName")
-    def subnet_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the virtual network subnet
-        """
-        return pulumi.get(self, "subnet_name")
-
-    @subnet_name.setter
-    def subnet_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "subnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkName")
@@ -103,6 +92,18 @@ class VirtualNetworkSubnetArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['VirtualNetworkSubnetPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetName")
+    def subnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the virtual network subnet
+        """
+        return pulumi.get(self, "subnet_name")
+
+    @subnet_name.setter
+    def subnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "subnet_name", value)
 
 
 @pulumi.type_token("azure-native:azurestackhci:VirtualNetworkSubnet")
@@ -181,8 +182,6 @@ class VirtualNetworkSubnet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if subnet_name is None and not opts.urn:
-                raise TypeError("Missing required property 'subnet_name'")
             __props__.__dict__["subnet_name"] = subnet_name
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")

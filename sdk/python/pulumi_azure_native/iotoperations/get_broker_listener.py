@@ -158,7 +158,7 @@ def get_broker_listener(broker_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_broker_listener_output(broker_name: pulumi.Input[Optional[_builtins.str]] = None,
                                instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               listener_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               listener_name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBrokerListenerResult]:
     """

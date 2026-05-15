@@ -23,12 +23,12 @@ __all__ = ['IntegrationAccountMapArgs', 'IntegrationAccountMap']
 class IntegrationAccountMapArgs:
     def __init__(__self__, *,
                  integration_account_name: pulumi.Input[_builtins.str],
-                 map_name: pulumi.Input[_builtins.str],
                  map_type: pulumi.Input[Union[_builtins.str, 'MapType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  content: pulumi.Input[Optional[_builtins.str]] = None,
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 map_name: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
                  parameters_schema: pulumi.Input[Optional['IntegrationAccountMapPropertiesParametersSchemaArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -36,18 +36,17 @@ class IntegrationAccountMapArgs:
         The set of arguments for constructing a IntegrationAccountMap resource.
 
         :param pulumi.Input[_builtins.str] integration_account_name: The integration account name.
-        :param pulumi.Input[_builtins.str] map_name: The integration account map name.
         :param pulumi.Input[Union[_builtins.str, 'MapType']] map_type: The map type.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] content: The content.
         :param pulumi.Input[_builtins.str] content_type: The content type.
         :param pulumi.Input[_builtins.str] location: The resource location.
+        :param pulumi.Input[_builtins.str] map_name: The integration account map name.
         :param Any metadata: The metadata.
         :param pulumi.Input['IntegrationAccountMapPropertiesParametersSchemaArgs'] parameters_schema: The parameters schema of integration account map.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "integration_account_name", integration_account_name)
-        pulumi.set(__self__, "map_name", map_name)
         pulumi.set(__self__, "map_type", map_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if content is not None:
@@ -56,6 +55,8 @@ class IntegrationAccountMapArgs:
             pulumi.set(__self__, "content_type", content_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if map_name is not None:
+            pulumi.set(__self__, "map_name", map_name)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if parameters_schema is not None:
@@ -74,18 +75,6 @@ class IntegrationAccountMapArgs:
     @integration_account_name.setter
     def integration_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "integration_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mapName")
-    def map_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The integration account map name.
-        """
-        return pulumi.get(self, "map_name")
-
-    @map_name.setter
-    def map_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "map_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mapType")
@@ -146,6 +135,18 @@ class IntegrationAccountMapArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mapName")
+    def map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The integration account map name.
+        """
+        return pulumi.get(self, "map_name")
+
+    @map_name.setter
+    def map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "map_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -276,8 +277,6 @@ class IntegrationAccountMap(pulumi.CustomResource):
                 raise TypeError("Missing required property 'integration_account_name'")
             __props__.__dict__["integration_account_name"] = integration_account_name
             __props__.__dict__["location"] = location
-            if map_name is None and not opts.urn:
-                raise TypeError("Missing required property 'map_name'")
             __props__.__dict__["map_name"] = map_name
             if map_type is None and not opts.urn:
                 raise TypeError("Missing required property 'map_type'")

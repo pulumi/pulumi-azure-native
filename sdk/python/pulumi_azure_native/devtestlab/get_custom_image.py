@@ -312,7 +312,7 @@ def get_custom_image(expand: Optional[_builtins.str] = None,
         vm=pulumi.get(__ret__, 'vm'))
 def get_custom_image_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                             lab_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            name: pulumi.Input[Optional[_builtins.str]] = None,
                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomImageResult]:
     """

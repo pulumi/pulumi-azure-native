@@ -21,34 +21,23 @@ __all__ = ['DraArgs', 'Dra']
 @pulumi.input_type
 class DraArgs:
     def __init__(__self__, *,
-                 fabric_agent_name: pulumi.Input[_builtins.str],
                  fabric_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['DraModelPropertiesArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 fabric_agent_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Dra resource.
 
-        :param pulumi.Input[_builtins.str] fabric_agent_name: The fabric agent (Dra) name.
         :param pulumi.Input[_builtins.str] fabric_name: The fabric name.
         :param pulumi.Input['DraModelPropertiesArgs'] properties: Dra model properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] fabric_agent_name: The fabric agent (Dra) name.
         """
-        pulumi.set(__self__, "fabric_agent_name", fabric_agent_name)
         pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @_builtins.property
-    @pulumi.getter(name="fabricAgentName")
-    def fabric_agent_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The fabric agent (Dra) name.
-        """
-        return pulumi.get(self, "fabric_agent_name")
-
-    @fabric_agent_name.setter
-    def fabric_agent_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fabric_agent_name", value)
+        if fabric_agent_name is not None:
+            pulumi.set(__self__, "fabric_agent_name", fabric_agent_name)
 
     @_builtins.property
     @pulumi.getter(name="fabricName")
@@ -85,6 +74,18 @@ class DraArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fabricAgentName")
+    def fabric_agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The fabric agent (Dra) name.
+        """
+        return pulumi.get(self, "fabric_agent_name")
+
+    @fabric_agent_name.setter
+    def fabric_agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fabric_agent_name", value)
 
 
 @pulumi.type_token("azure-native:datareplication:Dra")
@@ -151,8 +152,6 @@ class Dra(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DraArgs.__new__(DraArgs)
 
-            if fabric_agent_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fabric_agent_name'")
             __props__.__dict__["fabric_agent_name"] = fabric_agent_name
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")

@@ -24,9 +24,9 @@ class CIAMTenantArgs:
     def __init__(__self__, *,
                  create_tenant_properties: pulumi.Input['CreateCIAMTenantPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['CIAMResourceSKUArgs'],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -34,18 +34,19 @@ class CIAMTenantArgs:
 
         :param pulumi.Input['CreateCIAMTenantPropertiesArgs'] create_tenant_properties: These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_name: The initial sub domain of the tenant.
         :param pulumi.Input['CIAMResourceSKUArgs'] sku: SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
         :param pulumi.Input[_builtins.str] location: The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/ciam-data-location) for more information.
+        :param pulumi.Input[_builtins.str] resource_name: The initial sub domain of the tenant.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource Tags
         :param pulumi.Input[_builtins.str] tenant_id: An identifier of the Azure AD for customers tenant.
         """
         pulumi.set(__self__, "create_tenant_properties", create_tenant_properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "sku", sku)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tenant_id is not None:
@@ -76,18 +77,6 @@ class CIAMTenantArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The initial sub domain of the tenant.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def sku(self) -> pulumi.Input['CIAMResourceSKUArgs']:
         """
@@ -110,6 +99,18 @@ class CIAMTenantArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The initial sub domain of the tenant.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -216,8 +217,6 @@ class CIAMTenant(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")

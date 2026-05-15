@@ -21,24 +21,25 @@ __all__ = ['NetworkPacketBrokerArgs', 'NetworkPacketBroker']
 class NetworkPacketBrokerArgs:
     def __init__(__self__, *,
                  network_fabric_id: pulumi.Input[_builtins.str],
-                 network_packet_broker_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_packet_broker_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkPacketBroker resource.
 
         :param pulumi.Input[_builtins.str] network_fabric_id: ARM resource ID of the Network Fabric.
-        :param pulumi.Input[_builtins.str] network_packet_broker_name: Name of the Network Packet Broker.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] network_packet_broker_name: Name of the Network Packet Broker.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        pulumi.set(__self__, "network_packet_broker_name", network_packet_broker_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_packet_broker_name is not None:
+            pulumi.set(__self__, "network_packet_broker_name", network_packet_broker_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -53,18 +54,6 @@ class NetworkPacketBrokerArgs:
     @network_fabric_id.setter
     def network_fabric_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_fabric_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkPacketBrokerName")
-    def network_packet_broker_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Network Packet Broker.
-        """
-        return pulumi.get(self, "network_packet_broker_name")
-
-    @network_packet_broker_name.setter
-    def network_packet_broker_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_packet_broker_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -89,6 +78,18 @@ class NetworkPacketBrokerArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkPacketBrokerName")
+    def network_packet_broker_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Network Packet Broker.
+        """
+        return pulumi.get(self, "network_packet_broker_name")
+
+    @network_packet_broker_name.setter
+    def network_packet_broker_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_packet_broker_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,8 +179,6 @@ class NetworkPacketBroker(pulumi.CustomResource):
             if network_fabric_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_fabric_id'")
             __props__.__dict__["network_fabric_id"] = network_fabric_id
-            if network_packet_broker_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_packet_broker_name'")
             __props__.__dict__["network_packet_broker_name"] = network_packet_broker_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

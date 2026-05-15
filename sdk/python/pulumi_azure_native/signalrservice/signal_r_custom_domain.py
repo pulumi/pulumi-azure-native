@@ -23,23 +23,24 @@ class SignalRCustomDomainArgs:
     def __init__(__self__, *,
                  custom_certificate: pulumi.Input['ResourceReferenceArgs'],
                  domain_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str]):
+                 resource_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SignalRCustomDomain resource.
 
         :param pulumi.Input['ResourceReferenceArgs'] custom_certificate: Reference to a resource.
         :param pulumi.Input[_builtins.str] domain_name: The custom domain name.
-        :param pulumi.Input[_builtins.str] name: Custom domain name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the resource.
+        :param pulumi.Input[_builtins.str] name: Custom domain name.
         """
         pulumi.set(__self__, "custom_certificate", custom_certificate)
         pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="customCertificate")
@@ -66,18 +67,6 @@ class SignalRCustomDomainArgs:
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Custom domain name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -100,6 +89,18 @@ class SignalRCustomDomainArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Custom domain name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:signalrservice:SignalRCustomDomain")
@@ -179,8 +180,6 @@ class SignalRCustomDomain(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

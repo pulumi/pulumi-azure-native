@@ -19,7 +19,6 @@ __all__ = ['ExportConfigurationArgs', 'ExportConfiguration']
 @pulumi.input_type
 class ExportConfigurationArgs:
     def __init__(__self__, *,
-                 export_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  destination_account_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -27,6 +26,7 @@ class ExportConfigurationArgs:
                  destination_storage_location_id: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_storage_subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_id: pulumi.Input[Optional[_builtins.str]] = None,
                  is_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_queue_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  notification_queue_uri: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,7 +34,6 @@ class ExportConfigurationArgs:
         """
         The set of arguments for constructing a ExportConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] export_id: The Continuous Export configuration ID. This is unique within a Application Insights component.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.str] destination_account_id: The name of destination storage account.
@@ -42,12 +41,12 @@ class ExportConfigurationArgs:
         :param pulumi.Input[_builtins.str] destination_storage_location_id: The location ID of the destination storage container.
         :param pulumi.Input[_builtins.str] destination_storage_subscription_id: The subscription ID of the destination storage container.
         :param pulumi.Input[_builtins.str] destination_type: The Continuous Export destination type. This has to be 'Blob'.
+        :param pulumi.Input[_builtins.str] export_id: The Continuous Export configuration ID. This is unique within a Application Insights component.
         :param pulumi.Input[_builtins.str] is_enabled: Set to 'true' to create a Continuous Export configuration as enabled, otherwise set it to 'false'.
         :param pulumi.Input[_builtins.str] notification_queue_enabled: Deprecated
         :param pulumi.Input[_builtins.str] notification_queue_uri: Deprecated
         :param pulumi.Input[_builtins.str] record_types: The document types to be exported, as comma separated values. Allowed values include 'Requests', 'Event', 'Exceptions', 'Metrics', 'PageViews', 'PageViewPerformance', 'Rdd', 'PerformanceCounters', 'Availability', 'Messages'.
         """
-        pulumi.set(__self__, "export_id", export_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if destination_account_id is not None:
@@ -60,6 +59,8 @@ class ExportConfigurationArgs:
             pulumi.set(__self__, "destination_storage_subscription_id", destination_storage_subscription_id)
         if destination_type is not None:
             pulumi.set(__self__, "destination_type", destination_type)
+        if export_id is not None:
+            pulumi.set(__self__, "export_id", export_id)
         if is_enabled is not None:
             pulumi.set(__self__, "is_enabled", is_enabled)
         if notification_queue_enabled is not None:
@@ -68,18 +69,6 @@ class ExportConfigurationArgs:
             pulumi.set(__self__, "notification_queue_uri", notification_queue_uri)
         if record_types is not None:
             pulumi.set(__self__, "record_types", record_types)
-
-    @_builtins.property
-    @pulumi.getter(name="exportId")
-    def export_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Continuous Export configuration ID. This is unique within a Application Insights component.
-        """
-        return pulumi.get(self, "export_id")
-
-    @export_id.setter
-    def export_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "export_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -164,6 +153,18 @@ class ExportConfigurationArgs:
     @destination_type.setter
     def destination_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exportId")
+    def export_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Continuous Export configuration ID. This is unique within a Application Insights component.
+        """
+        return pulumi.get(self, "export_id")
+
+    @export_id.setter
+    def export_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "export_id", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnabled")
@@ -307,8 +308,6 @@ class ExportConfiguration(pulumi.CustomResource):
             __props__.__dict__["destination_storage_location_id"] = destination_storage_location_id
             __props__.__dict__["destination_storage_subscription_id"] = destination_storage_subscription_id
             __props__.__dict__["destination_type"] = destination_type
-            if export_id is None and not opts.urn:
-                raise TypeError("Missing required property 'export_id'")
             __props__.__dict__["export_id"] = export_id
             __props__.__dict__["is_enabled"] = is_enabled
             __props__.__dict__["notification_queue_enabled"] = notification_queue_enabled

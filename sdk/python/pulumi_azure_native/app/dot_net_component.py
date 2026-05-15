@@ -23,28 +23,29 @@ __all__ = ['DotNetComponentArgs', 'DotNetComponent']
 class DotNetComponentArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  component_type: pulumi.Input[Optional[Union[_builtins.str, 'DotNetComponentType']]] = None,
                  configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DotNetComponentConfigurationPropertyArgs']]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_binds: pulumi.Input[Optional[Sequence[pulumi.Input['DotNetComponentServiceBindArgs']]]] = None):
         """
         The set of arguments for constructing a DotNetComponent resource.
 
         :param pulumi.Input[_builtins.str] environment_name: Name of the Managed Environment.
-        :param pulumi.Input[_builtins.str] name: Name of the .NET Component.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'DotNetComponentType']] component_type: Type of the .NET Component.
         :param pulumi.Input[Sequence[pulumi.Input['DotNetComponentConfigurationPropertyArgs']]] configurations: List of .NET Components configuration properties
+        :param pulumi.Input[_builtins.str] name: Name of the .NET Component.
         :param pulumi.Input[Sequence[pulumi.Input['DotNetComponentServiceBindArgs']]] service_binds: List of .NET Components that are bound to the .NET component
         """
         pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if component_type is not None:
             pulumi.set(__self__, "component_type", component_type)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if service_binds is not None:
             pulumi.set(__self__, "service_binds", service_binds)
 
@@ -59,18 +60,6 @@ class DotNetComponentArgs:
     @environment_name.setter
     def environment_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "environment_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the .NET Component.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -107,6 +96,18 @@ class DotNetComponentArgs:
     @configurations.setter
     def configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DotNetComponentConfigurationPropertyArgs']]]]):
         pulumi.set(self, "configurations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the .NET Component.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceBinds")
@@ -200,8 +201,6 @@ class DotNetComponent(pulumi.CustomResource):
             if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

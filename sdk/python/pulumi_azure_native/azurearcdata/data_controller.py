@@ -22,43 +22,32 @@ __all__ = ['DataControllerArgs', 'DataController']
 @pulumi.input_type
 class DataControllerArgs:
     def __init__(__self__, *,
-                 data_controller_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['DataControllerPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 data_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataController resource.
 
-        :param pulumi.Input[_builtins.str] data_controller_name: The name of the data controller
         :param pulumi.Input['DataControllerPropertiesArgs'] properties: The data controller's properties
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group
+        :param pulumi.Input[_builtins.str] data_controller_name: The name of the data controller
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "data_controller_name", data_controller_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if data_controller_name is not None:
+            pulumi.set(__self__, "data_controller_name", data_controller_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="dataControllerName")
-    def data_controller_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the data controller
-        """
-        return pulumi.get(self, "data_controller_name")
-
-    @data_controller_name.setter
-    def data_controller_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_controller_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -83,6 +72,18 @@ class DataControllerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataControllerName")
+    def data_controller_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the data controller
+        """
+        return pulumi.get(self, "data_controller_name")
+
+    @data_controller_name.setter
+    def data_controller_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_controller_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -195,8 +196,6 @@ class DataController(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataControllerArgs.__new__(DataControllerArgs)
 
-            if data_controller_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_controller_name'")
             __props__.__dict__["data_controller_name"] = data_controller_name
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location

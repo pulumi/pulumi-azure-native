@@ -158,7 +158,7 @@ def get_dapr_component_resiliency_policy(component_name: Optional[_builtins.str]
         type=pulumi.get(__ret__, 'type'))
 def get_dapr_component_resiliency_policy_output(component_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaprComponentResiliencyPolicyResult]:
     """

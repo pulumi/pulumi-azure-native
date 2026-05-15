@@ -22,42 +22,31 @@ __all__ = ['SqlServerAvailabilityGroupArgs', 'SqlServerAvailabilityGroup']
 @pulumi.input_type
 class SqlServerAvailabilityGroupArgs:
     def __init__(__self__, *,
-                 availability_group_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sql_server_instance_name: pulumi.Input[_builtins.str],
+                 availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlServerAvailabilityGroup resource.
 
-        :param pulumi.Input[_builtins.str] availability_group_name: Name of SQL Availability Group
         :param pulumi.Input['SqlServerAvailabilityGroupResourcePropertiesArgs'] properties: Properties of Arc Sql Server availability group
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group
         :param pulumi.Input[_builtins.str] sql_server_instance_name: Name of SQL Server Instance
+        :param pulumi.Input[_builtins.str] availability_group_name: Name of SQL Availability Group
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "availability_group_name", availability_group_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sql_server_instance_name", sql_server_instance_name)
+        if availability_group_name is not None:
+            pulumi.set(__self__, "availability_group_name", availability_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="availabilityGroupName")
-    def availability_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of SQL Availability Group
-        """
-        return pulumi.get(self, "availability_group_name")
-
-    @availability_group_name.setter
-    def availability_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "availability_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -94,6 +83,18 @@ class SqlServerAvailabilityGroupArgs:
     @sql_server_instance_name.setter
     def sql_server_instance_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sql_server_instance_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityGroupName")
+    def availability_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of SQL Availability Group
+        """
+        return pulumi.get(self, "availability_group_name")
+
+    @availability_group_name.setter
+    def availability_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "availability_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -194,8 +195,6 @@ class SqlServerAvailabilityGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SqlServerAvailabilityGroupArgs.__new__(SqlServerAvailabilityGroupArgs)
 
-            if availability_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'availability_group_name'")
             __props__.__dict__["availability_group_name"] = availability_group_name
             __props__.__dict__["location"] = location
             if properties is None and not opts.urn:

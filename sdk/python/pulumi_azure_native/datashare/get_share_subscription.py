@@ -322,7 +322,7 @@ def get_share_subscription(account_name: Optional[_builtins.str] = None,
         user_name=pulumi.get(__ret__, 'user_name'))
 def get_share_subscription_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  share_subscription_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  share_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetShareSubscriptionResult]:
     """
     Get a shareSubscription in an account

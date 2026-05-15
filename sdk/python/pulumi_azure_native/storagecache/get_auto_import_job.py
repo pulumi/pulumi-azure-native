@@ -492,7 +492,7 @@ def get_auto_import_job(aml_filesystem_name: Optional[_builtins.str] = None,
         total_errors=pulumi.get(__ret__, 'total_errors'),
         type=pulumi.get(__ret__, 'type'))
 def get_auto_import_job_output(aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               auto_import_job_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               auto_import_job_name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoImportJobResult]:
     """

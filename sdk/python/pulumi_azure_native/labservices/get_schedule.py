@@ -220,7 +220,7 @@ def get_schedule(lab_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_schedule_output(lab_name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        schedule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Returns the properties of a lab Schedule.

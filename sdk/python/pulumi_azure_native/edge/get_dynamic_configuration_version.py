@@ -145,7 +145,7 @@ def get_dynamic_configuration_version(configuration_name: Optional[_builtins.str
         type=pulumi.get(__ret__, 'type'))
 def get_dynamic_configuration_version_output(configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              dynamic_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             dynamic_configuration_version_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             dynamic_configuration_version_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDynamicConfigurationVersionResult]:
     """

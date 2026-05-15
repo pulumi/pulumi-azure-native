@@ -24,27 +24,28 @@ class VolumeGroupArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 volume_group_name: pulumi.Input[_builtins.str],
                  group_meta_data: pulumi.Input[Optional['VolumeGroupMetaDataArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  volumes: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]]] = None):
         """
         The set of arguments for constructing a VolumeGroup resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] volume_group_name: The name of the volumeGroup
         :param pulumi.Input['VolumeGroupMetaDataArgs'] group_meta_data: Volume group details
         :param pulumi.Input[_builtins.str] location: Resource location
+        :param pulumi.Input[_builtins.str] volume_group_name: The name of the volumeGroup
         :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupVolumePropertiesArgs']]] volumes: List of volumes from group
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_group_name", volume_group_name)
         if group_meta_data is not None:
             pulumi.set(__self__, "group_meta_data", group_meta_data)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if volume_group_name is not None:
+            pulumi.set(__self__, "volume_group_name", volume_group_name)
         if volumes is not None:
             pulumi.set(__self__, "volumes", volumes)
 
@@ -73,18 +74,6 @@ class VolumeGroupArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="volumeGroupName")
-    def volume_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the volumeGroup
-        """
-        return pulumi.get(self, "volume_group_name")
-
-    @volume_group_name.setter
-    def volume_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "volume_group_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="groupMetaData")
     def group_meta_data(self) -> pulumi.Input[Optional['VolumeGroupMetaDataArgs']]:
         """
@@ -107,6 +96,18 @@ class VolumeGroupArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeGroupName")
+    def volume_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the volumeGroup
+        """
+        return pulumi.get(self, "volume_group_name")
+
+    @volume_group_name.setter
+    def volume_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "volume_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -203,8 +204,6 @@ class VolumeGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if volume_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'volume_group_name'")
             __props__.__dict__["volume_group_name"] = volume_group_name
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["azure_api_version"] = None

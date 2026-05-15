@@ -22,7 +22,7 @@ class RuleSetArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_set_name: pulumi.Input[_builtins.str]):
+                 rule_set_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RuleSet resource.
 
@@ -32,7 +32,8 @@ class RuleSetArgs:
         """
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_set_name", rule_set_name)
+        if rule_set_name is not None:
+            pulumi.set(__self__, "rule_set_name", rule_set_name)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -60,14 +61,14 @@ class RuleSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="ruleSetName")
-    def rule_set_name(self) -> pulumi.Input[_builtins.str]:
+    def rule_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the rule set under the profile which is unique globally.
         """
         return pulumi.get(self, "rule_set_name")
 
     @rule_set_name.setter
-    def rule_set_name(self, value: pulumi.Input[_builtins.str]):
+    def rule_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_set_name", value)
 
 
@@ -142,8 +143,6 @@ class RuleSet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if rule_set_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_set_name'")
             __props__.__dict__["rule_set_name"] = rule_set_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["deployment_status"] = None

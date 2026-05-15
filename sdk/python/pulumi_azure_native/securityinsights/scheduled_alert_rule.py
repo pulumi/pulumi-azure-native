@@ -29,7 +29,6 @@ class ScheduledAlertRuleArgs:
                  query_frequency: pulumi.Input[_builtins.str],
                  query_period: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_id: pulumi.Input[_builtins.str],
                  severity: pulumi.Input[Union[_builtins.str, 'AlertSeverity']],
                  suppression_duration: pulumi.Input[_builtins.str],
                  suppression_enabled: pulumi.Input[_builtins.bool],
@@ -43,6 +42,7 @@ class ScheduledAlertRuleArgs:
                  entity_mappings: pulumi.Input[Optional[Sequence[pulumi.Input['EntityMappingArgs']]]] = None,
                  event_grouping_settings: pulumi.Input[Optional['EventGroupingSettingsArgs']] = None,
                  incident_configuration: pulumi.Input[Optional['IncidentConfigurationArgs']] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
                  techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  template_version: pulumi.Input[Optional[_builtins.str]] = None):
@@ -57,7 +57,6 @@ class ScheduledAlertRuleArgs:
         :param pulumi.Input[_builtins.str] query_frequency: The frequency (in ISO 8601 duration format) for this alert rule to run.
         :param pulumi.Input[_builtins.str] query_period: The period (in ISO 8601 duration format) that this alert rule looks at.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] rule_id: Alert rule ID
         :param pulumi.Input[Union[_builtins.str, 'AlertSeverity']] severity: The severity for alerts created by this alert rule.
         :param pulumi.Input[_builtins.str] suppression_duration: The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
         :param pulumi.Input[_builtins.bool] suppression_enabled: Determines whether the suppression for this alert rule is enabled or disabled.
@@ -71,6 +70,7 @@ class ScheduledAlertRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EntityMappingArgs']]] entity_mappings: Array of the entity mappings of the alert rule
         :param pulumi.Input['EventGroupingSettingsArgs'] event_grouping_settings: The event grouping settings.
         :param pulumi.Input['IncidentConfigurationArgs'] incident_configuration: The settings of the incidents that created from alerts triggered by this analytics rule
+        :param pulumi.Input[_builtins.str] rule_id: Alert rule ID
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]] tactics: The tactics of the alert rule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] techniques: The techniques of the alert rule
         :param pulumi.Input[_builtins.str] template_version: The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
@@ -82,7 +82,6 @@ class ScheduledAlertRuleArgs:
         pulumi.set(__self__, "query_frequency", query_frequency)
         pulumi.set(__self__, "query_period", query_period)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_id", rule_id)
         pulumi.set(__self__, "severity", severity)
         pulumi.set(__self__, "suppression_duration", suppression_duration)
         pulumi.set(__self__, "suppression_enabled", suppression_enabled)
@@ -103,6 +102,8 @@ class ScheduledAlertRuleArgs:
             pulumi.set(__self__, "event_grouping_settings", event_grouping_settings)
         if incident_configuration is not None:
             pulumi.set(__self__, "incident_configuration", incident_configuration)
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
         if tactics is not None:
             pulumi.set(__self__, "tactics", tactics)
         if techniques is not None:
@@ -194,18 +195,6 @@ class ScheduledAlertRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleId")
-    def rule_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Alert rule ID
-        """
-        return pulumi.get(self, "rule_id")
-
-    @rule_id.setter
-    def rule_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rule_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -362,6 +351,18 @@ class ScheduledAlertRuleArgs:
     @incident_configuration.setter
     def incident_configuration(self, value: pulumi.Input[Optional['IncidentConfigurationArgs']]):
         pulumi.set(self, "incident_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Alert rule ID
+        """
+        return pulumi.get(self, "rule_id")
+
+    @rule_id.setter
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -553,8 +554,6 @@ class ScheduledAlertRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if rule_id is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_id'")
             __props__.__dict__["rule_id"] = rule_id
             if severity is None and not opts.urn:
                 raise TypeError("Missing required property 'severity'")

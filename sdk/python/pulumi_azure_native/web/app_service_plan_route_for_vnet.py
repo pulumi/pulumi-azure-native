@@ -22,10 +22,10 @@ class AppServicePlanRouteForVnetArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 route_name: pulumi.Input[_builtins.str],
                  vnet_name: pulumi.Input[_builtins.str],
                  end_address: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_name: pulumi.Input[Optional[_builtins.str]] = None,
                  route_type: pulumi.Input[Optional[Union[_builtins.str, 'RouteType']]] = None,
                  start_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -33,10 +33,10 @@ class AppServicePlanRouteForVnetArgs:
 
         :param pulumi.Input[_builtins.str] name: Name of the App Service plan.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] route_name: Name of the Virtual Network route.
         :param pulumi.Input[_builtins.str] vnet_name: Name of the Virtual Network.
         :param pulumi.Input[_builtins.str] end_address: The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
+        :param pulumi.Input[_builtins.str] route_name: Name of the Virtual Network route.
         :param pulumi.Input[Union[_builtins.str, 'RouteType']] route_type: The type of route this is:
                DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
                INHERITED - Routes inherited from the real Virtual Network routes
@@ -47,12 +47,13 @@ class AppServicePlanRouteForVnetArgs:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "route_name", route_name)
         pulumi.set(__self__, "vnet_name", vnet_name)
         if end_address is not None:
             pulumi.set(__self__, "end_address", end_address)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if route_name is not None:
+            pulumi.set(__self__, "route_name", route_name)
         if route_type is not None:
             pulumi.set(__self__, "route_type", route_type)
         if start_address is not None:
@@ -81,18 +82,6 @@ class AppServicePlanRouteForVnetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="routeName")
-    def route_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Virtual Network route.
-        """
-        return pulumi.get(self, "route_name")
-
-    @route_name.setter
-    def route_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "route_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetName")
@@ -129,6 +118,18 @@ class AppServicePlanRouteForVnetArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeName")
+    def route_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Virtual Network route.
+        """
+        return pulumi.get(self, "route_name")
+
+    @route_name.setter
+    def route_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "route_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routeType")
@@ -253,8 +254,6 @@ class AppServicePlanRouteForVnet(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if route_name is None and not opts.urn:
-                raise TypeError("Missing required property 'route_name'")
             __props__.__dict__["route_name"] = route_name
             __props__.__dict__["route_type"] = route_type
             __props__.__dict__["start_address"] = start_address

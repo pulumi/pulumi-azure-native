@@ -23,10 +23,10 @@ __all__ = ['GalleryImageVersionArgs', 'GalleryImageVersion']
 class GalleryImageVersionArgs:
     def __init__(__self__, *,
                  gallery_image_name: pulumi.Input[_builtins.str],
-                 gallery_image_version_name: pulumi.Input[_builtins.str],
                  gallery_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_profile: pulumi.Input['GalleryImageVersionStorageProfileArgs'],
+                 gallery_image_version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  publishing_profile: pulumi.Input[Optional['GalleryImageVersionPublishingProfileArgs']] = None,
                  restore: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -37,10 +37,10 @@ class GalleryImageVersionArgs:
         The set of arguments for constructing a GalleryImageVersion resource.
 
         :param pulumi.Input[_builtins.str] gallery_image_name: The name of the gallery image definition to be retrieved.
-        :param pulumi.Input[_builtins.str] gallery_image_version_name: The name of the gallery image version to be retrieved.
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['GalleryImageVersionStorageProfileArgs'] storage_profile: This is the storage profile of a Gallery Image Version.
+        :param pulumi.Input[_builtins.str] gallery_image_version_name: The name of the gallery image version to be retrieved.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['GalleryImageVersionPublishingProfileArgs'] publishing_profile: The publishing profile of a gallery image Version.
         :param pulumi.Input[_builtins.bool] restore: Indicates if this is a soft-delete resource restoration request.
@@ -49,10 +49,11 @@ class GalleryImageVersionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "gallery_image_name", gallery_image_name)
-        pulumi.set(__self__, "gallery_image_version_name", gallery_image_version_name)
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_profile", storage_profile)
+        if gallery_image_version_name is not None:
+            pulumi.set(__self__, "gallery_image_version_name", gallery_image_version_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if publishing_profile is not None:
@@ -77,18 +78,6 @@ class GalleryImageVersionArgs:
     @gallery_image_name.setter
     def gallery_image_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "gallery_image_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="galleryImageVersionName")
-    def gallery_image_version_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the gallery image version to be retrieved.
-        """
-        return pulumi.get(self, "gallery_image_version_name")
-
-    @gallery_image_version_name.setter
-    def gallery_image_version_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "gallery_image_version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryName")
@@ -125,6 +114,18 @@ class GalleryImageVersionArgs:
     @storage_profile.setter
     def storage_profile(self, value: pulumi.Input['GalleryImageVersionStorageProfileArgs']):
         pulumi.set(self, "storage_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="galleryImageVersionName")
+    def gallery_image_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the gallery image version to be retrieved.
+        """
+        return pulumi.get(self, "gallery_image_version_name")
+
+    @gallery_image_version_name.setter
+    def gallery_image_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gallery_image_version_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -291,8 +292,6 @@ class GalleryImageVersion(pulumi.CustomResource):
             if gallery_image_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_image_name'")
             __props__.__dict__["gallery_image_name"] = gallery_image_name
-            if gallery_image_version_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gallery_image_version_name'")
             __props__.__dict__["gallery_image_version_name"] = gallery_image_version_name
             if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")

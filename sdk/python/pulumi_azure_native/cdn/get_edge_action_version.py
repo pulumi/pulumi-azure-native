@@ -220,7 +220,7 @@ def get_edge_action_version(edge_action_name: Optional[_builtins.str] = None,
         validation_status=pulumi.get(__ret__, 'validation_status'))
 def get_edge_action_version_output(edge_action_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   version: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEdgeActionVersionResult]:
     """
     Get a EdgeActionVersion

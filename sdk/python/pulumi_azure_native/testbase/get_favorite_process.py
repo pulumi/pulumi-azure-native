@@ -143,7 +143,7 @@ def get_favorite_process(favorite_process_resource_name: Optional[_builtins.str]
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_favorite_process_output(favorite_process_resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_favorite_process_output(favorite_process_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,

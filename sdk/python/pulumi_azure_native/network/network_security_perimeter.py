@@ -19,40 +19,29 @@ __all__ = ['NetworkSecurityPerimeterArgs', 'NetworkSecurityPerimeter']
 @pulumi.input_type
 class NetworkSecurityPerimeterArgs:
     def __init__(__self__, *,
-                 network_security_perimeter_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_perimeter_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkSecurityPerimeter resource.
 
-        :param pulumi.Input[_builtins.str] network_security_perimeter_name: The name of the network security perimeter.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
+        :param pulumi.Input[_builtins.str] network_security_perimeter_name: The name of the network security perimeter.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_security_perimeter_name is not None:
+            pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="networkSecurityPerimeterName")
-    def network_security_perimeter_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the network security perimeter.
-        """
-        return pulumi.get(self, "network_security_perimeter_name")
-
-    @network_security_perimeter_name.setter
-    def network_security_perimeter_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_security_perimeter_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -89,6 +78,18 @@ class NetworkSecurityPerimeterArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityPerimeterName")
+    def network_security_perimeter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the network security perimeter.
+        """
+        return pulumi.get(self, "network_security_perimeter_name")
+
+    @network_security_perimeter_name.setter
+    def network_security_perimeter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_security_perimeter_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,8 +177,6 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
 
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
-            if network_security_perimeter_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_security_perimeter_name'")
             __props__.__dict__["network_security_perimeter_name"] = network_security_perimeter_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

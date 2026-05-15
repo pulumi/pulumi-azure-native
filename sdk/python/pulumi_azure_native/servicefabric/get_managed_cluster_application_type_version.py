@@ -185,7 +185,7 @@ def get_managed_cluster_application_type_version(application_type_name: Optional
 def get_managed_cluster_application_type_version_output(application_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        version: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterApplicationTypeVersionResult]:
     """
     Get a Service Fabric managed application type version resource created or in the process of being created in the Service Fabric managed application type name resource.

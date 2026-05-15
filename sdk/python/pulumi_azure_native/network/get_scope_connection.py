@@ -181,7 +181,7 @@ def get_scope_connection(network_manager_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_scope_connection_output(network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                scope_connection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                scope_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeConnectionResult]:
     """
     Get specified scope connection created by this Network Manager.

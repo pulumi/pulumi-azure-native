@@ -167,7 +167,7 @@ def get_gallery_in_vm_access_control_profile(gallery_name: Optional[_builtins.st
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_gallery_in_vm_access_control_profile_output(gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    in_vm_access_control_profile_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                    in_vm_access_control_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryInVMAccessControlProfileResult]:
     """

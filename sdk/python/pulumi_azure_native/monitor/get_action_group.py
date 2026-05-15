@@ -332,7 +332,7 @@ def get_action_group(action_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
         webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
-def get_action_group_output(action_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_action_group_output(action_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetActionGroupResult]:
     """

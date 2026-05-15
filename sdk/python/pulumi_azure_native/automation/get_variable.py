@@ -194,7 +194,7 @@ def get_variable(automation_account_name: Optional[_builtins.str] = None,
         value=pulumi.get(__ret__, 'value'))
 def get_variable_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        variable_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        variable_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableResult]:
     """
     Retrieve the variable identified by variable name.

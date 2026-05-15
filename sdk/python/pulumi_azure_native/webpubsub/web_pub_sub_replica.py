@@ -22,30 +22,29 @@ __all__ = ['WebPubSubReplicaArgs', 'WebPubSubReplica']
 @pulumi.input_type
 class WebPubSubReplicaArgs:
     def __init__(__self__, *,
-                 replica_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  region_endpoint_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_stopped: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['ResourceSkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WebPubSubReplica resource.
 
-        :param pulumi.Input[_builtins.str] replica_name: The name of the replica.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] region_endpoint_enabled: Enable or disable the regional endpoint. Default to "Enabled".
                When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
+        :param pulumi.Input[_builtins.str] replica_name: The name of the replica.
         :param pulumi.Input[_builtins.str] resource_stopped: Stop or start the resource.  Default to "false".
                When it's true, the data plane of the resource is shutdown.
                When it's false, the data plane of the resource is started.
         :param pulumi.Input['ResourceSkuArgs'] sku: The billing information of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "replica_name", replica_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if location is not None:
@@ -54,6 +53,8 @@ class WebPubSubReplicaArgs:
             region_endpoint_enabled = 'Enabled'
         if region_endpoint_enabled is not None:
             pulumi.set(__self__, "region_endpoint_enabled", region_endpoint_enabled)
+        if replica_name is not None:
+            pulumi.set(__self__, "replica_name", replica_name)
         if resource_stopped is None:
             resource_stopped = 'false'
         if resource_stopped is not None:
@@ -62,18 +63,6 @@ class WebPubSubReplicaArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="replicaName")
-    def replica_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the replica.
-        """
-        return pulumi.get(self, "replica_name")
-
-    @replica_name.setter
-    def replica_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "replica_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -123,6 +112,18 @@ class WebPubSubReplicaArgs:
     @region_endpoint_enabled.setter
     def region_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region_endpoint_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicaName")
+    def replica_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the replica.
+        """
+        return pulumi.get(self, "replica_name")
+
+    @replica_name.setter
+    def replica_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "replica_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceStopped")
@@ -250,8 +251,6 @@ class WebPubSubReplica(pulumi.CustomResource):
             if region_endpoint_enabled is None:
                 region_endpoint_enabled = 'Enabled'
             __props__.__dict__["region_endpoint_enabled"] = region_endpoint_enabled
-            if replica_name is None and not opts.urn:
-                raise TypeError("Missing required property 'replica_name'")
             __props__.__dict__["replica_name"] = replica_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

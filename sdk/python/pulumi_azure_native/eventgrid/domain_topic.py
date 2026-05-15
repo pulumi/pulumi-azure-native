@@ -21,18 +21,19 @@ __all__ = ['DomainTopicArgs', 'DomainTopic']
 class DomainTopicArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
-                 domain_topic_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 domain_topic_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainTopic resource.
 
         :param pulumi.Input[_builtins.str] domain_name: Name of the domain.
-        :param pulumi.Input[_builtins.str] domain_topic_name: Name of the domain topic.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
+        :param pulumi.Input[_builtins.str] domain_topic_name: Name of the domain topic.
         """
         pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "domain_topic_name", domain_topic_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if domain_topic_name is not None:
+            pulumi.set(__self__, "domain_topic_name", domain_topic_name)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
@@ -47,18 +48,6 @@ class DomainTopicArgs:
         pulumi.set(self, "domain_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="domainTopicName")
-    def domain_topic_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the domain topic.
-        """
-        return pulumi.get(self, "domain_topic_name")
-
-    @domain_topic_name.setter
-    def domain_topic_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "domain_topic_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -69,6 +58,18 @@ class DomainTopicArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainTopicName")
+    def domain_topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the domain topic.
+        """
+        return pulumi.get(self, "domain_topic_name")
+
+    @domain_topic_name.setter
+    def domain_topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "domain_topic_name", value)
 
 
 @pulumi.type_token("azure-native:eventgrid:DomainTopic")
@@ -139,8 +140,6 @@ class DomainTopic(pulumi.CustomResource):
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
-            if domain_topic_name is None and not opts.urn:
-                raise TypeError("Missing required property 'domain_topic_name'")
             __props__.__dict__["domain_topic_name"] = domain_topic_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

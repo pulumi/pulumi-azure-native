@@ -21,9 +21,9 @@ __all__ = ['ConnectedEnvironmentsDaprComponentArgs', 'ConnectedEnvironmentsDaprC
 @pulumi.input_type
 class ConnectedEnvironmentsDaprComponentArgs:
     def __init__(__self__, *,
-                 component_name: pulumi.Input[_builtins.str],
                  connected_environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 component_name: pulumi.Input[Optional[_builtins.str]] = None,
                  component_type: pulumi.Input[Optional[_builtins.str]] = None,
                  ignore_errors: pulumi.Input[Optional[_builtins.bool]] = None,
                  init_timeout: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,9 +36,9 @@ class ConnectedEnvironmentsDaprComponentArgs:
         """
         The set of arguments for constructing a ConnectedEnvironmentsDaprComponent resource.
 
-        :param pulumi.Input[_builtins.str] component_name: Name of the Dapr Component.
         :param pulumi.Input[_builtins.str] connected_environment_name: Name of the connected environment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] component_name: Name of the Dapr Component.
         :param pulumi.Input[_builtins.str] component_type: Component type
         :param pulumi.Input[_builtins.bool] ignore_errors: Boolean describing if the component errors are ignores
         :param pulumi.Input[_builtins.str] init_timeout: Initialization timeout
@@ -49,9 +49,10 @@ class ConnectedEnvironmentsDaprComponentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DaprComponentServiceBindingArgs']]] service_component_bind: List of container app services that are bound to the Dapr component
         :param pulumi.Input[_builtins.str] version: Component version
         """
-        pulumi.set(__self__, "component_name", component_name)
         pulumi.set(__self__, "connected_environment_name", connected_environment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if component_name is not None:
+            pulumi.set(__self__, "component_name", component_name)
         if component_type is not None:
             pulumi.set(__self__, "component_type", component_type)
         if ignore_errors is None:
@@ -72,18 +73,6 @@ class ConnectedEnvironmentsDaprComponentArgs:
             pulumi.set(__self__, "service_component_bind", service_component_bind)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter(name="componentName")
-    def component_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Dapr Component.
-        """
-        return pulumi.get(self, "component_name")
-
-    @component_name.setter
-    def component_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "component_name", value)
 
     @_builtins.property
     @pulumi.getter(name="connectedEnvironmentName")
@@ -108,6 +97,18 @@ class ConnectedEnvironmentsDaprComponentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="componentName")
+    def component_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Dapr Component.
+        """
+        return pulumi.get(self, "component_name")
+
+    @component_name.setter
+    def component_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "component_name", value)
 
     @_builtins.property
     @pulumi.getter(name="componentType")
@@ -310,8 +311,6 @@ class ConnectedEnvironmentsDaprComponent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectedEnvironmentsDaprComponentArgs.__new__(ConnectedEnvironmentsDaprComponentArgs)
 
-            if component_name is None and not opts.urn:
-                raise TypeError("Missing required property 'component_name'")
             __props__.__dict__["component_name"] = component_name
             __props__.__dict__["component_type"] = component_type
             if connected_environment_name is None and not opts.urn:

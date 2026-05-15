@@ -24,27 +24,28 @@ class ReplicationProtectedItemArgs:
     def __init__(__self__, *,
                  fabric_name: pulumi.Input[_builtins.str],
                  protection_container_name: pulumi.Input[_builtins.str],
-                 replicated_protected_item_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['EnableProtectionInputPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['EnableProtectionInputPropertiesArgs']] = None,
+                 replicated_protected_item_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationProtectedItem resource.
 
         :param pulumi.Input[_builtins.str] fabric_name: Name of the fabric.
         :param pulumi.Input[_builtins.str] protection_container_name: Protection container name.
-        :param pulumi.Input[_builtins.str] replicated_protected_item_name: A name for the replication protected item.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
         :param pulumi.Input['EnableProtectionInputPropertiesArgs'] properties: Enable protection input properties.
+        :param pulumi.Input[_builtins.str] replicated_protected_item_name: A name for the replication protected item.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "protection_container_name", protection_container_name)
-        pulumi.set(__self__, "replicated_protected_item_name", replicated_protected_item_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if replicated_protected_item_name is not None:
+            pulumi.set(__self__, "replicated_protected_item_name", replicated_protected_item_name)
 
     @_builtins.property
     @pulumi.getter(name="fabricName")
@@ -69,18 +70,6 @@ class ReplicationProtectedItemArgs:
     @protection_container_name.setter
     def protection_container_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "protection_container_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="replicatedProtectedItemName")
-    def replicated_protected_item_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        A name for the replication protected item.
-        """
-        return pulumi.get(self, "replicated_protected_item_name")
-
-    @replicated_protected_item_name.setter
-    def replicated_protected_item_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "replicated_protected_item_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -117,6 +106,18 @@ class ReplicationProtectedItemArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['EnableProtectionInputPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="replicatedProtectedItemName")
+    def replicated_protected_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A name for the replication protected item.
+        """
+        return pulumi.get(self, "replicated_protected_item_name")
+
+    @replicated_protected_item_name.setter
+    def replicated_protected_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "replicated_protected_item_name", value)
 
 
 @pulumi.type_token("azure-native:recoveryservices:ReplicationProtectedItem")
@@ -200,8 +201,6 @@ class ReplicationProtectedItem(pulumi.CustomResource):
             if protection_container_name is None and not opts.urn:
                 raise TypeError("Missing required property 'protection_container_name'")
             __props__.__dict__["protection_container_name"] = protection_container_name
-            if replicated_protected_item_name is None and not opts.urn:
-                raise TypeError("Missing required property 'replicated_protected_item_name'")
             __props__.__dict__["replicated_protected_item_name"] = replicated_protected_item_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

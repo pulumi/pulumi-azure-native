@@ -22,13 +22,13 @@ __all__ = ['NetworkConnectionArgs', 'NetworkConnection']
 class NetworkConnectionArgs:
     def __init__(__self__, *,
                  domain_join_type: pulumi.Input[Union[_builtins.str, 'DomainJoinType']],
-                 network_connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_password: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_username: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  networking_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_unit: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -36,19 +36,18 @@ class NetworkConnectionArgs:
         The set of arguments for constructing a NetworkConnection resource.
 
         :param pulumi.Input[Union[_builtins.str, 'DomainJoinType']] domain_join_type: AAD Join type.
-        :param pulumi.Input[_builtins.str] network_connection_name: Name of the Network Connection that can be applied to a Pool.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] subnet_id: The subnet to attach Virtual Machines to
         :param pulumi.Input[_builtins.str] domain_name: Active Directory domain name
         :param pulumi.Input[_builtins.str] domain_password: The password for the account used to join domain
         :param pulumi.Input[_builtins.str] domain_username: The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] network_connection_name: Name of the Network Connection that can be applied to a Pool.
         :param pulumi.Input[_builtins.str] networking_resource_group_name: The name for resource group where NICs will be placed.
         :param pulumi.Input[_builtins.str] organization_unit: Active Directory domain Organization Unit (OU)
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "domain_join_type", domain_join_type)
-        pulumi.set(__self__, "network_connection_name", network_connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "subnet_id", subnet_id)
         if domain_name is not None:
@@ -59,6 +58,8 @@ class NetworkConnectionArgs:
             pulumi.set(__self__, "domain_username", domain_username)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_connection_name is not None:
+            pulumi.set(__self__, "network_connection_name", network_connection_name)
         if networking_resource_group_name is not None:
             pulumi.set(__self__, "networking_resource_group_name", networking_resource_group_name)
         if organization_unit is not None:
@@ -77,18 +78,6 @@ class NetworkConnectionArgs:
     @domain_join_type.setter
     def domain_join_type(self, value: pulumi.Input[Union[_builtins.str, 'DomainJoinType']]):
         pulumi.set(self, "domain_join_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkConnectionName")
-    def network_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Network Connection that can be applied to a Pool.
-        """
-        return pulumi.get(self, "network_connection_name")
-
-    @network_connection_name.setter
-    def network_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -161,6 +150,18 @@ class NetworkConnectionArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkConnectionName")
+    def network_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Network Connection that can be applied to a Pool.
+        """
+        return pulumi.get(self, "network_connection_name")
+
+    @network_connection_name.setter
+    def network_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkingResourceGroupName")
@@ -295,8 +296,6 @@ class NetworkConnection(pulumi.CustomResource):
             __props__.__dict__["domain_password"] = domain_password
             __props__.__dict__["domain_username"] = domain_username
             __props__.__dict__["location"] = location
-            if network_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_connection_name'")
             __props__.__dict__["network_connection_name"] = network_connection_name
             __props__.__dict__["networking_resource_group_name"] = networking_resource_group_name
             __props__.__dict__["organization_unit"] = organization_unit

@@ -19,39 +19,28 @@ __all__ = ['ApiGatewayConfigConnectionArgs', 'ApiGatewayConfigConnection']
 @pulumi.input_type
 class ApiGatewayConfigConnectionArgs:
     def __init__(__self__, *,
-                 config_connection_name: pulumi.Input[_builtins.str],
                  gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 config_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hostnames: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiGatewayConfigConnection resource.
 
-        :param pulumi.Input[_builtins.str] config_connection_name: The name of the API Management gateway config connection.
         :param pulumi.Input[_builtins.str] gateway_name: The name of the API Management gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] config_connection_name: The name of the API Management gateway config connection.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hostnames: The hostnames of the data-plane gateway to which requests can be sent.
         :param pulumi.Input[_builtins.str] source_id: The link to the API Management service workspace.
         """
-        pulumi.set(__self__, "config_connection_name", config_connection_name)
         pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if config_connection_name is not None:
+            pulumi.set(__self__, "config_connection_name", config_connection_name)
         if hostnames is not None:
             pulumi.set(__self__, "hostnames", hostnames)
         if source_id is not None:
             pulumi.set(__self__, "source_id", source_id)
-
-    @_builtins.property
-    @pulumi.getter(name="configConnectionName")
-    def config_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the API Management gateway config connection.
-        """
-        return pulumi.get(self, "config_connection_name")
-
-    @config_connection_name.setter
-    def config_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "config_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gatewayName")
@@ -76,6 +65,18 @@ class ApiGatewayConfigConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configConnectionName")
+    def config_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the API Management gateway config connection.
+        """
+        return pulumi.get(self, "config_connection_name")
+
+    @config_connection_name.setter
+    def config_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "config_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -173,8 +174,6 @@ class ApiGatewayConfigConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApiGatewayConfigConnectionArgs.__new__(ApiGatewayConfigConnectionArgs)
 
-            if config_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'config_connection_name'")
             __props__.__dict__["config_connection_name"] = config_connection_name
             if gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_name'")

@@ -226,7 +226,7 @@ def get_vendor_skus(sku_name: Optional[_builtins.str] = None,
         sku_type=pulumi.get(__ret__, 'sku_type'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_vendor_skus_output(sku_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_vendor_skus_output(sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                            vendor_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVendorSkusResult]:
     """

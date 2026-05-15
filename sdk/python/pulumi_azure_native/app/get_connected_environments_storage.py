@@ -142,7 +142,7 @@ def get_connected_environments_storage(connected_environment_name: Optional[_bui
         type=pulumi.get(__ret__, 'type'))
 def get_connected_environments_storage_output(connected_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              storage_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              storage_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectedEnvironmentsStorageResult]:
     """
     Get storage for a connectedEnvironment.

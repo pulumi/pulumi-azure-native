@@ -22,10 +22,10 @@ __all__ = ['EnterprisePolicyArgs', 'EnterprisePolicy']
 @pulumi.input_type
 class EnterprisePolicyArgs:
     def __init__(__self__, *,
-                 enterprise_policy_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Union[_builtins.str, 'EnterprisePolicyKind']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  encryption: pulumi.Input[Optional['PropertiesEncryptionArgs']] = None,
+                 enterprise_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  health_status: pulumi.Input[Optional[Union[_builtins.str, 'HealthStatus']]] = None,
                  identity: pulumi.Input[Optional['EnterprisePolicyIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,10 +35,10 @@ class EnterprisePolicyArgs:
         """
         The set of arguments for constructing a EnterprisePolicy resource.
 
-        :param pulumi.Input[_builtins.str] enterprise_policy_name: Name of the EnterprisePolicy.
         :param pulumi.Input[Union[_builtins.str, 'EnterprisePolicyKind']] kind: The kind (type) of Enterprise Policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['PropertiesEncryptionArgs'] encryption: The encryption settings for a configuration store.
+        :param pulumi.Input[_builtins.str] enterprise_policy_name: Name of the EnterprisePolicy.
         :param pulumi.Input[Union[_builtins.str, 'HealthStatus']] health_status: The health status of the resource.
         :param pulumi.Input['EnterprisePolicyIdentityArgs'] identity: The identity of the EnterprisePolicy.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -46,11 +46,12 @@ class EnterprisePolicyArgs:
         :param pulumi.Input['PropertiesNetworkInjectionArgs'] network_injection: Settings concerning network injection.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "enterprise_policy_name", enterprise_policy_name)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if enterprise_policy_name is not None:
+            pulumi.set(__self__, "enterprise_policy_name", enterprise_policy_name)
         if health_status is not None:
             pulumi.set(__self__, "health_status", health_status)
         if identity is not None:
@@ -63,18 +64,6 @@ class EnterprisePolicyArgs:
             pulumi.set(__self__, "network_injection", network_injection)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="enterprisePolicyName")
-    def enterprise_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the EnterprisePolicy.
-        """
-        return pulumi.get(self, "enterprise_policy_name")
-
-    @enterprise_policy_name.setter
-    def enterprise_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "enterprise_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -111,6 +100,18 @@ class EnterprisePolicyArgs:
     @encryption.setter
     def encryption(self, value: pulumi.Input[Optional['PropertiesEncryptionArgs']]):
         pulumi.set(self, "encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enterprisePolicyName")
+    def enterprise_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the EnterprisePolicy.
+        """
+        return pulumi.get(self, "enterprise_policy_name")
+
+    @enterprise_policy_name.setter
+    def enterprise_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "enterprise_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthStatus")
@@ -268,8 +269,6 @@ class EnterprisePolicy(pulumi.CustomResource):
             __props__ = EnterprisePolicyArgs.__new__(EnterprisePolicyArgs)
 
             __props__.__dict__["encryption"] = encryption
-            if enterprise_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'enterprise_policy_name'")
             __props__.__dict__["enterprise_policy_name"] = enterprise_policy_name
             __props__.__dict__["health_status"] = health_status
             __props__.__dict__["identity"] = identity

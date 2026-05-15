@@ -23,7 +23,6 @@ __all__ = ['CustomLocationArgs', 'CustomLocation']
 class CustomLocationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  authentication: pulumi.Input[Optional['CustomLocationPropertiesAuthenticationArgs']] = None,
                  cluster_extension_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,12 +32,12 @@ class CustomLocationArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CustomLocation resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_name: Custom Locations name.
         :param pulumi.Input['CustomLocationPropertiesAuthenticationArgs'] authentication: This is optional input that contains the authentication that should be used to generate the namespace.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_extension_ids: Contains the reference to the add-on that contains charts to deploy CRDs and operators.
         :param pulumi.Input[_builtins.str] display_name: Display name for the Custom Locations location.
@@ -48,10 +47,10 @@ class CustomLocationArgs:
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] namespace: Kubernetes namespace that will be created on the specified cluster.
         :param pulumi.Input[_builtins.str] provisioning_state: Provisioning State for the Custom Location.
+        :param pulumi.Input[_builtins.str] resource_name: Custom Locations name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         if authentication is not None:
             pulumi.set(__self__, "authentication", authentication)
         if cluster_extension_ids is not None:
@@ -70,6 +69,8 @@ class CustomLocationArgs:
             pulumi.set(__self__, "namespace", namespace)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -84,18 +85,6 @@ class CustomLocationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Custom Locations name.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -204,6 +193,18 @@ class CustomLocationArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "provisioning_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Custom Locations name.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -322,8 +323,6 @@ class CustomLocation(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

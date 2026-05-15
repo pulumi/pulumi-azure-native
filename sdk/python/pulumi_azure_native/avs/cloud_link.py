@@ -20,35 +20,24 @@ __all__ = ['CloudLinkArgs', 'CloudLink']
 @pulumi.input_type
 class CloudLinkArgs:
     def __init__(__self__, *,
-                 cloud_link_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 cloud_link_name: pulumi.Input[Optional[_builtins.str]] = None,
                  linked_cloud: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudLink resource.
 
-        :param pulumi.Input[_builtins.str] cloud_link_name: Name of the cloud link.
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] cloud_link_name: Name of the cloud link.
         :param pulumi.Input[_builtins.str] linked_cloud: Identifier of the other private cloud participating in the link.
         """
-        pulumi.set(__self__, "cloud_link_name", cloud_link_name)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cloud_link_name is not None:
+            pulumi.set(__self__, "cloud_link_name", cloud_link_name)
         if linked_cloud is not None:
             pulumi.set(__self__, "linked_cloud", linked_cloud)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudLinkName")
-    def cloud_link_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the cloud link.
-        """
-        return pulumi.get(self, "cloud_link_name")
-
-    @cloud_link_name.setter
-    def cloud_link_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cloud_link_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -73,6 +62,18 @@ class CloudLinkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudLinkName")
+    def cloud_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the cloud link.
+        """
+        return pulumi.get(self, "cloud_link_name")
+
+    @cloud_link_name.setter
+    def cloud_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cloud_link_name", value)
 
     @_builtins.property
     @pulumi.getter(name="linkedCloud")
@@ -155,8 +156,6 @@ class CloudLink(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CloudLinkArgs.__new__(CloudLinkArgs)
 
-            if cloud_link_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cloud_link_name'")
             __props__.__dict__["cloud_link_name"] = cloud_link_name
             __props__.__dict__["linked_cloud"] = linked_cloud
             if private_cloud_name is None and not opts.urn:

@@ -23,7 +23,6 @@ __all__ = ['KafkaConfigurationArgs', 'KafkaConfiguration']
 class KafkaConfigurationArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 kafka_configuration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  consumer_group: pulumi.Input[Optional[_builtins.str]] = None,
                  credentials: pulumi.Input[Optional['CredentialsArgs']] = None,
@@ -31,12 +30,12 @@ class KafkaConfigurationArgs:
                  event_hub_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  event_hub_type: pulumi.Input[Optional[Union[_builtins.str, 'EventHubType']]] = None,
                  event_streaming_state: pulumi.Input[Optional[Union[_builtins.str, 'EventStreamingState']]] = None,
-                 event_streaming_type: pulumi.Input[Optional[Union[_builtins.str, 'EventStreamingType']]] = None):
+                 event_streaming_type: pulumi.Input[Optional[Union[_builtins.str, 'EventStreamingType']]] = None,
+                 kafka_configuration_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KafkaConfiguration resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the account.
-        :param pulumi.Input[_builtins.str] kafka_configuration_name: Name of kafka configuration.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] consumer_group: Consumer group for hook event hub.
         :param pulumi.Input['CredentialsArgs'] credentials: Credentials to access the event streaming service attached to the purview account.
@@ -45,9 +44,9 @@ class KafkaConfigurationArgs:
         :param pulumi.Input[Union[_builtins.str, 'EventHubType']] event_hub_type: The event hub type.
         :param pulumi.Input[Union[_builtins.str, 'EventStreamingState']] event_streaming_state: The state of the event streaming service
         :param pulumi.Input[Union[_builtins.str, 'EventStreamingType']] event_streaming_type: The event streaming service type
+        :param pulumi.Input[_builtins.str] kafka_configuration_name: Name of kafka configuration.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "kafka_configuration_name", kafka_configuration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if consumer_group is not None:
             pulumi.set(__self__, "consumer_group", consumer_group)
@@ -67,6 +66,8 @@ class KafkaConfigurationArgs:
             event_streaming_type = 'None'
         if event_streaming_type is not None:
             pulumi.set(__self__, "event_streaming_type", event_streaming_type)
+        if kafka_configuration_name is not None:
+            pulumi.set(__self__, "kafka_configuration_name", kafka_configuration_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -79,18 +80,6 @@ class KafkaConfigurationArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="kafkaConfigurationName")
-    def kafka_configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of kafka configuration.
-        """
-        return pulumi.get(self, "kafka_configuration_name")
-
-    @kafka_configuration_name.setter
-    def kafka_configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "kafka_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -187,6 +176,18 @@ class KafkaConfigurationArgs:
     @event_streaming_type.setter
     def event_streaming_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'EventStreamingType']]]):
         pulumi.set(self, "event_streaming_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kafkaConfigurationName")
+    def kafka_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of kafka configuration.
+        """
+        return pulumi.get(self, "kafka_configuration_name")
+
+    @kafka_configuration_name.setter
+    def kafka_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kafka_configuration_name", value)
 
 
 @pulumi.type_token("azure-native:purview:KafkaConfiguration")
@@ -289,8 +290,6 @@ class KafkaConfiguration(pulumi.CustomResource):
             if event_streaming_type is None:
                 event_streaming_type = 'None'
             __props__.__dict__["event_streaming_type"] = event_streaming_type
-            if kafka_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'kafka_configuration_name'")
             __props__.__dict__["kafka_configuration_name"] = kafka_configuration_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

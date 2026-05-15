@@ -154,7 +154,7 @@ def get_billing_role_assignment_by_enrollment_account(billing_account_name: Opti
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_billing_role_assignment_by_enrollment_account_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                             billing_role_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                             billing_role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                              enrollment_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingRoleAssignmentByEnrollmentAccountResult]:
     """

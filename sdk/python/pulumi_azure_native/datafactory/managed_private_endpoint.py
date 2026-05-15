@@ -22,24 +22,25 @@ __all__ = ['ManagedPrivateEndpointInitArgs', 'ManagedPrivateEndpoint']
 class ManagedPrivateEndpointInitArgs:
     def __init__(__self__, *,
                  factory_name: pulumi.Input[_builtins.str],
-                 managed_private_endpoint_name: pulumi.Input[_builtins.str],
                  managed_virtual_network_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['ManagedPrivateEndpointArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 managed_private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedPrivateEndpoint resource.
 
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
-        :param pulumi.Input[_builtins.str] managed_private_endpoint_name: Managed private endpoint name
         :param pulumi.Input[_builtins.str] managed_virtual_network_name: Managed virtual network name
         :param pulumi.Input['ManagedPrivateEndpointArgs'] properties: Managed private endpoint properties.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] managed_private_endpoint_name: Managed private endpoint name
         """
         pulumi.set(__self__, "factory_name", factory_name)
-        pulumi.set(__self__, "managed_private_endpoint_name", managed_private_endpoint_name)
         pulumi.set(__self__, "managed_virtual_network_name", managed_virtual_network_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if managed_private_endpoint_name is not None:
+            pulumi.set(__self__, "managed_private_endpoint_name", managed_private_endpoint_name)
 
     @_builtins.property
     @pulumi.getter(name="factoryName")
@@ -52,18 +53,6 @@ class ManagedPrivateEndpointInitArgs:
     @factory_name.setter
     def factory_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "factory_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedPrivateEndpointName")
-    def managed_private_endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Managed private endpoint name
-        """
-        return pulumi.get(self, "managed_private_endpoint_name")
-
-    @managed_private_endpoint_name.setter
-    def managed_private_endpoint_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "managed_private_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managedVirtualNetworkName")
@@ -100,6 +89,18 @@ class ManagedPrivateEndpointInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedPrivateEndpointName")
+    def managed_private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Managed private endpoint name
+        """
+        return pulumi.get(self, "managed_private_endpoint_name")
+
+    @managed_private_endpoint_name.setter
+    def managed_private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "managed_private_endpoint_name", value)
 
 
 @pulumi.type_token("azure-native:datafactory:ManagedPrivateEndpoint")
@@ -172,8 +173,6 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__.__dict__["factory_name"] = factory_name
-            if managed_private_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_private_endpoint_name'")
             __props__.__dict__["managed_private_endpoint_name"] = managed_private_endpoint_name
             if managed_virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_virtual_network_name'")

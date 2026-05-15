@@ -25,8 +25,8 @@ class SecurityUserRuleCollectionArgs:
                  configuration_name: pulumi.Input[_builtins.str],
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_collection_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityUserRuleCollection resource.
 
@@ -34,16 +34,17 @@ class SecurityUserRuleCollectionArgs:
         :param pulumi.Input[_builtins.str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] rule_collection_name: The name of the network manager security Configuration rule collection.
         :param pulumi.Input[_builtins.str] description: A description of the security user rule collection.
+        :param pulumi.Input[_builtins.str] rule_collection_name: The name of the network manager security Configuration rule collection.
         """
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
         pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_collection_name", rule_collection_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if rule_collection_name is not None:
+            pulumi.set(__self__, "rule_collection_name", rule_collection_name)
 
     @_builtins.property
     @pulumi.getter(name="appliesToGroups")
@@ -94,18 +95,6 @@ class SecurityUserRuleCollectionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="ruleCollectionName")
-    def rule_collection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the network manager security Configuration rule collection.
-        """
-        return pulumi.get(self, "rule_collection_name")
-
-    @rule_collection_name.setter
-    def rule_collection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rule_collection_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -116,6 +105,18 @@ class SecurityUserRuleCollectionArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleCollectionName")
+    def rule_collection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the network manager security Configuration rule collection.
+        """
+        return pulumi.get(self, "rule_collection_name")
+
+    @rule_collection_name.setter
+    def rule_collection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_collection_name", value)
 
 
 @pulumi.type_token("azure-native:network:SecurityUserRuleCollection")
@@ -205,8 +206,6 @@ class SecurityUserRuleCollection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if rule_collection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_collection_name'")
             __props__.__dict__["rule_collection_name"] = rule_collection_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

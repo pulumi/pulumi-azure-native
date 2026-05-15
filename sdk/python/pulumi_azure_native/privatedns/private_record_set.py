@@ -23,7 +23,6 @@ class PrivateRecordSetArgs:
     def __init__(__self__, *,
                  private_zone_name: pulumi.Input[_builtins.str],
                  record_type: pulumi.Input[_builtins.str],
-                 relative_record_set_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  a_records: pulumi.Input[Optional[Sequence[pulumi.Input['ARecordArgs']]]] = None,
                  aaaa_records: pulumi.Input[Optional[Sequence[pulumi.Input['AaaaRecordArgs']]]] = None,
@@ -31,6 +30,7 @@ class PrivateRecordSetArgs:
                  metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  mx_records: pulumi.Input[Optional[Sequence[pulumi.Input['MxRecordArgs']]]] = None,
                  ptr_records: pulumi.Input[Optional[Sequence[pulumi.Input['PtrRecordArgs']]]] = None,
+                 relative_record_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  soa_record: pulumi.Input[Optional['SoaRecordArgs']] = None,
                  srv_records: pulumi.Input[Optional[Sequence[pulumi.Input['SrvRecordArgs']]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.float]] = None,
@@ -40,7 +40,6 @@ class PrivateRecordSetArgs:
 
         :param pulumi.Input[_builtins.str] private_zone_name: The name of the DNS zone (without a terminating dot).
         :param pulumi.Input[_builtins.str] record_type: The type of DNS record in this record set.
-        :param pulumi.Input[_builtins.str] relative_record_set_name: The name of the record set, relative to the name of the zone.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ARecordArgs']]] a_records: The list of A records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['AaaaRecordArgs']]] aaaa_records: The list of AAAA records in the record set.
@@ -48,6 +47,7 @@ class PrivateRecordSetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: The metadata attached to the record set.
         :param pulumi.Input[Sequence[pulumi.Input['MxRecordArgs']]] mx_records: The list of MX records in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['PtrRecordArgs']]] ptr_records: The list of PTR records in the record set.
+        :param pulumi.Input[_builtins.str] relative_record_set_name: The name of the record set, relative to the name of the zone.
         :param pulumi.Input['SoaRecordArgs'] soa_record: The SOA record in the record set.
         :param pulumi.Input[Sequence[pulumi.Input['SrvRecordArgs']]] srv_records: The list of SRV records in the record set.
         :param pulumi.Input[_builtins.float] ttl: The TTL (time-to-live) of the records in the record set.
@@ -55,7 +55,6 @@ class PrivateRecordSetArgs:
         """
         pulumi.set(__self__, "private_zone_name", private_zone_name)
         pulumi.set(__self__, "record_type", record_type)
-        pulumi.set(__self__, "relative_record_set_name", relative_record_set_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if a_records is not None:
             pulumi.set(__self__, "a_records", a_records)
@@ -69,6 +68,8 @@ class PrivateRecordSetArgs:
             pulumi.set(__self__, "mx_records", mx_records)
         if ptr_records is not None:
             pulumi.set(__self__, "ptr_records", ptr_records)
+        if relative_record_set_name is not None:
+            pulumi.set(__self__, "relative_record_set_name", relative_record_set_name)
         if soa_record is not None:
             pulumi.set(__self__, "soa_record", soa_record)
         if srv_records is not None:
@@ -101,18 +102,6 @@ class PrivateRecordSetArgs:
     @record_type.setter
     def record_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "record_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="relativeRecordSetName")
-    def relative_record_set_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the record set, relative to the name of the zone.
-        """
-        return pulumi.get(self, "relative_record_set_name")
-
-    @relative_record_set_name.setter
-    def relative_record_set_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "relative_record_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -197,6 +186,18 @@ class PrivateRecordSetArgs:
     @ptr_records.setter
     def ptr_records(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PtrRecordArgs']]]]):
         pulumi.set(self, "ptr_records", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relativeRecordSetName")
+    def relative_record_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the record set, relative to the name of the zone.
+        """
+        return pulumi.get(self, "relative_record_set_name")
+
+    @relative_record_set_name.setter
+    def relative_record_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "relative_record_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="soaRecord")
@@ -357,8 +358,6 @@ class PrivateRecordSet(pulumi.CustomResource):
             if record_type is None and not opts.urn:
                 raise TypeError("Missing required property 'record_type'")
             __props__.__dict__["record_type"] = record_type
-            if relative_record_set_name is None and not opts.urn:
-                raise TypeError("Missing required property 'relative_record_set_name'")
             __props__.__dict__["relative_record_set_name"] = relative_record_set_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -207,7 +207,7 @@ def get_restore_point_collection(expand: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_restore_point_collection_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        restore_point_collection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        restore_point_collection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestorePointCollectionResult]:
     """
     The operation to get the restore point collection.

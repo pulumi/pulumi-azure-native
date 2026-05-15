@@ -23,8 +23,8 @@ __all__ = ['FlowArgs', 'Flow']
 class FlowArgs:
     def __init__(__self__, *,
                  connection_name: pulumi.Input[_builtins.str],
-                 flow_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 flow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  plan: pulumi.Input[Optional['PlanArgs']] = None,
@@ -34,8 +34,8 @@ class FlowArgs:
         The set of arguments for constructing a Flow resource.
 
         :param pulumi.Input[_builtins.str] connection_name: The name for the connection that is to be requested.
-        :param pulumi.Input[_builtins.str] flow_name: The name for the flow that is to be onboarded.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] flow_name: The name for the flow that is to be onboarded.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identity of the flow resource, if configured.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
@@ -43,8 +43,9 @@ class FlowArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "connection_name", connection_name)
-        pulumi.set(__self__, "flow_name", flow_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if flow_name is not None:
+            pulumi.set(__self__, "flow_name", flow_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -69,18 +70,6 @@ class FlowArgs:
         pulumi.set(self, "connection_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="flowName")
-    def flow_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name for the flow that is to be onboarded.
-        """
-        return pulumi.get(self, "flow_name")
-
-    @flow_name.setter
-    def flow_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "flow_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -91,6 +80,18 @@ class FlowArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowName")
+    def flow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name for the flow that is to be onboarded.
+        """
+        return pulumi.get(self, "flow_name")
+
+    @flow_name.setter
+    def flow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "flow_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -236,8 +237,6 @@ class Flow(pulumi.CustomResource):
             if connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
-            if flow_name is None and not opts.urn:
-                raise TypeError("Missing required property 'flow_name'")
             __props__.__dict__["flow_name"] = flow_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

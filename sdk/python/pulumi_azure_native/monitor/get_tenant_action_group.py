@@ -227,7 +227,7 @@ def get_tenant_action_group(management_group_id: Optional[_builtins.str] = None,
         voice_receivers=pulumi.get(__ret__, 'voice_receivers'),
         webhook_receivers=pulumi.get(__ret__, 'webhook_receivers'))
 def get_tenant_action_group_output(management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                   tenant_action_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   tenant_action_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTenantActionGroupResult]:
     """
     Get a tenant action group.

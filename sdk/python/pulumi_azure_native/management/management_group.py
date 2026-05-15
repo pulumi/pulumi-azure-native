@@ -21,37 +21,26 @@ __all__ = ['ManagementGroupArgs', 'ManagementGroup']
 @pulumi.input_type
 class ManagementGroupArgs:
     def __init__(__self__, *,
-                 group_id: pulumi.Input[_builtins.str],
                  details: pulumi.Input[Optional['CreateManagementGroupDetailsArgs']] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagementGroup resource.
 
-        :param pulumi.Input[_builtins.str] group_id: Management Group ID.
         :param pulumi.Input['CreateManagementGroupDetailsArgs'] details: The details of a management group used during creation.
         :param pulumi.Input[_builtins.str] display_name: The friendly name of the management group. If no value is passed then this  field will be set to the groupId.
+        :param pulumi.Input[_builtins.str] group_id: Management Group ID.
         :param pulumi.Input[_builtins.str] name: The name of the management group. For example, 00000000-0000-0000-0000-000000000000
         """
-        pulumi.set(__self__, "group_id", group_id)
         if details is not None:
             pulumi.set(__self__, "details", details)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="groupId")
-    def group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Management Group ID.
-        """
-        return pulumi.get(self, "group_id")
-
-    @group_id.setter
-    def group_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -76,6 +65,18 @@ class ManagementGroupArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Management Group ID.
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -120,7 +121,7 @@ class ManagementGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ManagementGroupArgs,
+                 args: Optional[ManagementGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The management group details.
@@ -160,8 +161,6 @@ class ManagementGroup(pulumi.CustomResource):
 
             __props__.__dict__["details"] = details
             __props__.__dict__["display_name"] = display_name
-            if group_id is None and not opts.urn:
-                raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
             __props__.__dict__["name"] = name
             __props__.__dict__["azure_api_version"] = None

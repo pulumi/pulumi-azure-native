@@ -246,7 +246,7 @@ def get_user(lab_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_user_output(lab_name: pulumi.Input[Optional[_builtins.str]] = None,
                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                    user_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    user_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Returns the properties of a lab user.

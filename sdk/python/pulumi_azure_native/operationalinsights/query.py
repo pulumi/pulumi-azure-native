@@ -23,10 +23,10 @@ class QueryArgs:
     def __init__(__self__, *,
                  body: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
-                 id: pulumi.Input[_builtins.str],
                  query_pack_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None,
                  related: pulumi.Input[Optional['LogAnalyticsQueryPackQueryPropertiesRelatedArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]]] = None):
@@ -35,21 +35,22 @@ class QueryArgs:
 
         :param pulumi.Input[_builtins.str] body: Body of the query.
         :param pulumi.Input[_builtins.str] display_name: Unique display name for your query within the Query Pack.
-        :param pulumi.Input[_builtins.str] id: The id of a specific query defined in the Log Analytics QueryPack
         :param pulumi.Input[_builtins.str] query_pack_name: The name of the Log Analytics QueryPack resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: Description of the query.
+        :param pulumi.Input[_builtins.str] id: The id of a specific query defined in the Log Analytics QueryPack
         :param Any properties: Additional properties that can be set for the query.
         :param pulumi.Input['LogAnalyticsQueryPackQueryPropertiesRelatedArgs'] related: The related metadata items for the function.
         :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]] tags: Tags associated with the query.
         """
         pulumi.set(__self__, "body", body)
         pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "query_pack_name", query_pack_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if related is not None:
@@ -80,18 +81,6 @@ class QueryArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The id of a specific query defined in the Log Analytics QueryPack
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="queryPackName")
@@ -128,6 +117,18 @@ class QueryArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The id of a specific query defined in the Log Analytics QueryPack
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -256,8 +257,6 @@ class Query(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            if id is None and not opts.urn:
-                raise TypeError("Missing required property 'id'")
             __props__.__dict__["id"] = id
             __props__.__dict__["properties"] = properties
             if query_pack_name is None and not opts.urn:

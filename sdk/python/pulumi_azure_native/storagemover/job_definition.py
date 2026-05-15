@@ -22,7 +22,6 @@ __all__ = ['JobDefinitionArgs', 'JobDefinition']
 class JobDefinitionArgs:
     def __init__(__self__, *,
                  copy_mode: pulumi.Input[Union[_builtins.str, 'CopyMode']],
-                 job_definition_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_name: pulumi.Input[_builtins.str],
@@ -30,13 +29,13 @@ class JobDefinitionArgs:
                  target_name: pulumi.Input[_builtins.str],
                  agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_subpath: pulumi.Input[Optional[_builtins.str]] = None,
                  target_subpath: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobDefinition resource.
 
         :param pulumi.Input[Union[_builtins.str, 'CopyMode']] copy_mode: Strategy to use for copy.
-        :param pulumi.Input[_builtins.str] job_definition_name: The name of the Job Definition resource.
         :param pulumi.Input[_builtins.str] project_name: The name of the Project resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] source_name: The name of the source Endpoint.
@@ -44,11 +43,11 @@ class JobDefinitionArgs:
         :param pulumi.Input[_builtins.str] target_name: The name of the target Endpoint.
         :param pulumi.Input[_builtins.str] agent_name: Name of the Agent to assign for new Job Runs of this Job Definition.
         :param pulumi.Input[_builtins.str] description: A description for the Job Definition. OnPremToCloud is for migrating data from on-premises to cloud. CloudToCloud is for migrating data between cloud to cloud.
+        :param pulumi.Input[_builtins.str] job_definition_name: The name of the Job Definition resource.
         :param pulumi.Input[_builtins.str] source_subpath: The subpath to use when reading from the source Endpoint.
         :param pulumi.Input[_builtins.str] target_subpath: The subpath to use when writing to the target Endpoint.
         """
         pulumi.set(__self__, "copy_mode", copy_mode)
-        pulumi.set(__self__, "job_definition_name", job_definition_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source_name", source_name)
@@ -58,6 +57,8 @@ class JobDefinitionArgs:
             pulumi.set(__self__, "agent_name", agent_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if job_definition_name is not None:
+            pulumi.set(__self__, "job_definition_name", job_definition_name)
         if source_subpath is not None:
             pulumi.set(__self__, "source_subpath", source_subpath)
         if target_subpath is not None:
@@ -74,18 +75,6 @@ class JobDefinitionArgs:
     @copy_mode.setter
     def copy_mode(self, value: pulumi.Input[Union[_builtins.str, 'CopyMode']]):
         pulumi.set(self, "copy_mode", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jobDefinitionName")
-    def job_definition_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Job Definition resource.
-        """
-        return pulumi.get(self, "job_definition_name")
-
-    @job_definition_name.setter
-    def job_definition_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "job_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -170,6 +159,18 @@ class JobDefinitionArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobDefinitionName")
+    def job_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Job Definition resource.
+        """
+        return pulumi.get(self, "job_definition_name")
+
+    @job_definition_name.setter
+    def job_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "job_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceSubpath")
@@ -290,8 +291,6 @@ class JobDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'copy_mode'")
             __props__.__dict__["copy_mode"] = copy_mode
             __props__.__dict__["description"] = description
-            if job_definition_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_definition_name'")
             __props__.__dict__["job_definition_name"] = job_definition_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

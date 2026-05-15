@@ -22,10 +22,10 @@ __all__ = ['ApiSourceArgs', 'ApiSource']
 @pulumi.input_type
 class ApiSourceArgs:
     def __init__(__self__, *,
-                 api_source_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
+                 api_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  azure_api_management_source: pulumi.Input[Optional['AzureApiManagementSourceArgs']] = None,
                  import_specification: pulumi.Input[Optional[Union[_builtins.str, 'ImportSpecificationOptions']]] = None,
                  target_environment_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,19 +33,20 @@ class ApiSourceArgs:
         """
         The set of arguments for constructing a ApiSource resource.
 
-        :param pulumi.Input[_builtins.str] api_source_name: The name of the API.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] api_source_name: The name of the API.
         :param pulumi.Input['AzureApiManagementSourceArgs'] azure_api_management_source: API source configuration for Azure API Management.
         :param pulumi.Input[Union[_builtins.str, 'ImportSpecificationOptions']] import_specification: Indicates if the specification should be imported along with metadata.
         :param pulumi.Input[_builtins.str] target_environment_id: The target environment resource ID.
         :param pulumi.Input[Union[_builtins.str, 'LifecycleStage']] target_lifecycle_stage: The target lifecycle stage.
         """
-        pulumi.set(__self__, "api_source_name", api_source_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if api_source_name is not None:
+            pulumi.set(__self__, "api_source_name", api_source_name)
         if azure_api_management_source is not None:
             pulumi.set(__self__, "azure_api_management_source", azure_api_management_source)
         if import_specification is None:
@@ -56,18 +57,6 @@ class ApiSourceArgs:
             pulumi.set(__self__, "target_environment_id", target_environment_id)
         if target_lifecycle_stage is not None:
             pulumi.set(__self__, "target_lifecycle_stage", target_lifecycle_stage)
-
-    @_builtins.property
-    @pulumi.getter(name="apiSourceName")
-    def api_source_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the API.
-        """
-        return pulumi.get(self, "api_source_name")
-
-    @api_source_name.setter
-    def api_source_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "api_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -104,6 +93,18 @@ class ApiSourceArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiSourceName")
+    def api_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the API.
+        """
+        return pulumi.get(self, "api_source_name")
+
+    @api_source_name.setter
+    def api_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="azureApiManagementSource")
@@ -230,8 +231,6 @@ class ApiSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApiSourceArgs.__new__(ApiSourceArgs)
 
-            if api_source_name is None and not opts.urn:
-                raise TypeError("Missing required property 'api_source_name'")
             __props__.__dict__["api_source_name"] = api_source_name
             __props__.__dict__["azure_api_management_source"] = azure_api_management_source
             if import_specification is None:

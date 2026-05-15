@@ -24,7 +24,6 @@ class UpdateArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 update_name: pulumi.Input[_builtins.str],
                  additional_properties: pulumi.Input[Optional[_builtins.str]] = None,
                  availability_type: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityType']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -42,13 +41,13 @@ class UpdateArgs:
                  publisher: pulumi.Input[Optional[_builtins.str]] = None,
                  release_link: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None,
+                 update_name: pulumi.Input[Optional[_builtins.str]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Update resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] update_name: The name of the Update
         :param pulumi.Input[_builtins.str] additional_properties: Extensible KV pairs serialized as a string. This is currently used to report the stamp OEM family and hardware model information when an update is flagged as Invalid for the stamp based on OEM type.
         :param pulumi.Input[Union[_builtins.str, 'AvailabilityType']] availability_type: Indicates the way the update content can be downloaded.
         :param pulumi.Input[_builtins.str] description: Description of the update.
@@ -66,11 +65,11 @@ class UpdateArgs:
         :param pulumi.Input[_builtins.str] publisher: Publisher of the update package.
         :param pulumi.Input[_builtins.str] release_link: Link to release notes for the update.
         :param pulumi.Input[Union[_builtins.str, 'State']] state: State of the update as it relates to this stamp.
+        :param pulumi.Input[_builtins.str] update_name: The name of the Update
         :param pulumi.Input[_builtins.str] version: Version of the update.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "update_name", update_name)
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
         if availability_type is not None:
@@ -105,6 +104,8 @@ class UpdateArgs:
             pulumi.set(__self__, "release_link", release_link)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if update_name is not None:
+            pulumi.set(__self__, "update_name", update_name)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -131,18 +132,6 @@ class UpdateArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="updateName")
-    def update_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Update
-        """
-        return pulumi.get(self, "update_name")
-
-    @update_name.setter
-    def update_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "update_name", value)
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
@@ -349,6 +338,18 @@ class UpdateArgs:
         pulumi.set(self, "state", value)
 
     @_builtins.property
+    @pulumi.getter(name="updateName")
+    def update_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Update
+        """
+        return pulumi.get(self, "update_name")
+
+    @update_name.setter
+    def update_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -503,8 +504,6 @@ class Update(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["state"] = state
-            if update_name is None and not opts.urn:
-                raise TypeError("Missing required property 'update_name'")
             __props__.__dict__["update_name"] = update_name
             __props__.__dict__["version"] = version
             __props__.__dict__["azure_api_version"] = None

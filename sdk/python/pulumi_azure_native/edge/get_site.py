@@ -138,7 +138,7 @@ def get_site(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_site_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                    site_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    site_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteResult]:
     """
     Get a Site

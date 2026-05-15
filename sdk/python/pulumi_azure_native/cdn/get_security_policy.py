@@ -178,7 +178,7 @@ def get_security_policy(profile_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_security_policy_output(profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               security_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPolicyResult]:
     """
     Gets an existing security policy within a profile.

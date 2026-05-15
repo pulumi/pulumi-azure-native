@@ -21,9 +21,9 @@ __all__ = ['ReplicationLinkArgs', 'ReplicationLink']
 class ReplicationLinkArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
-                 link_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
+                 link_id: pulumi.Input[Optional[_builtins.str]] = None,
                  link_type: pulumi.Input[Optional[Union[_builtins.str, 'ReplicationLinkType']]] = None):
         """
         The set of arguments for constructing a ReplicationLink resource.
@@ -34,9 +34,10 @@ class ReplicationLinkArgs:
         :param pulumi.Input[Union[_builtins.str, 'ReplicationLinkType']] link_type: Link type (GEO, NAMED, STANDBY). Update operation does not support NAMED.
         """
         pulumi.set(__self__, "database_name", database_name)
-        pulumi.set(__self__, "link_id", link_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
+        if link_id is not None:
+            pulumi.set(__self__, "link_id", link_id)
         if link_type is not None:
             pulumi.set(__self__, "link_type", link_type)
 
@@ -51,15 +52,6 @@ class ReplicationLinkArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "database_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="linkId")
-    def link_id(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "link_id")
-
-    @link_id.setter
-    def link_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "link_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -84,6 +76,15 @@ class ReplicationLinkArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkId")
+    def link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "link_id")
+
+    @link_id.setter
+    def link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "link_id", value)
 
     @_builtins.property
     @pulumi.getter(name="linkType")
@@ -171,8 +172,6 @@ class ReplicationLink(pulumi.CustomResource):
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
-            if link_id is None and not opts.urn:
-                raise TypeError("Missing required property 'link_id'")
             __props__.__dict__["link_id"] = link_id
             __props__.__dict__["link_type"] = link_type
             if resource_group_name is None and not opts.urn:

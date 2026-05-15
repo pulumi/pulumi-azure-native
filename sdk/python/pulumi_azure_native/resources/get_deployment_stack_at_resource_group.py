@@ -371,7 +371,7 @@ def get_deployment_stack_at_resource_group(deployment_stack_name: Optional[_buil
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_stack_at_resource_group_output(deployment_stack_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_deployment_stack_at_resource_group_output(deployment_stack_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStackAtResourceGroupResult]:
     """

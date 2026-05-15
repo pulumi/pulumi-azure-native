@@ -24,21 +24,22 @@ class FleetTierArgs:
     def __init__(__self__, *,
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 tier_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['FleetTierPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['FleetTierPropertiesArgs']] = None,
+                 tier_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetTier resource.
 
         :param pulumi.Input[_builtins.str] fleet_name: Name of the database fleet.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] tier_name: Name of the tier.
         :param pulumi.Input['FleetTierPropertiesArgs'] properties: A Fleet tier properties.
+        :param pulumi.Input[_builtins.str] tier_name: Name of the tier.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "tier_name", tier_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if tier_name is not None:
+            pulumi.set(__self__, "tier_name", tier_name)
 
     @_builtins.property
     @pulumi.getter(name="fleetName")
@@ -65,18 +66,6 @@ class FleetTierArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="tierName")
-    def tier_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the tier.
-        """
-        return pulumi.get(self, "tier_name")
-
-    @tier_name.setter
-    def tier_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "tier_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['FleetTierPropertiesArgs']]:
         """
@@ -87,6 +76,18 @@ class FleetTierArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['FleetTierPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tierName")
+    def tier_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the tier.
+        """
+        return pulumi.get(self, "tier_name")
+
+    @tier_name.setter
+    def tier_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tier_name", value)
 
 
 @pulumi.type_token("azure-native:databasefleetmanager:FleetTier")
@@ -160,8 +161,6 @@ class FleetTier(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if tier_name is None and not opts.urn:
-                raise TypeError("Missing required property 'tier_name'")
             __props__.__dict__["tier_name"] = tier_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

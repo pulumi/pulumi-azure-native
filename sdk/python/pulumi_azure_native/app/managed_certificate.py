@@ -23,26 +23,27 @@ __all__ = ['ManagedCertificateArgs', 'ManagedCertificate']
 class ManagedCertificateArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[_builtins.str],
-                 managed_certificate_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ManagedCertificatePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedCertificate resource.
 
         :param pulumi.Input[_builtins.str] environment_name: Name of the Managed Environment.
-        :param pulumi.Input[_builtins.str] managed_certificate_name: Name of the Managed Certificate.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] managed_certificate_name: Name of the Managed Certificate.
         :param pulumi.Input['ManagedCertificatePropertiesArgs'] properties: Certificate resource specific properties
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "managed_certificate_name", managed_certificate_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_certificate_name is not None:
+            pulumi.set(__self__, "managed_certificate_name", managed_certificate_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
@@ -59,18 +60,6 @@ class ManagedCertificateArgs:
     @environment_name.setter
     def environment_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "environment_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedCertificateName")
-    def managed_certificate_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Managed Certificate.
-        """
-        return pulumi.get(self, "managed_certificate_name")
-
-    @managed_certificate_name.setter
-    def managed_certificate_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "managed_certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -95,6 +84,18 @@ class ManagedCertificateArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedCertificateName")
+    def managed_certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Managed Certificate.
+        """
+        return pulumi.get(self, "managed_certificate_name")
+
+    @managed_certificate_name.setter
+    def managed_certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "managed_certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -199,8 +200,6 @@ class ManagedCertificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["location"] = location
-            if managed_certificate_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_certificate_name'")
             __props__.__dict__["managed_certificate_name"] = managed_certificate_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

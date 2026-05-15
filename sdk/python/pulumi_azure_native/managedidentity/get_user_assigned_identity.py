@@ -190,7 +190,7 @@ def get_user_assigned_identity(resource_group_name: Optional[_builtins.str] = No
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_user_assigned_identity_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserAssignedIdentityResult]:
     """
     Gets the identity.

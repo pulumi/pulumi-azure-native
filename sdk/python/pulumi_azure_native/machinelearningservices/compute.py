@@ -22,9 +22,9 @@ __all__ = ['ComputeArgs', 'Compute']
 @pulumi.input_type
 class ComputeArgs:
     def __init__(__self__, *,
-                 compute_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
+                 compute_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'KubernetesArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']]] = None,
@@ -33,18 +33,19 @@ class ComputeArgs:
         """
         The set of arguments for constructing a Compute resource.
 
-        :param pulumi.Input[_builtins.str] compute_name: Name of the Azure Machine Learning compute.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
+        :param pulumi.Input[_builtins.str] compute_name: Name of the Azure Machine Learning compute.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[_builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input[Union['AKSArgs', 'AmlComputeArgs', 'ComputeInstanceArgs', 'DataFactoryArgs', 'DataLakeAnalyticsArgs', 'DatabricksArgs', 'HDInsightArgs', 'KubernetesArgs', 'SynapseSparkArgs', 'VirtualMachineArgs']] properties: The resource-specific properties for this resource.
         :param pulumi.Input['SkuArgs'] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         """
-        pulumi.set(__self__, "compute_name", compute_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if compute_name is not None:
+            pulumi.set(__self__, "compute_name", compute_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -55,18 +56,6 @@ class ComputeArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="computeName")
-    def compute_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Azure Machine Learning compute.
-        """
-        return pulumi.get(self, "compute_name")
-
-    @compute_name.setter
-    def compute_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "compute_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -91,6 +80,18 @@ class ComputeArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="computeName")
+    def compute_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Azure Machine Learning compute.
+        """
+        return pulumi.get(self, "compute_name")
+
+    @compute_name.setter
+    def compute_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "compute_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -233,8 +234,6 @@ class Compute(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ComputeArgs.__new__(ComputeArgs)
 
-            if compute_name is None and not opts.urn:
-                raise TypeError("Missing required property 'compute_name'")
             __props__.__dict__["compute_name"] = compute_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

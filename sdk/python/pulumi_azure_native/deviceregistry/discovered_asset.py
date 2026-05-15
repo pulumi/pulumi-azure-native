@@ -23,7 +23,6 @@ __all__ = ['DiscoveredAssetArgs', 'DiscoveredAsset']
 class DiscoveredAssetArgs:
     def __init__(__self__, *,
                  asset_endpoint_profile_ref: pulumi.Input[_builtins.str],
-                 discovered_asset_name: pulumi.Input[_builtins.str],
                  discovery_id: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
@@ -32,6 +31,7 @@ class DiscoveredAssetArgs:
                  default_datasets_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  default_events_configuration: pulumi.Input[Optional[_builtins.str]] = None,
                  default_topic: pulumi.Input[Optional['TopicArgs']] = None,
+                 discovered_asset_name: pulumi.Input[Optional[_builtins.str]] = None,
                  documentation_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  events: pulumi.Input[Optional[Sequence[pulumi.Input['DiscoveredEventArgs']]]] = None,
                  hardware_revision: pulumi.Input[Optional[_builtins.str]] = None,
@@ -47,7 +47,6 @@ class DiscoveredAssetArgs:
         The set of arguments for constructing a DiscoveredAsset resource.
 
         :param pulumi.Input[_builtins.str] asset_endpoint_profile_ref: A reference to the asset endpoint profile (connection information) used by brokers to connect to an endpoint that provides data points for this asset. Must provide asset endpoint profile name.
-        :param pulumi.Input[_builtins.str] discovered_asset_name: Discovered Asset name parameter.
         :param pulumi.Input[_builtins.str] discovery_id: Identifier used to detect changes in the asset.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -56,6 +55,7 @@ class DiscoveredAssetArgs:
         :param pulumi.Input[_builtins.str] default_datasets_configuration: Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
         :param pulumi.Input[_builtins.str] default_events_configuration: Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
         :param pulumi.Input['TopicArgs'] default_topic: Object that describes the default topic information for the asset.
+        :param pulumi.Input[_builtins.str] discovered_asset_name: Discovered Asset name parameter.
         :param pulumi.Input[_builtins.str] documentation_uri: Reference to the documentation.
         :param pulumi.Input[Sequence[pulumi.Input['DiscoveredEventArgs']]] events: Array of events that are part of the asset. Each event can have per-event configuration.
         :param pulumi.Input[_builtins.str] hardware_revision: Revision number of the hardware.
@@ -69,7 +69,6 @@ class DiscoveredAssetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "asset_endpoint_profile_ref", asset_endpoint_profile_ref)
-        pulumi.set(__self__, "discovered_asset_name", discovered_asset_name)
         pulumi.set(__self__, "discovery_id", discovery_id)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -82,6 +81,8 @@ class DiscoveredAssetArgs:
             pulumi.set(__self__, "default_events_configuration", default_events_configuration)
         if default_topic is not None:
             pulumi.set(__self__, "default_topic", default_topic)
+        if discovered_asset_name is not None:
+            pulumi.set(__self__, "discovered_asset_name", discovered_asset_name)
         if documentation_uri is not None:
             pulumi.set(__self__, "documentation_uri", documentation_uri)
         if events is not None:
@@ -116,18 +117,6 @@ class DiscoveredAssetArgs:
     @asset_endpoint_profile_ref.setter
     def asset_endpoint_profile_ref(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "asset_endpoint_profile_ref", value)
-
-    @_builtins.property
-    @pulumi.getter(name="discoveredAssetName")
-    def discovered_asset_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Discovered Asset name parameter.
-        """
-        return pulumi.get(self, "discovered_asset_name")
-
-    @discovered_asset_name.setter
-    def discovered_asset_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "discovered_asset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoveryId")
@@ -224,6 +213,18 @@ class DiscoveredAssetArgs:
     @default_topic.setter
     def default_topic(self, value: pulumi.Input[Optional['TopicArgs']]):
         pulumi.set(self, "default_topic", value)
+
+    @_builtins.property
+    @pulumi.getter(name="discoveredAssetName")
+    def discovered_asset_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Discovered Asset name parameter.
+        """
+        return pulumi.get(self, "discovered_asset_name")
+
+    @discovered_asset_name.setter
+    def discovered_asset_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "discovered_asset_name", value)
 
     @_builtins.property
     @pulumi.getter(name="documentationUri")
@@ -480,8 +481,6 @@ class DiscoveredAsset(pulumi.CustomResource):
             __props__.__dict__["default_datasets_configuration"] = default_datasets_configuration
             __props__.__dict__["default_events_configuration"] = default_events_configuration
             __props__.__dict__["default_topic"] = default_topic
-            if discovered_asset_name is None and not opts.urn:
-                raise TypeError("Missing required property 'discovered_asset_name'")
             __props__.__dict__["discovered_asset_name"] = discovered_asset_name
             if discovery_id is None and not opts.urn:
                 raise TypeError("Missing required property 'discovery_id'")

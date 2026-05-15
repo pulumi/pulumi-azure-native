@@ -166,7 +166,7 @@ def get_configuration_group_schema(configuration_group_schema_name: Optional[_bu
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_configuration_group_schema_output(configuration_group_schema_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_configuration_group_schema_output(configuration_group_schema_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationGroupSchemaResult]:

@@ -23,21 +23,22 @@ __all__ = ['LinkedServiceArgs', 'LinkedService']
 class LinkedServiceArgs:
     def __init__(__self__, *,
                  factory_name: pulumi.Input[_builtins.str],
-                 linked_service_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['AmazonMWSLinkedServiceArgs', 'AmazonRdsForOracleLinkedServiceArgs', 'AmazonRdsForSqlServerLinkedServiceArgs', 'AmazonRedshiftLinkedServiceArgs', 'AmazonS3CompatibleLinkedServiceArgs', 'AmazonS3LinkedServiceArgs', 'AppFiguresLinkedServiceArgs', 'AsanaLinkedServiceArgs', 'AzureBatchLinkedServiceArgs', 'AzureBlobFSLinkedServiceArgs', 'AzureBlobStorageLinkedServiceArgs', 'AzureDataExplorerLinkedServiceArgs', 'AzureDataLakeAnalyticsLinkedServiceArgs', 'AzureDataLakeStoreLinkedServiceArgs', 'AzureDatabricksDeltaLakeLinkedServiceArgs', 'AzureDatabricksLinkedServiceArgs', 'AzureFileStorageLinkedServiceArgs', 'AzureFunctionLinkedServiceArgs', 'AzureKeyVaultLinkedServiceArgs', 'AzureMLLinkedServiceArgs', 'AzureMLServiceLinkedServiceArgs', 'AzureMariaDBLinkedServiceArgs', 'AzureMySqlLinkedServiceArgs', 'AzurePostgreSqlLinkedServiceArgs', 'AzureSearchLinkedServiceArgs', 'AzureSqlDWLinkedServiceArgs', 'AzureSqlDatabaseLinkedServiceArgs', 'AzureSqlMILinkedServiceArgs', 'AzureStorageLinkedServiceArgs', 'AzureSynapseArtifactsLinkedServiceArgs', 'AzureTableStorageLinkedServiceArgs', 'CassandraLinkedServiceArgs', 'CommonDataServiceForAppsLinkedServiceArgs', 'ConcurLinkedServiceArgs', 'CosmosDbLinkedServiceArgs', 'CosmosDbMongoDbApiLinkedServiceArgs', 'CouchbaseLinkedServiceArgs', 'CustomDataSourceLinkedServiceArgs', 'DataworldLinkedServiceArgs', 'Db2LinkedServiceArgs', 'DrillLinkedServiceArgs', 'DynamicsAXLinkedServiceArgs', 'DynamicsCrmLinkedServiceArgs', 'DynamicsLinkedServiceArgs', 'EloquaLinkedServiceArgs', 'FileServerLinkedServiceArgs', 'FtpServerLinkedServiceArgs', 'GoogleAdWordsLinkedServiceArgs', 'GoogleBigQueryLinkedServiceArgs', 'GoogleBigQueryV2LinkedServiceArgs', 'GoogleCloudStorageLinkedServiceArgs', 'GoogleSheetsLinkedServiceArgs', 'GreenplumLinkedServiceArgs', 'HBaseLinkedServiceArgs', 'HDInsightLinkedServiceArgs', 'HDInsightOnDemandLinkedServiceArgs', 'HdfsLinkedServiceArgs', 'HiveLinkedServiceArgs', 'HttpLinkedServiceArgs', 'HubspotLinkedServiceArgs', 'ImpalaLinkedServiceArgs', 'InformixLinkedServiceArgs', 'JiraLinkedServiceArgs', 'LakeHouseLinkedServiceArgs', 'MagentoLinkedServiceArgs', 'MariaDBLinkedServiceArgs', 'MarketoLinkedServiceArgs', 'MicrosoftAccessLinkedServiceArgs', 'MongoDbAtlasLinkedServiceArgs', 'MongoDbLinkedServiceArgs', 'MongoDbV2LinkedServiceArgs', 'MySqlLinkedServiceArgs', 'NetezzaLinkedServiceArgs', 'ODataLinkedServiceArgs', 'OdbcLinkedServiceArgs', 'Office365LinkedServiceArgs', 'OracleCloudStorageLinkedServiceArgs', 'OracleLinkedServiceArgs', 'OracleServiceCloudLinkedServiceArgs', 'PaypalLinkedServiceArgs', 'PhoenixLinkedServiceArgs', 'PostgreSqlLinkedServiceArgs', 'PostgreSqlV2LinkedServiceArgs', 'PrestoLinkedServiceArgs', 'QuickBooksLinkedServiceArgs', 'QuickbaseLinkedServiceArgs', 'ResponsysLinkedServiceArgs', 'RestServiceLinkedServiceArgs', 'SalesforceLinkedServiceArgs', 'SalesforceMarketingCloudLinkedServiceArgs', 'SalesforceServiceCloudLinkedServiceArgs', 'SalesforceServiceCloudV2LinkedServiceArgs', 'SalesforceV2LinkedServiceArgs', 'SapBWLinkedServiceArgs', 'SapCloudForCustomerLinkedServiceArgs', 'SapEccLinkedServiceArgs', 'SapHanaLinkedServiceArgs', 'SapOdpLinkedServiceArgs', 'SapOpenHubLinkedServiceArgs', 'SapTableLinkedServiceArgs', 'ServiceNowLinkedServiceArgs', 'ServiceNowV2LinkedServiceArgs', 'SftpServerLinkedServiceArgs', 'SharePointOnlineListLinkedServiceArgs', 'ShopifyLinkedServiceArgs', 'SmartsheetLinkedServiceArgs', 'SnowflakeLinkedServiceArgs', 'SnowflakeV2LinkedServiceArgs', 'SparkLinkedServiceArgs', 'SqlServerLinkedServiceArgs', 'SquareLinkedServiceArgs', 'SybaseLinkedServiceArgs', 'TeamDeskLinkedServiceArgs', 'TeradataLinkedServiceArgs', 'TwilioLinkedServiceArgs', 'VerticaLinkedServiceArgs', 'WarehouseLinkedServiceArgs', 'WebLinkedServiceArgs', 'XeroLinkedServiceArgs', 'ZendeskLinkedServiceArgs', 'ZohoLinkedServiceArgs']],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LinkedService resource.
 
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
-        :param pulumi.Input[_builtins.str] linked_service_name: The linked service name.
         :param pulumi.Input[Union['AmazonMWSLinkedServiceArgs', 'AmazonRdsForOracleLinkedServiceArgs', 'AmazonRdsForSqlServerLinkedServiceArgs', 'AmazonRedshiftLinkedServiceArgs', 'AmazonS3CompatibleLinkedServiceArgs', 'AmazonS3LinkedServiceArgs', 'AppFiguresLinkedServiceArgs', 'AsanaLinkedServiceArgs', 'AzureBatchLinkedServiceArgs', 'AzureBlobFSLinkedServiceArgs', 'AzureBlobStorageLinkedServiceArgs', 'AzureDataExplorerLinkedServiceArgs', 'AzureDataLakeAnalyticsLinkedServiceArgs', 'AzureDataLakeStoreLinkedServiceArgs', 'AzureDatabricksDeltaLakeLinkedServiceArgs', 'AzureDatabricksLinkedServiceArgs', 'AzureFileStorageLinkedServiceArgs', 'AzureFunctionLinkedServiceArgs', 'AzureKeyVaultLinkedServiceArgs', 'AzureMLLinkedServiceArgs', 'AzureMLServiceLinkedServiceArgs', 'AzureMariaDBLinkedServiceArgs', 'AzureMySqlLinkedServiceArgs', 'AzurePostgreSqlLinkedServiceArgs', 'AzureSearchLinkedServiceArgs', 'AzureSqlDWLinkedServiceArgs', 'AzureSqlDatabaseLinkedServiceArgs', 'AzureSqlMILinkedServiceArgs', 'AzureStorageLinkedServiceArgs', 'AzureSynapseArtifactsLinkedServiceArgs', 'AzureTableStorageLinkedServiceArgs', 'CassandraLinkedServiceArgs', 'CommonDataServiceForAppsLinkedServiceArgs', 'ConcurLinkedServiceArgs', 'CosmosDbLinkedServiceArgs', 'CosmosDbMongoDbApiLinkedServiceArgs', 'CouchbaseLinkedServiceArgs', 'CustomDataSourceLinkedServiceArgs', 'DataworldLinkedServiceArgs', 'Db2LinkedServiceArgs', 'DrillLinkedServiceArgs', 'DynamicsAXLinkedServiceArgs', 'DynamicsCrmLinkedServiceArgs', 'DynamicsLinkedServiceArgs', 'EloquaLinkedServiceArgs', 'FileServerLinkedServiceArgs', 'FtpServerLinkedServiceArgs', 'GoogleAdWordsLinkedServiceArgs', 'GoogleBigQueryLinkedServiceArgs', 'GoogleBigQueryV2LinkedServiceArgs', 'GoogleCloudStorageLinkedServiceArgs', 'GoogleSheetsLinkedServiceArgs', 'GreenplumLinkedServiceArgs', 'HBaseLinkedServiceArgs', 'HDInsightLinkedServiceArgs', 'HDInsightOnDemandLinkedServiceArgs', 'HdfsLinkedServiceArgs', 'HiveLinkedServiceArgs', 'HttpLinkedServiceArgs', 'HubspotLinkedServiceArgs', 'ImpalaLinkedServiceArgs', 'InformixLinkedServiceArgs', 'JiraLinkedServiceArgs', 'LakeHouseLinkedServiceArgs', 'MagentoLinkedServiceArgs', 'MariaDBLinkedServiceArgs', 'MarketoLinkedServiceArgs', 'MicrosoftAccessLinkedServiceArgs', 'MongoDbAtlasLinkedServiceArgs', 'MongoDbLinkedServiceArgs', 'MongoDbV2LinkedServiceArgs', 'MySqlLinkedServiceArgs', 'NetezzaLinkedServiceArgs', 'ODataLinkedServiceArgs', 'OdbcLinkedServiceArgs', 'Office365LinkedServiceArgs', 'OracleCloudStorageLinkedServiceArgs', 'OracleLinkedServiceArgs', 'OracleServiceCloudLinkedServiceArgs', 'PaypalLinkedServiceArgs', 'PhoenixLinkedServiceArgs', 'PostgreSqlLinkedServiceArgs', 'PostgreSqlV2LinkedServiceArgs', 'PrestoLinkedServiceArgs', 'QuickBooksLinkedServiceArgs', 'QuickbaseLinkedServiceArgs', 'ResponsysLinkedServiceArgs', 'RestServiceLinkedServiceArgs', 'SalesforceLinkedServiceArgs', 'SalesforceMarketingCloudLinkedServiceArgs', 'SalesforceServiceCloudLinkedServiceArgs', 'SalesforceServiceCloudV2LinkedServiceArgs', 'SalesforceV2LinkedServiceArgs', 'SapBWLinkedServiceArgs', 'SapCloudForCustomerLinkedServiceArgs', 'SapEccLinkedServiceArgs', 'SapHanaLinkedServiceArgs', 'SapOdpLinkedServiceArgs', 'SapOpenHubLinkedServiceArgs', 'SapTableLinkedServiceArgs', 'ServiceNowLinkedServiceArgs', 'ServiceNowV2LinkedServiceArgs', 'SftpServerLinkedServiceArgs', 'SharePointOnlineListLinkedServiceArgs', 'ShopifyLinkedServiceArgs', 'SmartsheetLinkedServiceArgs', 'SnowflakeLinkedServiceArgs', 'SnowflakeV2LinkedServiceArgs', 'SparkLinkedServiceArgs', 'SqlServerLinkedServiceArgs', 'SquareLinkedServiceArgs', 'SybaseLinkedServiceArgs', 'TeamDeskLinkedServiceArgs', 'TeradataLinkedServiceArgs', 'TwilioLinkedServiceArgs', 'VerticaLinkedServiceArgs', 'WarehouseLinkedServiceArgs', 'WebLinkedServiceArgs', 'XeroLinkedServiceArgs', 'ZendeskLinkedServiceArgs', 'ZohoLinkedServiceArgs']] properties: Properties of linked service.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] linked_service_name: The linked service name.
         """
         pulumi.set(__self__, "factory_name", factory_name)
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
 
     @_builtins.property
     @pulumi.getter(name="factoryName")
@@ -50,18 +51,6 @@ class LinkedServiceArgs:
     @factory_name.setter
     def factory_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "factory_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The linked service name.
-        """
-        return pulumi.get(self, "linked_service_name")
-
-    @linked_service_name.setter
-    def linked_service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "linked_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -86,6 +75,18 @@ class LinkedServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The linked service name.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "linked_service_name", value)
 
 
 @pulumi.type_token("azure-native:datafactory:LinkedService")
@@ -155,8 +156,6 @@ class LinkedService(pulumi.CustomResource):
             if factory_name is None and not opts.urn:
                 raise TypeError("Missing required property 'factory_name'")
             __props__.__dict__["factory_name"] = factory_name
-            if linked_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_service_name'")
             __props__.__dict__["linked_service_name"] = linked_service_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

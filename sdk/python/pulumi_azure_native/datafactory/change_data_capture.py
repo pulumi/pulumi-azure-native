@@ -22,31 +22,30 @@ __all__ = ['ChangeDataCaptureArgs', 'ChangeDataCapture']
 @pulumi.input_type
 class ChangeDataCaptureArgs:
     def __init__(__self__, *,
-                 change_data_capture_name: pulumi.Input[_builtins.str],
                  factory_name: pulumi.Input[_builtins.str],
                  policy: pulumi.Input['MapperPolicyArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_connections_info: pulumi.Input[Sequence[pulumi.Input['MapperSourceConnectionsInfoArgs']]],
                  target_connections_info: pulumi.Input[Sequence[pulumi.Input['MapperTargetConnectionsInfoArgs']]],
                  allow_v_net_override: pulumi.Input[Optional[_builtins.bool]] = None,
+                 change_data_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  folder: pulumi.Input[Optional['ChangeDataCaptureFolderArgs']] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChangeDataCapture resource.
 
-        :param pulumi.Input[_builtins.str] change_data_capture_name: The change data capture name.
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
         :param pulumi.Input['MapperPolicyArgs'] policy: CDC policy
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[Sequence[pulumi.Input['MapperSourceConnectionsInfoArgs']]] source_connections_info: List of sources connections that can be used as sources in the CDC.
         :param pulumi.Input[Sequence[pulumi.Input['MapperTargetConnectionsInfoArgs']]] target_connections_info: List of target connections that can be used as sources in the CDC.
         :param pulumi.Input[_builtins.bool] allow_v_net_override: A boolean to determine if the vnet configuration needs to be overwritten.
+        :param pulumi.Input[_builtins.str] change_data_capture_name: The change data capture name.
         :param pulumi.Input[_builtins.str] description: The description of the change data capture.
         :param pulumi.Input['ChangeDataCaptureFolderArgs'] folder: The folder that this CDC is in. If not specified, CDC will appear at the root level.
         :param pulumi.Input[_builtins.str] status: Status of the CDC as to if it is running or stopped.
         """
-        pulumi.set(__self__, "change_data_capture_name", change_data_capture_name)
         pulumi.set(__self__, "factory_name", factory_name)
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -54,24 +53,14 @@ class ChangeDataCaptureArgs:
         pulumi.set(__self__, "target_connections_info", target_connections_info)
         if allow_v_net_override is not None:
             pulumi.set(__self__, "allow_v_net_override", allow_v_net_override)
+        if change_data_capture_name is not None:
+            pulumi.set(__self__, "change_data_capture_name", change_data_capture_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if folder is not None:
             pulumi.set(__self__, "folder", folder)
         if status is not None:
             pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter(name="changeDataCaptureName")
-    def change_data_capture_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The change data capture name.
-        """
-        return pulumi.get(self, "change_data_capture_name")
-
-    @change_data_capture_name.setter
-    def change_data_capture_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "change_data_capture_name", value)
 
     @_builtins.property
     @pulumi.getter(name="factoryName")
@@ -144,6 +133,18 @@ class ChangeDataCaptureArgs:
     @allow_v_net_override.setter
     def allow_v_net_override(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "allow_v_net_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="changeDataCaptureName")
+    def change_data_capture_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The change data capture name.
+        """
+        return pulumi.get(self, "change_data_capture_name")
+
+    @change_data_capture_name.setter
+    def change_data_capture_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "change_data_capture_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -265,8 +266,6 @@ class ChangeDataCapture(pulumi.CustomResource):
             __props__ = ChangeDataCaptureArgs.__new__(ChangeDataCaptureArgs)
 
             __props__.__dict__["allow_v_net_override"] = allow_v_net_override
-            if change_data_capture_name is None and not opts.urn:
-                raise TypeError("Missing required property 'change_data_capture_name'")
             __props__.__dict__["change_data_capture_name"] = change_data_capture_name
             __props__.__dict__["description"] = description
             if factory_name is None and not opts.urn:

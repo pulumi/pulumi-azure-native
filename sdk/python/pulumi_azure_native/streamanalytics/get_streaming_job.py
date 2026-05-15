@@ -453,7 +453,7 @@ def get_streaming_job(expand: Optional[_builtins.str] = None,
         transformation=pulumi.get(__ret__, 'transformation'),
         type=pulumi.get(__ret__, 'type'))
 def get_streaming_job_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                             job_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             job_name: pulumi.Input[Optional[_builtins.str]] = None,
                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamingJobResult]:
     """

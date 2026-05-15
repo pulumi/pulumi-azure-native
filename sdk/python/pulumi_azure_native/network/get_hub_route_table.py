@@ -193,7 +193,7 @@ def get_hub_route_table(resource_group_name: Optional[_builtins.str] = None,
         routes=pulumi.get(__ret__, 'routes'),
         type=pulumi.get(__ret__, 'type'))
 def get_hub_route_table_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               route_table_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               route_table_name: pulumi.Input[Optional[_builtins.str]] = None,
                                virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHubRouteTableResult]:
     """

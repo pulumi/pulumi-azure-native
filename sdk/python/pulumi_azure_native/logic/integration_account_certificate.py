@@ -21,9 +21,9 @@ __all__ = ['IntegrationAccountCertificateArgs', 'IntegrationAccountCertificate']
 @pulumi.input_type
 class IntegrationAccountCertificateArgs:
     def __init__(__self__, *,
-                 certificate_name: pulumi.Input[_builtins.str],
                  integration_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key: pulumi.Input[Optional['KeyVaultKeyReferenceArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
@@ -32,18 +32,19 @@ class IntegrationAccountCertificateArgs:
         """
         The set of arguments for constructing a IntegrationAccountCertificate resource.
 
-        :param pulumi.Input[_builtins.str] certificate_name: The integration account certificate name.
         :param pulumi.Input[_builtins.str] integration_account_name: The integration account name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
+        :param pulumi.Input[_builtins.str] certificate_name: The integration account certificate name.
         :param pulumi.Input['KeyVaultKeyReferenceArgs'] key: The key details in the key vault.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param Any metadata: The metadata.
         :param pulumi.Input[_builtins.str] public_certificate: The public certificate.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "certificate_name", certificate_name)
         pulumi.set(__self__, "integration_account_name", integration_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if key is not None:
             pulumi.set(__self__, "key", key)
         if location is not None:
@@ -54,18 +55,6 @@ class IntegrationAccountCertificateArgs:
             pulumi.set(__self__, "public_certificate", public_certificate)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The integration account certificate name.
-        """
-        return pulumi.get(self, "certificate_name")
-
-    @certificate_name.setter
-    def certificate_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationAccountName")
@@ -90,6 +79,18 @@ class IntegrationAccountCertificateArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The integration account certificate name.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -232,8 +233,6 @@ class IntegrationAccountCertificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationAccountCertificateArgs.__new__(IntegrationAccountCertificateArgs)
 
-            if certificate_name is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_name'")
             __props__.__dict__["certificate_name"] = certificate_name
             if integration_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'integration_account_name'")

@@ -22,43 +22,32 @@ __all__ = ['MaintenanceConfigurationArgs', 'MaintenanceConfiguration']
 @pulumi.input_type
 class MaintenanceConfigurationArgs:
     def __init__(__self__, *,
-                 config_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  maintenance_window: pulumi.Input[Optional['MaintenanceWindowArgs']] = None,
                  not_allowed_time: pulumi.Input[Optional[Sequence[pulumi.Input['TimeSpanArgs']]]] = None,
                  time_in_week: pulumi.Input[Optional[Sequence[pulumi.Input['TimeInWeekArgs']]]] = None):
         """
         The set of arguments for constructing a MaintenanceConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] config_name: The name of the maintenance configuration.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
+        :param pulumi.Input[_builtins.str] config_name: The name of the maintenance configuration.
         :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window for the maintenance configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TimeSpanArgs']]] not_allowed_time: Time slots on which upgrade is not allowed.
         :param pulumi.Input[Sequence[pulumi.Input['TimeInWeekArgs']]] time_in_week: Time slots during the week when planned maintenance is allowed to proceed. If two array entries specify the same day of the week, the applied configuration is the union of times in both entries.
         """
-        pulumi.set(__self__, "config_name", config_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if config_name is not None:
+            pulumi.set(__self__, "config_name", config_name)
         if maintenance_window is not None:
             pulumi.set(__self__, "maintenance_window", maintenance_window)
         if not_allowed_time is not None:
             pulumi.set(__self__, "not_allowed_time", not_allowed_time)
         if time_in_week is not None:
             pulumi.set(__self__, "time_in_week", time_in_week)
-
-    @_builtins.property
-    @pulumi.getter(name="configName")
-    def config_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the maintenance configuration.
-        """
-        return pulumi.get(self, "config_name")
-
-    @config_name.setter
-    def config_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "config_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -83,6 +72,18 @@ class MaintenanceConfigurationArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configName")
+    def config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the maintenance configuration.
+        """
+        return pulumi.get(self, "config_name")
+
+    @config_name.setter
+    def config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "config_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maintenanceWindow")
@@ -195,8 +196,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MaintenanceConfigurationArgs.__new__(MaintenanceConfigurationArgs)
 
-            if config_name is None and not opts.urn:
-                raise TypeError("Missing required property 'config_name'")
             __props__.__dict__["config_name"] = config_name
             __props__.__dict__["maintenance_window"] = maintenance_window
             __props__.__dict__["not_allowed_time"] = not_allowed_time

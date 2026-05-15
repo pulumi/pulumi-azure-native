@@ -228,7 +228,7 @@ def get_logical_network(logical_network_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vm_switch_name=pulumi.get(__ret__, 'vm_switch_name'))
-def get_logical_network_output(logical_network_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_logical_network_output(logical_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogicalNetworkResult]:
     """

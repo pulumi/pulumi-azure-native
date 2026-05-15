@@ -183,7 +183,7 @@ def get_container_apps_source_control(container_app_name: Optional[_builtins.str
         type=pulumi.get(__ret__, 'type'))
 def get_container_apps_source_control_output(container_app_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                             source_control_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                             source_control_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContainerAppsSourceControlResult]:
     """
     Container App SourceControl.

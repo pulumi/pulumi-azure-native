@@ -181,7 +181,7 @@ def get_cloud_edge_management_role(device_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_cloud_edge_management_role_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          name: pulumi.Input[Optional[_builtins.str]] = None,
                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudEdgeManagementRoleResult]:
     """

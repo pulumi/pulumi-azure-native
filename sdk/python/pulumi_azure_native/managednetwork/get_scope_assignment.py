@@ -161,7 +161,7 @@ def get_scope_assignment(scope: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
 def get_scope_assignment_output(scope: pulumi.Input[Optional[_builtins.str]] = None,
-                                scope_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                scope_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeAssignmentResult]:
     """
     Get the specified scope assignment.

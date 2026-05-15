@@ -23,25 +23,24 @@ __all__ = ['WebAgentArgs', 'WebAgent']
 class WebAgentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 web_agent_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  paths: pulumi.Input[Optional[Sequence[pulumi.Input['AgentPathArgs']]]] = None,
                  system_prompt: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 web_agent_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAgent resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] web_agent_name: The name of the web agent.
         :param pulumi.Input[_builtins.str] description: Optional textual description of the agent.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['AgentPathArgs']]] paths: List of paths associated with the web agent.
         :param pulumi.Input[_builtins.str] system_prompt: System prompt for the web agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] web_agent_name: The name of the web agent.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "web_agent_name", web_agent_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location is not None:
@@ -52,6 +51,8 @@ class WebAgentArgs:
             pulumi.set(__self__, "system_prompt", system_prompt)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if web_agent_name is not None:
+            pulumi.set(__self__, "web_agent_name", web_agent_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -64,18 +65,6 @@ class WebAgentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="webAgentName")
-    def web_agent_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the web agent.
-        """
-        return pulumi.get(self, "web_agent_name")
-
-    @web_agent_name.setter
-    def web_agent_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "web_agent_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -136,6 +125,18 @@ class WebAgentArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webAgentName")
+    def web_agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the web agent.
+        """
+        return pulumi.get(self, "web_agent_name")
+
+    @web_agent_name.setter
+    def web_agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "web_agent_name", value)
 
 
 @pulumi.type_token("azure-native:cdn:WebAgent")
@@ -219,8 +220,6 @@ class WebAgent(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["system_prompt"] = system_prompt
             __props__.__dict__["tags"] = tags
-            if web_agent_name is None and not opts.urn:
-                raise TypeError("Missing required property 'web_agent_name'")
             __props__.__dict__["web_agent_name"] = web_agent_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

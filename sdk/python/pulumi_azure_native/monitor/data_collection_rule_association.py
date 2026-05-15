@@ -20,40 +20,29 @@ __all__ = ['DataCollectionRuleAssociationArgs', 'DataCollectionRuleAssociation']
 @pulumi.input_type
 class DataCollectionRuleAssociationArgs:
     def __init__(__self__, *,
-                 association_name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
+                 association_name: pulumi.Input[Optional[_builtins.str]] = None,
                  data_collection_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  data_collection_rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataCollectionRuleAssociation resource.
 
-        :param pulumi.Input[_builtins.str] association_name: The name of the association. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_uri: The identifier of the resource.
+        :param pulumi.Input[_builtins.str] association_name: The name of the association. The name is case insensitive.
         :param pulumi.Input[_builtins.str] data_collection_endpoint_id: The resource ID of the data collection endpoint that is to be associated.
         :param pulumi.Input[_builtins.str] data_collection_rule_id: The resource ID of the data collection rule that is to be associated.
         :param pulumi.Input[_builtins.str] description: Description of the association.
         """
-        pulumi.set(__self__, "association_name", association_name)
         pulumi.set(__self__, "resource_uri", resource_uri)
+        if association_name is not None:
+            pulumi.set(__self__, "association_name", association_name)
         if data_collection_endpoint_id is not None:
             pulumi.set(__self__, "data_collection_endpoint_id", data_collection_endpoint_id)
         if data_collection_rule_id is not None:
             pulumi.set(__self__, "data_collection_rule_id", data_collection_rule_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @_builtins.property
-    @pulumi.getter(name="associationName")
-    def association_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the association. The name is case insensitive.
-        """
-        return pulumi.get(self, "association_name")
-
-    @association_name.setter
-    def association_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "association_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUri")
@@ -66,6 +55,18 @@ class DataCollectionRuleAssociationArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associationName")
+    def association_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the association. The name is case insensitive.
+        """
+        return pulumi.get(self, "association_name")
+
+    @association_name.setter
+    def association_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "association_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionEndpointId")
@@ -175,8 +176,6 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataCollectionRuleAssociationArgs.__new__(DataCollectionRuleAssociationArgs)
 
-            if association_name is None and not opts.urn:
-                raise TypeError("Missing required property 'association_name'")
             __props__.__dict__["association_name"] = association_name
             __props__.__dict__["data_collection_endpoint_id"] = data_collection_endpoint_id
             __props__.__dict__["data_collection_rule_id"] = data_collection_rule_id

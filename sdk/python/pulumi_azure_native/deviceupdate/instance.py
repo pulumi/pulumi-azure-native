@@ -23,10 +23,10 @@ __all__ = ['InstanceArgs', 'Instance']
 class InstanceArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  diagnostic_storage_properties: pulumi.Input[Optional['DiagnosticStoragePropertiesArgs']] = None,
                  enable_diagnostics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  iot_hubs: pulumi.Input[Optional[Sequence[pulumi.Input['IotHubSettingsArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -34,21 +34,22 @@ class InstanceArgs:
         The set of arguments for constructing a Instance resource.
 
         :param pulumi.Input[_builtins.str] account_name: Account name.
-        :param pulumi.Input[_builtins.str] instance_name: Instance name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input['DiagnosticStoragePropertiesArgs'] diagnostic_storage_properties: Customer-initiated diagnostic log collection storage properties
         :param pulumi.Input[_builtins.bool] enable_diagnostics: Enables or Disables the diagnostic logs collection
+        :param pulumi.Input[_builtins.str] instance_name: Instance name.
         :param pulumi.Input[Sequence[pulumi.Input['IotHubSettingsArgs']]] iot_hubs: List of IoT Hubs associated with the account.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if diagnostic_storage_properties is not None:
             pulumi.set(__self__, "diagnostic_storage_properties", diagnostic_storage_properties)
         if enable_diagnostics is not None:
             pulumi.set(__self__, "enable_diagnostics", enable_diagnostics)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
         if iot_hubs is not None:
             pulumi.set(__self__, "iot_hubs", iot_hubs)
         if location is not None:
@@ -67,18 +68,6 @@ class InstanceArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="instanceName")
-    def instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Instance name.
-        """
-        return pulumi.get(self, "instance_name")
-
-    @instance_name.setter
-    def instance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -115,6 +104,18 @@ class InstanceArgs:
     @enable_diagnostics.setter
     def enable_diagnostics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_diagnostics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Instance name.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="iotHubs")
@@ -234,8 +235,6 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["diagnostic_storage_properties"] = diagnostic_storage_properties
             __props__.__dict__["enable_diagnostics"] = enable_diagnostics
-            if instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["iot_hubs"] = iot_hubs
             __props__.__dict__["location"] = location

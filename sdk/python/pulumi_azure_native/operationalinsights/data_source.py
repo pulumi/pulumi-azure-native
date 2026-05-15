@@ -20,41 +20,30 @@ __all__ = ['DataSourceArgs', 'DataSource']
 @pulumi.input_type
 class DataSourceArgs:
     def __init__(__self__, *,
-                 data_source_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Union[_builtins.str, 'DataSourceKind']],
                  properties: Any,
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
+                 data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DataSource resource.
 
-        :param pulumi.Input[_builtins.str] data_source_name: The name of the datasource resource.
         :param pulumi.Input[Union[_builtins.str, 'DataSourceKind']] kind: The kind of the DataSource.
         :param Any properties: The data source properties in raw json format, each kind of data source have it's own schema.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] data_source_name: The name of the datasource resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "data_source_name", data_source_name)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if data_source_name is not None:
+            pulumi.set(__self__, "data_source_name", data_source_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSourceName")
-    def data_source_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the datasource resource.
-        """
-        return pulumi.get(self, "data_source_name")
-
-    @data_source_name.setter
-    def data_source_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_source_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -103,6 +92,18 @@ class DataSourceArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceName")
+    def data_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the datasource resource.
+        """
+        return pulumi.get(self, "data_source_name")
+
+    @data_source_name.setter
+    def data_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_source_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -191,8 +192,6 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataSourceArgs.__new__(DataSourceArgs)
 
-            if data_source_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_source_name'")
             __props__.__dict__["data_source_name"] = data_source_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

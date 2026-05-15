@@ -188,7 +188,7 @@ def get_registration(registration_name: Optional[_builtins.str] = None,
         object_id=pulumi.get(__ret__, 'object_id'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_registration_output(registration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_registration_output(registration_name: pulumi.Input[Optional[_builtins.str]] = None,
                             resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationResult]:
     """

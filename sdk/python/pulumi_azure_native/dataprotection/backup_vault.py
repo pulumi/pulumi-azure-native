@@ -24,25 +24,24 @@ class BackupVaultInitArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['BackupVaultArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 vault_name: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['DppIdentityDetailsArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vault_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a BackupVault resource.
 
         :param pulumi.Input['BackupVaultArgs'] properties: BackupVaultResource properties
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] vault_name: The name of the backup vault.
         :param pulumi.Input[_builtins.str] e_tag: Optional ETag.
         :param pulumi.Input['DppIdentityDetailsArgs'] identity: Input Managed Identity Details
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] vault_name: The name of the backup vault.
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vault_name", vault_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if identity is not None:
@@ -51,6 +50,8 @@ class BackupVaultInitArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vault_name is not None:
+            pulumi.set(__self__, "vault_name", vault_name)
 
     @_builtins.property
     @pulumi.getter
@@ -75,18 +76,6 @@ class BackupVaultInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vaultName")
-    def vault_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the backup vault.
-        """
-        return pulumi.get(self, "vault_name")
-
-    @vault_name.setter
-    def vault_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "vault_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
@@ -135,6 +124,18 @@ class BackupVaultInitArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vaultName")
+    def vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the backup vault.
+        """
+        return pulumi.get(self, "vault_name")
+
+    @vault_name.setter
+    def vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vault_name", value)
 
 
 @pulumi.type_token("azure-native:dataprotection:BackupVault")
@@ -224,8 +225,6 @@ class BackupVault(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if vault_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vault_name'")
             __props__.__dict__["vault_name"] = vault_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

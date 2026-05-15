@@ -22,30 +22,31 @@ __all__ = ['NetworkRackArgs', 'NetworkRack']
 class NetworkRackArgs:
     def __init__(__self__, *,
                  network_fabric_id: pulumi.Input[_builtins.str],
-                 network_rack_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_rack_type: pulumi.Input[Optional[Union[_builtins.str, 'NetworkRackType']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkRack resource.
 
         :param pulumi.Input[_builtins.str] network_fabric_id: ARM resource ID of the Network Fabric.
-        :param pulumi.Input[_builtins.str] network_rack_name: Name of the Network Rack.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] network_rack_name: Name of the Network Rack.
         :param pulumi.Input[Union[_builtins.str, 'NetworkRackType']] network_rack_type: Network Rack SKU name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
-        pulumi.set(__self__, "network_rack_name", network_rack_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_rack_name is not None:
+            pulumi.set(__self__, "network_rack_name", network_rack_name)
         if network_rack_type is not None:
             pulumi.set(__self__, "network_rack_type", network_rack_type)
         if tags is not None:
@@ -62,18 +63,6 @@ class NetworkRackArgs:
     @network_fabric_id.setter
     def network_fabric_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_fabric_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkRackName")
-    def network_rack_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Network Rack.
-        """
-        return pulumi.get(self, "network_rack_name")
-
-    @network_rack_name.setter
-    def network_rack_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_rack_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -110,6 +99,18 @@ class NetworkRackArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkRackName")
+    def network_rack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Network Rack.
+        """
+        return pulumi.get(self, "network_rack_name")
+
+    @network_rack_name.setter
+    def network_rack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_rack_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkRackType")
@@ -218,8 +219,6 @@ class NetworkRack(pulumi.CustomResource):
             if network_fabric_id is None and not opts.urn:
                 raise TypeError("Missing required property 'network_fabric_id'")
             __props__.__dict__["network_fabric_id"] = network_fabric_id
-            if network_rack_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_rack_name'")
             __props__.__dict__["network_rack_name"] = network_rack_name
             __props__.__dict__["network_rack_type"] = network_rack_type
             if resource_group_name is None and not opts.urn:

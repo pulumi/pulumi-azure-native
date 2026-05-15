@@ -20,24 +20,25 @@ __all__ = ['ClientApplicationProductLinkArgs', 'ClientApplicationProductLink']
 class ClientApplicationProductLinkArgs:
     def __init__(__self__, *,
                  client_application_id: pulumi.Input[_builtins.str],
-                 client_application_product_link_id: pulumi.Input[_builtins.str],
                  product_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 service_name: pulumi.Input[_builtins.str]):
+                 service_name: pulumi.Input[_builtins.str],
+                 client_application_product_link_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClientApplicationProductLink resource.
 
         :param pulumi.Input[_builtins.str] client_application_id: Client Application identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[_builtins.str] client_application_product_link_id: Client Application Product Link identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] product_id: The unique resource identifier of the Product.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
+        :param pulumi.Input[_builtins.str] client_application_product_link_id: Client Application Product Link identifier. Must be unique in the current API Management service instance.
         """
         pulumi.set(__self__, "client_application_id", client_application_id)
-        pulumi.set(__self__, "client_application_product_link_id", client_application_product_link_id)
         pulumi.set(__self__, "product_id", product_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        if client_application_product_link_id is not None:
+            pulumi.set(__self__, "client_application_product_link_id", client_application_product_link_id)
 
     @_builtins.property
     @pulumi.getter(name="clientApplicationId")
@@ -50,18 +51,6 @@ class ClientApplicationProductLinkArgs:
     @client_application_id.setter
     def client_application_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "client_application_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clientApplicationProductLinkId")
-    def client_application_product_link_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Client Application Product Link identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "client_application_product_link_id")
-
-    @client_application_product_link_id.setter
-    def client_application_product_link_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "client_application_product_link_id", value)
 
     @_builtins.property
     @pulumi.getter(name="productId")
@@ -98,6 +87,18 @@ class ClientApplicationProductLinkArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientApplicationProductLinkId")
+    def client_application_product_link_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Client Application Product Link identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "client_application_product_link_id")
+
+    @client_application_product_link_id.setter
+    def client_application_product_link_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_application_product_link_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:ClientApplicationProductLink")
@@ -174,8 +175,6 @@ class ClientApplicationProductLink(pulumi.CustomResource):
             if client_application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_application_id'")
             __props__.__dict__["client_application_id"] = client_application_id
-            if client_application_product_link_id is None and not opts.urn:
-                raise TypeError("Missing required property 'client_application_product_link_id'")
             __props__.__dict__["client_application_product_link_id"] = client_application_product_link_id
             if product_id is None and not opts.urn:
                 raise TypeError("Missing required property 'product_id'")

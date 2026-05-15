@@ -20,10 +20,10 @@ __all__ = ['SiteCertificateArgs', 'SiteCertificate']
 @pulumi.input_type
 class SiteCertificateArgs:
     def __init__(__self__, *,
-                 certificate_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  canonical_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_validation_method: pulumi.Input[Optional[_builtins.str]] = None,
                  host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,10 +37,10 @@ class SiteCertificateArgs:
         """
         The set of arguments for constructing a SiteCertificate resource.
 
-        :param pulumi.Input[_builtins.str] certificate_name: Name of the certificate.
         :param pulumi.Input[_builtins.str] name: Name of the site.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] canonical_name: CNAME of the certificate to be issued via free certificate
+        :param pulumi.Input[_builtins.str] certificate_name: Name of the certificate.
         :param pulumi.Input[_builtins.str] domain_validation_method: Method of domain validation for free cert
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_names: Host names the certificate applies to.
         :param pulumi.Input[_builtins.str] key_vault_id: Azure Key Vault Csm resource Id.
@@ -52,11 +52,12 @@ class SiteCertificateArgs:
         :param pulumi.Input[_builtins.str] server_farm_id: Resource ID of the associated App Service plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "certificate_name", certificate_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if canonical_name is not None:
             pulumi.set(__self__, "canonical_name", canonical_name)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if domain_validation_method is not None:
             pulumi.set(__self__, "domain_validation_method", domain_validation_method)
         if host_names is not None:
@@ -77,18 +78,6 @@ class SiteCertificateArgs:
             pulumi.set(__self__, "server_farm_id", server_farm_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the certificate.
-        """
-        return pulumi.get(self, "certificate_name")
-
-    @certificate_name.setter
-    def certificate_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -125,6 +114,18 @@ class SiteCertificateArgs:
     @canonical_name.setter
     def canonical_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "canonical_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the certificate.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="domainValidationMethod")
@@ -346,8 +347,6 @@ class SiteCertificate(pulumi.CustomResource):
             __props__ = SiteCertificateArgs.__new__(SiteCertificateArgs)
 
             __props__.__dict__["canonical_name"] = canonical_name
-            if certificate_name is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_name'")
             __props__.__dict__["certificate_name"] = certificate_name
             __props__.__dict__["domain_validation_method"] = domain_validation_method
             __props__.__dict__["host_names"] = host_names

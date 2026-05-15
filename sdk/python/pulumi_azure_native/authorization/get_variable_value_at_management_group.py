@@ -142,7 +142,7 @@ def get_variable_value_at_management_group(management_group_id: Optional[_builti
         values=pulumi.get(__ret__, 'values'))
 def get_variable_value_at_management_group_output(management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   variable_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  variable_value_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                  variable_value_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVariableValueAtManagementGroupResult]:
     """
     This operation retrieves a single variable value; given its name,  management group it was created at and the variable it's created for.

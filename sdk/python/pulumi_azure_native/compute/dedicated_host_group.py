@@ -21,10 +21,10 @@ __all__ = ['DedicatedHostGroupArgs', 'DedicatedHostGroup']
 @pulumi.input_type
 class DedicatedHostGroupArgs:
     def __init__(__self__, *,
-                 host_group_name: pulumi.Input[_builtins.str],
                  platform_fault_domain_count: pulumi.Input[_builtins.int],
                  resource_group_name: pulumi.Input[_builtins.str],
                  additional_capabilities: pulumi.Input[Optional['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']] = None,
+                 host_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  support_automatic_placement: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -32,20 +32,21 @@ class DedicatedHostGroupArgs:
         """
         The set of arguments for constructing a DedicatedHostGroup resource.
 
-        :param pulumi.Input[_builtins.str] host_group_name: The name of the dedicated host group.
         :param pulumi.Input[_builtins.int] platform_fault_domain_count: Number of fault domains that the host group can span.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs'] additional_capabilities: Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
+        :param pulumi.Input[_builtins.str] host_group_name: The name of the dedicated host group.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.bool] support_automatic_placement: Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
-        pulumi.set(__self__, "host_group_name", host_group_name)
         pulumi.set(__self__, "platform_fault_domain_count", platform_fault_domain_count)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_capabilities is not None:
             pulumi.set(__self__, "additional_capabilities", additional_capabilities)
+        if host_group_name is not None:
+            pulumi.set(__self__, "host_group_name", host_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if support_automatic_placement is not None:
@@ -54,18 +55,6 @@ class DedicatedHostGroupArgs:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter(name="hostGroupName")
-    def host_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the dedicated host group.
-        """
-        return pulumi.get(self, "host_group_name")
-
-    @host_group_name.setter
-    def host_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "host_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="platformFaultDomainCount")
@@ -102,6 +91,18 @@ class DedicatedHostGroupArgs:
     @additional_capabilities.setter
     def additional_capabilities(self, value: pulumi.Input[Optional['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']]):
         pulumi.set(self, "additional_capabilities", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostGroupName")
+    def host_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the dedicated host group.
+        """
+        return pulumi.get(self, "host_group_name")
+
+    @host_group_name.setter
+    def host_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "host_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -233,8 +234,6 @@ class DedicatedHostGroup(pulumi.CustomResource):
             __props__ = DedicatedHostGroupArgs.__new__(DedicatedHostGroupArgs)
 
             __props__.__dict__["additional_capabilities"] = additional_capabilities
-            if host_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'host_group_name'")
             __props__.__dict__["host_group_name"] = host_group_name
             __props__.__dict__["location"] = location
             if platform_fault_domain_count is None and not opts.urn:

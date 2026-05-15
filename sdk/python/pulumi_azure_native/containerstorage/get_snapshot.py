@@ -166,7 +166,7 @@ def get_snapshot(pool_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_snapshot_output(pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        snapshot_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSnapshotResult]:
     """
     Get a Snapshot

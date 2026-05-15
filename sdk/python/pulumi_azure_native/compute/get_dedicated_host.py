@@ -288,7 +288,7 @@ def get_dedicated_host(expand: Optional[_builtins.str] = None,
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
 def get_dedicated_host_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               host_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              host_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              host_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDedicatedHostResult]:
     """

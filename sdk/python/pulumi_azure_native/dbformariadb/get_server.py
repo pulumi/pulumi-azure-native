@@ -318,7 +318,7 @@ def get_server(resource_group_name: Optional[_builtins.str] = None,
         user_visible_state=pulumi.get(__ret__, 'user_visible_state'),
         version=pulumi.get(__ret__, 'version'))
 def get_server_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                      server_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      server_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Gets information about a server.

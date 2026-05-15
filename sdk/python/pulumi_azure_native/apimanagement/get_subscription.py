@@ -284,7 +284,7 @@ def get_subscription(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_subscription_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            sid: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            sid: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Gets the specified Subscription entity.

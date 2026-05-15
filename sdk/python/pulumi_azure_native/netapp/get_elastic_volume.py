@@ -198,7 +198,7 @@ def get_elastic_volume(account_name: Optional[_builtins.str] = None,
 def get_elastic_volume_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                               pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              volume_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticVolumeResult]:
     """
     Get the details of the specified volume

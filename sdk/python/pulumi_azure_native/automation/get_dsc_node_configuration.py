@@ -206,7 +206,7 @@ def get_dsc_node_configuration(automation_account_name: Optional[_builtins.str] 
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_dsc_node_configuration_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      node_configuration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      node_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDscNodeConfigurationResult]:
     """

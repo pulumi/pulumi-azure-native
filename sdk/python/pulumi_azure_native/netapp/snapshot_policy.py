@@ -23,12 +23,12 @@ class SnapshotPolicyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 snapshot_policy_name: pulumi.Input[_builtins.str],
                  daily_schedule: pulumi.Input[Optional['DailyScheduleArgs']] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  hourly_schedule: pulumi.Input[Optional['HourlyScheduleArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  monthly_schedule: pulumi.Input[Optional['MonthlyScheduleArgs']] = None,
+                 snapshot_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  weekly_schedule: pulumi.Input[Optional['WeeklyScheduleArgs']] = None):
         """
@@ -36,18 +36,17 @@ class SnapshotPolicyArgs:
 
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] snapshot_policy_name: The name of the snapshot policy
         :param pulumi.Input['DailyScheduleArgs'] daily_schedule: Schedule for daily snapshots
         :param pulumi.Input[_builtins.bool] enabled: The property to decide policy is enabled or not
         :param pulumi.Input['HourlyScheduleArgs'] hourly_schedule: Schedule for hourly snapshots
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['MonthlyScheduleArgs'] monthly_schedule: Schedule for monthly snapshots
+        :param pulumi.Input[_builtins.str] snapshot_policy_name: The name of the snapshot policy
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['WeeklyScheduleArgs'] weekly_schedule: Schedule for weekly snapshots
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "snapshot_policy_name", snapshot_policy_name)
         if daily_schedule is not None:
             pulumi.set(__self__, "daily_schedule", daily_schedule)
         if enabled is not None:
@@ -58,6 +57,8 @@ class SnapshotPolicyArgs:
             pulumi.set(__self__, "location", location)
         if monthly_schedule is not None:
             pulumi.set(__self__, "monthly_schedule", monthly_schedule)
+        if snapshot_policy_name is not None:
+            pulumi.set(__self__, "snapshot_policy_name", snapshot_policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if weekly_schedule is not None:
@@ -86,18 +87,6 @@ class SnapshotPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="snapshotPolicyName")
-    def snapshot_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the snapshot policy
-        """
-        return pulumi.get(self, "snapshot_policy_name")
-
-    @snapshot_policy_name.setter
-    def snapshot_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "snapshot_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="dailySchedule")
@@ -158,6 +147,18 @@ class SnapshotPolicyArgs:
     @monthly_schedule.setter
     def monthly_schedule(self, value: pulumi.Input[Optional['MonthlyScheduleArgs']]):
         pulumi.set(self, "monthly_schedule", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotPolicyName")
+    def snapshot_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the snapshot policy
+        """
+        return pulumi.get(self, "snapshot_policy_name")
+
+    @snapshot_policy_name.setter
+    def snapshot_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "snapshot_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -281,8 +282,6 @@ class SnapshotPolicy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if snapshot_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'snapshot_policy_name'")
             __props__.__dict__["snapshot_policy_name"] = snapshot_policy_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["weekly_schedule"] = weekly_schedule

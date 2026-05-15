@@ -144,7 +144,7 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[_buil
         type=pulumi.get(__ret__, 'type'))
 def get_sql_pool_transparent_data_encryption_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    transparent_data_encryption_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                    transparent_data_encryption_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolTransparentDataEncryptionResult]:
     """

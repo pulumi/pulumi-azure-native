@@ -24,9 +24,9 @@ class ExportArgs:
     def __init__(__self__, *,
                  definition: pulumi.Input['ExportDefinitionArgs'],
                  delivery_info: pulumi.Input['ExportDeliveryInfoArgs'],
-                 export_name: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 export_name: pulumi.Input[Optional[_builtins.str]] = None,
                  format: pulumi.Input[Optional[Union[_builtins.str, 'FormatType']]] = None,
                  identity: pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,9 +37,9 @@ class ExportArgs:
 
         :param pulumi.Input['ExportDefinitionArgs'] definition: Has the definition for the export.
         :param pulumi.Input['ExportDeliveryInfoArgs'] delivery_info: Has delivery information for the export.
-        :param pulumi.Input[_builtins.str] export_name: Export Name.
         :param pulumi.Input[_builtins.str] scope: The scope associated with export operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId} for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope, and '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}' specific for partners.
         :param pulumi.Input[_builtins.str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
+        :param pulumi.Input[_builtins.str] export_name: Export Name.
         :param pulumi.Input[Union[_builtins.str, 'FormatType']] format: The format of the export being delivered. Currently only 'Csv' is supported.
         :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed identity associated with Export
         :param pulumi.Input[_builtins.str] location: The location of the Export's managed identity. Only required when utilizing managed identity.
@@ -48,10 +48,11 @@ class ExportArgs:
         """
         pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "delivery_info", delivery_info)
-        pulumi.set(__self__, "export_name", export_name)
         pulumi.set(__self__, "scope", scope)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
+        if export_name is not None:
+            pulumi.set(__self__, "export_name", export_name)
         if format is not None:
             pulumi.set(__self__, "format", format)
         if identity is not None:
@@ -88,18 +89,6 @@ class ExportArgs:
         pulumi.set(self, "delivery_info", value)
 
     @_builtins.property
-    @pulumi.getter(name="exportName")
-    def export_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Export Name.
-        """
-        return pulumi.get(self, "export_name")
-
-    @export_name.setter
-    def export_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "export_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def scope(self) -> pulumi.Input[_builtins.str]:
         """
@@ -122,6 +111,18 @@ class ExportArgs:
     @e_tag.setter
     def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exportName")
+    def export_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Export Name.
+        """
+        return pulumi.get(self, "export_name")
+
+    @export_name.setter
+    def export_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "export_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -277,8 +278,6 @@ class Export(pulumi.CustomResource):
                 raise TypeError("Missing required property 'delivery_info'")
             __props__.__dict__["delivery_info"] = delivery_info
             __props__.__dict__["e_tag"] = e_tag
-            if export_name is None and not opts.urn:
-                raise TypeError("Missing required property 'export_name'")
             __props__.__dict__["export_name"] = export_name
             __props__.__dict__["format"] = format
             __props__.__dict__["identity"] = identity

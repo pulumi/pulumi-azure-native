@@ -22,45 +22,34 @@ __all__ = ['ArchifeArgs', 'Archife']
 @pulumi.input_type
 class ArchifeArgs:
     def __init__(__self__, *,
-                 archive_name: pulumi.Input[_builtins.str],
                  package_type: pulumi.Input[_builtins.str],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 archive_name: pulumi.Input[Optional[_builtins.str]] = None,
                  package_source: pulumi.Input[Optional['ArchivePackageSourcePropertiesArgs']] = None,
                  published_version: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_endpoint_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Archife resource.
 
-        :param pulumi.Input[_builtins.str] archive_name: The name of the archive resource.
         :param pulumi.Input[_builtins.str] package_type: The type of the package resource.
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] archive_name: The name of the archive resource.
         :param pulumi.Input['ArchivePackageSourcePropertiesArgs'] package_source: The package source of the archive.
         :param pulumi.Input[_builtins.str] published_version: The published version of the archive.
         """
-        pulumi.set(__self__, "archive_name", archive_name)
         pulumi.set(__self__, "package_type", package_type)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if archive_name is not None:
+            pulumi.set(__self__, "archive_name", archive_name)
         if package_source is not None:
             pulumi.set(__self__, "package_source", package_source)
         if published_version is not None:
             pulumi.set(__self__, "published_version", published_version)
         if repository_endpoint_prefix is not None:
             pulumi.set(__self__, "repository_endpoint_prefix", repository_endpoint_prefix)
-
-    @_builtins.property
-    @pulumi.getter(name="archiveName")
-    def archive_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the archive resource.
-        """
-        return pulumi.get(self, "archive_name")
-
-    @archive_name.setter
-    def archive_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "archive_name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageType")
@@ -97,6 +86,18 @@ class ArchifeArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="archiveName")
+    def archive_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the archive resource.
+        """
+        return pulumi.get(self, "archive_name")
+
+    @archive_name.setter
+    def archive_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "archive_name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageSource")
@@ -208,8 +209,6 @@ class Archife(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ArchifeArgs.__new__(ArchifeArgs)
 
-            if archive_name is None and not opts.urn:
-                raise TypeError("Missing required property 'archive_name'")
             __props__.__dict__["archive_name"] = archive_name
             __props__.__dict__["package_source"] = package_source
             if package_type is None and not opts.urn:

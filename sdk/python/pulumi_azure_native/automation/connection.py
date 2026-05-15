@@ -22,28 +22,29 @@ __all__ = ['ConnectionArgs', 'Connection']
 class ConnectionArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
-                 connection_name: pulumi.Input[_builtins.str],
                  connection_type: pulumi.Input['ConnectionTypeAssociationPropertyArgs'],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  field_definition_values: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] connection_name: The parameters supplied to the create or update connection operation.
         :param pulumi.Input['ConnectionTypeAssociationPropertyArgs'] connection_type: Gets or sets the connectionType of the connection.
         :param pulumi.Input[_builtins.str] name: Gets or sets the name of the connection.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
+        :param pulumi.Input[_builtins.str] connection_name: The parameters supplied to the create or update connection operation.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the connection.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] field_definition_values: Gets or sets the field definition properties of the connection.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "connection_type", connection_type)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if field_definition_values is not None:
@@ -60,18 +61,6 @@ class ConnectionArgs:
     @automation_account_name.setter
     def automation_account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "automation_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The parameters supplied to the create or update connection operation.
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionType")
@@ -108,6 +97,18 @@ class ConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The parameters supplied to the create or update connection operation.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -214,8 +215,6 @@ class Connection(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
-            if connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             if connection_type is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_type'")

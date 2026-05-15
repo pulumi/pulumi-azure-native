@@ -22,12 +22,12 @@ __all__ = ['DraftPackageArgs', 'DraftPackage']
 @pulumi.input_type
 class DraftPackageArgs:
     def __init__(__self__, *,
-                 draft_package_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  test_base_account_name: pulumi.Input[_builtins.str],
                  app_file_name: pulumi.Input[Optional[_builtins.str]] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  comments: pulumi.Input[Optional[_builtins.str]] = None,
+                 draft_package_name: pulumi.Input[Optional[_builtins.str]] = None,
                  edit_package: pulumi.Input[Optional[_builtins.bool]] = None,
                  executable_launch_command: pulumi.Input[Optional[_builtins.str]] = None,
                  first_party_apps: pulumi.Input[Optional[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]]] = None,
@@ -51,12 +51,12 @@ class DraftPackageArgs:
         """
         The set of arguments for constructing a DraftPackage resource.
 
-        :param pulumi.Input[_builtins.str] draft_package_name: The resource name of the Test Base Draft Package.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[_builtins.str] app_file_name: The name of the app file.
         :param pulumi.Input[_builtins.str] application_name: Application name
         :param pulumi.Input[_builtins.str] comments: Comments added by user.
+        :param pulumi.Input[_builtins.str] draft_package_name: The resource name of the Test Base Draft Package.
         :param pulumi.Input[_builtins.bool] edit_package: Specifies whether this draft package is used to edit a package.
         :param pulumi.Input[_builtins.str] executable_launch_command: The executable launch command for script auto-fill. Will be used to run the application.
         :param pulumi.Input[Sequence[pulumi.Input['FirstPartyAppDefinitionArgs']]] first_party_apps: The list of first party applications to test along with user application.
@@ -78,7 +78,6 @@ class DraftPackageArgs:
         :param pulumi.Input[_builtins.bool] use_sample: Specifies whether a sample package should be used instead of the one uploaded by the user.
         :param pulumi.Input[_builtins.str] version: Application version
         """
-        pulumi.set(__self__, "draft_package_name", draft_package_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "test_base_account_name", test_base_account_name)
         if app_file_name is not None:
@@ -87,6 +86,8 @@ class DraftPackageArgs:
             pulumi.set(__self__, "application_name", application_name)
         if comments is not None:
             pulumi.set(__self__, "comments", comments)
+        if draft_package_name is not None:
+            pulumi.set(__self__, "draft_package_name", draft_package_name)
         if edit_package is None:
             edit_package = False
         if edit_package is not None:
@@ -131,18 +132,6 @@ class DraftPackageArgs:
             pulumi.set(__self__, "use_sample", use_sample)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter(name="draftPackageName")
-    def draft_package_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The resource name of the Test Base Draft Package.
-        """
-        return pulumi.get(self, "draft_package_name")
-
-    @draft_package_name.setter
-    def draft_package_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "draft_package_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -203,6 +192,18 @@ class DraftPackageArgs:
     @comments.setter
     def comments(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "comments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="draftPackageName")
+    def draft_package_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource name of the Test Base Draft Package.
+        """
+        return pulumi.get(self, "draft_package_name")
+
+    @draft_package_name.setter
+    def draft_package_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "draft_package_name", value)
 
     @_builtins.property
     @pulumi.getter(name="editPackage")
@@ -578,8 +579,6 @@ class DraftPackage(pulumi.CustomResource):
             __props__.__dict__["app_file_name"] = app_file_name
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["comments"] = comments
-            if draft_package_name is None and not opts.urn:
-                raise TypeError("Missing required property 'draft_package_name'")
             __props__.__dict__["draft_package_name"] = draft_package_name
             if edit_package is None:
                 edit_package = False

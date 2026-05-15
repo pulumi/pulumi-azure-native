@@ -22,22 +22,21 @@ __all__ = ['VirtualNetworkRetrieveArgs', 'VirtualNetworkRetrieve']
 class VirtualNetworkRetrieveArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_networks_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['VirtualNetworksExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['VirtualNetworksPropertiesArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_networks_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkRetrieve resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] virtual_networks_name: Parameter for the name of the virtual network
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['VirtualNetworksPropertiesArgs'] properties: HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] virtual_networks_name: Parameter for the name of the virtual network
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_networks_name", virtual_networks_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
@@ -46,6 +45,8 @@ class VirtualNetworkRetrieveArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_networks_name is not None:
+            pulumi.set(__self__, "virtual_networks_name", virtual_networks_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -58,18 +59,6 @@ class VirtualNetworkRetrieveArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworksName")
-    def virtual_networks_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Parameter for the name of the virtual network
-        """
-        return pulumi.get(self, "virtual_networks_name")
-
-    @virtual_networks_name.setter
-    def virtual_networks_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_networks_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -115,6 +104,18 @@ class VirtualNetworkRetrieveArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworksName")
+    def virtual_networks_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Parameter for the name of the virtual network
+        """
+        return pulumi.get(self, "virtual_networks_name")
+
+    @virtual_networks_name.setter
+    def virtual_networks_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_networks_name", value)
 
 
 @pulumi.type_token("azure-native:hybridcontainerservice:VirtualNetworkRetrieve")
@@ -197,8 +198,6 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if virtual_networks_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_networks_name'")
             __props__.__dict__["virtual_networks_name"] = virtual_networks_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

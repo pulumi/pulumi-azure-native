@@ -22,29 +22,30 @@ class WorkloadArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_enclave_name: pulumi.Input[_builtins.str],
-                 workload_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_collection: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workload resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] virtual_enclave_name: The name of the enclaveResource Resource
-        :param pulumi.Input[_builtins.str] workload_name: The name of the workloadResource Resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_group_collection: List of resource group ids.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] workload_name: The name of the workloadResource Resource
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_enclave_name", virtual_enclave_name)
-        pulumi.set(__self__, "workload_name", workload_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if resource_group_collection is not None:
             pulumi.set(__self__, "resource_group_collection", resource_group_collection)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workload_name is not None:
+            pulumi.set(__self__, "workload_name", workload_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -69,18 +70,6 @@ class WorkloadArgs:
     @virtual_enclave_name.setter
     def virtual_enclave_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "virtual_enclave_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workloadName")
-    def workload_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the workloadResource Resource
-        """
-        return pulumi.get(self, "workload_name")
-
-    @workload_name.setter
-    def workload_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "workload_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -117,6 +106,18 @@ class WorkloadArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadName")
+    def workload_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the workloadResource Resource
+        """
+        return pulumi.get(self, "workload_name")
+
+    @workload_name.setter
+    def workload_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "workload_name", value)
 
 
 @pulumi.type_token("azure-native:mission:Workload")
@@ -202,8 +203,6 @@ class Workload(pulumi.CustomResource):
             if virtual_enclave_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_enclave_name'")
             __props__.__dict__["virtual_enclave_name"] = virtual_enclave_name
-            if workload_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workload_name'")
             __props__.__dict__["workload_name"] = workload_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["managed_on_behalf_of_configuration"] = None

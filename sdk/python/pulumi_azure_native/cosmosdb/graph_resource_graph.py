@@ -23,9 +23,9 @@ __all__ = ['GraphResourceGraphArgs', 'GraphResourceGraph']
 class GraphResourceGraphArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 graph_name: pulumi.Input[_builtins.str],
                  resource: pulumi.Input['GraphResourceArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 graph_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  options: pulumi.Input[Optional['CreateUpdateOptionsArgs']] = None,
@@ -34,18 +34,19 @@ class GraphResourceGraphArgs:
         The set of arguments for constructing a GraphResourceGraph resource.
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
-        :param pulumi.Input[_builtins.str] graph_name: Cosmos DB graph resource name.
         :param pulumi.Input['GraphResourceArgs'] resource: The standard JSON format of a Graph resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] graph_name: Cosmos DB graph resource name.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[_builtins.str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input['CreateUpdateOptionsArgs'] options: A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "graph_name", graph_name)
         pulumi.set(__self__, "resource", resource)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if graph_name is not None:
+            pulumi.set(__self__, "graph_name", graph_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -66,18 +67,6 @@ class GraphResourceGraphArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="graphName")
-    def graph_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Cosmos DB graph resource name.
-        """
-        return pulumi.get(self, "graph_name")
-
-    @graph_name.setter
-    def graph_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "graph_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -102,6 +91,18 @@ class GraphResourceGraphArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="graphName")
+    def graph_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Cosmos DB graph resource name.
+        """
+        return pulumi.get(self, "graph_name")
+
+    @graph_name.setter
+    def graph_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "graph_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -235,8 +236,6 @@ class GraphResourceGraph(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if graph_name is None and not opts.urn:
-                raise TypeError("Missing required property 'graph_name'")
             __props__.__dict__["graph_name"] = graph_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

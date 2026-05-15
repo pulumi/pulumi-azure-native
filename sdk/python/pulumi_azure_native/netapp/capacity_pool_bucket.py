@@ -22,10 +22,10 @@ __all__ = ['CapacityPoolBucketArgs', 'CapacityPoolBucket']
 class CapacityPoolBucketArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 bucket_name: pulumi.Input[_builtins.str],
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  volume_name: pulumi.Input[_builtins.str],
+                 bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  file_system_user: pulumi.Input[Optional['FileSystemUserArgs']] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
                  server: pulumi.Input[Optional['BucketServerPropertiesArgs']] = None):
@@ -33,19 +33,20 @@ class CapacityPoolBucketArgs:
         The set of arguments for constructing a CapacityPoolBucket resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
-        :param pulumi.Input[_builtins.str] bucket_name: The name of the bucket
         :param pulumi.Input[_builtins.str] pool_name: The name of the capacity pool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] volume_name: The name of the volume
+        :param pulumi.Input[_builtins.str] bucket_name: The name of the bucket
         :param pulumi.Input['FileSystemUserArgs'] file_system_user: File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
         :param pulumi.Input[_builtins.str] path: The volume path mounted inside the bucket. The default is the root path '/' if no value is provided when the bucket is created.
         :param pulumi.Input['BucketServerPropertiesArgs'] server: Properties of the server managing the lifecycle of volume buckets
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "volume_name", volume_name)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
         if file_system_user is not None:
             pulumi.set(__self__, "file_system_user", file_system_user)
         if path is None:
@@ -66,18 +67,6 @@ class CapacityPoolBucketArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bucketName")
-    def bucket_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the bucket
-        """
-        return pulumi.get(self, "bucket_name")
-
-    @bucket_name.setter
-    def bucket_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="poolName")
@@ -114,6 +103,18 @@ class CapacityPoolBucketArgs:
     @volume_name.setter
     def volume_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "volume_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the bucket
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @bucket_name.setter
+    def bucket_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fileSystemUser")
@@ -235,8 +236,6 @@ class CapacityPoolBucket(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if bucket_name is None and not opts.urn:
-                raise TypeError("Missing required property 'bucket_name'")
             __props__.__dict__["bucket_name"] = bucket_name
             __props__.__dict__["file_system_user"] = file_system_user
             if path is None:

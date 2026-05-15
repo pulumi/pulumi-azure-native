@@ -23,7 +23,6 @@ __all__ = ['ManagedClusterArgs', 'ManagedCluster']
 class ManagedClusterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  aad_profile: pulumi.Input[Optional['ManagedClusterAADProfileArgs']] = None,
                  addon_profiles: pulumi.Input[Optional[Mapping[str, pulumi.Input['ManagedClusterAddonProfileArgs']]]] = None,
                  agent_pool_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterAgentPoolProfileArgs']]]] = None,
@@ -56,6 +55,7 @@ class ManagedClusterArgs:
                  pod_identity_profile: pulumi.Input[Optional['ManagedClusterPodIdentityProfileArgs']] = None,
                  private_link_resources: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkResourceArgs']]]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_profile: pulumi.Input[Optional['ManagedClusterSecurityProfileArgs']] = None,
                  service_mesh_profile: pulumi.Input[Optional['ServiceMeshProfileArgs']] = None,
                  service_principal_profile: pulumi.Input[Optional['ManagedClusterServicePrincipalProfileArgs']] = None,
@@ -70,7 +70,6 @@ class ManagedClusterArgs:
         The set of arguments for constructing a ManagedCluster resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input['ManagedClusterAADProfileArgs'] aad_profile: The Azure Active Directory configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input['ManagedClusterAddonProfileArgs']]] addon_profiles: The profile of managed cluster add-on.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedClusterAgentPoolProfileArgs']]] agent_pool_profiles: The agent pool properties.
@@ -103,6 +102,7 @@ class ManagedClusterArgs:
         :param pulumi.Input['ManagedClusterPodIdentityProfileArgs'] pod_identity_profile: The pod identity profile of the Managed Cluster. See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkResourceArgs']]] private_link_resources: Private link resources associated with the cluster.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: PublicNetworkAccess of the managedCluster. Allow or deny public network access for AKS
+        :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
         :param pulumi.Input['ManagedClusterSecurityProfileArgs'] security_profile: Security profile for the managed cluster.
         :param pulumi.Input['ServiceMeshProfileArgs'] service_mesh_profile: Service mesh profile for a managed cluster.
         :param pulumi.Input['ManagedClusterServicePrincipalProfileArgs'] service_principal_profile: Information about a service principal identity for the cluster to use for manipulating Azure APIs.
@@ -115,7 +115,6 @@ class ManagedClusterArgs:
         :param pulumi.Input['ManagedClusterWorkloadAutoScalerProfileArgs'] workload_auto_scaler_profile: Workload Auto-scaler profile for the managed cluster.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         if aad_profile is not None:
             pulumi.set(__self__, "aad_profile", aad_profile)
         if addon_profiles is not None:
@@ -180,6 +179,8 @@ class ManagedClusterArgs:
             pulumi.set(__self__, "private_link_resources", private_link_resources)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if security_profile is not None:
             pulumi.set(__self__, "security_profile", security_profile)
         if service_mesh_profile is not None:
@@ -212,18 +213,6 @@ class ManagedClusterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the managed cluster resource.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="aadProfile")
@@ -610,6 +599,18 @@ class ManagedClusterArgs:
         pulumi.set(self, "public_network_access", value)
 
     @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the managed cluster resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityProfile")
     def security_profile(self) -> pulumi.Input[Optional['ManagedClusterSecurityProfileArgs']]:
         """
@@ -957,8 +958,6 @@ class ManagedCluster(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["service_mesh_profile"] = service_mesh_profile

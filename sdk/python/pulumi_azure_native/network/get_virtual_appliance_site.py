@@ -168,7 +168,7 @@ def get_virtual_appliance_site(network_virtual_appliance_name: Optional[_builtin
         type=pulumi.get(__ret__, 'type'))
 def get_virtual_appliance_site_output(network_virtual_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      site_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualApplianceSiteResult]:
     """
     Gets the specified Virtual Appliance Site.

@@ -23,9 +23,9 @@ __all__ = ['EncryptionSetArgs', 'EncryptionSet']
 class EncryptionSetArgs:
     def __init__(__self__, *,
                  dev_center_name: pulumi.Input[_builtins.str],
-                 encryption_set_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  devbox_disks_encryption_enable_status: pulumi.Input[Optional[Union[_builtins.str, 'DevboxDisksEncryptionEnableStatus']]] = None,
+                 encryption_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  key_encryption_key_url: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,19 +34,20 @@ class EncryptionSetArgs:
         The set of arguments for constructing a EncryptionSet resource.
 
         :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
-        :param pulumi.Input[_builtins.str] encryption_set_name: The name of the devcenter encryption set.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'DevboxDisksEncryptionEnableStatus']] devbox_disks_encryption_enable_status: Devbox disk encryption enable or disable status. Indicates if Devbox disks encryption using DevCenter CMK is enabled or not.
+        :param pulumi.Input[_builtins.str] encryption_set_name: The name of the devcenter encryption set.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
         :param pulumi.Input[_builtins.str] key_encryption_key_url: Key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dev_center_name", dev_center_name)
-        pulumi.set(__self__, "encryption_set_name", encryption_set_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if devbox_disks_encryption_enable_status is not None:
             pulumi.set(__self__, "devbox_disks_encryption_enable_status", devbox_disks_encryption_enable_status)
+        if encryption_set_name is not None:
+            pulumi.set(__self__, "encryption_set_name", encryption_set_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if key_encryption_key_url is not None:
@@ -67,18 +68,6 @@ class EncryptionSetArgs:
     @dev_center_name.setter
     def dev_center_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "dev_center_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionSetName")
-    def encryption_set_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the devcenter encryption set.
-        """
-        return pulumi.get(self, "encryption_set_name")
-
-    @encryption_set_name.setter
-    def encryption_set_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "encryption_set_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -103,6 +92,18 @@ class EncryptionSetArgs:
     @devbox_disks_encryption_enable_status.setter
     def devbox_disks_encryption_enable_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DevboxDisksEncryptionEnableStatus']]]):
         pulumi.set(self, "devbox_disks_encryption_enable_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionSetName")
+    def encryption_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the devcenter encryption set.
+        """
+        return pulumi.get(self, "encryption_set_name")
+
+    @encryption_set_name.setter
+    def encryption_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "encryption_set_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -237,8 +238,6 @@ class EncryptionSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dev_center_name'")
             __props__.__dict__["dev_center_name"] = dev_center_name
             __props__.__dict__["devbox_disks_encryption_enable_status"] = devbox_disks_encryption_enable_status
-            if encryption_set_name is None and not opts.urn:
-                raise TypeError("Missing required property 'encryption_set_name'")
             __props__.__dict__["encryption_set_name"] = encryption_set_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["key_encryption_key_url"] = key_encryption_key_url

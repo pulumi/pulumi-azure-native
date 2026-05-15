@@ -26,11 +26,11 @@ class SapVirtualInstanceArgs:
                  environment: pulumi.Input[Union[_builtins.str, 'SAPEnvironmentType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sap_product: pulumi.Input[Union[_builtins.str, 'SAPProductType']],
-                 sap_virtual_instance_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['SAPVirtualInstanceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_configuration: pulumi.Input[Optional['ManagedRGConfigurationArgs']] = None,
                  managed_resources_network_access_type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedResourcesNetworkAccessType']]] = None,
+                 sap_virtual_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapVirtualInstance resource.
@@ -39,18 +39,17 @@ class SapVirtualInstanceArgs:
         :param pulumi.Input[Union[_builtins.str, 'SAPEnvironmentType']] environment: Defines the environment type - Production/Non Production.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'SAPProductType']] sap_product: Defines the SAP Product type.
-        :param pulumi.Input[_builtins.str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input['SAPVirtualInstanceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedRGConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
         :param pulumi.Input[Union[_builtins.str, 'ManagedResourcesNetworkAccessType']] managed_resources_network_access_type: Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
+        :param pulumi.Input[_builtins.str] sap_virtual_instance_name: The name of the Virtual Instances for SAP solutions resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "environment", environment)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sap_product", sap_product)
-        pulumi.set(__self__, "sap_virtual_instance_name", sap_virtual_instance_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -59,6 +58,8 @@ class SapVirtualInstanceArgs:
             pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
         if managed_resources_network_access_type is not None:
             pulumi.set(__self__, "managed_resources_network_access_type", managed_resources_network_access_type)
+        if sap_virtual_instance_name is not None:
+            pulumi.set(__self__, "sap_virtual_instance_name", sap_virtual_instance_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -111,18 +112,6 @@ class SapVirtualInstanceArgs:
         pulumi.set(self, "sap_product", value)
 
     @_builtins.property
-    @pulumi.getter(name="sapVirtualInstanceName")
-    def sap_virtual_instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Virtual Instances for SAP solutions resource
-        """
-        return pulumi.get(self, "sap_virtual_instance_name")
-
-    @sap_virtual_instance_name.setter
-    def sap_virtual_instance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sap_virtual_instance_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def identity(self) -> pulumi.Input[Optional['SAPVirtualInstanceIdentityArgs']]:
         """
@@ -169,6 +158,18 @@ class SapVirtualInstanceArgs:
     @managed_resources_network_access_type.setter
     def managed_resources_network_access_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedResourcesNetworkAccessType']]]):
         pulumi.set(self, "managed_resources_network_access_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sapVirtualInstanceName")
+    def sap_virtual_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Virtual Instances for SAP solutions resource
+        """
+        return pulumi.get(self, "sap_virtual_instance_name")
+
+    @sap_virtual_instance_name.setter
+    def sap_virtual_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sap_virtual_instance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -281,8 +282,6 @@ class SapVirtualInstance(pulumi.CustomResource):
             if sap_product is None and not opts.urn:
                 raise TypeError("Missing required property 'sap_product'")
             __props__.__dict__["sap_product"] = sap_product
-            if sap_virtual_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sap_virtual_instance_name'")
             __props__.__dict__["sap_virtual_instance_name"] = sap_virtual_instance_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

@@ -23,8 +23,8 @@ __all__ = ['CollectorPolicyArgs', 'CollectorPolicy']
 class CollectorPolicyArgs:
     def __init__(__self__, *,
                  azure_traffic_collector_name: pulumi.Input[_builtins.str],
-                 collector_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 collector_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  emission_policies: pulumi.Input[Optional[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]]] = None,
                  ingestion_policy: pulumi.Input[Optional['IngestionPolicyPropertiesFormatArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,16 +33,17 @@ class CollectorPolicyArgs:
         The set of arguments for constructing a CollectorPolicy resource.
 
         :param pulumi.Input[_builtins.str] azure_traffic_collector_name: Azure Traffic Collector name
-        :param pulumi.Input[_builtins.str] collector_policy_name: Collector Policy Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] collector_policy_name: Collector Policy Name
         :param pulumi.Input[Sequence[pulumi.Input['EmissionPoliciesPropertiesFormatArgs']]] emission_policies: Emission policies.
         :param pulumi.Input['IngestionPolicyPropertiesFormatArgs'] ingestion_policy: Ingestion policies.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "azure_traffic_collector_name", azure_traffic_collector_name)
-        pulumi.set(__self__, "collector_policy_name", collector_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if collector_policy_name is not None:
+            pulumi.set(__self__, "collector_policy_name", collector_policy_name)
         if emission_policies is not None:
             pulumi.set(__self__, "emission_policies", emission_policies)
         if ingestion_policy is not None:
@@ -65,18 +66,6 @@ class CollectorPolicyArgs:
         pulumi.set(self, "azure_traffic_collector_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="collectorPolicyName")
-    def collector_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Collector Policy Name
-        """
-        return pulumi.get(self, "collector_policy_name")
-
-    @collector_policy_name.setter
-    def collector_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "collector_policy_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -87,6 +76,18 @@ class CollectorPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="collectorPolicyName")
+    def collector_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Collector Policy Name
+        """
+        return pulumi.get(self, "collector_policy_name")
+
+    @collector_policy_name.setter
+    def collector_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "collector_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="emissionPolicies")
@@ -213,8 +214,6 @@ class CollectorPolicy(pulumi.CustomResource):
             if azure_traffic_collector_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_traffic_collector_name'")
             __props__.__dict__["azure_traffic_collector_name"] = azure_traffic_collector_name
-            if collector_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'collector_policy_name'")
             __props__.__dict__["collector_policy_name"] = collector_policy_name
             __props__.__dict__["emission_policies"] = emission_policies
             __props__.__dict__["ingestion_policy"] = ingestion_policy

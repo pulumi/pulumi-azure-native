@@ -180,7 +180,7 @@ def get_route_map(resource_group_name: Optional[_builtins.str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         type=pulumi.get(__ret__, 'type'))
 def get_route_map_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         route_map_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         route_map_name: pulumi.Input[Optional[_builtins.str]] = None,
                          virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteMapResult]:
     """

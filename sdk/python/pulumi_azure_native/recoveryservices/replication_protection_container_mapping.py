@@ -23,26 +23,27 @@ __all__ = ['ReplicationProtectionContainerMappingArgs', 'ReplicationProtectionCo
 class ReplicationProtectionContainerMappingArgs:
     def __init__(__self__, *,
                  fabric_name: pulumi.Input[_builtins.str],
-                 mapping_name: pulumi.Input[_builtins.str],
                  protection_container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
+                 mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['CreateProtectionContainerMappingInputPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ReplicationProtectionContainerMapping resource.
 
         :param pulumi.Input[_builtins.str] fabric_name: Fabric name.
-        :param pulumi.Input[_builtins.str] mapping_name: Protection container mapping name.
         :param pulumi.Input[_builtins.str] protection_container_name: Protection container name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input[_builtins.str] mapping_name: Protection container mapping name.
         :param pulumi.Input['CreateProtectionContainerMappingInputPropertiesArgs'] properties: Configure protection input properties.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "mapping_name", mapping_name)
         pulumi.set(__self__, "protection_container_name", protection_container_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if mapping_name is not None:
+            pulumi.set(__self__, "mapping_name", mapping_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -57,18 +58,6 @@ class ReplicationProtectionContainerMappingArgs:
     @fabric_name.setter
     def fabric_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "fabric_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mappingName")
-    def mapping_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Protection container mapping name.
-        """
-        return pulumi.get(self, "mapping_name")
-
-    @mapping_name.setter
-    def mapping_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "mapping_name", value)
 
     @_builtins.property
     @pulumi.getter(name="protectionContainerName")
@@ -105,6 +94,18 @@ class ReplicationProtectionContainerMappingArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mappingName")
+    def mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Protection container mapping name.
+        """
+        return pulumi.get(self, "mapping_name")
+
+    @mapping_name.setter
+    def mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mapping_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,8 +197,6 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__.__dict__["fabric_name"] = fabric_name
-            if mapping_name is None and not opts.urn:
-                raise TypeError("Missing required property 'mapping_name'")
             __props__.__dict__["mapping_name"] = mapping_name
             __props__.__dict__["properties"] = properties
             if protection_container_name is None and not opts.urn:

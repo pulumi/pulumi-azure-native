@@ -22,8 +22,8 @@ __all__ = ['DiscountArgs', 'Discount']
 @pulumi.input_type
 class DiscountArgs:
     def __init__(__self__, *,
-                 discount_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 discount_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,8 +35,8 @@ class DiscountArgs:
         """
         The set of arguments for constructing a Discount resource.
 
-        :param pulumi.Input[_builtins.str] discount_name: Name of the discount
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] discount_name: Name of the discount
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -46,8 +46,9 @@ class DiscountArgs:
         :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "discount_name", discount_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if discount_name is not None:
+            pulumi.set(__self__, "discount_name", discount_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
@@ -66,18 +67,6 @@ class DiscountArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
-    @pulumi.getter(name="discountName")
-    def discount_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the discount
-        """
-        return pulumi.get(self, "discount_name")
-
-    @discount_name.setter
-    def discount_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "discount_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -88,6 +77,18 @@ class DiscountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="discountName")
+    def discount_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the discount
+        """
+        return pulumi.get(self, "discount_name")
+
+    @discount_name.setter
+    def discount_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "discount_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -272,8 +273,6 @@ class Discount(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DiscountArgs.__new__(DiscountArgs)
 
-            if discount_name is None and not opts.urn:
-                raise TypeError("Missing required property 'discount_name'")
             __props__.__dict__["discount_name"] = discount_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind

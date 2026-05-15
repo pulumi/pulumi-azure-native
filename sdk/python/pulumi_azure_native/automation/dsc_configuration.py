@@ -23,9 +23,9 @@ __all__ = ['DscConfigurationArgs', 'DscConfiguration']
 class DscConfigurationArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
-                 configuration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input['ContentSourceArgs'],
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  log_progress: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -37,9 +37,9 @@ class DscConfigurationArgs:
         The set of arguments for constructing a DscConfiguration resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
-        :param pulumi.Input[_builtins.str] configuration_name: The create or update parameters for configuration.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input['ContentSourceArgs'] source: Gets or sets the source.
+        :param pulumi.Input[_builtins.str] configuration_name: The create or update parameters for configuration.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description of the configuration.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location of the resource.
         :param pulumi.Input[_builtins.bool] log_progress: Gets or sets progress log option.
@@ -49,9 +49,10 @@ class DscConfigurationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the tags attached to the resource.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
-        pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source", source)
+        if configuration_name is not None:
+            pulumi.set(__self__, "configuration_name", configuration_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location is not None:
@@ -80,18 +81,6 @@ class DscConfigurationArgs:
         pulumi.set(self, "automation_account_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The create or update parameters for configuration.
-        """
-        return pulumi.get(self, "configuration_name")
-
-    @configuration_name.setter
-    def configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "configuration_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -114,6 +103,18 @@ class DscConfigurationArgs:
     @source.setter
     def source(self, value: pulumi.Input['ContentSourceArgs']):
         pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationName")
+    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The create or update parameters for configuration.
+        """
+        return pulumi.get(self, "configuration_name")
+
+    @configuration_name.setter
+    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -292,8 +293,6 @@ class DscConfiguration(pulumi.CustomResource):
             if automation_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'automation_account_name'")
             __props__.__dict__["automation_account_name"] = automation_account_name
-            if configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
             __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location

@@ -22,24 +22,25 @@ __all__ = ['ProjectCapabilityHostInitArgs', 'ProjectCapabilityHost']
 class ProjectCapabilityHostInitArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 capability_host_name: pulumi.Input[_builtins.str],
                  project_capability_host_properties: pulumi.Input['ProjectCapabilityHostArgs'],
                  project_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 capability_host_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProjectCapabilityHost resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input[_builtins.str] capability_host_name: The name of the capability host associated with the Cognitive Services Resource
         :param pulumi.Input['ProjectCapabilityHostArgs'] project_capability_host_properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] capability_host_name: The name of the capability host associated with the Cognitive Services Resource
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "capability_host_name", capability_host_name)
         pulumi.set(__self__, "project_capability_host_properties", project_capability_host_properties)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if capability_host_name is not None:
+            pulumi.set(__self__, "capability_host_name", capability_host_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -52,18 +53,6 @@ class ProjectCapabilityHostInitArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="capabilityHostName")
-    def capability_host_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the capability host associated with the Cognitive Services Resource
-        """
-        return pulumi.get(self, "capability_host_name")
-
-    @capability_host_name.setter
-    def capability_host_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "capability_host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectCapabilityHostProperties")
@@ -100,6 +89,18 @@ class ProjectCapabilityHostInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capabilityHostName")
+    def capability_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the capability host associated with the Cognitive Services Resource
+        """
+        return pulumi.get(self, "capability_host_name")
+
+    @capability_host_name.setter
+    def capability_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "capability_host_name", value)
 
 
 @pulumi.type_token("azure-native:cognitiveservices:ProjectCapabilityHost")
@@ -176,8 +177,6 @@ class ProjectCapabilityHost(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if capability_host_name is None and not opts.urn:
-                raise TypeError("Missing required property 'capability_host_name'")
             __props__.__dict__["capability_host_name"] = capability_host_name
             if project_capability_host_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'project_capability_host_properties'")

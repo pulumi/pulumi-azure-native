@@ -233,7 +233,7 @@ def get_volume_group(elastic_san_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_volume_group_output(elastic_san_name: pulumi.Input[Optional[_builtins.str]] = None,
                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            volume_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
     Get an VolumeGroups.

@@ -175,7 +175,7 @@ def get_ddos_custom_policy(ddos_custom_policy_name: Optional[_builtins.str] = No
         resource_guid=pulumi.get(__ret__, 'resource_guid'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_ddos_custom_policy_output(ddos_custom_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_ddos_custom_policy_output(ddos_custom_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDdosCustomPolicyResult]:
     """

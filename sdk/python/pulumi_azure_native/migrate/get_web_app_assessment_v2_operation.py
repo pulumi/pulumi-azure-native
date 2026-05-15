@@ -498,7 +498,7 @@ def get_web_app_assessment_v2_operation(assessment_name: Optional[_builtins.str]
         time_range=pulumi.get(__ret__, 'time_range'),
         type=pulumi.get(__ret__, 'type'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
-def get_web_app_assessment_v2_operation_output(assessment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_web_app_assessment_v2_operation_output(assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                project_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,

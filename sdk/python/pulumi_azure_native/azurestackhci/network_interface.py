@@ -22,7 +22,6 @@ __all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
 @pulumi.input_type
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
-                 network_interface_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  create_from_local: pulumi.Input[Optional[_builtins.bool]] = None,
                  dns_settings: pulumi.Input[Optional['InterfaceDNSSettingsArgs']] = None,
@@ -30,12 +29,12 @@ class NetworkInterfaceArgs:
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['IPConfigurationArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mac_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_security_group: pulumi.Input[Optional['NetworkSecurityGroupArmReferenceArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
 
-        :param pulumi.Input[_builtins.str] network_interface_name: Name of the network interface
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] create_from_local: Boolean indicating whether this is a existing local network interface or if one should be created.
         :param pulumi.Input['InterfaceDNSSettingsArgs'] dns_settings: DNS Settings for the interface
@@ -43,10 +42,10 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['IPConfigurationArgs']]] ip_configurations: IPConfigurations - A list of IPConfigurations of the network interface.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] mac_address: MacAddress - The MAC address of the network interface.
+        :param pulumi.Input[_builtins.str] network_interface_name: Name of the network interface
         :param pulumi.Input['NetworkSecurityGroupArmReferenceArgs'] network_security_group: NetworkSecurityGroup - Network Security Group attached to the network interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_interface_name", network_interface_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if create_from_local is None:
             create_from_local = False
@@ -62,22 +61,12 @@ class NetworkInterfaceArgs:
             pulumi.set(__self__, "location", location)
         if mac_address is not None:
             pulumi.set(__self__, "mac_address", mac_address)
+        if network_interface_name is not None:
+            pulumi.set(__self__, "network_interface_name", network_interface_name)
         if network_security_group is not None:
             pulumi.set(__self__, "network_security_group", network_security_group)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="networkInterfaceName")
-    def network_interface_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the network interface
-        """
-        return pulumi.get(self, "network_interface_name")
-
-    @network_interface_name.setter
-    def network_interface_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -162,6 +151,18 @@ class NetworkInterfaceArgs:
     @mac_address.setter
     def mac_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mac_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceName")
+    def network_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the network interface
+        """
+        return pulumi.get(self, "network_interface_name")
+
+    @network_interface_name.setter
+    def network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroup")
@@ -282,8 +283,6 @@ class NetworkInterface(pulumi.CustomResource):
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["mac_address"] = mac_address
-            if network_interface_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_interface_name'")
             __props__.__dict__["network_interface_name"] = network_interface_name
             __props__.__dict__["network_security_group"] = network_security_group
             if resource_group_name is None and not opts.urn:

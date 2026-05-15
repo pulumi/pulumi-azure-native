@@ -24,12 +24,12 @@ class BrokerArgs:
     def __init__(__self__, *,
                  auth_image: pulumi.Input['ContainerImageArgs'],
                  broker_image: pulumi.Input['ContainerImageArgs'],
-                 broker_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationPropertyArgs'],
                  health_manager_image: pulumi.Input['ContainerImageArgs'],
                  mode: pulumi.Input[Union[_builtins.str, 'RunMode']],
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 broker_name: pulumi.Input[Optional[_builtins.str]] = None,
                  broker_node_tolerations: pulumi.Input[Optional['NodeTolerationsArgs']] = None,
                  cardinality: pulumi.Input[Optional['CardinalityArgs']] = None,
                  diagnostics: pulumi.Input[Optional['BrokerDiagnosticsArgs']] = None,
@@ -45,12 +45,12 @@ class BrokerArgs:
 
         :param pulumi.Input['ContainerImageArgs'] auth_image: The details of Authentication Docker Image.
         :param pulumi.Input['ContainerImageArgs'] broker_image: The details of Broker Docker Image.
-        :param pulumi.Input[_builtins.str] broker_name: Name of MQ broker resource
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input['ContainerImageArgs'] health_manager_image: The details of Health Manager Docker Image.
         :param pulumi.Input[Union[_builtins.str, 'RunMode']] mode: The Running Mode of the Broker Deployment.
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] broker_name: Name of MQ broker resource
         :param pulumi.Input['NodeTolerationsArgs'] broker_node_tolerations: The details of Node Tolerations for Broker Pods.
         :param pulumi.Input['CardinalityArgs'] cardinality: The cardinality details of the broker.
         :param pulumi.Input['BrokerDiagnosticsArgs'] diagnostics: The diagnostic details of the broker deployment.
@@ -64,12 +64,13 @@ class BrokerArgs:
         """
         pulumi.set(__self__, "auth_image", auth_image)
         pulumi.set(__self__, "broker_image", broker_image)
-        pulumi.set(__self__, "broker_name", broker_name)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "health_manager_image", health_manager_image)
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "mq_name", mq_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if broker_name is not None:
+            pulumi.set(__self__, "broker_name", broker_name)
         if broker_node_tolerations is not None:
             pulumi.set(__self__, "broker_node_tolerations", broker_node_tolerations)
         if cardinality is not None:
@@ -118,18 +119,6 @@ class BrokerArgs:
     @broker_image.setter
     def broker_image(self, value: pulumi.Input['ContainerImageArgs']):
         pulumi.set(self, "broker_image", value)
-
-    @_builtins.property
-    @pulumi.getter(name="brokerName")
-    def broker_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of MQ broker resource
-        """
-        return pulumi.get(self, "broker_name")
-
-    @broker_name.setter
-    def broker_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "broker_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -190,6 +179,18 @@ class BrokerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="brokerName")
+    def broker_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of MQ broker resource
+        """
+        return pulumi.get(self, "broker_name")
+
+    @broker_name.setter
+    def broker_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "broker_name", value)
 
     @_builtins.property
     @pulumi.getter(name="brokerNodeTolerations")
@@ -424,8 +425,6 @@ class Broker(pulumi.CustomResource):
             if broker_image is None and not opts.urn:
                 raise TypeError("Missing required property 'broker_image'")
             __props__.__dict__["broker_image"] = broker_image
-            if broker_name is None and not opts.urn:
-                raise TypeError("Missing required property 'broker_name'")
             __props__.__dict__["broker_name"] = broker_name
             __props__.__dict__["broker_node_tolerations"] = broker_node_tolerations
             __props__.__dict__["cardinality"] = cardinality

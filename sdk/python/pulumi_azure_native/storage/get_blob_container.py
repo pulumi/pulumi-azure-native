@@ -375,7 +375,7 @@ def get_blob_container(account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
 def get_blob_container_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              container_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              container_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobContainerResult]:
     """

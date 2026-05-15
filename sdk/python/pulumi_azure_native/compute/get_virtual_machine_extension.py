@@ -314,7 +314,7 @@ def get_virtual_machine_extension(expand: Optional[_builtins.str] = None,
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
 def get_virtual_machine_extension_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         vm_extension_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         vm_extension_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineExtensionResult]:
     """

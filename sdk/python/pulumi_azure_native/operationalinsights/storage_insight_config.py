@@ -23,10 +23,10 @@ class StorageInsightConfigArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_account: pulumi.Input['StorageAccountArgs'],
-                 storage_insight_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  containers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_insight_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tables: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -34,21 +34,22 @@ class StorageInsightConfigArgs:
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['StorageAccountArgs'] storage_account: The storage account connection details
-        :param pulumi.Input[_builtins.str] storage_insight_name: Name of the storageInsightsConfigs resource
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] containers: The names of the blob containers that the workspace should read
         :param pulumi.Input[_builtins.str] e_tag: The ETag of the storage insight.
+        :param pulumi.Input[_builtins.str] storage_insight_name: Name of the storageInsightsConfigs resource
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tables: The names of the Azure tables that the workspace should read
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_account", storage_account)
-        pulumi.set(__self__, "storage_insight_name", storage_insight_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
+        if storage_insight_name is not None:
+            pulumi.set(__self__, "storage_insight_name", storage_insight_name)
         if tables is not None:
             pulumi.set(__self__, "tables", tables)
         if tags is not None:
@@ -77,18 +78,6 @@ class StorageInsightConfigArgs:
     @storage_account.setter
     def storage_account(self, value: pulumi.Input['StorageAccountArgs']):
         pulumi.set(self, "storage_account", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageInsightName")
-    def storage_insight_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the storageInsightsConfigs resource
-        """
-        return pulumi.get(self, "storage_insight_name")
-
-    @storage_insight_name.setter
-    def storage_insight_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_insight_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
@@ -125,6 +114,18 @@ class StorageInsightConfigArgs:
     @e_tag.setter
     def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageInsightName")
+    def storage_insight_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the storageInsightsConfigs resource
+        """
+        return pulumi.get(self, "storage_insight_name")
+
+    @storage_insight_name.setter
+    def storage_insight_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_insight_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -239,8 +240,6 @@ class StorageInsightConfig(pulumi.CustomResource):
             if storage_account is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account'")
             __props__.__dict__["storage_account"] = storage_account
-            if storage_insight_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_insight_name'")
             __props__.__dict__["storage_insight_name"] = storage_insight_name
             __props__.__dict__["tables"] = tables
             __props__.__dict__["tags"] = tags

@@ -24,11 +24,11 @@ class HuntArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
-                 hunt_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  attack_tactics: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]]] = None,
                  attack_techniques: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 hunt_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hypothesis_status: pulumi.Input[Optional[Union[_builtins.str, 'HypothesisStatus']]] = None,
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  owner: pulumi.Input[Optional['HuntOwnerArgs']] = None,
@@ -38,11 +38,11 @@ class HuntArgs:
 
         :param pulumi.Input[_builtins.str] description: The description of the hunt
         :param pulumi.Input[_builtins.str] display_name: The display name of the hunt
-        :param pulumi.Input[_builtins.str] hunt_id: The hunt id (GUID)
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AttackTactic']]]] attack_tactics: A list of mitre attack tactics the hunt is associated with
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] attack_techniques: A list of a mitre attack techniques the hunt is associated with
+        :param pulumi.Input[_builtins.str] hunt_id: The hunt id (GUID)
         :param pulumi.Input[Union[_builtins.str, 'HypothesisStatus']] hypothesis_status: The hypothesis status of the hunt.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: List of labels relevant to this hunt 
         :param pulumi.Input['HuntOwnerArgs'] owner: Describes a user that the hunt is assigned to
@@ -50,13 +50,14 @@ class HuntArgs:
         """
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "hunt_id", hunt_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if attack_tactics is not None:
             pulumi.set(__self__, "attack_tactics", attack_tactics)
         if attack_techniques is not None:
             pulumi.set(__self__, "attack_techniques", attack_techniques)
+        if hunt_id is not None:
+            pulumi.set(__self__, "hunt_id", hunt_id)
         if hypothesis_status is None:
             hypothesis_status = 'Unknown'
         if hypothesis_status is not None:
@@ -93,18 +94,6 @@ class HuntArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="huntId")
-    def hunt_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The hunt id (GUID)
-        """
-        return pulumi.get(self, "hunt_id")
-
-    @hunt_id.setter
-    def hunt_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "hunt_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -153,6 +142,18 @@ class HuntArgs:
     @attack_techniques.setter
     def attack_techniques(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "attack_techniques", value)
+
+    @_builtins.property
+    @pulumi.getter(name="huntId")
+    def hunt_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The hunt id (GUID)
+        """
+        return pulumi.get(self, "hunt_id")
+
+    @hunt_id.setter
+    def hunt_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hunt_id", value)
 
     @_builtins.property
     @pulumi.getter(name="hypothesisStatus")
@@ -300,8 +301,6 @@ class Hunt(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            if hunt_id is None and not opts.urn:
-                raise TypeError("Missing required property 'hunt_id'")
             __props__.__dict__["hunt_id"] = hunt_id
             if hypothesis_status is None:
                 hypothesis_status = 'Unknown'

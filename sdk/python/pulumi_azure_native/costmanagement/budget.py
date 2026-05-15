@@ -22,19 +22,18 @@ __all__ = ['BudgetArgs', 'Budget']
 @pulumi.input_type
 class BudgetArgs:
     def __init__(__self__, *,
-                 budget_name: pulumi.Input[_builtins.str],
                  category: pulumi.Input[Union[_builtins.str, 'CategoryType']],
                  scope: pulumi.Input[_builtins.str],
                  time_grain: pulumi.Input[Union[_builtins.str, 'TimeGrainType']],
                  time_period: pulumi.Input['BudgetTimePeriodArgs'],
                  amount: pulumi.Input[Optional[_builtins.float]] = None,
+                 budget_name: pulumi.Input[Optional[_builtins.str]] = None,
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  filter: pulumi.Input[Optional['BudgetFilterArgs']] = None,
                  notifications: pulumi.Input[Optional[Mapping[str, pulumi.Input['NotificationArgs']]]] = None):
         """
         The set of arguments for constructing a Budget resource.
 
-        :param pulumi.Input[_builtins.str] budget_name: Budget Name.
         :param pulumi.Input[Union[_builtins.str, 'CategoryType']] category: The category of the budget.
                - 'Cost' defines a Budget.
                - 'ReservationUtilization' defines a Reservation Utilization Alert Rule.
@@ -97,6 +96,7 @@ class BudgetArgs:
                 Supported for CategoryType(s): Cost.
                
                 Required for CategoryType(s): Cost.
+        :param pulumi.Input[_builtins.str] budget_name: Budget Name.
         :param pulumi.Input[_builtins.str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input['BudgetFilterArgs'] filter: May be used to filter budgets by user-specified dimensions and/or tags.
                
@@ -108,31 +108,20 @@ class BudgetArgs:
                - Constraints for **CategoryType: Cost** - Budget can have up to 5 notifications with thresholdType: Actual and 5 notifications with thresholdType: Forecasted.
                - Constraints for **CategoryType: ReservationUtilization** - Only one notification allowed. thresholdType is not applicable.
         """
-        pulumi.set(__self__, "budget_name", budget_name)
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "time_grain", time_grain)
         pulumi.set(__self__, "time_period", time_period)
         if amount is not None:
             pulumi.set(__self__, "amount", amount)
+        if budget_name is not None:
+            pulumi.set(__self__, "budget_name", budget_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
         if notifications is not None:
             pulumi.set(__self__, "notifications", notifications)
-
-    @_builtins.property
-    @pulumi.getter(name="budgetName")
-    def budget_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Budget Name.
-        """
-        return pulumi.get(self, "budget_name")
-
-    @budget_name.setter
-    def budget_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "budget_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -250,6 +239,18 @@ class BudgetArgs:
     @amount.setter
     def amount(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter(name="budgetName")
+    def budget_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Budget Name.
+        """
+        return pulumi.get(self, "budget_name")
+
+    @budget_name.setter
+    def budget_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "budget_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
@@ -443,8 +444,6 @@ class Budget(pulumi.CustomResource):
             __props__ = BudgetArgs.__new__(BudgetArgs)
 
             __props__.__dict__["amount"] = amount
-            if budget_name is None and not opts.urn:
-                raise TypeError("Missing required property 'budget_name'")
             __props__.__dict__["budget_name"] = budget_name
             if category is None and not opts.urn:
                 raise TypeError("Missing required property 'category'")

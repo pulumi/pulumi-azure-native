@@ -169,7 +169,7 @@ def get_gallery_script_version(gallery_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_gallery_script_version_output(gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       gallery_script_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      gallery_script_version_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      gallery_script_version_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGalleryScriptVersionResult]:
     """

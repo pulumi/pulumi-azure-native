@@ -26,7 +26,6 @@ class WebTestArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  synthetic_monitor_id: pulumi.Input[_builtins.str],
                  web_test_kind: pulumi.Input[Optional['WebTestKind']] = None,
-                 web_test_name: pulumi.Input[_builtins.str],
                  configuration: pulumi.Input[Optional['WebTestPropertiesConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -37,7 +36,8 @@ class WebTestArgs:
                  retry_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
-                 validation_rules: pulumi.Input[Optional['WebTestPropertiesValidationRulesArgs']] = None):
+                 validation_rules: pulumi.Input[Optional['WebTestPropertiesValidationRulesArgs']] = None,
+                 web_test_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebTest resource.
 
@@ -45,7 +45,6 @@ class WebTestArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] synthetic_monitor_id: Unique ID of this WebTest. This is typically the same value as the Name field.
         :param pulumi.Input['WebTestKind'] web_test_kind: The kind of web test this is, valid choices are ping, multistep and standard.
-        :param pulumi.Input[_builtins.str] web_test_name: User defined name if this WebTest.
         :param pulumi.Input['WebTestPropertiesConfigurationArgs'] configuration: An XML configuration specification for a WebTest.
         :param pulumi.Input[_builtins.str] description: User defined description for this WebTest.
         :param pulumi.Input[_builtins.bool] enabled: Is the test actively being monitored.
@@ -57,6 +56,7 @@ class WebTestArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         :param pulumi.Input[_builtins.int] timeout: Seconds until this WebTest will timeout and fail. Default value is 30.
         :param pulumi.Input['WebTestPropertiesValidationRulesArgs'] validation_rules: The collection of validation rule properties
+        :param pulumi.Input[_builtins.str] web_test_name: User defined name if this WebTest.
         """
         pulumi.set(__self__, "locations", locations)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -64,7 +64,6 @@ class WebTestArgs:
         if web_test_kind is None:
             web_test_kind = 'ping'
         pulumi.set(__self__, "web_test_kind", web_test_kind)
-        pulumi.set(__self__, "web_test_name", web_test_name)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if description is not None:
@@ -93,6 +92,8 @@ class WebTestArgs:
             pulumi.set(__self__, "timeout", timeout)
         if validation_rules is not None:
             pulumi.set(__self__, "validation_rules", validation_rules)
+        if web_test_name is not None:
+            pulumi.set(__self__, "web_test_name", web_test_name)
 
     @_builtins.property
     @pulumi.getter
@@ -141,18 +142,6 @@ class WebTestArgs:
     @web_test_kind.setter
     def web_test_kind(self, value: pulumi.Input['WebTestKind']):
         pulumi.set(self, "web_test_kind", value)
-
-    @_builtins.property
-    @pulumi.getter(name="webTestName")
-    def web_test_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        User defined name if this WebTest.
-        """
-        return pulumi.get(self, "web_test_name")
-
-    @web_test_name.setter
-    def web_test_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "web_test_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -285,6 +274,18 @@ class WebTestArgs:
     @validation_rules.setter
     def validation_rules(self, value: pulumi.Input[Optional['WebTestPropertiesValidationRulesArgs']]):
         pulumi.set(self, "validation_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webTestName")
+    def web_test_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        User defined name if this WebTest.
+        """
+        return pulumi.get(self, "web_test_name")
+
+    @web_test_name.setter
+    def web_test_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "web_test_name", value)
 
 
 @pulumi.type_token("azure-native:applicationinsights:WebTest")
@@ -422,8 +423,6 @@ class WebTest(pulumi.CustomResource):
             if web_test_kind is None and not opts.urn:
                 raise TypeError("Missing required property 'web_test_kind'")
             __props__.__dict__["web_test_kind"] = web_test_kind
-            if web_test_name is None and not opts.urn:
-                raise TypeError("Missing required property 'web_test_name'")
             __props__.__dict__["web_test_name"] = web_test_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

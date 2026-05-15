@@ -22,39 +22,28 @@ __all__ = ['ConnectorDryrunArgs', 'ConnectorDryrun']
 @pulumi.input_type
 class ConnectorDryrunArgs:
     def __init__(__self__, *,
-                 dryrun_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 dryrun_name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional['CreateOrUpdateDryrunParametersArgs']] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectorDryrun resource.
 
-        :param pulumi.Input[_builtins.str] dryrun_name: The name of dryrun.
         :param pulumi.Input[_builtins.str] location: The name of Azure region.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] dryrun_name: The name of dryrun.
         :param pulumi.Input['CreateOrUpdateDryrunParametersArgs'] parameters: The parameters of the dryrun
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the target subscription.
         """
-        pulumi.set(__self__, "dryrun_name", dryrun_name)
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if dryrun_name is not None:
+            pulumi.set(__self__, "dryrun_name", dryrun_name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
-
-    @_builtins.property
-    @pulumi.getter(name="dryrunName")
-    def dryrun_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of dryrun.
-        """
-        return pulumi.get(self, "dryrun_name")
-
-    @dryrun_name.setter
-    def dryrun_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dryrun_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -79,6 +68,18 @@ class ConnectorDryrunArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dryrunName")
+    def dryrun_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of dryrun.
+        """
+        return pulumi.get(self, "dryrun_name")
+
+    @dryrun_name.setter
+    def dryrun_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dryrun_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,8 +177,6 @@ class ConnectorDryrun(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConnectorDryrunArgs.__new__(ConnectorDryrunArgs)
 
-            if dryrun_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dryrun_name'")
             __props__.__dict__["dryrun_name"] = dryrun_name
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")

@@ -22,11 +22,11 @@ __all__ = ['AzureFirewallArgs', 'AzureFirewall']
 @pulumi.input_type
 class AzureFirewallArgs:
     def __init__(__self__, *,
-                 azure_firewall_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  application_rule_collections: pulumi.Input[Optional[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]]] = None,
                  autoscale_configuration: pulumi.Input[Optional['AzureFirewallAutoscaleConfigurationArgs']] = None,
+                 azure_firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
                  firewall_policy: pulumi.Input[Optional['SubResourceArgs']] = None,
                  hub_ip_addresses: pulumi.Input[Optional['HubIPAddressesArgs']] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -43,11 +43,11 @@ class AzureFirewallArgs:
         """
         The set of arguments for constructing a AzureFirewall resource.
 
-        :param pulumi.Input[_builtins.str] azure_firewall_name: The name of the Azure Firewall.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: The additional properties used to further config this azure firewall.
         :param pulumi.Input[Sequence[pulumi.Input['AzureFirewallApplicationRuleCollectionArgs']]] application_rule_collections: Collection of application rule collections used by Azure Firewall.
         :param pulumi.Input['AzureFirewallAutoscaleConfigurationArgs'] autoscale_configuration: Properties to provide a custom autoscale configuration to this azure firewall.
+        :param pulumi.Input[_builtins.str] azure_firewall_name: The name of the Azure Firewall.
         :param pulumi.Input['SubResourceArgs'] firewall_policy: The firewallPolicy associated with this azure firewall.
         :param pulumi.Input['HubIPAddressesArgs'] hub_ip_addresses: IP addresses associated with AzureFirewall.
         :param pulumi.Input[_builtins.str] id: Resource ID.
@@ -62,7 +62,6 @@ class AzureFirewallArgs:
         :param pulumi.Input['SubResourceArgs'] virtual_hub: The virtualHub to which the firewall belongs.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
-        pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_properties is not None:
             pulumi.set(__self__, "additional_properties", additional_properties)
@@ -70,6 +69,8 @@ class AzureFirewallArgs:
             pulumi.set(__self__, "application_rule_collections", application_rule_collections)
         if autoscale_configuration is not None:
             pulumi.set(__self__, "autoscale_configuration", autoscale_configuration)
+        if azure_firewall_name is not None:
+            pulumi.set(__self__, "azure_firewall_name", azure_firewall_name)
         if firewall_policy is not None:
             pulumi.set(__self__, "firewall_policy", firewall_policy)
         if hub_ip_addresses is not None:
@@ -96,18 +97,6 @@ class AzureFirewallArgs:
             pulumi.set(__self__, "virtual_hub", virtual_hub)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter(name="azureFirewallName")
-    def azure_firewall_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Azure Firewall.
-        """
-        return pulumi.get(self, "azure_firewall_name")
-
-    @azure_firewall_name.setter
-    def azure_firewall_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "azure_firewall_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -156,6 +145,18 @@ class AzureFirewallArgs:
     @autoscale_configuration.setter
     def autoscale_configuration(self, value: pulumi.Input[Optional['AzureFirewallAutoscaleConfigurationArgs']]):
         pulumi.set(self, "autoscale_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureFirewallName")
+    def azure_firewall_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Azure Firewall.
+        """
+        return pulumi.get(self, "azure_firewall_name")
+
+    @azure_firewall_name.setter
+    def azure_firewall_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "azure_firewall_name", value)
 
     @_builtins.property
     @pulumi.getter(name="firewallPolicy")
@@ -427,8 +428,6 @@ class AzureFirewall(pulumi.CustomResource):
             __props__.__dict__["additional_properties"] = additional_properties
             __props__.__dict__["application_rule_collections"] = application_rule_collections
             __props__.__dict__["autoscale_configuration"] = autoscale_configuration
-            if azure_firewall_name is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_firewall_name'")
             __props__.__dict__["azure_firewall_name"] = azure_firewall_name
             __props__.__dict__["firewall_policy"] = firewall_policy
             __props__.__dict__["hub_ip_addresses"] = hub_ip_addresses

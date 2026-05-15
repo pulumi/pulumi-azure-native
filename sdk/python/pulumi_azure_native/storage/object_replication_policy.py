@@ -23,29 +23,30 @@ class ObjectReplicationPolicyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  destination_account: pulumi.Input[_builtins.str],
-                 object_replication_policy_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source_account: pulumi.Input[_builtins.str],
                  metrics: pulumi.Input[Optional['ObjectReplicationPolicyPropertiesMetricsArgs']] = None,
+                 object_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  rules: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]]] = None):
         """
         The set of arguments for constructing a ObjectReplicationPolicy resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[_builtins.str] destination_account: Required. Destination account name. It should be full resource id if allowCrossTenantReplication set to false.
-        :param pulumi.Input[_builtins.str] object_replication_policy_id: For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[_builtins.str] source_account: Required. Source account name. It should be full resource id if allowCrossTenantReplication set to false.
         :param pulumi.Input['ObjectReplicationPolicyPropertiesMetricsArgs'] metrics: Optional. The object replication policy metrics feature options.
+        :param pulumi.Input[_builtins.str] object_replication_policy_id: For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationPolicyRuleArgs']]] rules: The storage account object replication rules.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "destination_account", destination_account)
-        pulumi.set(__self__, "object_replication_policy_id", object_replication_policy_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source_account", source_account)
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
+        if object_replication_policy_id is not None:
+            pulumi.set(__self__, "object_replication_policy_id", object_replication_policy_id)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -72,18 +73,6 @@ class ObjectReplicationPolicyArgs:
     @destination_account.setter
     def destination_account(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "destination_account", value)
-
-    @_builtins.property
-    @pulumi.getter(name="objectReplicationPolicyId")
-    def object_replication_policy_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
-        """
-        return pulumi.get(self, "object_replication_policy_id")
-
-    @object_replication_policy_id.setter
-    def object_replication_policy_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "object_replication_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -120,6 +109,18 @@ class ObjectReplicationPolicyArgs:
     @metrics.setter
     def metrics(self, value: pulumi.Input[Optional['ObjectReplicationPolicyPropertiesMetricsArgs']]):
         pulumi.set(self, "metrics", value)
+
+    @_builtins.property
+    @pulumi.getter(name="objectReplicationPolicyId")
+    def object_replication_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        For the destination account, provide the value 'default'. Configure the policy on the destination account first. For the source account, provide the value of the policy ID that is returned when you download the policy that was defined on the destination account. The policy is downloaded as a JSON file.
+        """
+        return pulumi.get(self, "object_replication_policy_id")
+
+    @object_replication_policy_id.setter
+    def object_replication_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "object_replication_policy_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -218,8 +219,6 @@ class ObjectReplicationPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'destination_account'")
             __props__.__dict__["destination_account"] = destination_account
             __props__.__dict__["metrics"] = metrics
-            if object_replication_policy_id is None and not opts.urn:
-                raise TypeError("Missing required property 'object_replication_policy_id'")
             __props__.__dict__["object_replication_policy_id"] = object_replication_policy_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

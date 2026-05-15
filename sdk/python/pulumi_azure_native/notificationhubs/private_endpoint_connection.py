@@ -23,20 +23,21 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
-                 private_endpoint_connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['PrivateEndpointConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: Namespace name
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: Private Endpoint Connection Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: Private Endpoint Connection Name
         :param pulumi.Input['PrivateEndpointConnectionPropertiesArgs'] properties: Private Endpoint Connection properties.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -53,18 +54,6 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Private Endpoint Connection Name
-        """
-        return pulumi.get(self, "private_endpoint_connection_name")
-
-    @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "private_endpoint_connection_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -75,6 +64,18 @@ class PrivateEndpointConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Private Endpoint Connection Name
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -160,8 +161,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
-            if private_endpoint_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

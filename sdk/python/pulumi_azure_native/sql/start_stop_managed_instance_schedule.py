@@ -25,8 +25,8 @@ class StartStopManagedInstanceScheduleArgs:
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  schedule_list: pulumi.Input[Sequence[pulumi.Input['ScheduleItemArgs']]],
-                 start_stop_schedule_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_stop_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  time_zone_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StartStopManagedInstanceSchedule resource.
@@ -34,18 +34,19 @@ class StartStopManagedInstanceScheduleArgs:
         :param pulumi.Input[_builtins.str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleItemArgs']]] schedule_list: Schedule list.
-        :param pulumi.Input[_builtins.str] start_stop_schedule_name: Name of the managed instance Start/Stop schedule.
         :param pulumi.Input[_builtins.str] description: The description of the schedule.
+        :param pulumi.Input[_builtins.str] start_stop_schedule_name: Name of the managed instance Start/Stop schedule.
         :param pulumi.Input[_builtins.str] time_zone_id: The time zone of the schedule.
         """
         pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "schedule_list", schedule_list)
-        pulumi.set(__self__, "start_stop_schedule_name", start_stop_schedule_name)
         if description is None:
             description = ''
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if start_stop_schedule_name is not None:
+            pulumi.set(__self__, "start_stop_schedule_name", start_stop_schedule_name)
         if time_zone_id is None:
             time_zone_id = 'UTC'
         if time_zone_id is not None:
@@ -88,18 +89,6 @@ class StartStopManagedInstanceScheduleArgs:
         pulumi.set(self, "schedule_list", value)
 
     @_builtins.property
-    @pulumi.getter(name="startStopScheduleName")
-    def start_stop_schedule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the managed instance Start/Stop schedule.
-        """
-        return pulumi.get(self, "start_stop_schedule_name")
-
-    @start_stop_schedule_name.setter
-    def start_stop_schedule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "start_stop_schedule_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -110,6 +99,18 @@ class StartStopManagedInstanceScheduleArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startStopScheduleName")
+    def start_stop_schedule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the managed instance Start/Stop schedule.
+        """
+        return pulumi.get(self, "start_stop_schedule_name")
+
+    @start_stop_schedule_name.setter
+    def start_stop_schedule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "start_stop_schedule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZoneId")
@@ -210,8 +211,6 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
             if schedule_list is None and not opts.urn:
                 raise TypeError("Missing required property 'schedule_list'")
             __props__.__dict__["schedule_list"] = schedule_list
-            if start_stop_schedule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'start_stop_schedule_name'")
             __props__.__dict__["start_stop_schedule_name"] = start_stop_schedule_name
             if time_zone_id is None:
                 time_zone_id = 'UTC'

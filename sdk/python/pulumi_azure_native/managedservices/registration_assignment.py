@@ -21,32 +21,21 @@ __all__ = ['RegistrationAssignmentArgs', 'RegistrationAssignment']
 @pulumi.input_type
 class RegistrationAssignmentArgs:
     def __init__(__self__, *,
-                 registration_assignment_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['RegistrationAssignmentPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['RegistrationAssignmentPropertiesArgs']] = None,
+                 registration_assignment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistrationAssignment resource.
 
-        :param pulumi.Input[_builtins.str] registration_assignment_id: The GUID of the registration assignment.
         :param pulumi.Input[_builtins.str] scope: The scope of the resource.
         :param pulumi.Input['RegistrationAssignmentPropertiesArgs'] properties: The properties of a registration assignment.
+        :param pulumi.Input[_builtins.str] registration_assignment_id: The GUID of the registration assignment.
         """
-        pulumi.set(__self__, "registration_assignment_id", registration_assignment_id)
         pulumi.set(__self__, "scope", scope)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="registrationAssignmentId")
-    def registration_assignment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The GUID of the registration assignment.
-        """
-        return pulumi.get(self, "registration_assignment_id")
-
-    @registration_assignment_id.setter
-    def registration_assignment_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "registration_assignment_id", value)
+        if registration_assignment_id is not None:
+            pulumi.set(__self__, "registration_assignment_id", registration_assignment_id)
 
     @_builtins.property
     @pulumi.getter
@@ -71,6 +60,18 @@ class RegistrationAssignmentArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['RegistrationAssignmentPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="registrationAssignmentId")
+    def registration_assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The GUID of the registration assignment.
+        """
+        return pulumi.get(self, "registration_assignment_id")
+
+    @registration_assignment_id.setter
+    def registration_assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "registration_assignment_id", value)
 
 
 @pulumi.type_token("azure-native:managedservices:RegistrationAssignment")
@@ -135,8 +136,6 @@ class RegistrationAssignment(pulumi.CustomResource):
             __props__ = RegistrationAssignmentArgs.__new__(RegistrationAssignmentArgs)
 
             __props__.__dict__["properties"] = properties
-            if registration_assignment_id is None and not opts.urn:
-                raise TypeError("Missing required property 'registration_assignment_id'")
             __props__.__dict__["registration_assignment_id"] = registration_assignment_id
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

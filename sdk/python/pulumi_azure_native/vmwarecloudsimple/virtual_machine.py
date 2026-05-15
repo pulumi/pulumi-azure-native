@@ -26,7 +26,6 @@ class VirtualMachineArgs:
                  number_of_cores: pulumi.Input[_builtins.int],
                  private_cloud_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_machine_name: pulumi.Input[_builtins.str],
                  customization: pulumi.Input[Optional['GuestOSCustomizationArgs']] = None,
                  disks: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualDiskArgs']]]] = None,
                  expose_to_guest_vm: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -37,7 +36,8 @@ class VirtualMachineArgs:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  template_id: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
-                 v_sphere_networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 v_sphere_networks: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachine resource.
 
@@ -45,7 +45,6 @@ class VirtualMachineArgs:
         :param pulumi.Input[_builtins.int] number_of_cores: The number of CPU cores
         :param pulumi.Input[_builtins.str] private_cloud_id: Private Cloud Id
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group
-        :param pulumi.Input[_builtins.str] virtual_machine_name: virtual machine name
         :param pulumi.Input['GuestOSCustomizationArgs'] customization: Virtual machine properties
         :param pulumi.Input[Sequence[pulumi.Input['VirtualDiskArgs']]] disks: The list of Virtual Disks
         :param pulumi.Input[_builtins.bool] expose_to_guest_vm: Expose Guest OS or not
@@ -57,12 +56,12 @@ class VirtualMachineArgs:
         :param pulumi.Input[_builtins.str] template_id: Virtual Machine Template Id
         :param pulumi.Input[_builtins.str] username: Username for login. Deprecated - use customization property
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] v_sphere_networks: The list of Virtual VSphere Networks
+        :param pulumi.Input[_builtins.str] virtual_machine_name: virtual machine name
         """
         pulumi.set(__self__, "amount_of_ram", amount_of_ram)
         pulumi.set(__self__, "number_of_cores", number_of_cores)
         pulumi.set(__self__, "private_cloud_id", private_cloud_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
         if customization is not None:
             pulumi.set(__self__, "customization", customization)
         if disks is not None:
@@ -85,6 +84,8 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "username", username)
         if v_sphere_networks is not None:
             pulumi.set(__self__, "v_sphere_networks", v_sphere_networks)
+        if virtual_machine_name is not None:
+            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
 
     @_builtins.property
     @pulumi.getter(name="amountOfRam")
@@ -133,18 +134,6 @@ class VirtualMachineArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        virtual machine name
-        """
-        return pulumi.get(self, "virtual_machine_name")
-
-    @virtual_machine_name.setter
-    def virtual_machine_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_machine_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -278,6 +267,18 @@ class VirtualMachineArgs:
     def v_sphere_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "v_sphere_networks", value)
 
+    @_builtins.property
+    @pulumi.getter(name="virtualMachineName")
+    def virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        virtual machine name
+        """
+        return pulumi.get(self, "virtual_machine_name")
+
+    @virtual_machine_name.setter
+    def virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_machine_name", value)
+
 
 @pulumi.type_token("azure-native:vmwarecloudsimple:VirtualMachine")
 class VirtualMachine(pulumi.CustomResource):
@@ -402,8 +403,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["template_id"] = template_id
             __props__.__dict__["username"] = username
             __props__.__dict__["v_sphere_networks"] = v_sphere_networks
-            if virtual_machine_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_machine_name'")
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["controllers"] = None

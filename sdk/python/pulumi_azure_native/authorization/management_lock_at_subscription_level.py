@@ -23,7 +23,7 @@ __all__ = ['ManagementLockAtSubscriptionLevelArgs', 'ManagementLockAtSubscriptio
 class ManagementLockAtSubscriptionLevelArgs:
     def __init__(__self__, *,
                  level: pulumi.Input[Union[_builtins.str, 'LockLevel']],
-                 lock_name: pulumi.Input[_builtins.str],
+                 lock_name: pulumi.Input[Optional[_builtins.str]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  owners: pulumi.Input[Optional[Sequence[pulumi.Input['ManagementLockOwnerArgs']]]] = None):
         """
@@ -35,7 +35,8 @@ class ManagementLockAtSubscriptionLevelArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ManagementLockOwnerArgs']]] owners: The owners of the lock.
         """
         pulumi.set(__self__, "level", level)
-        pulumi.set(__self__, "lock_name", lock_name)
+        if lock_name is not None:
+            pulumi.set(__self__, "lock_name", lock_name)
         if notes is not None:
             pulumi.set(__self__, "notes", notes)
         if owners is not None:
@@ -55,14 +56,14 @@ class ManagementLockAtSubscriptionLevelArgs:
 
     @_builtins.property
     @pulumi.getter(name="lockName")
-    def lock_name(self) -> pulumi.Input[_builtins.str]:
+    def lock_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \\, ?, /, or any control characters.
         """
         return pulumi.get(self, "lock_name")
 
     @lock_name.setter
-    def lock_name(self, value: pulumi.Input[_builtins.str]):
+    def lock_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "lock_name", value)
 
     @_builtins.property
@@ -157,8 +158,6 @@ class ManagementLockAtSubscriptionLevel(pulumi.CustomResource):
             if level is None and not opts.urn:
                 raise TypeError("Missing required property 'level'")
             __props__.__dict__["level"] = level
-            if lock_name is None and not opts.urn:
-                raise TypeError("Missing required property 'lock_name'")
             __props__.__dict__["lock_name"] = lock_name
             __props__.__dict__["notes"] = notes
             __props__.__dict__["owners"] = owners

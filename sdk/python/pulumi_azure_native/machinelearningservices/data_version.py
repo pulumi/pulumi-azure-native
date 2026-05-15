@@ -24,22 +24,23 @@ class DataVersionArgs:
                  name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['MLTableDataArgs', 'UriFileDataVersionArgs', 'UriFolderDataVersionArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 version: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DataVersion resource.
 
         :param pulumi.Input[_builtins.str] name: Container name.
         :param pulumi.Input[Union['MLTableDataArgs', 'UriFileDataVersionArgs', 'UriFolderDataVersionArgs']] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] version: Version identifier.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
+        :param pulumi.Input[_builtins.str] version: Version identifier.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "version", version)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter
@@ -78,18 +79,6 @@ class DataVersionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter
-    def version(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version identifier.
-        """
-        return pulumi.get(self, "version")
-
-    @version.setter
-    def version(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "version", value)
-
-    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -100,6 +89,18 @@ class DataVersionArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version identifier.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.type_token("azure-native:machinelearningservices:DataVersion")
@@ -182,8 +183,6 @@ class DataVersion(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if version is None and not opts.urn:
-                raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

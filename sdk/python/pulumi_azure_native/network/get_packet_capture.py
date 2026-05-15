@@ -258,7 +258,7 @@ def get_packet_capture(network_watcher_name: Optional[_builtins.str] = None,
         time_limit_in_seconds=pulumi.get(__ret__, 'time_limit_in_seconds'),
         total_bytes_per_session=pulumi.get(__ret__, 'total_bytes_per_session'))
 def get_packet_capture_output(network_watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              packet_capture_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              packet_capture_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPacketCaptureResult]:
     """

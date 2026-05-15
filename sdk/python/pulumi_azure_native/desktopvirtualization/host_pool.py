@@ -22,7 +22,6 @@ __all__ = ['HostPoolArgs', 'HostPool']
 @pulumi.input_type
 class HostPoolArgs:
     def __init__(__self__, *,
-                 host_pool_name: pulumi.Input[_builtins.str],
                  host_pool_type: pulumi.Input[Union[_builtins.str, 'HostPoolType']],
                  load_balancer_type: pulumi.Input[Union[_builtins.str, 'LoadBalancerType']],
                  preferred_app_group_type: pulumi.Input[Union[_builtins.str, 'PreferredAppGroupType']],
@@ -31,6 +30,7 @@ class HostPoolArgs:
                  custom_rdp_property: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 host_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -53,7 +53,6 @@ class HostPoolArgs:
         """
         The set of arguments for constructing a HostPool resource.
 
-        :param pulumi.Input[_builtins.str] host_pool_name: The name of the host pool within the specified resource group
         :param pulumi.Input[Union[_builtins.str, 'HostPoolType']] host_pool_type: HostPool type for desktop.
         :param pulumi.Input[Union[_builtins.str, 'LoadBalancerType']] load_balancer_type: The type of the load balancer.
         :param pulumi.Input[Union[_builtins.str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
@@ -62,6 +61,7 @@ class HostPoolArgs:
         :param pulumi.Input[_builtins.str] custom_rdp_property: Custom rdp property of HostPool.
         :param pulumi.Input[_builtins.str] description: Description of HostPool.
         :param pulumi.Input[_builtins.str] friendly_name: Friendly name of HostPool.
+        :param pulumi.Input[_builtins.str] host_pool_name: The name of the host pool within the specified resource group
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
@@ -79,7 +79,6 @@ class HostPoolArgs:
         :param pulumi.Input[_builtins.bool] validation_environment: Is validation environment.
         :param pulumi.Input[_builtins.str] vm_template: VM template for sessionhosts configuration within hostpool.
         """
-        pulumi.set(__self__, "host_pool_name", host_pool_name)
         pulumi.set(__self__, "host_pool_type", host_pool_type)
         pulumi.set(__self__, "load_balancer_type", load_balancer_type)
         pulumi.set(__self__, "preferred_app_group_type", preferred_app_group_type)
@@ -92,6 +91,8 @@ class HostPoolArgs:
             pulumi.set(__self__, "description", description)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if host_pool_name is not None:
+            pulumi.set(__self__, "host_pool_name", host_pool_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
@@ -130,18 +131,6 @@ class HostPoolArgs:
             pulumi.set(__self__, "validation_environment", validation_environment)
         if vm_template is not None:
             pulumi.set(__self__, "vm_template", vm_template)
-
-    @_builtins.property
-    @pulumi.getter(name="hostPoolName")
-    def host_pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the host pool within the specified resource group
-        """
-        return pulumi.get(self, "host_pool_name")
-
-    @host_pool_name.setter
-    def host_pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "host_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostPoolType")
@@ -238,6 +227,18 @@ class HostPoolArgs:
     @friendly_name.setter
     def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostPoolName")
+    def host_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the host pool within the specified resource group
+        """
+        return pulumi.get(self, "host_pool_name")
+
+    @host_pool_name.setter
+    def host_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "host_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -600,8 +601,6 @@ class HostPool(pulumi.CustomResource):
             __props__.__dict__["custom_rdp_property"] = custom_rdp_property
             __props__.__dict__["description"] = description
             __props__.__dict__["friendly_name"] = friendly_name
-            if host_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'host_pool_name'")
             __props__.__dict__["host_pool_name"] = host_pool_name
             if host_pool_type is None and not opts.urn:
                 raise TypeError("Missing required property 'host_pool_type'")

@@ -24,27 +24,26 @@ class OrderItemArgs:
     def __init__(__self__, *,
                  order_id: pulumi.Input[_builtins.str],
                  order_item_details: pulumi.Input['OrderItemDetailsArgs'],
-                 order_item_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  address_details: pulumi.Input[Optional['AddressDetailsArgs']] = None,
                  identity: pulumi.Input[Optional['ResourceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 order_item_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a OrderItem resource.
 
         :param pulumi.Input[_builtins.str] order_id: Id of the order to which order item belongs to.
         :param pulumi.Input['OrderItemDetailsArgs'] order_item_details: Represents order item details.
-        :param pulumi.Input[_builtins.str] order_item_name: The name of the order item.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AddressDetailsArgs'] address_details: Represents shipping and return address for order item.
         :param pulumi.Input['ResourceIdentityArgs'] identity: Msi identity of the resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] order_item_name: The name of the order item.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "order_id", order_id)
         pulumi.set(__self__, "order_item_details", order_item_details)
-        pulumi.set(__self__, "order_item_name", order_item_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if address_details is not None:
             pulumi.set(__self__, "address_details", address_details)
@@ -52,6 +51,8 @@ class OrderItemArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if order_item_name is not None:
+            pulumi.set(__self__, "order_item_name", order_item_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -78,18 +79,6 @@ class OrderItemArgs:
     @order_item_details.setter
     def order_item_details(self, value: pulumi.Input['OrderItemDetailsArgs']):
         pulumi.set(self, "order_item_details", value)
-
-    @_builtins.property
-    @pulumi.getter(name="orderItemName")
-    def order_item_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the order item.
-        """
-        return pulumi.get(self, "order_item_name")
-
-    @order_item_name.setter
-    def order_item_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "order_item_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -138,6 +127,18 @@ class OrderItemArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="orderItemName")
+    def order_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the order item.
+        """
+        return pulumi.get(self, "order_item_name")
+
+    @order_item_name.setter
+    def order_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "order_item_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -241,8 +242,6 @@ class OrderItem(pulumi.CustomResource):
             if order_item_details is None and not opts.urn:
                 raise TypeError("Missing required property 'order_item_details'")
             __props__.__dict__["order_item_details"] = order_item_details
-            if order_item_name is None and not opts.urn:
-                raise TypeError("Missing required property 'order_item_name'")
             __props__.__dict__["order_item_name"] = order_item_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

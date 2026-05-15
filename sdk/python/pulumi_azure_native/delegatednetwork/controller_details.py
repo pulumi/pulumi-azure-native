@@ -21,27 +21,28 @@ __all__ = ['ControllerDetailsInitArgs', 'ControllerDetails']
 class ControllerDetailsInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  purpose: pulumi.Input[Optional[Union[_builtins.str, 'ControllerPurpose']]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ControllerDetails resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[_builtins.str] location: Location of the resource.
         :param pulumi.Input[Union[_builtins.str, 'ControllerPurpose']] purpose: The purpose of the dnc controller resource.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if purpose is None:
             purpose = 'prod'
         if purpose is not None:
             pulumi.set(__self__, "purpose", purpose)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -56,18 +57,6 @@ class ControllerDetailsInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -92,6 +81,18 @@ class ControllerDetailsInitArgs:
     @purpose.setter
     def purpose(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ControllerPurpose']]]):
         pulumi.set(self, "purpose", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -184,8 +185,6 @@ class ControllerDetails(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

@@ -22,43 +22,32 @@ __all__ = ['P2sVpnServerConfigurationArgs', 'P2sVpnServerConfiguration']
 @pulumi.input_type
 class P2sVpnServerConfigurationArgs:
     def __init__(__self__, *,
-                 p2_s_vpn_server_configuration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_wan_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 p2_s_vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['P2SVpnServerConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a P2sVpnServerConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] p2_s_vpn_server_configuration_name: The name of the P2SVpnServerConfiguration.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VirtualWan.
         :param pulumi.Input[_builtins.str] virtual_wan_name: The name of the VirtualWan.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[_builtins.str] p2_s_vpn_server_configuration_name: The name of the P2SVpnServerConfiguration.
         :param pulumi.Input['P2SVpnServerConfigurationPropertiesArgs'] properties: Properties of the P2SVpnServer configuration.
         """
-        pulumi.set(__self__, "p2_s_vpn_server_configuration_name", p2_s_vpn_server_configuration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_wan_name", virtual_wan_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if p2_s_vpn_server_configuration_name is not None:
+            pulumi.set(__self__, "p2_s_vpn_server_configuration_name", p2_s_vpn_server_configuration_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="p2SVpnServerConfigurationName")
-    def p2_s_vpn_server_configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the P2SVpnServerConfiguration.
-        """
-        return pulumi.get(self, "p2_s_vpn_server_configuration_name")
-
-    @p2_s_vpn_server_configuration_name.setter
-    def p2_s_vpn_server_configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "p2_s_vpn_server_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -107,6 +96,18 @@ class P2sVpnServerConfigurationArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="p2SVpnServerConfigurationName")
+    def p2_s_vpn_server_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the P2SVpnServerConfiguration.
+        """
+        return pulumi.get(self, "p2_s_vpn_server_configuration_name")
+
+    @p2_s_vpn_server_configuration_name.setter
+    def p2_s_vpn_server_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "p2_s_vpn_server_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -197,8 +198,6 @@ class P2sVpnServerConfiguration(pulumi.CustomResource):
 
             __props__.__dict__["id"] = id
             __props__.__dict__["name"] = name
-            if p2_s_vpn_server_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'p2_s_vpn_server_configuration_name'")
             __props__.__dict__["p2_s_vpn_server_configuration_name"] = p2_s_vpn_server_configuration_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

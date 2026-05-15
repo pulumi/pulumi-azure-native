@@ -21,24 +21,25 @@ class VirtualNetworkRuleArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 virtual_network_rule_name: pulumi.Input[_builtins.str],
                  virtual_network_subnet_id: pulumi.Input[_builtins.str],
-                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None):
+                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkRule resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] virtual_network_rule_name: The name of the virtual network rule.
         :param pulumi.Input[_builtins.str] virtual_network_subnet_id: The ARM resource id of the virtual network subnet.
         :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: Create firewall rule before the virtual network has vnet service endpoint enabled.
+        :param pulumi.Input[_builtins.str] virtual_network_rule_name: The name of the virtual network rule.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "virtual_network_rule_name", virtual_network_rule_name)
         pulumi.set(__self__, "virtual_network_subnet_id", virtual_network_subnet_id)
         if ignore_missing_vnet_service_endpoint is not None:
             pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
+        if virtual_network_rule_name is not None:
+            pulumi.set(__self__, "virtual_network_rule_name", virtual_network_rule_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -65,18 +66,6 @@ class VirtualNetworkRuleArgs:
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="virtualNetworkRuleName")
-    def virtual_network_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the virtual network rule.
-        """
-        return pulumi.get(self, "virtual_network_rule_name")
-
-    @virtual_network_rule_name.setter
-    def virtual_network_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_network_rule_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="virtualNetworkSubnetId")
     def virtual_network_subnet_id(self) -> pulumi.Input[_builtins.str]:
         """
@@ -99,6 +88,18 @@ class VirtualNetworkRuleArgs:
     @ignore_missing_vnet_service_endpoint.setter
     def ignore_missing_vnet_service_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkRuleName")
+    def virtual_network_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the virtual network rule.
+        """
+        return pulumi.get(self, "virtual_network_rule_name")
+
+    @virtual_network_rule_name.setter
+    def virtual_network_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_network_rule_name", value)
 
 
 @pulumi.type_token("azure-native:sql:VirtualNetworkRule")
@@ -179,8 +180,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
-            if virtual_network_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_rule_name'")
             __props__.__dict__["virtual_network_rule_name"] = virtual_network_rule_name
             if virtual_network_subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_subnet_id'")

@@ -23,30 +23,31 @@ __all__ = ['FleetspaceArgs', 'Fleetspace']
 class FleetspaceArgs:
     def __init__(__self__, *,
                  fleet_name: pulumi.Input[_builtins.str],
-                 fleetspace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  data_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  fleetspace_api_kind: pulumi.Input[Optional[Union[_builtins.str, 'FleetspaceApiKind']]] = None,
+                 fleetspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_tier: pulumi.Input[Optional[Union[_builtins.str, 'ServiceTier']]] = None,
                  throughput_pool_configuration: pulumi.Input[Optional['FleetspacePropertiesThroughputPoolConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Fleetspace resource.
 
         :param pulumi.Input[_builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
-        :param pulumi.Input[_builtins.str] fleetspace_name: Cosmos DB fleetspace name. Needs to be unique under a fleet.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_regions: List of data regions assigned to the fleetspace. Eg [westus2]
         :param pulumi.Input[Union[_builtins.str, 'FleetspaceApiKind']] fleetspace_api_kind: The kind of API this fleetspace belongs to. Acceptable values: 'NoSQL'
+        :param pulumi.Input[_builtins.str] fleetspace_name: Cosmos DB fleetspace name. Needs to be unique under a fleet.
         :param pulumi.Input[Union[_builtins.str, 'ServiceTier']] service_tier: Service Tier for the fleetspace. GeneralPurpose types refers to single write region accounts that can be added to this fleetspace, whereas BusinessCritical refers to multi write region.
         :param pulumi.Input['FleetspacePropertiesThroughputPoolConfigurationArgs'] throughput_pool_configuration: Configuration for throughput pool in the fleetspace.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
-        pulumi.set(__self__, "fleetspace_name", fleetspace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if data_regions is not None:
             pulumi.set(__self__, "data_regions", data_regions)
         if fleetspace_api_kind is not None:
             pulumi.set(__self__, "fleetspace_api_kind", fleetspace_api_kind)
+        if fleetspace_name is not None:
+            pulumi.set(__self__, "fleetspace_name", fleetspace_name)
         if service_tier is not None:
             pulumi.set(__self__, "service_tier", service_tier)
         if throughput_pool_configuration is not None:
@@ -63,18 +64,6 @@ class FleetspaceArgs:
     @fleet_name.setter
     def fleet_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "fleet_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fleetspaceName")
-    def fleetspace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Cosmos DB fleetspace name. Needs to be unique under a fleet.
-        """
-        return pulumi.get(self, "fleetspace_name")
-
-    @fleetspace_name.setter
-    def fleetspace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fleetspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -111,6 +100,18 @@ class FleetspaceArgs:
     @fleetspace_api_kind.setter
     def fleetspace_api_kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'FleetspaceApiKind']]]):
         pulumi.set(self, "fleetspace_api_kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fleetspaceName")
+    def fleetspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Cosmos DB fleetspace name. Needs to be unique under a fleet.
+        """
+        return pulumi.get(self, "fleetspace_name")
+
+    @fleetspace_name.setter
+    def fleetspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fleetspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTier")
@@ -219,8 +220,6 @@ class Fleetspace(pulumi.CustomResource):
                 raise TypeError("Missing required property 'fleet_name'")
             __props__.__dict__["fleet_name"] = fleet_name
             __props__.__dict__["fleetspace_api_kind"] = fleetspace_api_kind
-            if fleetspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fleetspace_name'")
             __props__.__dict__["fleetspace_name"] = fleetspace_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

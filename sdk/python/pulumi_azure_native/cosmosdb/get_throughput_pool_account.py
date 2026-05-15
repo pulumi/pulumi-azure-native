@@ -180,7 +180,7 @@ def get_throughput_pool_account(resource_group_name: Optional[_builtins.str] = N
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_throughput_pool_account_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       throughput_pool_account_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       throughput_pool_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        throughput_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThroughputPoolAccountResult]:
     """

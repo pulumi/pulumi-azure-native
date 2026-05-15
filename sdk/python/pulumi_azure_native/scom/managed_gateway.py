@@ -21,18 +21,19 @@ __all__ = ['ManagedGatewayArgs', 'ManagedGateway']
 class ManagedGatewayArgs:
     def __init__(__self__, *,
                  instance_name: pulumi.Input[_builtins.str],
-                 managed_gateway_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 managed_gateway_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedGateway resource.
 
         :param pulumi.Input[_builtins.str] instance_name: Name of the SCOM managed instance.
-        :param pulumi.Input[_builtins.str] managed_gateway_name: The gateway resource name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] managed_gateway_name: The gateway resource name.
         """
         pulumi.set(__self__, "instance_name", instance_name)
-        pulumi.set(__self__, "managed_gateway_name", managed_gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if managed_gateway_name is not None:
+            pulumi.set(__self__, "managed_gateway_name", managed_gateway_name)
 
     @_builtins.property
     @pulumi.getter(name="instanceName")
@@ -47,18 +48,6 @@ class ManagedGatewayArgs:
         pulumi.set(self, "instance_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="managedGatewayName")
-    def managed_gateway_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The gateway resource name.
-        """
-        return pulumi.get(self, "managed_gateway_name")
-
-    @managed_gateway_name.setter
-    def managed_gateway_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "managed_gateway_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -69,6 +58,18 @@ class ManagedGatewayArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedGatewayName")
+    def managed_gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The gateway resource name.
+        """
+        return pulumi.get(self, "managed_gateway_name")
+
+    @managed_gateway_name.setter
+    def managed_gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "managed_gateway_name", value)
 
 
 @pulumi.type_token("azure-native:scom:ManagedGateway")
@@ -135,8 +136,6 @@ class ManagedGateway(pulumi.CustomResource):
             if instance_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
-            if managed_gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_gateway_name'")
             __props__.__dict__["managed_gateway_name"] = managed_gateway_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

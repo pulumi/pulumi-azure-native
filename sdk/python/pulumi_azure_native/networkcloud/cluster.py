@@ -23,7 +23,6 @@ __all__ = ['ClusterArgs', 'Cluster']
 class ClusterArgs:
     def __init__(__self__, *,
                  aggregator_or_single_rack_definition: pulumi.Input['RackDefinitionArgs'],
-                 cluster_name: pulumi.Input[_builtins.str],
                  cluster_type: pulumi.Input[Union[_builtins.str, 'ClusterType']],
                  cluster_version: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
@@ -32,6 +31,7 @@ class ClusterArgs:
                  analytics_output_settings: pulumi.Input[Optional['AnalyticsOutputSettingsArgs']] = None,
                  analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_service_principal: pulumi.Input[Optional['ServicePrincipalInformationArgs']] = None,
                  command_output_settings: pulumi.Input[Optional['CommandOutputSettingsArgs']] = None,
                  compute_deployment_threshold: pulumi.Input[Optional['ValidationThresholdArgs']] = None,
@@ -49,7 +49,6 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
 
         :param pulumi.Input['RackDefinitionArgs'] aggregator_or_single_rack_definition: The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
-        :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[Union[_builtins.str, 'ClusterType']] cluster_type: The type of rack configuration for the cluster.
         :param pulumi.Input[_builtins.str] cluster_version: The current runtime version of the cluster.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster manager associated with the cluster.
@@ -58,6 +57,7 @@ class ClusterArgs:
         :param pulumi.Input['AnalyticsOutputSettingsArgs'] analytics_output_settings: The settings for the log analytics workspace used for output of logs from this cluster.
         :param pulumi.Input[_builtins.str] analytics_workspace_id: Field Deprecated. The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
         :param pulumi.Input[_builtins.str] cluster_location: The customer-provided location information to identify where the cluster resides.
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input['ServicePrincipalInformationArgs'] cluster_service_principal: The service principal to be used by the cluster during Arc Appliance installation.
         :param pulumi.Input['CommandOutputSettingsArgs'] command_output_settings: The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
         :param pulumi.Input['ValidationThresholdArgs'] compute_deployment_threshold: The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
@@ -74,7 +74,6 @@ class ClusterArgs:
         :param pulumi.Input['VulnerabilityScanningSettingsArgs'] vulnerability_scanning_settings: The settings for how security vulnerability scanning is applied to the cluster.
         """
         pulumi.set(__self__, "aggregator_or_single_rack_definition", aggregator_or_single_rack_definition)
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "cluster_type", cluster_type)
         pulumi.set(__self__, "cluster_version", cluster_version)
         pulumi.set(__self__, "extended_location", extended_location)
@@ -86,6 +85,8 @@ class ClusterArgs:
             pulumi.set(__self__, "analytics_workspace_id", analytics_workspace_id)
         if cluster_location is not None:
             pulumi.set(__self__, "cluster_location", cluster_location)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if cluster_service_principal is not None:
             pulumi.set(__self__, "cluster_service_principal", cluster_service_principal)
         if command_output_settings is not None:
@@ -124,18 +125,6 @@ class ClusterArgs:
     @aggregator_or_single_rack_definition.setter
     def aggregator_or_single_rack_definition(self, value: pulumi.Input['RackDefinitionArgs']):
         pulumi.set(self, "aggregator_or_single_rack_definition", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the cluster.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterType")
@@ -232,6 +221,18 @@ class ClusterArgs:
     @cluster_location.setter
     def cluster_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the cluster.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterServicePrincipal")
@@ -519,8 +520,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["analytics_output_settings"] = analytics_output_settings
             __props__.__dict__["analytics_workspace_id"] = analytics_workspace_id
             __props__.__dict__["cluster_location"] = cluster_location
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["cluster_service_principal"] = cluster_service_principal
             if cluster_type is None and not opts.urn:

@@ -169,7 +169,7 @@ def get_static_site_user_provided_function_app_for_static_site_build(environment
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
 def get_static_site_user_provided_function_app_for_static_site_build_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                            function_app_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                                            function_app_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                             name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteUserProvidedFunctionAppForStaticSiteBuildResult]:

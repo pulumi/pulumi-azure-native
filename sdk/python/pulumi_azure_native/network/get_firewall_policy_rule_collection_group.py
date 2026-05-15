@@ -181,7 +181,7 @@ def get_firewall_policy_rule_collection_group(firewall_policy_name: Optional[_bu
         type=pulumi.get(__ret__, 'type'))
 def get_firewall_policy_rule_collection_group_output(firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     rule_collection_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                     rule_collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyRuleCollectionGroupResult]:
     """
     Gets the specified FirewallPolicyRuleCollectionGroup.

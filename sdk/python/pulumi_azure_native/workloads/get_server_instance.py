@@ -261,7 +261,7 @@ def get_server_instance(resource_group_name: Optional[_builtins.str] = None,
 def get_server_instance_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                sap_discovery_site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                sap_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               server_instance_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               server_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerInstanceResult]:
     """
     Gets the Server Instance resource.

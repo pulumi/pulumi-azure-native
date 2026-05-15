@@ -139,7 +139,7 @@ def get_customer_subscription(customer_subscription_name: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_customer_subscription_output(customer_subscription_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_customer_subscription_output(customer_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      registration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomerSubscriptionResult]:

@@ -24,12 +24,12 @@ class PolicySetDefinitionAtManagementGroupArgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[_builtins.str],
                  policy_definitions: pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionReferenceArgs']]],
-                 policy_set_definition_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]] = None,
                  policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyDefinitionGroupArgs']]]] = None,
+                 policy_set_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_type: pulumi.Input[Optional[Union[_builtins.str, 'PolicyType']]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -38,19 +38,18 @@ class PolicySetDefinitionAtManagementGroupArgs:
 
         :param pulumi.Input[_builtins.str] management_group_id: The ID of the management group.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionReferenceArgs']]] policy_definitions: An array of policy definition references.
-        :param pulumi.Input[_builtins.str] policy_set_definition_name: The name of the policy set definition to create.
         :param pulumi.Input[_builtins.str] description: The policy set definition description.
         :param pulumi.Input[_builtins.str] display_name: The display name of the policy set definition.
         :param Any metadata: The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]] parameters: The policy set definition parameters that can be used in policy definition references.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionGroupArgs']]] policy_definition_groups: The metadata describing groups of policy definition references within the policy set definition.
+        :param pulumi.Input[_builtins.str] policy_set_definition_name: The name of the policy set definition to create.
         :param pulumi.Input[Union[_builtins.str, 'PolicyType']] policy_type: The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         :param pulumi.Input[_builtins.str] version: The policy set definition version in #.#.# format.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] versions: A list of available versions for this policy set definition.
         """
         pulumi.set(__self__, "management_group_id", management_group_id)
         pulumi.set(__self__, "policy_definitions", policy_definitions)
-        pulumi.set(__self__, "policy_set_definition_name", policy_set_definition_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -61,6 +60,8 @@ class PolicySetDefinitionAtManagementGroupArgs:
             pulumi.set(__self__, "parameters", parameters)
         if policy_definition_groups is not None:
             pulumi.set(__self__, "policy_definition_groups", policy_definition_groups)
+        if policy_set_definition_name is not None:
+            pulumi.set(__self__, "policy_set_definition_name", policy_set_definition_name)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
         if version is not None:
@@ -91,18 +92,6 @@ class PolicySetDefinitionAtManagementGroupArgs:
     @policy_definitions.setter
     def policy_definitions(self, value: pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionReferenceArgs']]]):
         pulumi.set(self, "policy_definitions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="policySetDefinitionName")
-    def policy_set_definition_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the policy set definition to create.
-        """
-        return pulumi.get(self, "policy_set_definition_name")
-
-    @policy_set_definition_name.setter
-    def policy_set_definition_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "policy_set_definition_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -163,6 +152,18 @@ class PolicySetDefinitionAtManagementGroupArgs:
     @policy_definition_groups.setter
     def policy_definition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyDefinitionGroupArgs']]]]):
         pulumi.set(self, "policy_definition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policySetDefinitionName")
+    def policy_set_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the policy set definition to create.
+        """
+        return pulumi.get(self, "policy_set_definition_name")
+
+    @policy_set_definition_name.setter
+    def policy_set_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "policy_set_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyType")
@@ -301,8 +302,6 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
             if policy_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_definitions'")
             __props__.__dict__["policy_definitions"] = policy_definitions
-            if policy_set_definition_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_set_definition_name'")
             __props__.__dict__["policy_set_definition_name"] = policy_set_definition_name
             __props__.__dict__["policy_type"] = policy_type
             __props__.__dict__["version"] = version

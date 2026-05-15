@@ -193,7 +193,7 @@ def get_fqdn_list_local_rulestack(local_rulestack_name: Optional[_builtins.str] 
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_fqdn_list_local_rulestack_output(local_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         name: pulumi.Input[Optional[_builtins.str]] = None,
                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFqdnListLocalRulestackResult]:
     """

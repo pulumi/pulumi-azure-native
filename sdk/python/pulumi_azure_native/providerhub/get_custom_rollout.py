@@ -136,7 +136,7 @@ def get_custom_rollout(provider_namespace: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_custom_rollout_output(provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
-                              rollout_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              rollout_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomRolloutResult]:
     """
     Gets the custom rollout details.

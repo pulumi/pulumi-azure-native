@@ -21,9 +21,9 @@ __all__ = ['ProactiveDetectionConfigurationArgs', 'ProactiveDetectionConfigurati
 @pulumi.input_type
 class ProactiveDetectionConfigurationArgs:
     def __init__(__self__, *,
-                 configuration_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
+                 configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_emails: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,9 +33,9 @@ class ProactiveDetectionConfigurationArgs:
         """
         The set of arguments for constructing a ProactiveDetectionConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
+        :param pulumi.Input[_builtins.str] configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] custom_emails: Custom email addresses for this rule notifications
         :param pulumi.Input[_builtins.bool] enabled: A flag that indicates whether this rule is enabled by the user
         :param pulumi.Input[_builtins.str] location: Resource location
@@ -43,9 +43,10 @@ class ProactiveDetectionConfigurationArgs:
         :param pulumi.Input['ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs'] rule_definitions: Static definitions of the ProactiveDetection configuration rule (same values for all components).
         :param pulumi.Input[_builtins.bool] send_emails_to_subscription_owners: A flag that indicated whether notifications on this rule should be sent to subscription owners
         """
-        pulumi.set(__self__, "configuration_id", configuration_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if configuration_id is not None:
+            pulumi.set(__self__, "configuration_id", configuration_id)
         if custom_emails is not None:
             pulumi.set(__self__, "custom_emails", custom_emails)
         if enabled is not None:
@@ -58,18 +59,6 @@ class ProactiveDetectionConfigurationArgs:
             pulumi.set(__self__, "rule_definitions", rule_definitions)
         if send_emails_to_subscription_owners is not None:
             pulumi.set(__self__, "send_emails_to_subscription_owners", send_emails_to_subscription_owners)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationId")
-    def configuration_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ProactiveDetection configuration ID. This is unique within a Application Insights component.
-        """
-        return pulumi.get(self, "configuration_id")
-
-    @configuration_id.setter
-    def configuration_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -94,6 +83,18 @@ class ProactiveDetectionConfigurationArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationId")
+    def configuration_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ProactiveDetection configuration ID. This is unique within a Application Insights component.
+        """
+        return pulumi.get(self, "configuration_id")
+
+    @configuration_id.setter
+    def configuration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_id", value)
 
     @_builtins.property
     @pulumi.getter(name="customEmails")
@@ -251,8 +252,6 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProactiveDetectionConfigurationArgs.__new__(ProactiveDetectionConfigurationArgs)
 
-            if configuration_id is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_id'")
             __props__.__dict__["configuration_id"] = configuration_id
             __props__.__dict__["custom_emails"] = custom_emails
             __props__.__dict__["enabled"] = enabled

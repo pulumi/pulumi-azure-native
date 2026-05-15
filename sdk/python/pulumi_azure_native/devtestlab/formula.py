@@ -23,11 +23,11 @@ __all__ = ['FormulaArgs', 'Formula']
 class FormulaArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  formula_content: pulumi.Input[Optional['LabVirtualMachineCreationParameterArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  os_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vm: pulumi.Input[Optional['FormulaPropertiesFromVmArgs']] = None):
@@ -35,17 +35,16 @@ class FormulaArgs:
         The set of arguments for constructing a Formula resource.
 
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[_builtins.str] name: The name of the formula.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: The description of the formula.
         :param pulumi.Input['LabVirtualMachineCreationParameterArgs'] formula_content: The content of the formula.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] name: The name of the formula.
         :param pulumi.Input[_builtins.str] os_type: The OS type of the formula.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['FormulaPropertiesFromVmArgs'] vm: Information about a VM from which a formula is to be created.
         """
         pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -53,6 +52,8 @@ class FormulaArgs:
             pulumi.set(__self__, "formula_content", formula_content)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if tags is not None:
@@ -71,18 +72,6 @@ class FormulaArgs:
     @lab_name.setter
     def lab_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "lab_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the formula.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -131,6 +120,18 @@ class FormulaArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the formula.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
@@ -254,8 +255,6 @@ class Formula(pulumi.CustomResource):
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["location"] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["os_type"] = os_type
             if resource_group_name is None and not opts.urn:

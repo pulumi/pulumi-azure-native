@@ -23,32 +23,33 @@ __all__ = ['ConnectorArgs', 'Connector']
 class ConnectorArgs:
     def __init__(__self__, *,
                  cluster_id: pulumi.Input[_builtins.str],
-                 connector_name: pulumi.Input[_builtins.str],
                  environment_id: pulumi.Input[_builtins.str],
                  organization_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  connector_basic_info: pulumi.Input[Optional['ConnectorInfoBaseArgs']] = None,
+                 connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  connector_service_type_info: pulumi.Input[Optional[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgs']]] = None,
                  partner_connector_info: pulumi.Input[Optional[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs']]] = None):
         """
         The set of arguments for constructing a Connector resource.
 
         :param pulumi.Input[_builtins.str] cluster_id: Confluent kafka or schema registry cluster id
-        :param pulumi.Input[_builtins.str] connector_name: Confluent connector name
         :param pulumi.Input[_builtins.str] environment_id: Confluent environment id
         :param pulumi.Input[_builtins.str] organization_name: Organization resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ConnectorInfoBaseArgs'] connector_basic_info: Connector Info Base
+        :param pulumi.Input[_builtins.str] connector_name: Confluent connector name
         :param pulumi.Input[Union['AzureBlobStorageSinkConnectorServiceInfoArgs', 'AzureBlobStorageSourceConnectorServiceInfoArgs', 'AzureCosmosDBSinkConnectorServiceInfoArgs', 'AzureCosmosDBSourceConnectorServiceInfoArgs', 'AzureSynapseAnalyticsSinkConnectorServiceInfoArgs']] connector_service_type_info: Connector Service type info base properties.
         :param pulumi.Input[Union['KafkaAzureBlobStorageSinkConnectorInfoArgs', 'KafkaAzureBlobStorageSourceConnectorInfoArgs', 'KafkaAzureCosmosDBSinkConnectorInfoArgs', 'KafkaAzureCosmosDBSourceConnectorInfoArgs', 'KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs']] partner_connector_info: The connection information consumed by applications.
         """
         pulumi.set(__self__, "cluster_id", cluster_id)
-        pulumi.set(__self__, "connector_name", connector_name)
         pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "organization_name", organization_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if connector_basic_info is not None:
             pulumi.set(__self__, "connector_basic_info", connector_basic_info)
+        if connector_name is not None:
+            pulumi.set(__self__, "connector_name", connector_name)
         if connector_service_type_info is not None:
             pulumi.set(__self__, "connector_service_type_info", connector_service_type_info)
         if partner_connector_info is not None:
@@ -65,18 +66,6 @@ class ConnectorArgs:
     @cluster_id.setter
     def cluster_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="connectorName")
-    def connector_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Confluent connector name
-        """
-        return pulumi.get(self, "connector_name")
-
-    @connector_name.setter
-    def connector_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentId")
@@ -125,6 +114,18 @@ class ConnectorArgs:
     @connector_basic_info.setter
     def connector_basic_info(self, value: pulumi.Input[Optional['ConnectorInfoBaseArgs']]):
         pulumi.set(self, "connector_basic_info", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorName")
+    def connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Confluent connector name
+        """
+        return pulumi.get(self, "connector_name")
+
+    @connector_name.setter
+    def connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="connectorServiceTypeInfo")
@@ -235,8 +236,6 @@ class Connector(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_id'")
             __props__.__dict__["cluster_id"] = cluster_id
             __props__.__dict__["connector_basic_info"] = connector_basic_info
-            if connector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connector_name'")
             __props__.__dict__["connector_name"] = connector_name
             __props__.__dict__["connector_service_type_info"] = connector_service_type_info
             if environment_id is None and not opts.urn:

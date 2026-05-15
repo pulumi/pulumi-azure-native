@@ -23,21 +23,22 @@ class SchemaVersionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  schema_name: pulumi.Input[_builtins.str],
-                 schema_version_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SchemaVersionPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['SchemaVersionPropertiesArgs']] = None,
+                 schema_version_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SchemaVersion resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] schema_name: The name of the Schema
-        :param pulumi.Input[_builtins.str] schema_version_name: The name of the SchemaVersion
         :param pulumi.Input['SchemaVersionPropertiesArgs'] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[_builtins.str] schema_version_name: The name of the SchemaVersion
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "schema_name", schema_name)
-        pulumi.set(__self__, "schema_version_name", schema_version_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if schema_version_name is not None:
+            pulumi.set(__self__, "schema_version_name", schema_version_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -64,18 +65,6 @@ class SchemaVersionArgs:
         pulumi.set(self, "schema_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="schemaVersionName")
-    def schema_version_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the SchemaVersion
-        """
-        return pulumi.get(self, "schema_version_name")
-
-    @schema_version_name.setter
-    def schema_version_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "schema_version_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['SchemaVersionPropertiesArgs']]:
         """
@@ -86,6 +75,18 @@ class SchemaVersionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SchemaVersionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaVersionName")
+    def schema_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the SchemaVersion
+        """
+        return pulumi.get(self, "schema_version_name")
+
+    @schema_version_name.setter
+    def schema_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_version_name", value)
 
 
 @pulumi.type_token("azure-native:edge:SchemaVersion")
@@ -163,8 +164,6 @@ class SchemaVersion(pulumi.CustomResource):
             if schema_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_name'")
             __props__.__dict__["schema_name"] = schema_name
-            if schema_version_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_version_name'")
             __props__.__dict__["schema_version_name"] = schema_version_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None

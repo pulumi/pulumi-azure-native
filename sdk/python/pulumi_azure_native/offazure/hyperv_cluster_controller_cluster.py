@@ -21,9 +21,9 @@ __all__ = ['HypervClusterControllerClusterArgs', 'HypervClusterControllerCluster
 @pulumi.input_type
 class HypervClusterControllerClusterArgs:
     def __init__(__self__, *,
-                 cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  host_fqdn_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
@@ -31,17 +31,18 @@ class HypervClusterControllerClusterArgs:
         """
         The set of arguments for constructing a HypervClusterControllerCluster resource.
 
-        :param pulumi.Input[_builtins.str] cluster_name:  Cluster ARM name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: Site name
+        :param pulumi.Input[_builtins.str] cluster_name:  Cluster ARM name
         :param pulumi.Input[_builtins.str] fqdn: Gets or sets the FQDN/IPAddress of the Hyper-V cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] host_fqdn_list: Gets or sets list of hosts (FQDN) currently being tracked by the cluster.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The status of the last operation.
         :param pulumi.Input[_builtins.str] run_as_account_id: Gets or sets Run as account ID of the Hyper-V cluster.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "site_name", site_name)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if host_fqdn_list is not None:
@@ -50,18 +51,6 @@ class HypervClusterControllerClusterArgs:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if run_as_account_id is not None:
             pulumi.set(__self__, "run_as_account_id", run_as_account_id)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-         Cluster ARM name
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -86,6 +75,18 @@ class HypervClusterControllerClusterArgs:
     @site_name.setter
     def site_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "site_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+         Cluster ARM name
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -213,8 +214,6 @@ class HypervClusterControllerCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HypervClusterControllerClusterArgs.__new__(HypervClusterControllerClusterArgs)
 
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["fqdn"] = fqdn
             __props__.__dict__["host_fqdn_list"] = host_fqdn_list

@@ -23,7 +23,7 @@ class AzureServersSettingArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
                  selected_provider: pulumi.Input[Union[_builtins.str, 'ServerVulnerabilityAssessmentsAzureSettingSelectedProvider']],
-                 setting_kind: pulumi.Input[_builtins.str]):
+                 setting_kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AzureServersSetting resource.
 
@@ -34,7 +34,8 @@ class AzureServersSettingArgs:
         """
         pulumi.set(__self__, "kind", 'AzureServersSetting')
         pulumi.set(__self__, "selected_provider", selected_provider)
-        pulumi.set(__self__, "setting_kind", setting_kind)
+        if setting_kind is not None:
+            pulumi.set(__self__, "setting_kind", setting_kind)
 
     @_builtins.property
     @pulumi.getter
@@ -63,14 +64,14 @@ class AzureServersSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="settingKind")
-    def setting_kind(self) -> pulumi.Input[_builtins.str]:
+    def setting_kind(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The kind of the server vulnerability assessments setting
         """
         return pulumi.get(self, "setting_kind")
 
     @setting_kind.setter
-    def setting_kind(self, value: pulumi.Input[_builtins.str]):
+    def setting_kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "setting_kind", value)
 
 
@@ -142,8 +143,6 @@ class AzureServersSetting(pulumi.CustomResource):
             if selected_provider is None and not opts.urn:
                 raise TypeError("Missing required property 'selected_provider'")
             __props__.__dict__["selected_provider"] = selected_provider
-            if setting_kind is None and not opts.urn:
-                raise TypeError("Missing required property 'setting_kind'")
             __props__.__dict__["setting_kind"] = setting_kind
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

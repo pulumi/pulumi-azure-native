@@ -179,7 +179,7 @@ def get_service_endpoint_policy_definition(resource_group_name: Optional[_builti
         service_resources=pulumi.get(__ret__, 'service_resources'),
         type=pulumi.get(__ret__, 'type'))
 def get_service_endpoint_policy_definition_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  service_endpoint_policy_definition_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                  service_endpoint_policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   service_endpoint_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceEndpointPolicyDefinitionResult]:
     """

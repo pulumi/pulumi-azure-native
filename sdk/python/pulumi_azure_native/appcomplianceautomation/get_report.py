@@ -304,7 +304,7 @@ def get_report(report_name: Optional[_builtins.str] = None,
         time_zone=pulumi.get(__ret__, 'time_zone'),
         trigger_time=pulumi.get(__ret__, 'trigger_time'),
         type=pulumi.get(__ret__, 'type'))
-def get_report_output(report_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_report_output(report_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportResult]:
     """
     Get the AppComplianceAutomation report and its properties.

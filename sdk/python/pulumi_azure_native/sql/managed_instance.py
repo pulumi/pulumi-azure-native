@@ -22,7 +22,6 @@ __all__ = ['ManagedInstanceArgs', 'ManagedInstance']
 @pulumi.input_type
 class ManagedInstanceArgs:
     def __init__(__self__, *,
-                 managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  administrator_login: pulumi.Input[Optional[_builtins.str]] = None,
                  administrator_login_password: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,6 +39,7 @@ class ManagedInstanceArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_instance_create_mode: pulumi.Input[Optional[Union[_builtins.str, 'ManagedServerCreateMode']]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  pricing_model: pulumi.Input[Optional[Union[_builtins.str, 'PricingModel']]] = None,
                  primary_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -61,7 +61,6 @@ class ManagedInstanceArgs:
         """
         The set of arguments for constructing a ManagedInstance resource.
 
-        :param pulumi.Input[_builtins.str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] administrator_login: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
         :param pulumi.Input[_builtins.str] administrator_login_password: The administrator login password (required for managed instance creation).
@@ -83,6 +82,7 @@ class ManagedInstanceArgs:
                Default: Regular instance creation.
                
                Restore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified.
+        :param pulumi.Input[_builtins.str] managed_instance_name: The name of the managed instance.
         :param pulumi.Input[_builtins.str] minimal_tls_version: Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
         :param pulumi.Input[Union[_builtins.str, 'PricingModel']] pricing_model: Pricing model of Managed Instance.
         :param pulumi.Input[_builtins.str] primary_user_assigned_identity_id: The resource id of a user assigned identity to be used by default.
@@ -107,7 +107,6 @@ class ManagedInstanceArgs:
         :param pulumi.Input[_builtins.int] v_cores: The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
         :param pulumi.Input[_builtins.bool] zone_redundant: Whether or not the multi-az is enabled.
         """
-        pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -141,6 +140,8 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "maintenance_configuration_id", maintenance_configuration_id)
         if managed_instance_create_mode is not None:
             pulumi.set(__self__, "managed_instance_create_mode", managed_instance_create_mode)
+        if managed_instance_name is not None:
+            pulumi.set(__self__, "managed_instance_name", managed_instance_name)
         if minimal_tls_version is not None:
             pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if pricing_model is not None:
@@ -177,18 +178,6 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "v_cores", v_cores)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
-
-    @_builtins.property
-    @pulumi.getter(name="managedInstanceName")
-    def managed_instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the managed instance.
-        """
-        return pulumi.get(self, "managed_instance_name")
-
-    @managed_instance_name.setter
-    def managed_instance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "managed_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -397,6 +386,18 @@ class ManagedInstanceArgs:
     @managed_instance_create_mode.setter
     def managed_instance_create_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedServerCreateMode']]]):
         pulumi.set(self, "managed_instance_create_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedInstanceName")
+    def managed_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the managed instance.
+        """
+        return pulumi.get(self, "managed_instance_name")
+
+    @managed_instance_name.setter
+    def managed_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "managed_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="minimalTlsVersion")
@@ -809,8 +810,6 @@ class ManagedInstance(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
             __props__.__dict__["managed_instance_create_mode"] = managed_instance_create_mode
-            if managed_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_instance_name'")
             __props__.__dict__["managed_instance_name"] = managed_instance_name
             __props__.__dict__["minimal_tls_version"] = minimal_tls_version
             __props__.__dict__["pricing_model"] = pricing_model

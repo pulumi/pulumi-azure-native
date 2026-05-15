@@ -207,7 +207,7 @@ def get_webhook(registry_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_webhook_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       webhook_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       webhook_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebhookResult]:
     """
     Gets the properties of the specified webhook.

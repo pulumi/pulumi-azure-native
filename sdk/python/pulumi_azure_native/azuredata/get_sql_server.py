@@ -181,7 +181,7 @@ def get_sql_server(expand: Optional[_builtins.str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_sql_server_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          sql_server_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          sql_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                           sql_server_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlServerResult]:
     """

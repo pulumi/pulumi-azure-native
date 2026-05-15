@@ -285,7 +285,7 @@ def get_watcher(automation_account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_watcher_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       watcher_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       watcher_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWatcherResult]:
     """
     Retrieve the watcher identified by watcher name.

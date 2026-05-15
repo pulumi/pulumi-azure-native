@@ -22,12 +22,12 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[_builtins.str],
-                 service_name: pulumi.Input[_builtins.str],
                  auto_stop_delay: pulumi.Input[Optional[_builtins.str]] = None,
                  delete_resources_on_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  public_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['ServiceSkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_nic_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,17 +36,16 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
 
         :param pulumi.Input[_builtins.str] group_name: Name of the resource group
-        :param pulumi.Input[_builtins.str] service_name: Name of the service
         :param pulumi.Input[_builtins.str] auto_stop_delay: The time delay before the service is auto-stopped when idle.
         :param pulumi.Input[_builtins.bool] delete_resources_on_stop: Whether service resources should be deleted when stopped. (Turned on by default)
         :param pulumi.Input[_builtins.str] kind: The resource kind. Only 'vm' (the default) is supported.
         :param pulumi.Input[_builtins.str] public_key: The public key of the service, used to encrypt secrets sent to the service
+        :param pulumi.Input[_builtins.str] service_name: Name of the service
         :param pulumi.Input['ServiceSkuArgs'] sku: Service SKU
         :param pulumi.Input[_builtins.str] virtual_nic_id: The ID of the Microsoft.Network/networkInterfaces resource which the service have
         :param pulumi.Input[_builtins.str] virtual_subnet_id: The ID of the Microsoft.Network/virtualNetworks/subnets resource to which the service should be joined
         """
         pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "service_name", service_name)
         if auto_stop_delay is not None:
             pulumi.set(__self__, "auto_stop_delay", auto_stop_delay)
         if delete_resources_on_stop is not None:
@@ -57,6 +56,8 @@ class ServiceArgs:
             pulumi.set(__self__, "location", location)
         if public_key is not None:
             pulumi.set(__self__, "public_key", public_key)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -77,18 +78,6 @@ class ServiceArgs:
     @group_name.setter
     def group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the service
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoStopDelay")
@@ -146,6 +135,18 @@ class ServiceArgs:
     @public_key.setter
     def public_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the service
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -288,8 +289,6 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["public_key"] = public_key
-            if service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags

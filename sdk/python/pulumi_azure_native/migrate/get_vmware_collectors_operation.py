@@ -194,7 +194,7 @@ def get_vmware_collectors_operation(project_name: Optional[_builtins.str] = None
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
 def get_vmware_collectors_operation_output(project_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           vm_ware_collector_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           vm_ware_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVmwareCollectorsOperationResult]:
     """
     Get a VmwareCollector

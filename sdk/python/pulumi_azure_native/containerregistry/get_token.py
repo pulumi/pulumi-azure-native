@@ -194,7 +194,7 @@ def get_token(registry_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_token_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     token_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     token_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTokenResult]:
     """
     Gets the properties of the specified token.

@@ -27,12 +27,12 @@ class JobStepArgs:
                  job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 step_name: pulumi.Input[_builtins.str],
                  target_group: pulumi.Input[_builtins.str],
                  credential: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_options: pulumi.Input[Optional['JobStepExecutionOptionsArgs']] = None,
                  output: pulumi.Input[Optional['JobStepOutputArgs']] = None,
-                 step_id: pulumi.Input[Optional[_builtins.int]] = None):
+                 step_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 step_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobStep resource.
 
@@ -41,19 +41,18 @@ class JobStepArgs:
         :param pulumi.Input[_builtins.str] job_name: The name of the job.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[_builtins.str] step_name: The name of the job step.
         :param pulumi.Input[_builtins.str] target_group: The resource ID of the target group that the job step will be executed on.
         :param pulumi.Input[_builtins.str] credential: The resource ID of the job credential that will be used to connect to the targets.
         :param pulumi.Input['JobStepExecutionOptionsArgs'] execution_options: Execution options for the job step.
         :param pulumi.Input['JobStepOutputArgs'] output: Output destination properties of the job step.
         :param pulumi.Input[_builtins.int] step_id: The job step's index within the job. If not specified when creating the job step, it will be created as the last step. If not specified when updating the job step, the step id is not modified.
+        :param pulumi.Input[_builtins.str] step_name: The name of the job step.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "job_agent_name", job_agent_name)
         pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-        pulumi.set(__self__, "step_name", step_name)
         pulumi.set(__self__, "target_group", target_group)
         if credential is not None:
             pulumi.set(__self__, "credential", credential)
@@ -63,6 +62,8 @@ class JobStepArgs:
             pulumi.set(__self__, "output", output)
         if step_id is not None:
             pulumi.set(__self__, "step_id", step_id)
+        if step_name is not None:
+            pulumi.set(__self__, "step_name", step_name)
 
     @_builtins.property
     @pulumi.getter
@@ -125,18 +126,6 @@ class JobStepArgs:
         pulumi.set(self, "server_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="stepName")
-    def step_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the job step.
-        """
-        return pulumi.get(self, "step_name")
-
-    @step_name.setter
-    def step_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "step_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="targetGroup")
     def target_group(self) -> pulumi.Input[_builtins.str]:
         """
@@ -195,6 +184,18 @@ class JobStepArgs:
     @step_id.setter
     def step_id(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "step_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stepName")
+    def step_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the job step.
+        """
+        return pulumi.get(self, "step_name")
+
+    @step_name.setter
+    def step_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "step_name", value)
 
 
 @pulumi.type_token("azure-native:sql:JobStep")
@@ -305,8 +306,6 @@ class JobStep(pulumi.CustomResource):
                 raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["step_id"] = step_id
-            if step_name is None and not opts.urn:
-                raise TypeError("Missing required property 'step_name'")
             __props__.__dict__["step_name"] = step_name
             if target_group is None and not opts.urn:
                 raise TypeError("Missing required property 'target_group'")

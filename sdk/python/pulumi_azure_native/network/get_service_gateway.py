@@ -255,7 +255,7 @@ def get_service_gateway(resource_group_name: Optional[_builtins.str] = None,
         virtual_network=pulumi.get(__ret__, 'virtual_network'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_service_gateway_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               service_gateway_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               service_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceGatewayResult]:
     """
     Gets the specified service gateway.

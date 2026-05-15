@@ -22,43 +22,32 @@ __all__ = ['ReportArgs', 'Report']
 @pulumi.input_type
 class ReportArgs:
     def __init__(__self__, *,
-                 report_name: pulumi.Input[_builtins.str],
                  resources: pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]],
                  time_zone: pulumi.Input[_builtins.str],
                  trigger_time: pulumi.Input[_builtins.str],
                  offer_guid: pulumi.Input[Optional[_builtins.str]] = None,
+                 report_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_info: pulumi.Input[Optional['StorageInfoArgs']] = None):
         """
         The set of arguments for constructing a Report resource.
 
-        :param pulumi.Input[_builtins.str] report_name: Report Name.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceMetadataArgs']]] resources: List of resource data.
         :param pulumi.Input[_builtins.str] time_zone: Report collection trigger time's time zone, the available list can be obtained by executing "Get-TimeZone -ListAvailable" in PowerShell.
                An example of valid timezone id is "Pacific Standard Time".
         :param pulumi.Input[_builtins.str] trigger_time: Report collection trigger time.
         :param pulumi.Input[_builtins.str] offer_guid: A list of comma-separated offerGuids indicates a series of offerGuids that map to the report. For example, "00000000-0000-0000-0000-000000000001,00000000-0000-0000-0000-000000000002" and "00000000-0000-0000-0000-000000000003".
+        :param pulumi.Input[_builtins.str] report_name: Report Name.
         :param pulumi.Input['StorageInfoArgs'] storage_info: The information of 'bring your own storage' binding to the report
         """
-        pulumi.set(__self__, "report_name", report_name)
         pulumi.set(__self__, "resources", resources)
         pulumi.set(__self__, "time_zone", time_zone)
         pulumi.set(__self__, "trigger_time", trigger_time)
         if offer_guid is not None:
             pulumi.set(__self__, "offer_guid", offer_guid)
+        if report_name is not None:
+            pulumi.set(__self__, "report_name", report_name)
         if storage_info is not None:
             pulumi.set(__self__, "storage_info", storage_info)
-
-    @_builtins.property
-    @pulumi.getter(name="reportName")
-    def report_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Report Name.
-        """
-        return pulumi.get(self, "report_name")
-
-    @report_name.setter
-    def report_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "report_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -108,6 +97,18 @@ class ReportArgs:
     @offer_guid.setter
     def offer_guid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "offer_guid", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reportName")
+    def report_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Report Name.
+        """
+        return pulumi.get(self, "report_name")
+
+    @report_name.setter
+    def report_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "report_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageInfo")
@@ -198,8 +199,6 @@ class Report(pulumi.CustomResource):
             __props__ = ReportArgs.__new__(ReportArgs)
 
             __props__.__dict__["offer_guid"] = offer_guid
-            if report_name is None and not opts.urn:
-                raise TypeError("Missing required property 'report_name'")
             __props__.__dict__["report_name"] = report_name
             if resources is None and not opts.urn:
                 raise TypeError("Missing required property 'resources'")

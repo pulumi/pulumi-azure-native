@@ -22,32 +22,21 @@ __all__ = ['LinkerDryrunArgs', 'LinkerDryrun']
 @pulumi.input_type
 class LinkerDryrunArgs:
     def __init__(__self__, *,
-                 dryrun_name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
+                 dryrun_name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional['CreateOrUpdateDryrunParametersArgs']] = None):
         """
         The set of arguments for constructing a LinkerDryrun resource.
 
-        :param pulumi.Input[_builtins.str] dryrun_name: The name of dryrun.
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
+        :param pulumi.Input[_builtins.str] dryrun_name: The name of dryrun.
         :param pulumi.Input['CreateOrUpdateDryrunParametersArgs'] parameters: The parameters of the dryrun
         """
-        pulumi.set(__self__, "dryrun_name", dryrun_name)
         pulumi.set(__self__, "resource_uri", resource_uri)
+        if dryrun_name is not None:
+            pulumi.set(__self__, "dryrun_name", dryrun_name)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
-
-    @_builtins.property
-    @pulumi.getter(name="dryrunName")
-    def dryrun_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of dryrun.
-        """
-        return pulumi.get(self, "dryrun_name")
-
-    @dryrun_name.setter
-    def dryrun_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dryrun_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUri")
@@ -60,6 +49,18 @@ class LinkerDryrunArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dryrunName")
+    def dryrun_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of dryrun.
+        """
+        return pulumi.get(self, "dryrun_name")
+
+    @dryrun_name.setter
+    def dryrun_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dryrun_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -139,8 +140,6 @@ class LinkerDryrun(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkerDryrunArgs.__new__(LinkerDryrunArgs)
 
-            if dryrun_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dryrun_name'")
             __props__.__dict__["dryrun_name"] = dryrun_name
             __props__.__dict__["parameters"] = parameters
             if resource_uri is None and not opts.urn:

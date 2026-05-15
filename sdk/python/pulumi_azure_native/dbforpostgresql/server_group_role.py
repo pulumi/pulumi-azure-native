@@ -25,8 +25,8 @@ class ServerGroupRoleArgs:
                  object_id: pulumi.Input[_builtins.str],
                  principal_type: pulumi.Input[Union[_builtins.str, 'PrincipalType']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 role_name: pulumi.Input[_builtins.str],
                  password: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_type: pulumi.Input[Optional[Union[_builtins.str, 'RoleType']]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -35,17 +35,18 @@ class ServerGroupRoleArgs:
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] object_id: A type definition that refers the id to an Azure Resource Manager resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] role_name: The name of the cluster role.
         :param pulumi.Input[_builtins.str] password: The password of the cluster role. If an identity is used, password will not be required.
+        :param pulumi.Input[_builtins.str] role_name: The name of the cluster role.
         :param pulumi.Input[_builtins.str] tenant_id: A type definition that refers the id to an Azure Resource Manager resource.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "object_id", object_id)
         pulumi.set(__self__, "principal_type", principal_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role_name", role_name)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if role_name is not None:
+            pulumi.set(__self__, "role_name", role_name)
         if role_type is None:
             role_type = 'user'
         if role_type is not None:
@@ -99,18 +100,6 @@ class ServerGroupRoleArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="roleName")
-    def role_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the cluster role.
-        """
-        return pulumi.get(self, "role_name")
-
-    @role_name.setter
-    def role_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "role_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -121,6 +110,18 @@ class ServerGroupRoleArgs:
     @password.setter
     def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleName")
+    def role_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the cluster role.
+        """
+        return pulumi.get(self, "role_name")
+
+    @role_name.setter
+    def role_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "role_name", value)
 
     @_builtins.property
     @pulumi.getter(name="roleType")
@@ -235,8 +236,6 @@ class ServerGroupRole(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if role_name is None and not opts.urn:
-                raise TypeError("Missing required property 'role_name'")
             __props__.__dict__["role_name"] = role_name
             if role_type is None:
                 role_type = 'user'

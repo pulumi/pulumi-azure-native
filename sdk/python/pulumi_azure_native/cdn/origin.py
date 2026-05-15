@@ -22,13 +22,13 @@ class OriginArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[_builtins.str],
                  host_name: pulumi.Input[_builtins.str],
-                 origin_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  http_port: pulumi.Input[Optional[_builtins.int]] = None,
                  https_port: pulumi.Input[Optional[_builtins.int]] = None,
                  origin_host_header: pulumi.Input[Optional[_builtins.str]] = None,
+                 origin_name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  private_link_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_approval_message: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,13 +40,13 @@ class OriginArgs:
 
         :param pulumi.Input[_builtins.str] endpoint_name: Name of the endpoint under the profile which is unique globally.
         :param pulumi.Input[_builtins.str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-        :param pulumi.Input[_builtins.str] origin_name: Name of the origin which is unique within the endpoint.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] enabled: Origin is enabled for load balancing or not
         :param pulumi.Input[_builtins.int] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[_builtins.int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
         :param pulumi.Input[_builtins.str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
+        :param pulumi.Input[_builtins.str] origin_name: Name of the origin which is unique within the endpoint.
         :param pulumi.Input[_builtins.int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         :param pulumi.Input[_builtins.str] private_link_alias: The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
         :param pulumi.Input[_builtins.str] private_link_approval_message: A custom message to be included in the approval request to connect to the Private Link.
@@ -56,7 +56,6 @@ class OriginArgs:
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "host_name", host_name)
-        pulumi.set(__self__, "origin_name", origin_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if enabled is not None:
@@ -67,6 +66,8 @@ class OriginArgs:
             pulumi.set(__self__, "https_port", https_port)
         if origin_host_header is not None:
             pulumi.set(__self__, "origin_host_header", origin_host_header)
+        if origin_name is not None:
+            pulumi.set(__self__, "origin_name", origin_name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
         if private_link_alias is not None:
@@ -103,18 +104,6 @@ class OriginArgs:
     @host_name.setter
     def host_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "host_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="originName")
-    def origin_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the origin which is unique within the endpoint.
-        """
-        return pulumi.get(self, "origin_name")
-
-    @origin_name.setter
-    def origin_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "origin_name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -187,6 +176,18 @@ class OriginArgs:
     @origin_host_header.setter
     def origin_host_header(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "origin_host_header", value)
+
+    @_builtins.property
+    @pulumi.getter(name="originName")
+    def origin_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the origin which is unique within the endpoint.
+        """
+        return pulumi.get(self, "origin_name")
+
+    @origin_name.setter
+    def origin_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "origin_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -372,8 +373,6 @@ class Origin(pulumi.CustomResource):
             __props__.__dict__["http_port"] = http_port
             __props__.__dict__["https_port"] = https_port
             __props__.__dict__["origin_host_header"] = origin_host_header
-            if origin_name is None and not opts.urn:
-                raise TypeError("Missing required property 'origin_name'")
             __props__.__dict__["origin_name"] = origin_name
             __props__.__dict__["priority"] = priority
             __props__.__dict__["private_link_alias"] = private_link_alias

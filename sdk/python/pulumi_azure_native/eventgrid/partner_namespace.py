@@ -22,12 +22,12 @@ __all__ = ['PartnerNamespaceArgs', 'PartnerNamespace']
 @pulumi.input_type
 class PartnerNamespaceArgs:
     def __init__(__self__, *,
-                 partner_namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version_allowed: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 partner_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_registration_fully_qualified_id: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_topic_routing_mode: pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicRoutingMode']]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
@@ -35,12 +35,12 @@ class PartnerNamespaceArgs:
         """
         The set of arguments for constructing a PartnerNamespace resource.
 
-        :param pulumi.Input[_builtins.str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[_builtins.bool] disable_local_auth: This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the partner namespace.
         :param pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
         :param pulumi.Input[_builtins.str] location: Location of the resource.
         :param pulumi.Input[Union[_builtins.str, 'TlsVersion']] minimum_tls_version_allowed: Minimum TLS version of the publisher allowed to publish to this partner namespace
+        :param pulumi.Input[_builtins.str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[_builtins.str] partner_registration_fully_qualified_id: The fully qualified ARM Id of the partner registration that should be associated with this partner namespace. This takes the following format:
                /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/partnerRegistrations/{partnerRegistrationName}.
         :param pulumi.Input[Union[_builtins.str, 'PartnerTopicRoutingMode']] partner_topic_routing_mode: This determines if events published to this partner namespace should use the source attribute in the event payload
@@ -49,7 +49,6 @@ class PartnerNamespaceArgs:
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PartnerNamespaceProperties.InboundIpRules" />
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags of the resource.
         """
-        pulumi.set(__self__, "partner_namespace_name", partner_namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if disable_local_auth is None:
             disable_local_auth = False
@@ -61,6 +60,8 @@ class PartnerNamespaceArgs:
             pulumi.set(__self__, "location", location)
         if minimum_tls_version_allowed is not None:
             pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
+        if partner_namespace_name is not None:
+            pulumi.set(__self__, "partner_namespace_name", partner_namespace_name)
         if partner_registration_fully_qualified_id is not None:
             pulumi.set(__self__, "partner_registration_fully_qualified_id", partner_registration_fully_qualified_id)
         if partner_topic_routing_mode is None:
@@ -73,18 +74,6 @@ class PartnerNamespaceArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="partnerNamespaceName")
-    def partner_namespace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the partner namespace.
-        """
-        return pulumi.get(self, "partner_namespace_name")
-
-    @partner_namespace_name.setter
-    def partner_namespace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "partner_namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -145,6 +134,18 @@ class PartnerNamespaceArgs:
     @minimum_tls_version_allowed.setter
     def minimum_tls_version_allowed(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]]):
         pulumi.set(self, "minimum_tls_version_allowed", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partnerNamespaceName")
+    def partner_namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the partner namespace.
+        """
+        return pulumi.get(self, "partner_namespace_name")
+
+    @partner_namespace_name.setter
+    def partner_namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "partner_namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerRegistrationFullyQualifiedId")
@@ -293,8 +294,6 @@ class PartnerNamespace(pulumi.CustomResource):
             __props__.__dict__["inbound_ip_rules"] = inbound_ip_rules
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version_allowed"] = minimum_tls_version_allowed
-            if partner_namespace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'partner_namespace_name'")
             __props__.__dict__["partner_namespace_name"] = partner_namespace_name
             __props__.__dict__["partner_registration_fully_qualified_id"] = partner_registration_fully_qualified_id
             if partner_topic_routing_mode is None:

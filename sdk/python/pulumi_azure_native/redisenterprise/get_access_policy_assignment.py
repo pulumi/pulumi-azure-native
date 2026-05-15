@@ -156,7 +156,7 @@ def get_access_policy_assignment(access_policy_assignment_name: Optional[_builti
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'),
         user=pulumi.get(__ret__, 'user'))
-def get_access_policy_assignment_output(access_policy_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_access_policy_assignment_output(access_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         database_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,

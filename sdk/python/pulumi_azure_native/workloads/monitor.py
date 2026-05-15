@@ -22,7 +22,6 @@ __all__ = ['MonitorArgs', 'Monitor']
 @pulumi.input_type
 class MonitorArgs:
     def __init__(__self__, *,
-                 monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  app_location: pulumi.Input[Optional[_builtins.str]] = None,
                  app_service_plan_configuration: pulumi.Input[Optional['AppServicePlanConfigurationArgs']] = None,
@@ -30,6 +29,7 @@ class MonitorArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_workspace_arm_id: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_configuration: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']] = None,
+                 monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  monitor_subnet: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_preference: pulumi.Input[Optional[Union[_builtins.str, 'RoutingPreference']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -37,7 +37,6 @@ class MonitorArgs:
         """
         The set of arguments for constructing a Monitor resource.
 
-        :param pulumi.Input[_builtins.str] monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] app_location: The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
         :param pulumi.Input['AppServicePlanConfigurationArgs'] app_service_plan_configuration: App service plan configuration
@@ -45,12 +44,12 @@ class MonitorArgs:
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] log_analytics_workspace_arm_id: The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
         :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: Managed resource group configuration
+        :param pulumi.Input[_builtins.str] monitor_name: Name of the SAP monitor resource.
         :param pulumi.Input[_builtins.str] monitor_subnet: The subnet which the SAP monitor will be deployed in
         :param pulumi.Input[Union[_builtins.str, 'RoutingPreference']] routing_preference: Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] zone_redundancy_preference: Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
         """
-        pulumi.set(__self__, "monitor_name", monitor_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_location is not None:
             pulumi.set(__self__, "app_location", app_location)
@@ -64,6 +63,8 @@ class MonitorArgs:
             pulumi.set(__self__, "log_analytics_workspace_arm_id", log_analytics_workspace_arm_id)
         if managed_resource_group_configuration is not None:
             pulumi.set(__self__, "managed_resource_group_configuration", managed_resource_group_configuration)
+        if monitor_name is not None:
+            pulumi.set(__self__, "monitor_name", monitor_name)
         if monitor_subnet is not None:
             pulumi.set(__self__, "monitor_subnet", monitor_subnet)
         if routing_preference is not None:
@@ -72,18 +73,6 @@ class MonitorArgs:
             pulumi.set(__self__, "tags", tags)
         if zone_redundancy_preference is not None:
             pulumi.set(__self__, "zone_redundancy_preference", zone_redundancy_preference)
-
-    @_builtins.property
-    @pulumi.getter(name="monitorName")
-    def monitor_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the SAP monitor resource.
-        """
-        return pulumi.get(self, "monitor_name")
-
-    @monitor_name.setter
-    def monitor_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "monitor_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -168,6 +157,18 @@ class MonitorArgs:
     @managed_resource_group_configuration.setter
     def managed_resource_group_configuration(self, value: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']]):
         pulumi.set(self, "managed_resource_group_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monitorName")
+    def monitor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the SAP monitor resource.
+        """
+        return pulumi.get(self, "monitor_name")
+
+    @monitor_name.setter
+    def monitor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "monitor_name", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorSubnet")
@@ -316,8 +317,6 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["log_analytics_workspace_arm_id"] = log_analytics_workspace_arm_id
             __props__.__dict__["managed_resource_group_configuration"] = managed_resource_group_configuration
-            if monitor_name is None and not opts.urn:
-                raise TypeError("Missing required property 'monitor_name'")
             __props__.__dict__["monitor_name"] = monitor_name
             __props__.__dict__["monitor_subnet"] = monitor_subnet
             if resource_group_name is None and not opts.urn:

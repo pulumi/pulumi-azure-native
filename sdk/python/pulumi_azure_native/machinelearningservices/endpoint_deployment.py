@@ -22,36 +22,25 @@ __all__ = ['EndpointDeploymentArgs', 'EndpointDeployment']
 @pulumi.input_type
 class EndpointDeploymentArgs:
     def __init__(__self__, *,
-                 deployment_name: pulumi.Input[_builtins.str],
                  endpoint_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EndpointDeployment resource.
 
-        :param pulumi.Input[_builtins.str] deployment_name: Name of the deployment resource
         :param pulumi.Input[_builtins.str] endpoint_name: Name of the endpoint resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
+        :param pulumi.Input[_builtins.str] deployment_name: Name of the deployment resource
         """
-        pulumi.set(__self__, "deployment_name", deployment_name)
         pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the deployment resource
-        """
-        return pulumi.get(self, "deployment_name")
-
-    @deployment_name.setter
-    def deployment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "deployment_name", value)
+        if deployment_name is not None:
+            pulumi.set(__self__, "deployment_name", deployment_name)
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
@@ -97,6 +86,18 @@ class EndpointDeploymentArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentName")
+    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the deployment resource
+        """
+        return pulumi.get(self, "deployment_name")
+
+    @deployment_name.setter
+    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "deployment_name", value)
 
 
 @pulumi.type_token("azure-native:machinelearningservices:EndpointDeployment")
@@ -165,8 +166,6 @@ class EndpointDeployment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointDeploymentArgs.__new__(EndpointDeploymentArgs)
 
-            if deployment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'deployment_name'")
             __props__.__dict__["deployment_name"] = deployment_name
             if endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'endpoint_name'")

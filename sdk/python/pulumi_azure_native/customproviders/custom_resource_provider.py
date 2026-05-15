@@ -23,9 +23,9 @@ __all__ = ['CustomResourceProviderArgs', 'CustomResourceProvider']
 class CustomResourceProviderArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_provider_name: pulumi.Input[_builtins.str],
                  actions: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_types: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  validations: pulumi.Input[Optional[Sequence[pulumi.Input['CustomRPValidationsArgs']]]] = None):
@@ -33,19 +33,20 @@ class CustomResourceProviderArgs:
         The set of arguments for constructing a CustomResourceProvider resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] resource_provider_name: The name of the resource provider.
         :param pulumi.Input[Sequence[pulumi.Input['CustomRPActionRouteDefinitionArgs']]] actions: A list of actions that the custom resource provider implements.
         :param pulumi.Input[_builtins.str] location: Resource location
+        :param pulumi.Input[_builtins.str] resource_provider_name: The name of the resource provider.
         :param pulumi.Input[Sequence[pulumi.Input['CustomRPResourceTypeRouteDefinitionArgs']]] resource_types: A list of resource types that the custom resource provider implements.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         :param pulumi.Input[Sequence[pulumi.Input['CustomRPValidationsArgs']]] validations: A list of validations to run on the custom resource provider's requests.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_provider_name", resource_provider_name)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if resource_provider_name is not None:
+            pulumi.set(__self__, "resource_provider_name", resource_provider_name)
         if resource_types is not None:
             pulumi.set(__self__, "resource_types", resource_types)
         if tags is not None:
@@ -64,18 +65,6 @@ class CustomResourceProviderArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceProviderName")
-    def resource_provider_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the resource provider.
-        """
-        return pulumi.get(self, "resource_provider_name")
-
-    @resource_provider_name.setter
-    def resource_provider_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_provider_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -100,6 +89,18 @@ class CustomResourceProviderArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceProviderName")
+    def resource_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the resource provider.
+        """
+        return pulumi.get(self, "resource_provider_name")
+
+    @resource_provider_name.setter
+    def resource_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_provider_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTypes")
@@ -216,8 +217,6 @@ class CustomResourceProvider(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_provider_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_provider_name'")
             __props__.__dict__["resource_provider_name"] = resource_provider_name
             __props__.__dict__["resource_types"] = resource_types
             __props__.__dict__["tags"] = tags

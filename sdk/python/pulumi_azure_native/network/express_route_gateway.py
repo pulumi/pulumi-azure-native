@@ -22,30 +22,29 @@ __all__ = ['ExpressRouteGatewayArgs', 'ExpressRouteGateway']
 @pulumi.input_type
 class ExpressRouteGatewayArgs:
     def __init__(__self__, *,
-                 express_route_gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_hub: pulumi.Input['VirtualHubIdArgs'],
                  allow_non_virtual_wan_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
                  auto_scale_configuration: pulumi.Input[Optional['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] = None,
                  express_route_connections: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]]] = None,
+                 express_route_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ExpressRouteGateway resource.
 
-        :param pulumi.Input[_builtins.str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['VirtualHubIdArgs'] virtual_hub: The Virtual Hub where the ExpressRoute gateway is or will be deployed.
         :param pulumi.Input[_builtins.bool] allow_non_virtual_wan_traffic: Configures this gateway to accept traffic from non Virtual WAN networks.
         :param pulumi.Input['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs'] auto_scale_configuration: Configuration for auto scaling.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]] express_route_connections: List of ExpressRoute connections to the ExpressRoute gateway.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
+        :param pulumi.Input[_builtins.str] express_route_gateway_name: The name of the ExpressRoute gateway.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "express_route_gateway_name", express_route_gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_hub", virtual_hub)
         if allow_non_virtual_wan_traffic is not None:
@@ -54,24 +53,14 @@ class ExpressRouteGatewayArgs:
             pulumi.set(__self__, "auto_scale_configuration", auto_scale_configuration)
         if express_route_connections is not None:
             pulumi.set(__self__, "express_route_connections", express_route_connections)
+        if express_route_gateway_name is not None:
+            pulumi.set(__self__, "express_route_gateway_name", express_route_gateway_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="expressRouteGatewayName")
-    def express_route_gateway_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the ExpressRoute gateway.
-        """
-        return pulumi.get(self, "express_route_gateway_name")
-
-    @express_route_gateway_name.setter
-    def express_route_gateway_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "express_route_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -133,6 +122,18 @@ class ExpressRouteGatewayArgs:
     @express_route_connections.setter
     def express_route_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteConnectionArgs']]]]):
         pulumi.set(self, "express_route_connections", value)
+
+    @_builtins.property
+    @pulumi.getter(name="expressRouteGatewayName")
+    def express_route_gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the ExpressRoute gateway.
+        """
+        return pulumi.get(self, "express_route_gateway_name")
+
+    @express_route_gateway_name.setter
+    def express_route_gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "express_route_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -258,8 +259,6 @@ class ExpressRouteGateway(pulumi.CustomResource):
             __props__.__dict__["allow_non_virtual_wan_traffic"] = allow_non_virtual_wan_traffic
             __props__.__dict__["auto_scale_configuration"] = auto_scale_configuration
             __props__.__dict__["express_route_connections"] = express_route_connections
-            if express_route_gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'express_route_gateway_name'")
             __props__.__dict__["express_route_gateway_name"] = express_route_gateway_name
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location

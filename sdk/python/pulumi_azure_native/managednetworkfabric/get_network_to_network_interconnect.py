@@ -297,7 +297,7 @@ def get_network_to_network_interconnect(network_fabric_name: Optional[_builtins.
         type=pulumi.get(__ret__, 'type'),
         use_option_b=pulumi.get(__ret__, 'use_option_b'))
 def get_network_to_network_interconnect_output(network_fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                               network_to_network_interconnect_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                               network_to_network_interconnect_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkToNetworkInterconnectResult]:
     """

@@ -22,11 +22,11 @@ __all__ = ['DedicatedHsmArgs', 'DedicatedHsm']
 @pulumi.input_type
 class DedicatedHsmArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  management_network_profile: pulumi.Input[Optional['NetworkProfileArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_profile: pulumi.Input[Optional['NetworkProfileArgs']] = None,
                  stamp_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -34,23 +34,24 @@ class DedicatedHsmArgs:
         """
         The set of arguments for constructing a DedicatedHsm resource.
 
-        :param pulumi.Input[_builtins.str] name: Name of the dedicated Hsm
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: SKU details
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['NetworkProfileArgs'] management_network_profile: Specifies the management network interfaces of the dedicated hsm.
+        :param pulumi.Input[_builtins.str] name: Name of the dedicated Hsm
         :param pulumi.Input['NetworkProfileArgs'] network_profile: Specifies the network interfaces of the dedicated hsm.
         :param pulumi.Input[_builtins.str] stamp_id: This field will be used when RP does not support Availability zones.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The Dedicated Hsm zones.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if management_network_profile is not None:
             pulumi.set(__self__, "management_network_profile", management_network_profile)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if network_profile is not None:
             pulumi.set(__self__, "network_profile", network_profile)
         if stamp_id is not None:
@@ -59,18 +60,6 @@ class DedicatedHsmArgs:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the dedicated Hsm
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -119,6 +108,18 @@ class DedicatedHsmArgs:
     @management_network_profile.setter
     def management_network_profile(self, value: pulumi.Input[Optional['NetworkProfileArgs']]):
         pulumi.set(self, "management_network_profile", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the dedicated Hsm
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkProfile")
@@ -254,8 +255,6 @@ class DedicatedHsm(pulumi.CustomResource):
 
             __props__.__dict__["location"] = location
             __props__.__dict__["management_network_profile"] = management_network_profile
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["network_profile"] = network_profile
             if resource_group_name is None and not opts.urn:

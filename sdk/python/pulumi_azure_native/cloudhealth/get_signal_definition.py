@@ -142,7 +142,7 @@ def get_signal_definition(health_model_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_signal_definition_output(health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 signal_definition_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 signal_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalDefinitionResult]:
     """
     Get a SignalDefinition

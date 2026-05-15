@@ -22,47 +22,36 @@ __all__ = ['CapacityDetailsArgs', 'CapacityDetails']
 @pulumi.input_type
 class CapacityDetailsArgs:
     def __init__(__self__, *,
-                 dedicated_capacity_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['CapacitySkuArgs'],
                  administration: pulumi.Input[Optional['DedicatedCapacityAdministratorsArgs']] = None,
+                 dedicated_capacity_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mode: pulumi.Input[Optional[Union[_builtins.str, 'Mode']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CapacityDetails resource.
 
-        :param pulumi.Input[_builtins.str] dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CapacitySkuArgs'] sku: The SKU of the PowerBI Dedicated capacity resource.
         :param pulumi.Input['DedicatedCapacityAdministratorsArgs'] administration: A collection of Dedicated capacity administrators
+        :param pulumi.Input[_builtins.str] dedicated_capacity_name: The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'Mode']] mode: Specifies the generation of the Power BI Embedded capacity. If no value is specified, the default value 'Gen2' is used. [Learn More](https://docs.microsoft.com/power-bi/developer/embedded/power-bi-embedded-generation-2)
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "dedicated_capacity_name", dedicated_capacity_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if administration is not None:
             pulumi.set(__self__, "administration", administration)
+        if dedicated_capacity_name is not None:
+            pulumi.set(__self__, "dedicated_capacity_name", dedicated_capacity_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="dedicatedCapacityName")
-    def dedicated_capacity_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
-        """
-        return pulumi.get(self, "dedicated_capacity_name")
-
-    @dedicated_capacity_name.setter
-    def dedicated_capacity_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dedicated_capacity_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -99,6 +88,18 @@ class CapacityDetailsArgs:
     @administration.setter
     def administration(self, value: pulumi.Input[Optional['DedicatedCapacityAdministratorsArgs']]):
         pulumi.set(self, "administration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dedicatedCapacityName")
+    def dedicated_capacity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the dedicated capacity. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "dedicated_capacity_name")
+
+    @dedicated_capacity_name.setter
+    def dedicated_capacity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dedicated_capacity_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -211,8 +212,6 @@ class CapacityDetails(pulumi.CustomResource):
             __props__ = CapacityDetailsArgs.__new__(CapacityDetailsArgs)
 
             __props__.__dict__["administration"] = administration
-            if dedicated_capacity_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dedicated_capacity_name'")
             __props__.__dict__["dedicated_capacity_name"] = dedicated_capacity_name
             __props__.__dict__["location"] = location
             __props__.__dict__["mode"] = mode

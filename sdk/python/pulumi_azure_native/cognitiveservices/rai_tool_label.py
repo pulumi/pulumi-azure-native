@@ -22,24 +22,25 @@ __all__ = ['RaiToolLabelArgs', 'RaiToolLabel']
 class RaiToolLabelArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 rai_tool_connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['RaiToolLabelPropertiesArgs']] = None,
+                 rai_tool_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RaiToolLabel resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input[_builtins.str] rai_tool_connection_name: The name of the Rai Tool Label
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['RaiToolLabelPropertiesArgs'] properties: Properties of the RAI Tool Label.
+        :param pulumi.Input[_builtins.str] rai_tool_connection_name: The name of the Rai Tool Label
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "rai_tool_connection_name", rai_tool_connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if rai_tool_connection_name is not None:
+            pulumi.set(__self__, "rai_tool_connection_name", rai_tool_connection_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -54,18 +55,6 @@ class RaiToolLabelArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="raiToolConnectionName")
-    def rai_tool_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Rai Tool Label
-        """
-        return pulumi.get(self, "rai_tool_connection_name")
-
-    @rai_tool_connection_name.setter
-    def rai_tool_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rai_tool_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -90,6 +79,18 @@ class RaiToolLabelArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['RaiToolLabelPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="raiToolConnectionName")
+    def rai_tool_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Rai Tool Label
+        """
+        return pulumi.get(self, "rai_tool_connection_name")
+
+    @rai_tool_connection_name.setter
+    def rai_tool_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rai_tool_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -175,8 +176,6 @@ class RaiToolLabel(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["properties"] = properties
-            if rai_tool_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rai_tool_connection_name'")
             __props__.__dict__["rai_tool_connection_name"] = rai_tool_connection_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

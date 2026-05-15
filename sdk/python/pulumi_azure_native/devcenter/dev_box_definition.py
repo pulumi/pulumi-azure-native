@@ -22,11 +22,11 @@ __all__ = ['DevBoxDefinitionArgs', 'DevBoxDefinition']
 @pulumi.input_type
 class DevBoxDefinitionArgs:
     def __init__(__self__, *,
-                 dev_box_definition_name: pulumi.Input[_builtins.str],
                  dev_center_name: pulumi.Input[_builtins.str],
                  image_reference: pulumi.Input['ImageReferenceArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
+                 dev_box_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hibernate_support: pulumi.Input[Optional[Union[_builtins.str, 'HibernateSupport']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  os_storage_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,21 +34,22 @@ class DevBoxDefinitionArgs:
         """
         The set of arguments for constructing a DevBoxDefinition resource.
 
-        :param pulumi.Input[_builtins.str] dev_box_definition_name: The name of the Dev Box definition.
         :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
         :param pulumi.Input['ImageReferenceArgs'] image_reference: Image reference information.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU for Dev Boxes created using this definition.
+        :param pulumi.Input[_builtins.str] dev_box_definition_name: The name of the Dev Box definition.
         :param pulumi.Input[Union[_builtins.str, 'HibernateSupport']] hibernate_support: Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] os_storage_type: The storage type used for the Operating System disk of Dev Boxes created using this definition.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "dev_box_definition_name", dev_box_definition_name)
         pulumi.set(__self__, "dev_center_name", dev_center_name)
         pulumi.set(__self__, "image_reference", image_reference)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if dev_box_definition_name is not None:
+            pulumi.set(__self__, "dev_box_definition_name", dev_box_definition_name)
         if hibernate_support is not None:
             pulumi.set(__self__, "hibernate_support", hibernate_support)
         if location is not None:
@@ -57,18 +58,6 @@ class DevBoxDefinitionArgs:
             pulumi.set(__self__, "os_storage_type", os_storage_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="devBoxDefinitionName")
-    def dev_box_definition_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Dev Box definition.
-        """
-        return pulumi.get(self, "dev_box_definition_name")
-
-    @dev_box_definition_name.setter
-    def dev_box_definition_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "dev_box_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="devCenterName")
@@ -117,6 +106,18 @@ class DevBoxDefinitionArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @_builtins.property
+    @pulumi.getter(name="devBoxDefinitionName")
+    def dev_box_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Dev Box definition.
+        """
+        return pulumi.get(self, "dev_box_definition_name")
+
+    @dev_box_definition_name.setter
+    def dev_box_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dev_box_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hibernateSupport")
@@ -250,8 +251,6 @@ class DevBoxDefinition(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DevBoxDefinitionArgs.__new__(DevBoxDefinitionArgs)
 
-            if dev_box_definition_name is None and not opts.urn:
-                raise TypeError("Missing required property 'dev_box_definition_name'")
             __props__.__dict__["dev_box_definition_name"] = dev_box_definition_name
             if dev_center_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dev_center_name'")

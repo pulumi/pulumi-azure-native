@@ -21,8 +21,8 @@ class SecretValueArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  secret_resource_name: pulumi.Input[_builtins.str],
-                 secret_value_resource_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_value_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -30,16 +30,17 @@ class SecretValueArgs:
 
         :param pulumi.Input[_builtins.str] resource_group_name: Azure resource group name
         :param pulumi.Input[_builtins.str] secret_resource_name: The name of the secret resource.
-        :param pulumi.Input[_builtins.str] secret_value_resource_name: The name of the secret resource value which is typically the version identifier for the value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] secret_value_resource_name: The name of the secret resource value which is typically the version identifier for the value.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] value: The actual value of the secret.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "secret_resource_name", secret_resource_name)
-        pulumi.set(__self__, "secret_value_resource_name", secret_value_resource_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if secret_value_resource_name is not None:
+            pulumi.set(__self__, "secret_value_resource_name", secret_value_resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if value is not None:
@@ -70,18 +71,6 @@ class SecretValueArgs:
         pulumi.set(self, "secret_resource_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="secretValueResourceName")
-    def secret_value_resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the secret resource value which is typically the version identifier for the value.
-        """
-        return pulumi.get(self, "secret_value_resource_name")
-
-    @secret_value_resource_name.setter
-    def secret_value_resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "secret_value_resource_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -92,6 +81,18 @@ class SecretValueArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretValueResourceName")
+    def secret_value_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the secret resource value which is typically the version identifier for the value.
+        """
+        return pulumi.get(self, "secret_value_resource_name")
+
+    @secret_value_resource_name.setter
+    def secret_value_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_value_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -195,8 +196,6 @@ class SecretValue(pulumi.CustomResource):
             if secret_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_resource_name'")
             __props__.__dict__["secret_resource_name"] = secret_resource_name
-            if secret_value_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'secret_value_resource_name'")
             __props__.__dict__["secret_value_resource_name"] = secret_value_resource_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["value"] = value

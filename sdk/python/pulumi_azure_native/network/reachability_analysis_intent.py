@@ -24,23 +24,24 @@ class ReachabilityAnalysisIntentArgs:
     def __init__(__self__, *,
                  network_manager_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['ReachabilityAnalysisIntentPropertiesArgs'],
-                 reachability_analysis_intent_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 reachability_analysis_intent_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReachabilityAnalysisIntent resource.
 
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input['ReachabilityAnalysisIntentPropertiesArgs'] properties: Represents the Reachability Analysis Intent properties.
-        :param pulumi.Input[_builtins.str] reachability_analysis_intent_name: Reachability Analysis Intent name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] workspace_name: Workspace name.
+        :param pulumi.Input[_builtins.str] reachability_analysis_intent_name: Reachability Analysis Intent name.
         """
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "reachability_analysis_intent_name", reachability_analysis_intent_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if reachability_analysis_intent_name is not None:
+            pulumi.set(__self__, "reachability_analysis_intent_name", reachability_analysis_intent_name)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerName")
@@ -67,18 +68,6 @@ class ReachabilityAnalysisIntentArgs:
         pulumi.set(self, "properties", value)
 
     @_builtins.property
-    @pulumi.getter(name="reachabilityAnalysisIntentName")
-    def reachability_analysis_intent_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Reachability Analysis Intent name.
-        """
-        return pulumi.get(self, "reachability_analysis_intent_name")
-
-    @reachability_analysis_intent_name.setter
-    def reachability_analysis_intent_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "reachability_analysis_intent_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -101,6 +90,18 @@ class ReachabilityAnalysisIntentArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reachabilityAnalysisIntentName")
+    def reachability_analysis_intent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Reachability Analysis Intent name.
+        """
+        return pulumi.get(self, "reachability_analysis_intent_name")
+
+    @reachability_analysis_intent_name.setter
+    def reachability_analysis_intent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reachability_analysis_intent_name", value)
 
 
 @pulumi.type_token("azure-native:network:ReachabilityAnalysisIntent")
@@ -180,8 +181,6 @@ class ReachabilityAnalysisIntent(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
-            if reachability_analysis_intent_name is None and not opts.urn:
-                raise TypeError("Missing required property 'reachability_analysis_intent_name'")
             __props__.__dict__["reachability_analysis_intent_name"] = reachability_analysis_intent_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

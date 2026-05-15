@@ -250,7 +250,7 @@ def get_service(group_name: Optional[_builtins.str] = None,
         virtual_nic_id=pulumi.get(__ret__, 'virtual_nic_id'),
         virtual_subnet_id=pulumi.get(__ret__, 'virtual_subnet_id'))
 def get_service_output(group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       service_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       service_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     The services resource is the top-level resource that represents the Azure Database Migration Service (classic). The GET method retrieves information about a service instance.

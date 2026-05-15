@@ -168,7 +168,7 @@ def get_volume_group(account_name: Optional[_builtins.str] = None,
         volumes=pulumi.get(__ret__, 'volumes'))
 def get_volume_group_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            volume_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeGroupResult]:
     """
     Get details of the specified volume group

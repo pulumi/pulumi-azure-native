@@ -20,22 +20,23 @@ __all__ = ['ExtensionArgs', 'Extension']
 class ExtensionArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 extension_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_key: pulumi.Input[Optional[_builtins.str]] = None,
                  workspace_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
-        :param pulumi.Input[_builtins.str] extension_name: The name of the cluster extension.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] extension_name: The name of the cluster extension.
         :param pulumi.Input[_builtins.str] primary_key: The certificate for the cluster monitoring extensions.
         :param pulumi.Input[_builtins.str] workspace_id: The workspace ID for the cluster monitoring extension.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "extension_name", extension_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if extension_name is not None:
+            pulumi.set(__self__, "extension_name", extension_name)
         if primary_key is not None:
             pulumi.set(__self__, "primary_key", primary_key)
         if workspace_id is not None:
@@ -54,18 +55,6 @@ class ExtensionArgs:
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="extensionName")
-    def extension_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the cluster extension.
-        """
-        return pulumi.get(self, "extension_name")
-
-    @extension_name.setter
-    def extension_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "extension_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -76,6 +65,18 @@ class ExtensionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extensionName")
+    def extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the cluster extension.
+        """
+        return pulumi.get(self, "extension_name")
+
+    @extension_name.setter
+    def extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKey")
@@ -176,8 +177,6 @@ class Extension(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if extension_name is None and not opts.urn:
-                raise TypeError("Missing required property 'extension_name'")
             __props__.__dict__["extension_name"] = extension_name
             __props__.__dict__["primary_key"] = primary_key
             if resource_group_name is None and not opts.urn:

@@ -193,7 +193,7 @@ def get_sync_agent(resource_group_name: Optional[_builtins.str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_sync_agent_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          sync_agent_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          sync_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncAgentResult]:
     """
     Gets a sync agent.

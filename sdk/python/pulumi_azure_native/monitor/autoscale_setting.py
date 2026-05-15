@@ -22,9 +22,9 @@ __all__ = ['AutoscaleSettingArgs', 'AutoscaleSetting']
 @pulumi.input_type
 class AutoscaleSettingArgs:
     def __init__(__self__, *,
-                 autoscale_setting_name: pulumi.Input[_builtins.str],
                  profiles: pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 autoscale_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,9 +36,9 @@ class AutoscaleSettingArgs:
         """
         The set of arguments for constructing a AutoscaleSetting resource.
 
-        :param pulumi.Input[_builtins.str] autoscale_setting_name: The autoscale setting name.
         :param pulumi.Input[Sequence[pulumi.Input['AutoscaleProfileArgs']]] profiles: the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] autoscale_setting_name: The autoscale setting name.
         :param pulumi.Input[_builtins.bool] enabled: the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'.
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input[_builtins.str] name: the name of the autoscale setting.
@@ -48,9 +48,10 @@ class AutoscaleSettingArgs:
         :param pulumi.Input[_builtins.str] target_resource_location: the location of the resource that the autoscale setting should be added to.
         :param pulumi.Input[_builtins.str] target_resource_uri: the resource identifier of the resource that the autoscale setting should be added to.
         """
-        pulumi.set(__self__, "autoscale_setting_name", autoscale_setting_name)
         pulumi.set(__self__, "profiles", profiles)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if autoscale_setting_name is not None:
+            pulumi.set(__self__, "autoscale_setting_name", autoscale_setting_name)
         if enabled is None:
             enabled = False
         if enabled is not None:
@@ -69,18 +70,6 @@ class AutoscaleSettingArgs:
             pulumi.set(__self__, "target_resource_location", target_resource_location)
         if target_resource_uri is not None:
             pulumi.set(__self__, "target_resource_uri", target_resource_uri)
-
-    @_builtins.property
-    @pulumi.getter(name="autoscaleSettingName")
-    def autoscale_setting_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The autoscale setting name.
-        """
-        return pulumi.get(self, "autoscale_setting_name")
-
-    @autoscale_setting_name.setter
-    def autoscale_setting_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "autoscale_setting_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -105,6 +94,18 @@ class AutoscaleSettingArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoscaleSettingName")
+    def autoscale_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The autoscale setting name.
+        """
+        return pulumi.get(self, "autoscale_setting_name")
+
+    @autoscale_setting_name.setter
+    def autoscale_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "autoscale_setting_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -288,8 +289,6 @@ class AutoscaleSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AutoscaleSettingArgs.__new__(AutoscaleSettingArgs)
 
-            if autoscale_setting_name is None and not opts.urn:
-                raise TypeError("Missing required property 'autoscale_setting_name'")
             __props__.__dict__["autoscale_setting_name"] = autoscale_setting_name
             if enabled is None:
                 enabled = False

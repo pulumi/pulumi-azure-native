@@ -23,7 +23,6 @@ __all__ = ['StandardAssignmentArgs', 'StandardAssignment']
 class StandardAssignmentArgs:
     def __init__(__self__, *,
                  resource_id: pulumi.Input[_builtins.str],
-                 standard_assignment_name: pulumi.Input[_builtins.str],
                  assigned_standard: pulumi.Input[Optional['AssignedStandardItemArgs']] = None,
                  attestation_data: pulumi.Input[Optional['StandardAssignmentPropertiesAttestationDataArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -31,12 +30,12 @@ class StandardAssignmentArgs:
                  effect: pulumi.Input[Optional[Union[_builtins.str, 'Effect']]] = None,
                  excluded_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  exemption_data: pulumi.Input[Optional['StandardAssignmentPropertiesExemptionDataArgs']] = None,
-                 expires_on: pulumi.Input[Optional[_builtins.str]] = None):
+                 expires_on: pulumi.Input[Optional[_builtins.str]] = None,
+                 standard_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StandardAssignment resource.
 
         :param pulumi.Input[_builtins.str] resource_id: The identifier of the resource.
-        :param pulumi.Input[_builtins.str] standard_assignment_name: The standard assignments assignment key - unique key for the standard assignment
         :param pulumi.Input['AssignedStandardItemArgs'] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
         :param pulumi.Input['StandardAssignmentPropertiesAttestationDataArgs'] attestation_data: Additional data about assignment that has Attest effect
         :param pulumi.Input[_builtins.str] description: Description of the standardAssignment
@@ -45,9 +44,9 @@ class StandardAssignmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_scopes: Excluded scopes, filter out the descendants of the scope (on management scopes)
         :param pulumi.Input['StandardAssignmentPropertiesExemptionDataArgs'] exemption_data: Additional data about assignment that has Exempt effect
         :param pulumi.Input[_builtins.str] expires_on: Expiration date of this assignment as a full ISO date
+        :param pulumi.Input[_builtins.str] standard_assignment_name: The standard assignments assignment key - unique key for the standard assignment
         """
         pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "standard_assignment_name", standard_assignment_name)
         if assigned_standard is not None:
             pulumi.set(__self__, "assigned_standard", assigned_standard)
         if attestation_data is not None:
@@ -64,6 +63,8 @@ class StandardAssignmentArgs:
             pulumi.set(__self__, "exemption_data", exemption_data)
         if expires_on is not None:
             pulumi.set(__self__, "expires_on", expires_on)
+        if standard_assignment_name is not None:
+            pulumi.set(__self__, "standard_assignment_name", standard_assignment_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
@@ -76,18 +77,6 @@ class StandardAssignmentArgs:
     @resource_id.setter
     def resource_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="standardAssignmentName")
-    def standard_assignment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The standard assignments assignment key - unique key for the standard assignment
-        """
-        return pulumi.get(self, "standard_assignment_name")
-
-    @standard_assignment_name.setter
-    def standard_assignment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "standard_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="assignedStandard")
@@ -185,6 +174,18 @@ class StandardAssignmentArgs:
     def expires_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expires_on", value)
 
+    @_builtins.property
+    @pulumi.getter(name="standardAssignmentName")
+    def standard_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The standard assignments assignment key - unique key for the standard assignment
+        """
+        return pulumi.get(self, "standard_assignment_name")
+
+    @standard_assignment_name.setter
+    def standard_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "standard_assignment_name", value)
+
 
 @pulumi.type_token("azure-native:security:StandardAssignment")
 class StandardAssignment(pulumi.CustomResource):
@@ -279,8 +280,6 @@ class StandardAssignment(pulumi.CustomResource):
             if resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
-            if standard_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'standard_assignment_name'")
             __props__.__dict__["standard_assignment_name"] = standard_assignment_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["metadata"] = None

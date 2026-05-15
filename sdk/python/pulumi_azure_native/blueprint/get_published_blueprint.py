@@ -218,7 +218,7 @@ def get_published_blueprint(blueprint_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_published_blueprint_output(blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
-                                   version_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   version_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublishedBlueprintResult]:
     """
     Get a published version of a blueprint definition.

@@ -23,7 +23,6 @@ __all__ = ['MetadataArgs', 'Metadata']
 class MetadataArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
-                 metadata_name: pulumi.Input[_builtins.str],
                  parent_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
@@ -36,6 +35,7 @@ class MetadataArgs:
                  first_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
                  icon: pulumi.Input[Optional[_builtins.str]] = None,
                  last_publish_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
                  preview_images: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  preview_images_dark: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -48,7 +48,6 @@ class MetadataArgs:
         The set of arguments for constructing a Metadata resource.
 
         :param pulumi.Input[_builtins.str] kind: The kind of content the metadata is for.
-        :param pulumi.Input[_builtins.str] metadata_name: The Metadata name.
         :param pulumi.Input[_builtins.str] parent_id: Full parent resource ID of the content item the metadata is for.  This is the full resource ID including the scope (subscription and resource group)
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
@@ -61,6 +60,7 @@ class MetadataArgs:
         :param pulumi.Input[_builtins.str] first_publish_date: first publish date solution content item
         :param pulumi.Input[_builtins.str] icon: the icon identifier. this id can later be fetched from the solution template
         :param pulumi.Input[_builtins.str] last_publish_date: last publish date for the solution content item
+        :param pulumi.Input[_builtins.str] metadata_name: The Metadata name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preview_images: preview image file names. These will be taken from the solution artifacts
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] preview_images_dark: preview image file names. These will be taken from the solution artifacts. used for dark theme support
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] providers: Providers for the solution content item
@@ -71,7 +71,6 @@ class MetadataArgs:
         :param pulumi.Input[_builtins.str] version: Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM template best practices.  Can also be any string, but then we cannot guarantee any version checks
         """
         pulumi.set(__self__, "kind", kind)
-        pulumi.set(__self__, "metadata_name", metadata_name)
         pulumi.set(__self__, "parent_id", parent_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -93,6 +92,8 @@ class MetadataArgs:
             pulumi.set(__self__, "icon", icon)
         if last_publish_date is not None:
             pulumi.set(__self__, "last_publish_date", last_publish_date)
+        if metadata_name is not None:
+            pulumi.set(__self__, "metadata_name", metadata_name)
         if preview_images is not None:
             pulumi.set(__self__, "preview_images", preview_images)
         if preview_images_dark is not None:
@@ -121,18 +122,6 @@ class MetadataArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "kind", value)
-
-    @_builtins.property
-    @pulumi.getter(name="metadataName")
-    def metadata_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Metadata name.
-        """
-        return pulumi.get(self, "metadata_name")
-
-    @metadata_name.setter
-    def metadata_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "metadata_name", value)
 
     @_builtins.property
     @pulumi.getter(name="parentId")
@@ -277,6 +266,18 @@ class MetadataArgs:
     @last_publish_date.setter
     def last_publish_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "last_publish_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataName")
+    def metadata_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Metadata name.
+        """
+        return pulumi.get(self, "metadata_name")
+
+    @metadata_name.setter
+    def metadata_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metadata_name", value)
 
     @_builtins.property
     @pulumi.getter(name="previewImages")
@@ -509,8 +510,6 @@ class Metadata(pulumi.CustomResource):
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
             __props__.__dict__["last_publish_date"] = last_publish_date
-            if metadata_name is None and not opts.urn:
-                raise TypeError("Missing required property 'metadata_name'")
             __props__.__dict__["metadata_name"] = metadata_name
             if parent_id is None and not opts.urn:
                 raise TypeError("Missing required property 'parent_id'")

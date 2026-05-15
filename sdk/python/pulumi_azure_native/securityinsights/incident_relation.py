@@ -22,23 +22,24 @@ class IncidentRelationArgs:
     def __init__(__self__, *,
                  incident_id: pulumi.Input[_builtins.str],
                  related_resource_id: pulumi.Input[_builtins.str],
-                 relation_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 relation_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IncidentRelation resource.
 
         :param pulumi.Input[_builtins.str] incident_id: Incident ID
         :param pulumi.Input[_builtins.str] related_resource_id: The resource ID of the related resource
-        :param pulumi.Input[_builtins.str] relation_name: Relation Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] relation_name: Relation Name
         """
         pulumi.set(__self__, "incident_id", incident_id)
         pulumi.set(__self__, "related_resource_id", related_resource_id)
-        pulumi.set(__self__, "relation_name", relation_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if relation_name is not None:
+            pulumi.set(__self__, "relation_name", relation_name)
 
     @_builtins.property
     @pulumi.getter(name="incidentId")
@@ -65,18 +66,6 @@ class IncidentRelationArgs:
         pulumi.set(self, "related_resource_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="relationName")
-    def relation_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Relation Name
-        """
-        return pulumi.get(self, "relation_name")
-
-    @relation_name.setter
-    def relation_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "relation_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -99,6 +88,18 @@ class IncidentRelationArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="relationName")
+    def relation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Relation Name
+        """
+        return pulumi.get(self, "relation_name")
+
+    @relation_name.setter
+    def relation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "relation_name", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:IncidentRelation")
@@ -178,8 +179,6 @@ class IncidentRelation(pulumi.CustomResource):
             if related_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'related_resource_id'")
             __props__.__dict__["related_resource_id"] = related_resource_id
-            if relation_name is None and not opts.urn:
-                raise TypeError("Missing required property 'relation_name'")
             __props__.__dict__["relation_name"] = relation_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

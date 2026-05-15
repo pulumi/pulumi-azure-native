@@ -502,7 +502,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[_builti
         virtual_network_gateway1=pulumi.get(__ret__, 'virtual_network_gateway1'),
         virtual_network_gateway2=pulumi.get(__ret__, 'virtual_network_gateway2'))
 def get_virtual_network_gateway_connection_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  virtual_network_gateway_connection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                  virtual_network_gateway_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayConnectionResult]:
     """
     Gets the specified virtual network gateway connection by resource group.

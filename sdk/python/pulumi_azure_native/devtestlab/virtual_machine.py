@@ -23,7 +23,6 @@ __all__ = ['VirtualMachineArgs', 'VirtualMachine']
 class VirtualMachineArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allow_claim: pulumi.Input[Optional[_builtins.bool]] = None,
                  artifacts: pulumi.Input[Optional[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]]] = None,
@@ -38,6 +37,7 @@ class VirtualMachineArgs:
                  lab_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
                  lab_virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface: pulumi.Input[Optional['NetworkInterfacePropertiesArgs']] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_object_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -54,7 +54,6 @@ class VirtualMachineArgs:
         The set of arguments for constructing a VirtualMachine resource.
 
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[_builtins.str] name: The name of the virtual machine.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
         :param pulumi.Input[Sequence[pulumi.Input['ArtifactInstallPropertiesArgs']]] artifacts: The artifacts to be installed on the virtual machine.
@@ -69,6 +68,7 @@ class VirtualMachineArgs:
         :param pulumi.Input[_builtins.str] lab_subnet_name: The lab subnet name of the virtual machine.
         :param pulumi.Input[_builtins.str] lab_virtual_network_id: The lab virtual network identifier of the virtual machine.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] name: The name of the virtual machine.
         :param pulumi.Input['NetworkInterfacePropertiesArgs'] network_interface: The network interface properties.
         :param pulumi.Input[_builtins.str] notes: The notes of the virtual machine.
         :param pulumi.Input[_builtins.str] owner_object_id: The object identifier of the owner of the virtual machine.
@@ -83,7 +83,6 @@ class VirtualMachineArgs:
         :param pulumi.Input[_builtins.str] user_name: The user name of the virtual machine.
         """
         pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_claim is None:
             allow_claim = False
@@ -115,6 +114,8 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "lab_virtual_network_id", lab_virtual_network_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if network_interface is not None:
             pulumi.set(__self__, "network_interface", network_interface)
         if notes is not None:
@@ -155,18 +156,6 @@ class VirtualMachineArgs:
     @lab_name.setter
     def lab_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "lab_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the virtual machine.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -335,6 +324,18 @@ class VirtualMachineArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the virtual machine.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkInterface")
@@ -637,8 +638,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["lab_subnet_name"] = lab_subnet_name
             __props__.__dict__["lab_virtual_network_id"] = lab_virtual_network_id
             __props__.__dict__["location"] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["network_interface"] = network_interface
             __props__.__dict__["notes"] = notes

@@ -23,7 +23,6 @@ __all__ = ['LocalRuleArgs', 'LocalRule']
 class LocalRuleArgs:
     def __init__(__self__, *,
                  local_rulestack_name: pulumi.Input[_builtins.str],
-                 priority: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_name: pulumi.Input[_builtins.str],
                  action_type: pulumi.Input[Optional[Union[_builtins.str, 'ActionEnum']]] = None,
@@ -37,6 +36,7 @@ class LocalRuleArgs:
                  inbound_inspection_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  negate_destination: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
                  negate_source: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]] = None,
+                 priority: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_port_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  rule_state: pulumi.Input[Optional[Union[_builtins.str, 'StateEnum']]] = None,
@@ -46,7 +46,6 @@ class LocalRuleArgs:
         The set of arguments for constructing a LocalRule resource.
 
         :param pulumi.Input[_builtins.str] local_rulestack_name: LocalRulestack resource name
-        :param pulumi.Input[_builtins.str] priority: Local Rule priority
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] rule_name: rule name
         :param pulumi.Input[Union[_builtins.str, 'ActionEnum']] action_type: rule action
@@ -60,6 +59,7 @@ class LocalRuleArgs:
         :param pulumi.Input[_builtins.str] inbound_inspection_certificate: inbound Inspection Certificate
         :param pulumi.Input[Union[_builtins.str, 'BooleanEnum']] negate_destination: cidr should not be 'any'
         :param pulumi.Input[Union[_builtins.str, 'BooleanEnum']] negate_source: cidr should not be 'any'
+        :param pulumi.Input[_builtins.str] priority: Local Rule priority
         :param pulumi.Input[_builtins.str] protocol: any, application-default, TCP:number, UDP:number
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocol_port_list: prot port list
         :param pulumi.Input[Union[_builtins.str, 'StateEnum']] rule_state: state of this rule
@@ -67,7 +67,6 @@ class LocalRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TagInfoArgs']]] tags: tag for rule
         """
         pulumi.set(__self__, "local_rulestack_name", local_rulestack_name)
-        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rule_name", rule_name)
         if action_type is not None:
@@ -92,6 +91,8 @@ class LocalRuleArgs:
             pulumi.set(__self__, "negate_destination", negate_destination)
         if negate_source is not None:
             pulumi.set(__self__, "negate_source", negate_source)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
         if protocol is None:
             protocol = 'application-default'
         if protocol is not None:
@@ -116,18 +117,6 @@ class LocalRuleArgs:
     @local_rulestack_name.setter
     def local_rulestack_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "local_rulestack_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def priority(self) -> pulumi.Input[_builtins.str]:
-        """
-        Local Rule priority
-        """
-        return pulumi.get(self, "priority")
-
-    @priority.setter
-    def priority(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -284,6 +273,18 @@ class LocalRuleArgs:
     @negate_source.setter
     def negate_source(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BooleanEnum']]]):
         pulumi.set(self, "negate_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Local Rule priority
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "priority", value)
 
     @_builtins.property
     @pulumi.getter
@@ -476,8 +477,6 @@ class LocalRule(pulumi.CustomResource):
             __props__.__dict__["local_rulestack_name"] = local_rulestack_name
             __props__.__dict__["negate_destination"] = negate_destination
             __props__.__dict__["negate_source"] = negate_source
-            if priority is None and not opts.urn:
-                raise TypeError("Missing required property 'priority'")
             __props__.__dict__["priority"] = priority
             if protocol is None:
                 protocol = 'application-default'

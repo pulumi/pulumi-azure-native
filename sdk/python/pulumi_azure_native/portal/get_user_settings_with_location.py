@@ -84,7 +84,7 @@ def get_user_settings_with_location(location: Optional[_builtins.str] = None,
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         properties=pulumi.get(__ret__, 'properties'))
 def get_user_settings_with_location_output(location: pulumi.Input[Optional[_builtins.str]] = None,
-                                           user_settings_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           user_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserSettingsWithLocationResult]:
     """
     Get current user settings for current signed in user. This operation returns settings for the user's cloud shell preferences including preferred location, storage profile, shell type, font and size settings.

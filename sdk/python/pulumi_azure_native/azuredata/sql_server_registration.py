@@ -21,31 +21,32 @@ __all__ = ['SqlServerRegistrationArgs', 'SqlServerRegistration']
 class SqlServerRegistrationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 sql_server_registration_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  property_bag: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlServerRegistration resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[_builtins.str] sql_server_registration_name: Name of the SQL Server registration.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] property_bag: Optional Properties as JSON string
         :param pulumi.Input[_builtins.str] resource_group: Resource Group Name
+        :param pulumi.Input[_builtins.str] sql_server_registration_name: Name of the SQL Server registration.
         :param pulumi.Input[_builtins.str] subscription_id: Subscription Id
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_server_registration_name", sql_server_registration_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if property_bag is not None:
             pulumi.set(__self__, "property_bag", property_bag)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if sql_server_registration_name is not None:
+            pulumi.set(__self__, "sql_server_registration_name", sql_server_registration_name)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
@@ -62,18 +63,6 @@ class SqlServerRegistrationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sqlServerRegistrationName")
-    def sql_server_registration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the SQL Server registration.
-        """
-        return pulumi.get(self, "sql_server_registration_name")
-
-    @sql_server_registration_name.setter
-    def sql_server_registration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sql_server_registration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -110,6 +99,18 @@ class SqlServerRegistrationArgs:
     @resource_group.setter
     def resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlServerRegistrationName")
+    def sql_server_registration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the SQL Server registration.
+        """
+        return pulumi.get(self, "sql_server_registration_name")
+
+    @sql_server_registration_name.setter
+    def sql_server_registration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sql_server_registration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
@@ -215,8 +216,6 @@ class SqlServerRegistration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sql_server_registration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_server_registration_name'")
             __props__.__dict__["sql_server_registration_name"] = sql_server_registration_name
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tags"] = tags

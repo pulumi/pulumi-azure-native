@@ -23,7 +23,6 @@ __all__ = ['MaintenanceConfigurationArgs', 'MaintenanceConfiguration']
 class MaintenanceConfigurationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  duration: pulumi.Input[Optional[_builtins.str]] = None,
                  expiration_date_time: pulumi.Input[Optional[_builtins.str]] = None,
                  extension_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -32,6 +31,7 @@ class MaintenanceConfigurationArgs:
                  maintenance_scope: pulumi.Input[Optional[Union[_builtins.str, 'MaintenanceScope']]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  recur_every: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  start_date_time: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,7 +40,6 @@ class MaintenanceConfigurationArgs:
         The set of arguments for constructing a MaintenanceConfiguration resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the MaintenanceConfiguration
         :param pulumi.Input[_builtins.str] duration: Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
         :param pulumi.Input[_builtins.str] expiration_date_time: Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration
@@ -49,13 +48,13 @@ class MaintenanceConfigurationArgs:
         :param pulumi.Input[Union[_builtins.str, 'MaintenanceScope']] maintenance_scope: Gets or sets maintenanceScope of the configuration
         :param pulumi.Input[_builtins.str] namespace: Gets or sets namespace of the resource
         :param pulumi.Input[_builtins.str] recur_every: Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the MaintenanceConfiguration
         :param pulumi.Input[_builtins.str] start_date_time: Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets tags of the resource
         :param pulumi.Input[_builtins.str] time_zone: Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
         :param pulumi.Input[Union[_builtins.str, 'Visibility']] visibility: Gets or sets the visibility of the configuration. The default value is 'Custom'
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         if duration is not None:
             pulumi.set(__self__, "duration", duration)
         if expiration_date_time is not None:
@@ -72,6 +71,8 @@ class MaintenanceConfigurationArgs:
             pulumi.set(__self__, "namespace", namespace)
         if recur_every is not None:
             pulumi.set(__self__, "recur_every", recur_every)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if start_date_time is not None:
             pulumi.set(__self__, "start_date_time", start_date_time)
         if tags is not None:
@@ -92,18 +93,6 @@ class MaintenanceConfigurationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the MaintenanceConfiguration
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -200,6 +189,18 @@ class MaintenanceConfigurationArgs:
     @recur_every.setter
     def recur_every(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recur_every", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the MaintenanceConfiguration
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="startDateTime")
@@ -359,8 +360,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["start_date_time"] = start_date_time
             __props__.__dict__["tags"] = tags

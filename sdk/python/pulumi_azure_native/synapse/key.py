@@ -19,39 +19,28 @@ __all__ = ['KeyArgs', 'Key']
 @pulumi.input_type
 class KeyArgs:
     def __init__(__self__, *,
-                 key_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  is_active_cmk: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Key resource.
 
-        :param pulumi.Input[_builtins.str] key_name: The name of the workspace key
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.bool] is_active_cmk: Used to activate the workspace after a customer managed key is provided.
+        :param pulumi.Input[_builtins.str] key_name: The name of the workspace key
         :param pulumi.Input[_builtins.str] key_vault_url: The Key Vault Url of the workspace key.
         """
-        pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if is_active_cmk is not None:
             pulumi.set(__self__, "is_active_cmk", is_active_cmk)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
         if key_vault_url is not None:
             pulumi.set(__self__, "key_vault_url", key_vault_url)
-
-    @_builtins.property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the workspace key
-        """
-        return pulumi.get(self, "key_name")
-
-    @key_name.setter
-    def key_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -88,6 +77,18 @@ class KeyArgs:
     @is_active_cmk.setter
     def is_active_cmk(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_active_cmk", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the workspace key
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultUrl")
@@ -174,8 +175,6 @@ class Key(pulumi.CustomResource):
             __props__ = KeyArgs.__new__(KeyArgs)
 
             __props__.__dict__["is_active_cmk"] = is_active_cmk
-            if key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'key_name'")
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["key_vault_url"] = key_vault_url
             if resource_group_name is None and not opts.urn:

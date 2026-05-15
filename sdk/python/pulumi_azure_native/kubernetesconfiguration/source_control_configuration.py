@@ -26,7 +26,6 @@ class SourceControlConfigurationArgs:
                  cluster_resource_name: pulumi.Input[_builtins.str],
                  cluster_rp: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 source_control_configuration_name: pulumi.Input[_builtins.str],
                  configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  enable_helm_operator: pulumi.Input[Optional[_builtins.bool]] = None,
                  helm_operator_properties: pulumi.Input[Optional['HelmOperatorPropertiesArgs']] = None,
@@ -36,6 +35,7 @@ class SourceControlConfigurationArgs:
                  operator_scope: pulumi.Input[Optional[Union[_builtins.str, 'OperatorScopeType']]] = None,
                  operator_type: pulumi.Input[Optional[Union[_builtins.str, 'OperatorType']]] = None,
                  repository_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_control_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ssh_known_hosts_contents: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SourceControlConfiguration resource.
@@ -44,7 +44,6 @@ class SourceControlConfigurationArgs:
         :param pulumi.Input[_builtins.str] cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         :param pulumi.Input[_builtins.str] cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] source_control_configuration_name: Name of the Source Control Configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_protected_settings: Name-value pairs of protected configuration settings for the configuration
         :param pulumi.Input[_builtins.bool] enable_helm_operator: Option to enable Helm Operator for this git configuration.
         :param pulumi.Input['HelmOperatorPropertiesArgs'] helm_operator_properties: Properties for Helm operator.
@@ -54,13 +53,13 @@ class SourceControlConfigurationArgs:
         :param pulumi.Input[Union[_builtins.str, 'OperatorScopeType']] operator_scope: Scope at which the operator will be installed.
         :param pulumi.Input[Union[_builtins.str, 'OperatorType']] operator_type: Type of the operator
         :param pulumi.Input[_builtins.str] repository_url: Url of the SourceControl Repository.
+        :param pulumi.Input[_builtins.str] source_control_configuration_name: Name of the Source Control Configuration.
         :param pulumi.Input[_builtins.str] ssh_known_hosts_contents: Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "cluster_resource_name", cluster_resource_name)
         pulumi.set(__self__, "cluster_rp", cluster_rp)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_control_configuration_name", source_control_configuration_name)
         if configuration_protected_settings is not None:
             pulumi.set(__self__, "configuration_protected_settings", configuration_protected_settings)
         if enable_helm_operator is not None:
@@ -81,6 +80,8 @@ class SourceControlConfigurationArgs:
             pulumi.set(__self__, "operator_type", operator_type)
         if repository_url is not None:
             pulumi.set(__self__, "repository_url", repository_url)
+        if source_control_configuration_name is not None:
+            pulumi.set(__self__, "source_control_configuration_name", source_control_configuration_name)
         if ssh_known_hosts_contents is not None:
             pulumi.set(__self__, "ssh_known_hosts_contents", ssh_known_hosts_contents)
 
@@ -131,18 +132,6 @@ class SourceControlConfigurationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceControlConfigurationName")
-    def source_control_configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Source Control Configuration.
-        """
-        return pulumi.get(self, "source_control_configuration_name")
-
-    @source_control_configuration_name.setter
-    def source_control_configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "source_control_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="configurationProtectedSettings")
@@ -251,6 +240,18 @@ class SourceControlConfigurationArgs:
     @repository_url.setter
     def repository_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "repository_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceControlConfigurationName")
+    def source_control_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Source Control Configuration.
+        """
+        return pulumi.get(self, "source_control_configuration_name")
+
+    @source_control_configuration_name.setter
+    def source_control_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_control_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sshKnownHostsContents")
@@ -389,8 +390,6 @@ class SourceControlConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if source_control_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'source_control_configuration_name'")
             __props__.__dict__["source_control_configuration_name"] = source_control_configuration_name
             __props__.__dict__["ssh_known_hosts_contents"] = ssh_known_hosts_contents
             __props__.__dict__["azure_api_version"] = None

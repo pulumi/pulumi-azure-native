@@ -20,23 +20,22 @@ __all__ = ['PolicyFragmentArgs', 'PolicyFragment']
 @pulumi.input_type
 class PolicyFragmentArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 format: pulumi.Input[Optional[Union[_builtins.str, 'PolicyFragmentContentFormat']]] = None):
+                 format: pulumi.Input[Optional[Union[_builtins.str, 'PolicyFragmentContentFormat']]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicyFragment resource.
 
-        :param pulumi.Input[_builtins.str] id: A resource identifier.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] value: Contents of the policy fragment.
         :param pulumi.Input[_builtins.str] description: Policy fragment description.
         :param pulumi.Input[Union[_builtins.str, 'PolicyFragmentContentFormat']] format: Format of the policy fragment content.
+        :param pulumi.Input[_builtins.str] id: A resource identifier.
         """
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "value", value)
@@ -46,18 +45,8 @@ class PolicyFragmentArgs:
             format = 'xml'
         if format is not None:
             pulumi.set(__self__, "format", format)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        A resource identifier.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "id", value)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -118,6 +107,18 @@ class PolicyFragmentArgs:
     @format.setter
     def format(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyFragmentContentFormat']]]):
         pulumi.set(self, "format", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A resource identifier.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:PolicyFragment")
@@ -198,8 +199,6 @@ class PolicyFragment(pulumi.CustomResource):
             if format is None:
                 format = 'xml'
             __props__.__dict__["format"] = format
-            if id is None and not opts.urn:
-                raise TypeError("Missing required property 'id'")
             __props__.__dict__["id"] = id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

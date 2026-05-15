@@ -20,10 +20,10 @@ __all__ = ['GatewayHostnameConfigurationArgs', 'GatewayHostnameConfiguration']
 class GatewayHostnameConfigurationArgs:
     def __init__(__self__, *,
                  gateway_id: pulumi.Input[_builtins.str],
-                 hc_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 hc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  hostname: pulumi.Input[Optional[_builtins.str]] = None,
                  http2_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  negotiate_client_certificate: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -33,10 +33,10 @@ class GatewayHostnameConfigurationArgs:
         The set of arguments for constructing a GatewayHostnameConfiguration resource.
 
         :param pulumi.Input[_builtins.str] gateway_id: Gateway entity identifier. Must be unique in the current API Management service instance. Must not have value 'managed'
-        :param pulumi.Input[_builtins.str] hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] certificate_id: Identifier of Certificate entity that will be used for TLS connection establishment
+        :param pulumi.Input[_builtins.str] hc_id: Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
         :param pulumi.Input[_builtins.str] hostname: Hostname value. Supports valid domain name, partial or full wildcard
         :param pulumi.Input[_builtins.bool] http2_enabled: Specifies if HTTP/2.0 is supported
         :param pulumi.Input[_builtins.bool] negotiate_client_certificate: Determines whether gateway requests client certificate
@@ -44,11 +44,12 @@ class GatewayHostnameConfigurationArgs:
         :param pulumi.Input[_builtins.bool] tls11_enabled: Specifies if TLS 1.1 is supported
         """
         pulumi.set(__self__, "gateway_id", gateway_id)
-        pulumi.set(__self__, "hc_id", hc_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         if certificate_id is not None:
             pulumi.set(__self__, "certificate_id", certificate_id)
+        if hc_id is not None:
+            pulumi.set(__self__, "hc_id", hc_id)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
         if http2_enabled is not None:
@@ -71,18 +72,6 @@ class GatewayHostnameConfigurationArgs:
     @gateway_id.setter
     def gateway_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "gateway_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="hcId")
-    def hc_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
-        """
-        return pulumi.get(self, "hc_id")
-
-    @hc_id.setter
-    def hc_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "hc_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -119,6 +108,18 @@ class GatewayHostnameConfigurationArgs:
     @certificate_id.setter
     def certificate_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "certificate_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hcId")
+    def hc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Gateway hostname configuration identifier. Must be unique in the scope of parent Gateway entity.
+        """
+        return pulumi.get(self, "hc_id")
+
+    @hc_id.setter
+    def hc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hc_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -271,8 +272,6 @@ class GatewayHostnameConfiguration(pulumi.CustomResource):
             if gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'gateway_id'")
             __props__.__dict__["gateway_id"] = gateway_id
-            if hc_id is None and not opts.urn:
-                raise TypeError("Missing required property 'hc_id'")
             __props__.__dict__["hc_id"] = hc_id
             __props__.__dict__["hostname"] = hostname
             __props__.__dict__["http2_enabled"] = http2_enabled

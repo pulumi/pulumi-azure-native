@@ -23,25 +23,24 @@ __all__ = ['SummaryLogArgs', 'SummaryLog']
 class SummaryLogArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 summary_logs_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_definition: pulumi.Input[Optional['RuleDefinitionArgs']] = None,
-                 rule_type: pulumi.Input[Optional[Union[_builtins.str, 'RuleTypeEnum']]] = None):
+                 rule_type: pulumi.Input[Optional[Union[_builtins.str, 'RuleTypeEnum']]] = None,
+                 summary_logs_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SummaryLog resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] summary_logs_name: The name of the summary logs. Must not contain '/'.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] description: The description of the Summary rule.
         :param pulumi.Input[_builtins.str] display_name: The display name of the Summary rule.
         :param pulumi.Input['RuleDefinitionArgs'] rule_definition: Rule definition parameters.
         :param pulumi.Input[Union[_builtins.str, 'RuleTypeEnum']] rule_type: SummaryRules rule type: User.
+        :param pulumi.Input[_builtins.str] summary_logs_name: The name of the summary logs. Must not contain '/'.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "summary_logs_name", summary_logs_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -51,6 +50,8 @@ class SummaryLogArgs:
             pulumi.set(__self__, "rule_definition", rule_definition)
         if rule_type is not None:
             pulumi.set(__self__, "rule_type", rule_type)
+        if summary_logs_name is not None:
+            pulumi.set(__self__, "summary_logs_name", summary_logs_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -63,18 +64,6 @@ class SummaryLogArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="summaryLogsName")
-    def summary_logs_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the summary logs. Must not contain '/'.
-        """
-        return pulumi.get(self, "summary_logs_name")
-
-    @summary_logs_name.setter
-    def summary_logs_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "summary_logs_name", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
@@ -135,6 +124,18 @@ class SummaryLogArgs:
     @rule_type.setter
     def rule_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'RuleTypeEnum']]]):
         pulumi.set(self, "rule_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="summaryLogsName")
+    def summary_logs_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the summary logs. Must not contain '/'.
+        """
+        return pulumi.get(self, "summary_logs_name")
+
+    @summary_logs_name.setter
+    def summary_logs_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "summary_logs_name", value)
 
 
 @pulumi.type_token("azure-native:operationalinsights:SummaryLog")
@@ -217,8 +218,6 @@ class SummaryLog(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["rule_definition"] = rule_definition
             __props__.__dict__["rule_type"] = rule_type
-            if summary_logs_name is None and not opts.urn:
-                raise TypeError("Missing required property 'summary_logs_name'")
             __props__.__dict__["summary_logs_name"] = summary_logs_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

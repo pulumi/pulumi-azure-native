@@ -22,7 +22,6 @@ __all__ = ['ProjectArgs', 'Project']
 @pulumi.input_type
 class ProjectArgs:
     def __init__(__self__, *,
-                 project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  catalog_settings: pulumi.Input[Optional['ProjectCatalogSettingsArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -31,11 +30,11 @@ class ProjectArgs:
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  max_dev_boxes_per_user: pulumi.Input[Optional[_builtins.int]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Project resource.
 
-        :param pulumi.Input[_builtins.str] project_name: The name of the project.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ProjectCatalogSettingsArgs'] catalog_settings: Settings to be used when associating a project with a catalog.
         :param pulumi.Input[_builtins.str] description: Description of the project.
@@ -44,9 +43,9 @@ class ProjectArgs:
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identity properties
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] max_dev_boxes_per_user: When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project. This will have no effect on existing Dev Boxes when reduced.
+        :param pulumi.Input[_builtins.str] project_name: The name of the project.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if catalog_settings is not None:
             pulumi.set(__self__, "catalog_settings", catalog_settings)
@@ -62,20 +61,10 @@ class ProjectArgs:
             pulumi.set(__self__, "location", location)
         if max_dev_boxes_per_user is not None:
             pulumi.set(__self__, "max_dev_boxes_per_user", max_dev_boxes_per_user)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="projectName")
-    def project_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the project.
-        """
-        return pulumi.get(self, "project_name")
-
-    @project_name.setter
-    def project_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -172,6 +161,18 @@ class ProjectArgs:
     @max_dev_boxes_per_user.setter
     def max_dev_boxes_per_user(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_dev_boxes_per_user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the project.
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -279,8 +280,6 @@ class Project(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["max_dev_boxes_per_user"] = max_dev_boxes_per_user
-            if project_name is None and not opts.urn:
-                raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

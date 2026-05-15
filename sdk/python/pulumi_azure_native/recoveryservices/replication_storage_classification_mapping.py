@@ -24,26 +24,27 @@ class ReplicationStorageClassificationMappingArgs:
                  fabric_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 storage_classification_mapping_name: pulumi.Input[_builtins.str],
                  storage_classification_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['StorageMappingInputPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['StorageMappingInputPropertiesArgs']] = None,
+                 storage_classification_mapping_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationStorageClassificationMapping resource.
 
         :param pulumi.Input[_builtins.str] fabric_name: Fabric name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
-        :param pulumi.Input[_builtins.str] storage_classification_mapping_name: Storage classification mapping name.
         :param pulumi.Input[_builtins.str] storage_classification_name: Storage classification name.
         :param pulumi.Input['StorageMappingInputPropertiesArgs'] properties: Storage mapping input properties.
+        :param pulumi.Input[_builtins.str] storage_classification_mapping_name: Storage classification mapping name.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "storage_classification_mapping_name", storage_classification_mapping_name)
         pulumi.set(__self__, "storage_classification_name", storage_classification_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if storage_classification_mapping_name is not None:
+            pulumi.set(__self__, "storage_classification_mapping_name", storage_classification_mapping_name)
 
     @_builtins.property
     @pulumi.getter(name="fabricName")
@@ -82,18 +83,6 @@ class ReplicationStorageClassificationMappingArgs:
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="storageClassificationMappingName")
-    def storage_classification_mapping_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Storage classification mapping name.
-        """
-        return pulumi.get(self, "storage_classification_mapping_name")
-
-    @storage_classification_mapping_name.setter
-    def storage_classification_mapping_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_classification_mapping_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="storageClassificationName")
     def storage_classification_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -116,6 +105,18 @@ class ReplicationStorageClassificationMappingArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['StorageMappingInputPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageClassificationMappingName")
+    def storage_classification_mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Storage classification mapping name.
+        """
+        return pulumi.get(self, "storage_classification_mapping_name")
+
+    @storage_classification_mapping_name.setter
+    def storage_classification_mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_classification_mapping_name", value)
 
 
 @pulumi.type_token("azure-native:recoveryservices:ReplicationStorageClassificationMapping")
@@ -202,8 +203,6 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
-            if storage_classification_mapping_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_classification_mapping_name'")
             __props__.__dict__["storage_classification_mapping_name"] = storage_classification_mapping_name
             if storage_classification_name is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_classification_name'")

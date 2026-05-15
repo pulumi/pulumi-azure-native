@@ -142,7 +142,7 @@ def get_site_reference(context_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_site_reference_output(context_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              site_reference_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              site_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSiteReferenceResult]:
     """
     Get Site Reference Resource

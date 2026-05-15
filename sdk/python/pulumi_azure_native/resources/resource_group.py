@@ -20,37 +20,26 @@ __all__ = ['ResourceGroupArgs', 'ResourceGroup']
 @pulumi.input_type
 class ResourceGroupArgs:
     def __init__(__self__, *,
-                 resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceGroup resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
         :param pulumi.Input[_builtins.str] location: The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
         :param pulumi.Input[_builtins.str] managed_by: The ID of the resource that manages this resource group.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags attached to the resource group.
         """
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_by is not None:
             pulumi.set(__self__, "managed_by", managed_by)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,6 +64,18 @@ class ResourceGroupArgs:
     @managed_by.setter
     def managed_by(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_by", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the resource group to create or update. Can include alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the allowed characters.
+        """
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -119,7 +120,7 @@ class ResourceGroup(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ResourceGroupArgs,
+                 args: Optional[ResourceGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource group information.
@@ -159,8 +160,6 @@ class ResourceGroup(pulumi.CustomResource):
 
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_by"] = managed_by
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

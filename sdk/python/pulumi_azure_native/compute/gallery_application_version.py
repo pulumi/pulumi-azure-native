@@ -23,10 +23,10 @@ __all__ = ['GalleryApplicationVersionArgs', 'GalleryApplicationVersion']
 class GalleryApplicationVersionArgs:
     def __init__(__self__, *,
                  gallery_application_name: pulumi.Input[_builtins.str],
-                 gallery_application_version_name: pulumi.Input[_builtins.str],
                  gallery_name: pulumi.Input[_builtins.str],
                  publishing_profile: pulumi.Input['GalleryApplicationVersionPublishingProfileArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 gallery_application_version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  safety_profile: pulumi.Input[Optional['GalleryApplicationVersionSafetyProfileArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -34,19 +34,20 @@ class GalleryApplicationVersionArgs:
         The set of arguments for constructing a GalleryApplicationVersion resource.
 
         :param pulumi.Input[_builtins.str] gallery_application_name: The name of the gallery Application Definition to be retrieved.
-        :param pulumi.Input[_builtins.str] gallery_application_version_name: The name of the gallery Application Version to be retrieved.
         :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input['GalleryApplicationVersionPublishingProfileArgs'] publishing_profile: The publishing profile of a gallery image version.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] gallery_application_version_name: The name of the gallery Application Version to be retrieved.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['GalleryApplicationVersionSafetyProfileArgs'] safety_profile: The safety profile of the Gallery Application Version.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "gallery_application_name", gallery_application_name)
-        pulumi.set(__self__, "gallery_application_version_name", gallery_application_version_name)
         pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "publishing_profile", publishing_profile)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if gallery_application_version_name is not None:
+            pulumi.set(__self__, "gallery_application_version_name", gallery_application_version_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if safety_profile is not None:
@@ -65,18 +66,6 @@ class GalleryApplicationVersionArgs:
     @gallery_application_name.setter
     def gallery_application_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "gallery_application_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="galleryApplicationVersionName")
-    def gallery_application_version_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the gallery Application Version to be retrieved.
-        """
-        return pulumi.get(self, "gallery_application_version_name")
-
-    @gallery_application_version_name.setter
-    def gallery_application_version_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "gallery_application_version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryName")
@@ -113,6 +102,18 @@ class GalleryApplicationVersionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="galleryApplicationVersionName")
+    def gallery_application_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the gallery Application Version to be retrieved.
+        """
+        return pulumi.get(self, "gallery_application_version_name")
+
+    @gallery_application_version_name.setter
+    def gallery_application_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gallery_application_version_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -234,8 +235,6 @@ class GalleryApplicationVersion(pulumi.CustomResource):
             if gallery_application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_application_name'")
             __props__.__dict__["gallery_application_name"] = gallery_application_name
-            if gallery_application_version_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gallery_application_version_name'")
             __props__.__dict__["gallery_application_version_name"] = gallery_application_version_name
             if gallery_name is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_name'")

@@ -126,7 +126,7 @@ def get_server_azure_ad_only_authentication(authentication_name: Optional[_built
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_server_azure_ad_only_authentication_output(authentication_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_server_azure_ad_only_authentication_output(authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerAzureADOnlyAuthenticationResult]:

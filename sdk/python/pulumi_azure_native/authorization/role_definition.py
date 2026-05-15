@@ -21,25 +21,24 @@ __all__ = ['RoleDefinitionArgs', 'RoleDefinition']
 @pulumi.input_type
 class RoleDefinitionArgs:
     def __init__(__self__, *,
-                 role_definition_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  assignable_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  permissions: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionArgs']]]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleDefinition resource.
 
-        :param pulumi.Input[_builtins.str] role_definition_id: The ID of the role definition.
         :param pulumi.Input[_builtins.str] scope: The scope of the operation or resource. Valid scopes are: subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assignable_scopes: Role definition assignable scopes.
         :param pulumi.Input[_builtins.str] description: The role definition description.
         :param pulumi.Input[Sequence[pulumi.Input['PermissionArgs']]] permissions: Role definition permissions.
+        :param pulumi.Input[_builtins.str] role_definition_id: The ID of the role definition.
         :param pulumi.Input[_builtins.str] role_name: The role name.
         :param pulumi.Input[_builtins.str] role_type: The role type.
         """
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
         pulumi.set(__self__, "scope", scope)
         if assignable_scopes is not None:
             pulumi.set(__self__, "assignable_scopes", assignable_scopes)
@@ -47,22 +46,12 @@ class RoleDefinitionArgs:
             pulumi.set(__self__, "description", description)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if role_definition_id is not None:
+            pulumi.set(__self__, "role_definition_id", role_definition_id)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
         if role_type is not None:
             pulumi.set(__self__, "role_type", role_type)
-
-    @_builtins.property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the role definition.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    @role_definition_id.setter
-    def role_definition_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -111,6 +100,18 @@ class RoleDefinitionArgs:
     @permissions.setter
     def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the role definition.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
@@ -217,8 +218,6 @@ class RoleDefinition(pulumi.CustomResource):
             __props__.__dict__["assignable_scopes"] = assignable_scopes
             __props__.__dict__["description"] = description
             __props__.__dict__["permissions"] = permissions
-            if role_definition_id is None and not opts.urn:
-                raise TypeError("Missing required property 'role_definition_id'")
             __props__.__dict__["role_definition_id"] = role_definition_id
             __props__.__dict__["role_name"] = role_name
             __props__.__dict__["role_type"] = role_type

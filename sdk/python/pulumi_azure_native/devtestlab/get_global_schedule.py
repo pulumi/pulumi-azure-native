@@ -295,7 +295,7 @@ def get_global_schedule(expand: Optional[_builtins.str] = None,
         unique_identifier=pulumi.get(__ret__, 'unique_identifier'),
         weekly_recurrence=pulumi.get(__ret__, 'weekly_recurrence'))
 def get_global_schedule_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                               name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalScheduleResult]:
     """

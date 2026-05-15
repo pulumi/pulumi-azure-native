@@ -26,7 +26,6 @@ class AzureCliScriptArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  retention_interval: pulumi.Input[_builtins.str],
-                 script_name: pulumi.Input[_builtins.str],
                  arguments: pulumi.Input[Optional[_builtins.str]] = None,
                  cleanup_preference: pulumi.Input[Optional[Union[_builtins.str, 'CleanupOptions']]] = None,
                  container_settings: pulumi.Input[Optional['ContainerConfigurationArgs']] = None,
@@ -36,6 +35,7 @@ class AzureCliScriptArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_script_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  script_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_settings: pulumi.Input[Optional['StorageAccountConfigurationArgs']] = None,
                  supporting_script_uris: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -48,7 +48,6 @@ class AzureCliScriptArgs:
                Expected value is 'AzureCLI'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] retention_interval: Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
-        :param pulumi.Input[_builtins.str] script_name: Name of the deployment script.
         :param pulumi.Input[_builtins.str] arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
         :param pulumi.Input[Union[_builtins.str, 'CleanupOptions']] cleanup_preference: The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
         :param pulumi.Input['ContainerConfigurationArgs'] container_settings: Container settings.
@@ -58,6 +57,7 @@ class AzureCliScriptArgs:
         :param pulumi.Input[_builtins.str] location: The location of the ACI and the storage account for the deployment script.
         :param pulumi.Input[_builtins.str] primary_script_uri: Uri for the script. This is the entry point for the external script.
         :param pulumi.Input[_builtins.str] script_content: Script body.
+        :param pulumi.Input[_builtins.str] script_name: Name of the deployment script.
         :param pulumi.Input['StorageAccountConfigurationArgs'] storage_account_settings: Storage Account settings.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supporting_script_uris: Supporting files for the external script.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -67,7 +67,6 @@ class AzureCliScriptArgs:
         pulumi.set(__self__, "kind", 'AzureCLI')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "retention_interval", retention_interval)
-        pulumi.set(__self__, "script_name", script_name)
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
         if cleanup_preference is None:
@@ -88,6 +87,8 @@ class AzureCliScriptArgs:
             pulumi.set(__self__, "primary_script_uri", primary_script_uri)
         if script_content is not None:
             pulumi.set(__self__, "script_content", script_content)
+        if script_name is not None:
+            pulumi.set(__self__, "script_name", script_name)
         if storage_account_settings is not None:
             pulumi.set(__self__, "storage_account_settings", storage_account_settings)
         if supporting_script_uris is not None:
@@ -147,18 +148,6 @@ class AzureCliScriptArgs:
     @retention_interval.setter
     def retention_interval(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "retention_interval", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scriptName")
-    def script_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the deployment script.
-        """
-        return pulumi.get(self, "script_name")
-
-    @script_name.setter
-    def script_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "script_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -267,6 +256,18 @@ class AzureCliScriptArgs:
     @script_content.setter
     def script_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_content", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scriptName")
+    def script_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the deployment script.
+        """
+        return pulumi.get(self, "script_name")
+
+    @script_name.setter
+    def script_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "script_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountSettings")
@@ -447,8 +448,6 @@ class AzureCliScript(pulumi.CustomResource):
                 raise TypeError("Missing required property 'retention_interval'")
             __props__.__dict__["retention_interval"] = retention_interval
             __props__.__dict__["script_content"] = script_content
-            if script_name is None and not opts.urn:
-                raise TypeError("Missing required property 'script_name'")
             __props__.__dict__["script_name"] = script_name
             __props__.__dict__["storage_account_settings"] = storage_account_settings
             __props__.__dict__["supporting_script_uris"] = supporting_script_uris

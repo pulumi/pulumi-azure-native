@@ -23,11 +23,11 @@ __all__ = ['DatabaseArgs', 'Database']
 class DatabaseArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  access_keys_authentication: pulumi.Input[Optional[Union[_builtins.str, 'AccessKeysAuthentication']]] = None,
                  client_protocol: pulumi.Input[Optional[Union[_builtins.str, 'Protocol']]] = None,
                  clustering_policy: pulumi.Input[Optional[Union[_builtins.str, 'ClusteringPolicy']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  defer_upgrade: pulumi.Input[Optional[Union[_builtins.str, 'DeferUpgradeSetting']]] = None,
                  eviction_policy: pulumi.Input[Optional[Union[_builtins.str, 'EvictionPolicy']]] = None,
                  geo_replication: pulumi.Input[Optional['DatabasePropertiesGeoReplicationArgs']] = None,
@@ -38,11 +38,11 @@ class DatabaseArgs:
         The set of arguments for constructing a Database resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
-        :param pulumi.Input[_builtins.str] database_name: The name of the Redis Enterprise database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'AccessKeysAuthentication']] access_keys_authentication: This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
         :param pulumi.Input[Union[_builtins.str, 'Protocol']] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
         :param pulumi.Input[Union[_builtins.str, 'ClusteringPolicy']] clustering_policy: Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
+        :param pulumi.Input[_builtins.str] database_name: The name of the Redis Enterprise database.
         :param pulumi.Input[Union[_builtins.str, 'DeferUpgradeSetting']] defer_upgrade: Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
         :param pulumi.Input[Union[_builtins.str, 'EvictionPolicy']] eviction_policy: Redis eviction policy - default is VolatileLRU
         :param pulumi.Input['DatabasePropertiesGeoReplicationArgs'] geo_replication: Optional set of properties to configure geo replication for this database.
@@ -51,7 +51,6 @@ class DatabaseArgs:
         :param pulumi.Input[_builtins.int] port: TCP port of the database endpoint. Specified at create time. Defaults to an available port.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if access_keys_authentication is not None:
             pulumi.set(__self__, "access_keys_authentication", access_keys_authentication)
@@ -59,6 +58,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "client_protocol", client_protocol)
         if clustering_policy is not None:
             pulumi.set(__self__, "clustering_policy", clustering_policy)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
         if defer_upgrade is not None:
             pulumi.set(__self__, "defer_upgrade", defer_upgrade)
         if eviction_policy is not None:
@@ -83,18 +84,6 @@ class DatabaseArgs:
     @cluster_name.setter
     def cluster_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Redis Enterprise database.
-        """
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -143,6 +132,18 @@ class DatabaseArgs:
     @clustering_policy.setter
     def clustering_policy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ClusteringPolicy']]]):
         pulumi.set(self, "clustering_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Redis Enterprise database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deferUpgrade")
@@ -315,8 +316,6 @@ class Database(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["clustering_policy"] = clustering_policy
-            if database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["defer_upgrade"] = defer_upgrade
             __props__.__dict__["eviction_policy"] = eviction_policy

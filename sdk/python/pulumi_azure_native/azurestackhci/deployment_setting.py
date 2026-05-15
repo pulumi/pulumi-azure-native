@@ -26,8 +26,8 @@ class DeploymentSettingArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  deployment_configuration: pulumi.Input['DeploymentConfigurationArgs'],
                  deployment_mode: pulumi.Input[Union[_builtins.str, 'DeploymentMode']],
-                 deployment_settings_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 deployment_settings_name: pulumi.Input[Optional[_builtins.str]] = None,
                  operation_type: pulumi.Input[Optional[Union[_builtins.str, 'OperationType']]] = None):
         """
         The set of arguments for constructing a DeploymentSetting resource.
@@ -36,16 +36,17 @@ class DeploymentSettingArgs:
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input['DeploymentConfigurationArgs'] deployment_configuration: Scale units will contains list of deployment data
         :param pulumi.Input[Union[_builtins.str, 'DeploymentMode']] deployment_mode: The deployment mode for cluster deployment.
-        :param pulumi.Input[_builtins.str] deployment_settings_name: Name of Deployment Setting
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] deployment_settings_name: Name of Deployment Setting
         :param pulumi.Input[Union[_builtins.str, 'OperationType']] operation_type: The intended operation for a cluster.
         """
         pulumi.set(__self__, "arc_node_resource_ids", arc_node_resource_ids)
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "deployment_configuration", deployment_configuration)
         pulumi.set(__self__, "deployment_mode", deployment_mode)
-        pulumi.set(__self__, "deployment_settings_name", deployment_settings_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if deployment_settings_name is not None:
+            pulumi.set(__self__, "deployment_settings_name", deployment_settings_name)
         if operation_type is None:
             operation_type = 'ClusterProvisioning'
         if operation_type is not None:
@@ -100,18 +101,6 @@ class DeploymentSettingArgs:
         pulumi.set(self, "deployment_mode", value)
 
     @_builtins.property
-    @pulumi.getter(name="deploymentSettingsName")
-    def deployment_settings_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of Deployment Setting
-        """
-        return pulumi.get(self, "deployment_settings_name")
-
-    @deployment_settings_name.setter
-    def deployment_settings_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "deployment_settings_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -122,6 +111,18 @@ class DeploymentSettingArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentSettingsName")
+    def deployment_settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of Deployment Setting
+        """
+        return pulumi.get(self, "deployment_settings_name")
+
+    @deployment_settings_name.setter
+    def deployment_settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "deployment_settings_name", value)
 
     @_builtins.property
     @pulumi.getter(name="operationType")
@@ -225,8 +226,6 @@ class DeploymentSetting(pulumi.CustomResource):
             if deployment_mode is None and not opts.urn:
                 raise TypeError("Missing required property 'deployment_mode'")
             __props__.__dict__["deployment_mode"] = deployment_mode
-            if deployment_settings_name is None and not opts.urn:
-                raise TypeError("Missing required property 'deployment_settings_name'")
             __props__.__dict__["deployment_settings_name"] = deployment_settings_name
             if operation_type is None:
                 operation_type = 'ClusterProvisioning'

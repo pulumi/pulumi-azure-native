@@ -197,7 +197,7 @@ def get_workload_group(database_name: Optional[_builtins.str] = None,
 def get_workload_group_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              workload_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              workload_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadGroupResult]:
     """
     Gets a workload group

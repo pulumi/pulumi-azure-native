@@ -19,39 +19,28 @@ __all__ = ['SingleServerDatabaseArgs', 'SingleServerDatabase']
 @pulumi.input_type
 class SingleServerDatabaseArgs:
     def __init__(__self__, *,
-                 database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  charset: pulumi.Input[Optional[_builtins.str]] = None,
-                 collation: pulumi.Input[Optional[_builtins.str]] = None):
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SingleServerDatabase resource.
 
-        :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] charset: The charset of the database.
         :param pulumi.Input[_builtins.str] collation: The collation of the database.
+        :param pulumi.Input[_builtins.str] database_name: The name of the database.
         """
-        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         if charset is not None:
             pulumi.set(__self__, "charset", charset)
         if collation is not None:
             pulumi.set(__self__, "collation", collation)
-
-    @_builtins.property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the database.
-        """
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "database_name", value)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -100,6 +89,18 @@ class SingleServerDatabaseArgs:
     @collation.setter
     def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:SingleServerDatabase")
@@ -171,8 +172,6 @@ class SingleServerDatabase(pulumi.CustomResource):
 
             __props__.__dict__["charset"] = charset
             __props__.__dict__["collation"] = collation
-            if database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

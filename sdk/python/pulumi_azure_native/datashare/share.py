@@ -23,27 +23,28 @@ class ShareArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 share_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  share_kind: pulumi.Input[Optional[Union[_builtins.str, 'ShareKind']]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
                  terms: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Share resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
-        :param pulumi.Input[_builtins.str] share_name: The name of the share.
         :param pulumi.Input[_builtins.str] description: Share description.
         :param pulumi.Input[Union[_builtins.str, 'ShareKind']] share_kind: Share kind.
+        :param pulumi.Input[_builtins.str] share_name: The name of the share.
         :param pulumi.Input[_builtins.str] terms: Share terms.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "share_name", share_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if share_kind is not None:
             pulumi.set(__self__, "share_kind", share_kind)
+        if share_name is not None:
+            pulumi.set(__self__, "share_name", share_name)
         if terms is not None:
             pulumi.set(__self__, "terms", terms)
 
@@ -72,18 +73,6 @@ class ShareArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="shareName")
-    def share_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the share.
-        """
-        return pulumi.get(self, "share_name")
-
-    @share_name.setter
-    def share_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "share_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -106,6 +95,18 @@ class ShareArgs:
     @share_kind.setter
     def share_kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ShareKind']]]):
         pulumi.set(self, "share_kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="shareName")
+    def share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the share.
+        """
+        return pulumi.get(self, "share_name")
+
+    @share_name.setter
+    def share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "share_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,8 +199,6 @@ class Share(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["share_kind"] = share_kind
-            if share_name is None and not opts.urn:
-                raise TypeError("Missing required property 'share_name'")
             __props__.__dict__["share_name"] = share_name
             __props__.__dict__["terms"] = terms
             __props__.__dict__["azure_api_version"] = None

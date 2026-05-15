@@ -22,9 +22,9 @@ __all__ = ['NamespaceArgs', 'Namespace']
 @pulumi.input_type
 class NamespaceArgs:
     def __init__(__self__, *,
-                 namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
@@ -32,19 +32,20 @@ class NamespaceArgs:
         """
         The set of arguments for constructing a Namespace resource.
 
-        :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] namespace_name: The namespace name
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: List of private endpoint connections.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
         :param pulumi.Input['SkuArgs'] sku: SKU of the namespace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
         if private_endpoint_connections is not None:
             pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if public_network_access is None:
@@ -55,18 +56,6 @@ class NamespaceArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The namespace name
-        """
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -91,6 +80,18 @@ class NamespaceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The namespace name
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
@@ -221,8 +222,6 @@ class Namespace(pulumi.CustomResource):
             __props__ = NamespaceArgs.__new__(NamespaceArgs)
 
             __props__.__dict__["location"] = location
-            if namespace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
             if public_network_access is None:

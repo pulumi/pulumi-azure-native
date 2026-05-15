@@ -363,7 +363,7 @@ def get_virtual_network(expand: Optional[_builtins.str] = None,
         virtual_network_peerings=pulumi.get(__ret__, 'virtual_network_peerings'))
 def get_virtual_network_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               virtual_network_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
     Gets the specified virtual network by resource group.

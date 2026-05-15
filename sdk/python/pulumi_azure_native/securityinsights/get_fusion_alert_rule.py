@@ -257,7 +257,7 @@ def get_fusion_alert_rule(resource_group_name: Optional[_builtins.str] = None,
         techniques=pulumi.get(__ret__, 'techniques'),
         type=pulumi.get(__ret__, 'type'))
 def get_fusion_alert_rule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 rule_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFusionAlertRuleResult]:
     """

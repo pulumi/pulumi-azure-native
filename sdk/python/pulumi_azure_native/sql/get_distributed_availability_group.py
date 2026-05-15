@@ -257,7 +257,7 @@ def get_distributed_availability_group(distributed_availability_group_name: Opti
         replication_mode=pulumi.get(__ret__, 'replication_mode'),
         seeding_mode=pulumi.get(__ret__, 'seeding_mode'),
         type=pulumi.get(__ret__, 'type'))
-def get_distributed_availability_group_output(distributed_availability_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_distributed_availability_group_output(distributed_availability_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDistributedAvailabilityGroupResult]:

@@ -21,9 +21,9 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 application_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  space_name: pulumi.Input[_builtins.str],
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -31,17 +31,18 @@ class ApplicationArgs:
         """
         The set of arguments for constructing a Application resource.
 
-        :param pulumi.Input[_builtins.str] application_name: The name of the Application
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] space_name: The name of the space
+        :param pulumi.Input[_builtins.str] application_name: The name of the Application
         :param pulumi.Input[_builtins.str] description: The description of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input['TrackingDataStoreArgs']]] tracking_data_stores: The tracking data stores.
         """
-        pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "space_name", space_name)
+        if application_name is not None:
+            pulumi.set(__self__, "application_name", application_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location is not None:
@@ -50,18 +51,6 @@ class ApplicationArgs:
             pulumi.set(__self__, "tags", tags)
         if tracking_data_stores is not None:
             pulumi.set(__self__, "tracking_data_stores", tracking_data_stores)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationName")
-    def application_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Application
-        """
-        return pulumi.get(self, "application_name")
-
-    @application_name.setter
-    def application_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -86,6 +75,18 @@ class ApplicationArgs:
     @space_name.setter
     def space_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "space_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Application
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -209,8 +210,6 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-            if application_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["description"] = description
             __props__.__dict__["location"] = location

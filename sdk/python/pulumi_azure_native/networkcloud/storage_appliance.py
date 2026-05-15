@@ -27,9 +27,9 @@ class StorageApplianceArgs:
                  rack_slot: pulumi.Input[_builtins.float],
                  resource_group_name: pulumi.Input[_builtins.str],
                  serial_number: pulumi.Input[_builtins.str],
-                 storage_appliance_name: pulumi.Input[_builtins.str],
                  storage_appliance_sku_id: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageAppliance resource.
@@ -40,9 +40,9 @@ class StorageApplianceArgs:
         :param pulumi.Input[_builtins.float] rack_slot: The slot the storage appliance is in the rack based on the BOM configuration.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] serial_number: The serial number for the storage appliance.
-        :param pulumi.Input[_builtins.str] storage_appliance_name: The name of the storage appliance.
         :param pulumi.Input[_builtins.str] storage_appliance_sku_id: The SKU for the storage appliance.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] storage_appliance_name: The name of the storage appliance.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "administrator_credentials", administrator_credentials)
@@ -51,10 +51,11 @@ class StorageApplianceArgs:
         pulumi.set(__self__, "rack_slot", rack_slot)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "serial_number", serial_number)
-        pulumi.set(__self__, "storage_appliance_name", storage_appliance_name)
         pulumi.set(__self__, "storage_appliance_sku_id", storage_appliance_sku_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if storage_appliance_name is not None:
+            pulumi.set(__self__, "storage_appliance_name", storage_appliance_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -131,18 +132,6 @@ class StorageApplianceArgs:
         pulumi.set(self, "serial_number", value)
 
     @_builtins.property
-    @pulumi.getter(name="storageApplianceName")
-    def storage_appliance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the storage appliance.
-        """
-        return pulumi.get(self, "storage_appliance_name")
-
-    @storage_appliance_name.setter
-    def storage_appliance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_appliance_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="storageApplianceSkuId")
     def storage_appliance_sku_id(self) -> pulumi.Input[_builtins.str]:
         """
@@ -165,6 +154,18 @@ class StorageApplianceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageApplianceName")
+    def storage_appliance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the storage appliance.
+        """
+        return pulumi.get(self, "storage_appliance_name")
+
+    @storage_appliance_name.setter
+    def storage_appliance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_appliance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -280,8 +281,6 @@ class StorageAppliance(pulumi.CustomResource):
             if serial_number is None and not opts.urn:
                 raise TypeError("Missing required property 'serial_number'")
             __props__.__dict__["serial_number"] = serial_number
-            if storage_appliance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_appliance_name'")
             __props__.__dict__["storage_appliance_name"] = storage_appliance_name
             if storage_appliance_sku_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_appliance_sku_id'")

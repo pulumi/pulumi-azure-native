@@ -20,29 +20,28 @@ __all__ = ['MultipleActivationKeyArgs', 'MultipleActivationKey']
 @pulumi.input_type
 class MultipleActivationKeyArgs:
     def __init__(__self__, *,
-                 multiple_activation_key_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  agreement_number: pulumi.Input[Optional[_builtins.str]] = None,
                  installed_server_number: pulumi.Input[Optional[_builtins.int]] = None,
                  is_eligible: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 multiple_activation_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  os_type: pulumi.Input[Optional[Union[_builtins.str, 'OsType']]] = None,
                  support_type: pulumi.Input[Optional[Union[_builtins.str, 'SupportType']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a MultipleActivationKey resource.
 
-        :param pulumi.Input[_builtins.str] multiple_activation_key_name: The name of the MAK key.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] agreement_number: Agreement number under which the key is requested.
         :param pulumi.Input[_builtins.int] installed_server_number: Number of activations/servers using the MAK key.
         :param pulumi.Input[_builtins.bool] is_eligible: <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] multiple_activation_key_name: The name of the MAK key.
         :param pulumi.Input[Union[_builtins.str, 'OsType']] os_type: Type of OS for which the key is requested.
         :param pulumi.Input[Union[_builtins.str, 'SupportType']] support_type: Type of support
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "multiple_activation_key_name", multiple_activation_key_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if agreement_number is not None:
             pulumi.set(__self__, "agreement_number", agreement_number)
@@ -52,6 +51,8 @@ class MultipleActivationKeyArgs:
             pulumi.set(__self__, "is_eligible", is_eligible)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if multiple_activation_key_name is not None:
+            pulumi.set(__self__, "multiple_activation_key_name", multiple_activation_key_name)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
         if support_type is None:
@@ -60,18 +61,6 @@ class MultipleActivationKeyArgs:
             pulumi.set(__self__, "support_type", support_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="multipleActivationKeyName")
-    def multiple_activation_key_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the MAK key.
-        """
-        return pulumi.get(self, "multiple_activation_key_name")
-
-    @multiple_activation_key_name.setter
-    def multiple_activation_key_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "multiple_activation_key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -132,6 +121,18 @@ class MultipleActivationKeyArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="multipleActivationKeyName")
+    def multiple_activation_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the MAK key.
+        """
+        return pulumi.get(self, "multiple_activation_key_name")
+
+    @multiple_activation_key_name.setter
+    def multiple_activation_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "multiple_activation_key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="osType")
@@ -253,8 +254,6 @@ class MultipleActivationKey(pulumi.CustomResource):
             __props__.__dict__["installed_server_number"] = installed_server_number
             __props__.__dict__["is_eligible"] = is_eligible
             __props__.__dict__["location"] = location
-            if multiple_activation_key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'multiple_activation_key_name'")
             __props__.__dict__["multiple_activation_key_name"] = multiple_activation_key_name
             __props__.__dict__["os_type"] = os_type
             if resource_group_name is None and not opts.urn:

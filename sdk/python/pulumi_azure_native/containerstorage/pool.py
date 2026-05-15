@@ -22,11 +22,11 @@ __all__ = ['PoolArgs', 'Pool']
 @pulumi.input_type
 class PoolArgs:
     def __init__(__self__, *,
-                 pool_name: pulumi.Input[_builtins.str],
                  pool_type: pulumi.Input['PoolTypeArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  assignments: pulumi.Input[Optional[Sequence[pulumi.Input['AssignmentArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  reclaim_policy: pulumi.Input[Optional[Union[_builtins.str, 'ReclaimPolicy']]] = None,
                  resources: pulumi.Input[Optional['ResourcesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -34,23 +34,24 @@ class PoolArgs:
         """
         The set of arguments for constructing a Pool resource.
 
-        :param pulumi.Input[_builtins.str] pool_name: Pool Object
         :param pulumi.Input['PoolTypeArgs'] pool_type: Type of the Pool: ephemeralDisk, azureDisk, or elasticsan.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['AssignmentArgs']]] assignments: List of resources that should have access to the pool. Typically ARM references to AKS clusters or ACI Container Groups. For local and standard this must be a single reference. For ElasticSAN there can be many.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] pool_name: Pool Object
         :param pulumi.Input[Union[_builtins.str, 'ReclaimPolicy']] reclaim_policy: ReclaimPolicy defines what happens to the backend storage when StoragePool is deleted
         :param pulumi.Input['ResourcesArgs'] resources: Resources represent the resources the pool should have.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Zone']]]] zones: List of availability zones that resources can be created in.
         """
-        pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "pool_type", pool_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if assignments is not None:
             pulumi.set(__self__, "assignments", assignments)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if pool_name is not None:
+            pulumi.set(__self__, "pool_name", pool_name)
         if reclaim_policy is not None:
             pulumi.set(__self__, "reclaim_policy", reclaim_policy)
         if resources is not None:
@@ -59,18 +60,6 @@ class PoolArgs:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter(name="poolName")
-    def pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Pool Object
-        """
-        return pulumi.get(self, "pool_name")
-
-    @pool_name.setter
-    def pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="poolType")
@@ -119,6 +108,18 @@ class PoolArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="poolName")
+    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Pool Object
+        """
+        return pulumi.get(self, "pool_name")
+
+    @pool_name.setter
+    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="reclaimPolicy")
@@ -250,8 +251,6 @@ class Pool(pulumi.CustomResource):
 
             __props__.__dict__["assignments"] = assignments
             __props__.__dict__["location"] = location
-            if pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
             if pool_type is None and not opts.urn:
                 raise TypeError("Missing required property 'pool_type'")

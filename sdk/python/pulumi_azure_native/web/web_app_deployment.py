@@ -19,7 +19,6 @@ __all__ = ['WebAppDeploymentArgs', 'WebAppDeployment']
 @pulumi.input_type
 class WebAppDeploymentArgs:
     def __init__(__self__, *,
-                 id: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  active: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -28,6 +27,7 @@ class WebAppDeploymentArgs:
                  deployer: pulumi.Input[Optional[_builtins.str]] = None,
                  details: pulumi.Input[Optional[_builtins.str]] = None,
                  end_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  message: pulumi.Input[Optional[_builtins.str]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,7 +35,6 @@ class WebAppDeploymentArgs:
         """
         The set of arguments for constructing a WebAppDeployment resource.
 
-        :param pulumi.Input[_builtins.str] id: ID of an existing deployment.
         :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.bool] active: True if deployment is currently active, false if completed and null if not started.
@@ -44,12 +43,12 @@ class WebAppDeploymentArgs:
         :param pulumi.Input[_builtins.str] deployer: Who performed the deployment.
         :param pulumi.Input[_builtins.str] details: Details on deployment.
         :param pulumi.Input[_builtins.str] end_time: End time.
+        :param pulumi.Input[_builtins.str] id: ID of an existing deployment.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         :param pulumi.Input[_builtins.str] message: Details about deployment status.
         :param pulumi.Input[_builtins.str] start_time: Start time.
         :param pulumi.Input[_builtins.int] status: Deployment status.
         """
-        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if active is not None:
@@ -64,6 +63,8 @@ class WebAppDeploymentArgs:
             pulumi.set(__self__, "details", details)
         if end_time is not None:
             pulumi.set(__self__, "end_time", end_time)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if message is not None:
@@ -72,18 +73,6 @@ class WebAppDeploymentArgs:
             pulumi.set(__self__, "start_time", start_time)
         if status is not None:
             pulumi.set(__self__, "status", status)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[_builtins.str]:
-        """
-        ID of an existing deployment.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -180,6 +169,18 @@ class WebAppDeploymentArgs:
     @end_time.setter
     def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ID of an existing deployment.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -331,8 +332,6 @@ class WebAppDeployment(pulumi.CustomResource):
             __props__.__dict__["deployer"] = deployer
             __props__.__dict__["details"] = details
             __props__.__dict__["end_time"] = end_time
-            if id is None and not opts.urn:
-                raise TypeError("Missing required property 'id'")
             __props__.__dict__["id"] = id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["message"] = message

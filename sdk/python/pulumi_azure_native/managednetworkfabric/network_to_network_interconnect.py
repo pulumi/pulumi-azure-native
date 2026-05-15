@@ -23,7 +23,6 @@ __all__ = ['NetworkToNetworkInterconnectArgs', 'NetworkToNetworkInterconnect']
 class NetworkToNetworkInterconnectArgs:
     def __init__(__self__, *,
                  network_fabric_name: pulumi.Input[_builtins.str],
-                 network_to_network_interconnect_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  use_option_b: pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']],
                  egress_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,6 +31,7 @@ class NetworkToNetworkInterconnectArgs:
                  ingress_acl_id: pulumi.Input[Optional[_builtins.str]] = None,
                  is_management_type: pulumi.Input[Optional[Union[_builtins.str, 'IsManagementType']]] = None,
                  layer2_configuration: pulumi.Input[Optional['Layer2ConfigurationArgs']] = None,
+                 network_to_network_interconnect_name: pulumi.Input[Optional[_builtins.str]] = None,
                  nni_type: pulumi.Input[Optional[Union[_builtins.str, 'NniType']]] = None,
                  npb_static_route_configuration: pulumi.Input[Optional['NpbStaticRouteConfigurationArgs']] = None,
                  option_b_layer3_configuration: pulumi.Input[Optional['NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs']] = None):
@@ -39,7 +39,6 @@ class NetworkToNetworkInterconnectArgs:
         The set of arguments for constructing a NetworkToNetworkInterconnect resource.
 
         :param pulumi.Input[_builtins.str] network_fabric_name: Name of the Network Fabric.
-        :param pulumi.Input[_builtins.str] network_to_network_interconnect_name: Name of the Network to Network Interconnect.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'BooleanEnumProperty']] use_option_b: Based on this option layer3 parameters are mandatory. Example: True/False
         :param pulumi.Input[_builtins.str] egress_acl_id: Egress Acl. ARM resource ID of Access Control Lists.
@@ -48,12 +47,12 @@ class NetworkToNetworkInterconnectArgs:
         :param pulumi.Input[_builtins.str] ingress_acl_id: Ingress Acl. ARM resource ID of Access Control Lists.
         :param pulumi.Input[Union[_builtins.str, 'IsManagementType']] is_management_type: Configuration to use NNI for Infrastructure Management. Example: True/False.
         :param pulumi.Input['Layer2ConfigurationArgs'] layer2_configuration: Common properties for Layer2 Configuration.
+        :param pulumi.Input[_builtins.str] network_to_network_interconnect_name: Name of the Network to Network Interconnect.
         :param pulumi.Input[Union[_builtins.str, 'NniType']] nni_type: Type of NNI used. Example: CE | NPB
         :param pulumi.Input['NpbStaticRouteConfigurationArgs'] npb_static_route_configuration: NPB Static Route Configuration properties.
         :param pulumi.Input['NetworkToNetworkInterconnectPropertiesOptionBLayer3ConfigurationArgs'] option_b_layer3_configuration: Common properties for Layer3Configuration.
         """
         pulumi.set(__self__, "network_fabric_name", network_fabric_name)
-        pulumi.set(__self__, "network_to_network_interconnect_name", network_to_network_interconnect_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "use_option_b", use_option_b)
         if egress_acl_id is not None:
@@ -70,6 +69,8 @@ class NetworkToNetworkInterconnectArgs:
             pulumi.set(__self__, "is_management_type", is_management_type)
         if layer2_configuration is not None:
             pulumi.set(__self__, "layer2_configuration", layer2_configuration)
+        if network_to_network_interconnect_name is not None:
+            pulumi.set(__self__, "network_to_network_interconnect_name", network_to_network_interconnect_name)
         if nni_type is None:
             nni_type = 'CE'
         if nni_type is not None:
@@ -90,18 +91,6 @@ class NetworkToNetworkInterconnectArgs:
     @network_fabric_name.setter
     def network_fabric_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_fabric_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkToNetworkInterconnectName")
-    def network_to_network_interconnect_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Network to Network Interconnect.
-        """
-        return pulumi.get(self, "network_to_network_interconnect_name")
-
-    @network_to_network_interconnect_name.setter
-    def network_to_network_interconnect_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_to_network_interconnect_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -198,6 +187,18 @@ class NetworkToNetworkInterconnectArgs:
     @layer2_configuration.setter
     def layer2_configuration(self, value: pulumi.Input[Optional['Layer2ConfigurationArgs']]):
         pulumi.set(self, "layer2_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkToNetworkInterconnectName")
+    def network_to_network_interconnect_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Network to Network Interconnect.
+        """
+        return pulumi.get(self, "network_to_network_interconnect_name")
+
+    @network_to_network_interconnect_name.setter
+    def network_to_network_interconnect_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_to_network_interconnect_name", value)
 
     @_builtins.property
     @pulumi.getter(name="nniType")
@@ -342,8 +343,6 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
             if network_fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_fabric_name'")
             __props__.__dict__["network_fabric_name"] = network_fabric_name
-            if network_to_network_interconnect_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_to_network_interconnect_name'")
             __props__.__dict__["network_to_network_interconnect_name"] = network_to_network_interconnect_name
             if nni_type is None:
                 nni_type = 'CE'

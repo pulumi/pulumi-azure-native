@@ -311,7 +311,7 @@ def get_private_link_service(expand: Optional[_builtins.str] = None,
         visibility=pulumi.get(__ret__, 'visibility'))
 def get_private_link_service_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    service_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServiceResult]:
     """
     Gets the specified private link service by resource group.

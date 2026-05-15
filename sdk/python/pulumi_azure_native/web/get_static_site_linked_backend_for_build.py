@@ -182,7 +182,7 @@ def get_static_site_linked_backend_for_build(environment_name: Optional[_builtin
         region=pulumi.get(__ret__, 'region'),
         type=pulumi.get(__ret__, 'type'))
 def get_static_site_linked_backend_for_build_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    linked_backend_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                    linked_backend_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticSiteLinkedBackendForBuildResult]:

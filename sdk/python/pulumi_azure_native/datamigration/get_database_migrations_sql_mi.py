@@ -149,7 +149,7 @@ def get_database_migrations_sql_mi_output(expand: pulumi.Input[Optional[Optional
                                           managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           migration_operation_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          target_db_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          target_db_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseMigrationsSqlMiResult]:
     """
     Retrieve the specified database migration for a given SQL Managed Instance.

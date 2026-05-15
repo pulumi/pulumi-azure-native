@@ -24,7 +24,6 @@ class WorkspaceSubscriptionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 sid: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
                  allow_tracing: pulumi.Input[Optional[_builtins.bool]] = None,
                  app_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,6 +31,7 @@ class WorkspaceSubscriptionArgs:
                  owner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_key: pulumi.Input[Optional[_builtins.str]] = None,
                  secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional['SubscriptionState']] = None):
         """
         The set of arguments for constructing a WorkspaceSubscription resource.
@@ -40,7 +40,6 @@ class WorkspaceSubscriptionArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] scope: Scope like /products/{productId} or /apis or /apis/{apiId}.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[_builtins.str] sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.bool] allow_tracing: Determines whether tracing can be enabled
         :param pulumi.Input[_builtins.str] app_type: Determines the type of application which send the create user request. Default is legacy publisher portal.
@@ -50,13 +49,13 @@ class WorkspaceSubscriptionArgs:
         :param pulumi.Input[_builtins.str] owner_id: User (user id path) for whom subscription is being created in form /users/{userId}
         :param pulumi.Input[_builtins.str] primary_key: Primary subscription key. If not specified during request key will be generated automatically.
         :param pulumi.Input[_builtins.str] secondary_key: Secondary subscription key. If not specified during request key will be generated automatically.
+        :param pulumi.Input[_builtins.str] sid: Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
         :param pulumi.Input['SubscriptionState'] state: Initial subscription state. If no value is specified, subscription is created with Submitted state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "sid", sid)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if allow_tracing is not None:
             pulumi.set(__self__, "allow_tracing", allow_tracing)
@@ -70,6 +69,8 @@ class WorkspaceSubscriptionArgs:
             pulumi.set(__self__, "primary_key", primary_key)
         if secondary_key is not None:
             pulumi.set(__self__, "secondary_key", secondary_key)
+        if sid is not None:
+            pulumi.set(__self__, "sid", sid)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -120,18 +121,6 @@ class WorkspaceSubscriptionArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def sid(self) -> pulumi.Input[_builtins.str]:
-        """
-        Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
-        """
-        return pulumi.get(self, "sid")
-
-    @sid.setter
-    def sid(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sid", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
@@ -218,6 +207,18 @@ class WorkspaceSubscriptionArgs:
     @secondary_key.setter
     def secondary_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secondary_key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Subscription entity Identifier. The entity represents the association between a user and a product in API Management.
+        """
+        return pulumi.get(self, "sid")
+
+    @sid.setter
+    def sid(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sid", value)
 
     @_builtins.property
     @pulumi.getter
@@ -347,8 +348,6 @@ class WorkspaceSubscription(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
-            if sid is None and not opts.urn:
-                raise TypeError("Missing required property 'sid'")
             __props__.__dict__["sid"] = sid
             __props__.__dict__["state"] = state
             if workspace_id is None and not opts.urn:

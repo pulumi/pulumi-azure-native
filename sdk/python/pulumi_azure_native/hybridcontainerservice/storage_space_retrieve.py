@@ -22,28 +22,29 @@ __all__ = ['StorageSpaceRetrieveArgs', 'StorageSpaceRetrieve']
 class StorageSpaceRetrieveArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 storage_spaces_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['StorageSpacesExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['StorageSpacesPropertiesArgs']] = None,
+                 storage_spaces_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageSpaceRetrieve resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] storage_spaces_name: Parameter for the name of the storage object
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['StorageSpacesPropertiesArgs'] properties: HybridAKSStorageSpec defines the desired state of HybridAKSStorage
+        :param pulumi.Input[_builtins.str] storage_spaces_name: Parameter for the name of the storage object
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_spaces_name", storage_spaces_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if storage_spaces_name is not None:
+            pulumi.set(__self__, "storage_spaces_name", storage_spaces_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -58,18 +59,6 @@ class StorageSpaceRetrieveArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageSpacesName")
-    def storage_spaces_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Parameter for the name of the storage object
-        """
-        return pulumi.get(self, "storage_spaces_name")
-
-    @storage_spaces_name.setter
-    def storage_spaces_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_spaces_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -103,6 +92,18 @@ class StorageSpaceRetrieveArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['StorageSpacesPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageSpacesName")
+    def storage_spaces_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Parameter for the name of the storage object
+        """
+        return pulumi.get(self, "storage_spaces_name")
+
+    @storage_spaces_name.setter
+    def storage_spaces_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_spaces_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -192,8 +193,6 @@ class StorageSpaceRetrieve(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if storage_spaces_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_spaces_name'")
             __props__.__dict__["storage_spaces_name"] = storage_spaces_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

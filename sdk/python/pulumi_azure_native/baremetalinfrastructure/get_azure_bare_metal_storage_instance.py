@@ -189,7 +189,7 @@ def get_azure_bare_metal_storage_instance(azure_bare_metal_storage_instance_name
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instance_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_azure_bare_metal_storage_instance_output(azure_bare_metal_storage_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzureBareMetalStorageInstanceResult]:
     """

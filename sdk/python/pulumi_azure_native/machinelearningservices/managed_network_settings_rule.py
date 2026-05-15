@@ -24,20 +24,21 @@ class ManagedNetworkSettingsRuleArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedNetworkSettingsRule resource.
 
         :param pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']] properties: Outbound Rule for the managed network of a machine learning workspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] rule_name: Name of the workspace managed network outbound rule
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
+        :param pulumi.Input[_builtins.str] rule_name: Name of the workspace managed network outbound rule
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
 
     @_builtins.property
     @pulumi.getter
@@ -64,18 +65,6 @@ class ManagedNetworkSettingsRuleArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the workspace managed network outbound rule
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rule_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -86,6 +75,18 @@ class ManagedNetworkSettingsRuleArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the workspace managed network outbound rule
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_name", value)
 
 
 @pulumi.type_token("azure-native:machinelearningservices:ManagedNetworkSettingsRule")
@@ -162,8 +163,6 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

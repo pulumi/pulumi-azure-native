@@ -414,7 +414,7 @@ def get_network_virtual_appliance(expand: Optional[_builtins.str] = None,
         virtual_appliance_sites=pulumi.get(__ret__, 'virtual_appliance_sites'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
 def get_network_virtual_appliance_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                         network_virtual_appliance_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         network_virtual_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkVirtualApplianceResult]:
     """

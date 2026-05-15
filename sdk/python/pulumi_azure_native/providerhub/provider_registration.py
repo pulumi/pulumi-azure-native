@@ -22,34 +22,23 @@ __all__ = ['ProviderRegistrationArgs', 'ProviderRegistration']
 @pulumi.input_type
 class ProviderRegistrationArgs:
     def __init__(__self__, *,
-                 provider_namespace: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'ProviderRegistrationKind']]] = None,
-                 properties: pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']] = None,
+                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ProviderRegistration resource.
 
-        :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         :param pulumi.Input[Union[_builtins.str, 'ProviderRegistrationKind']] kind: Provider registration kind. This Metadata is also used by portal/tooling/etc to render different UX experiences for resources of the same type.
+        :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
         """
-        pulumi.set(__self__, "provider_namespace", provider_namespace)
         if kind is None:
             kind = 'Managed'
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="providerNamespace")
-    def provider_namespace(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the resource provider hosted within ProviderHub.
-        """
-        return pulumi.get(self, "provider_namespace")
-
-    @provider_namespace.setter
-    def provider_namespace(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "provider_namespace", value)
+        if provider_namespace is not None:
+            pulumi.set(__self__, "provider_namespace", provider_namespace)
 
     @_builtins.property
     @pulumi.getter
@@ -71,6 +60,18 @@ class ProviderRegistrationArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['ProviderRegistrationPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="providerNamespace")
+    def provider_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the resource provider hosted within ProviderHub.
+        """
+        return pulumi.get(self, "provider_namespace")
+
+    @provider_namespace.setter
+    def provider_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "provider_namespace", value)
 
 
 @pulumi.type_token("azure-native:providerhub:ProviderRegistration")
@@ -100,7 +101,7 @@ class ProviderRegistration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ProviderRegistrationArgs,
+                 args: Optional[ProviderRegistrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
@@ -141,8 +142,6 @@ class ProviderRegistration(pulumi.CustomResource):
                 kind = 'Managed'
             __props__.__dict__["kind"] = kind
             __props__.__dict__["properties"] = properties
-            if provider_namespace is None and not opts.urn:
-                raise TypeError("Missing required property 'provider_namespace'")
             __props__.__dict__["provider_namespace"] = provider_namespace
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

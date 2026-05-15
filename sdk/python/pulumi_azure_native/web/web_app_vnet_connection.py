@@ -22,28 +22,27 @@ class WebAppVnetConnectionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 vnet_name: pulumi.Input[_builtins.str],
                  cert_blob: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_servers: pulumi.Input[Optional[_builtins.str]] = None,
                  is_swift: pulumi.Input[Optional[_builtins.bool]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 vnet_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vnet_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppVnetConnection resource.
 
         :param pulumi.Input[_builtins.str] name: Name of the app.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] vnet_name: Name of an existing Virtual Network.
         :param pulumi.Input[_builtins.str] cert_blob: A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
                Point-To-Site VPN connection.
         :param pulumi.Input[_builtins.str] dns_servers: DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
         :param pulumi.Input[_builtins.bool] is_swift: Flag that is used to denote if this is VNET injection
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
+        :param pulumi.Input[_builtins.str] vnet_name: Name of an existing Virtual Network.
         :param pulumi.Input[_builtins.str] vnet_resource_id: The Virtual Network's resource ID.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vnet_name", vnet_name)
         if cert_blob is not None:
             pulumi.set(__self__, "cert_blob", cert_blob)
         if dns_servers is not None:
@@ -52,6 +51,8 @@ class WebAppVnetConnectionArgs:
             pulumi.set(__self__, "is_swift", is_swift)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if vnet_name is not None:
+            pulumi.set(__self__, "vnet_name", vnet_name)
         if vnet_resource_id is not None:
             pulumi.set(__self__, "vnet_resource_id", vnet_resource_id)
 
@@ -78,18 +79,6 @@ class WebAppVnetConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vnetName")
-    def vnet_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of an existing Virtual Network.
-        """
-        return pulumi.get(self, "vnet_name")
-
-    @vnet_name.setter
-    def vnet_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "vnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="certBlob")
@@ -139,6 +128,18 @@ class WebAppVnetConnectionArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vnetName")
+    def vnet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of an existing Virtual Network.
+        """
+        return pulumi.get(self, "vnet_name")
+
+    @vnet_name.setter
+    def vnet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vnet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vnetResourceId")
@@ -244,8 +245,6 @@ class WebAppVnetConnection(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if vnet_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vnet_name'")
             __props__.__dict__["vnet_name"] = vnet_name
             __props__.__dict__["vnet_resource_id"] = vnet_resource_id
             __props__.__dict__["azure_api_version"] = None

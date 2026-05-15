@@ -23,21 +23,22 @@ __all__ = ['ReplicationRecoveryPlanArgs', 'ReplicationRecoveryPlan']
 class ReplicationRecoveryPlanArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['CreateRecoveryPlanInputPropertiesArgs'],
-                 recovery_plan_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str]):
+                 resource_name: pulumi.Input[_builtins.str],
+                 recovery_plan_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationRecoveryPlan resource.
 
         :param pulumi.Input['CreateRecoveryPlanInputPropertiesArgs'] properties: Recovery plan creation properties.
-        :param pulumi.Input[_builtins.str] recovery_plan_name: Recovery plan name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input[_builtins.str] recovery_plan_name: Recovery plan name.
         """
         pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "recovery_plan_name", recovery_plan_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if recovery_plan_name is not None:
+            pulumi.set(__self__, "recovery_plan_name", recovery_plan_name)
 
     @_builtins.property
     @pulumi.getter
@@ -50,18 +51,6 @@ class ReplicationRecoveryPlanArgs:
     @properties.setter
     def properties(self, value: pulumi.Input['CreateRecoveryPlanInputPropertiesArgs']):
         pulumi.set(self, "properties", value)
-
-    @_builtins.property
-    @pulumi.getter(name="recoveryPlanName")
-    def recovery_plan_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Recovery plan name.
-        """
-        return pulumi.get(self, "recovery_plan_name")
-
-    @recovery_plan_name.setter
-    def recovery_plan_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "recovery_plan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -86,6 +75,18 @@ class ReplicationRecoveryPlanArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryPlanName")
+    def recovery_plan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Recovery plan name.
+        """
+        return pulumi.get(self, "recovery_plan_name")
+
+    @recovery_plan_name.setter
+    def recovery_plan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "recovery_plan_name", value)
 
 
 @pulumi.type_token("azure-native:recoveryservices:ReplicationRecoveryPlan")
@@ -159,8 +160,6 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
-            if recovery_plan_name is None and not opts.urn:
-                raise TypeError("Missing required property 'recovery_plan_name'")
             __props__.__dict__["recovery_plan_name"] = recovery_plan_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

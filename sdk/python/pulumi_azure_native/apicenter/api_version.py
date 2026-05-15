@@ -26,8 +26,8 @@ class ApiVersionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
-                 version_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 version_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiVersion resource.
 
@@ -36,16 +36,17 @@ class ApiVersionArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
         :param pulumi.Input[_builtins.str] title: API version title.
-        :param pulumi.Input[_builtins.str] version_name: The name of the API version.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] version_name: The name of the API version.
         """
         pulumi.set(__self__, "api_name", api_name)
         pulumi.set(__self__, "lifecycle_stage", lifecycle_stage)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "title", title)
-        pulumi.set(__self__, "version_name", version_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if version_name is not None:
+            pulumi.set(__self__, "version_name", version_name)
 
     @_builtins.property
     @pulumi.getter(name="apiName")
@@ -108,18 +109,6 @@ class ApiVersionArgs:
         pulumi.set(self, "title", value)
 
     @_builtins.property
-    @pulumi.getter(name="versionName")
-    def version_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the API version.
-        """
-        return pulumi.get(self, "version_name")
-
-    @version_name.setter
-    def version_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "version_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -130,6 +119,18 @@ class ApiVersionArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionName")
+    def version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the API version.
+        """
+        return pulumi.get(self, "version_name")
+
+    @version_name.setter
+    def version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_name", value)
 
 
 @pulumi.type_token("azure-native:apicenter:ApiVersion")
@@ -224,8 +225,6 @@ class ApiVersion(pulumi.CustomResource):
             if title is None and not opts.urn:
                 raise TypeError("Missing required property 'title'")
             __props__.__dict__["title"] = title
-            if version_name is None and not opts.urn:
-                raise TypeError("Missing required property 'version_name'")
             __props__.__dict__["version_name"] = version_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

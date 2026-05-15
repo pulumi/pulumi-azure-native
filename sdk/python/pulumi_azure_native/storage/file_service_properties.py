@@ -23,26 +23,27 @@ __all__ = ['FileServicePropertiesArgs', 'FileServiceProperties']
 class FileServicePropertiesArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 file_services_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  cors: pulumi.Input[Optional['CorsRulesArgs']] = None,
+                 file_services_name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_settings: pulumi.Input[Optional['ProtocolSettingsArgs']] = None,
                  share_delete_retention_policy: pulumi.Input[Optional['DeleteRetentionPolicyArgs']] = None):
         """
         The set of arguments for constructing a FileServiceProperties resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[_builtins.str] file_services_name: The name of the file Service within the specified storage account. File Service Name must be "default"
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input['CorsRulesArgs'] cors: Specifies CORS rules for the File service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the File service.
+        :param pulumi.Input[_builtins.str] file_services_name: The name of the file Service within the specified storage account. File Service Name must be "default"
         :param pulumi.Input['ProtocolSettingsArgs'] protocol_settings: Protocol settings for file service
         :param pulumi.Input['DeleteRetentionPolicyArgs'] share_delete_retention_policy: The file service properties for share soft delete.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "file_services_name", file_services_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cors is not None:
             pulumi.set(__self__, "cors", cors)
+        if file_services_name is not None:
+            pulumi.set(__self__, "file_services_name", file_services_name)
         if protocol_settings is not None:
             pulumi.set(__self__, "protocol_settings", protocol_settings)
         if share_delete_retention_policy is not None:
@@ -59,18 +60,6 @@ class FileServicePropertiesArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fileServicesName")
-    def file_services_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the file Service within the specified storage account. File Service Name must be "default"
-        """
-        return pulumi.get(self, "file_services_name")
-
-    @file_services_name.setter
-    def file_services_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "file_services_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -95,6 +84,18 @@ class FileServicePropertiesArgs:
     @cors.setter
     def cors(self, value: pulumi.Input[Optional['CorsRulesArgs']]):
         pulumi.set(self, "cors", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileServicesName")
+    def file_services_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the file Service within the specified storage account. File Service Name must be "default"
+        """
+        return pulumi.get(self, "file_services_name")
+
+    @file_services_name.setter
+    def file_services_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "file_services_name", value)
 
     @_builtins.property
     @pulumi.getter(name="protocolSettings")
@@ -199,8 +200,6 @@ class FileServiceProperties(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["cors"] = cors
-            if file_services_name is None and not opts.urn:
-                raise TypeError("Missing required property 'file_services_name'")
             __props__.__dict__["file_services_name"] = file_services_name
             __props__.__dict__["protocol_settings"] = protocol_settings
             if resource_group_name is None and not opts.urn:

@@ -20,7 +20,6 @@ __all__ = ['StaticSiteBuildDatabaseConnectionArgs', 'StaticSiteBuildDatabaseConn
 @pulumi.input_type
 class StaticSiteBuildDatabaseConnectionArgs:
     def __init__(__self__, *,
-                 database_connection_name: pulumi.Input[_builtins.str],
                  environment_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  region: pulumi.Input[_builtins.str],
@@ -28,11 +27,11 @@ class StaticSiteBuildDatabaseConnectionArgs:
                  resource_id: pulumi.Input[_builtins.str],
                  connection_identity: pulumi.Input[Optional[_builtins.str]] = None,
                  connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StaticSiteBuildDatabaseConnection resource.
 
-        :param pulumi.Input[_builtins.str] database_connection_name: Name of the database connection.
         :param pulumi.Input[_builtins.str] environment_name: The stage site identifier.
         :param pulumi.Input[_builtins.str] name: Name of the static site
         :param pulumi.Input[_builtins.str] region: The region of the database resource.
@@ -40,9 +39,9 @@ class StaticSiteBuildDatabaseConnectionArgs:
         :param pulumi.Input[_builtins.str] resource_id: The resource id of the database.
         :param pulumi.Input[_builtins.str] connection_identity: If present, the identity is used in conjunction with connection string to connect to the database. Use of the system-assigned managed identity is indicated with the string 'SystemAssigned', while use of a user-assigned managed identity is indicated with the resource id of the managed identity resource.
         :param pulumi.Input[_builtins.str] connection_string: The connection string to use to connect to the database.
+        :param pulumi.Input[_builtins.str] database_connection_name: Name of the database connection.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         """
-        pulumi.set(__self__, "database_connection_name", database_connection_name)
         pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "region", region)
@@ -52,20 +51,10 @@ class StaticSiteBuildDatabaseConnectionArgs:
             pulumi.set(__self__, "connection_identity", connection_identity)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if database_connection_name is not None:
+            pulumi.set(__self__, "database_connection_name", database_connection_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
-
-    @_builtins.property
-    @pulumi.getter(name="databaseConnectionName")
-    def database_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the database connection.
-        """
-        return pulumi.get(self, "database_connection_name")
-
-    @database_connection_name.setter
-    def database_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "database_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
@@ -150,6 +139,18 @@ class StaticSiteBuildDatabaseConnectionArgs:
     @connection_string.setter
     def connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "connection_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseConnectionName")
+    def database_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the database connection.
+        """
+        return pulumi.get(self, "database_connection_name")
+
+    @database_connection_name.setter
+    def database_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -249,8 +250,6 @@ class StaticSiteBuildDatabaseConnection(pulumi.CustomResource):
 
             __props__.__dict__["connection_identity"] = connection_identity
             __props__.__dict__["connection_string"] = connection_string
-            if database_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_connection_name'")
             __props__.__dict__["database_connection_name"] = database_connection_name
             if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")

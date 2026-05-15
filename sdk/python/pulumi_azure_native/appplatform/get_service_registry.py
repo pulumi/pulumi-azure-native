@@ -142,7 +142,7 @@ def get_service_registry(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_service_registry_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                service_registry_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                service_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceRegistryResult]:
     """
     Get the Service Registry and its properties.

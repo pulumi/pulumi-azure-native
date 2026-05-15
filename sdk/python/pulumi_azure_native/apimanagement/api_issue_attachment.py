@@ -20,33 +20,34 @@ __all__ = ['ApiIssueAttachmentArgs', 'ApiIssueAttachment']
 class ApiIssueAttachmentArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
-                 attachment_id: pulumi.Input[_builtins.str],
                  content: pulumi.Input[_builtins.str],
                  content_format: pulumi.Input[_builtins.str],
                  issue_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 title: pulumi.Input[_builtins.str]):
+                 title: pulumi.Input[_builtins.str],
+                 attachment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiIssueAttachment resource.
 
         :param pulumi.Input[_builtins.str] api_id: API identifier. Must be unique in the current API Management service instance.
-        :param pulumi.Input[_builtins.str] attachment_id: Attachment identifier within an Issue. Must be unique in the current Issue.
         :param pulumi.Input[_builtins.str] content: An HTTP link or Base64-encoded binary data.
         :param pulumi.Input[_builtins.str] content_format: Either 'link' if content is provided via an HTTP link or the MIME type of the Base64-encoded binary data provided in the 'content' property.
         :param pulumi.Input[_builtins.str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] title: Filename by which the binary data will be saved.
+        :param pulumi.Input[_builtins.str] attachment_id: Attachment identifier within an Issue. Must be unique in the current Issue.
         """
         pulumi.set(__self__, "api_id", api_id)
-        pulumi.set(__self__, "attachment_id", attachment_id)
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "content_format", content_format)
         pulumi.set(__self__, "issue_id", issue_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "title", title)
+        if attachment_id is not None:
+            pulumi.set(__self__, "attachment_id", attachment_id)
 
     @_builtins.property
     @pulumi.getter(name="apiId")
@@ -59,18 +60,6 @@ class ApiIssueAttachmentArgs:
     @api_id.setter
     def api_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "api_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="attachmentId")
-    def attachment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Attachment identifier within an Issue. Must be unique in the current Issue.
-        """
-        return pulumi.get(self, "attachment_id")
-
-    @attachment_id.setter
-    def attachment_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "attachment_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -143,6 +132,18 @@ class ApiIssueAttachmentArgs:
     @title.setter
     def title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="attachmentId")
+    def attachment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Attachment identifier within an Issue. Must be unique in the current Issue.
+        """
+        return pulumi.get(self, "attachment_id")
+
+    @attachment_id.setter
+    def attachment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "attachment_id", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:ApiIssueAttachment")
@@ -228,8 +229,6 @@ class ApiIssueAttachment(pulumi.CustomResource):
             if api_id is None and not opts.urn:
                 raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
-            if attachment_id is None and not opts.urn:
-                raise TypeError("Missing required property 'attachment_id'")
             __props__.__dict__["attachment_id"] = attachment_id
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")

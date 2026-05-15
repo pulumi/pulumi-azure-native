@@ -22,9 +22,9 @@ __all__ = ['ApplicationArgs', 'Application']
 class ApplicationArgs:
     def __init__(__self__, *,
                  application_group_name: pulumi.Input[_builtins.str],
-                 application_name: pulumi.Input[_builtins.str],
                  command_line_setting: pulumi.Input[Union[_builtins.str, 'CommandLineSetting']],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  application_type: pulumi.Input[Optional[Union[_builtins.str, 'RemoteApplicationType']]] = None,
                  command_line_arguments: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,9 +39,9 @@ class ApplicationArgs:
         The set of arguments for constructing a Application resource.
 
         :param pulumi.Input[_builtins.str] application_group_name: The name of the application group
-        :param pulumi.Input[_builtins.str] application_name: The name of the application within the specified application group
         :param pulumi.Input[Union[_builtins.str, 'CommandLineSetting']] command_line_setting: Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] application_name: The name of the application within the specified application group
         :param pulumi.Input[Union[_builtins.str, 'RemoteApplicationType']] application_type: Resource Type of Application.
         :param pulumi.Input[_builtins.str] command_line_arguments: Command Line Arguments for Application.
         :param pulumi.Input[_builtins.str] description: Description of Application.
@@ -54,9 +54,10 @@ class ApplicationArgs:
         :param pulumi.Input[_builtins.bool] show_in_portal: Specifies whether to show the RemoteApp program in the RD Web Access server.
         """
         pulumi.set(__self__, "application_group_name", application_group_name)
-        pulumi.set(__self__, "application_name", application_name)
         pulumi.set(__self__, "command_line_setting", command_line_setting)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if application_name is not None:
+            pulumi.set(__self__, "application_name", application_name)
         if application_type is not None:
             pulumi.set(__self__, "application_type", application_type)
         if command_line_arguments is not None:
@@ -91,18 +92,6 @@ class ApplicationArgs:
         pulumi.set(self, "application_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="applicationName")
-    def application_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the application within the specified application group
-        """
-        return pulumi.get(self, "application_name")
-
-    @application_name.setter
-    def application_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "application_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="commandLineSetting")
     def command_line_setting(self) -> pulumi.Input[Union[_builtins.str, 'CommandLineSetting']]:
         """
@@ -125,6 +114,18 @@ class ApplicationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the application within the specified application group
+        """
+        return pulumi.get(self, "application_name")
+
+    @application_name.setter
+    def application_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "application_name", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationType")
@@ -348,8 +349,6 @@ class Application(pulumi.CustomResource):
             if application_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_group_name'")
             __props__.__dict__["application_group_name"] = application_group_name
-            if application_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
             __props__.__dict__["application_type"] = application_type
             __props__.__dict__["command_line_arguments"] = command_line_arguments

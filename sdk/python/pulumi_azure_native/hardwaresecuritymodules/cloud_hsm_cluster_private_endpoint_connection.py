@@ -23,21 +23,22 @@ __all__ = ['CloudHsmClusterPrivateEndpointConnectionArgs', 'CloudHsmClusterPriva
 class CloudHsmClusterPrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  cloud_hsm_cluster_name: pulumi.Input[_builtins.str],
-                 pe_connection_name: pulumi.Input[_builtins.str],
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 pe_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CloudHsmClusterPrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] cloud_hsm_cluster_name: The name of the Cloud HSM Cluster within the specified resource group. Cloud HSM Cluster names must be between 3 and 23 characters in length.
-        :param pulumi.Input[_builtins.str] pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] pe_connection_name: Name of the private endpoint connection associated with the Cloud HSM Cluster.
         """
         pulumi.set(__self__, "cloud_hsm_cluster_name", cloud_hsm_cluster_name)
-        pulumi.set(__self__, "pe_connection_name", pe_connection_name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if pe_connection_name is not None:
+            pulumi.set(__self__, "pe_connection_name", pe_connection_name)
 
     @_builtins.property
     @pulumi.getter(name="cloudHsmClusterName")
@@ -50,18 +51,6 @@ class CloudHsmClusterPrivateEndpointConnectionArgs:
     @cloud_hsm_cluster_name.setter
     def cloud_hsm_cluster_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cloud_hsm_cluster_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="peConnectionName")
-    def pe_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the private endpoint connection associated with the Cloud HSM Cluster.
-        """
-        return pulumi.get(self, "pe_connection_name")
-
-    @pe_connection_name.setter
-    def pe_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "pe_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -86,6 +75,18 @@ class CloudHsmClusterPrivateEndpointConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peConnectionName")
+    def pe_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the private endpoint connection associated with the Cloud HSM Cluster.
+        """
+        return pulumi.get(self, "pe_connection_name")
+
+    @pe_connection_name.setter
+    def pe_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pe_connection_name", value)
 
 
 @pulumi.type_token("azure-native:hardwaresecuritymodules:CloudHsmClusterPrivateEndpointConnection")
@@ -159,8 +160,6 @@ class CloudHsmClusterPrivateEndpointConnection(pulumi.CustomResource):
             if cloud_hsm_cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cloud_hsm_cluster_name'")
             __props__.__dict__["cloud_hsm_cluster_name"] = cloud_hsm_cluster_name
-            if pe_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pe_connection_name'")
             __props__.__dict__["pe_connection_name"] = pe_connection_name
             if private_link_service_connection_state is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")

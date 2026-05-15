@@ -23,25 +23,24 @@ __all__ = ['SecurityStandardArgs', 'SecurityStandard']
 class SecurityStandardArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
-                 standard_id: pulumi.Input[_builtins.str],
                  assessments: pulumi.Input[Optional[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]]] = None,
                  cloud_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_set_definition_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 policy_set_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 standard_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityStandard resource.
 
         :param pulumi.Input[_builtins.str] scope: The scope of the security standard. Valid scopes are: management group (format: 'providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: 'subscriptions/{subscriptionId}'), or security connector (format: 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/securityConnectors/{securityConnectorName})'
-        :param pulumi.Input[_builtins.str] standard_id: The Security Standard key - unique key for the standard type
         :param pulumi.Input[Sequence[pulumi.Input['PartialAssessmentPropertiesArgs']]] assessments: List of assessment keys to apply to standard scope.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'StandardSupportedCloud']]]] cloud_providers: List of all standard supported clouds.
         :param pulumi.Input[_builtins.str] description: Description of the standard
         :param pulumi.Input[_builtins.str] display_name: Display name of the standard, equivalent to the standardId
         :param pulumi.Input[_builtins.str] policy_set_definition_id: The policy set definition id associated with the standard.
+        :param pulumi.Input[_builtins.str] standard_id: The Security Standard key - unique key for the standard type
         """
         pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "standard_id", standard_id)
         if assessments is not None:
             pulumi.set(__self__, "assessments", assessments)
         if cloud_providers is not None:
@@ -52,6 +51,8 @@ class SecurityStandardArgs:
             pulumi.set(__self__, "display_name", display_name)
         if policy_set_definition_id is not None:
             pulumi.set(__self__, "policy_set_definition_id", policy_set_definition_id)
+        if standard_id is not None:
+            pulumi.set(__self__, "standard_id", standard_id)
 
     @_builtins.property
     @pulumi.getter
@@ -64,18 +65,6 @@ class SecurityStandardArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "scope", value)
-
-    @_builtins.property
-    @pulumi.getter(name="standardId")
-    def standard_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Security Standard key - unique key for the standard type
-        """
-        return pulumi.get(self, "standard_id")
-
-    @standard_id.setter
-    def standard_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "standard_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -136,6 +125,18 @@ class SecurityStandardArgs:
     @policy_set_definition_id.setter
     def policy_set_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_set_definition_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="standardId")
+    def standard_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Security Standard key - unique key for the standard type
+        """
+        return pulumi.get(self, "standard_id")
+
+    @standard_id.setter
+    def standard_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "standard_id", value)
 
 
 @pulumi.type_token("azure-native:security:SecurityStandard")
@@ -219,8 +220,6 @@ class SecurityStandard(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
-            if standard_id is None and not opts.urn:
-                raise TypeError("Missing required property 'standard_id'")
             __props__.__dict__["standard_id"] = standard_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["metadata"] = None

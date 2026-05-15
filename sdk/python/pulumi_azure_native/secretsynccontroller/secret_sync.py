@@ -26,11 +26,11 @@ class SecretSyncArgs:
                  object_secret_mapping: pulumi.Input[Sequence[pulumi.Input['KubernetesSecretObjectMappingArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  secret_provider_class_name: pulumi.Input[_builtins.str],
-                 secret_sync_name: pulumi.Input[_builtins.str],
                  service_account_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
                  force_synchronization: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_sync_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SecretSync resource.
@@ -39,18 +39,17 @@ class SecretSyncArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KubernetesSecretObjectMappingArgs']]] object_secret_mapping: An array of SecretObjectData that maps secret data from the external secret provider to the Kubernetes secret. Each entry specifies the source secret in the external provider and the corresponding key in the Kubernetes secret.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] secret_provider_class_name: SecretProviderClassName specifies the name of the SecretProviderClass resource, which contains the information needed to access the cloud provider secret store.
-        :param pulumi.Input[_builtins.str] secret_sync_name: The name of the SecretSync
         :param pulumi.Input[_builtins.str] service_account_name: ServiceAccountName specifies the name of the service account used to access the cloud provider secret store. The audience field in the service account token must be passed as parameter in the controller configuration. The audience is used when requesting a token from the API server for the service account; the supported audiences are defined by each provider.
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input[_builtins.str] force_synchronization: ForceSynchronization can be used to force the secret synchronization. The secret synchronization is triggered by changing the value in this field. This field is not used to resolve synchronization conflicts.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] secret_sync_name: The name of the SecretSync
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "kubernetes_secret_type", kubernetes_secret_type)
         pulumi.set(__self__, "object_secret_mapping", object_secret_mapping)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "secret_provider_class_name", secret_provider_class_name)
-        pulumi.set(__self__, "secret_sync_name", secret_sync_name)
         pulumi.set(__self__, "service_account_name", service_account_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
@@ -58,6 +57,8 @@ class SecretSyncArgs:
             pulumi.set(__self__, "force_synchronization", force_synchronization)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if secret_sync_name is not None:
+            pulumi.set(__self__, "secret_sync_name", secret_sync_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -110,18 +111,6 @@ class SecretSyncArgs:
         pulumi.set(self, "secret_provider_class_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="secretSyncName")
-    def secret_sync_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the SecretSync
-        """
-        return pulumi.get(self, "secret_sync_name")
-
-    @secret_sync_name.setter
-    def secret_sync_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "secret_sync_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="serviceAccountName")
     def service_account_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -168,6 +157,18 @@ class SecretSyncArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretSyncName")
+    def secret_sync_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the SecretSync
+        """
+        return pulumi.get(self, "secret_sync_name")
+
+    @secret_sync_name.setter
+    def secret_sync_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_sync_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -279,8 +280,6 @@ class SecretSync(pulumi.CustomResource):
             if secret_provider_class_name is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_provider_class_name'")
             __props__.__dict__["secret_provider_class_name"] = secret_provider_class_name
-            if secret_sync_name is None and not opts.urn:
-                raise TypeError("Missing required property 'secret_sync_name'")
             __props__.__dict__["secret_sync_name"] = secret_sync_name
             if service_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_account_name'")

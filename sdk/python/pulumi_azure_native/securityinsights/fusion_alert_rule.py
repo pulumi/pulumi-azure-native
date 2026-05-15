@@ -24,8 +24,8 @@ class FusionAlertRuleArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_id: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FusionAlertRule resource.
 
@@ -34,15 +34,16 @@ class FusionAlertRuleArgs:
         :param pulumi.Input[_builtins.str] kind: The kind of the alert rule
                Expected value is 'Fusion'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] rule_id: Alert rule ID
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] rule_id: Alert rule ID
         """
         pulumi.set(__self__, "alert_rule_template_name", alert_rule_template_name)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "kind", 'Fusion')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_id", rule_id)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
 
     @_builtins.property
     @pulumi.getter(name="alertRuleTemplateName")
@@ -94,18 +95,6 @@ class FusionAlertRuleArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="ruleId")
-    def rule_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Alert rule ID
-        """
-        return pulumi.get(self, "rule_id")
-
-    @rule_id.setter
-    def rule_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rule_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -116,6 +105,18 @@ class FusionAlertRuleArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Alert rule ID
+        """
+        return pulumi.get(self, "rule_id")
+
+    @rule_id.setter
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_id", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:FusionAlertRule")
@@ -201,8 +202,6 @@ class FusionAlertRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if rule_id is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_id'")
             __props__.__dict__["rule_id"] = rule_id
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

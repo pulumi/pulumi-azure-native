@@ -23,7 +23,6 @@ __all__ = ['PackageArgs', 'Package']
 class PackageArgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[_builtins.str],
-                 package_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  test_base_account_name: pulumi.Input[_builtins.str],
                  version: pulumi.Input[_builtins.str],
@@ -34,6 +33,7 @@ class PackageArgs:
                  inplace_upgrade_os_pair: pulumi.Input[Optional['InplaceUpgradeOSInfoArgs']] = None,
                  intune_enrollment_metadata: pulumi.Input[Optional['IntuneEnrollmentMetadataArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_os_list: pulumi.Input[Optional[Sequence[pulumi.Input['TargetOSInfoArgs']]]] = None,
                  tests: pulumi.Input[Optional[Sequence[pulumi.Input['TestArgs']]]] = None):
@@ -41,7 +41,6 @@ class PackageArgs:
         The set of arguments for constructing a Package resource.
 
         :param pulumi.Input[_builtins.str] application_name: Application name
-        :param pulumi.Input[_builtins.str] package_name: The resource name of the Test Base Package.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input[_builtins.str] version: Application version
@@ -52,12 +51,12 @@ class PackageArgs:
         :param pulumi.Input['InplaceUpgradeOSInfoArgs'] inplace_upgrade_os_pair: Specifies the baseline os and target os for inplace upgrade.
         :param pulumi.Input['IntuneEnrollmentMetadataArgs'] intune_enrollment_metadata: The metadata of Intune enrollment.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] package_name: The resource name of the Test Base Package.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input['TargetOSInfoArgs']]] target_os_list: Specifies the target OSs of specific OS Update types.
         :param pulumi.Input[Sequence[pulumi.Input['TestArgs']]] tests: The detailed test information.
         """
         pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "package_name", package_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "test_base_account_name", test_base_account_name)
         pulumi.set(__self__, "version", version)
@@ -75,6 +74,8 @@ class PackageArgs:
             pulumi.set(__self__, "intune_enrollment_metadata", intune_enrollment_metadata)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if package_name is not None:
+            pulumi.set(__self__, "package_name", package_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_os_list is not None:
@@ -93,18 +94,6 @@ class PackageArgs:
     @application_name.setter
     def application_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "application_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="packageName")
-    def package_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The resource name of the Test Base Package.
-        """
-        return pulumi.get(self, "package_name")
-
-    @package_name.setter
-    def package_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "package_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -225,6 +214,18 @@ class PackageArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="packageName")
+    def package_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource name of the Test Base Package.
+        """
+        return pulumi.get(self, "package_name")
+
+    @package_name.setter
+    def package_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "package_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -374,8 +375,6 @@ class Package(pulumi.CustomResource):
             __props__.__dict__["inplace_upgrade_os_pair"] = inplace_upgrade_os_pair
             __props__.__dict__["intune_enrollment_metadata"] = intune_enrollment_metadata
             __props__.__dict__["location"] = location
-            if package_name is None and not opts.urn:
-                raise TypeError("Missing required property 'package_name'")
             __props__.__dict__["package_name"] = package_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

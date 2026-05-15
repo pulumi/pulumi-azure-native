@@ -22,7 +22,7 @@ __all__ = ['ConfigurationAssignmentsForSubscriptionArgs', 'ConfigurationAssignme
 @pulumi.input_type
 class ConfigurationAssignmentsForSubscriptionArgs:
     def __init__(__self__, *,
-                 configuration_assignment_name: pulumi.Input[_builtins.str],
+                 configuration_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  filter: pulumi.Input[Optional['ConfigurationAssignmentFilterPropertiesArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,7 +36,8 @@ class ConfigurationAssignmentsForSubscriptionArgs:
         :param pulumi.Input[_builtins.str] maintenance_configuration_id: The maintenance configuration Id
         :param pulumi.Input[_builtins.str] resource_id: The unique resourceId
         """
-        pulumi.set(__self__, "configuration_assignment_name", configuration_assignment_name)
+        if configuration_assignment_name is not None:
+            pulumi.set(__self__, "configuration_assignment_name", configuration_assignment_name)
         if filter is not None:
             pulumi.set(__self__, "filter", filter)
         if location is not None:
@@ -48,14 +49,14 @@ class ConfigurationAssignmentsForSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationAssignmentName")
-    def configuration_assignment_name(self) -> pulumi.Input[_builtins.str]:
+    def configuration_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the ConfigurationAssignment
         """
         return pulumi.get(self, "configuration_assignment_name")
 
     @configuration_assignment_name.setter
-    def configuration_assignment_name(self, value: pulumi.Input[_builtins.str]):
+    def configuration_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_assignment_name", value)
 
     @_builtins.property
@@ -139,7 +140,7 @@ class ConfigurationAssignmentsForSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: ConfigurationAssignmentsForSubscriptionArgs,
+                 args: Optional[ConfigurationAssignmentsForSubscriptionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration Assignment
@@ -178,8 +179,6 @@ class ConfigurationAssignmentsForSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationAssignmentsForSubscriptionArgs.__new__(ConfigurationAssignmentsForSubscriptionArgs)
 
-            if configuration_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_assignment_name'")
             __props__.__dict__["configuration_assignment_name"] = configuration_assignment_name
             __props__.__dict__["filter"] = filter
             __props__.__dict__["location"] = location

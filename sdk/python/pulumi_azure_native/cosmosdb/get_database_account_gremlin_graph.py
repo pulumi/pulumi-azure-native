@@ -249,7 +249,7 @@ def get_database_account_gremlin_graph(account_name: Optional[_builtins.str] = N
         unique_key_policy=pulumi.get(__ret__, 'unique_key_policy'))
 def get_database_account_gremlin_graph_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              graph_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              graph_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAccountGremlinGraphResult]:
     """

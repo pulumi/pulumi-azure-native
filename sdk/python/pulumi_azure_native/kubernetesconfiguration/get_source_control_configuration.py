@@ -306,7 +306,7 @@ def get_source_control_configuration_output(cluster_name: pulumi.Input[Optional[
                                             cluster_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             cluster_rp: pulumi.Input[Optional[_builtins.str]] = None,
                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                            source_control_configuration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            source_control_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlConfigurationResult]:
     """
     Gets details of the Source Control Configuration.

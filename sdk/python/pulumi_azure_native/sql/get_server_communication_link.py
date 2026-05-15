@@ -163,7 +163,7 @@ def get_server_communication_link(communication_link_name: Optional[_builtins.st
         partner_server=pulumi.get(__ret__, 'partner_server'),
         state=pulumi.get(__ret__, 'state'),
         type=pulumi.get(__ret__, 'type'))
-def get_server_communication_link_output(communication_link_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_server_communication_link_output(communication_link_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerCommunicationLinkResult]:

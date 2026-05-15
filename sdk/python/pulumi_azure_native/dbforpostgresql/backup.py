@@ -20,31 +20,20 @@ __all__ = ['BackupInitArgs', 'Backup']
 @pulumi.input_type
 class BackupInitArgs:
     def __init__(__self__, *,
-                 backup_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 server_name: pulumi.Input[_builtins.str]):
+                 server_name: pulumi.Input[_builtins.str],
+                 backup_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Backup resource.
 
-        :param pulumi.Input[_builtins.str] backup_name: Name of the backup.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
+        :param pulumi.Input[_builtins.str] backup_name: Name of the backup.
         """
-        pulumi.set(__self__, "backup_name", backup_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
-
-    @_builtins.property
-    @pulumi.getter(name="backupName")
-    def backup_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the backup.
-        """
-        return pulumi.get(self, "backup_name")
-
-    @backup_name.setter
-    def backup_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "backup_name", value)
+        if backup_name is not None:
+            pulumi.set(__self__, "backup_name", backup_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -69,6 +58,18 @@ class BackupInitArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backupName")
+    def backup_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the backup.
+        """
+        return pulumi.get(self, "backup_name")
+
+    @backup_name.setter
+    def backup_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "backup_name", value)
 
 
 @pulumi.type_token("azure-native:dbforpostgresql:Backup")
@@ -136,8 +137,6 @@ class Backup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackupInitArgs.__new__(BackupInitArgs)
 
-            if backup_name is None and not opts.urn:
-                raise TypeError("Missing required property 'backup_name'")
             __props__.__dict__["backup_name"] = backup_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

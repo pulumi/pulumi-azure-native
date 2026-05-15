@@ -22,52 +22,41 @@ __all__ = ['ConsoleArgs', 'Console']
 @pulumi.input_type
 class ConsoleArgs:
     def __init__(__self__, *,
-                 console_name: pulumi.Input[_builtins.str],
                  enabled: pulumi.Input[Union[_builtins.str, 'ConsoleEnabled']],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  ssh_public_key: pulumi.Input['SshPublicKeyArgs'],
                  virtual_machine_name: pulumi.Input[_builtins.str],
+                 console_name: pulumi.Input[Optional[_builtins.str]] = None,
                  expiration: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Console resource.
 
-        :param pulumi.Input[_builtins.str] console_name: The name of the virtual machine console.
         :param pulumi.Input[Union[_builtins.str, 'ConsoleEnabled']] enabled: The indicator of whether the console access is enabled.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster manager associated with the cluster this virtual machine is created on.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SshPublicKeyArgs'] ssh_public_key: The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in.
         :param pulumi.Input[_builtins.str] virtual_machine_name: The name of the virtual machine.
+        :param pulumi.Input[_builtins.str] console_name: The name of the virtual machine console.
         :param pulumi.Input[_builtins.str] expiration: The date and time after which the key will be disallowed access.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "console_name", console_name)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "ssh_public_key", ssh_public_key)
         pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
+        if console_name is not None:
+            pulumi.set(__self__, "console_name", console_name)
         if expiration is not None:
             pulumi.set(__self__, "expiration", expiration)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="consoleName")
-    def console_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the virtual machine console.
-        """
-        return pulumi.get(self, "console_name")
-
-    @console_name.setter
-    def console_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "console_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -128,6 +117,18 @@ class ConsoleArgs:
     @virtual_machine_name.setter
     def virtual_machine_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "virtual_machine_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="consoleName")
+    def console_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the virtual machine console.
+        """
+        return pulumi.get(self, "console_name")
+
+    @console_name.setter
+    def console_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "console_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -245,8 +246,6 @@ class Console(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConsoleArgs.__new__(ConsoleArgs)
 
-            if console_name is None and not opts.urn:
-                raise TypeError("Missing required property 'console_name'")
             __props__.__dict__["console_name"] = console_name
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")

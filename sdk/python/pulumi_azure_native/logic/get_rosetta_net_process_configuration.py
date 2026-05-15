@@ -270,7 +270,7 @@ def get_rosetta_net_process_configuration(integration_account_name: Optional[_bu
         type=pulumi.get(__ret__, 'type'))
 def get_rosetta_net_process_configuration_output(integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 rosetta_net_process_configuration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                 rosetta_net_process_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRosettaNetProcessConfigurationResult]:
     """
     Gets an integration account RosettaNetProcessConfiguration.

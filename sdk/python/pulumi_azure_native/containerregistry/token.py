@@ -24,29 +24,30 @@ class TokenArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 token_name: pulumi.Input[_builtins.str],
                  credentials: pulumi.Input[Optional['TokenCredentialsPropertiesArgs']] = None,
                  scope_map_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 status: pulumi.Input[Optional[Union[_builtins.str, 'TokenStatus']]] = None):
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'TokenStatus']]] = None,
+                 token_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Token resource.
 
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] token_name: The name of the token.
         :param pulumi.Input['TokenCredentialsPropertiesArgs'] credentials: The credentials that can be used for authenticating the token.
         :param pulumi.Input[_builtins.str] scope_map_id: The resource ID of the scope map to which the token will be associated with.
         :param pulumi.Input[Union[_builtins.str, 'TokenStatus']] status: The status of the token example enabled or disabled.
+        :param pulumi.Input[_builtins.str] token_name: The name of the token.
         """
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "token_name", token_name)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if scope_map_id is not None:
             pulumi.set(__self__, "scope_map_id", scope_map_id)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if token_name is not None:
+            pulumi.set(__self__, "token_name", token_name)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
@@ -71,18 +72,6 @@ class TokenArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tokenName")
-    def token_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the token.
-        """
-        return pulumi.get(self, "token_name")
-
-    @token_name.setter
-    def token_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "token_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -119,6 +108,18 @@ class TokenArgs:
     @status.setter
     def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TokenStatus']]]):
         pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenName")
+    def token_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the token.
+        """
+        return pulumi.get(self, "token_name")
+
+    @token_name.setter
+    def token_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "token_name", value)
 
 
 @pulumi.type_token("azure-native:containerregistry:Token")
@@ -204,8 +205,6 @@ class Token(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scope_map_id"] = scope_map_id
             __props__.__dict__["status"] = status
-            if token_name is None and not opts.urn:
-                raise TypeError("Missing required property 'token_name'")
             __props__.__dict__["token_name"] = token_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_date"] = None

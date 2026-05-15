@@ -21,30 +21,31 @@ __all__ = ['WorkspaceGlobalSchemaArgs', 'WorkspaceGlobalSchema']
 class WorkspaceGlobalSchemaArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 schema_id: pulumi.Input[_builtins.str],
                  schema_type: pulumi.Input[Union[_builtins.str, 'SchemaType']],
                  service_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
                  value: Optional[Any] = None):
         """
         The set of arguments for constructing a WorkspaceGlobalSchema resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] schema_id: Schema id identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[Union[_builtins.str, 'SchemaType']] schema_type: Schema Type. Immutable.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] description: Free-form schema entity description.
+        :param pulumi.Input[_builtins.str] schema_id: Schema id identifier. Must be unique in the current API Management service instance.
         :param Any value: Json-encoded string for non json-based schema.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schema_id", schema_id)
         pulumi.set(__self__, "schema_type", schema_type)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -59,18 +60,6 @@ class WorkspaceGlobalSchemaArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="schemaId")
-    def schema_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Schema id identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "schema_id")
-
-    @schema_id.setter
-    def schema_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "schema_id", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaType")
@@ -119,6 +108,18 @@ class WorkspaceGlobalSchemaArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Schema id identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -214,8 +215,6 @@ class WorkspaceGlobalSchema(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schema_id is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_id'")
             __props__.__dict__["schema_id"] = schema_id
             if schema_type is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_type'")

@@ -22,40 +22,29 @@ __all__ = ['PipelineArgs', 'Pipeline']
 @pulumi.input_type
 class PipelineArgs:
     def __init__(__self__, *,
-                 pipeline_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['PipelinePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
 
-        :param pulumi.Input[_builtins.str] pipeline_name: The name for the pipeline that is to be requested.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] pipeline_name: The name for the pipeline that is to be requested.
         :param pulumi.Input['PipelinePropertiesArgs'] properties: Properties of pipeline
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "pipeline_name", pipeline_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if pipeline_name is not None:
+            pulumi.set(__self__, "pipeline_name", pipeline_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name for the pipeline that is to be requested.
-        """
-        return pulumi.get(self, "pipeline_name")
-
-    @pipeline_name.setter
-    def pipeline_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -80,6 +69,18 @@ class PipelineArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineName")
+    def pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name for the pipeline that is to be requested.
+        """
+        return pulumi.get(self, "pipeline_name")
+
+    @pipeline_name.setter
+    def pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,8 +179,6 @@ class Pipeline(pulumi.CustomResource):
             __props__ = PipelineArgs.__new__(PipelineArgs)
 
             __props__.__dict__["location"] = location
-            if pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pipeline_name'")
             __props__.__dict__["pipeline_name"] = pipeline_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

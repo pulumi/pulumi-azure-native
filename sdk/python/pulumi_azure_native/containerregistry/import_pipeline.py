@@ -22,50 +22,39 @@ __all__ = ['ImportPipelineArgs', 'ImportPipeline']
 @pulumi.input_type
 class ImportPipelineArgs:
     def __init__(__self__, *,
-                 import_pipeline_name: pulumi.Input[_builtins.str],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  source: pulumi.Input['ImportPipelineSourcePropertiesArgs'],
                  identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
+                 import_pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  options: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None,
                  trigger: pulumi.Input[Optional['PipelineTriggerPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ImportPipeline resource.
 
-        :param pulumi.Input[_builtins.str] import_pipeline_name: The name of the import pipeline.
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ImportPipelineSourcePropertiesArgs'] source: The source properties of the import pipeline.
         :param pulumi.Input['IdentityPropertiesArgs'] identity: The identity of the import pipeline.
+        :param pulumi.Input[_builtins.str] import_pipeline_name: The name of the import pipeline.
         :param pulumi.Input[_builtins.str] location: The location of the import pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]] options: The list of all options configured for the pipeline.
         :param pulumi.Input['PipelineTriggerPropertiesArgs'] trigger: The properties that describe the trigger of the import pipeline.
         """
-        pulumi.set(__self__, "import_pipeline_name", import_pipeline_name)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "source", source)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if import_pipeline_name is not None:
+            pulumi.set(__self__, "import_pipeline_name", import_pipeline_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if options is not None:
             pulumi.set(__self__, "options", options)
         if trigger is not None:
             pulumi.set(__self__, "trigger", trigger)
-
-    @_builtins.property
-    @pulumi.getter(name="importPipelineName")
-    def import_pipeline_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the import pipeline.
-        """
-        return pulumi.get(self, "import_pipeline_name")
-
-    @import_pipeline_name.setter
-    def import_pipeline_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "import_pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
@@ -114,6 +103,18 @@ class ImportPipelineArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['IdentityPropertiesArgs']]):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="importPipelineName")
+    def import_pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the import pipeline.
+        """
+        return pulumi.get(self, "import_pipeline_name")
+
+    @import_pipeline_name.setter
+    def import_pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "import_pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -233,8 +234,6 @@ class ImportPipeline(pulumi.CustomResource):
             __props__ = ImportPipelineArgs.__new__(ImportPipelineArgs)
 
             __props__.__dict__["identity"] = identity
-            if import_pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'import_pipeline_name'")
             __props__.__dict__["import_pipeline_name"] = import_pipeline_name
             __props__.__dict__["location"] = location
             __props__.__dict__["options"] = options

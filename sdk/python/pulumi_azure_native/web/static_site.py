@@ -22,7 +22,6 @@ __all__ = ['StaticSiteArgs', 'StaticSite']
 @pulumi.input_type
 class StaticSiteArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allow_config_file_updates: pulumi.Input[Optional[_builtins.bool]] = None,
                  branch: pulumi.Input[Optional[_builtins.str]] = None,
@@ -31,6 +30,7 @@ class StaticSiteArgs:
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  repository_token: pulumi.Input[Optional[_builtins.str]] = None,
@@ -42,7 +42,6 @@ class StaticSiteArgs:
         """
         The set of arguments for constructing a StaticSite resource.
 
-        :param pulumi.Input[_builtins.str] name: Name of the static site to create or update.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.bool] allow_config_file_updates: <code>false</code> if config file is locked for this static web app; otherwise, <code>true</code>.
         :param pulumi.Input[_builtins.str] branch: The target branch in the repository.
@@ -51,6 +50,7 @@ class StaticSiteArgs:
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[_builtins.str] location: Resource Location.
+        :param pulumi.Input[_builtins.str] name: Name of the static site to create or update.
         :param pulumi.Input[_builtins.str] provider: The provider that submitted the last deployment to the primary environment of the static site.
         :param pulumi.Input[_builtins.str] public_network_access: State indicating whether public traffic are allowed or not for a static web app. Allowed Values: 'Enabled', 'Disabled' or an empty string.
         :param pulumi.Input[_builtins.str] repository_token: A user's github repository token. This is used to setup the Github Actions workflow file and API secrets.
@@ -60,7 +60,6 @@ class StaticSiteArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['StaticSiteTemplateOptionsArgs'] template_properties: Template options for generating a new repository.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_config_file_updates is not None:
             pulumi.set(__self__, "allow_config_file_updates", allow_config_file_updates)
@@ -76,6 +75,8 @@ class StaticSiteArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if provider is not None:
             pulumi.set(__self__, "provider", provider)
         if public_network_access is not None:
@@ -92,18 +93,6 @@ class StaticSiteArgs:
             pulumi.set(__self__, "tags", tags)
         if template_properties is not None:
             pulumi.set(__self__, "template_properties", template_properties)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the static site to create or update.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -200,6 +189,18 @@ class StaticSiteArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the static site to create or update.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -412,8 +413,6 @@ class StaticSite(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["provider"] = provider
             __props__.__dict__["public_network_access"] = public_network_access

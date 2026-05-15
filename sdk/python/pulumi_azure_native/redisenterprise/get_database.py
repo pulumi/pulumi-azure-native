@@ -284,7 +284,7 @@ def get_database(cluster_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_database_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        database_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        database_name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """

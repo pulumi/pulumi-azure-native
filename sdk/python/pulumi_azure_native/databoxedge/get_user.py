@@ -167,7 +167,7 @@ def get_user(device_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_type=pulumi.get(__ret__, 'user_type'))
 def get_user_output(device_name: pulumi.Input[Optional[_builtins.str]] = None,
-                    name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    name: pulumi.Input[Optional[_builtins.str]] = None,
                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """

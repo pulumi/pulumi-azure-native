@@ -139,7 +139,7 @@ def get_managed_network_peering_policy(managed_network_name: Optional[_builtins.
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
 def get_managed_network_peering_policy_output(managed_network_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                              managed_network_peering_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                              managed_network_peering_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedNetworkPeeringPolicyResult]:
     """

@@ -22,40 +22,29 @@ __all__ = ['DiagnosticArgs', 'Diagnostic']
 @pulumi.input_type
 class DiagnosticArgs:
     def __init__(__self__, *,
-                 diagnostic_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 diagnostic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Diagnostic resource.
 
-        :param pulumi.Input[_builtins.str] diagnostic_name: Name of Diagnostic.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] diagnostic_name: Name of Diagnostic.
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "diagnostic_name", diagnostic_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if diagnostic_name is not None:
+            pulumi.set(__self__, "diagnostic_name", diagnostic_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="diagnosticName")
-    def diagnostic_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of Diagnostic.
-        """
-        return pulumi.get(self, "diagnostic_name")
-
-    @diagnostic_name.setter
-    def diagnostic_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "diagnostic_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -68,6 +57,18 @@ class DiagnosticArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="diagnosticName")
+    def diagnostic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of Diagnostic.
+        """
+        return pulumi.get(self, "diagnostic_name")
+
+    @diagnostic_name.setter
+    def diagnostic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "diagnostic_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -177,8 +178,6 @@ class Diagnostic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DiagnosticArgs.__new__(DiagnosticArgs)
 
-            if diagnostic_name is None and not opts.urn:
-                raise TypeError("Missing required property 'diagnostic_name'")
             __props__.__dict__["diagnostic_name"] = diagnostic_name
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location

@@ -23,21 +23,22 @@ __all__ = ['PrivateEndpointConnectionArgs', 'PrivateEndpointConnection']
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 private_endpoint_connection_name: pulumi.Input[_builtins.str],
                  private_link_service_connection_state: pulumi.Input['PrivateLinkServiceConnectionStateArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
-        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The private link service connection state.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] private_endpoint_connection_name: The name of the private endpoint connection.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -50,18 +51,6 @@ class PrivateEndpointConnectionArgs:
     @cluster_name.setter
     def cluster_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the private endpoint connection.
-        """
-        return pulumi.get(self, "private_endpoint_connection_name")
-
-    @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -86,6 +75,18 @@ class PrivateEndpointConnectionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the private endpoint connection.
+        """
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
 
 
 @pulumi.type_token("azure-native:hdinsight:PrivateEndpointConnection")
@@ -159,8 +160,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if private_endpoint_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             if private_link_service_connection_state is None and not opts.urn:
                 raise TypeError("Missing required property 'private_link_service_connection_state'")

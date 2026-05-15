@@ -20,40 +20,29 @@ __all__ = ['PrivateLinkHubArgs', 'PrivateLinkHub']
 @pulumi.input_type
 class PrivateLinkHubArgs:
     def __init__(__self__, *,
-                 private_link_hub_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_link_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateLinkHub resource.
 
-        :param pulumi.Input[_builtins.str] private_link_hub_name: Name of the privateLinkHub
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] private_link_hub_name: Name of the privateLinkHub
         :param pulumi.Input[_builtins.str] provisioning_state: PrivateLinkHub provisioning state
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "private_link_hub_name", private_link_hub_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if private_link_hub_name is not None:
+            pulumi.set(__self__, "private_link_hub_name", private_link_hub_name)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="privateLinkHubName")
-    def private_link_hub_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the privateLinkHub
-        """
-        return pulumi.get(self, "private_link_hub_name")
-
-    @private_link_hub_name.setter
-    def private_link_hub_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "private_link_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -78,6 +67,18 @@ class PrivateLinkHubArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateLinkHubName")
+    def private_link_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the privateLinkHub
+        """
+        return pulumi.get(self, "private_link_hub_name")
+
+    @private_link_hub_name.setter
+    def private_link_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_link_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
@@ -176,8 +177,6 @@ class PrivateLinkHub(pulumi.CustomResource):
             __props__ = PrivateLinkHubArgs.__new__(PrivateLinkHubArgs)
 
             __props__.__dict__["location"] = location
-            if private_link_hub_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_link_hub_name'")
             __props__.__dict__["private_link_hub_name"] = private_link_hub_name
             __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:

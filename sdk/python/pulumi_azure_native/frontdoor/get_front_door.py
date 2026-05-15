@@ -319,7 +319,7 @@ def get_front_door(front_door_name: Optional[_builtins.str] = None,
         rules_engines=pulumi.get(__ret__, 'rules_engines'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_front_door_output(front_door_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_front_door_output(front_door_name: pulumi.Input[Optional[_builtins.str]] = None,
                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontDoorResult]:
     """

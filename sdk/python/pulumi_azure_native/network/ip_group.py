@@ -20,44 +20,33 @@ __all__ = ['IpGroupArgs', 'IpGroup']
 @pulumi.input_type
 class IpGroupArgs:
     def __init__(__self__, *,
-                 ip_groups_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 ip_groups_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IpGroup resource.
 
-        :param pulumi.Input[_builtins.str] ip_groups_name: The name of the ipGroups.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_addresses: IpAddresses/IpAddressPrefixes in the IpGroups resource.
+        :param pulumi.Input[_builtins.str] ip_groups_name: The name of the ipGroups.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "ip_groups_name", ip_groups_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
+        if ip_groups_name is not None:
+            pulumi.set(__self__, "ip_groups_name", ip_groups_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="ipGroupsName")
-    def ip_groups_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the ipGroups.
-        """
-        return pulumi.get(self, "ip_groups_name")
-
-    @ip_groups_name.setter
-    def ip_groups_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "ip_groups_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -94,6 +83,18 @@ class IpGroupArgs:
     @ip_addresses.setter
     def ip_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "ip_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipGroupsName")
+    def ip_groups_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the ipGroups.
+        """
+        return pulumi.get(self, "ip_groups_name")
+
+    @ip_groups_name.setter
+    def ip_groups_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ip_groups_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,8 +197,6 @@ class IpGroup(pulumi.CustomResource):
 
             __props__.__dict__["id"] = id
             __props__.__dict__["ip_addresses"] = ip_addresses
-            if ip_groups_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ip_groups_name'")
             __props__.__dict__["ip_groups_name"] = ip_groups_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

@@ -178,7 +178,7 @@ def get_fluid_relay_private_endpoint_connection(fluid_relay_server_name: Optiona
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_fluid_relay_private_endpoint_connection_output(fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                       private_endpoint_connection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                       private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                        resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFluidRelayPrivateEndpointConnectionResult]:
     """

@@ -22,40 +22,29 @@ __all__ = ['NodeCustomizationArgs', 'NodeCustomization']
 @pulumi.input_type
 class NodeCustomizationArgs:
     def __init__(__self__, *,
-                 node_customization_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 node_customization_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['NodeCustomizationPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NodeCustomization resource.
 
-        :param pulumi.Input[_builtins.str] node_customization_name: The name of the Node Customization resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] node_customization_name: The name of the Node Customization resource.
         :param pulumi.Input['NodeCustomizationPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "node_customization_name", node_customization_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if node_customization_name is not None:
+            pulumi.set(__self__, "node_customization_name", node_customization_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="nodeCustomizationName")
-    def node_customization_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Node Customization resource.
-        """
-        return pulumi.get(self, "node_customization_name")
-
-    @node_customization_name.setter
-    def node_customization_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "node_customization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -80,6 +69,18 @@ class NodeCustomizationArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeCustomizationName")
+    def node_customization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Node Customization resource.
+        """
+        return pulumi.get(self, "node_customization_name")
+
+    @node_customization_name.setter
+    def node_customization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "node_customization_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,8 +179,6 @@ class NodeCustomization(pulumi.CustomResource):
             __props__ = NodeCustomizationArgs.__new__(NodeCustomizationArgs)
 
             __props__.__dict__["location"] = location
-            if node_customization_name is None and not opts.urn:
-                raise TypeError("Missing required property 'node_customization_name'")
             __props__.__dict__["node_customization_name"] = node_customization_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

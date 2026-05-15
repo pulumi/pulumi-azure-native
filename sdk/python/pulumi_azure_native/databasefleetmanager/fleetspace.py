@@ -23,20 +23,21 @@ __all__ = ['FleetspaceArgs', 'Fleetspace']
 class FleetspaceArgs:
     def __init__(__self__, *,
                  fleet_name: pulumi.Input[_builtins.str],
-                 fleetspace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 fleetspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['FleetspacePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Fleetspace resource.
 
         :param pulumi.Input[_builtins.str] fleet_name: Name of the database fleet.
-        :param pulumi.Input[_builtins.str] fleetspace_name: Name of the fleetspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] fleetspace_name: Name of the fleetspace.
         :param pulumi.Input['FleetspacePropertiesArgs'] properties: A Fleetspace properties.
         """
         pulumi.set(__self__, "fleet_name", fleet_name)
-        pulumi.set(__self__, "fleetspace_name", fleetspace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if fleetspace_name is not None:
+            pulumi.set(__self__, "fleetspace_name", fleetspace_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -53,18 +54,6 @@ class FleetspaceArgs:
         pulumi.set(self, "fleet_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="fleetspaceName")
-    def fleetspace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the fleetspace.
-        """
-        return pulumi.get(self, "fleetspace_name")
-
-    @fleetspace_name.setter
-    def fleetspace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fleetspace_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -75,6 +64,18 @@ class FleetspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fleetspaceName")
+    def fleetspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the fleetspace.
+        """
+        return pulumi.get(self, "fleetspace_name")
+
+    @fleetspace_name.setter
+    def fleetspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fleetspace_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -156,8 +157,6 @@ class Fleetspace(pulumi.CustomResource):
             if fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_name'")
             __props__.__dict__["fleet_name"] = fleet_name
-            if fleetspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fleetspace_name'")
             __props__.__dict__["fleetspace_name"] = fleetspace_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

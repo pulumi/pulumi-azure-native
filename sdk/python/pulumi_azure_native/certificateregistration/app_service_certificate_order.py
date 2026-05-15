@@ -22,10 +22,10 @@ __all__ = ['AppServiceCertificateOrderArgs', 'AppServiceCertificateOrder']
 @pulumi.input_type
 class AppServiceCertificateOrderArgs:
     def __init__(__self__, *,
-                 certificate_order_name: pulumi.Input[_builtins.str],
                  product_type: pulumi.Input['CertificateProductType'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_renew: pulumi.Input[Optional[_builtins.bool]] = None,
+                 certificate_order_name: pulumi.Input[Optional[_builtins.str]] = None,
                  certificates: pulumi.Input[Optional[Mapping[str, pulumi.Input['AppServiceCertificateArgs']]]] = None,
                  csr: pulumi.Input[Optional[_builtins.str]] = None,
                  distinguished_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,10 +37,10 @@ class AppServiceCertificateOrderArgs:
         """
         The set of arguments for constructing a AppServiceCertificateOrder resource.
 
-        :param pulumi.Input[_builtins.str] certificate_order_name: Name of the certificate order.
         :param pulumi.Input['CertificateProductType'] product_type: Certificate product type.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.bool] auto_renew: <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
+        :param pulumi.Input[_builtins.str] certificate_order_name: Name of the certificate order.
         :param pulumi.Input[Mapping[str, pulumi.Input['AppServiceCertificateArgs']]] certificates: State of the Key Vault secret.
         :param pulumi.Input[_builtins.str] csr: Last CSR that was created for this order.
         :param pulumi.Input[_builtins.str] distinguished_name: Certificate distinguished name.
@@ -50,13 +50,14 @@ class AppServiceCertificateOrderArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.int] validity_in_years: Duration in years (must be 1).
         """
-        pulumi.set(__self__, "certificate_order_name", certificate_order_name)
         pulumi.set(__self__, "product_type", product_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_renew is None:
             auto_renew = True
         if auto_renew is not None:
             pulumi.set(__self__, "auto_renew", auto_renew)
+        if certificate_order_name is not None:
+            pulumi.set(__self__, "certificate_order_name", certificate_order_name)
         if certificates is not None:
             pulumi.set(__self__, "certificates", certificates)
         if csr is not None:
@@ -77,18 +78,6 @@ class AppServiceCertificateOrderArgs:
             validity_in_years = 1
         if validity_in_years is not None:
             pulumi.set(__self__, "validity_in_years", validity_in_years)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateOrderName")
-    def certificate_order_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the certificate order.
-        """
-        return pulumi.get(self, "certificate_order_name")
-
-    @certificate_order_name.setter
-    def certificate_order_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "certificate_order_name", value)
 
     @_builtins.property
     @pulumi.getter(name="productType")
@@ -125,6 +114,18 @@ class AppServiceCertificateOrderArgs:
     @auto_renew.setter
     def auto_renew(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_renew", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateOrderName")
+    def certificate_order_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the certificate order.
+        """
+        return pulumi.get(self, "certificate_order_name")
+
+    @certificate_order_name.setter
+    def certificate_order_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_order_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -318,8 +319,6 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
             if auto_renew is None:
                 auto_renew = True
             __props__.__dict__["auto_renew"] = auto_renew
-            if certificate_order_name is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_order_name'")
             __props__.__dict__["certificate_order_name"] = certificate_order_name
             __props__.__dict__["certificates"] = certificates
             __props__.__dict__["csr"] = csr

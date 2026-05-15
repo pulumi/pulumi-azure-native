@@ -22,10 +22,10 @@ __all__ = ['ActivityLogAlertArgs', 'ActivityLogAlert']
 class ActivityLogAlertArgs:
     def __init__(__self__, *,
                  actions: pulumi.Input['ActionListArgs'],
-                 activity_log_alert_name: pulumi.Input[_builtins.str],
                  condition: pulumi.Input['AlertRuleAllOfConditionArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 activity_log_alert_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,20 +34,21 @@ class ActivityLogAlertArgs:
         The set of arguments for constructing a ActivityLogAlert resource.
 
         :param pulumi.Input['ActionListArgs'] actions: The actions that will activate when the condition is met.
-        :param pulumi.Input[_builtins.str] activity_log_alert_name: The name of the Activity Log Alert rule.
         :param pulumi.Input['AlertRuleAllOfConditionArgs'] condition: The condition that will cause this alert to activate.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
+        :param pulumi.Input[_builtins.str] activity_log_alert_name: The name of the Activity Log Alert rule.
         :param pulumi.Input[_builtins.str] description: A description of this Activity Log Alert rule.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
         :param pulumi.Input[_builtins.str] location: The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
         """
         pulumi.set(__self__, "actions", actions)
-        pulumi.set(__self__, "activity_log_alert_name", activity_log_alert_name)
         pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scopes", scopes)
+        if activity_log_alert_name is not None:
+            pulumi.set(__self__, "activity_log_alert_name", activity_log_alert_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enabled is None:
@@ -72,18 +73,6 @@ class ActivityLogAlertArgs:
     @actions.setter
     def actions(self, value: pulumi.Input['ActionListArgs']):
         pulumi.set(self, "actions", value)
-
-    @_builtins.property
-    @pulumi.getter(name="activityLogAlertName")
-    def activity_log_alert_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Activity Log Alert rule.
-        """
-        return pulumi.get(self, "activity_log_alert_name")
-
-    @activity_log_alert_name.setter
-    def activity_log_alert_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "activity_log_alert_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -120,6 +109,18 @@ class ActivityLogAlertArgs:
     @scopes.setter
     def scopes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="activityLogAlertName")
+    def activity_log_alert_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Activity Log Alert rule.
+        """
+        return pulumi.get(self, "activity_log_alert_name")
+
+    @activity_log_alert_name.setter
+    def activity_log_alert_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "activity_log_alert_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -256,8 +257,6 @@ class ActivityLogAlert(pulumi.CustomResource):
             if actions is None and not opts.urn:
                 raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
-            if activity_log_alert_name is None and not opts.urn:
-                raise TypeError("Missing required property 'activity_log_alert_name'")
             __props__.__dict__["activity_log_alert_name"] = activity_log_alert_name
             if condition is None and not opts.urn:
                 raise TypeError("Missing required property 'condition'")

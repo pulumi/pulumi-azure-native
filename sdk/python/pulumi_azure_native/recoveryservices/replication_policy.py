@@ -22,35 +22,24 @@ __all__ = ['ReplicationPolicyArgs', 'ReplicationPolicy']
 @pulumi.input_type
 class ReplicationPolicyArgs:
     def __init__(__self__, *,
-                 policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
+                 policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['CreatePolicyInputPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ReplicationPolicy resource.
 
-        :param pulumi.Input[_builtins.str] policy_name: Replication policy name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input[_builtins.str] policy_name: Replication policy name.
         :param pulumi.Input['CreatePolicyInputPropertiesArgs'] properties: Policy creation properties.
         """
-        pulumi.set(__self__, "policy_name", policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if policy_name is not None:
+            pulumi.set(__self__, "policy_name", policy_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="policyName")
-    def policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Replication policy name.
-        """
-        return pulumi.get(self, "policy_name")
-
-    @policy_name.setter
-    def policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -75,6 +64,18 @@ class ReplicationPolicyArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Replication policy name.
+        """
+        return pulumi.get(self, "policy_name")
+
+    @policy_name.setter
+    def policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,8 +158,6 @@ class ReplicationPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationPolicyArgs.__new__(ReplicationPolicyArgs)
 
-            if policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_name'")
             __props__.__dict__["policy_name"] = policy_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

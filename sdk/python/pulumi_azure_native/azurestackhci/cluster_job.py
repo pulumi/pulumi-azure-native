@@ -23,20 +23,21 @@ __all__ = ['ClusterJobArgs', 'ClusterJob']
 class ClusterJobArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 jobs_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 jobs_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['HciConfigureCvmJobPropertiesArgs', 'HciConfigureSdnIntegrationJobPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a ClusterJob resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
-        :param pulumi.Input[_builtins.str] jobs_name: Name of ClusterJob
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] jobs_name: Name of ClusterJob
         :param pulumi.Input[Union['HciConfigureCvmJobPropertiesArgs', 'HciConfigureSdnIntegrationJobPropertiesArgs']] properties: The resource-specific properties for this resource.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "jobs_name", jobs_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if jobs_name is not None:
+            pulumi.set(__self__, "jobs_name", jobs_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -53,18 +54,6 @@ class ClusterJobArgs:
         pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="jobsName")
-    def jobs_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of ClusterJob
-        """
-        return pulumi.get(self, "jobs_name")
-
-    @jobs_name.setter
-    def jobs_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "jobs_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -75,6 +64,18 @@ class ClusterJobArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobsName")
+    def jobs_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of ClusterJob
+        """
+        return pulumi.get(self, "jobs_name")
+
+    @jobs_name.setter
+    def jobs_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "jobs_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -160,8 +161,6 @@ class ClusterJob(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if jobs_name is None and not opts.urn:
-                raise TypeError("Missing required property 'jobs_name'")
             __props__.__dict__["jobs_name"] = jobs_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

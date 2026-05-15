@@ -21,10 +21,10 @@ __all__ = ['NamespaceAuthorizationRuleArgs', 'NamespaceAuthorizationRule']
 @pulumi.input_type
 class NamespaceAuthorizationRuleArgs:
     def __init__(__self__, *,
-                 authorization_rule_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]],
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  primary_key: pulumi.Input[Optional[_builtins.str]] = None,
                  secondary_key: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,19 +32,20 @@ class NamespaceAuthorizationRuleArgs:
         """
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
 
-        :param pulumi.Input[_builtins.str] authorization_rule_name: Authorization Rule Name
         :param pulumi.Input[_builtins.str] namespace_name: Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]] rights: Gets or sets the rights associated with the rule.
+        :param pulumi.Input[_builtins.str] authorization_rule_name: Authorization Rule Name
         :param pulumi.Input[_builtins.str] primary_key: Gets a base64-encoded 256-bit primary key for signing and
                validating the SAS token.
         :param pulumi.Input[_builtins.str] secondary_key: Gets a base64-encoded 256-bit primary key for signing and
                validating the SAS token.
         """
-        pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rights", rights)
+        if authorization_rule_name is not None:
+            pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if primary_key is not None:
@@ -53,18 +54,6 @@ class NamespaceAuthorizationRuleArgs:
             pulumi.set(__self__, "secondary_key", secondary_key)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationRuleName")
-    def authorization_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Authorization Rule Name
-        """
-        return pulumi.get(self, "authorization_rule_name")
-
-    @authorization_rule_name.setter
-    def authorization_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "authorization_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="namespaceName")
@@ -101,6 +90,18 @@ class NamespaceAuthorizationRuleArgs:
     @rights.setter
     def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]):
         pulumi.set(self, "rights", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationRuleName")
+    def authorization_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Authorization Rule Name
+        """
+        return pulumi.get(self, "authorization_rule_name")
+
+    @authorization_rule_name.setter
+    def authorization_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorization_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -227,8 +228,6 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NamespaceAuthorizationRuleArgs.__new__(NamespaceAuthorizationRuleArgs)
 
-            if authorization_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'authorization_rule_name'")
             __props__.__dict__["authorization_rule_name"] = authorization_rule_name
             __props__.__dict__["location"] = location
             if namespace_name is None and not opts.urn:

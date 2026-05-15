@@ -181,7 +181,7 @@ def get_service_configuration(endpoint_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_service_configuration_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                                     service_configuration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     service_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceConfigurationResult]:
     """
     Gets the details about the service to the resource.

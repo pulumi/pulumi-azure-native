@@ -139,7 +139,7 @@ def get_dashboard_definition(dashboard_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_dashboard_definition_output(dashboard_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                    definition_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                    definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardDefinitionResult]:
     """

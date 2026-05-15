@@ -23,29 +23,28 @@ class VCenterArgs:
     def __init__(__self__, *,
                  fqdn: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 vcenter_name: pulumi.Input[_builtins.str],
                  credentials: pulumi.Input[Optional['VICredentialArgs']] = None,
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 vcenter_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VCenter resource.
 
         :param pulumi.Input[_builtins.str] fqdn: Gets or sets the FQDN/IPAddress of the vCenter.
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
-        :param pulumi.Input[_builtins.str] vcenter_name: Name of the vCenter.
         :param pulumi.Input['VICredentialArgs'] credentials: Username / Password Credentials to connect to vcenter.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location.
         :param pulumi.Input[_builtins.int] port: Gets or sets the port of the vCenter.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the Resource tags.
+        :param pulumi.Input[_builtins.str] vcenter_name: Name of the vCenter.
         """
         pulumi.set(__self__, "fqdn", fqdn)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vcenter_name", vcenter_name)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if extended_location is not None:
@@ -58,6 +57,8 @@ class VCenterArgs:
             pulumi.set(__self__, "port", port)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vcenter_name is not None:
+            pulumi.set(__self__, "vcenter_name", vcenter_name)
 
     @_builtins.property
     @pulumi.getter
@@ -82,18 +83,6 @@ class VCenterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vcenterName")
-    def vcenter_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the vCenter.
-        """
-        return pulumi.get(self, "vcenter_name")
-
-    @vcenter_name.setter
-    def vcenter_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "vcenter_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -166,6 +155,18 @@ class VCenterArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vcenterName")
+    def vcenter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the vCenter.
+        """
+        return pulumi.get(self, "vcenter_name")
+
+    @vcenter_name.setter
+    def vcenter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vcenter_name", value)
 
 
 @pulumi.type_token("azure-native:connectedvmwarevsphere:VCenter")
@@ -263,8 +264,6 @@ class VCenter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if vcenter_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vcenter_name'")
             __props__.__dict__["vcenter_name"] = vcenter_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["connection_status"] = None

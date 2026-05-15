@@ -23,22 +23,23 @@ __all__ = ['SolutionArgs', 'Solution']
 class SolutionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 solution_name: pulumi.Input[_builtins.str],
                  target_name: pulumi.Input[_builtins.str],
-                 extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None):
+                 extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
+                 solution_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Solution resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] solution_name: Name of the solution
         :param pulumi.Input[_builtins.str] target_name: Name of the target
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
+        :param pulumi.Input[_builtins.str] solution_name: Name of the solution
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "solution_name", solution_name)
         pulumi.set(__self__, "target_name", target_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
+        if solution_name is not None:
+            pulumi.set(__self__, "solution_name", solution_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -51,18 +52,6 @@ class SolutionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="solutionName")
-    def solution_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the solution
-        """
-        return pulumi.get(self, "solution_name")
-
-    @solution_name.setter
-    def solution_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "solution_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetName")
@@ -87,6 +76,18 @@ class SolutionArgs:
     @extended_location.setter
     def extended_location(self, value: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="solutionName")
+    def solution_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the solution
+        """
+        return pulumi.get(self, "solution_name")
+
+    @solution_name.setter
+    def solution_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "solution_name", value)
 
 
 @pulumi.type_token("azure-native:edge:Solution")
@@ -161,8 +162,6 @@ class Solution(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if solution_name is None and not opts.urn:
-                raise TypeError("Missing required property 'solution_name'")
             __props__.__dict__["solution_name"] = solution_name
             if target_name is None and not opts.urn:
                 raise TypeError("Missing required property 'target_name'")

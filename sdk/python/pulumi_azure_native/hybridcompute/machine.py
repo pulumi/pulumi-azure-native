@@ -22,7 +22,6 @@ __all__ = ['MachineArgs', 'Machine']
 @pulumi.input_type
 class MachineArgs:
     def __init__(__self__, *,
-                 machine_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  agent_upgrade: pulumi.Input[Optional['AgentUpgradeArgs']] = None,
                  client_public_key: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,6 +32,7 @@ class MachineArgs:
                  license_profile: pulumi.Input[Optional['LicenseProfileMachineInstanceViewArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  location_data: pulumi.Input[Optional['LocationDataArgs']] = None,
+                 machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  mssql_discovered: pulumi.Input[Optional[_builtins.str]] = None,
                  os_profile: pulumi.Input[Optional['OSProfileArgs']] = None,
                  os_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -44,7 +44,6 @@ class MachineArgs:
         """
         The set of arguments for constructing a Machine resource.
 
-        :param pulumi.Input[_builtins.str] machine_name: The name of the hybrid machine.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AgentUpgradeArgs'] agent_upgrade: The info of the machine w.r.t Agent Upgrade
         :param pulumi.Input[_builtins.str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
@@ -55,6 +54,7 @@ class MachineArgs:
         :param pulumi.Input['LicenseProfileMachineInstanceViewArgs'] license_profile: Specifies the License related properties for a machine.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['LocationDataArgs'] location_data: Metadata pertaining to the geographic location of the resource.
+        :param pulumi.Input[_builtins.str] machine_name: The name of the hybrid machine.
         :param pulumi.Input[_builtins.str] mssql_discovered: Specifies whether any MS SQL instance is discovered on the machine.
         :param pulumi.Input['OSProfileArgs'] os_profile: Specifies the operating system settings for the hybrid machine.
         :param pulumi.Input[_builtins.str] os_type: The type of Operating System (windows/linux).
@@ -64,7 +64,6 @@ class MachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] vm_id: Specifies the hybrid machine unique ID.
         """
-        pulumi.set(__self__, "machine_name", machine_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if agent_upgrade is not None:
             pulumi.set(__self__, "agent_upgrade", agent_upgrade)
@@ -84,6 +83,8 @@ class MachineArgs:
             pulumi.set(__self__, "location", location)
         if location_data is not None:
             pulumi.set(__self__, "location_data", location_data)
+        if machine_name is not None:
+            pulumi.set(__self__, "machine_name", machine_name)
         if mssql_discovered is not None:
             pulumi.set(__self__, "mssql_discovered", mssql_discovered)
         if os_profile is not None:
@@ -100,18 +101,6 @@ class MachineArgs:
             pulumi.set(__self__, "tags", tags)
         if vm_id is not None:
             pulumi.set(__self__, "vm_id", vm_id)
-
-    @_builtins.property
-    @pulumi.getter(name="machineName")
-    def machine_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the hybrid machine.
-        """
-        return pulumi.get(self, "machine_name")
-
-    @machine_name.setter
-    def machine_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -232,6 +221,18 @@ class MachineArgs:
     @location_data.setter
     def location_data(self, value: pulumi.Input[Optional['LocationDataArgs']]):
         pulumi.set(self, "location_data", value)
+
+    @_builtins.property
+    @pulumi.getter(name="machineName")
+    def machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the hybrid machine.
+        """
+        return pulumi.get(self, "machine_name")
+
+    @machine_name.setter
+    def machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mssqlDiscovered")
@@ -452,8 +453,6 @@ class Machine(pulumi.CustomResource):
             __props__.__dict__["license_profile"] = license_profile
             __props__.__dict__["location"] = location
             __props__.__dict__["location_data"] = location_data
-            if machine_name is None and not opts.urn:
-                raise TypeError("Missing required property 'machine_name'")
             __props__.__dict__["machine_name"] = machine_name
             __props__.__dict__["mssql_discovered"] = mssql_discovered
             __props__.__dict__["os_profile"] = os_profile

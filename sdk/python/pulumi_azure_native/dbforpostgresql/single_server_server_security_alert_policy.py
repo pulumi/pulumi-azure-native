@@ -21,31 +21,30 @@ __all__ = ['SingleServerServerSecurityAlertPolicyArgs', 'SingleServerServerSecur
 class SingleServerServerSecurityAlertPolicyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 security_alert_policy_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  state: pulumi.Input['ServerSecurityAlertPolicyState'],
                  disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  email_account_admins: pulumi.Input[Optional[_builtins.bool]] = None,
                  email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  retention_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 security_alert_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_endpoint: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SingleServerServerSecurityAlertPolicy resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] security_alert_policy_name: The name of the threat detection policy.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input['ServerSecurityAlertPolicyState'] state: Specifies the state of the policy, whether it is enabled or disabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly
         :param pulumi.Input[_builtins.bool] email_account_admins: Specifies that the alert is sent to the account administrators.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies an array of e-mail addresses to which the alert is sent.
         :param pulumi.Input[_builtins.int] retention_days: Specifies the number of days to keep in the Threat Detection audit logs.
+        :param pulumi.Input[_builtins.str] security_alert_policy_name: The name of the threat detection policy.
         :param pulumi.Input[_builtins.str] storage_account_access_key: Specifies the identifier key of the Threat Detection audit storage account.
         :param pulumi.Input[_builtins.str] storage_endpoint: Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "security_alert_policy_name", security_alert_policy_name)
         pulumi.set(__self__, "server_name", server_name)
         pulumi.set(__self__, "state", state)
         if disabled_alerts is not None:
@@ -56,6 +55,8 @@ class SingleServerServerSecurityAlertPolicyArgs:
             pulumi.set(__self__, "email_addresses", email_addresses)
         if retention_days is not None:
             pulumi.set(__self__, "retention_days", retention_days)
+        if security_alert_policy_name is not None:
+            pulumi.set(__self__, "security_alert_policy_name", security_alert_policy_name)
         if storage_account_access_key is not None:
             pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
         if storage_endpoint is not None:
@@ -72,18 +73,6 @@ class SingleServerServerSecurityAlertPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="securityAlertPolicyName")
-    def security_alert_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the threat detection policy.
-        """
-        return pulumi.get(self, "security_alert_policy_name")
-
-    @security_alert_policy_name.setter
-    def security_alert_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "security_alert_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverName")
@@ -156,6 +145,18 @@ class SingleServerServerSecurityAlertPolicyArgs:
     @retention_days.setter
     def retention_days(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retention_days", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityAlertPolicyName")
+    def security_alert_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the threat detection policy.
+        """
+        return pulumi.get(self, "security_alert_policy_name")
+
+    @security_alert_policy_name.setter
+    def security_alert_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "security_alert_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
@@ -271,8 +272,6 @@ class SingleServerServerSecurityAlertPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention_days"] = retention_days
-            if security_alert_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'security_alert_policy_name'")
             __props__.__dict__["security_alert_policy_name"] = security_alert_policy_name
             if server_name is None and not opts.urn:
                 raise TypeError("Missing required property 'server_name'")

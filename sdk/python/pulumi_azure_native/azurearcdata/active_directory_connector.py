@@ -22,34 +22,23 @@ __all__ = ['ActiveDirectoryConnectorArgs', 'ActiveDirectoryConnector']
 @pulumi.input_type
 class ActiveDirectoryConnectorArgs:
     def __init__(__self__, *,
-                 active_directory_connector_name: pulumi.Input[_builtins.str],
                  data_controller_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['ActiveDirectoryConnectorPropertiesArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 active_directory_connector_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ActiveDirectoryConnector resource.
 
-        :param pulumi.Input[_builtins.str] active_directory_connector_name: The name of the Active Directory connector instance
         :param pulumi.Input[_builtins.str] data_controller_name: The name of the data controller
         :param pulumi.Input['ActiveDirectoryConnectorPropertiesArgs'] properties: null
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group
+        :param pulumi.Input[_builtins.str] active_directory_connector_name: The name of the Active Directory connector instance
         """
-        pulumi.set(__self__, "active_directory_connector_name", active_directory_connector_name)
         pulumi.set(__self__, "data_controller_name", data_controller_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @_builtins.property
-    @pulumi.getter(name="activeDirectoryConnectorName")
-    def active_directory_connector_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Active Directory connector instance
-        """
-        return pulumi.get(self, "active_directory_connector_name")
-
-    @active_directory_connector_name.setter
-    def active_directory_connector_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "active_directory_connector_name", value)
+        if active_directory_connector_name is not None:
+            pulumi.set(__self__, "active_directory_connector_name", active_directory_connector_name)
 
     @_builtins.property
     @pulumi.getter(name="dataControllerName")
@@ -86,6 +75,18 @@ class ActiveDirectoryConnectorArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="activeDirectoryConnectorName")
+    def active_directory_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Active Directory connector instance
+        """
+        return pulumi.get(self, "active_directory_connector_name")
+
+    @active_directory_connector_name.setter
+    def active_directory_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "active_directory_connector_name", value)
 
 
 @pulumi.type_token("azure-native:azurearcdata:ActiveDirectoryConnector")
@@ -156,8 +157,6 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ActiveDirectoryConnectorArgs.__new__(ActiveDirectoryConnectorArgs)
 
-            if active_directory_connector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'active_directory_connector_name'")
             __props__.__dict__["active_directory_connector_name"] = active_directory_connector_name
             if data_controller_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_controller_name'")

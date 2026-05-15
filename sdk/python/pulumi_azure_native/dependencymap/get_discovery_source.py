@@ -168,7 +168,7 @@ def get_discovery_source(map_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_discovery_source_output(map_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                source_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                source_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscoverySourceResult]:
     """
     Get a DiscoverySourceResource

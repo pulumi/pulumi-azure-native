@@ -22,35 +22,24 @@ __all__ = ['BackupPolicyInitArgs', 'BackupPolicy']
 @pulumi.input_type
 class BackupPolicyInitArgs:
     def __init__(__self__, *,
-                 backup_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
+                 backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['BackupPolicyArgs']] = None):
         """
         The set of arguments for constructing a BackupPolicy resource.
 
-        :param pulumi.Input[_builtins.str] backup_policy_name: Name of the policy
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vault_name: The name of the backup vault.
+        :param pulumi.Input[_builtins.str] backup_policy_name: Name of the policy
         :param pulumi.Input['BackupPolicyArgs'] properties: BaseBackupPolicyResource properties
         """
-        pulumi.set(__self__, "backup_policy_name", backup_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
+        if backup_policy_name is not None:
+            pulumi.set(__self__, "backup_policy_name", backup_policy_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="backupPolicyName")
-    def backup_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the policy
-        """
-        return pulumi.get(self, "backup_policy_name")
-
-    @backup_policy_name.setter
-    def backup_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "backup_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -75,6 +64,18 @@ class BackupPolicyInitArgs:
     @vault_name.setter
     def vault_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vault_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backupPolicyName")
+    def backup_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the policy
+        """
+        return pulumi.get(self, "backup_policy_name")
+
+    @backup_policy_name.setter
+    def backup_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "backup_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,8 +158,6 @@ class BackupPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackupPolicyInitArgs.__new__(BackupPolicyInitArgs)
 
-            if backup_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'backup_policy_name'")
             __props__.__dict__["backup_policy_name"] = backup_policy_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

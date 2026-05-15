@@ -138,7 +138,7 @@ def get_import_sql_collector_operation(import_sql_collectors_name: Optional[_bui
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_import_sql_collector_operation_output(import_sql_collectors_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_import_sql_collector_operation_output(import_sql_collectors_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               project_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImportSqlCollectorOperationResult]:

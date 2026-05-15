@@ -268,7 +268,7 @@ def get_vmm_server(resource_group_name: Optional[_builtins.str] = None,
         uuid=pulumi.get(__ret__, 'uuid'),
         version=pulumi.get(__ret__, 'version'))
 def get_vmm_server_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          vmm_server_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          vmm_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVmmServerResult]:
     """
     Implements VMMServer GET method.

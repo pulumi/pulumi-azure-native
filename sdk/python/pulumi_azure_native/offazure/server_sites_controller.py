@@ -22,18 +22,17 @@ __all__ = ['ServerSitesControllerArgs', 'ServerSitesController']
 class ServerSitesControllerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 site_name: pulumi.Input[_builtins.str],
                  agent_details: pulumi.Input[Optional['SiteAgentPropertiesArgs']] = None,
                  appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  service_principal_identity_details: pulumi.Input[Optional['SiteSpnPropertiesArgs']] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ServerSitesController resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input['SiteAgentPropertiesArgs'] agent_details: Gets or sets the on-premises agent details.
         :param pulumi.Input[_builtins.str] appliance_name: Gets or sets the Appliance Name.
         :param pulumi.Input[_builtins.str] discovery_solution_id: Gets or sets the ARM ID of migration hub solution for SDS.
@@ -41,10 +40,10 @@ class ServerSitesControllerArgs:
         :param pulumi.Input['SiteSpnPropertiesArgs'] service_principal_identity_details: Gets or sets the service principal identity details used by agent for
                communication
                            to the service.
+        :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "site_name", site_name)
         if agent_details is not None:
             pulumi.set(__self__, "agent_details", agent_details)
         if appliance_name is not None:
@@ -55,6 +54,8 @@ class ServerSitesControllerArgs:
             pulumi.set(__self__, "location", location)
         if service_principal_identity_details is not None:
             pulumi.set(__self__, "service_principal_identity_details", service_principal_identity_details)
+        if site_name is not None:
+            pulumi.set(__self__, "site_name", site_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -69,18 +70,6 @@ class ServerSitesControllerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="siteName")
-    def site_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Site name
-        """
-        return pulumi.get(self, "site_name")
-
-    @site_name.setter
-    def site_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "site_name", value)
 
     @_builtins.property
     @pulumi.getter(name="agentDetails")
@@ -143,6 +132,18 @@ class ServerSitesControllerArgs:
     @service_principal_identity_details.setter
     def service_principal_identity_details(self, value: pulumi.Input[Optional['SiteSpnPropertiesArgs']]):
         pulumi.set(self, "service_principal_identity_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteName")
+    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Site name
+        """
+        return pulumi.get(self, "site_name")
+
+    @site_name.setter
+    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "site_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -247,8 +248,6 @@ class ServerSitesController(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["service_principal_identity_details"] = service_principal_identity_details
-            if site_name is None and not opts.urn:
-                raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

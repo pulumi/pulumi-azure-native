@@ -22,11 +22,11 @@ class RuntimeEnvironmentArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 runtime_environment_name: pulumi.Input[_builtins.str],
                  default_packages: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  language: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -34,17 +34,16 @@ class RuntimeEnvironmentArgs:
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[_builtins.str] runtime_environment_name: The name of the Runtime Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_packages: List of Default packages for Environment
         :param pulumi.Input[_builtins.str] description: Gets or sets the description.
         :param pulumi.Input[_builtins.str] language: Language of Runtime Environment
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] runtime_environment_name: The name of the Runtime Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] version: Version of Language
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "runtime_environment_name", runtime_environment_name)
         if default_packages is not None:
             pulumi.set(__self__, "default_packages", default_packages)
         if description is not None:
@@ -53,6 +52,8 @@ class RuntimeEnvironmentArgs:
             pulumi.set(__self__, "language", language)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if runtime_environment_name is not None:
+            pulumi.set(__self__, "runtime_environment_name", runtime_environment_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -81,18 +82,6 @@ class RuntimeEnvironmentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="runtimeEnvironmentName")
-    def runtime_environment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Runtime Environment.
-        """
-        return pulumi.get(self, "runtime_environment_name")
-
-    @runtime_environment_name.setter
-    def runtime_environment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "runtime_environment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultPackages")
@@ -141,6 +130,18 @@ class RuntimeEnvironmentArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runtimeEnvironmentName")
+    def runtime_environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Runtime Environment.
+        """
+        return pulumi.get(self, "runtime_environment_name")
+
+    @runtime_environment_name.setter
+    def runtime_environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "runtime_environment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -260,8 +261,6 @@ class RuntimeEnvironment(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if runtime_environment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'runtime_environment_name'")
             __props__.__dict__["runtime_environment_name"] = runtime_environment_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version

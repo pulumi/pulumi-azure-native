@@ -22,32 +22,33 @@ __all__ = ['DelegatedSubnetServiceDetailsArgs', 'DelegatedSubnetServiceDetails']
 class DelegatedSubnetServiceDetailsArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  allocation_block_prefix_size: pulumi.Input[Optional[_builtins.int]] = None,
                  controller_details: pulumi.Input[Optional['ControllerDetailsArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_details: pulumi.Input[Optional['SubnetDetailsArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DelegatedSubnetServiceDetails resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[_builtins.int] allocation_block_prefix_size: Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
                Delegated subnet's prefix size should be smaller than this by a minimum of 3.
         :param pulumi.Input['ControllerDetailsArgs'] controller_details: Properties of the controller.
         :param pulumi.Input[_builtins.str] location: Location of the resource.
+        :param pulumi.Input[_builtins.str] resource_name: The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input['SubnetDetailsArgs'] subnet_details: subnet details
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         if allocation_block_prefix_size is not None:
             pulumi.set(__self__, "allocation_block_prefix_size", allocation_block_prefix_size)
         if controller_details is not None:
             pulumi.set(__self__, "controller_details", controller_details)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if subnet_details is not None:
             pulumi.set(__self__, "subnet_details", subnet_details)
         if tags is not None:
@@ -64,18 +65,6 @@ class DelegatedSubnetServiceDetailsArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="allocationBlockPrefixSize")
@@ -113,6 +102,18 @@ class DelegatedSubnetServiceDetailsArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the resource. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="subnetDetails")
@@ -223,8 +224,6 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["subnet_details"] = subnet_details
             __props__.__dict__["tags"] = tags

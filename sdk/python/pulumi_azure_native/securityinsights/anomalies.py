@@ -22,21 +22,22 @@ class AnomaliesArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 settings_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 settings_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Anomalies resource.
 
         :param pulumi.Input[_builtins.str] kind: The kind of the setting
                Expected value is 'Anomalies'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] settings_name: The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         """
         pulumi.set(__self__, "kind", 'Anomalies')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "settings_name", settings_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if settings_name is not None:
+            pulumi.set(__self__, "settings_name", settings_name)
 
     @_builtins.property
     @pulumi.getter
@@ -64,18 +65,6 @@ class AnomaliesArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="settingsName")
-    def settings_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
-        """
-        return pulumi.get(self, "settings_name")
-
-    @settings_name.setter
-    def settings_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "settings_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -86,6 +75,18 @@ class AnomaliesArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="settingsName")
+    def settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
+        """
+        return pulumi.get(self, "settings_name")
+
+    @settings_name.setter
+    def settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "settings_name", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:Anomalies")
@@ -159,8 +160,6 @@ class Anomalies(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if settings_name is None and not opts.urn:
-                raise TypeError("Missing required property 'settings_name'")
             __props__.__dict__["settings_name"] = settings_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

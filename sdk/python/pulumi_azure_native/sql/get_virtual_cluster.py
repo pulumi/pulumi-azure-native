@@ -174,7 +174,7 @@ def get_virtual_cluster(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
 def get_virtual_cluster_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               virtual_cluster_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               virtual_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualClusterResult]:
     """
     Gets a virtual cluster.

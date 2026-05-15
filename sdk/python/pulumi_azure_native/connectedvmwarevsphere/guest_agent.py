@@ -22,47 +22,36 @@ __all__ = ['GuestAgentArgs', 'GuestAgent']
 @pulumi.input_type
 class GuestAgentArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_machine_name: pulumi.Input[_builtins.str],
                  credentials: pulumi.Input[Optional['GuestCredentialArgs']] = None,
                  http_proxy_config: pulumi.Input[Optional['HttpProxyConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_scope_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_action: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningAction']]] = None):
         """
         The set of arguments for constructing a GuestAgent resource.
 
-        :param pulumi.Input[_builtins.str] name: Name of the guestAgents.
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the vm.
         :param pulumi.Input['GuestCredentialArgs'] credentials: Username / Password Credentials to provision guest agent.
         :param pulumi.Input['HttpProxyConfigurationArgs'] http_proxy_config: HTTP Proxy configuration for the VM.
+        :param pulumi.Input[_builtins.str] name: Name of the guestAgents.
         :param pulumi.Input[_builtins.str] private_link_scope_resource_id: The resource id of the private link scope this machine is assigned to, if any.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningAction']] provisioning_action: Gets or sets the guest agent provisioning action.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
         if credentials is not None:
             pulumi.set(__self__, "credentials", credentials)
         if http_proxy_config is not None:
             pulumi.set(__self__, "http_proxy_config", http_proxy_config)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if private_link_scope_resource_id is not None:
             pulumi.set(__self__, "private_link_scope_resource_id", private_link_scope_resource_id)
         if provisioning_action is not None:
             pulumi.set(__self__, "provisioning_action", provisioning_action)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the guestAgents.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -111,6 +100,18 @@ class GuestAgentArgs:
     @http_proxy_config.setter
     def http_proxy_config(self, value: pulumi.Input[Optional['HttpProxyConfigurationArgs']]):
         pulumi.set(self, "http_proxy_config", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the guestAgents.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkScopeResourceId")
@@ -216,8 +217,6 @@ class GuestAgent(pulumi.CustomResource):
 
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["http_proxy_config"] = http_proxy_config
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["private_link_scope_resource_id"] = private_link_scope_resource_id
             __props__.__dict__["provisioning_action"] = provisioning_action

@@ -20,23 +20,24 @@ __all__ = ['ScopeAssignmentArgs', 'ScopeAssignment']
 class ScopeAssignmentArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
-                 scope_assignment_name: pulumi.Input[_builtins.str],
                  assigned_managed_network: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScopeAssignment resource.
 
         :param pulumi.Input[_builtins.str] scope: The base resource of the scope assignment to create. The scope can be any REST resource instance. For example, use 'subscriptions/{subscription-id}' for a subscription, 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}' for a resource group, and 'subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}' for a resource.
-        :param pulumi.Input[_builtins.str] scope_assignment_name: The name of the scope assignment to create.
         :param pulumi.Input[_builtins.str] assigned_managed_network: The managed network ID with scope will be assigned to.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] scope_assignment_name: The name of the scope assignment to create.
         """
         pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "scope_assignment_name", scope_assignment_name)
         if assigned_managed_network is not None:
             pulumi.set(__self__, "assigned_managed_network", assigned_managed_network)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if scope_assignment_name is not None:
+            pulumi.set(__self__, "scope_assignment_name", scope_assignment_name)
 
     @_builtins.property
     @pulumi.getter
@@ -49,18 +50,6 @@ class ScopeAssignmentArgs:
     @scope.setter
     def scope(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "scope", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scopeAssignmentName")
-    def scope_assignment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the scope assignment to create.
-        """
-        return pulumi.get(self, "scope_assignment_name")
-
-    @scope_assignment_name.setter
-    def scope_assignment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "scope_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="assignedManagedNetwork")
@@ -85,6 +74,18 @@ class ScopeAssignmentArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeAssignmentName")
+    def scope_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the scope assignment to create.
+        """
+        return pulumi.get(self, "scope_assignment_name")
+
+    @scope_assignment_name.setter
+    def scope_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "scope_assignment_name", value)
 
 
 @pulumi.type_token("azure-native:managednetwork:ScopeAssignment")
@@ -156,8 +157,6 @@ class ScopeAssignment(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
-            if scope_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'scope_assignment_name'")
             __props__.__dict__["scope_assignment_name"] = scope_assignment_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

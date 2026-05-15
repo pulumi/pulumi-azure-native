@@ -22,7 +22,7 @@ class TrustedIdProviderArgs:
                  account_name: pulumi.Input[_builtins.str],
                  id_provider: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 trusted_id_provider_name: pulumi.Input[_builtins.str]):
+                 trusted_id_provider_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TrustedIdProvider resource.
 
@@ -34,7 +34,8 @@ class TrustedIdProviderArgs:
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "id_provider", id_provider)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "trusted_id_provider_name", trusted_id_provider_name)
+        if trusted_id_provider_name is not None:
+            pulumi.set(__self__, "trusted_id_provider_name", trusted_id_provider_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -74,14 +75,14 @@ class TrustedIdProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="trustedIdProviderName")
-    def trusted_id_provider_name(self) -> pulumi.Input[_builtins.str]:
+    def trusted_id_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the trusted identity provider. This is used for differentiation of providers in the account.
         """
         return pulumi.get(self, "trusted_id_provider_name")
 
     @trusted_id_provider_name.setter
-    def trusted_id_provider_name(self, value: pulumi.Input[_builtins.str]):
+    def trusted_id_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "trusted_id_provider_name", value)
 
 
@@ -158,8 +159,6 @@ class TrustedIdProvider(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if trusted_id_provider_name is None and not opts.urn:
-                raise TypeError("Missing required property 'trusted_id_provider_name'")
             __props__.__dict__["trusted_id_provider_name"] = trusted_id_provider_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

@@ -20,24 +20,25 @@ __all__ = ['DomainOwnershipIdentifierArgs', 'DomainOwnershipIdentifier']
 class DomainOwnershipIdentifierArgs:
     def __init__(__self__, *,
                  domain_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  ownership_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DomainOwnershipIdentifier resource.
 
         :param pulumi.Input[_builtins.str] domain_name: Name of domain.
-        :param pulumi.Input[_builtins.str] name: Name of identifier.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
+        :param pulumi.Input[_builtins.str] name: Name of identifier.
         :param pulumi.Input[_builtins.str] ownership_id: Ownership Id.
         """
         pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if ownership_id is not None:
             pulumi.set(__self__, "ownership_id", ownership_id)
 
@@ -52,18 +53,6 @@ class DomainOwnershipIdentifierArgs:
     @domain_name.setter
     def domain_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "domain_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of identifier.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -88,6 +77,18 @@ class DomainOwnershipIdentifierArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of identifier.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="ownershipId")
@@ -177,8 +178,6 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["kind"] = kind
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["ownership_id"] = ownership_id
             if resource_group_name is None and not opts.urn:

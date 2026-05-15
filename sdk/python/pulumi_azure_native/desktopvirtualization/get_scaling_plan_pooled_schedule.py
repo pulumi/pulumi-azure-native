@@ -350,7 +350,7 @@ def get_scaling_plan_pooled_schedule(resource_group_name: Optional[_builtins.str
         type=pulumi.get(__ret__, 'type'))
 def get_scaling_plan_pooled_schedule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             scaling_plan_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                            scaling_plan_schedule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            scaling_plan_schedule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalingPlanPooledScheduleResult]:
     """
     Get a ScalingPlanPooledSchedule.

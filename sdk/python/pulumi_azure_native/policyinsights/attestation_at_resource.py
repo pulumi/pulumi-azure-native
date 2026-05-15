@@ -22,10 +22,10 @@ __all__ = ['AttestationAtResourceArgs', 'AttestationAtResource']
 @pulumi.input_type
 class AttestationAtResourceArgs:
     def __init__(__self__, *,
-                 attestation_name: pulumi.Input[_builtins.str],
                  policy_assignment_id: pulumi.Input[_builtins.str],
                  resource_id: pulumi.Input[_builtins.str],
                  assessment_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 attestation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  comments: pulumi.Input[Optional[_builtins.str]] = None,
                  compliance_state: pulumi.Input[Optional[Union[_builtins.str, 'ComplianceState']]] = None,
                  evidence: pulumi.Input[Optional[Sequence[pulumi.Input['AttestationEvidenceArgs']]]] = None,
@@ -36,10 +36,10 @@ class AttestationAtResourceArgs:
         """
         The set of arguments for constructing a AttestationAtResource resource.
 
-        :param pulumi.Input[_builtins.str] attestation_name: The name of the attestation.
         :param pulumi.Input[_builtins.str] policy_assignment_id: The resource ID of the policy assignment that the attestation is setting the state for.
         :param pulumi.Input[_builtins.str] resource_id: Resource ID.
         :param pulumi.Input[_builtins.str] assessment_date: The time the evidence was assessed
+        :param pulumi.Input[_builtins.str] attestation_name: The name of the attestation.
         :param pulumi.Input[_builtins.str] comments: Comments describing why this attestation was created.
         :param pulumi.Input[Union[_builtins.str, 'ComplianceState']] compliance_state: The compliance state that should be set on the resource.
         :param pulumi.Input[Sequence[pulumi.Input['AttestationEvidenceArgs']]] evidence: The evidence supporting the compliance state set in this attestation.
@@ -48,11 +48,12 @@ class AttestationAtResourceArgs:
         :param pulumi.Input[_builtins.str] owner: The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID.
         :param pulumi.Input[_builtins.str] policy_definition_reference_id: The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition.
         """
-        pulumi.set(__self__, "attestation_name", attestation_name)
         pulumi.set(__self__, "policy_assignment_id", policy_assignment_id)
         pulumi.set(__self__, "resource_id", resource_id)
         if assessment_date is not None:
             pulumi.set(__self__, "assessment_date", assessment_date)
+        if attestation_name is not None:
+            pulumi.set(__self__, "attestation_name", attestation_name)
         if comments is not None:
             pulumi.set(__self__, "comments", comments)
         if compliance_state is not None:
@@ -67,18 +68,6 @@ class AttestationAtResourceArgs:
             pulumi.set(__self__, "owner", owner)
         if policy_definition_reference_id is not None:
             pulumi.set(__self__, "policy_definition_reference_id", policy_definition_reference_id)
-
-    @_builtins.property
-    @pulumi.getter(name="attestationName")
-    def attestation_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the attestation.
-        """
-        return pulumi.get(self, "attestation_name")
-
-    @attestation_name.setter
-    def attestation_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "attestation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="policyAssignmentId")
@@ -115,6 +104,18 @@ class AttestationAtResourceArgs:
     @assessment_date.setter
     def assessment_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "assessment_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="attestationName")
+    def attestation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the attestation.
+        """
+        return pulumi.get(self, "attestation_name")
+
+    @attestation_name.setter
+    def attestation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "attestation_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -291,8 +292,6 @@ class AttestationAtResource(pulumi.CustomResource):
             __props__ = AttestationAtResourceArgs.__new__(AttestationAtResourceArgs)
 
             __props__.__dict__["assessment_date"] = assessment_date
-            if attestation_name is None and not opts.urn:
-                raise TypeError("Missing required property 'attestation_name'")
             __props__.__dict__["attestation_name"] = attestation_name
             __props__.__dict__["comments"] = comments
             __props__.__dict__["compliance_state"] = compliance_state

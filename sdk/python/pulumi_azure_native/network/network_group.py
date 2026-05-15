@@ -21,39 +21,28 @@ __all__ = ['NetworkGroupArgs', 'NetworkGroup']
 @pulumi.input_type
 class NetworkGroupArgs:
     def __init__(__self__, *,
-                 network_group_name: pulumi.Input[_builtins.str],
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupMemberType']]] = None):
+                 member_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupMemberType']]] = None,
+                 network_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkGroup resource.
 
-        :param pulumi.Input[_builtins.str] network_group_name: The name of the network group.
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] description: A description of the network group.
         :param pulumi.Input[Union[_builtins.str, 'GroupMemberType']] member_type: The type of the group member.
+        :param pulumi.Input[_builtins.str] network_group_name: The name of the network group.
         """
-        pulumi.set(__self__, "network_group_name", network_group_name)
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if member_type is not None:
             pulumi.set(__self__, "member_type", member_type)
-
-    @_builtins.property
-    @pulumi.getter(name="networkGroupName")
-    def network_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the network group.
-        """
-        return pulumi.get(self, "network_group_name")
-
-    @network_group_name.setter
-    def network_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_group_name", value)
+        if network_group_name is not None:
+            pulumi.set(__self__, "network_group_name", network_group_name)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerName")
@@ -102,6 +91,18 @@ class NetworkGroupArgs:
     @member_type.setter
     def member_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'GroupMemberType']]]):
         pulumi.set(self, "member_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkGroupName")
+    def network_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the network group.
+        """
+        return pulumi.get(self, "network_group_name")
+
+    @network_group_name.setter
+    def network_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_group_name", value)
 
 
 @pulumi.type_token("azure-native:network:NetworkGroup")
@@ -177,8 +178,6 @@ class NetworkGroup(pulumi.CustomResource):
 
             __props__.__dict__["description"] = description
             __props__.__dict__["member_type"] = member_type
-            if network_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_group_name'")
             __props__.__dict__["network_group_name"] = network_group_name
             if network_manager_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_manager_name'")

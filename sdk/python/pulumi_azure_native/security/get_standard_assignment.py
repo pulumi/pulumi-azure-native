@@ -227,7 +227,7 @@ def get_standard_assignment(resource_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
 def get_standard_assignment_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                   standard_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   standard_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardAssignmentResult]:
     """
     This operation retrieves a single standard assignment, given its name and the scope it was created at.

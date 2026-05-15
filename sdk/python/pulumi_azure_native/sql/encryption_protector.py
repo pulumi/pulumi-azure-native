@@ -20,42 +20,31 @@ __all__ = ['EncryptionProtectorArgs', 'EncryptionProtector']
 @pulumi.input_type
 class EncryptionProtectorArgs:
     def __init__(__self__, *,
-                 encryption_protector_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_key_type: pulumi.Input[Union[_builtins.str, 'ServerKeyType']],
                  server_name: pulumi.Input[_builtins.str],
                  auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_protector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  server_key_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EncryptionProtector resource.
 
-        :param pulumi.Input[_builtins.str] encryption_protector_name: The name of the encryption protector to be updated.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Union[_builtins.str, 'ServerKeyType']] server_key_type: The encryption protector type like 'ServiceManaged', 'AzureKeyVault'.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.bool] auto_rotation_enabled: Key auto rotation opt-in flag. Either true or false.
+        :param pulumi.Input[_builtins.str] encryption_protector_name: The name of the encryption protector to be updated.
         :param pulumi.Input[_builtins.str] server_key_name: The name of the server key.
         """
-        pulumi.set(__self__, "encryption_protector_name", encryption_protector_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_key_type", server_key_type)
         pulumi.set(__self__, "server_name", server_name)
         if auto_rotation_enabled is not None:
             pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
+        if encryption_protector_name is not None:
+            pulumi.set(__self__, "encryption_protector_name", encryption_protector_name)
         if server_key_name is not None:
             pulumi.set(__self__, "server_key_name", server_key_name)
-
-    @_builtins.property
-    @pulumi.getter(name="encryptionProtectorName")
-    def encryption_protector_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the encryption protector to be updated.
-        """
-        return pulumi.get(self, "encryption_protector_name")
-
-    @encryption_protector_name.setter
-    def encryption_protector_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "encryption_protector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -104,6 +93,18 @@ class EncryptionProtectorArgs:
     @auto_rotation_enabled.setter
     def auto_rotation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_rotation_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionProtectorName")
+    def encryption_protector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the encryption protector to be updated.
+        """
+        return pulumi.get(self, "encryption_protector_name")
+
+    @encryption_protector_name.setter
+    def encryption_protector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "encryption_protector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serverKeyName")
@@ -193,8 +194,6 @@ class EncryptionProtector(pulumi.CustomResource):
             __props__ = EncryptionProtectorArgs.__new__(EncryptionProtectorArgs)
 
             __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
-            if encryption_protector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'encryption_protector_name'")
             __props__.__dict__["encryption_protector_name"] = encryption_protector_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

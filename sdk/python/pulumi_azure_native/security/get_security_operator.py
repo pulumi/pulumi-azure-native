@@ -123,7 +123,7 @@ def get_security_operator(pricing_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
 def get_security_operator_output(pricing_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 security_operator_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 security_operator_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityOperatorResult]:
     """
     Get a specific security operator for the requested scope.

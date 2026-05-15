@@ -20,38 +20,27 @@ __all__ = ['ServerKeyArgs', 'ServerKey']
 @pulumi.input_type
 class ServerKeyArgs:
     def __init__(__self__, *,
-                 key_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_key_type: pulumi.Input[Union[_builtins.str, 'ServerKeyType']],
                  server_name: pulumi.Input[_builtins.str],
+                 key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerKey resource.
 
-        :param pulumi.Input[_builtins.str] key_name: The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[Union[_builtins.str, 'ServerKeyType']] server_key_type: The server key type like 'ServiceManaged', 'AzureKeyVault'.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
+        :param pulumi.Input[_builtins.str] key_name: The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
         :param pulumi.Input[_builtins.str] uri: The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'
         """
-        pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_key_type", server_key_type)
         pulumi.set(__self__, "server_name", server_name)
+        if key_name is not None:
+            pulumi.set(__self__, "key_name", key_name)
         if uri is not None:
             pulumi.set(__self__, "uri", uri)
-
-    @_builtins.property
-    @pulumi.getter(name="keyName")
-    def key_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
-        """
-        return pulumi.get(self, "key_name")
-
-    @key_name.setter
-    def key_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -88,6 +77,18 @@ class ServerKeyArgs:
     @server_name.setter
     def server_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyName")
+    def key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
+        """
+        return pulumi.get(self, "key_name")
+
+    @key_name.setter
+    def key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -173,8 +174,6 @@ class ServerKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServerKeyArgs.__new__(ServerKeyArgs)
 
-            if key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'key_name'")
             __props__.__dict__["key_name"] = key_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

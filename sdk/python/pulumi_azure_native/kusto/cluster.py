@@ -22,13 +22,13 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['AzureSkuArgs'],
                  accepted_audiences: pulumi.Input[Optional[Sequence[pulumi.Input['AcceptedAudiencesArgs']]]] = None,
                  allowed_fqdn_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_ip_range_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  callout_policies: pulumi.Input[Optional[Sequence[pulumi.Input['CalloutPolicyArgs']]]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_auto_stop: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_disk_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_double_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -51,13 +51,13 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
 
-        :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AzureSkuArgs'] sku: The SKU of the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['AcceptedAudiencesArgs']]] accepted_audiences: The cluster's accepted audiences.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_fqdn_list: List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ip_range_list: The list of ips in the format of CIDR allowed to connect to the cluster.
         :param pulumi.Input[Sequence[pulumi.Input['CalloutPolicyArgs']]] callout_policies: List of callout policies for egress from Cluster.
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.bool] enable_auto_stop: A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
         :param pulumi.Input[_builtins.bool] enable_disk_encryption: A boolean value that indicates if the cluster's disks are encrypted.
         :param pulumi.Input[_builtins.bool] enable_double_encryption: A boolean value that indicates if double encryption is enabled.
@@ -78,7 +78,6 @@ class ClusterArgs:
         :param pulumi.Input['VirtualNetworkConfigurationArgs'] virtual_network_configuration: Virtual network definition.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones of the cluster.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if accepted_audiences is not None:
@@ -89,6 +88,8 @@ class ClusterArgs:
             pulumi.set(__self__, "allowed_ip_range_list", allowed_ip_range_list)
         if callout_policies is not None:
             pulumi.set(__self__, "callout_policies", callout_policies)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if enable_auto_stop is None:
             enable_auto_stop = True
         if enable_auto_stop is not None:
@@ -145,18 +146,6 @@ class ClusterArgs:
             pulumi.set(__self__, "virtual_network_configuration", virtual_network_configuration)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Kusto cluster.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -229,6 +218,18 @@ class ClusterArgs:
     @callout_policies.setter
     def callout_policies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['CalloutPolicyArgs']]]]):
         pulumi.set(self, "callout_policies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Kusto cluster.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutoStop")
@@ -597,8 +598,6 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["allowed_fqdn_list"] = allowed_fqdn_list
             __props__.__dict__["allowed_ip_range_list"] = allowed_ip_range_list
             __props__.__dict__["callout_policies"] = callout_policies
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             if enable_auto_stop is None:
                 enable_auto_stop = True

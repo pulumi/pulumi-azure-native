@@ -208,7 +208,7 @@ def get_view(hub_name: Optional[_builtins.str] = None,
 def get_view_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                     user_id: pulumi.Input[Optional[_builtins.str]] = None,
-                    view_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    view_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewResult]:
     """
     Gets a view in the hub.

@@ -160,7 +160,7 @@ def get_sql_resource_sql_trigger_output(account_name: pulumi.Input[Optional[_bui
                                         container_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         database_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        trigger_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlResourceSqlTriggerResult]:
     """
     Gets the SQL trigger under an existing Azure Cosmos DB database account.

@@ -23,7 +23,6 @@ __all__ = ['ContainerAppsSessionPoolArgs', 'ContainerAppsSessionPool']
 class ContainerAppsSessionPoolArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 session_pool_name: pulumi.Input[_builtins.str],
                  container_type: pulumi.Input[Optional[Union[_builtins.str, 'ContainerType']]] = None,
                  custom_container_template: pulumi.Input[Optional['CustomContainerTemplateArgs']] = None,
                  dynamic_pool_configuration: pulumi.Input[Optional['DynamicPoolConfigurationArgs']] = None,
@@ -35,12 +34,12 @@ class ContainerAppsSessionPoolArgs:
                  scale_configuration: pulumi.Input[Optional['ScaleConfigurationArgs']] = None,
                  secrets: pulumi.Input[Optional[Sequence[pulumi.Input['SessionPoolSecretArgs']]]] = None,
                  session_network_configuration: pulumi.Input[Optional['SessionNetworkConfigurationArgs']] = None,
+                 session_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContainerAppsSessionPool resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] session_pool_name: Name of the session pool.
         :param pulumi.Input[Union[_builtins.str, 'ContainerType']] container_type: The container type of the sessions.
         :param pulumi.Input['CustomContainerTemplateArgs'] custom_container_template: The custom container configuration if the containerType is CustomContainer.
         :param pulumi.Input['DynamicPoolConfigurationArgs'] dynamic_pool_configuration: The pool configuration if the poolManagementType is dynamic.
@@ -52,10 +51,10 @@ class ContainerAppsSessionPoolArgs:
         :param pulumi.Input['ScaleConfigurationArgs'] scale_configuration: The scale configuration of the session pool.
         :param pulumi.Input[Sequence[pulumi.Input['SessionPoolSecretArgs']]] secrets: The secrets of the session pool.
         :param pulumi.Input['SessionNetworkConfigurationArgs'] session_network_configuration: The network configuration of the sessions in the session pool.
+        :param pulumi.Input[_builtins.str] session_pool_name: Name of the session pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "session_pool_name", session_pool_name)
         if container_type is not None:
             pulumi.set(__self__, "container_type", container_type)
         if custom_container_template is not None:
@@ -78,6 +77,8 @@ class ContainerAppsSessionPoolArgs:
             pulumi.set(__self__, "secrets", secrets)
         if session_network_configuration is not None:
             pulumi.set(__self__, "session_network_configuration", session_network_configuration)
+        if session_pool_name is not None:
+            pulumi.set(__self__, "session_pool_name", session_pool_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -92,18 +93,6 @@ class ContainerAppsSessionPoolArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sessionPoolName")
-    def session_pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the session pool.
-        """
-        return pulumi.get(self, "session_pool_name")
-
-    @session_pool_name.setter
-    def session_pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "session_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="containerType")
@@ -238,6 +227,18 @@ class ContainerAppsSessionPoolArgs:
         pulumi.set(self, "session_network_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="sessionPoolName")
+    def session_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the session pool.
+        """
+        return pulumi.get(self, "session_pool_name")
+
+    @session_pool_name.setter
+    def session_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "session_pool_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -362,8 +363,6 @@ class ContainerAppsSessionPool(pulumi.CustomResource):
             __props__.__dict__["scale_configuration"] = scale_configuration
             __props__.__dict__["secrets"] = secrets
             __props__.__dict__["session_network_configuration"] = session_network_configuration
-            if session_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'session_pool_name'")
             __props__.__dict__["session_pool_name"] = session_pool_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

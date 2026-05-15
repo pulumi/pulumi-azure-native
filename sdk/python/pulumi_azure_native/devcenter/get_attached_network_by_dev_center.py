@@ -192,7 +192,7 @@ def get_attached_network_by_dev_center(attached_network_connection_name: Optiona
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_attached_network_by_dev_center_output(attached_network_connection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_attached_network_by_dev_center_output(attached_network_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               dev_center_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttachedNetworkByDevCenterResult]:

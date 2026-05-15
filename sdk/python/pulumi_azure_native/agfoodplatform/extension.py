@@ -22,24 +22,25 @@ __all__ = ['ExtensionArgs', 'Extension']
 class ExtensionArgs:
     def __init__(__self__, *,
                  data_manager_for_agriculture_resource_name: pulumi.Input[_builtins.str],
-                 extension_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  additional_api_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]] = None,
+                 extension_id: pulumi.Input[Optional[_builtins.str]] = None,
                  extension_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Extension resource.
 
         :param pulumi.Input[_builtins.str] data_manager_for_agriculture_resource_name: DataManagerForAgriculture resource name.
-        :param pulumi.Input[_builtins.str] extension_id: Id of extension resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input['ApiPropertiesArgs']]] additional_api_properties: Additional Api Properties.
+        :param pulumi.Input[_builtins.str] extension_id: Id of extension resource.
         :param pulumi.Input[_builtins.str] extension_version: Extension Version.
         """
         pulumi.set(__self__, "data_manager_for_agriculture_resource_name", data_manager_for_agriculture_resource_name)
-        pulumi.set(__self__, "extension_id", extension_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_api_properties is not None:
             pulumi.set(__self__, "additional_api_properties", additional_api_properties)
+        if extension_id is not None:
+            pulumi.set(__self__, "extension_id", extension_id)
         if extension_version is not None:
             pulumi.set(__self__, "extension_version", extension_version)
 
@@ -54,18 +55,6 @@ class ExtensionArgs:
     @data_manager_for_agriculture_resource_name.setter
     def data_manager_for_agriculture_resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "data_manager_for_agriculture_resource_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="extensionId")
-    def extension_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Id of extension resource.
-        """
-        return pulumi.get(self, "extension_id")
-
-    @extension_id.setter
-    def extension_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "extension_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -90,6 +79,18 @@ class ExtensionArgs:
     @additional_api_properties.setter
     def additional_api_properties(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ApiPropertiesArgs']]]]):
         pulumi.set(self, "additional_api_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extensionId")
+    def extension_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Id of extension resource.
+        """
+        return pulumi.get(self, "extension_id")
+
+    @extension_id.setter
+    def extension_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "extension_id", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionVersion")
@@ -175,8 +176,6 @@ class Extension(pulumi.CustomResource):
             if data_manager_for_agriculture_resource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'data_manager_for_agriculture_resource_name'")
             __props__.__dict__["data_manager_for_agriculture_resource_name"] = data_manager_for_agriculture_resource_name
-            if extension_id is None and not opts.urn:
-                raise TypeError("Missing required property 'extension_id'")
             __props__.__dict__["extension_id"] = extension_id
             __props__.__dict__["extension_version"] = extension_version
             if resource_group_name is None and not opts.urn:

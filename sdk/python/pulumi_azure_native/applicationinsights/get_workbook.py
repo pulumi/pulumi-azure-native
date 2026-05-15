@@ -324,7 +324,7 @@ def get_workbook(can_fetch_content: Optional[_builtins.bool] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_workbook_output(can_fetch_content: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkbookResult]:
     """
     Get a single workbook by its resourceName.

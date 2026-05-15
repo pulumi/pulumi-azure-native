@@ -22,19 +22,18 @@ __all__ = ['VirtualNetworkArgs', 'VirtualNetwork']
 class VirtualNetworkArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_network_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mo_ref_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 v_center_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 v_center_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
-        :param pulumi.Input[_builtins.str] virtual_network_name: Name of the virtual network resource.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
         :param pulumi.Input[_builtins.str] inventory_item_id: Gets or sets the inventory Item ID for the virtual network.
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -42,9 +41,9 @@ class VirtualNetworkArgs:
         :param pulumi.Input[_builtins.str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the Resource tags.
         :param pulumi.Input[_builtins.str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this template resides.
+        :param pulumi.Input[_builtins.str] virtual_network_name: Name of the virtual network resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if inventory_item_id is not None:
@@ -59,6 +58,8 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "tags", tags)
         if v_center_id is not None:
             pulumi.set(__self__, "v_center_id", v_center_id)
+        if virtual_network_name is not None:
+            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -71,18 +72,6 @@ class VirtualNetworkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkName")
-    def virtual_network_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the virtual network resource.
-        """
-        return pulumi.get(self, "virtual_network_name")
-
-    @virtual_network_name.setter
-    def virtual_network_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -167,6 +156,18 @@ class VirtualNetworkArgs:
     @v_center_id.setter
     def v_center_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "v_center_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkName")
+    def virtual_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the virtual network resource.
+        """
+        return pulumi.get(self, "virtual_network_name")
+
+    @virtual_network_name.setter
+    def virtual_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_network_name", value)
 
 
 @pulumi.type_token("azure-native:connectedvmwarevsphere:VirtualNetwork")
@@ -262,8 +263,6 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_center_id"] = v_center_id
-            if virtual_network_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_name'")
             __props__.__dict__["virtual_network_name"] = virtual_network_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["custom_resource_name"] = None

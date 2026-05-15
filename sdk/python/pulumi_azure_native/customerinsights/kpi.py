@@ -28,7 +28,6 @@ class KpiArgs:
                  expression: pulumi.Input[_builtins.str],
                  function: pulumi.Input['KpiFunctions'],
                  hub_name: pulumi.Input[_builtins.str],
-                 kpi_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  aliases: pulumi.Input[Optional[Sequence[pulumi.Input['KpiAliasArgs']]]] = None,
                  calculation_window_field_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,6 +36,7 @@ class KpiArgs:
                  extracts: pulumi.Input[Optional[Sequence[pulumi.Input['KpiExtractArgs']]]] = None,
                  filter: pulumi.Input[Optional[_builtins.str]] = None,
                  group_by: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 kpi_name: pulumi.Input[Optional[_builtins.str]] = None,
                  thres_holds: pulumi.Input[Optional['KpiThresholdsArgs']] = None,
                  unit: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -48,7 +48,6 @@ class KpiArgs:
         :param pulumi.Input[_builtins.str] expression: The computation expression for the KPI.
         :param pulumi.Input['KpiFunctions'] function: The computation function for the KPI.
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
-        :param pulumi.Input[_builtins.str] kpi_name: The name of the KPI.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['KpiAliasArgs']]] aliases: The aliases.
         :param pulumi.Input[_builtins.str] calculation_window_field_name: Name of calculation window field.
@@ -57,6 +56,7 @@ class KpiArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KpiExtractArgs']]] extracts: The KPI extracts.
         :param pulumi.Input[_builtins.str] filter: The filter expression for the KPI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_by: the group by properties for the KPI.
+        :param pulumi.Input[_builtins.str] kpi_name: The name of the KPI.
         :param pulumi.Input['KpiThresholdsArgs'] thres_holds: The KPI thresholds.
         :param pulumi.Input[_builtins.str] unit: The unit of measurement for the KPI.
         """
@@ -66,7 +66,6 @@ class KpiArgs:
         pulumi.set(__self__, "expression", expression)
         pulumi.set(__self__, "function", function)
         pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "kpi_name", kpi_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
@@ -82,6 +81,8 @@ class KpiArgs:
             pulumi.set(__self__, "filter", filter)
         if group_by is not None:
             pulumi.set(__self__, "group_by", group_by)
+        if kpi_name is not None:
+            pulumi.set(__self__, "kpi_name", kpi_name)
         if thres_holds is not None:
             pulumi.set(__self__, "thres_holds", thres_holds)
         if unit is not None:
@@ -158,18 +159,6 @@ class KpiArgs:
     @hub_name.setter
     def hub_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "hub_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="kpiName")
-    def kpi_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the KPI.
-        """
-        return pulumi.get(self, "kpi_name")
-
-    @kpi_name.setter
-    def kpi_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "kpi_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -266,6 +255,18 @@ class KpiArgs:
     @group_by.setter
     def group_by(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "group_by", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kpiName")
+    def kpi_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the KPI.
+        """
+        return pulumi.get(self, "kpi_name")
+
+    @kpi_name.setter
+    def kpi_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kpi_name", value)
 
     @_builtins.property
     @pulumi.getter(name="thresHolds")
@@ -420,8 +421,6 @@ class Kpi(pulumi.CustomResource):
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__.__dict__["hub_name"] = hub_name
-            if kpi_name is None and not opts.urn:
-                raise TypeError("Missing required property 'kpi_name'")
             __props__.__dict__["kpi_name"] = kpi_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

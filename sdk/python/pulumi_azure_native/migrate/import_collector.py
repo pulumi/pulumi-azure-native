@@ -21,37 +21,26 @@ __all__ = ['ImportCollectorArgs', 'ImportCollector']
 @pulumi.input_type
 class ImportCollectorArgs:
     def __init__(__self__, *,
-                 import_collector_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ImportCollectorPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ImportCollector resource.
 
-        :param pulumi.Input[_builtins.str] import_collector_name: Unique name of a Import collector within a project.
         :param pulumi.Input[_builtins.str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
+        :param pulumi.Input[_builtins.str] import_collector_name: Unique name of a Import collector within a project.
         """
-        pulumi.set(__self__, "import_collector_name", import_collector_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
+        if import_collector_name is not None:
+            pulumi.set(__self__, "import_collector_name", import_collector_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="importCollectorName")
-    def import_collector_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique name of a Import collector within a project.
-        """
-        return pulumi.get(self, "import_collector_name")
-
-    @import_collector_name.setter
-    def import_collector_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "import_collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -85,6 +74,18 @@ class ImportCollectorArgs:
     @e_tag.setter
     def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="importCollectorName")
+    def import_collector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Unique name of a Import collector within a project.
+        """
+        return pulumi.get(self, "import_collector_name")
+
+    @import_collector_name.setter
+    def import_collector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "import_collector_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -158,8 +159,6 @@ class ImportCollector(pulumi.CustomResource):
             __props__ = ImportCollectorArgs.__new__(ImportCollectorArgs)
 
             __props__.__dict__["e_tag"] = e_tag
-            if import_collector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'import_collector_name'")
             __props__.__dict__["import_collector_name"] = import_collector_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

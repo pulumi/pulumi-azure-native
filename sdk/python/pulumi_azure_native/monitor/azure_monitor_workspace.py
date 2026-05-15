@@ -21,40 +21,29 @@ __all__ = ['AzureMonitorWorkspaceArgs', 'AzureMonitorWorkspace']
 @pulumi.input_type
 class AzureMonitorWorkspaceArgs:
     def __init__(__self__, *,
-                 azure_monitor_workspace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AzureMonitorWorkspace resource.
 
-        :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: Gets or sets allow or disallow public network access to Azure Monitor Workspace
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "azure_monitor_workspace_name", azure_monitor_workspace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if azure_monitor_workspace_name is not None:
+            pulumi.set(__self__, "azure_monitor_workspace_name", azure_monitor_workspace_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="azureMonitorWorkspaceName")
-    def azure_monitor_workspace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Azure Monitor Workspace. The name is case insensitive
-        """
-        return pulumi.get(self, "azure_monitor_workspace_name")
-
-    @azure_monitor_workspace_name.setter
-    def azure_monitor_workspace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "azure_monitor_workspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -67,6 +56,18 @@ class AzureMonitorWorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureMonitorWorkspaceName")
+    def azure_monitor_workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Azure Monitor Workspace. The name is case insensitive
+        """
+        return pulumi.get(self, "azure_monitor_workspace_name")
+
+    @azure_monitor_workspace_name.setter
+    def azure_monitor_workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "azure_monitor_workspace_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,8 +177,6 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AzureMonitorWorkspaceArgs.__new__(AzureMonitorWorkspaceArgs)
 
-            if azure_monitor_workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_monitor_workspace_name'")
             __props__.__dict__["azure_monitor_workspace_name"] = azure_monitor_workspace_name
             __props__.__dict__["location"] = location
             __props__.__dict__["public_network_access"] = public_network_access

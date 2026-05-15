@@ -22,44 +22,33 @@ __all__ = ['LandingZoneAccountOperationArgs', 'LandingZoneAccountOperation']
 @pulumi.input_type
 class LandingZoneAccountOperationArgs:
     def __init__(__self__, *,
-                 landing_zone_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
+                 landing_zone_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['LandingZoneAccountResourcePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LandingZoneAccountOperation resource.
 
-        :param pulumi.Input[_builtins.str] landing_zone_account_name: The landing zone account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
+        :param pulumi.Input[_builtins.str] landing_zone_account_name: The landing zone account.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['LandingZoneAccountResourcePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "landing_zone_account_name", landing_zone_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if landing_zone_account_name is not None:
+            pulumi.set(__self__, "landing_zone_account_name", landing_zone_account_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="landingZoneAccountName")
-    def landing_zone_account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The landing zone account.
-        """
-        return pulumi.get(self, "landing_zone_account_name")
-
-    @landing_zone_account_name.setter
-    def landing_zone_account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "landing_zone_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -84,6 +73,18 @@ class LandingZoneAccountOperationArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['ManagedServiceIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="landingZoneAccountName")
+    def landing_zone_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The landing zone account.
+        """
+        return pulumi.get(self, "landing_zone_account_name")
+
+    @landing_zone_account_name.setter
+    def landing_zone_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "landing_zone_account_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -193,8 +194,6 @@ class LandingZoneAccountOperation(pulumi.CustomResource):
             __props__ = LandingZoneAccountOperationArgs.__new__(LandingZoneAccountOperationArgs)
 
             __props__.__dict__["identity"] = identity
-            if landing_zone_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'landing_zone_account_name'")
             __props__.__dict__["landing_zone_account_name"] = landing_zone_account_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

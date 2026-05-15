@@ -21,34 +21,23 @@ __all__ = ['RegistryEnvironmentContainerArgs', 'RegistryEnvironmentContainer']
 @pulumi.input_type
 class RegistryEnvironmentContainerArgs:
     def __init__(__self__, *,
-                 environment_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['EnvironmentContainerPropertiesArgs'],
                  registry_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryEnvironmentContainer resource.
 
-        :param pulumi.Input[_builtins.str] environment_name: Container name. This is case-sensitive.
         :param pulumi.Input['EnvironmentContainerPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] registry_name: Name of Azure Machine Learning registry. This is case-insensitive
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] environment_name: Container name. This is case-sensitive.
         """
-        pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @_builtins.property
-    @pulumi.getter(name="environmentName")
-    def environment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Container name. This is case-sensitive.
-        """
-        return pulumi.get(self, "environment_name")
-
-    @environment_name.setter
-    def environment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "environment_name", value)
+        if environment_name is not None:
+            pulumi.set(__self__, "environment_name", environment_name)
 
     @_builtins.property
     @pulumi.getter
@@ -85,6 +74,18 @@ class RegistryEnvironmentContainerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Container name. This is case-sensitive.
+        """
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "environment_name", value)
 
 
 @pulumi.type_token("azure-native:machinelearningservices:RegistryEnvironmentContainer")
@@ -155,8 +156,6 @@ class RegistryEnvironmentContainer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegistryEnvironmentContainerArgs.__new__(RegistryEnvironmentContainerArgs)
 
-            if environment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

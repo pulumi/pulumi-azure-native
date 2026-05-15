@@ -20,7 +20,6 @@ __all__ = ['CertificateArgs', 'Certificate']
 @pulumi.input_type
 class CertificateArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  canonical_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_validation_method: pulumi.Input[Optional[_builtins.str]] = None,
@@ -29,6 +28,7 @@ class CertificateArgs:
                  key_vault_secret_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  pfx_blob: pulumi.Input[Optional[_builtins.str]] = None,
                  server_farm_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,7 +36,6 @@ class CertificateArgs:
         """
         The set of arguments for constructing a Certificate resource.
 
-        :param pulumi.Input[_builtins.str] name: Name of the certificate.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
         :param pulumi.Input[_builtins.str] canonical_name: CNAME of the certificate to be issued via free certificate
         :param pulumi.Input[_builtins.str] domain_validation_method: Method of domain validation for free cert
@@ -45,12 +44,12 @@ class CertificateArgs:
         :param pulumi.Input[_builtins.str] key_vault_secret_name: Azure Key Vault secret name.
         :param pulumi.Input[_builtins.str] kind: Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
         :param pulumi.Input[_builtins.str] location: Resource Location.
+        :param pulumi.Input[_builtins.str] name: Name of the certificate.
         :param pulumi.Input[_builtins.str] password: Certificate password.
         :param pulumi.Input[_builtins.str] pfx_blob: Pfx blob.
         :param pulumi.Input[_builtins.str] server_farm_id: Resource ID of the associated App Service plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if canonical_name is not None:
             pulumi.set(__self__, "canonical_name", canonical_name)
@@ -66,6 +65,8 @@ class CertificateArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if pfx_blob is not None:
@@ -74,18 +75,6 @@ class CertificateArgs:
             pulumi.set(__self__, "server_farm_id", server_farm_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the certificate.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -182,6 +171,18 @@ class CertificateArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the certificate.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -334,8 +335,6 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["key_vault_secret_name"] = key_vault_secret_name
             __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["password"] = password
             __props__.__dict__["pfx_blob"] = pfx_blob

@@ -24,10 +24,10 @@ class GroundStationArgs:
     def __init__(__self__, *,
                  capabilities: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Capability']]]],
                  global_communications_site: pulumi.Input['GroundStationsPropertiesGlobalCommunicationsSiteArgs'],
-                 ground_station_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  altitude_meters: pulumi.Input[Optional[_builtins.float]] = None,
                  city: pulumi.Input[Optional[_builtins.str]] = None,
+                 ground_station_name: pulumi.Input[Optional[_builtins.str]] = None,
                  latitude_degrees: pulumi.Input[Optional[_builtins.float]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  longitude_degrees: pulumi.Input[Optional[_builtins.float]] = None,
@@ -38,10 +38,10 @@ class GroundStationArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'Capability']]]] capabilities: Ground station capabilities.
         :param pulumi.Input['GroundStationsPropertiesGlobalCommunicationsSiteArgs'] global_communications_site: A reference to global communications site.
-        :param pulumi.Input[_builtins.str] ground_station_name: Ground Station name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.float] altitude_meters: Altitude of the ground station.
         :param pulumi.Input[_builtins.str] city: City of ground station.
+        :param pulumi.Input[_builtins.str] ground_station_name: Ground Station name.
         :param pulumi.Input[_builtins.float] latitude_degrees: Latitude of the ground station in decimal degrees.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.float] longitude_degrees: Longitude of the ground station in decimal degrees.
@@ -50,12 +50,13 @@ class GroundStationArgs:
         """
         pulumi.set(__self__, "capabilities", capabilities)
         pulumi.set(__self__, "global_communications_site", global_communications_site)
-        pulumi.set(__self__, "ground_station_name", ground_station_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if altitude_meters is not None:
             pulumi.set(__self__, "altitude_meters", altitude_meters)
         if city is not None:
             pulumi.set(__self__, "city", city)
+        if ground_station_name is not None:
+            pulumi.set(__self__, "ground_station_name", ground_station_name)
         if latitude_degrees is not None:
             pulumi.set(__self__, "latitude_degrees", latitude_degrees)
         if location is not None:
@@ -92,18 +93,6 @@ class GroundStationArgs:
         pulumi.set(self, "global_communications_site", value)
 
     @_builtins.property
-    @pulumi.getter(name="groundStationName")
-    def ground_station_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Ground Station name.
-        """
-        return pulumi.get(self, "ground_station_name")
-
-    @ground_station_name.setter
-    def ground_station_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "ground_station_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -138,6 +127,18 @@ class GroundStationArgs:
     @city.setter
     def city(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "city", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groundStationName")
+    def ground_station_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Ground Station name.
+        """
+        return pulumi.get(self, "ground_station_name")
+
+    @ground_station_name.setter
+    def ground_station_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ground_station_name", value)
 
     @_builtins.property
     @pulumi.getter(name="latitudeDegrees")
@@ -297,8 +298,6 @@ class GroundStation(pulumi.CustomResource):
             if global_communications_site is None and not opts.urn:
                 raise TypeError("Missing required property 'global_communications_site'")
             __props__.__dict__["global_communications_site"] = global_communications_site
-            if ground_station_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ground_station_name'")
             __props__.__dict__["ground_station_name"] = ground_station_name
             __props__.__dict__["latitude_degrees"] = latitude_degrees
             __props__.__dict__["location"] = location

@@ -23,8 +23,8 @@ class ScopeMapArgs:
                  actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 scope_map_name: pulumi.Input[_builtins.str],
-                 description: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_map_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScopeMap resource.
 
@@ -33,15 +33,16 @@ class ScopeMapArgs:
                repositories/repository-name/metadata/write
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] scope_map_name: The name of the scope map.
         :param pulumi.Input[_builtins.str] description: The user friendly description of the scope map.
+        :param pulumi.Input[_builtins.str] scope_map_name: The name of the scope map.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope_map_name", scope_map_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if scope_map_name is not None:
+            pulumi.set(__self__, "scope_map_name", scope_map_name)
 
     @_builtins.property
     @pulumi.getter
@@ -82,18 +83,6 @@ class ScopeMapArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="scopeMapName")
-    def scope_map_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the scope map.
-        """
-        return pulumi.get(self, "scope_map_name")
-
-    @scope_map_name.setter
-    def scope_map_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "scope_map_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -104,6 +93,18 @@ class ScopeMapArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeMapName")
+    def scope_map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the scope map.
+        """
+        return pulumi.get(self, "scope_map_name")
+
+    @scope_map_name.setter
+    def scope_map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "scope_map_name", value)
 
 
 @pulumi.type_token("azure-native:containerregistry:ScopeMap")
@@ -189,8 +190,6 @@ class ScopeMap(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if scope_map_name is None and not opts.urn:
-                raise TypeError("Missing required property 'scope_map_name'")
             __props__.__dict__["scope_map_name"] = scope_map_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_date"] = None

@@ -218,7 +218,7 @@ def get_cluster_principal_assignment(cluster_name: Optional[_builtins.str] = Non
         tenant_name=pulumi.get(__ret__, 'tenant_name'),
         type=pulumi.get(__ret__, 'type'))
 def get_cluster_principal_assignment_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                            principal_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            principal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterPrincipalAssignmentResult]:
     """

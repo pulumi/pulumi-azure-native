@@ -114,7 +114,7 @@ def get_network_virtual_appliance_connection(connection_name: Optional[_builtins
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'))
-def get_network_virtual_appliance_connection_output(connection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_network_virtual_appliance_connection_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     network_virtual_appliance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkVirtualApplianceConnectionResult]:

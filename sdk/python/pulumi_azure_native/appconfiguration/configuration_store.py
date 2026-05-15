@@ -22,9 +22,9 @@ __all__ = ['ConfigurationStoreArgs', 'ConfigurationStore']
 @pulumi.input_type
 class ConfigurationStoreArgs:
     def __init__(__self__, *,
-                 config_store_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
+                 config_store_name: pulumi.Input[Optional[_builtins.str]] = None,
                  create_mode: pulumi.Input[Optional['CreateMode']] = None,
                  data_plane_proxy: pulumi.Input[Optional['DataPlaneProxyPropertiesArgs']] = None,
                  disable_local_auth: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -38,9 +38,9 @@ class ConfigurationStoreArgs:
         """
         The set of arguments for constructing a ConfigurationStore resource.
 
-        :param pulumi.Input[_builtins.str] config_store_name: The name of the configuration store.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to which the container registry belongs.
         :param pulumi.Input['SkuArgs'] sku: The sku of the configuration store.
+        :param pulumi.Input[_builtins.str] config_store_name: The name of the configuration store.
         :param pulumi.Input['CreateMode'] create_mode: Indicates whether the configuration store need to be recovered.
         :param pulumi.Input['DataPlaneProxyPropertiesArgs'] data_plane_proxy: Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
         :param pulumi.Input[_builtins.bool] disable_local_auth: Disables all authentication methods other than AAD authentication.
@@ -52,9 +52,10 @@ class ConfigurationStoreArgs:
         :param pulumi.Input[_builtins.int] soft_delete_retention_in_days: The amount of time in days that the configuration store will be retained when it is soft deleted.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "config_store_name", config_store_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if config_store_name is not None:
+            pulumi.set(__self__, "config_store_name", config_store_name)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
         if data_plane_proxy is not None:
@@ -83,18 +84,6 @@ class ConfigurationStoreArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
-    @pulumi.getter(name="configStoreName")
-    def config_store_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the configuration store.
-        """
-        return pulumi.get(self, "config_store_name")
-
-    @config_store_name.setter
-    def config_store_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "config_store_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -117,6 +106,18 @@ class ConfigurationStoreArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configStoreName")
+    def config_store_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the configuration store.
+        """
+        return pulumi.get(self, "config_store_name")
+
+    @config_store_name.setter
+    def config_store_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "config_store_name", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
@@ -334,8 +335,6 @@ class ConfigurationStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationStoreArgs.__new__(ConfigurationStoreArgs)
 
-            if config_store_name is None and not opts.urn:
-                raise TypeError("Missing required property 'config_store_name'")
             __props__.__dict__["config_store_name"] = config_store_name
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["data_plane_proxy"] = data_plane_proxy

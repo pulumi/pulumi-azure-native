@@ -269,7 +269,7 @@ def get_iscsi_target(disk_pool_name: Optional[_builtins.str] = None,
         target_iqn=pulumi.get(__ret__, 'target_iqn'),
         type=pulumi.get(__ret__, 'type'))
 def get_iscsi_target_output(disk_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            iscsi_target_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            iscsi_target_name: pulumi.Input[Optional[_builtins.str]] = None,
                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIscsiTargetResult]:
     """

@@ -22,10 +22,10 @@ __all__ = ['NetworkSecurityPerimeterAccessRuleArgs', 'NetworkSecurityPerimeterAc
 @pulumi.input_type
 class NetworkSecurityPerimeterAccessRuleArgs:
     def __init__(__self__, *,
-                 access_rule_name: pulumi.Input[_builtins.str],
                  network_security_perimeter_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 access_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  address_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  direction: pulumi.Input[Optional[Union[_builtins.str, 'AccessRuleDirection']]] = None,
                  email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -39,10 +39,10 @@ class NetworkSecurityPerimeterAccessRuleArgs:
         """
         The set of arguments for constructing a NetworkSecurityPerimeterAccessRule resource.
 
-        :param pulumi.Input[_builtins.str] access_rule_name: The name of the NSP access rule.
         :param pulumi.Input[_builtins.str] network_security_perimeter_name: The name of the network security perimeter.
         :param pulumi.Input[_builtins.str] profile_name: The name of the NSP profile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] access_rule_name: The name of the NSP access rule.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: Inbound address prefixes (IPv4/IPv6)
         :param pulumi.Input[Union[_builtins.str, 'AccessRuleDirection']] direction: Direction that specifies whether the access rules is inbound/outbound.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Outbound rules email address format.
@@ -54,10 +54,11 @@ class NetworkSecurityPerimeterAccessRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionIdArgs']]] subscriptions: List of subscription ids
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "access_rule_name", access_rule_name)
         pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if access_rule_name is not None:
+            pulumi.set(__self__, "access_rule_name", access_rule_name)
         if address_prefixes is not None:
             pulumi.set(__self__, "address_prefixes", address_prefixes)
         if direction is not None:
@@ -78,18 +79,6 @@ class NetworkSecurityPerimeterAccessRuleArgs:
             pulumi.set(__self__, "subscriptions", subscriptions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="accessRuleName")
-    def access_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the NSP access rule.
-        """
-        return pulumi.get(self, "access_rule_name")
-
-    @access_rule_name.setter
-    def access_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "access_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityPerimeterName")
@@ -126,6 +115,18 @@ class NetworkSecurityPerimeterAccessRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessRuleName")
+    def access_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the NSP access rule.
+        """
+        return pulumi.get(self, "access_rule_name")
+
+    @access_rule_name.setter
+    def access_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "access_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="addressPrefixes")
@@ -346,8 +347,6 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NetworkSecurityPerimeterAccessRuleArgs.__new__(NetworkSecurityPerimeterAccessRuleArgs)
 
-            if access_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'access_rule_name'")
             __props__.__dict__["access_rule_name"] = access_rule_name
             __props__.__dict__["address_prefixes"] = address_prefixes
             __props__.__dict__["direction"] = direction

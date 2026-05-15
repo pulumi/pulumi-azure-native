@@ -23,23 +23,22 @@ __all__ = ['ServiceArgs', 'Service']
 class ServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 service_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  restore: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.bool] restore: Flag used to restore soft-deleted API Center service. If specified and set to 'true' all other properties will be ignored.
+        :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "service_name", service_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -48,6 +47,8 @@ class ServiceArgs:
             restore = False
         if restore is not None:
             pulumi.set(__self__, "restore", restore)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -62,18 +63,6 @@ class ServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of Azure API Center service.
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -110,6 +99,18 @@ class ServiceArgs:
     @restore.setter
     def restore(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "restore", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of Azure API Center service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -206,8 +207,6 @@ class Service(pulumi.CustomResource):
             if restore is None:
                 restore = False
             __props__.__dict__["restore"] = restore
-            if service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

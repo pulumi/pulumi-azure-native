@@ -23,20 +23,21 @@ __all__ = ['LandingZoneRegistrationOperationArgs', 'LandingZoneRegistrationOpera
 class LandingZoneRegistrationOperationArgs:
     def __init__(__self__, *,
                  landing_zone_account_name: pulumi.Input[_builtins.str],
-                 landing_zone_registration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 landing_zone_registration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['LandingZoneRegistrationResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a LandingZoneRegistrationOperation resource.
 
         :param pulumi.Input[_builtins.str] landing_zone_account_name: The landing zone account.
-        :param pulumi.Input[_builtins.str] landing_zone_registration_name: The name of the landing zone registration resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] landing_zone_registration_name: The name of the landing zone registration resource.
         :param pulumi.Input['LandingZoneRegistrationResourcePropertiesArgs'] properties: The resource-specific properties for this resource.
         """
         pulumi.set(__self__, "landing_zone_account_name", landing_zone_account_name)
-        pulumi.set(__self__, "landing_zone_registration_name", landing_zone_registration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if landing_zone_registration_name is not None:
+            pulumi.set(__self__, "landing_zone_registration_name", landing_zone_registration_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -53,18 +54,6 @@ class LandingZoneRegistrationOperationArgs:
         pulumi.set(self, "landing_zone_account_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="landingZoneRegistrationName")
-    def landing_zone_registration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the landing zone registration resource.
-        """
-        return pulumi.get(self, "landing_zone_registration_name")
-
-    @landing_zone_registration_name.setter
-    def landing_zone_registration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "landing_zone_registration_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -75,6 +64,18 @@ class LandingZoneRegistrationOperationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="landingZoneRegistrationName")
+    def landing_zone_registration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the landing zone registration resource.
+        """
+        return pulumi.get(self, "landing_zone_registration_name")
+
+    @landing_zone_registration_name.setter
+    def landing_zone_registration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "landing_zone_registration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -156,8 +157,6 @@ class LandingZoneRegistrationOperation(pulumi.CustomResource):
             if landing_zone_account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'landing_zone_account_name'")
             __props__.__dict__["landing_zone_account_name"] = landing_zone_account_name
-            if landing_zone_registration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'landing_zone_registration_name'")
             __props__.__dict__["landing_zone_registration_name"] = landing_zone_registration_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

@@ -23,31 +23,32 @@ __all__ = ['OrganizationArgs', 'Organization']
 class OrganizationArgs:
     def __init__(__self__, *,
                  offer_detail: pulumi.Input['OfferDetailArgs'],
-                 organization_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_detail: pulumi.Input['UserDetailArgs'],
                  link_organization: pulumi.Input[Optional['LinkOrganizationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 organization_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Organization resource.
 
         :param pulumi.Input['OfferDetailArgs'] offer_detail: Confluent offer detail
-        :param pulumi.Input[_builtins.str] organization_name: Organization resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['UserDetailArgs'] user_detail: Subscriber detail
         :param pulumi.Input['LinkOrganizationArgs'] link_organization: Link an existing Confluent organization
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] organization_name: Organization resource name
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "offer_detail", offer_detail)
-        pulumi.set(__self__, "organization_name", organization_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "user_detail", user_detail)
         if link_organization is not None:
             pulumi.set(__self__, "link_organization", link_organization)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -62,18 +63,6 @@ class OrganizationArgs:
     @offer_detail.setter
     def offer_detail(self, value: pulumi.Input['OfferDetailArgs']):
         pulumi.set(self, "offer_detail", value)
-
-    @_builtins.property
-    @pulumi.getter(name="organizationName")
-    def organization_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Organization resource name
-        """
-        return pulumi.get(self, "organization_name")
-
-    @organization_name.setter
-    def organization_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "organization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -122,6 +111,18 @@ class OrganizationArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Organization resource name
+        """
+        return pulumi.get(self, "organization_name")
+
+    @organization_name.setter
+    def organization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "organization_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -218,8 +219,6 @@ class Organization(pulumi.CustomResource):
             if offer_detail is None and not opts.urn:
                 raise TypeError("Missing required property 'offer_detail'")
             __props__.__dict__["offer_detail"] = offer_detail
-            if organization_name is None and not opts.urn:
-                raise TypeError("Missing required property 'organization_name'")
             __props__.__dict__["organization_name"] = organization_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

@@ -577,7 +577,7 @@ def get_cluster(cluster_name: Optional[_builtins.str] = None,
         update_strategy=pulumi.get(__ret__, 'update_strategy'),
         vulnerability_scanning_settings=pulumi.get(__ret__, 'vulnerability_scanning_settings'),
         workload_resource_ids=pulumi.get(__ret__, 'workload_resource_ids'))
-def get_cluster_output(cluster_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """

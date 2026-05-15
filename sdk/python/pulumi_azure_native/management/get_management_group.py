@@ -184,7 +184,7 @@ def get_management_group(expand: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_management_group_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                 filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                group_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                group_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 recurse: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupResult]:
     """

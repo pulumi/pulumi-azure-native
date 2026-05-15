@@ -233,7 +233,7 @@ def get_virtual_router(expand: Optional[_builtins.str] = None,
         virtual_router_ips=pulumi.get(__ret__, 'virtual_router_ips'))
 def get_virtual_router_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              virtual_router_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              virtual_router_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualRouterResult]:
     """
     Gets the specified Virtual Router.

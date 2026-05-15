@@ -19,43 +19,32 @@ __all__ = ['WorkflowAccessKeyArgs', 'WorkflowAccessKey']
 @pulumi.input_type
 class WorkflowAccessKeyArgs:
     def __init__(__self__, *,
-                 access_key_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workflow_name: pulumi.Input[_builtins.str],
+                 access_key_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  not_after: pulumi.Input[Optional[_builtins.str]] = None,
                  not_before: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkflowAccessKey resource.
 
-        :param pulumi.Input[_builtins.str] access_key_name: The workflow access key name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] workflow_name: The workflow name.
+        :param pulumi.Input[_builtins.str] access_key_name: The workflow access key name.
         :param pulumi.Input[_builtins.str] id: Gets or sets the resource id.
         :param pulumi.Input[_builtins.str] not_after: Gets or sets the not-after time.
         :param pulumi.Input[_builtins.str] not_before: Gets or sets the not-before time.
         """
-        pulumi.set(__self__, "access_key_name", access_key_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workflow_name", workflow_name)
+        if access_key_name is not None:
+            pulumi.set(__self__, "access_key_name", access_key_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if not_after is not None:
             pulumi.set(__self__, "not_after", not_after)
         if not_before is not None:
             pulumi.set(__self__, "not_before", not_before)
-
-    @_builtins.property
-    @pulumi.getter(name="accessKeyName")
-    def access_key_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The workflow access key name.
-        """
-        return pulumi.get(self, "access_key_name")
-
-    @access_key_name.setter
-    def access_key_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "access_key_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -80,6 +69,18 @@ class WorkflowAccessKeyArgs:
     @workflow_name.setter
     def workflow_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workflow_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessKeyName")
+    def access_key_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The workflow access key name.
+        """
+        return pulumi.get(self, "access_key_name")
+
+    @access_key_name.setter
+    def access_key_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "access_key_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -184,8 +185,6 @@ class WorkflowAccessKey(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkflowAccessKeyArgs.__new__(WorkflowAccessKeyArgs)
 
-            if access_key_name is None and not opts.urn:
-                raise TypeError("Missing required property 'access_key_name'")
             __props__.__dict__["access_key_name"] = access_key_name
             __props__.__dict__["id"] = id
             __props__.__dict__["not_after"] = not_after

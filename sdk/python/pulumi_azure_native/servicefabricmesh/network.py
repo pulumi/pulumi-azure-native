@@ -21,39 +21,28 @@ __all__ = ['NetworkArgs', 'Network']
 @pulumi.input_type
 class NetworkArgs:
     def __init__(__self__, *,
-                 network_resource_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['NetworkResourcePropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Network resource.
 
-        :param pulumi.Input[_builtins.str] network_resource_name: The identity of the network.
         :param pulumi.Input['NetworkResourcePropertiesArgs'] properties: Describes properties of a network resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Azure resource group name
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] network_resource_name: The identity of the network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_resource_name", network_resource_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_resource_name is not None:
+            pulumi.set(__self__, "network_resource_name", network_resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="networkResourceName")
-    def network_resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identity of the network.
-        """
-        return pulumi.get(self, "network_resource_name")
-
-    @network_resource_name.setter
-    def network_resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -90,6 +79,18 @@ class NetworkArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkResourceName")
+    def network_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identity of the network.
+        """
+        return pulumi.get(self, "network_resource_name")
+
+    @network_resource_name.setter
+    def network_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -172,8 +173,6 @@ class Network(pulumi.CustomResource):
             __props__ = NetworkArgs.__new__(NetworkArgs)
 
             __props__.__dict__["location"] = location
-            if network_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_resource_name'")
             __props__.__dict__["network_resource_name"] = network_resource_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

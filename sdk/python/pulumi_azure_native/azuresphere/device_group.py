@@ -22,11 +22,11 @@ __all__ = ['DeviceGroupArgs', 'DeviceGroup']
 class DeviceGroupArgs:
     def __init__(__self__, *,
                  catalog_name: pulumi.Input[_builtins.str],
-                 device_group_name: pulumi.Input[_builtins.str],
                  product_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allow_crash_dumps_collection: pulumi.Input[Optional[Union[_builtins.str, 'AllowCrashDumpCollection']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 device_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  os_feed_type: pulumi.Input[Optional[Union[_builtins.str, 'OSFeedType']]] = None,
                  regional_data_boundary: pulumi.Input[Optional[Union[_builtins.str, 'RegionalDataBoundary']]] = None,
                  update_policy: pulumi.Input[Optional[Union[_builtins.str, 'UpdatePolicy']]] = None):
@@ -34,23 +34,24 @@ class DeviceGroupArgs:
         The set of arguments for constructing a DeviceGroup resource.
 
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
-        :param pulumi.Input[_builtins.str] device_group_name: Name of device group.
         :param pulumi.Input[_builtins.str] product_name: Name of product.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'AllowCrashDumpCollection']] allow_crash_dumps_collection: Flag to define if the user allows for crash dump collection.
         :param pulumi.Input[_builtins.str] description: Description of the device group.
+        :param pulumi.Input[_builtins.str] device_group_name: Name of device group.
         :param pulumi.Input[Union[_builtins.str, 'OSFeedType']] os_feed_type: Operating system feed type of the device group.
         :param pulumi.Input[Union[_builtins.str, 'RegionalDataBoundary']] regional_data_boundary: Regional data boundary for the device group.
         :param pulumi.Input[Union[_builtins.str, 'UpdatePolicy']] update_policy: Update policy of the device group.
         """
         pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "device_group_name", device_group_name)
         pulumi.set(__self__, "product_name", product_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_crash_dumps_collection is not None:
             pulumi.set(__self__, "allow_crash_dumps_collection", allow_crash_dumps_collection)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if device_group_name is not None:
+            pulumi.set(__self__, "device_group_name", device_group_name)
         if os_feed_type is not None:
             pulumi.set(__self__, "os_feed_type", os_feed_type)
         if regional_data_boundary is not None:
@@ -69,18 +70,6 @@ class DeviceGroupArgs:
     @catalog_name.setter
     def catalog_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "catalog_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deviceGroupName")
-    def device_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of device group.
-        """
-        return pulumi.get(self, "device_group_name")
-
-    @device_group_name.setter
-    def device_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "device_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="productName")
@@ -129,6 +118,18 @@ class DeviceGroupArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceGroupName")
+    def device_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of device group.
+        """
+        return pulumi.get(self, "device_group_name")
+
+    @device_group_name.setter
+    def device_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "device_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="osFeedType")
@@ -251,8 +252,6 @@ class DeviceGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'catalog_name'")
             __props__.__dict__["catalog_name"] = catalog_name
             __props__.__dict__["description"] = description
-            if device_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'device_group_name'")
             __props__.__dict__["device_group_name"] = device_group_name
             __props__.__dict__["os_feed_type"] = os_feed_type
             if product_name is None and not opts.urn:

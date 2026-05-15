@@ -22,7 +22,6 @@ __all__ = ['DataLakeConnectorArgs', 'DataLakeConnector']
 @pulumi.input_type
 class DataLakeConnectorArgs:
     def __init__(__self__, *,
-                 data_lake_connector_name: pulumi.Input[_builtins.str],
                  database_format: pulumi.Input[Union[_builtins.str, 'DataLakeDatabaseFormat']],
                  extended_location: pulumi.Input['ExtendedLocationPropertyArgs'],
                  image: pulumi.Input['ContainerImageArgs'],
@@ -30,6 +29,7 @@ class DataLakeConnectorArgs:
                  protocol: pulumi.Input[Union[_builtins.str, 'MqttProtocol']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target: pulumi.Input['DataLakeTargetStorageArgs'],
+                 data_lake_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  instances: pulumi.Input[Optional[_builtins.int]] = None,
                  local_broker_connection: pulumi.Input[Optional['LocalBrokerConnectionSpecArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,7 +39,6 @@ class DataLakeConnectorArgs:
         """
         The set of arguments for constructing a DataLakeConnector resource.
 
-        :param pulumi.Input[_builtins.str] data_lake_connector_name: Name of MQ dataLakeConnector resource
         :param pulumi.Input[Union[_builtins.str, 'DataLakeDatabaseFormat']] database_format: DataLake database format to use.
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input['ContainerImageArgs'] image: The details of DataLakeConnector Docker Image.
@@ -47,6 +46,7 @@ class DataLakeConnectorArgs:
         :param pulumi.Input[Union[_builtins.str, 'MqttProtocol']] protocol: The protocol to use for connecting with Brokers.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DataLakeTargetStorageArgs'] target: The protocol to use for connecting with Brokers. NOTE - Enum only storage is supported at at time.
+        :param pulumi.Input[_builtins.str] data_lake_connector_name: Name of MQ dataLakeConnector resource
         :param pulumi.Input[_builtins.int] instances: The number of DataLakeConnector pods to spin up.
         :param pulumi.Input['LocalBrokerConnectionSpecArgs'] local_broker_connection: The details for connecting with Local Broker.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -54,7 +54,6 @@ class DataLakeConnectorArgs:
         :param pulumi.Input['NodeTolerationsArgs'] node_tolerations: The Node Tolerations for the DataLake Connector pods.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "data_lake_connector_name", data_lake_connector_name)
         pulumi.set(__self__, "database_format", database_format)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "image", image)
@@ -62,6 +61,8 @@ class DataLakeConnectorArgs:
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "target", target)
+        if data_lake_connector_name is not None:
+            pulumi.set(__self__, "data_lake_connector_name", data_lake_connector_name)
         if instances is not None:
             pulumi.set(__self__, "instances", instances)
         if local_broker_connection is not None:
@@ -74,18 +75,6 @@ class DataLakeConnectorArgs:
             pulumi.set(__self__, "node_tolerations", node_tolerations)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="dataLakeConnectorName")
-    def data_lake_connector_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of MQ dataLakeConnector resource
-        """
-        return pulumi.get(self, "data_lake_connector_name")
-
-    @data_lake_connector_name.setter
-    def data_lake_connector_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_lake_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseFormat")
@@ -170,6 +159,18 @@ class DataLakeConnectorArgs:
     @target.setter
     def target(self, value: pulumi.Input['DataLakeTargetStorageArgs']):
         pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLakeConnectorName")
+    def data_lake_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of MQ dataLakeConnector resource
+        """
+        return pulumi.get(self, "data_lake_connector_name")
+
+    @data_lake_connector_name.setter
+    def data_lake_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_lake_connector_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -338,8 +339,6 @@ class DataLakeConnector(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DataLakeConnectorArgs.__new__(DataLakeConnectorArgs)
 
-            if data_lake_connector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_lake_connector_name'")
             __props__.__dict__["data_lake_connector_name"] = data_lake_connector_name
             if database_format is None and not opts.urn:
                 raise TypeError("Missing required property 'database_format'")

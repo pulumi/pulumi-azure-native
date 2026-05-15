@@ -165,7 +165,7 @@ def get_secret_value(resource_group_name: Optional[_builtins.str] = None,
         value=pulumi.get(__ret__, 'value'))
 def get_secret_value_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             secret_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
-                            secret_value_resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            secret_value_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretValueResult]:
     """
     Get the information about the specified named secret value resources. The information does not include the actual value of the secret.

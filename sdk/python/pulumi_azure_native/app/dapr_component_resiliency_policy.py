@@ -23,26 +23,27 @@ class DaprComponentResiliencyPolicyArgs:
     def __init__(__self__, *,
                  component_name: pulumi.Input[_builtins.str],
                  environment_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  inbound_policy: pulumi.Input[Optional['DaprComponentResiliencyPolicyConfigurationArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  outbound_policy: pulumi.Input[Optional['DaprComponentResiliencyPolicyConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DaprComponentResiliencyPolicy resource.
 
         :param pulumi.Input[_builtins.str] component_name: Name of the Dapr Component.
         :param pulumi.Input[_builtins.str] environment_name: Name of the Managed Environment.
-        :param pulumi.Input[_builtins.str] name: Name of the Dapr Component Resiliency Policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['DaprComponentResiliencyPolicyConfigurationArgs'] inbound_policy: The optional inbound component resiliency policy configuration
+        :param pulumi.Input[_builtins.str] name: Name of the Dapr Component Resiliency Policy.
         :param pulumi.Input['DaprComponentResiliencyPolicyConfigurationArgs'] outbound_policy: The optional outbound component resiliency policy configuration
         """
         pulumi.set(__self__, "component_name", component_name)
         pulumi.set(__self__, "environment_name", environment_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if inbound_policy is not None:
             pulumi.set(__self__, "inbound_policy", inbound_policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if outbound_policy is not None:
             pulumi.set(__self__, "outbound_policy", outbound_policy)
 
@@ -71,18 +72,6 @@ class DaprComponentResiliencyPolicyArgs:
         pulumi.set(self, "environment_name", value)
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Dapr Component Resiliency Policy.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -105,6 +94,18 @@ class DaprComponentResiliencyPolicyArgs:
     @inbound_policy.setter
     def inbound_policy(self, value: pulumi.Input[Optional['DaprComponentResiliencyPolicyConfigurationArgs']]):
         pulumi.set(self, "inbound_policy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Dapr Component Resiliency Policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="outboundPolicy")
@@ -200,8 +201,6 @@ class DaprComponentResiliencyPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["inbound_policy"] = inbound_policy
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["outbound_policy"] = outbound_policy
             if resource_group_name is None and not opts.urn:

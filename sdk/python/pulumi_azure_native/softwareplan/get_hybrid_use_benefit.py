@@ -174,7 +174,7 @@ def get_hybrid_use_benefit(plan_id: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         sku=pulumi.get(__ret__, 'sku'),
         type=pulumi.get(__ret__, 'type'))
-def get_hybrid_use_benefit_output(plan_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_hybrid_use_benefit_output(plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                                   scope: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridUseBenefitResult]:
     """

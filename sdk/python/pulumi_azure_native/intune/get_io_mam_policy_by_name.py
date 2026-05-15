@@ -338,7 +338,7 @@ def get_io_mam_policy_by_name(host_name: Optional[_builtins.str] = None,
         touch_id=pulumi.get(__ret__, 'touch_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_io_mam_policy_by_name_output(host_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      select: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIoMAMPolicyByNameResult]:
     """

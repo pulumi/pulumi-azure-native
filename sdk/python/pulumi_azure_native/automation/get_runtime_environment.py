@@ -207,7 +207,7 @@ def get_runtime_environment(automation_account_name: Optional[_builtins.str] = N
         version=pulumi.get(__ret__, 'version'))
 def get_runtime_environment_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   runtime_environment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   runtime_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuntimeEnvironmentResult]:
     """
     Get information about the Runtime Environment

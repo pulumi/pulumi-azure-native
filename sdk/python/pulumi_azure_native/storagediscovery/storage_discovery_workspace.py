@@ -23,25 +23,26 @@ __all__ = ['StorageDiscoveryWorkspaceArgs', 'StorageDiscoveryWorkspace']
 class StorageDiscoveryWorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 storage_discovery_workspace_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['StorageDiscoveryWorkspacePropertiesArgs']] = None,
+                 storage_discovery_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a StorageDiscoveryWorkspace resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] storage_discovery_workspace_name: The name of the StorageDiscoveryWorkspace
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['StorageDiscoveryWorkspacePropertiesArgs'] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[_builtins.str] storage_discovery_workspace_name: The name of the StorageDiscoveryWorkspace
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_discovery_workspace_name", storage_discovery_workspace_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if storage_discovery_workspace_name is not None:
+            pulumi.set(__self__, "storage_discovery_workspace_name", storage_discovery_workspace_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -56,18 +57,6 @@ class StorageDiscoveryWorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageDiscoveryWorkspaceName")
-    def storage_discovery_workspace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the StorageDiscoveryWorkspace
-        """
-        return pulumi.get(self, "storage_discovery_workspace_name")
-
-    @storage_discovery_workspace_name.setter
-    def storage_discovery_workspace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_discovery_workspace_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -92,6 +81,18 @@ class StorageDiscoveryWorkspaceArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['StorageDiscoveryWorkspacePropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageDiscoveryWorkspaceName")
+    def storage_discovery_workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the StorageDiscoveryWorkspace
+        """
+        return pulumi.get(self, "storage_discovery_workspace_name")
+
+    @storage_discovery_workspace_name.setter
+    def storage_discovery_workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_discovery_workspace_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -182,8 +183,6 @@ class StorageDiscoveryWorkspace(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if storage_discovery_workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_discovery_workspace_name'")
             __props__.__dict__["storage_discovery_workspace_name"] = storage_discovery_workspace_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

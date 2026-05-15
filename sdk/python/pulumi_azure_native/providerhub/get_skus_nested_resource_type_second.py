@@ -147,7 +147,7 @@ def get_skus_nested_resource_type_second_output(nested_resource_type_first: pulu
                                                 nested_resource_type_second: pulumi.Input[Optional[_builtins.str]] = None,
                                                 provider_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                                                 resource_type: pulumi.Input[Optional[_builtins.str]] = None,
-                                                sku: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                sku: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSkusNestedResourceTypeSecondResult]:
     """
     Gets the sku details for the given resource type and sku name.

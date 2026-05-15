@@ -22,23 +22,24 @@ __all__ = ['LinkedSubscriptionArgs', 'LinkedSubscription']
 class LinkedSubscriptionArgs:
     def __init__(__self__, *,
                  linked_subscription_id: pulumi.Input[_builtins.str],
-                 linked_subscription_name: pulumi.Input[_builtins.str],
                  registration_resource_id: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
+                 linked_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[Union[_builtins.str, 'Location']]] = None):
         """
         The set of arguments for constructing a LinkedSubscription resource.
 
         :param pulumi.Input[_builtins.str] linked_subscription_id: The identifier associated with the device subscription.
-        :param pulumi.Input[_builtins.str] linked_subscription_name: Name of the Linked Subscription resource.
         :param pulumi.Input[_builtins.str] registration_resource_id: The identifier associated with the device registration.
         :param pulumi.Input[_builtins.str] resource_group: Name of the resource group.
+        :param pulumi.Input[_builtins.str] linked_subscription_name: Name of the Linked Subscription resource.
         :param pulumi.Input[Union[_builtins.str, 'Location']] location: Location of the resource.
         """
         pulumi.set(__self__, "linked_subscription_id", linked_subscription_id)
-        pulumi.set(__self__, "linked_subscription_name", linked_subscription_name)
         pulumi.set(__self__, "registration_resource_id", registration_resource_id)
         pulumi.set(__self__, "resource_group", resource_group)
+        if linked_subscription_name is not None:
+            pulumi.set(__self__, "linked_subscription_name", linked_subscription_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
 
@@ -53,18 +54,6 @@ class LinkedSubscriptionArgs:
     @linked_subscription_id.setter
     def linked_subscription_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "linked_subscription_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedSubscriptionName")
-    def linked_subscription_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Linked Subscription resource.
-        """
-        return pulumi.get(self, "linked_subscription_name")
-
-    @linked_subscription_name.setter
-    def linked_subscription_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "linked_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationResourceId")
@@ -89,6 +78,18 @@ class LinkedSubscriptionArgs:
     @resource_group.setter
     def resource_group(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedSubscriptionName")
+    def linked_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Linked Subscription resource.
+        """
+        return pulumi.get(self, "linked_subscription_name")
+
+    @linked_subscription_name.setter
+    def linked_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "linked_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -173,8 +174,6 @@ class LinkedSubscription(pulumi.CustomResource):
             if linked_subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'linked_subscription_id'")
             __props__.__dict__["linked_subscription_id"] = linked_subscription_id
-            if linked_subscription_name is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_subscription_name'")
             __props__.__dict__["linked_subscription_name"] = linked_subscription_name
             __props__.__dict__["location"] = location
             if registration_resource_id is None and not opts.urn:

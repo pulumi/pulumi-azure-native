@@ -23,23 +23,24 @@ class SecretArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['SecretResourcePropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 secret_resource_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Secret resource.
 
         :param pulumi.Input['SecretResourcePropertiesArgs'] properties: Describes the properties of a secret resource.
         :param pulumi.Input[_builtins.str] resource_group_name: Azure resource group name
-        :param pulumi.Input[_builtins.str] secret_resource_name: The name of the secret resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] secret_resource_name: The name of the secret resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "secret_resource_name", secret_resource_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if secret_resource_name is not None:
+            pulumi.set(__self__, "secret_resource_name", secret_resource_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -68,18 +69,6 @@ class SecretArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="secretResourceName")
-    def secret_resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the secret resource.
-        """
-        return pulumi.get(self, "secret_resource_name")
-
-    @secret_resource_name.setter
-    def secret_resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "secret_resource_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -90,6 +79,18 @@ class SecretArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretResourceName")
+    def secret_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the secret resource.
+        """
+        return pulumi.get(self, "secret_resource_name")
+
+    @secret_resource_name.setter
+    def secret_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,8 +179,6 @@ class Secret(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if secret_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'secret_resource_name'")
             __props__.__dict__["secret_resource_name"] = secret_resource_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

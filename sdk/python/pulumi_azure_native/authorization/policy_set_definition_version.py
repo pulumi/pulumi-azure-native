@@ -22,7 +22,6 @@ __all__ = ['PolicySetDefinitionVersionArgs', 'PolicySetDefinitionVersion']
 @pulumi.input_type
 class PolicySetDefinitionVersionArgs:
     def __init__(__self__, *,
-                 policy_definition_version: pulumi.Input[_builtins.str],
                  policy_definitions: pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionReferenceArgs']]],
                  policy_set_definition_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
@@ -30,12 +29,12 @@ class PolicySetDefinitionVersionArgs:
                  metadata: Optional[Any] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]] = None,
                  policy_definition_groups: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyDefinitionGroupArgs']]]] = None,
+                 policy_definition_version: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_type: pulumi.Input[Optional[Union[_builtins.str, 'PolicyType']]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PolicySetDefinitionVersion resource.
 
-        :param pulumi.Input[_builtins.str] policy_definition_version: The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
         :param pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionReferenceArgs']]] policy_definitions: An array of policy definition references.
         :param pulumi.Input[_builtins.str] policy_set_definition_name: The name of the policy set definition.
         :param pulumi.Input[_builtins.str] description: The policy set definition description.
@@ -43,10 +42,10 @@ class PolicySetDefinitionVersionArgs:
         :param Any metadata: The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]] parameters: The policy set definition parameters that can be used in policy definition references.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyDefinitionGroupArgs']]] policy_definition_groups: The metadata describing groups of policy definition references within the policy set definition.
+        :param pulumi.Input[_builtins.str] policy_definition_version: The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
         :param pulumi.Input[Union[_builtins.str, 'PolicyType']] policy_type: The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         :param pulumi.Input[_builtins.str] version: The policy set definition version in #.#.# format.
         """
-        pulumi.set(__self__, "policy_definition_version", policy_definition_version)
         pulumi.set(__self__, "policy_definitions", policy_definitions)
         pulumi.set(__self__, "policy_set_definition_name", policy_set_definition_name)
         if description is not None:
@@ -59,22 +58,12 @@ class PolicySetDefinitionVersionArgs:
             pulumi.set(__self__, "parameters", parameters)
         if policy_definition_groups is not None:
             pulumi.set(__self__, "policy_definition_groups", policy_definition_groups)
+        if policy_definition_version is not None:
+            pulumi.set(__self__, "policy_definition_version", policy_definition_version)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter(name="policyDefinitionVersion")
-    def policy_definition_version(self) -> pulumi.Input[_builtins.str]:
-        """
-        The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
-        """
-        return pulumi.get(self, "policy_definition_version")
-
-    @policy_definition_version.setter
-    def policy_definition_version(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "policy_definition_version", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitions")
@@ -159,6 +148,18 @@ class PolicySetDefinitionVersionArgs:
     @policy_definition_groups.setter
     def policy_definition_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PolicyDefinitionGroupArgs']]]]):
         pulumi.set(self, "policy_definition_groups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="policyDefinitionVersion")
+    def policy_definition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The policy set definition version.  The format is x.y.z where x is the major version number, y is the minor version number, and z is the patch number
+        """
+        return pulumi.get(self, "policy_definition_version")
+
+    @policy_definition_version.setter
+    def policy_definition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "policy_definition_version", value)
 
     @_builtins.property
     @pulumi.getter(name="policyType")
@@ -276,8 +277,6 @@ class PolicySetDefinitionVersion(pulumi.CustomResource):
             __props__.__dict__["metadata"] = metadata
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["policy_definition_groups"] = policy_definition_groups
-            if policy_definition_version is None and not opts.urn:
-                raise TypeError("Missing required property 'policy_definition_version'")
             __props__.__dict__["policy_definition_version"] = policy_definition_version
             if policy_definitions is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_definitions'")

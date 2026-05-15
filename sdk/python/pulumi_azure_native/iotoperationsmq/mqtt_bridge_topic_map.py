@@ -27,10 +27,10 @@ class MqttBridgeTopicMapArgs:
                  mqtt_bridge_connector_name: pulumi.Input[_builtins.str],
                  mqtt_bridge_connector_ref: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 topic_map_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  routes: pulumi.Input[Optional[Sequence[pulumi.Input['MqttBridgeRoutesArgs']]]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 topic_map_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MqttBridgeTopicMap resource.
 
@@ -39,23 +39,24 @@ class MqttBridgeTopicMapArgs:
         :param pulumi.Input[_builtins.str] mqtt_bridge_connector_name: Name of MQ mqttBridgeConnector resource
         :param pulumi.Input[_builtins.str] mqtt_bridge_connector_ref: The MqttBridgeConnector CRD it refers to.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] topic_map_name: Name of MQ mqttBridgeTopicMap resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['MqttBridgeRoutesArgs']]] routes: The route details for MqttBridge connector.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] topic_map_name: Name of MQ mqttBridgeTopicMap resource
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "mq_name", mq_name)
         pulumi.set(__self__, "mqtt_bridge_connector_name", mqtt_bridge_connector_name)
         pulumi.set(__self__, "mqtt_bridge_connector_ref", mqtt_bridge_connector_ref)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "topic_map_name", topic_map_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if routes is not None:
             pulumi.set(__self__, "routes", routes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if topic_map_name is not None:
+            pulumi.set(__self__, "topic_map_name", topic_map_name)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -118,18 +119,6 @@ class MqttBridgeTopicMapArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="topicMapName")
-    def topic_map_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of MQ mqttBridgeTopicMap resource
-        """
-        return pulumi.get(self, "topic_map_name")
-
-    @topic_map_name.setter
-    def topic_map_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "topic_map_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -164,6 +153,18 @@ class MqttBridgeTopicMapArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="topicMapName")
+    def topic_map_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of MQ mqttBridgeTopicMap resource
+        """
+        return pulumi.get(self, "topic_map_name")
+
+    @topic_map_name.setter
+    def topic_map_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "topic_map_name", value)
 
 
 @pulumi.type_token("azure-native:iotoperationsmq:MqttBridgeTopicMap")
@@ -263,8 +264,6 @@ class MqttBridgeTopicMap(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["routes"] = routes
             __props__.__dict__["tags"] = tags
-            if topic_map_name is None and not opts.urn:
-                raise TypeError("Missing required property 'topic_map_name'")
             __props__.__dict__["topic_map_name"] = topic_map_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

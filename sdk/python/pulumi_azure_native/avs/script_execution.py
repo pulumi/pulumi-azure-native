@@ -23,7 +23,6 @@ class ScriptExecutionArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 script_execution_name: pulumi.Input[_builtins.str],
                  timeout: pulumi.Input[_builtins.str],
                  failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
                  hidden_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]] = None,
@@ -31,13 +30,13 @@ class ScriptExecutionArgs:
                  output: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]]] = None,
                  retention: pulumi.Input[Optional[_builtins.str]] = None,
-                 script_cmdlet_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 script_cmdlet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 script_execution_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScriptExecution resource.
 
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] script_execution_name: Name of the script cmdlet.
         :param pulumi.Input[_builtins.str] timeout: Time limit for execution
         :param pulumi.Input[_builtins.str] failure_reason: Error message if the script was able to run, but if the script itself had
                errors or powershell threw an exception
@@ -48,10 +47,10 @@ class ScriptExecutionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union['PSCredentialExecutionParameterArgs', 'ScriptSecureStringExecutionParameterArgs', 'ScriptStringExecutionParameterArgs']]]] parameters: Parameters the script will accept
         :param pulumi.Input[_builtins.str] retention: Time to live for the resource. If not provided, will be available for 60 days
         :param pulumi.Input[_builtins.str] script_cmdlet_id: A reference to the script cmdlet resource if user is running a AVS script
+        :param pulumi.Input[_builtins.str] script_execution_name: Name of the script cmdlet.
         """
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "script_execution_name", script_execution_name)
         pulumi.set(__self__, "timeout", timeout)
         if failure_reason is not None:
             pulumi.set(__self__, "failure_reason", failure_reason)
@@ -67,6 +66,8 @@ class ScriptExecutionArgs:
             pulumi.set(__self__, "retention", retention)
         if script_cmdlet_id is not None:
             pulumi.set(__self__, "script_cmdlet_id", script_cmdlet_id)
+        if script_execution_name is not None:
+            pulumi.set(__self__, "script_execution_name", script_execution_name)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -91,18 +92,6 @@ class ScriptExecutionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="scriptExecutionName")
-    def script_execution_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the script cmdlet.
-        """
-        return pulumi.get(self, "script_execution_name")
-
-    @script_execution_name.setter
-    def script_execution_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "script_execution_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -201,6 +190,18 @@ class ScriptExecutionArgs:
     @script_cmdlet_id.setter
     def script_cmdlet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "script_cmdlet_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scriptExecutionName")
+    def script_execution_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the script cmdlet.
+        """
+        return pulumi.get(self, "script_execution_name")
+
+    @script_execution_name.setter
+    def script_execution_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "script_execution_name", value)
 
 
 @pulumi.type_token("azure-native:avs:ScriptExecution")
@@ -307,8 +308,6 @@ class ScriptExecution(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention"] = retention
             __props__.__dict__["script_cmdlet_id"] = script_cmdlet_id
-            if script_execution_name is None and not opts.urn:
-                raise TypeError("Missing required property 'script_execution_name'")
             __props__.__dict__["script_execution_name"] = script_execution_name
             if timeout is None and not opts.urn:
                 raise TypeError("Missing required property 'timeout'")

@@ -23,8 +23,8 @@ __all__ = ['DeploymentArgs', 'Deployment']
 class DeploymentArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 deployment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DeploymentPropertiesArgs']] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -32,15 +32,16 @@ class DeploymentArgs:
         The set of arguments for constructing a Deployment resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input[_builtins.str] deployment_name: The name of the deployment associated with the Cognitive Services Account
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] deployment_name: The name of the deployment associated with the Cognitive Services Account
         :param pulumi.Input['DeploymentPropertiesArgs'] properties: Properties of Cognitive Services account deployment.
         :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "deployment_name", deployment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if deployment_name is not None:
+            pulumi.set(__self__, "deployment_name", deployment_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if sku is not None:
@@ -61,18 +62,6 @@ class DeploymentArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the deployment associated with the Cognitive Services Account
-        """
-        return pulumi.get(self, "deployment_name")
-
-    @deployment_name.setter
-    def deployment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "deployment_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -83,6 +72,18 @@ class DeploymentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentName")
+    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the deployment associated with the Cognitive Services Account
+        """
+        return pulumi.get(self, "deployment_name")
+
+    @deployment_name.setter
+    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,8 +199,6 @@ class Deployment(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if deployment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'deployment_name'")
             __props__.__dict__["deployment_name"] = deployment_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

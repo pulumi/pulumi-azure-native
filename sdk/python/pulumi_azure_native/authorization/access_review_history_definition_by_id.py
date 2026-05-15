@@ -22,9 +22,9 @@ __all__ = ['AccessReviewHistoryDefinitionByIdArgs', 'AccessReviewHistoryDefiniti
 @pulumi.input_type
 class AccessReviewHistoryDefinitionByIdArgs:
     def __init__(__self__, *,
-                 history_definition_id: pulumi.Input[_builtins.str],
                  decisions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 history_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  instances: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]]] = None,
                  interval: pulumi.Input[Optional[_builtins.int]] = None,
                  range: pulumi.Input[Optional['AccessReviewRecurrenceRangeArgs']] = None,
@@ -33,20 +33,21 @@ class AccessReviewHistoryDefinitionByIdArgs:
         """
         The set of arguments for constructing a AccessReviewHistoryDefinitionById resource.
 
-        :param pulumi.Input[_builtins.str] history_definition_id: The id of the access review history definition.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessReviewResult']]]] decisions: Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
         :param pulumi.Input[_builtins.str] display_name: The display name for the history definition.
+        :param pulumi.Input[_builtins.str] history_definition_id: The id of the access review history definition.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewHistoryInstanceArgs']]] instances: Set of access review history instances for this history definition.
         :param pulumi.Input[_builtins.int] interval: The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
         :param pulumi.Input['AccessReviewRecurrenceRangeArgs'] range: Access Review History Definition recurrence settings.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewScopeArgs']]] scopes: A collection of scopes used when selecting review history data
         :param pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']] type: The recurrence type : weekly, monthly, etc.
         """
-        pulumi.set(__self__, "history_definition_id", history_definition_id)
         if decisions is not None:
             pulumi.set(__self__, "decisions", decisions)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if history_definition_id is not None:
+            pulumi.set(__self__, "history_definition_id", history_definition_id)
         if instances is not None:
             pulumi.set(__self__, "instances", instances)
         if interval is not None:
@@ -57,18 +58,6 @@ class AccessReviewHistoryDefinitionByIdArgs:
             pulumi.set(__self__, "scopes", scopes)
         if type is not None:
             pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="historyDefinitionId")
-    def history_definition_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The id of the access review history definition.
-        """
-        return pulumi.get(self, "history_definition_id")
-
-    @history_definition_id.setter
-    def history_definition_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "history_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -93,6 +82,18 @@ class AccessReviewHistoryDefinitionByIdArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="historyDefinitionId")
+    def history_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The id of the access review history definition.
+        """
+        return pulumi.get(self, "history_definition_id")
+
+    @history_definition_id.setter
+    def history_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "history_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -193,7 +194,7 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: AccessReviewHistoryDefinitionByIdArgs,
+                 args: Optional[AccessReviewHistoryDefinitionByIdArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Access Review History Definition.
@@ -237,8 +238,6 @@ class AccessReviewHistoryDefinitionById(pulumi.CustomResource):
 
             __props__.__dict__["decisions"] = decisions
             __props__.__dict__["display_name"] = display_name
-            if history_definition_id is None and not opts.urn:
-                raise TypeError("Missing required property 'history_definition_id'")
             __props__.__dict__["history_definition_id"] = history_definition_id
             __props__.__dict__["instances"] = instances
             __props__.__dict__["interval"] = interval

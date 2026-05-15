@@ -22,10 +22,10 @@ __all__ = ['SqlAssessmentV2OperationArgs', 'SqlAssessmentV2Operation']
 @pulumi.input_type
 class SqlAssessmentV2OperationArgs:
     def __init__(__self__, *,
-                 assessment_name: pulumi.Input[_builtins.str],
                  group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  assessment_type: pulumi.Input[Optional[Union[_builtins.str, 'AssessmentType']]] = None,
                  async_commit_mode_intent: pulumi.Input[Optional[Union[_builtins.str, 'AsyncCommitModeIntent']]] = None,
                  azure_location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -61,10 +61,10 @@ class SqlAssessmentV2OperationArgs:
         """
         The set of arguments for constructing a SqlAssessmentV2Operation resource.
 
-        :param pulumi.Input[_builtins.str] assessment_name: SQL Assessment arm name.
         :param pulumi.Input[_builtins.str] group_name: Group ARM name
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] assessment_name: SQL Assessment arm name.
         :param pulumi.Input[Union[_builtins.str, 'AssessmentType']] assessment_type: Assessment type of the assessment.
         :param pulumi.Input[Union[_builtins.str, 'AsyncCommitModeIntent']] async_commit_mode_intent: Gets or sets user preference indicating intent of async commit mode.
         :param pulumi.Input[_builtins.str] azure_location: Azure Location or Azure region where to which the machines will be migrated.
@@ -103,10 +103,11 @@ class SqlAssessmentV2OperationArgs:
         :param pulumi.Input[Union[_builtins.str, 'TimeRange']] time_range: Time Range for which the historic utilization data should be considered for
                assessment.
         """
-        pulumi.set(__self__, "assessment_name", assessment_name)
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if assessment_name is not None:
+            pulumi.set(__self__, "assessment_name", assessment_name)
         if assessment_type is not None:
             pulumi.set(__self__, "assessment_type", assessment_type)
         if async_commit_mode_intent is not None:
@@ -173,18 +174,6 @@ class SqlAssessmentV2OperationArgs:
             pulumi.set(__self__, "time_range", time_range)
 
     @_builtins.property
-    @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        SQL Assessment arm name.
-        """
-        return pulumi.get(self, "assessment_name")
-
-    @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "assessment_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -219,6 +208,18 @@ class SqlAssessmentV2OperationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assessmentName")
+    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SQL Assessment arm name.
+        """
+        return pulumi.get(self, "assessment_name")
+
+    @assessment_name.setter
+    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="assessmentType")
@@ -779,8 +780,6 @@ class SqlAssessmentV2Operation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SqlAssessmentV2OperationArgs.__new__(SqlAssessmentV2OperationArgs)
 
-            if assessment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'assessment_name'")
             __props__.__dict__["assessment_name"] = assessment_name
             __props__.__dict__["assessment_type"] = assessment_type
             __props__.__dict__["async_commit_mode_intent"] = async_commit_mode_intent

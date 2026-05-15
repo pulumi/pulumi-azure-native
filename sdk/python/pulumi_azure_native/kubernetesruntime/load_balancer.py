@@ -23,26 +23,27 @@ class LoadBalancerArgs:
     def __init__(__self__, *,
                  addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  advertise_mode: pulumi.Input[Union[_builtins.str, 'AdvertiseMode']],
-                 load_balancer_name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
                  bgp_peers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  service_selector: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LoadBalancer resource.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] addresses: IP Range
         :param pulumi.Input[Union[_builtins.str, 'AdvertiseMode']] advertise_mode: Advertise Mode
-        :param pulumi.Input[_builtins.str] load_balancer_name: The name of the LoadBalancer
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] bgp_peers: The list of BGP peers it should advertise to. Null or empty means to advertise to all peers.
+        :param pulumi.Input[_builtins.str] load_balancer_name: The name of the LoadBalancer
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] service_selector: A dynamic label mapping to select related services. For instance, if you want to create a load balancer only for services with label "a=b", then please specify {"a": "b"} in the field.
         """
         pulumi.set(__self__, "addresses", addresses)
         pulumi.set(__self__, "advertise_mode", advertise_mode)
-        pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         pulumi.set(__self__, "resource_uri", resource_uri)
         if bgp_peers is not None:
             pulumi.set(__self__, "bgp_peers", bgp_peers)
+        if load_balancer_name is not None:
+            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
         if service_selector is not None:
             pulumi.set(__self__, "service_selector", service_selector)
 
@@ -71,18 +72,6 @@ class LoadBalancerArgs:
         pulumi.set(self, "advertise_mode", value)
 
     @_builtins.property
-    @pulumi.getter(name="loadBalancerName")
-    def load_balancer_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the LoadBalancer
-        """
-        return pulumi.get(self, "load_balancer_name")
-
-    @load_balancer_name.setter
-    def load_balancer_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "load_balancer_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceUri")
     def resource_uri(self) -> pulumi.Input[_builtins.str]:
         """
@@ -105,6 +94,18 @@ class LoadBalancerArgs:
     @bgp_peers.setter
     def bgp_peers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "bgp_peers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancerName")
+    def load_balancer_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the LoadBalancer
+        """
+        return pulumi.get(self, "load_balancer_name")
+
+    @load_balancer_name.setter
+    def load_balancer_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "load_balancer_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceSelector")
@@ -196,8 +197,6 @@ class LoadBalancer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'advertise_mode'")
             __props__.__dict__["advertise_mode"] = advertise_mode
             __props__.__dict__["bgp_peers"] = bgp_peers
-            if load_balancer_name is None and not opts.urn:
-                raise TypeError("Missing required property 'load_balancer_name'")
             __props__.__dict__["load_balancer_name"] = load_balancer_name
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")

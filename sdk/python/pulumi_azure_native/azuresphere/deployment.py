@@ -23,25 +23,24 @@ __all__ = ['DeploymentArgs', 'Deployment']
 class DeploymentArgs:
     def __init__(__self__, *,
                  catalog_name: pulumi.Input[_builtins.str],
-                 deployment_name: pulumi.Input[_builtins.str],
                  device_group_name: pulumi.Input[_builtins.str],
                  product_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  deployed_images: pulumi.Input[Optional[Sequence[pulumi.Input['ImageArgs']]]] = None,
-                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Deployment resource.
 
         :param pulumi.Input[_builtins.str] catalog_name: Name of catalog
-        :param pulumi.Input[_builtins.str] deployment_name: Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
         :param pulumi.Input[_builtins.str] device_group_name: Name of device group.
         :param pulumi.Input[_builtins.str] product_name: Name of product.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ImageArgs']]] deployed_images: Images deployed
         :param pulumi.Input[_builtins.str] deployment_id: Deployment ID
+        :param pulumi.Input[_builtins.str] deployment_name: Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
         """
         pulumi.set(__self__, "catalog_name", catalog_name)
-        pulumi.set(__self__, "deployment_name", deployment_name)
         pulumi.set(__self__, "device_group_name", device_group_name)
         pulumi.set(__self__, "product_name", product_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -49,6 +48,8 @@ class DeploymentArgs:
             pulumi.set(__self__, "deployed_images", deployed_images)
         if deployment_id is not None:
             pulumi.set(__self__, "deployment_id", deployment_id)
+        if deployment_name is not None:
+            pulumi.set(__self__, "deployment_name", deployment_name)
 
     @_builtins.property
     @pulumi.getter(name="catalogName")
@@ -61,18 +62,6 @@ class DeploymentArgs:
     @catalog_name.setter
     def catalog_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "catalog_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
-        """
-        return pulumi.get(self, "deployment_name")
-
-    @deployment_name.setter
-    def deployment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceGroupName")
@@ -133,6 +122,18 @@ class DeploymentArgs:
     @deployment_id.setter
     def deployment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentName")
+    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Deployment name. Use .default for deployment creation and to get the current deployment for the associated device group.
+        """
+        return pulumi.get(self, "deployment_name")
+
+    @deployment_name.setter
+    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "deployment_name", value)
 
 
 @pulumi.type_token("azure-native:azuresphere:Deployment")
@@ -213,8 +214,6 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["catalog_name"] = catalog_name
             __props__.__dict__["deployed_images"] = deployed_images
             __props__.__dict__["deployment_id"] = deployment_id
-            if deployment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'deployment_name'")
             __props__.__dict__["deployment_name"] = deployment_name
             if device_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'device_group_name'")

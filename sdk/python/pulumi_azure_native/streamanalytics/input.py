@@ -22,39 +22,28 @@ __all__ = ['InputInitArgs', 'Input']
 @pulumi.input_type
 class InputInitArgs:
     def __init__(__self__, *,
-                 input_name: pulumi.Input[_builtins.str],
                  job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 input_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Input resource.
 
-        :param pulumi.Input[_builtins.str] input_name: The name of the input.
         :param pulumi.Input[_builtins.str] job_name: The name of the streaming job.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] input_name: The name of the input.
         :param pulumi.Input[_builtins.str] name: Resource name
         :param pulumi.Input[Union['ReferenceInputPropertiesArgs', 'StreamInputPropertiesArgs']] properties: The properties that are associated with an input. Required on PUT (CreateOrReplace) requests.
         """
-        pulumi.set(__self__, "input_name", input_name)
         pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if input_name is not None:
+            pulumi.set(__self__, "input_name", input_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="inputName")
-    def input_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the input.
-        """
-        return pulumi.get(self, "input_name")
-
-    @input_name.setter
-    def input_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "input_name", value)
 
     @_builtins.property
     @pulumi.getter(name="jobName")
@@ -79,6 +68,18 @@ class InputInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputName")
+    def input_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the input.
+        """
+        return pulumi.get(self, "input_name")
+
+    @input_name.setter
+    def input_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "input_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,8 +177,6 @@ class Input(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InputInitArgs.__new__(InputInitArgs)
 
-            if input_name is None and not opts.urn:
-                raise TypeError("Missing required property 'input_name'")
             __props__.__dict__["input_name"] = input_name
             if job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'job_name'")

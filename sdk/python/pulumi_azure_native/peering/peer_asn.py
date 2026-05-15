@@ -22,37 +22,26 @@ __all__ = ['PeerAsnArgs', 'PeerAsn']
 @pulumi.input_type
 class PeerAsnArgs:
     def __init__(__self__, *,
-                 peer_asn_name: pulumi.Input[_builtins.str],
                  peer_asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 peer_asn_name: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_contact_detail: pulumi.Input[Optional[Sequence[pulumi.Input['ContactDetailArgs']]]] = None,
                  peer_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PeerAsn resource.
 
-        :param pulumi.Input[_builtins.str] peer_asn_name: The peer ASN name.
         :param pulumi.Input[_builtins.int] peer_asn: The Autonomous System Number (ASN) of the peer.
+        :param pulumi.Input[_builtins.str] peer_asn_name: The peer ASN name.
         :param pulumi.Input[Sequence[pulumi.Input['ContactDetailArgs']]] peer_contact_detail: The contact details of the peer.
         :param pulumi.Input[_builtins.str] peer_name: The name of the peer.
         """
-        pulumi.set(__self__, "peer_asn_name", peer_asn_name)
         if peer_asn is not None:
             pulumi.set(__self__, "peer_asn", peer_asn)
+        if peer_asn_name is not None:
+            pulumi.set(__self__, "peer_asn_name", peer_asn_name)
         if peer_contact_detail is not None:
             pulumi.set(__self__, "peer_contact_detail", peer_contact_detail)
         if peer_name is not None:
             pulumi.set(__self__, "peer_name", peer_name)
-
-    @_builtins.property
-    @pulumi.getter(name="peerAsnName")
-    def peer_asn_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The peer ASN name.
-        """
-        return pulumi.get(self, "peer_asn_name")
-
-    @peer_asn_name.setter
-    def peer_asn_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "peer_asn_name", value)
 
     @_builtins.property
     @pulumi.getter(name="peerAsn")
@@ -65,6 +54,18 @@ class PeerAsnArgs:
     @peer_asn.setter
     def peer_asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "peer_asn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peerAsnName")
+    def peer_asn_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The peer ASN name.
+        """
+        return pulumi.get(self, "peer_asn_name")
+
+    @peer_asn_name.setter
+    def peer_asn_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "peer_asn_name", value)
 
     @_builtins.property
     @pulumi.getter(name="peerContactDetail")
@@ -121,7 +122,7 @@ class PeerAsn(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: PeerAsnArgs,
+                 args: Optional[PeerAsnArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The essential information related to the peer's ASN.
@@ -160,8 +161,6 @@ class PeerAsn(pulumi.CustomResource):
             __props__ = PeerAsnArgs.__new__(PeerAsnArgs)
 
             __props__.__dict__["peer_asn"] = peer_asn
-            if peer_asn_name is None and not opts.urn:
-                raise TypeError("Missing required property 'peer_asn_name'")
             __props__.__dict__["peer_asn_name"] = peer_asn_name
             __props__.__dict__["peer_contact_detail"] = peer_contact_detail
             __props__.__dict__["peer_name"] = peer_name

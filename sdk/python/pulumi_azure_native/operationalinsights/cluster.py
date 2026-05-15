@@ -22,9 +22,9 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  billing_type: pulumi.Input[Optional[Union[_builtins.str, 'BillingType']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  is_availability_zones_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  is_double_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -35,9 +35,9 @@ class ClusterArgs:
         """
         The set of arguments for constructing a Cluster resource.
 
-        :param pulumi.Input[_builtins.str] cluster_name: The name of the Log Analytics cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'BillingType']] billing_type: The cluster's billing type.
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the Log Analytics cluster.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Resource's identity.
         :param pulumi.Input[_builtins.bool] is_availability_zones_enabled: Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
         :param pulumi.Input[_builtins.bool] is_double_encryption_enabled: Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
@@ -46,10 +46,11 @@ class ClusterArgs:
         :param pulumi.Input['ClusterSkuArgs'] sku: The sku properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if billing_type is not None:
             pulumi.set(__self__, "billing_type", billing_type)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if is_availability_zones_enabled is not None:
@@ -64,18 +65,6 @@ class ClusterArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Log Analytics cluster.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -100,6 +89,18 @@ class ClusterArgs:
     @billing_type.setter
     def billing_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BillingType']]]):
         pulumi.set(self, "billing_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Log Analytics cluster.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -273,8 +274,6 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["billing_type"] = billing_type
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["is_availability_zones_enabled"] = is_availability_zones_enabled

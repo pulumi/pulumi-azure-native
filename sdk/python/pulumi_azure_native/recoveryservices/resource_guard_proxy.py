@@ -22,11 +22,11 @@ __all__ = ['ResourceGuardProxyArgs', 'ResourceGuardProxy']
 class ResourceGuardProxyArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_guard_proxy_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ResourceGuardProxyBaseArgs']] = None,
+                 resource_guard_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ResourceGuardProxy resource.
@@ -39,7 +39,6 @@ class ResourceGuardProxyArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_guard_proxy_name", resource_guard_proxy_name)
         pulumi.set(__self__, "vault_name", vault_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
@@ -47,6 +46,8 @@ class ResourceGuardProxyArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if resource_guard_proxy_name is not None:
+            pulumi.set(__self__, "resource_guard_proxy_name", resource_guard_proxy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -61,15 +62,6 @@ class ResourceGuardProxyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGuardProxyName")
-    def resource_guard_proxy_name(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "resource_guard_proxy_name")
-
-    @resource_guard_proxy_name.setter
-    def resource_guard_proxy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_guard_proxy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vaultName")
@@ -118,6 +110,15 @@ class ResourceGuardProxyArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['ResourceGuardProxyBaseArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGuardProxyName")
+    def resource_guard_proxy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "resource_guard_proxy_name")
+
+    @resource_guard_proxy_name.setter
+    def resource_guard_proxy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_guard_proxy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -210,8 +211,6 @@ class ResourceGuardProxy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_guard_proxy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_guard_proxy_name'")
             __props__.__dict__["resource_guard_proxy_name"] = resource_guard_proxy_name
             __props__.__dict__["tags"] = tags
             if vault_name is None and not opts.urn:

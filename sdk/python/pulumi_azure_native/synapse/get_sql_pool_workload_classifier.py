@@ -199,7 +199,7 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[_builtins.str
         type=pulumi.get(__ret__, 'type'))
 def get_sql_pool_workload_classifier_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                            workload_classifier_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            workload_classifier_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             workload_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolWorkloadClassifierResult]:

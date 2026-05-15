@@ -23,10 +23,10 @@ __all__ = ['ProtectionIntentArgs', 'ProtectionIntent']
 class ProtectionIntentArgs:
     def __init__(__self__, *,
                  fabric_name: pulumi.Input[_builtins.str],
-                 intent_object_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 intent_object_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadContainerAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -34,20 +34,21 @@ class ProtectionIntentArgs:
         The set of arguments for constructing a ProtectionIntent resource.
 
         :param pulumi.Input[_builtins.str] fabric_name: Fabric name associated with the backup item.
-        :param pulumi.Input[_builtins.str] intent_object_name: Intent object name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] vault_name: The name of the recovery services vault.
         :param pulumi.Input[_builtins.str] e_tag: Optional ETag.
+        :param pulumi.Input[_builtins.str] intent_object_name: Intent object name.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Union['AzureRecoveryServiceVaultProtectionIntentArgs', 'AzureResourceProtectionIntentArgs', 'AzureWorkloadAutoProtectionIntentArgs', 'AzureWorkloadContainerAutoProtectionIntentArgs', 'AzureWorkloadSQLAutoProtectionIntentArgs']] properties: ProtectionIntentResource properties
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "intent_object_name", intent_object_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
+        if intent_object_name is not None:
+            pulumi.set(__self__, "intent_object_name", intent_object_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -66,18 +67,6 @@ class ProtectionIntentArgs:
     @fabric_name.setter
     def fabric_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "fabric_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="intentObjectName")
-    def intent_object_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Intent object name.
-        """
-        return pulumi.get(self, "intent_object_name")
-
-    @intent_object_name.setter
-    def intent_object_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "intent_object_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -114,6 +103,18 @@ class ProtectionIntentArgs:
     @e_tag.setter
     def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="intentObjectName")
+    def intent_object_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Intent object name.
+        """
+        return pulumi.get(self, "intent_object_name")
+
+    @intent_object_name.setter
+    def intent_object_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "intent_object_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -236,8 +237,6 @@ class ProtectionIntent(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__.__dict__["fabric_name"] = fabric_name
-            if intent_object_name is None and not opts.urn:
-                raise TypeError("Missing required property 'intent_object_name'")
             __props__.__dict__["intent_object_name"] = intent_object_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

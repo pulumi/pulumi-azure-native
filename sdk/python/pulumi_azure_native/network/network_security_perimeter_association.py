@@ -22,10 +22,10 @@ __all__ = ['NetworkSecurityPerimeterAssociationArgs', 'NetworkSecurityPerimeterA
 @pulumi.input_type
 class NetworkSecurityPerimeterAssociationArgs:
     def __init__(__self__, *,
-                 association_name: pulumi.Input[_builtins.str],
                  network_security_perimeter_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  access_mode: pulumi.Input[Optional[Union[_builtins.str, 'AssociationAccessMode']]] = None,
+                 association_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_resource: pulumi.Input[Optional['SubResourceArgs']] = None,
@@ -34,21 +34,22 @@ class NetworkSecurityPerimeterAssociationArgs:
         """
         The set of arguments for constructing a NetworkSecurityPerimeterAssociation resource.
 
-        :param pulumi.Input[_builtins.str] association_name: The name of the NSP association.
         :param pulumi.Input[_builtins.str] network_security_perimeter_name: The name of the network security perimeter.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[_builtins.str, 'AssociationAccessMode']] access_mode: Access mode on the association.
+        :param pulumi.Input[_builtins.str] association_name: The name of the NSP association.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['SubResourceArgs'] private_link_resource: The PaaS resource to be associated.
         :param pulumi.Input['SubResourceArgs'] profile: Profile id to which the PaaS resource is associated.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "association_name", association_name)
         pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if access_mode is not None:
             pulumi.set(__self__, "access_mode", access_mode)
+        if association_name is not None:
+            pulumi.set(__self__, "association_name", association_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -59,18 +60,6 @@ class NetworkSecurityPerimeterAssociationArgs:
             pulumi.set(__self__, "profile", profile)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="associationName")
-    def association_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the NSP association.
-        """
-        return pulumi.get(self, "association_name")
-
-    @association_name.setter
-    def association_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "association_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityPerimeterName")
@@ -107,6 +96,18 @@ class NetworkSecurityPerimeterAssociationArgs:
     @access_mode.setter
     def access_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AssociationAccessMode']]]):
         pulumi.set(self, "access_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="associationName")
+    def association_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the NSP association.
+        """
+        return pulumi.get(self, "association_name")
+
+    @association_name.setter
+    def association_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "association_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -253,8 +254,6 @@ class NetworkSecurityPerimeterAssociation(pulumi.CustomResource):
             __props__ = NetworkSecurityPerimeterAssociationArgs.__new__(NetworkSecurityPerimeterAssociationArgs)
 
             __props__.__dict__["access_mode"] = access_mode
-            if association_name is None and not opts.urn:
-                raise TypeError("Missing required property 'association_name'")
             __props__.__dict__["association_name"] = association_name
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location

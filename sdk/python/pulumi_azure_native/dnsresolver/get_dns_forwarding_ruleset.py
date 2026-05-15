@@ -202,7 +202,7 @@ def get_dns_forwarding_ruleset(dns_forwarding_ruleset_name: Optional[_builtins.s
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_dns_forwarding_ruleset_output(dns_forwarding_ruleset_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_dns_forwarding_ruleset_output(dns_forwarding_ruleset_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsForwardingRulesetResult]:
     """

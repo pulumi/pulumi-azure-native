@@ -23,24 +23,25 @@ __all__ = ['RaiPolicyArgs', 'RaiPolicy']
 class RaiPolicyArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 rai_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['RaiPolicyPropertiesArgs']] = None,
+                 rai_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RaiPolicy resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input[_builtins.str] rai_policy_name: The name of the RaiPolicy associated with the Cognitive Services Account
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['RaiPolicyPropertiesArgs'] properties: Properties of Cognitive Services RaiPolicy.
+        :param pulumi.Input[_builtins.str] rai_policy_name: The name of the RaiPolicy associated with the Cognitive Services Account
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if rai_policy_name is not None:
+            pulumi.set(__self__, "rai_policy_name", rai_policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -55,18 +56,6 @@ class RaiPolicyArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="raiPolicyName")
-    def rai_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the RaiPolicy associated with the Cognitive Services Account
-        """
-        return pulumi.get(self, "rai_policy_name")
-
-    @rai_policy_name.setter
-    def rai_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rai_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -91,6 +80,18 @@ class RaiPolicyArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['RaiPolicyPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="raiPolicyName")
+    def rai_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the RaiPolicy associated with the Cognitive Services Account
+        """
+        return pulumi.get(self, "rai_policy_name")
+
+    @rai_policy_name.setter
+    def rai_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rai_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -180,8 +181,6 @@ class RaiPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["properties"] = properties
-            if rai_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rai_policy_name'")
             __props__.__dict__["rai_policy_name"] = rai_policy_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

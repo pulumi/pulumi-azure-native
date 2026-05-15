@@ -24,8 +24,8 @@ class ServerArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForReplicaArgs', 'ServerPropertiesForRestoreArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 server_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -33,16 +33,17 @@ class ServerArgs:
 
         :param pulumi.Input[Union['ServerPropertiesForDefaultCreateArgs', 'ServerPropertiesForGeoRestoreArgs', 'ServerPropertiesForReplicaArgs', 'ServerPropertiesForRestoreArgs']] properties: Properties of the server.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] location: The location the resource resides in.
+        :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input['SkuArgs'] sku: The SKU (pricing tier) of the server.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Application-specific metadata in the form of key-value pairs.
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_name", server_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
@@ -73,18 +74,6 @@ class ServerArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="serverName")
-    def server_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the server.
-        """
-        return pulumi.get(self, "server_name")
-
-    @server_name.setter
-    def server_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "server_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -95,6 +84,18 @@ class ServerArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,8 +199,6 @@ class Server(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if server_name is None and not opts.urn:
-                raise TypeError("Missing required property 'server_name'")
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags

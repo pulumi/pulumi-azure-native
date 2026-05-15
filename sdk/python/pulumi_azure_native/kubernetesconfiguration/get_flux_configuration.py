@@ -383,7 +383,7 @@ def get_flux_configuration(cluster_name: Optional[_builtins.str] = None,
 def get_flux_configuration_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   cluster_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   cluster_rp: pulumi.Input[Optional[_builtins.str]] = None,
-                                  flux_configuration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  flux_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFluxConfigurationResult]:
     """

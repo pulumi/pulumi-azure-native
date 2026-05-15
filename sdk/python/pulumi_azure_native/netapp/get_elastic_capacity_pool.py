@@ -193,7 +193,7 @@ def get_elastic_capacity_pool(account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_elastic_capacity_pool_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     pool_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticCapacityPoolResult]:
     """

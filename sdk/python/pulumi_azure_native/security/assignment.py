@@ -21,11 +21,11 @@ __all__ = ['AssignmentArgs', 'Assignment']
 @pulumi.input_type
 class AssignmentArgs:
     def __init__(__self__, *,
-                 assignment_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  additional_data: pulumi.Input[Optional['AssignmentPropertiesAdditionalDataArgs']] = None,
                  assigned_component: pulumi.Input[Optional['AssignedComponentItemArgs']] = None,
                  assigned_standard: pulumi.Input[Optional['AssignedStandardItemArgs']] = None,
+                 assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  effect: pulumi.Input[Optional[_builtins.str]] = None,
@@ -38,11 +38,11 @@ class AssignmentArgs:
         """
         The set of arguments for constructing a Assignment resource.
 
-        :param pulumi.Input[_builtins.str] assignment_id: The security assignment key - unique key for the standard assignment
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input['AssignmentPropertiesAdditionalDataArgs'] additional_data: Additional data about the assignment
         :param pulumi.Input['AssignedComponentItemArgs'] assigned_component: Component item with key as applied to this standard assignment over the given scope
         :param pulumi.Input['AssignedStandardItemArgs'] assigned_standard: Standard item with key as applied to this standard assignment over the given scope
+        :param pulumi.Input[_builtins.str] assignment_id: The security assignment key - unique key for the standard assignment
         :param pulumi.Input[_builtins.str] description: description of the standardAssignment
         :param pulumi.Input[_builtins.str] display_name: display name of the standardAssignment
         :param pulumi.Input[_builtins.str] effect: expected effect of this assignment (Disable/Exempt/etc)
@@ -53,7 +53,6 @@ class AssignmentArgs:
         :param pulumi.Input[_builtins.str] scope: Scope to which the standardAssignment applies - can be a subscription path or a resource group under that subscription
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
         """
-        pulumi.set(__self__, "assignment_id", assignment_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if additional_data is not None:
             pulumi.set(__self__, "additional_data", additional_data)
@@ -61,6 +60,8 @@ class AssignmentArgs:
             pulumi.set(__self__, "assigned_component", assigned_component)
         if assigned_standard is not None:
             pulumi.set(__self__, "assigned_standard", assigned_standard)
+        if assignment_id is not None:
+            pulumi.set(__self__, "assignment_id", assignment_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -79,18 +80,6 @@ class AssignmentArgs:
             pulumi.set(__self__, "scope", scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="assignmentId")
-    def assignment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The security assignment key - unique key for the standard assignment
-        """
-        return pulumi.get(self, "assignment_id")
-
-    @assignment_id.setter
-    def assignment_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "assignment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -139,6 +128,18 @@ class AssignmentArgs:
     @assigned_standard.setter
     def assigned_standard(self, value: pulumi.Input[Optional['AssignedStandardItemArgs']]):
         pulumi.set(self, "assigned_standard", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assignmentId")
+    def assignment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The security assignment key - unique key for the standard assignment
+        """
+        return pulumi.get(self, "assignment_id")
+
+    @assignment_id.setter
+    def assignment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assignment_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -346,8 +347,6 @@ class Assignment(pulumi.CustomResource):
             __props__.__dict__["additional_data"] = additional_data
             __props__.__dict__["assigned_component"] = assigned_component
             __props__.__dict__["assigned_standard"] = assigned_standard
-            if assignment_id is None and not opts.urn:
-                raise TypeError("Missing required property 'assignment_id'")
             __props__.__dict__["assignment_id"] = assignment_id
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name

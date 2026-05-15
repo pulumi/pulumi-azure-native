@@ -25,7 +25,6 @@ class UpdateRunArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  update_name: pulumi.Input[_builtins.str],
-                 update_run_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  duration: pulumi.Input[Optional[_builtins.str]] = None,
                  end_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,14 +38,14 @@ class UpdateRunArgs:
                  state: pulumi.Input[Optional[Union[_builtins.str, 'UpdateRunPropertiesState']]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
                  steps: pulumi.Input[Optional[Sequence[pulumi.Input['StepArgs']]]] = None,
-                 time_started: pulumi.Input[Optional[_builtins.str]] = None):
+                 time_started: pulumi.Input[Optional[_builtins.str]] = None,
+                 update_run_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UpdateRun resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] update_name: The name of the Update
-        :param pulumi.Input[_builtins.str] update_run_name: The name of the Update Run
         :param pulumi.Input[_builtins.str] description: More detailed description of the step.
         :param pulumi.Input[_builtins.str] duration: Duration of the update run.
         :param pulumi.Input[_builtins.str] end_time_utc: When the step reached a terminal state.
@@ -61,11 +60,11 @@ class UpdateRunArgs:
         :param pulumi.Input[_builtins.str] status: Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
         :param pulumi.Input[Sequence[pulumi.Input['StepArgs']]] steps: Recursive model for child steps of this step.
         :param pulumi.Input[_builtins.str] time_started: Timestamp of the update run was started.
+        :param pulumi.Input[_builtins.str] update_run_name: The name of the Update Run
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "update_name", update_name)
-        pulumi.set(__self__, "update_run_name", update_run_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if duration is not None:
@@ -94,6 +93,8 @@ class UpdateRunArgs:
             pulumi.set(__self__, "steps", steps)
         if time_started is not None:
             pulumi.set(__self__, "time_started", time_started)
+        if update_run_name is not None:
+            pulumi.set(__self__, "update_run_name", update_run_name)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -130,18 +131,6 @@ class UpdateRunArgs:
     @update_name.setter
     def update_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "update_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="updateRunName")
-    def update_run_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Update Run
-        """
-        return pulumi.get(self, "update_run_name")
-
-    @update_run_name.setter
-    def update_run_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "update_run_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -311,6 +300,18 @@ class UpdateRunArgs:
     def time_started(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "time_started", value)
 
+    @_builtins.property
+    @pulumi.getter(name="updateRunName")
+    def update_run_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Update Run
+        """
+        return pulumi.get(self, "update_run_name")
+
+    @update_run_name.setter
+    def update_run_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update_run_name", value)
+
 
 @pulumi.type_token("azure-native:azurestackhci:UpdateRun")
 class UpdateRun(pulumi.CustomResource):
@@ -445,8 +446,6 @@ class UpdateRun(pulumi.CustomResource):
             if update_name is None and not opts.urn:
                 raise TypeError("Missing required property 'update_name'")
             __props__.__dict__["update_name"] = update_name
-            if update_run_name is None and not opts.urn:
-                raise TypeError("Missing required property 'update_run_name'")
             __props__.__dict__["update_run_name"] = update_run_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["provisioning_state"] = None

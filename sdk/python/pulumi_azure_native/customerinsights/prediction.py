@@ -26,7 +26,6 @@ class PredictionArgs:
                  mappings: pulumi.Input['PredictionMappingsArgs'],
                  negative_outcome_expression: pulumi.Input[_builtins.str],
                  positive_outcome_expression: pulumi.Input[_builtins.str],
-                 prediction_name: pulumi.Input[_builtins.str],
                  primary_profile_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope_expression: pulumi.Input[_builtins.str],
@@ -36,7 +35,8 @@ class PredictionArgs:
                  grades: pulumi.Input[Optional[Sequence[pulumi.Input['PredictionGradesArgs']]]] = None,
                  involved_interaction_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  involved_kpi_types: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 involved_relationships: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 involved_relationships: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 prediction_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Prediction resource.
 
@@ -45,7 +45,6 @@ class PredictionArgs:
         :param pulumi.Input['PredictionMappingsArgs'] mappings: Definition of the link mapping of prediction.
         :param pulumi.Input[_builtins.str] negative_outcome_expression: Negative outcome expression.
         :param pulumi.Input[_builtins.str] positive_outcome_expression: Positive outcome expression.
-        :param pulumi.Input[_builtins.str] prediction_name: Name of the prediction.
         :param pulumi.Input[_builtins.str] primary_profile_type: Primary profile type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] scope_expression: Scope expression.
@@ -56,13 +55,13 @@ class PredictionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] involved_interaction_types: Interaction types involved in the prediction.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] involved_kpi_types: KPI types involved in the prediction.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] involved_relationships: Relationships involved in the prediction.
+        :param pulumi.Input[_builtins.str] prediction_name: Name of the prediction.
         """
         pulumi.set(__self__, "auto_analyze", auto_analyze)
         pulumi.set(__self__, "hub_name", hub_name)
         pulumi.set(__self__, "mappings", mappings)
         pulumi.set(__self__, "negative_outcome_expression", negative_outcome_expression)
         pulumi.set(__self__, "positive_outcome_expression", positive_outcome_expression)
-        pulumi.set(__self__, "prediction_name", prediction_name)
         pulumi.set(__self__, "primary_profile_type", primary_profile_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scope_expression", scope_expression)
@@ -79,6 +78,8 @@ class PredictionArgs:
             pulumi.set(__self__, "involved_kpi_types", involved_kpi_types)
         if involved_relationships is not None:
             pulumi.set(__self__, "involved_relationships", involved_relationships)
+        if prediction_name is not None:
+            pulumi.set(__self__, "prediction_name", prediction_name)
 
     @_builtins.property
     @pulumi.getter(name="autoAnalyze")
@@ -139,18 +140,6 @@ class PredictionArgs:
     @positive_outcome_expression.setter
     def positive_outcome_expression(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "positive_outcome_expression", value)
-
-    @_builtins.property
-    @pulumi.getter(name="predictionName")
-    def prediction_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the prediction.
-        """
-        return pulumi.get(self, "prediction_name")
-
-    @prediction_name.setter
-    def prediction_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "prediction_name", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryProfileType")
@@ -271,6 +260,18 @@ class PredictionArgs:
     @involved_relationships.setter
     def involved_relationships(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "involved_relationships", value)
+
+    @_builtins.property
+    @pulumi.getter(name="predictionName")
+    def prediction_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the prediction.
+        """
+        return pulumi.get(self, "prediction_name")
+
+    @prediction_name.setter
+    def prediction_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "prediction_name", value)
 
 
 @pulumi.type_token("azure-native:customerinsights:Prediction")
@@ -394,8 +395,6 @@ class Prediction(pulumi.CustomResource):
             if positive_outcome_expression is None and not opts.urn:
                 raise TypeError("Missing required property 'positive_outcome_expression'")
             __props__.__dict__["positive_outcome_expression"] = positive_outcome_expression
-            if prediction_name is None and not opts.urn:
-                raise TypeError("Missing required property 'prediction_name'")
             __props__.__dict__["prediction_name"] = prediction_name
             if primary_profile_type is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_profile_type'")

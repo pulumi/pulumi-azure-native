@@ -21,23 +21,24 @@ class FirewallRuleArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  end_ip_address: pulumi.Input[_builtins.str],
-                 firewall_rule_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 start_ip_address: pulumi.Input[_builtins.str]):
+                 start_ip_address: pulumi.Input[_builtins.str],
+                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Analytics account.
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
-        :param pulumi.Input[_builtins.str] firewall_rule_name: The name of the firewall rule to create or update.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group.
         :param pulumi.Input[_builtins.str] start_ip_address: The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
+        :param pulumi.Input[_builtins.str] firewall_rule_name: The name of the firewall rule to create or update.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "end_ip_address", end_ip_address)
-        pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "start_ip_address", start_ip_address)
+        if firewall_rule_name is not None:
+            pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -64,18 +65,6 @@ class FirewallRuleArgs:
         pulumi.set(self, "end_ip_address", value)
 
     @_builtins.property
-    @pulumi.getter(name="firewallRuleName")
-    def firewall_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the firewall rule to create or update.
-        """
-        return pulumi.get(self, "firewall_rule_name")
-
-    @firewall_rule_name.setter
-    def firewall_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "firewall_rule_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -98,6 +87,18 @@ class FirewallRuleArgs:
     @start_ip_address.setter
     def start_ip_address(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "start_ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallRuleName")
+    def firewall_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the firewall rule to create or update.
+        """
+        return pulumi.get(self, "firewall_rule_name")
+
+    @firewall_rule_name.setter
+    def firewall_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "firewall_rule_name", value)
 
 
 @pulumi.type_token("azure-native:datalakeanalytics:FirewallRule")
@@ -173,8 +174,6 @@ class FirewallRule(pulumi.CustomResource):
             if end_ip_address is None and not opts.urn:
                 raise TypeError("Missing required property 'end_ip_address'")
             __props__.__dict__["end_ip_address"] = end_ip_address
-            if firewall_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'firewall_rule_name'")
             __props__.__dict__["firewall_rule_name"] = firewall_rule_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

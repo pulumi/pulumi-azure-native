@@ -254,7 +254,7 @@ def get_topic_output(cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                      environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                      organization_name: pulumi.Input[Optional[_builtins.str]] = None,
                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     topic_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Get confluent topic by Name

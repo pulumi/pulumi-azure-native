@@ -242,7 +242,7 @@ def get_virtual_network(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         vm_switch_name=pulumi.get(__ret__, 'vm_switch_name'))
 def get_virtual_network_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               virtual_network_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkResult]:
     """
     The virtual network resource definition.

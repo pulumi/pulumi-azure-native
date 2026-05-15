@@ -21,43 +21,32 @@ __all__ = ['ContactArgs', 'Contact']
 @pulumi.input_type
 class ContactArgs:
     def __init__(__self__, *,
-                 contact_name: pulumi.Input[_builtins.str],
                  contact_profile: pulumi.Input['ContactsPropertiesContactProfileArgs'],
                  ground_station_name: pulumi.Input[_builtins.str],
                  reservation_end_time: pulumi.Input[_builtins.str],
                  reservation_start_time: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 spacecraft_name: pulumi.Input[_builtins.str]):
+                 spacecraft_name: pulumi.Input[_builtins.str],
+                 contact_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Contact resource.
 
-        :param pulumi.Input[_builtins.str] contact_name: Contact name.
         :param pulumi.Input['ContactsPropertiesContactProfileArgs'] contact_profile: The reference to the contact profile resource.
         :param pulumi.Input[_builtins.str] ground_station_name: Azure Ground Station name.
         :param pulumi.Input[_builtins.str] reservation_end_time: Reservation end time of a contact (ISO 8601 UTC standard).
         :param pulumi.Input[_builtins.str] reservation_start_time: Reservation start time of a contact (ISO 8601 UTC standard).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] spacecraft_name: Spacecraft ID.
+        :param pulumi.Input[_builtins.str] contact_name: Contact name.
         """
-        pulumi.set(__self__, "contact_name", contact_name)
         pulumi.set(__self__, "contact_profile", contact_profile)
         pulumi.set(__self__, "ground_station_name", ground_station_name)
         pulumi.set(__self__, "reservation_end_time", reservation_end_time)
         pulumi.set(__self__, "reservation_start_time", reservation_start_time)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "spacecraft_name", spacecraft_name)
-
-    @_builtins.property
-    @pulumi.getter(name="contactName")
-    def contact_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Contact name.
-        """
-        return pulumi.get(self, "contact_name")
-
-    @contact_name.setter
-    def contact_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "contact_name", value)
+        if contact_name is not None:
+            pulumi.set(__self__, "contact_name", contact_name)
 
     @_builtins.property
     @pulumi.getter(name="contactProfile")
@@ -130,6 +119,18 @@ class ContactArgs:
     @spacecraft_name.setter
     def spacecraft_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "spacecraft_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contactName")
+    def contact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Contact name.
+        """
+        return pulumi.get(self, "contact_name")
+
+    @contact_name.setter
+    def contact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "contact_name", value)
 
 
 @pulumi.type_token("azure-native:orbital:Contact")
@@ -205,8 +206,6 @@ class Contact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContactArgs.__new__(ContactArgs)
 
-            if contact_name is None and not opts.urn:
-                raise TypeError("Missing required property 'contact_name'")
             __props__.__dict__["contact_name"] = contact_name
             if contact_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'contact_profile'")

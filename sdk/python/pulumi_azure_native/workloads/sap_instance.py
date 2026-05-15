@@ -22,23 +22,24 @@ class SapInstanceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sap_discovery_site_name: pulumi.Input[_builtins.str],
-                 sap_instance_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 sap_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SapInstance resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] sap_discovery_site_name: The name of the discovery site resource for SAP Migration.
-        :param pulumi.Input[_builtins.str] sap_instance_name: The name of SAP Instance resource for SAP Migration.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] sap_instance_name: The name of SAP Instance resource for SAP Migration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sap_discovery_site_name", sap_discovery_site_name)
-        pulumi.set(__self__, "sap_instance_name", sap_instance_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if sap_instance_name is not None:
+            pulumi.set(__self__, "sap_instance_name", sap_instance_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -67,18 +68,6 @@ class SapInstanceArgs:
         pulumi.set(self, "sap_discovery_site_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="sapInstanceName")
-    def sap_instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of SAP Instance resource for SAP Migration.
-        """
-        return pulumi.get(self, "sap_instance_name")
-
-    @sap_instance_name.setter
-    def sap_instance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sap_instance_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -89,6 +78,18 @@ class SapInstanceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sapInstanceName")
+    def sap_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of SAP Instance resource for SAP Migration.
+        """
+        return pulumi.get(self, "sap_instance_name")
+
+    @sap_instance_name.setter
+    def sap_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sap_instance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,8 +178,6 @@ class SapInstance(pulumi.CustomResource):
             if sap_discovery_site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sap_discovery_site_name'")
             __props__.__dict__["sap_discovery_site_name"] = sap_discovery_site_name
-            if sap_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sap_instance_name'")
             __props__.__dict__["sap_instance_name"] = sap_instance_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application"] = None

@@ -164,7 +164,7 @@ def get_management_group_network_manager_connection(management_group_id: Optiona
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_management_group_network_manager_connection_output(management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                                                           network_manager_connection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                           network_manager_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagementGroupNetworkManagerConnectionResult]:
     """
     Get a specified connection created by this management group.

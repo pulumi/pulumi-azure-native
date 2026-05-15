@@ -22,39 +22,28 @@ __all__ = ['PipelineRunArgs', 'PipelineRun']
 @pulumi.input_type
 class PipelineRunArgs:
     def __init__(__self__, *,
-                 pipeline_run_name: pulumi.Input[_builtins.str],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_run_name: pulumi.Input[Optional[_builtins.str]] = None,
                  request: pulumi.Input[Optional['PipelineRunRequestArgs']] = None):
         """
         The set of arguments for constructing a PipelineRun resource.
 
-        :param pulumi.Input[_builtins.str] pipeline_run_name: The name of the pipeline run.
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] force_update_tag: How the pipeline run should be forced to recreate even if the pipeline run configuration has not changed.
+        :param pulumi.Input[_builtins.str] pipeline_run_name: The name of the pipeline run.
         :param pulumi.Input['PipelineRunRequestArgs'] request: The request parameters for a pipeline run.
         """
-        pulumi.set(__self__, "pipeline_run_name", pipeline_run_name)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if force_update_tag is not None:
             pulumi.set(__self__, "force_update_tag", force_update_tag)
+        if pipeline_run_name is not None:
+            pulumi.set(__self__, "pipeline_run_name", pipeline_run_name)
         if request is not None:
             pulumi.set(__self__, "request", request)
-
-    @_builtins.property
-    @pulumi.getter(name="pipelineRunName")
-    def pipeline_run_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the pipeline run.
-        """
-        return pulumi.get(self, "pipeline_run_name")
-
-    @pipeline_run_name.setter
-    def pipeline_run_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "pipeline_run_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
@@ -91,6 +80,18 @@ class PipelineRunArgs:
     @force_update_tag.setter
     def force_update_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "force_update_tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineRunName")
+    def pipeline_run_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the pipeline run.
+        """
+        return pulumi.get(self, "pipeline_run_name")
+
+    @pipeline_run_name.setter
+    def pipeline_run_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pipeline_run_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,8 +178,6 @@ class PipelineRun(pulumi.CustomResource):
             __props__ = PipelineRunArgs.__new__(PipelineRunArgs)
 
             __props__.__dict__["force_update_tag"] = force_update_tag
-            if pipeline_run_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pipeline_run_name'")
             __props__.__dict__["pipeline_run_name"] = pipeline_run_name
             if registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registry_name'")

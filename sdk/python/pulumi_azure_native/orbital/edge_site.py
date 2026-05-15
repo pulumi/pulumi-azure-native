@@ -21,39 +21,28 @@ __all__ = ['EdgeSiteArgs', 'EdgeSite']
 @pulumi.input_type
 class EdgeSiteArgs:
     def __init__(__self__, *,
-                 edge_site_name: pulumi.Input[_builtins.str],
                  global_communications_site: pulumi.Input['EdgeSitesPropertiesGlobalCommunicationsSiteArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 edge_site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EdgeSite resource.
 
-        :param pulumi.Input[_builtins.str] edge_site_name: Edge site name.
         :param pulumi.Input['EdgeSitesPropertiesGlobalCommunicationsSiteArgs'] global_communications_site: A reference to global communications site.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] edge_site_name: Edge site name.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "edge_site_name", edge_site_name)
         pulumi.set(__self__, "global_communications_site", global_communications_site)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if edge_site_name is not None:
+            pulumi.set(__self__, "edge_site_name", edge_site_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="edgeSiteName")
-    def edge_site_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Edge site name.
-        """
-        return pulumi.get(self, "edge_site_name")
-
-    @edge_site_name.setter
-    def edge_site_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "edge_site_name", value)
 
     @_builtins.property
     @pulumi.getter(name="globalCommunicationsSite")
@@ -78,6 +67,18 @@ class EdgeSiteArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="edgeSiteName")
+    def edge_site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Edge site name.
+        """
+        return pulumi.get(self, "edge_site_name")
+
+    @edge_site_name.setter
+    def edge_site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "edge_site_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -175,8 +176,6 @@ class EdgeSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EdgeSiteArgs.__new__(EdgeSiteArgs)
 
-            if edge_site_name is None and not opts.urn:
-                raise TypeError("Missing required property 'edge_site_name'")
             __props__.__dict__["edge_site_name"] = edge_site_name
             if global_communications_site is None and not opts.urn:
                 raise TypeError("Missing required property 'global_communications_site'")

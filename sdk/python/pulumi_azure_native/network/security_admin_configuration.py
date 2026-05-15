@@ -21,43 +21,32 @@ __all__ = ['SecurityAdminConfigurationArgs', 'SecurityAdminConfiguration']
 @pulumi.input_type
 class SecurityAdminConfigurationArgs:
     def __init__(__self__, *,
-                 configuration_name: pulumi.Input[_builtins.str],
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  apply_on_network_intent_policy_based_services: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]] = None,
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  network_group_address_space_aggregation_option: pulumi.Input[Optional[Union[_builtins.str, 'AddressSpaceAggregationOption']]] = None):
         """
         The set of arguments for constructing a SecurityAdminConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]] apply_on_network_intent_policy_based_services: Enum list of network intent policy based services.
+        :param pulumi.Input[_builtins.str] configuration_name: The name of the network manager Security Configuration.
         :param pulumi.Input[_builtins.str] description: A description of the security configuration.
         :param pulumi.Input[Union[_builtins.str, 'AddressSpaceAggregationOption']] network_group_address_space_aggregation_option: Determine update behavior for changes to network groups referenced within the rules in this configuration.
         """
-        pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if apply_on_network_intent_policy_based_services is not None:
             pulumi.set(__self__, "apply_on_network_intent_policy_based_services", apply_on_network_intent_policy_based_services)
+        if configuration_name is not None:
+            pulumi.set(__self__, "configuration_name", configuration_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if network_group_address_space_aggregation_option is not None:
             pulumi.set(__self__, "network_group_address_space_aggregation_option", network_group_address_space_aggregation_option)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the network manager Security Configuration.
-        """
-        return pulumi.get(self, "configuration_name")
-
-    @configuration_name.setter
-    def configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerName")
@@ -94,6 +83,18 @@ class SecurityAdminConfigurationArgs:
     @apply_on_network_intent_policy_based_services.setter
     def apply_on_network_intent_policy_based_services(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'NetworkIntentPolicyBasedService']]]]]):
         pulumi.set(self, "apply_on_network_intent_policy_based_services", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationName")
+    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the network manager Security Configuration.
+        """
+        return pulumi.get(self, "configuration_name")
+
+    @configuration_name.setter
+    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -195,8 +196,6 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
             __props__ = SecurityAdminConfigurationArgs.__new__(SecurityAdminConfigurationArgs)
 
             __props__.__dict__["apply_on_network_intent_policy_based_services"] = apply_on_network_intent_policy_based_services
-            if configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
             __props__.__dict__["description"] = description
             __props__.__dict__["network_group_address_space_aggregation_option"] = network_group_address_space_aggregation_option

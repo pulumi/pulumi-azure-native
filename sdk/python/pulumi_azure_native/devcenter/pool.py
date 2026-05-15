@@ -26,12 +26,12 @@ class PoolArgs:
                  license_type: pulumi.Input[Union[_builtins.str, 'LicenseType']],
                  local_administrator: pulumi.Input[Union[_builtins.str, 'LocalAdminStatus']],
                  network_connection_name: pulumi.Input[_builtins.str],
-                 pool_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_virtual_network_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  single_sign_on_status: pulumi.Input[Optional[Union[_builtins.str, 'SingleSignOnStatus']]] = None,
                  stop_on_disconnect: pulumi.Input[Optional['StopOnDisconnectConfigurationArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -43,12 +43,12 @@ class PoolArgs:
         :param pulumi.Input[Union[_builtins.str, 'LicenseType']] license_type: Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
         :param pulumi.Input[Union[_builtins.str, 'LocalAdminStatus']] local_administrator: Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box.
         :param pulumi.Input[_builtins.str] network_connection_name: Name of a Network Connection in parent Project of this Pool
-        :param pulumi.Input[_builtins.str] pool_name: Name of the pool.
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] display_name: The display name of the pool.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_virtual_network_regions: The regions of the managed virtual network (required when managedNetworkType is Managed).
+        :param pulumi.Input[_builtins.str] pool_name: Name of the pool.
         :param pulumi.Input[Union[_builtins.str, 'SingleSignOnStatus']] single_sign_on_status: Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
         :param pulumi.Input['StopOnDisconnectConfigurationArgs'] stop_on_disconnect: Stop on disconnect configuration settings for Dev Boxes created in this pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -58,7 +58,6 @@ class PoolArgs:
         pulumi.set(__self__, "license_type", license_type)
         pulumi.set(__self__, "local_administrator", local_administrator)
         pulumi.set(__self__, "network_connection_name", network_connection_name)
-        pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if display_name is not None:
@@ -67,6 +66,8 @@ class PoolArgs:
             pulumi.set(__self__, "location", location)
         if managed_virtual_network_regions is not None:
             pulumi.set(__self__, "managed_virtual_network_regions", managed_virtual_network_regions)
+        if pool_name is not None:
+            pulumi.set(__self__, "pool_name", pool_name)
         if single_sign_on_status is not None:
             pulumi.set(__self__, "single_sign_on_status", single_sign_on_status)
         if stop_on_disconnect is not None:
@@ -123,18 +124,6 @@ class PoolArgs:
     @network_connection_name.setter
     def network_connection_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_connection_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="poolName")
-    def pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the pool.
-        """
-        return pulumi.get(self, "pool_name")
-
-    @pool_name.setter
-    def pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -195,6 +184,18 @@ class PoolArgs:
     @managed_virtual_network_regions.setter
     def managed_virtual_network_regions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "managed_virtual_network_regions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="poolName")
+    def pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the pool.
+        """
+        return pulumi.get(self, "pool_name")
+
+    @pool_name.setter
+    def pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="singleSignOnStatus")
@@ -358,8 +359,6 @@ class Pool(pulumi.CustomResource):
             if network_connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_connection_name'")
             __props__.__dict__["network_connection_name"] = network_connection_name
-            if pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pool_name'")
             __props__.__dict__["pool_name"] = pool_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

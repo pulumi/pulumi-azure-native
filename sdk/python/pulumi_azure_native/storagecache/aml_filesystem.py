@@ -22,11 +22,11 @@ __all__ = ['AmlFilesystemArgs', 'AmlFilesystem']
 @pulumi.input_type
 class AmlFilesystemArgs:
     def __init__(__self__, *,
-                 aml_filesystem_name: pulumi.Input[_builtins.str],
                  filesystem_subnet: pulumi.Input[_builtins.str],
                  maintenance_window: pulumi.Input['AmlFilesystemMaintenanceWindowArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_capacity_ti_b: pulumi.Input[_builtins.float],
+                 aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_settings: pulumi.Input[Optional['AmlFilesystemEncryptionSettingsArgs']] = None,
                  hsm: pulumi.Input[Optional['AmlFilesystemHsmArgs']] = None,
                  identity: pulumi.Input[Optional['AmlFilesystemIdentityArgs']] = None,
@@ -38,11 +38,11 @@ class AmlFilesystemArgs:
         """
         The set of arguments for constructing a AmlFilesystem resource.
 
-        :param pulumi.Input[_builtins.str] aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[_builtins.str] filesystem_subnet: Subnet used for managing the AML file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the VNET's address space.
         :param pulumi.Input['AmlFilesystemMaintenanceWindowArgs'] maintenance_window: Start time of a 30-minute weekly maintenance window.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.float] storage_capacity_ti_b: The size of the AML file system, in TiB. This might be rounded up.
+        :param pulumi.Input[_builtins.str] aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input['AmlFilesystemEncryptionSettingsArgs'] encryption_settings: Specifies encryption settings of the AML file system.
         :param pulumi.Input['AmlFilesystemHsmArgs'] hsm: Hydration and archive settings and status
         :param pulumi.Input['AmlFilesystemIdentityArgs'] identity: The managed identity used by the AML file system, if configured.
@@ -52,11 +52,12 @@ class AmlFilesystemArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
         """
-        pulumi.set(__self__, "aml_filesystem_name", aml_filesystem_name)
         pulumi.set(__self__, "filesystem_subnet", filesystem_subnet)
         pulumi.set(__self__, "maintenance_window", maintenance_window)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_capacity_ti_b", storage_capacity_ti_b)
+        if aml_filesystem_name is not None:
+            pulumi.set(__self__, "aml_filesystem_name", aml_filesystem_name)
         if encryption_settings is not None:
             pulumi.set(__self__, "encryption_settings", encryption_settings)
         if hsm is not None:
@@ -73,18 +74,6 @@ class AmlFilesystemArgs:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter(name="amlFilesystemName")
-    def aml_filesystem_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
-        """
-        return pulumi.get(self, "aml_filesystem_name")
-
-    @aml_filesystem_name.setter
-    def aml_filesystem_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "aml_filesystem_name", value)
 
     @_builtins.property
     @pulumi.getter(name="filesystemSubnet")
@@ -133,6 +122,18 @@ class AmlFilesystemArgs:
     @storage_capacity_ti_b.setter
     def storage_capacity_ti_b(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "storage_capacity_ti_b", value)
+
+    @_builtins.property
+    @pulumi.getter(name="amlFilesystemName")
+    def aml_filesystem_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
+        """
+        return pulumi.get(self, "aml_filesystem_name")
+
+    @aml_filesystem_name.setter
+    def aml_filesystem_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aml_filesystem_name", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionSettings")
@@ -326,8 +327,6 @@ class AmlFilesystem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AmlFilesystemArgs.__new__(AmlFilesystemArgs)
 
-            if aml_filesystem_name is None and not opts.urn:
-                raise TypeError("Missing required property 'aml_filesystem_name'")
             __props__.__dict__["aml_filesystem_name"] = aml_filesystem_name
             __props__.__dict__["encryption_settings"] = encryption_settings
             if filesystem_subnet is None and not opts.urn:

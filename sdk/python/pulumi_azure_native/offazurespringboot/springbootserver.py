@@ -24,21 +24,22 @@ class SpringbootserverArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
-                 springbootservers_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['SpringbootserversPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['SpringbootserversPropertiesArgs']] = None,
+                 springbootservers_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Springbootserver resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: The springbootsites name.
-        :param pulumi.Input[_builtins.str] springbootservers_name: The springbootservers name.
         :param pulumi.Input['SpringbootserversPropertiesArgs'] properties: The springbootservers resource definition.
+        :param pulumi.Input[_builtins.str] springbootservers_name: The springbootservers name.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "site_name", site_name)
-        pulumi.set(__self__, "springbootservers_name", springbootservers_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if springbootservers_name is not None:
+            pulumi.set(__self__, "springbootservers_name", springbootservers_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -65,18 +66,6 @@ class SpringbootserverArgs:
         pulumi.set(self, "site_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="springbootserversName")
-    def springbootservers_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The springbootservers name.
-        """
-        return pulumi.get(self, "springbootservers_name")
-
-    @springbootservers_name.setter
-    def springbootservers_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "springbootservers_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['SpringbootserversPropertiesArgs']]:
         """
@@ -87,6 +76,18 @@ class SpringbootserverArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['SpringbootserversPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="springbootserversName")
+    def springbootservers_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The springbootservers name.
+        """
+        return pulumi.get(self, "springbootservers_name")
+
+    @springbootservers_name.setter
+    def springbootservers_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "springbootservers_name", value)
 
 
 @pulumi.type_token("azure-native:offazurespringboot:Springbootserver")
@@ -164,8 +165,6 @@ class Springbootserver(pulumi.CustomResource):
             if site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
-            if springbootservers_name is None and not opts.urn:
-                raise TypeError("Missing required property 'springbootservers_name'")
             __props__.__dict__["springbootservers_name"] = springbootservers_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

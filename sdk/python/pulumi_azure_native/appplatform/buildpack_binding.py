@@ -24,25 +24,26 @@ class BuildpackBindingArgs:
     def __init__(__self__, *,
                  build_service_name: pulumi.Input[_builtins.str],
                  builder_name: pulumi.Input[_builtins.str],
-                 buildpack_binding_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 buildpack_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['BuildpackBindingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BuildpackBinding resource.
 
         :param pulumi.Input[_builtins.str] build_service_name: The name of the build service resource.
         :param pulumi.Input[_builtins.str] builder_name: The name of the builder resource.
-        :param pulumi.Input[_builtins.str] buildpack_binding_name: The name of the Buildpack Binding Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
+        :param pulumi.Input[_builtins.str] buildpack_binding_name: The name of the Buildpack Binding Name
         :param pulumi.Input['BuildpackBindingPropertiesArgs'] properties: Properties of a buildpack binding
         """
         pulumi.set(__self__, "build_service_name", build_service_name)
         pulumi.set(__self__, "builder_name", builder_name)
-        pulumi.set(__self__, "buildpack_binding_name", buildpack_binding_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        if buildpack_binding_name is not None:
+            pulumi.set(__self__, "buildpack_binding_name", buildpack_binding_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -71,18 +72,6 @@ class BuildpackBindingArgs:
         pulumi.set(self, "builder_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="buildpackBindingName")
-    def buildpack_binding_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Buildpack Binding Name
-        """
-        return pulumi.get(self, "buildpack_binding_name")
-
-    @buildpack_binding_name.setter
-    def buildpack_binding_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "buildpack_binding_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -105,6 +94,18 @@ class BuildpackBindingArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="buildpackBindingName")
+    def buildpack_binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Buildpack Binding Name
+        """
+        return pulumi.get(self, "buildpack_binding_name")
+
+    @buildpack_binding_name.setter
+    def buildpack_binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "buildpack_binding_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -199,8 +200,6 @@ class BuildpackBinding(pulumi.CustomResource):
             if builder_name is None and not opts.urn:
                 raise TypeError("Missing required property 'builder_name'")
             __props__.__dict__["builder_name"] = builder_name
-            if buildpack_binding_name is None and not opts.urn:
-                raise TypeError("Missing required property 'buildpack_binding_name'")
             __props__.__dict__["buildpack_binding_name"] = buildpack_binding_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

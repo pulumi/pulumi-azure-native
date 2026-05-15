@@ -24,7 +24,6 @@ class PrivateCloudArgs:
     def __init__(__self__, *,
                  management_cluster: pulumi.Input['ManagementClusterArgs'],
                  network_block: pulumi.Input[_builtins.str],
-                 private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  availability: pulumi.Input[Optional['AvailabilityPropertiesArgs']] = None,
@@ -36,6 +35,7 @@ class PrivateCloudArgs:
                  internet: pulumi.Input[Optional[Union[_builtins.str, 'InternetEnum']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  nsxt_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  vcenter_password: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_id: pulumi.Input[Optional[_builtins.str]] = None):
@@ -46,7 +46,6 @@ class PrivateCloudArgs:
         :param pulumi.Input[_builtins.str] network_block: The block of addresses should be unique across VNet in your subscription as
                well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
                A,B,C,D are between 0 and 255, and X is between 0 and 22
-        :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input['AvailabilityPropertiesArgs'] availability: Properties describing how the cloud is distributed across availability zones
@@ -61,13 +60,13 @@ class PrivateCloudArgs:
         :param pulumi.Input[Union[_builtins.str, 'InternetEnum']] internet: Connectivity to internet is enabled or disabled
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] nsxt_password: Optionally, set the NSX-T Manager password when the private cloud is created
+        :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] vcenter_password: Optionally, set the vCenter admin password when the private cloud is created
         :param pulumi.Input[_builtins.str] virtual_network_id: Azure resource ID of the virtual network
         """
         pulumi.set(__self__, "management_cluster", management_cluster)
         pulumi.set(__self__, "network_block", network_block)
-        pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if availability is not None:
@@ -90,6 +89,8 @@ class PrivateCloudArgs:
             pulumi.set(__self__, "location", location)
         if nsxt_password is not None:
             pulumi.set(__self__, "nsxt_password", nsxt_password)
+        if private_cloud_name is not None:
+            pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vcenter_password is not None:
@@ -122,18 +123,6 @@ class PrivateCloudArgs:
     @network_block.setter
     def network_block(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_block", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateCloudName")
-    def private_cloud_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the private cloud
-        """
-        return pulumi.get(self, "private_cloud_name")
-
-    @private_cloud_name.setter
-    def private_cloud_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "private_cloud_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -269,6 +258,18 @@ class PrivateCloudArgs:
     @nsxt_password.setter
     def nsxt_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "nsxt_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateCloudName")
+    def private_cloud_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the private cloud
+        """
+        return pulumi.get(self, "private_cloud_name")
+
+    @private_cloud_name.setter
+    def private_cloud_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_cloud_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -436,8 +437,6 @@ class PrivateCloud(pulumi.CustomResource):
                 raise TypeError("Missing required property 'network_block'")
             __props__.__dict__["network_block"] = network_block
             __props__.__dict__["nsxt_password"] = nsxt_password
-            if private_cloud_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_cloud_name'")
             __props__.__dict__["private_cloud_name"] = private_cloud_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

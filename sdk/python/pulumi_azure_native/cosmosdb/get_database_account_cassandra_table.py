@@ -172,7 +172,7 @@ def get_database_account_cassandra_table(account_name: Optional[_builtins.str] =
 def get_database_account_cassandra_table_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                table_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                table_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAccountCassandraTableResult]:
     """
     Gets the Cassandra table under an existing Azure Cosmos DB database account.

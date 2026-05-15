@@ -232,7 +232,7 @@ def get_mhsm_private_endpoint_connection(name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_mhsm_private_endpoint_connection_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                private_endpoint_connection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMHSMPrivateEndpointConnectionResult]:
     """

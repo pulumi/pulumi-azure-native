@@ -180,7 +180,7 @@ def get_route_filter_rule(resource_group_name: Optional[_builtins.str] = None,
         route_filter_rule_type=pulumi.get(__ret__, 'route_filter_rule_type'))
 def get_route_filter_rule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  route_filter_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteFilterRuleResult]:
     """
     Gets the specified rule from a route filter.

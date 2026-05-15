@@ -252,7 +252,7 @@ def get_pricing(pricing_name: Optional[_builtins.str] = None,
         resources_coverage_status=pulumi.get(__ret__, 'resources_coverage_status'),
         sub_plan=pulumi.get(__ret__, 'sub_plan'),
         type=pulumi.get(__ret__, 'type'))
-def get_pricing_output(pricing_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_pricing_output(pricing_name: pulumi.Input[Optional[_builtins.str]] = None,
                        scope_id: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPricingResult]:
     """

@@ -22,9 +22,9 @@ __all__ = ['AutoImportJobArgs', 'AutoImportJob']
 class AutoImportJobArgs:
     def __init__(__self__, *,
                  aml_filesystem_name: pulumi.Input[_builtins.str],
-                 auto_import_job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  admin_status: pulumi.Input[Optional[Union[_builtins.str, 'AdminStatus']]] = None,
+                 auto_import_job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_import_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  conflict_resolution_mode: pulumi.Input[Optional[Union[_builtins.str, 'ConflictResolutionMode']]] = None,
                  enable_deletions: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -35,9 +35,9 @@ class AutoImportJobArgs:
         The set of arguments for constructing a AutoImportJob resource.
 
         :param pulumi.Input[_builtins.str] aml_filesystem_name: Name for the AML file system. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
-        :param pulumi.Input[_builtins.str] auto_import_job_name: Name for the auto import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'AdminStatus']] admin_status: The administrative status of the auto import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto import job. By default it is set to 'Enable'.
+        :param pulumi.Input[_builtins.str] auto_import_job_name: Name for the auto import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] auto_import_prefixes: An array of blob paths/prefixes that get auto imported to the cluster namespace. It has '/' as the default value. Number of maximum allowed paths is 100.
         :param pulumi.Input[Union[_builtins.str, 'ConflictResolutionMode']] conflict_resolution_mode: How the auto import job will handle conflicts. For example, if the auto import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the auto import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the auto import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or is currently released. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/blob-integration#conflict-resolution-mode for a thorough explanation of these resolution modes.
         :param pulumi.Input[_builtins.bool] enable_deletions: Whether or not to enable deletions during auto import. This only affects overwrite-dirty.
@@ -46,12 +46,13 @@ class AutoImportJobArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "aml_filesystem_name", aml_filesystem_name)
-        pulumi.set(__self__, "auto_import_job_name", auto_import_job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if admin_status is None:
             admin_status = 'Enable'
         if admin_status is not None:
             pulumi.set(__self__, "admin_status", admin_status)
+        if auto_import_job_name is not None:
+            pulumi.set(__self__, "auto_import_job_name", auto_import_job_name)
         if auto_import_prefixes is not None:
             pulumi.set(__self__, "auto_import_prefixes", auto_import_prefixes)
         if conflict_resolution_mode is None:
@@ -82,18 +83,6 @@ class AutoImportJobArgs:
         pulumi.set(self, "aml_filesystem_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="autoImportJobName")
-    def auto_import_job_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name for the auto import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
-        """
-        return pulumi.get(self, "auto_import_job_name")
-
-    @auto_import_job_name.setter
-    def auto_import_job_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "auto_import_job_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -116,6 +105,18 @@ class AutoImportJobArgs:
     @admin_status.setter
     def admin_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AdminStatus']]]):
         pulumi.set(self, "admin_status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autoImportJobName")
+    def auto_import_job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name for the auto import job. Allows alphanumerics, underscores, and hyphens. Start and end with alphanumeric.
+        """
+        return pulumi.get(self, "auto_import_job_name")
+
+    @auto_import_job_name.setter
+    def auto_import_job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auto_import_job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoImportPrefixes")
@@ -282,8 +283,6 @@ class AutoImportJob(pulumi.CustomResource):
             if aml_filesystem_name is None and not opts.urn:
                 raise TypeError("Missing required property 'aml_filesystem_name'")
             __props__.__dict__["aml_filesystem_name"] = aml_filesystem_name
-            if auto_import_job_name is None and not opts.urn:
-                raise TypeError("Missing required property 'auto_import_job_name'")
             __props__.__dict__["auto_import_job_name"] = auto_import_job_name
             __props__.__dict__["auto_import_prefixes"] = auto_import_prefixes
             if conflict_resolution_mode is None:

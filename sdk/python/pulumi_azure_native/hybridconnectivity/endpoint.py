@@ -21,35 +21,24 @@ __all__ = ['EndpointArgs', 'Endpoint']
 @pulumi.input_type
 class EndpointArgs:
     def __init__(__self__, *,
-                 endpoint_name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
                  type: pulumi.Input[Union[_builtins.str, 'Type']],
+                 endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
 
-        :param pulumi.Input[_builtins.str] endpoint_name: The endpoint name.
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Union[_builtins.str, 'Type']] type: The type of endpoint.
+        :param pulumi.Input[_builtins.str] endpoint_name: The endpoint name.
         :param pulumi.Input[_builtins.str] resource_id: The resource Id of the connectivity endpoint (optional).
         """
-        pulumi.set(__self__, "endpoint_name", endpoint_name)
         pulumi.set(__self__, "resource_uri", resource_uri)
         pulumi.set(__self__, "type", type)
+        if endpoint_name is not None:
+            pulumi.set(__self__, "endpoint_name", endpoint_name)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
-
-    @_builtins.property
-    @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The endpoint name.
-        """
-        return pulumi.get(self, "endpoint_name")
-
-    @endpoint_name.setter
-    def endpoint_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUri")
@@ -74,6 +63,18 @@ class EndpointArgs:
     @type.setter
     def type(self, value: pulumi.Input[Union[_builtins.str, 'Type']]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The endpoint name.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
@@ -156,8 +157,6 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EndpointArgs.__new__(EndpointArgs)
 
-            if endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'endpoint_name'")
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["resource_id"] = resource_id
             if resource_uri is None and not opts.urn:

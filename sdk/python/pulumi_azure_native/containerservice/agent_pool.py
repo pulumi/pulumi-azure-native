@@ -22,9 +22,9 @@ __all__ = ['AgentPoolArgs', 'AgentPool']
 @pulumi.input_type
 class AgentPoolArgs:
     def __init__(__self__, *,
-                 agent_pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
+                 agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  count: pulumi.Input[Optional[_builtins.int]] = None,
@@ -77,9 +77,9 @@ class AgentPoolArgs:
         """
         The set of arguments for constructing a AgentPool resource.
 
-        :param pulumi.Input[_builtins.str] agent_pool_name: The name of the agent pool.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
+        :param pulumi.Input[_builtins.str] agent_pool_name: The name of the agent pool.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: AKS will associate the specified agent pool with the Capacity Reservation Group.
         :param pulumi.Input[_builtins.int] count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
@@ -130,9 +130,10 @@ class AgentPoolArgs:
         :param pulumi.Input['AgentPoolWindowsProfileArgs'] windows_profile: The Windows agent pool's specific profile.
         :param pulumi.Input[Union[_builtins.str, 'WorkloadRuntime']] workload_runtime: Determines the type of workload a node can run.
         """
-        pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if agent_pool_name is not None:
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
         if availability_zones is not None:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if capacity_reservation_group_id is not None:
@@ -233,18 +234,6 @@ class AgentPoolArgs:
             pulumi.set(__self__, "workload_runtime", workload_runtime)
 
     @_builtins.property
-    @pulumi.getter(name="agentPoolName")
-    def agent_pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the agent pool.
-        """
-        return pulumi.get(self, "agent_pool_name")
-
-    @agent_pool_name.setter
-    def agent_pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "agent_pool_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -267,6 +256,18 @@ class AgentPoolArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the agent pool.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @agent_pool_name.setter
+    def agent_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "agent_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
@@ -1069,8 +1070,6 @@ class AgentPool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentPoolArgs.__new__(AgentPoolArgs)
 
-            if agent_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'agent_pool_name'")
             __props__.__dict__["agent_pool_name"] = agent_pool_name
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id

@@ -24,7 +24,6 @@ class L3NetworkArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  l3_isolation_domain_id: pulumi.Input[_builtins.str],
-                 l3_network_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vlan: pulumi.Input[_builtins.float],
                  hybrid_aks_ipam_enabled: pulumi.Input[Optional[Union[_builtins.str, 'HybridAksIpamEnabled']]] = None,
@@ -33,6 +32,7 @@ class L3NetworkArgs:
                  ip_allocation_type: pulumi.Input[Optional[Union[_builtins.str, 'IpAllocationType']]] = None,
                  ipv4_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv6_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
+                 l3_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -40,7 +40,6 @@ class L3NetworkArgs:
 
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[_builtins.str] l3_isolation_domain_id: The resource ID of the Network Fabric l3IsolationDomain.
-        :param pulumi.Input[_builtins.str] l3_network_name: The name of the L3 network.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.float] vlan: The VLAN from the l3IsolationDomain that is used for this network.
         :param pulumi.Input[Union[_builtins.str, 'HybridAksIpamEnabled']] hybrid_aks_ipam_enabled: Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
@@ -51,12 +50,12 @@ class L3NetworkArgs:
                is IPV4 or DualStack.
         :param pulumi.Input[_builtins.str] ipv6_connected_prefix: The IPV6 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
                is IPV6 or DualStack.
+        :param pulumi.Input[_builtins.str] l3_network_name: The name of the L3 network.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "l3_isolation_domain_id", l3_isolation_domain_id)
-        pulumi.set(__self__, "l3_network_name", l3_network_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vlan", vlan)
         if hybrid_aks_ipam_enabled is None:
@@ -77,6 +76,8 @@ class L3NetworkArgs:
             pulumi.set(__self__, "ipv4_connected_prefix", ipv4_connected_prefix)
         if ipv6_connected_prefix is not None:
             pulumi.set(__self__, "ipv6_connected_prefix", ipv6_connected_prefix)
+        if l3_network_name is not None:
+            pulumi.set(__self__, "l3_network_name", l3_network_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -105,18 +106,6 @@ class L3NetworkArgs:
     @l3_isolation_domain_id.setter
     def l3_isolation_domain_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "l3_isolation_domain_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="l3NetworkName")
-    def l3_network_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the L3 network.
-        """
-        return pulumi.get(self, "l3_network_name")
-
-    @l3_network_name.setter
-    def l3_network_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "l3_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -215,6 +204,18 @@ class L3NetworkArgs:
     @ipv6_connected_prefix.setter
     def ipv6_connected_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ipv6_connected_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="l3NetworkName")
+    def l3_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the L3 network.
+        """
+        return pulumi.get(self, "l3_network_name")
+
+    @l3_network_name.setter
+    def l3_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "l3_network_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -352,8 +353,6 @@ class L3Network(pulumi.CustomResource):
             if l3_isolation_domain_id is None and not opts.urn:
                 raise TypeError("Missing required property 'l3_isolation_domain_id'")
             __props__.__dict__["l3_isolation_domain_id"] = l3_isolation_domain_id
-            if l3_network_name is None and not opts.urn:
-                raise TypeError("Missing required property 'l3_network_name'")
             __props__.__dict__["l3_network_name"] = l3_network_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

@@ -21,32 +21,33 @@ __all__ = ['ApiDefinitionArgs', 'ApiDefinition']
 class ApiDefinitionArgs:
     def __init__(__self__, *,
                  api_name: pulumi.Input[_builtins.str],
-                 definition_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
                  version_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
+                 definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiDefinition resource.
 
         :param pulumi.Input[_builtins.str] api_name: The name of the API.
-        :param pulumi.Input[_builtins.str] definition_name: The name of the API definition.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
         :param pulumi.Input[_builtins.str] title: API definition title.
         :param pulumi.Input[_builtins.str] version_name: The name of the API version.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] definition_name: The name of the API definition.
         :param pulumi.Input[_builtins.str] description: API definition description.
         """
         pulumi.set(__self__, "api_name", api_name)
-        pulumi.set(__self__, "definition_name", definition_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "title", title)
         pulumi.set(__self__, "version_name", version_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if definition_name is not None:
+            pulumi.set(__self__, "definition_name", definition_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
 
@@ -61,18 +62,6 @@ class ApiDefinitionArgs:
     @api_name.setter
     def api_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "api_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="definitionName")
-    def definition_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the API definition.
-        """
-        return pulumi.get(self, "definition_name")
-
-    @definition_name.setter
-    def definition_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -133,6 +122,18 @@ class ApiDefinitionArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="definitionName")
+    def definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the API definition.
+        """
+        return pulumi.get(self, "definition_name")
+
+    @definition_name.setter
+    def definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "definition_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -230,8 +231,6 @@ class ApiDefinition(pulumi.CustomResource):
             if api_name is None and not opts.urn:
                 raise TypeError("Missing required property 'api_name'")
             __props__.__dict__["api_name"] = api_name
-            if definition_name is None and not opts.urn:
-                raise TypeError("Missing required property 'definition_name'")
             __props__.__dict__["definition_name"] = definition_name
             __props__.__dict__["description"] = description
             if resource_group_name is None and not opts.urn:

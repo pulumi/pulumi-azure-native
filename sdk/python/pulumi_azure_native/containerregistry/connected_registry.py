@@ -22,53 +22,42 @@ __all__ = ['ConnectedRegistryArgs', 'ConnectedRegistry']
 @pulumi.input_type
 class ConnectedRegistryArgs:
     def __init__(__self__, *,
-                 connected_registry_name: pulumi.Input[_builtins.str],
                  mode: pulumi.Input[Union[_builtins.str, 'ConnectedRegistryMode']],
                  parent: pulumi.Input['ParentPropertiesArgs'],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  client_token_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 connected_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                  garbage_collection: pulumi.Input[Optional['GarbageCollectionPropertiesArgs']] = None,
                  logging: pulumi.Input[Optional['LoggingPropertiesArgs']] = None,
                  notifications_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConnectedRegistry resource.
 
-        :param pulumi.Input[_builtins.str] connected_registry_name: The name of the connected registry.
         :param pulumi.Input[Union[_builtins.str, 'ConnectedRegistryMode']] mode: The mode of the connected registry resource that indicates the permissions of the registry.
         :param pulumi.Input['ParentPropertiesArgs'] parent: The parent of the connected registry.
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_token_ids: The list of the ACR token resource IDs used to authenticate clients to the connected registry.
+        :param pulumi.Input[_builtins.str] connected_registry_name: The name of the connected registry.
         :param pulumi.Input['GarbageCollectionPropertiesArgs'] garbage_collection: The garbage collection properties of the connected registry.
         :param pulumi.Input['LoggingPropertiesArgs'] logging: The logging properties of the connected registry.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notifications_list: The list of notifications subscription information for the connected registry.
         """
-        pulumi.set(__self__, "connected_registry_name", connected_registry_name)
         pulumi.set(__self__, "mode", mode)
         pulumi.set(__self__, "parent", parent)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if client_token_ids is not None:
             pulumi.set(__self__, "client_token_ids", client_token_ids)
+        if connected_registry_name is not None:
+            pulumi.set(__self__, "connected_registry_name", connected_registry_name)
         if garbage_collection is not None:
             pulumi.set(__self__, "garbage_collection", garbage_collection)
         if logging is not None:
             pulumi.set(__self__, "logging", logging)
         if notifications_list is not None:
             pulumi.set(__self__, "notifications_list", notifications_list)
-
-    @_builtins.property
-    @pulumi.getter(name="connectedRegistryName")
-    def connected_registry_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the connected registry.
-        """
-        return pulumi.get(self, "connected_registry_name")
-
-    @connected_registry_name.setter
-    def connected_registry_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "connected_registry_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -129,6 +118,18 @@ class ConnectedRegistryArgs:
     @client_token_ids.setter
     def client_token_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "client_token_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectedRegistryName")
+    def connected_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the connected registry.
+        """
+        return pulumi.get(self, "connected_registry_name")
+
+    @connected_registry_name.setter
+    def connected_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connected_registry_name", value)
 
     @_builtins.property
     @pulumi.getter(name="garbageCollection")
@@ -251,8 +252,6 @@ class ConnectedRegistry(pulumi.CustomResource):
             __props__ = ConnectedRegistryArgs.__new__(ConnectedRegistryArgs)
 
             __props__.__dict__["client_token_ids"] = client_token_ids
-            if connected_registry_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connected_registry_name'")
             __props__.__dict__["connected_registry_name"] = connected_registry_name
             __props__.__dict__["garbage_collection"] = garbage_collection
             __props__.__dict__["logging"] = logging

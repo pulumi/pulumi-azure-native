@@ -19,35 +19,24 @@ __all__ = ['CustomerSubscriptionArgs', 'CustomerSubscription']
 @pulumi.input_type
 class CustomerSubscriptionArgs:
     def __init__(__self__, *,
-                 customer_subscription_name: pulumi.Input[_builtins.str],
                  registration_name: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
+                 customer_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomerSubscription resource.
 
-        :param pulumi.Input[_builtins.str] customer_subscription_name: Name of the product.
         :param pulumi.Input[_builtins.str] registration_name: Name of the Azure Stack registration.
         :param pulumi.Input[_builtins.str] resource_group: Name of the resource group.
+        :param pulumi.Input[_builtins.str] customer_subscription_name: Name of the product.
         :param pulumi.Input[_builtins.str] tenant_id: Tenant Id.
         """
-        pulumi.set(__self__, "customer_subscription_name", customer_subscription_name)
         pulumi.set(__self__, "registration_name", registration_name)
         pulumi.set(__self__, "resource_group", resource_group)
+        if customer_subscription_name is not None:
+            pulumi.set(__self__, "customer_subscription_name", customer_subscription_name)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @_builtins.property
-    @pulumi.getter(name="customerSubscriptionName")
-    def customer_subscription_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the product.
-        """
-        return pulumi.get(self, "customer_subscription_name")
-
-    @customer_subscription_name.setter
-    def customer_subscription_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "customer_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationName")
@@ -72,6 +61,18 @@ class CustomerSubscriptionArgs:
     @resource_group.setter
     def resource_group(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customerSubscriptionName")
+    def customer_subscription_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the product.
+        """
+        return pulumi.get(self, "customer_subscription_name")
+
+    @customer_subscription_name.setter
+    def customer_subscription_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "customer_subscription_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -154,8 +155,6 @@ class CustomerSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomerSubscriptionArgs.__new__(CustomerSubscriptionArgs)
 
-            if customer_subscription_name is None and not opts.urn:
-                raise TypeError("Missing required property 'customer_subscription_name'")
             __props__.__dict__["customer_subscription_name"] = customer_subscription_name
             if registration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'registration_name'")

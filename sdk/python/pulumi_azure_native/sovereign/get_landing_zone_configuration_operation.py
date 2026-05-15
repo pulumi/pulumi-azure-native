@@ -139,7 +139,7 @@ def get_landing_zone_configuration_operation(landing_zone_account_name: Optional
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_landing_zone_configuration_operation_output(landing_zone_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                    landing_zone_configuration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                    landing_zone_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLandingZoneConfigurationOperationResult]:
     """

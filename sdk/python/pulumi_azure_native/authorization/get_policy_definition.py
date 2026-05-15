@@ -238,7 +238,7 @@ def get_policy_definition(policy_definition_name: Optional[_builtins.str] = None
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'),
         versions=pulumi.get(__ret__, 'versions'))
-def get_policy_definition_output(policy_definition_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_policy_definition_output(policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDefinitionResult]:
     """
     This operation retrieves the policy definition in the given subscription with the given name.

@@ -450,7 +450,7 @@ def get_workspace(resource_group_name: Optional[_builtins.str] = None,
         workspace_id=pulumi.get(__ret__, 'workspace_id'),
         workspace_url=pulumi.get(__ret__, 'workspace_url'))
 def get_workspace_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         workspace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets the workspace.

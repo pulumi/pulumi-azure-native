@@ -22,13 +22,13 @@ __all__ = ['ArtifactSourceArgs', 'ArtifactSource']
 class ArtifactSourceArgs:
     def __init__(__self__, *,
                  lab_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  arm_template_folder_path: pulumi.Input[Optional[_builtins.str]] = None,
                  branch_ref: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  folder_path: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  security_token: pulumi.Input[Optional[_builtins.str]] = None,
                  source_type: pulumi.Input[Optional[Union[_builtins.str, 'SourceControlType']]] = None,
                  status: pulumi.Input[Optional[Union[_builtins.str, 'EnableStatus']]] = None,
@@ -38,13 +38,13 @@ class ArtifactSourceArgs:
         The set of arguments for constructing a ArtifactSource resource.
 
         :param pulumi.Input[_builtins.str] lab_name: The name of the lab.
-        :param pulumi.Input[_builtins.str] name: The name of the artifact source.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] arm_template_folder_path: The folder containing Azure Resource Manager templates.
         :param pulumi.Input[_builtins.str] branch_ref: The artifact source's branch reference.
         :param pulumi.Input[_builtins.str] display_name: The artifact source's display name.
         :param pulumi.Input[_builtins.str] folder_path: The folder containing artifacts.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] name: The name of the artifact source.
         :param pulumi.Input[_builtins.str] security_token: The security token to authenticate to the artifact source.
         :param pulumi.Input[Union[_builtins.str, 'SourceControlType']] source_type: The artifact source's type.
         :param pulumi.Input[Union[_builtins.str, 'EnableStatus']] status: Indicates if the artifact source is enabled (values: Enabled, Disabled).
@@ -52,7 +52,6 @@ class ArtifactSourceArgs:
         :param pulumi.Input[_builtins.str] uri: The artifact source's URI.
         """
         pulumi.set(__self__, "lab_name", lab_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if arm_template_folder_path is not None:
             pulumi.set(__self__, "arm_template_folder_path", arm_template_folder_path)
@@ -64,6 +63,8 @@ class ArtifactSourceArgs:
             pulumi.set(__self__, "folder_path", folder_path)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if security_token is not None:
             pulumi.set(__self__, "security_token", security_token)
         if source_type is not None:
@@ -86,18 +87,6 @@ class ArtifactSourceArgs:
     @lab_name.setter
     def lab_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "lab_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the artifact source.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -170,6 +159,18 @@ class ArtifactSourceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the artifact source.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="securityToken")
@@ -331,8 +332,6 @@ class ArtifactSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["location"] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

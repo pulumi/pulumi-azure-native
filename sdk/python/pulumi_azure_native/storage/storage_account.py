@@ -22,11 +22,11 @@ __all__ = ['StorageAccountArgs', 'StorageAccount']
 @pulumi.input_type
 class StorageAccountArgs:
     def __init__(__self__, *,
-                 account_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[Union[_builtins.str, 'Kind']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  access_tier: pulumi.Input[Optional['AccessTier']] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_blob_public_access: pulumi.Input[Optional[_builtins.bool]] = None,
                  allow_cross_tenant_replication: pulumi.Input[Optional[_builtins.bool]] = None,
                  allow_shared_key_access: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -57,11 +57,11 @@ class StorageAccountArgs:
         """
         The set of arguments for constructing a StorageAccount resource.
 
-        :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: Required. Indicates the type of storage account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: Required. Gets or sets the SKU name.
         :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
+        :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[_builtins.bool] allow_blob_public_access: Allow or disallow public access to all blobs or containers in the storage account. The default interpretation is false for this property.
         :param pulumi.Input[_builtins.bool] allow_cross_tenant_replication: Allow or disallow cross AAD tenant object replication. Set this property to true for new or existing accounts only if object replication policies will involve storage accounts in different AAD tenants. The default interpretation is false for new accounts to follow best security practices by default.
         :param pulumi.Input[_builtins.bool] allow_shared_key_access: Indicates whether the storage account permits requests to be authorized with the account access key via Shared Key. If false, then all requests, including shared access signatures, must be authorized with Azure Active Directory (Azure AD). The default value is null, which is equivalent to true.
@@ -90,12 +90,13 @@ class StorageAccountArgs:
         :param pulumi.Input['SasPolicyArgs'] sas_policy: SasPolicy assigned to the storage account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets a list of key value pairs that describe the resource. These tags can be used for viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key with a length no greater than 128 characters and a value with a length no greater than 256 characters.
         """
-        pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if access_tier is not None:
             pulumi.set(__self__, "access_tier", access_tier)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
         if allow_blob_public_access is not None:
             pulumi.set(__self__, "allow_blob_public_access", allow_blob_public_access)
         if allow_cross_tenant_replication is not None:
@@ -152,18 +153,6 @@ class StorageAccountArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        """
-        return pulumi.get(self, "account_name")
-
-    @account_name.setter
-    def account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "account_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def kind(self) -> pulumi.Input[Union[_builtins.str, 'Kind']]:
         """
@@ -210,6 +199,18 @@ class StorageAccountArgs:
     @access_tier.setter
     def access_tier(self, value: pulumi.Input[Optional['AccessTier']]):
         pulumi.set(self, "access_tier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="allowBlobPublicAccess")
@@ -689,8 +690,6 @@ class StorageAccount(pulumi.CustomResource):
             __props__ = StorageAccountArgs.__new__(StorageAccountArgs)
 
             __props__.__dict__["access_tier"] = access_tier
-            if account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["allow_blob_public_access"] = allow_blob_public_access
             __props__.__dict__["allow_cross_tenant_replication"] = allow_cross_tenant_replication

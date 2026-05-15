@@ -20,38 +20,27 @@ __all__ = ['SqlDiscoverySiteDataSourceControllerArgs', 'SqlDiscoverySiteDataSour
 @pulumi.input_type
 class SqlDiscoverySiteDataSourceControllerArgs:
     def __init__(__self__, *,
-                 discovery_site_data_source_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
                  sql_site_name: pulumi.Input[_builtins.str],
+                 discovery_site_data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlDiscoverySiteDataSourceController resource.
 
-        :param pulumi.Input[_builtins.str] discovery_site_data_source_name: SQL Discovery site data source name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: Site name
         :param pulumi.Input[_builtins.str] sql_site_name: SQL site name.
+        :param pulumi.Input[_builtins.str] discovery_site_data_source_name: SQL Discovery site data source name.
         :param pulumi.Input[_builtins.str] discovery_site_id: Gets or sets the discovery site Id.
         """
-        pulumi.set(__self__, "discovery_site_data_source_name", discovery_site_data_source_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "site_name", site_name)
         pulumi.set(__self__, "sql_site_name", sql_site_name)
+        if discovery_site_data_source_name is not None:
+            pulumi.set(__self__, "discovery_site_data_source_name", discovery_site_data_source_name)
         if discovery_site_id is not None:
             pulumi.set(__self__, "discovery_site_id", discovery_site_id)
-
-    @_builtins.property
-    @pulumi.getter(name="discoverySiteDataSourceName")
-    def discovery_site_data_source_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        SQL Discovery site data source name.
-        """
-        return pulumi.get(self, "discovery_site_data_source_name")
-
-    @discovery_site_data_source_name.setter
-    def discovery_site_data_source_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "discovery_site_data_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -88,6 +77,18 @@ class SqlDiscoverySiteDataSourceControllerArgs:
     @sql_site_name.setter
     def sql_site_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sql_site_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="discoverySiteDataSourceName")
+    def discovery_site_data_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SQL Discovery site data source name.
+        """
+        return pulumi.get(self, "discovery_site_data_source_name")
+
+    @discovery_site_data_source_name.setter
+    def discovery_site_data_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "discovery_site_data_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="discoverySiteId")
@@ -173,8 +174,6 @@ class SqlDiscoverySiteDataSourceController(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SqlDiscoverySiteDataSourceControllerArgs.__new__(SqlDiscoverySiteDataSourceControllerArgs)
 
-            if discovery_site_data_source_name is None and not opts.urn:
-                raise TypeError("Missing required property 'discovery_site_data_source_name'")
             __props__.__dict__["discovery_site_data_source_name"] = discovery_site_data_source_name
             __props__.__dict__["discovery_site_id"] = discovery_site_id
             if resource_group_name is None and not opts.urn:

@@ -23,33 +23,34 @@ class SchemaArgs:
     def __init__(__self__, *,
                  format: pulumi.Input[Union[_builtins.str, 'Format']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 schema_name: pulumi.Input[_builtins.str],
                  schema_registry_name: pulumi.Input[_builtins.str],
                  schema_type: pulumi.Input[Union[_builtins.str, 'SchemaType']],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Schema resource.
 
         :param pulumi.Input[Union[_builtins.str, 'Format']] format: Format of the schema.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] schema_name: Schema name parameter.
         :param pulumi.Input[_builtins.str] schema_registry_name: Schema registry name parameter.
         :param pulumi.Input[Union[_builtins.str, 'SchemaType']] schema_type: Type of the schema.
         :param pulumi.Input[_builtins.str] description: Human-readable description of the schema.
         :param pulumi.Input[_builtins.str] display_name: Human-readable display name.
+        :param pulumi.Input[_builtins.str] schema_name: Schema name parameter.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Schema tags.
         """
         pulumi.set(__self__, "format", format)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schema_name", schema_name)
         pulumi.set(__self__, "schema_registry_name", schema_registry_name)
         pulumi.set(__self__, "schema_type", schema_type)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -76,18 +77,6 @@ class SchemaArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="schemaName")
-    def schema_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Schema name parameter.
-        """
-        return pulumi.get(self, "schema_name")
-
-    @schema_name.setter
-    def schema_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "schema_name", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaRegistryName")
@@ -136,6 +125,18 @@ class SchemaArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Schema name parameter.
+        """
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -238,8 +239,6 @@ class Schema(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schema_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_name'")
             __props__.__dict__["schema_name"] = schema_name
             if schema_registry_name is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_registry_name'")

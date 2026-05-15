@@ -22,8 +22,8 @@ __all__ = ['CassandraClusterArgs', 'CassandraCluster']
 @pulumi.input_type
 class CassandraClusterArgs:
     def __init__(__self__, *,
-                 cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedCassandraManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ClusterResourcePropertiesArgs']] = None,
@@ -31,15 +31,16 @@ class CassandraClusterArgs:
         """
         The set of arguments for constructing a CassandraCluster resource.
 
-        :param pulumi.Input[_builtins.str] cluster_name: Managed Cassandra cluster name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] cluster_name: Managed Cassandra cluster name.
         :param pulumi.Input['ManagedCassandraManagedServiceIdentityArgs'] identity: Identity for the resource.
         :param pulumi.Input[_builtins.str] location: The location of the resource group to which the resource belongs.
         :param pulumi.Input['ClusterResourcePropertiesArgs'] properties: Properties of a managed Cassandra cluster.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -48,18 +49,6 @@ class CassandraClusterArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Managed Cassandra cluster name.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -72,6 +61,18 @@ class CassandraClusterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Managed Cassandra cluster name.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,8 +197,6 @@ class CassandraCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CassandraClusterArgs.__new__(CassandraClusterArgs)
 
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

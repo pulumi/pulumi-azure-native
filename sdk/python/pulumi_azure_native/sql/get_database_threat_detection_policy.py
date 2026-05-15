@@ -233,7 +233,7 @@ def get_database_threat_detection_policy(database_name: Optional[_builtins.str] 
         use_server_default=pulumi.get(__ret__, 'use_server_default'))
 def get_database_threat_detection_policy_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                security_alert_policy_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                security_alert_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseThreatDetectionPolicyResult]:
     """

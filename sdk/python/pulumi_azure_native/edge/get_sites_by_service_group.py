@@ -138,7 +138,7 @@ def get_sites_by_service_group(servicegroup_name: Optional[_builtins.str] = None
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_sites_by_service_group_output(servicegroup_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                      site_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                      site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSitesByServiceGroupResult]:
     """
     Get a Site

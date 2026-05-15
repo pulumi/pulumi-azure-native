@@ -310,7 +310,7 @@ def get_application(application_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_application_output(application_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           application_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           application_name: pulumi.Input[Optional[_builtins.str]] = None,
                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """

@@ -24,29 +24,28 @@ class PublishedBlueprintArgs:
     def __init__(__self__, *,
                  blueprint_name: pulumi.Input[_builtins.str],
                  resource_scope: pulumi.Input[_builtins.str],
-                 version_id: pulumi.Input[_builtins.str],
                  change_notes: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]]] = None,
                  resource_groups: pulumi.Input[Optional[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]]] = None,
-                 target_scope: pulumi.Input[Optional[Union[_builtins.str, 'BlueprintTargetScope']]] = None):
+                 target_scope: pulumi.Input[Optional[Union[_builtins.str, 'BlueprintTargetScope']]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PublishedBlueprint resource.
 
         :param pulumi.Input[_builtins.str] blueprint_name: Name of the published blueprint definition.
         :param pulumi.Input[_builtins.str] resource_scope: The scope of the resource. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}').
-        :param pulumi.Input[_builtins.str] version_id: Version of the published blueprint definition.
         :param pulumi.Input[_builtins.str] change_notes: Version-specific change notes.
         :param pulumi.Input[_builtins.str] description: Multi-line explain this resource.
         :param pulumi.Input[_builtins.str] display_name: One-liner string explain this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionArgs']]] parameters: Parameters required by this blueprint definition.
         :param pulumi.Input[Mapping[str, pulumi.Input['ResourceGroupDefinitionArgs']]] resource_groups: Resource group placeholders defined by this blueprint definition.
         :param pulumi.Input[Union[_builtins.str, 'BlueprintTargetScope']] target_scope: The scope where this blueprint definition can be assigned.
+        :param pulumi.Input[_builtins.str] version_id: Version of the published blueprint definition.
         """
         pulumi.set(__self__, "blueprint_name", blueprint_name)
         pulumi.set(__self__, "resource_scope", resource_scope)
-        pulumi.set(__self__, "version_id", version_id)
         if change_notes is not None:
             pulumi.set(__self__, "change_notes", change_notes)
         if description is not None:
@@ -59,6 +58,8 @@ class PublishedBlueprintArgs:
             pulumi.set(__self__, "resource_groups", resource_groups)
         if target_scope is not None:
             pulumi.set(__self__, "target_scope", target_scope)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
 
     @_builtins.property
     @pulumi.getter(name="blueprintName")
@@ -83,18 +84,6 @@ class PublishedBlueprintArgs:
     @resource_scope.setter
     def resource_scope(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_scope", value)
-
-    @_builtins.property
-    @pulumi.getter(name="versionId")
-    def version_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Version of the published blueprint definition.
-        """
-        return pulumi.get(self, "version_id")
-
-    @version_id.setter
-    def version_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "version_id", value)
 
     @_builtins.property
     @pulumi.getter(name="changeNotes")
@@ -167,6 +156,18 @@ class PublishedBlueprintArgs:
     @target_scope.setter
     def target_scope(self, value: pulumi.Input[Optional[Union[_builtins.str, 'BlueprintTargetScope']]]):
         pulumi.set(self, "target_scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Version of the published blueprint definition.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
 
 
 @pulumi.type_token("azure-native:blueprint:PublishedBlueprint")
@@ -260,8 +261,6 @@ class PublishedBlueprint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_scope'")
             __props__.__dict__["resource_scope"] = resource_scope
             __props__.__dict__["target_scope"] = target_scope
-            if version_id is None and not opts.urn:
-                raise TypeError("Missing required property 'version_id'")
             __props__.__dict__["version_id"] = version_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

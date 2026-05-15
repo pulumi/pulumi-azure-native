@@ -259,7 +259,7 @@ def get_storage_target(cache_name: Optional[_builtins.str] = None,
         unknown=pulumi.get(__ret__, 'unknown'))
 def get_storage_target_output(cache_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              storage_target_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              storage_target_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageTargetResult]:
     """
     Returns a Storage Target from a cache.

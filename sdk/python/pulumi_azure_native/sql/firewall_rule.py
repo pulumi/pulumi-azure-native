@@ -19,43 +19,32 @@ __all__ = ['FirewallRuleArgs', 'FirewallRule']
 @pulumi.input_type
 class FirewallRuleArgs:
     def __init__(__self__, *,
-                 firewall_rule_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  start_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FirewallRule resource.
 
-        :param pulumi.Input[_builtins.str] firewall_rule_name: The name of the firewall rule.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.str] end_ip_address: The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
+        :param pulumi.Input[_builtins.str] firewall_rule_name: The name of the firewall rule.
         :param pulumi.Input[_builtins.str] name: Resource name.
         :param pulumi.Input[_builtins.str] start_ip_address: The start IP address of the firewall rule. Must be IPv4 format. Use value '0.0.0.0' for all Azure-internal IP addresses.
         """
-        pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         if end_ip_address is not None:
             pulumi.set(__self__, "end_ip_address", end_ip_address)
+        if firewall_rule_name is not None:
+            pulumi.set(__self__, "firewall_rule_name", firewall_rule_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if start_ip_address is not None:
             pulumi.set(__self__, "start_ip_address", start_ip_address)
-
-    @_builtins.property
-    @pulumi.getter(name="firewallRuleName")
-    def firewall_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the firewall rule.
-        """
-        return pulumi.get(self, "firewall_rule_name")
-
-    @firewall_rule_name.setter
-    def firewall_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "firewall_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -92,6 +81,18 @@ class FirewallRuleArgs:
     @end_ip_address.setter
     def end_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="firewallRuleName")
+    def firewall_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the firewall rule.
+        """
+        return pulumi.get(self, "firewall_rule_name")
+
+    @firewall_rule_name.setter
+    def firewall_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "firewall_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -193,8 +194,6 @@ class FirewallRule(pulumi.CustomResource):
             __props__ = FirewallRuleArgs.__new__(FirewallRuleArgs)
 
             __props__.__dict__["end_ip_address"] = end_ip_address
-            if firewall_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'firewall_rule_name'")
             __props__.__dict__["firewall_rule_name"] = firewall_rule_name
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:

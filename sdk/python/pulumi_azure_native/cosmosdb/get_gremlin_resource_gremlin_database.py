@@ -161,7 +161,7 @@ def get_gremlin_resource_gremlin_database(account_name: Optional[_builtins.str] 
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_gremlin_resource_gremlin_database_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                 database_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGremlinResourceGremlinDatabaseResult]:
     """

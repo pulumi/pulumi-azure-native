@@ -23,13 +23,13 @@ __all__ = ['ProjectArgs', 'Project']
 class ProjectArgs:
     def __init__(__self__, *,
                  group_name: pulumi.Input[_builtins.str],
-                 project_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  source_platform: pulumi.Input[Union[_builtins.str, 'ProjectSourcePlatform']],
                  target_platform: pulumi.Input[Union[_builtins.str, 'ProjectTargetPlatform']],
                  azure_authentication_info: pulumi.Input[Optional['AzureActiveDirectoryAppArgs']] = None,
                  databases_info: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseInfoArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_connection_info: pulumi.Input[Optional[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_connection_info: pulumi.Input[Optional[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']]] = None):
@@ -37,17 +37,16 @@ class ProjectArgs:
         The set of arguments for constructing a Project resource.
 
         :param pulumi.Input[_builtins.str] group_name: Name of the resource group
-        :param pulumi.Input[_builtins.str] project_name: Name of the project
         :param pulumi.Input[_builtins.str] service_name: Name of the service
         :param pulumi.Input[Union[_builtins.str, 'ProjectSourcePlatform']] source_platform: Source platform for the project
         :param pulumi.Input[Union[_builtins.str, 'ProjectTargetPlatform']] target_platform: Target platform for the project
         :param pulumi.Input['AzureActiveDirectoryAppArgs'] azure_authentication_info: Field that defines the Azure active directory application info, used to connect to the target Azure resource
         :param pulumi.Input[Sequence[pulumi.Input['DatabaseInfoArgs']]] databases_info: List of DatabaseInfo
+        :param pulumi.Input[_builtins.str] project_name: Name of the project
         :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] source_connection_info: Information for connecting to source
         :param pulumi.Input[Union['MiSqlConnectionInfoArgs', 'MongoDbConnectionInfoArgs', 'MySqlConnectionInfoArgs', 'OracleConnectionInfoArgs', 'PostgreSqlConnectionInfoArgs', 'SqlConnectionInfoArgs']] target_connection_info: Information for connecting to target
         """
         pulumi.set(__self__, "group_name", group_name)
-        pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "source_platform", source_platform)
         pulumi.set(__self__, "target_platform", target_platform)
@@ -57,6 +56,8 @@ class ProjectArgs:
             pulumi.set(__self__, "databases_info", databases_info)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if project_name is not None:
+            pulumi.set(__self__, "project_name", project_name)
         if source_connection_info is not None:
             pulumi.set(__self__, "source_connection_info", source_connection_info)
         if tags is not None:
@@ -75,18 +76,6 @@ class ProjectArgs:
     @group_name.setter
     def group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="projectName")
-    def project_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the project
-        """
-        return pulumi.get(self, "project_name")
-
-    @project_name.setter
-    def project_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceName")
@@ -156,6 +145,18 @@ class ProjectArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the project
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "project_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceConnectionInfo")
@@ -284,8 +285,6 @@ class Project(pulumi.CustomResource):
                 raise TypeError("Missing required property 'group_name'")
             __props__.__dict__["group_name"] = group_name
             __props__.__dict__["location"] = location
-            if project_name is None and not opts.urn:
-                raise TypeError("Missing required property 'project_name'")
             __props__.__dict__["project_name"] = project_name
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

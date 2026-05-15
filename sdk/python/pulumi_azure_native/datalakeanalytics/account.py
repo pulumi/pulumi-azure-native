@@ -22,10 +22,10 @@ __all__ = ['AccountArgs', 'Account']
 @pulumi.input_type
 class AccountArgs:
     def __init__(__self__, *,
-                 account_name: pulumi.Input[_builtins.str],
                  data_lake_store_accounts: pulumi.Input[Sequence[pulumi.Input['AddDataLakeStoreWithAccountParametersArgs']]],
                  default_data_lake_store_account: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  compute_policies: pulumi.Input[Optional[Sequence[pulumi.Input['CreateComputePolicyWithAccountParametersArgs']]]] = None,
                  firewall_allow_azure_ips: pulumi.Input[Optional['FirewallAllowAzureIpsState']] = None,
                  firewall_rules: pulumi.Input[Optional[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]]] = None,
@@ -42,10 +42,10 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
 
-        :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Analytics account.
         :param pulumi.Input[Sequence[pulumi.Input['AddDataLakeStoreWithAccountParametersArgs']]] data_lake_store_accounts: The list of Data Lake Store accounts associated with this account.
         :param pulumi.Input[_builtins.str] default_data_lake_store_account: The default Data Lake Store account associated with this account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group.
+        :param pulumi.Input[_builtins.str] account_name: The name of the Data Lake Analytics account.
         :param pulumi.Input[Sequence[pulumi.Input['CreateComputePolicyWithAccountParametersArgs']]] compute_policies: The list of compute policies associated with this account.
         :param pulumi.Input['FirewallAllowAzureIpsState'] firewall_allow_azure_ips: The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
         :param pulumi.Input[Sequence[pulumi.Input['CreateFirewallRuleWithAccountParametersArgs']]] firewall_rules: The list of firewall rules associated with this account.
@@ -60,10 +60,11 @@ class AccountArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AddStorageAccountWithAccountParametersArgs']]] storage_accounts: The list of Azure Blob Storage accounts associated with this account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "data_lake_store_accounts", data_lake_store_accounts)
         pulumi.set(__self__, "default_data_lake_store_account", default_data_lake_store_account)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
         if compute_policies is not None:
             pulumi.set(__self__, "compute_policies", compute_policies)
         if firewall_allow_azure_ips is None:
@@ -106,18 +107,6 @@ class AccountArgs:
             pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Data Lake Analytics account.
-        """
-        return pulumi.get(self, "account_name")
-
-    @account_name.setter
-    def account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "account_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="dataLakeStoreAccounts")
     def data_lake_store_accounts(self) -> pulumi.Input[Sequence[pulumi.Input['AddDataLakeStoreWithAccountParametersArgs']]]:
         """
@@ -152,6 +141,18 @@ class AccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Data Lake Analytics account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="computePolicies")
@@ -413,8 +414,6 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
-            if account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["compute_policies"] = compute_policies
             if data_lake_store_accounts is None and not opts.urn:

@@ -22,9 +22,9 @@ __all__ = ['AccountArgs', 'Account']
 @pulumi.input_type
 class AccountArgs:
     def __init__(__self__, *,
-                 account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_services: pulumi.Input[Optional['StorageServicesForPutRequestArgs']] = None,
@@ -32,20 +32,21 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
 
-        :param pulumi.Input[_builtins.str] account_name: The name of the Azure Video Indexer account.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] account_id: The account's data-plane ID. This can be set only when connecting an existing classic account
+        :param pulumi.Input[_builtins.str] account_name: The name of the Azure Video Indexer account.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['StorageServicesForPutRequestArgs'] storage_services: The storage services details
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_id is None:
             account_id = '00000000-0000-0000-0000-000000000000'
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -54,18 +55,6 @@ class AccountArgs:
             pulumi.set(__self__, "storage_services", storage_services)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="accountName")
-    def account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Azure Video Indexer account.
-        """
-        return pulumi.get(self, "account_name")
-
-    @account_name.setter
-    def account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -90,6 +79,18 @@ class AccountArgs:
     @account_id.setter
     def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Azure Video Indexer account.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -220,8 +221,6 @@ class Account(pulumi.CustomResource):
             if account_id is None:
                 account_id = '00000000-0000-0000-0000-000000000000'
             __props__.__dict__["account_id"] = account_id
-            if account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

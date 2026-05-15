@@ -24,21 +24,22 @@ class SignalDefinitionArgs:
     def __init__(__self__, *,
                  health_model_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 signal_definition_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']]] = None):
+                 properties: pulumi.Input[Optional[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']]] = None,
+                 signal_definition_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SignalDefinition resource.
 
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] signal_definition_name: Name of the signal definition. Must be unique within a health model.
         :param pulumi.Input[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[_builtins.str] signal_definition_name: Name of the signal definition. Must be unique within a health model.
         """
         pulumi.set(__self__, "health_model_name", health_model_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "signal_definition_name", signal_definition_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if signal_definition_name is not None:
+            pulumi.set(__self__, "signal_definition_name", signal_definition_name)
 
     @_builtins.property
     @pulumi.getter(name="healthModelName")
@@ -65,18 +66,6 @@ class SignalDefinitionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="signalDefinitionName")
-    def signal_definition_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the signal definition. Must be unique within a health model.
-        """
-        return pulumi.get(self, "signal_definition_name")
-
-    @signal_definition_name.setter
-    def signal_definition_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "signal_definition_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']]]:
         """
@@ -87,6 +76,18 @@ class SignalDefinitionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional[Union['LogAnalyticsQuerySignalDefinitionPropertiesArgs', 'PrometheusMetricsSignalDefinitionPropertiesArgs', 'ResourceMetricSignalDefinitionPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signalDefinitionName")
+    def signal_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the signal definition. Must be unique within a health model.
+        """
+        return pulumi.get(self, "signal_definition_name")
+
+    @signal_definition_name.setter
+    def signal_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "signal_definition_name", value)
 
 
 @pulumi.type_token("azure-native:cloudhealth:SignalDefinition")
@@ -164,8 +165,6 @@ class SignalDefinition(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if signal_definition_name is None and not opts.urn:
-                raise TypeError("Missing required property 'signal_definition_name'")
             __props__.__dict__["signal_definition_name"] = signal_definition_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

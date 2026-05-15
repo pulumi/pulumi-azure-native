@@ -21,9 +21,9 @@ __all__ = ['IntegrationServiceEnvironmentManagedApiArgs', 'IntegrationServiceEnv
 @pulumi.input_type
 class IntegrationServiceEnvironmentManagedApiArgs:
     def __init__(__self__, *,
-                 api_name: pulumi.Input[_builtins.str],
                  integration_service_environment_name: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
+                 api_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_parameters: pulumi.Input[Optional['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs']] = None,
                  integration_service_environment: pulumi.Input[Optional['ResourceReferenceArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -31,17 +31,18 @@ class IntegrationServiceEnvironmentManagedApiArgs:
         """
         The set of arguments for constructing a IntegrationServiceEnvironmentManagedApi resource.
 
-        :param pulumi.Input[_builtins.str] api_name: The api name.
         :param pulumi.Input[_builtins.str] integration_service_environment_name: The integration service environment name.
         :param pulumi.Input[_builtins.str] resource_group: The resource group name.
+        :param pulumi.Input[_builtins.str] api_name: The api name.
         :param pulumi.Input['IntegrationServiceEnvironmentManagedApiDeploymentParametersArgs'] deployment_parameters: The integration service environment managed api deployment parameters.
         :param pulumi.Input['ResourceReferenceArgs'] integration_service_environment: The integration service environment reference.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "api_name", api_name)
         pulumi.set(__self__, "integration_service_environment_name", integration_service_environment_name)
         pulumi.set(__self__, "resource_group", resource_group)
+        if api_name is not None:
+            pulumi.set(__self__, "api_name", api_name)
         if deployment_parameters is not None:
             pulumi.set(__self__, "deployment_parameters", deployment_parameters)
         if integration_service_environment is not None:
@@ -50,18 +51,6 @@ class IntegrationServiceEnvironmentManagedApiArgs:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="apiName")
-    def api_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The api name.
-        """
-        return pulumi.get(self, "api_name")
-
-    @api_name.setter
-    def api_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter(name="integrationServiceEnvironmentName")
@@ -86,6 +75,18 @@ class IntegrationServiceEnvironmentManagedApiArgs:
     @resource_group.setter
     def resource_group(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiName")
+    def api_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The api name.
+        """
+        return pulumi.get(self, "api_name")
+
+    @api_name.setter
+    def api_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_name", value)
 
     @_builtins.property
     @pulumi.getter(name="deploymentParameters")
@@ -209,8 +210,6 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IntegrationServiceEnvironmentManagedApiArgs.__new__(IntegrationServiceEnvironmentManagedApiArgs)
 
-            if api_name is None and not opts.urn:
-                raise TypeError("Missing required property 'api_name'")
             __props__.__dict__["api_name"] = api_name
             __props__.__dict__["deployment_parameters"] = deployment_parameters
             __props__.__dict__["integration_service_environment"] = integration_service_environment

@@ -275,7 +275,7 @@ def get_extension(arc_setting_name: Optional[_builtins.str] = None,
         type_handler_version=pulumi.get(__ret__, 'type_handler_version'))
 def get_extension_output(arc_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                          cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         extension_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         extension_name: pulumi.Input[Optional[_builtins.str]] = None,
                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """

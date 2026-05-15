@@ -23,22 +23,23 @@ class WorkspaceManagerMemberArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  target_workspace_resource_id: pulumi.Input[_builtins.str],
                  target_workspace_tenant_id: pulumi.Input[_builtins.str],
-                 workspace_manager_member_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 workspace_manager_member_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceManagerMember resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] target_workspace_resource_id: Fully qualified resource ID of the target Sentinel workspace joining the given Sentinel workspace manager
         :param pulumi.Input[_builtins.str] target_workspace_tenant_id: Tenant id of the target Sentinel workspace joining the given Sentinel workspace manager
-        :param pulumi.Input[_builtins.str] workspace_manager_member_name: The name of the workspace manager member
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] workspace_manager_member_name: The name of the workspace manager member
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "target_workspace_resource_id", target_workspace_resource_id)
         pulumi.set(__self__, "target_workspace_tenant_id", target_workspace_tenant_id)
-        pulumi.set(__self__, "workspace_manager_member_name", workspace_manager_member_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if workspace_manager_member_name is not None:
+            pulumi.set(__self__, "workspace_manager_member_name", workspace_manager_member_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -77,18 +78,6 @@ class WorkspaceManagerMemberArgs:
         pulumi.set(self, "target_workspace_tenant_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="workspaceManagerMemberName")
-    def workspace_manager_member_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the workspace manager member
-        """
-        return pulumi.get(self, "workspace_manager_member_name")
-
-    @workspace_manager_member_name.setter
-    def workspace_manager_member_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "workspace_manager_member_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -99,6 +88,18 @@ class WorkspaceManagerMemberArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceManagerMemberName")
+    def workspace_manager_member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the workspace manager member
+        """
+        return pulumi.get(self, "workspace_manager_member_name")
+
+    @workspace_manager_member_name.setter
+    def workspace_manager_member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "workspace_manager_member_name", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:WorkspaceManagerMember")
@@ -181,8 +182,6 @@ class WorkspaceManagerMember(pulumi.CustomResource):
             if target_workspace_tenant_id is None and not opts.urn:
                 raise TypeError("Missing required property 'target_workspace_tenant_id'")
             __props__.__dict__["target_workspace_tenant_id"] = target_workspace_tenant_id
-            if workspace_manager_member_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_manager_member_name'")
             __props__.__dict__["workspace_manager_member_name"] = workspace_manager_member_name
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")

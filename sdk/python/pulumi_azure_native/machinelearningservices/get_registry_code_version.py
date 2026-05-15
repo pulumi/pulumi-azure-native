@@ -146,7 +146,7 @@ def get_registry_code_version(code_name: Optional[_builtins.str] = None,
 def get_registry_code_version_output(code_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     version: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryCodeVersionResult]:
     """
     Get version.

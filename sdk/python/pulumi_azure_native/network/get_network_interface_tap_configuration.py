@@ -155,7 +155,7 @@ def get_network_interface_tap_configuration(network_interface_name: Optional[_bu
         virtual_network_tap=pulumi.get(__ret__, 'virtual_network_tap'))
 def get_network_interface_tap_configuration_output(network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                   tap_configuration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                   tap_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInterfaceTapConfigurationResult]:
     """
     Get the specified tap configuration on a network interface.

@@ -21,10 +21,10 @@ __all__ = ['PeeringServiceArgs', 'PeeringService']
 @pulumi.input_type
 class PeeringServiceArgs:
     def __init__(__self__, *,
-                 peering_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  peering_service_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 peering_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  peering_service_provider: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_backup_peering_location: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_primary_peering_location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,22 +33,23 @@ class PeeringServiceArgs:
         """
         The set of arguments for constructing a PeeringService resource.
 
-        :param pulumi.Input[_builtins.str] peering_service_name: The name of the peering service.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] location: The location of the resource.
         :param pulumi.Input[_builtins.str] peering_service_location: The location (state/province) of the customer.
+        :param pulumi.Input[_builtins.str] peering_service_name: The name of the peering service.
         :param pulumi.Input[_builtins.str] peering_service_provider: The name of the service provider.
         :param pulumi.Input[_builtins.str] provider_backup_peering_location: The backup peering (Microsoft/service provider) location to be used for customer traffic.
         :param pulumi.Input[_builtins.str] provider_primary_peering_location: The primary peering (Microsoft/service provider) location to be used for customer traffic.
         :param pulumi.Input['PeeringServiceSkuArgs'] sku: The SKU that defines the type of the peering service.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         """
-        pulumi.set(__self__, "peering_service_name", peering_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if peering_service_location is not None:
             pulumi.set(__self__, "peering_service_location", peering_service_location)
+        if peering_service_name is not None:
+            pulumi.set(__self__, "peering_service_name", peering_service_name)
         if peering_service_provider is not None:
             pulumi.set(__self__, "peering_service_provider", peering_service_provider)
         if provider_backup_peering_location is not None:
@@ -59,18 +60,6 @@ class PeeringServiceArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="peeringServiceName")
-    def peering_service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the peering service.
-        """
-        return pulumi.get(self, "peering_service_name")
-
-    @peering_service_name.setter
-    def peering_service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "peering_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -107,6 +96,18 @@ class PeeringServiceArgs:
     @peering_service_location.setter
     def peering_service_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "peering_service_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="peeringServiceName")
+    def peering_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the peering service.
+        """
+        return pulumi.get(self, "peering_service_name")
+
+    @peering_service_name.setter
+    def peering_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "peering_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="peeringServiceProvider")
@@ -254,8 +255,6 @@ class PeeringService(pulumi.CustomResource):
 
             __props__.__dict__["location"] = location
             __props__.__dict__["peering_service_location"] = peering_service_location
-            if peering_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'peering_service_name'")
             __props__.__dict__["peering_service_name"] = peering_service_name
             __props__.__dict__["peering_service_provider"] = peering_service_provider
             __props__.__dict__["provider_backup_peering_location"] = provider_backup_peering_location

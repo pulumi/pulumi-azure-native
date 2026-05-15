@@ -19,12 +19,12 @@ __all__ = ['WebAppRelayServiceConnectionSlotArgs', 'WebAppRelayServiceConnection
 @pulumi.input_type
 class WebAppRelayServiceConnectionSlotArgs:
     def __init__(__self__, *,
-                 entity_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
                  biztalk_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hostname: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
@@ -38,7 +38,6 @@ class WebAppRelayServiceConnectionSlotArgs:
         :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API will create or update a hybrid connection for the production slot.
         :param pulumi.Input[_builtins.str] kind: Kind of resource.
         """
-        pulumi.set(__self__, "entity_name", entity_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "slot", slot)
@@ -46,6 +45,8 @@ class WebAppRelayServiceConnectionSlotArgs:
             pulumi.set(__self__, "biztalk_uri", biztalk_uri)
         if entity_connection_string is not None:
             pulumi.set(__self__, "entity_connection_string", entity_connection_string)
+        if entity_name is not None:
+            pulumi.set(__self__, "entity_name", entity_name)
         if hostname is not None:
             pulumi.set(__self__, "hostname", hostname)
         if kind is not None:
@@ -56,15 +57,6 @@ class WebAppRelayServiceConnectionSlotArgs:
             pulumi.set(__self__, "resource_connection_string", resource_connection_string)
         if resource_type is not None:
             pulumi.set(__self__, "resource_type", resource_type)
-
-    @_builtins.property
-    @pulumi.getter(name="entityName")
-    def entity_name(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "entity_name")
-
-    @entity_name.setter
-    def entity_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "entity_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -119,6 +111,15 @@ class WebAppRelayServiceConnectionSlotArgs:
     @entity_connection_string.setter
     def entity_connection_string(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "entity_connection_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="entityName")
+    def entity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "entity_name")
+
+    @entity_name.setter
+    def entity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "entity_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -253,8 +254,6 @@ class WebAppRelayServiceConnectionSlot(pulumi.CustomResource):
 
             __props__.__dict__["biztalk_uri"] = biztalk_uri
             __props__.__dict__["entity_connection_string"] = entity_connection_string
-            if entity_name is None and not opts.urn:
-                raise TypeError("Missing required property 'entity_name'")
             __props__.__dict__["entity_name"] = entity_name
             __props__.__dict__["hostname"] = hostname
             __props__.__dict__["kind"] = kind

@@ -307,7 +307,7 @@ def get_integration_service_environment_managed_api(api_name: Optional[_builtins
         runtime_urls=pulumi.get(__ret__, 'runtime_urls'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_integration_service_environment_managed_api_output(api_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_integration_service_environment_managed_api_output(api_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                            integration_service_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                            resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationServiceEnvironmentManagedApiResult]:

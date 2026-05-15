@@ -22,9 +22,9 @@ __all__ = ['FluidRelayServerArgs', 'FluidRelayServer']
 @pulumi.input_type
 class FluidRelayServerArgs:
     def __init__(__self__, *,
-                 fluid_relay_server_name: pulumi.Input[_builtins.str],
                  resource_group: pulumi.Input[_builtins.str],
                  encryption: pulumi.Input[Optional['EncryptionPropertiesArgs']] = None,
+                 fluid_relay_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
@@ -33,19 +33,20 @@ class FluidRelayServerArgs:
         """
         The set of arguments for constructing a FluidRelayServer resource.
 
-        :param pulumi.Input[_builtins.str] fluid_relay_server_name: The Fluid Relay server resource name.
         :param pulumi.Input[_builtins.str] resource_group: The resource group containing the resource.
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption: All encryption configuration for a resource.
+        :param pulumi.Input[_builtins.str] fluid_relay_server_name: The Fluid Relay server resource name.
         :param pulumi.Input['IdentityArgs'] identity: The type of identity used for the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: Provision states for FluidRelay RP
         :param pulumi.Input[Union[_builtins.str, 'StorageSKU']] storagesku: Sku of the storage associated with the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "fluid_relay_server_name", fluid_relay_server_name)
         pulumi.set(__self__, "resource_group", resource_group)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if fluid_relay_server_name is not None:
+            pulumi.set(__self__, "fluid_relay_server_name", fluid_relay_server_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -56,18 +57,6 @@ class FluidRelayServerArgs:
             pulumi.set(__self__, "storagesku", storagesku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="fluidRelayServerName")
-    def fluid_relay_server_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Fluid Relay server resource name.
-        """
-        return pulumi.get(self, "fluid_relay_server_name")
-
-    @fluid_relay_server_name.setter
-    def fluid_relay_server_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fluid_relay_server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroup")
@@ -92,6 +81,18 @@ class FluidRelayServerArgs:
     @encryption.setter
     def encryption(self, value: pulumi.Input[Optional['EncryptionPropertiesArgs']]):
         pulumi.set(self, "encryption", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fluidRelayServerName")
+    def fluid_relay_server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Fluid Relay server resource name.
+        """
+        return pulumi.get(self, "fluid_relay_server_name")
+
+    @fluid_relay_server_name.setter
+    def fluid_relay_server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fluid_relay_server_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -235,8 +236,6 @@ class FluidRelayServer(pulumi.CustomResource):
             __props__ = FluidRelayServerArgs.__new__(FluidRelayServerArgs)
 
             __props__.__dict__["encryption"] = encryption
-            if fluid_relay_server_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fluid_relay_server_name'")
             __props__.__dict__["fluid_relay_server_name"] = fluid_relay_server_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

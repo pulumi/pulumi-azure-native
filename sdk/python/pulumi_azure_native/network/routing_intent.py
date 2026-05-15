@@ -22,28 +22,29 @@ __all__ = ['RoutingIntentArgs', 'RoutingIntent']
 class RoutingIntentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 routing_intent_name: pulumi.Input[_builtins.str],
                  virtual_hub_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_intent_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_policies: pulumi.Input[Optional[Sequence[pulumi.Input['RoutingPolicyArgs']]]] = None):
         """
         The set of arguments for constructing a RoutingIntent resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the RoutingIntent.
-        :param pulumi.Input[_builtins.str] routing_intent_name: The name of the per VirtualHub singleton Routing Intent resource.
         :param pulumi.Input[_builtins.str] virtual_hub_name: The name of the VirtualHub.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[_builtins.str] routing_intent_name: The name of the per VirtualHub singleton Routing Intent resource.
         :param pulumi.Input[Sequence[pulumi.Input['RoutingPolicyArgs']]] routing_policies: List of routing policies.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "routing_intent_name", routing_intent_name)
         pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if routing_intent_name is not None:
+            pulumi.set(__self__, "routing_intent_name", routing_intent_name)
         if routing_policies is not None:
             pulumi.set(__self__, "routing_policies", routing_policies)
 
@@ -58,18 +59,6 @@ class RoutingIntentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="routingIntentName")
-    def routing_intent_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the per VirtualHub singleton Routing Intent resource.
-        """
-        return pulumi.get(self, "routing_intent_name")
-
-    @routing_intent_name.setter
-    def routing_intent_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "routing_intent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualHubName")
@@ -106,6 +95,18 @@ class RoutingIntentArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routingIntentName")
+    def routing_intent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the per VirtualHub singleton Routing Intent resource.
+        """
+        return pulumi.get(self, "routing_intent_name")
+
+    @routing_intent_name.setter
+    def routing_intent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "routing_intent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="routingPolicies")
@@ -199,8 +200,6 @@ class RoutingIntent(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if routing_intent_name is None and not opts.urn:
-                raise TypeError("Missing required property 'routing_intent_name'")
             __props__.__dict__["routing_intent_name"] = routing_intent_name
             __props__.__dict__["routing_policies"] = routing_policies
             if virtual_hub_name is None and not opts.urn:

@@ -204,7 +204,7 @@ def get_connection_monitor_test(connection_monitor_test_name: Optional[_builtins
         source_agent=pulumi.get(__ret__, 'source_agent'),
         test_frequency_in_sec=pulumi.get(__ret__, 'test_frequency_in_sec'),
         type=pulumi.get(__ret__, 'type'))
-def get_connection_monitor_test_output(connection_monitor_test_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_connection_monitor_test_output(connection_monitor_test_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        peering_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionMonitorTestResult]:

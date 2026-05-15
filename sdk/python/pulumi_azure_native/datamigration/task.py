@@ -25,23 +25,24 @@ class TaskArgs:
                  group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 task_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional[Union['ConnectToMongoDbTaskPropertiesArgs', 'ConnectToSourceMySqlTaskPropertiesArgs', 'ConnectToSourceOracleSyncTaskPropertiesArgs', 'ConnectToSourcePostgreSqlSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerTaskPropertiesArgs', 'ConnectToTargetAzureDbForMySqlTaskPropertiesArgs', 'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetSqlDbTaskPropertiesArgs', 'ConnectToTargetSqlMISyncTaskPropertiesArgs', 'ConnectToTargetSqlMITaskPropertiesArgs', 'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs', 'GetTdeCertificatesSqlTaskPropertiesArgs', 'GetUserTablesMySqlTaskPropertiesArgs', 'GetUserTablesOracleTaskPropertiesArgs', 'GetUserTablesPostgreSqlTaskPropertiesArgs', 'GetUserTablesSqlSyncTaskPropertiesArgs', 'GetUserTablesSqlTaskPropertiesArgs', 'MigrateMongoDbTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs', 'MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbTaskPropertiesArgs', 'MigrateSqlServerSqlMISyncTaskPropertiesArgs', 'MigrateSqlServerSqlMITaskPropertiesArgs', 'MigrateSsisTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs', 'ValidateMongoDbTaskPropertiesArgs', 'ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs']]] = None):
+                 properties: pulumi.Input[Optional[Union['ConnectToMongoDbTaskPropertiesArgs', 'ConnectToSourceMySqlTaskPropertiesArgs', 'ConnectToSourceOracleSyncTaskPropertiesArgs', 'ConnectToSourcePostgreSqlSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerTaskPropertiesArgs', 'ConnectToTargetAzureDbForMySqlTaskPropertiesArgs', 'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetSqlDbTaskPropertiesArgs', 'ConnectToTargetSqlMISyncTaskPropertiesArgs', 'ConnectToTargetSqlMITaskPropertiesArgs', 'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs', 'GetTdeCertificatesSqlTaskPropertiesArgs', 'GetUserTablesMySqlTaskPropertiesArgs', 'GetUserTablesOracleTaskPropertiesArgs', 'GetUserTablesPostgreSqlTaskPropertiesArgs', 'GetUserTablesSqlSyncTaskPropertiesArgs', 'GetUserTablesSqlTaskPropertiesArgs', 'MigrateMongoDbTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs', 'MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbTaskPropertiesArgs', 'MigrateSqlServerSqlMISyncTaskPropertiesArgs', 'MigrateSqlServerSqlMITaskPropertiesArgs', 'MigrateSsisTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs', 'ValidateMongoDbTaskPropertiesArgs', 'ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs']]] = None,
+                 task_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Task resource.
 
         :param pulumi.Input[_builtins.str] group_name: Name of the resource group
         :param pulumi.Input[_builtins.str] project_name: Name of the project
         :param pulumi.Input[_builtins.str] service_name: Name of the service
-        :param pulumi.Input[_builtins.str] task_name: Name of the Task
         :param pulumi.Input[Union['ConnectToMongoDbTaskPropertiesArgs', 'ConnectToSourceMySqlTaskPropertiesArgs', 'ConnectToSourceOracleSyncTaskPropertiesArgs', 'ConnectToSourcePostgreSqlSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerTaskPropertiesArgs', 'ConnectToTargetAzureDbForMySqlTaskPropertiesArgs', 'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetSqlDbTaskPropertiesArgs', 'ConnectToTargetSqlMISyncTaskPropertiesArgs', 'ConnectToTargetSqlMITaskPropertiesArgs', 'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs', 'GetTdeCertificatesSqlTaskPropertiesArgs', 'GetUserTablesMySqlTaskPropertiesArgs', 'GetUserTablesOracleTaskPropertiesArgs', 'GetUserTablesPostgreSqlTaskPropertiesArgs', 'GetUserTablesSqlSyncTaskPropertiesArgs', 'GetUserTablesSqlTaskPropertiesArgs', 'MigrateMongoDbTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs', 'MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbTaskPropertiesArgs', 'MigrateSqlServerSqlMISyncTaskPropertiesArgs', 'MigrateSqlServerSqlMITaskPropertiesArgs', 'MigrateSsisTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs', 'ValidateMongoDbTaskPropertiesArgs', 'ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs']] properties: Custom task properties
+        :param pulumi.Input[_builtins.str] task_name: Name of the Task
         """
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "task_name", task_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if task_name is not None:
+            pulumi.set(__self__, "task_name", task_name)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
@@ -80,18 +81,6 @@ class TaskArgs:
         pulumi.set(self, "service_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="taskName")
-    def task_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Task
-        """
-        return pulumi.get(self, "task_name")
-
-    @task_name.setter
-    def task_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "task_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional[Union['ConnectToMongoDbTaskPropertiesArgs', 'ConnectToSourceMySqlTaskPropertiesArgs', 'ConnectToSourceOracleSyncTaskPropertiesArgs', 'ConnectToSourcePostgreSqlSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerTaskPropertiesArgs', 'ConnectToTargetAzureDbForMySqlTaskPropertiesArgs', 'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetSqlDbTaskPropertiesArgs', 'ConnectToTargetSqlMISyncTaskPropertiesArgs', 'ConnectToTargetSqlMITaskPropertiesArgs', 'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs', 'GetTdeCertificatesSqlTaskPropertiesArgs', 'GetUserTablesMySqlTaskPropertiesArgs', 'GetUserTablesOracleTaskPropertiesArgs', 'GetUserTablesPostgreSqlTaskPropertiesArgs', 'GetUserTablesSqlSyncTaskPropertiesArgs', 'GetUserTablesSqlTaskPropertiesArgs', 'MigrateMongoDbTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs', 'MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbTaskPropertiesArgs', 'MigrateSqlServerSqlMISyncTaskPropertiesArgs', 'MigrateSqlServerSqlMITaskPropertiesArgs', 'MigrateSsisTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs', 'ValidateMongoDbTaskPropertiesArgs', 'ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs']]]:
         """
@@ -102,6 +91,18 @@ class TaskArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional[Union['ConnectToMongoDbTaskPropertiesArgs', 'ConnectToSourceMySqlTaskPropertiesArgs', 'ConnectToSourceOracleSyncTaskPropertiesArgs', 'ConnectToSourcePostgreSqlSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerSyncTaskPropertiesArgs', 'ConnectToSourceSqlServerTaskPropertiesArgs', 'ConnectToTargetAzureDbForMySqlTaskPropertiesArgs', 'ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'ConnectToTargetSqlDbTaskPropertiesArgs', 'ConnectToTargetSqlMISyncTaskPropertiesArgs', 'ConnectToTargetSqlMITaskPropertiesArgs', 'ConnectToTargetSqlSqlDbSyncTaskPropertiesArgs', 'GetTdeCertificatesSqlTaskPropertiesArgs', 'GetUserTablesMySqlTaskPropertiesArgs', 'GetUserTablesOracleTaskPropertiesArgs', 'GetUserTablesPostgreSqlTaskPropertiesArgs', 'GetUserTablesSqlSyncTaskPropertiesArgs', 'GetUserTablesSqlTaskPropertiesArgs', 'MigrateMongoDbTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesArgs', 'MigrateMySqlAzureDbForMySqlSyncTaskPropertiesArgs', 'MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbSyncTaskPropertiesArgs', 'MigrateSqlServerSqlDbTaskPropertiesArgs', 'MigrateSqlServerSqlMISyncTaskPropertiesArgs', 'MigrateSqlServerSqlMITaskPropertiesArgs', 'MigrateSsisTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesArgs', 'ValidateMigrationInputSqlServerSqlMITaskPropertiesArgs', 'ValidateMongoDbTaskPropertiesArgs', 'ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesArgs']]]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="taskName")
+    def task_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Task
+        """
+        return pulumi.get(self, "task_name")
+
+    @task_name.setter
+    def task_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "task_name", value)
 
 
 @pulumi.type_token("azure-native:datamigration:Task")
@@ -185,8 +186,6 @@ class Task(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
-            if task_name is None and not opts.urn:
-                raise TypeError("Missing required property 'task_name'")
             __props__.__dict__["task_name"] = task_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

@@ -344,7 +344,7 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[_builtins.str]
 def get_virtual_machine_scale_set_vm_run_command_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                         instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        run_command_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        run_command_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         vm_scale_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMRunCommandResult]:
     """

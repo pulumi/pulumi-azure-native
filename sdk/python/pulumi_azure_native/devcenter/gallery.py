@@ -21,21 +21,22 @@ __all__ = ['GalleryArgs', 'Gallery']
 class GalleryArgs:
     def __init__(__self__, *,
                  dev_center_name: pulumi.Input[_builtins.str],
-                 gallery_name: pulumi.Input[_builtins.str],
                  gallery_resource_id: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Gallery resource.
 
         :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
-        :param pulumi.Input[_builtins.str] gallery_name: The name of the gallery.
         :param pulumi.Input[_builtins.str] gallery_resource_id: The resource ID of the backing Azure Compute Gallery.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] gallery_name: The name of the gallery.
         """
         pulumi.set(__self__, "dev_center_name", dev_center_name)
-        pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "gallery_resource_id", gallery_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if gallery_name is not None:
+            pulumi.set(__self__, "gallery_name", gallery_name)
 
     @_builtins.property
     @pulumi.getter(name="devCenterName")
@@ -48,18 +49,6 @@ class GalleryArgs:
     @dev_center_name.setter
     def dev_center_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "dev_center_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="galleryName")
-    def gallery_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the gallery.
-        """
-        return pulumi.get(self, "gallery_name")
-
-    @gallery_name.setter
-    def gallery_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "gallery_name", value)
 
     @_builtins.property
     @pulumi.getter(name="galleryResourceId")
@@ -84,6 +73,18 @@ class GalleryArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="galleryName")
+    def gallery_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the gallery.
+        """
+        return pulumi.get(self, "gallery_name")
+
+    @gallery_name.setter
+    def gallery_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gallery_name", value)
 
 
 @pulumi.type_token("azure-native:devcenter:Gallery")
@@ -157,8 +158,6 @@ class Gallery(pulumi.CustomResource):
             if dev_center_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dev_center_name'")
             __props__.__dict__["dev_center_name"] = dev_center_name
-            if gallery_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gallery_name'")
             __props__.__dict__["gallery_name"] = gallery_name
             if gallery_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'gallery_resource_id'")

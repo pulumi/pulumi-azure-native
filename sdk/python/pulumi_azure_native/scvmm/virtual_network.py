@@ -23,27 +23,26 @@ class VirtualNetworkArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_network_name: pulumi.Input[_builtins.str],
                  inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vmm_server_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetwork resource.
 
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] virtual_network_name: Name of the VirtualNetwork.
         :param pulumi.Input[_builtins.str] inventory_item_id: Gets or sets the inventory Item ID for the resource.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         :param pulumi.Input[_builtins.str] uuid: Unique ID of the virtual network.
+        :param pulumi.Input[_builtins.str] virtual_network_name: Name of the VirtualNetwork.
         :param pulumi.Input[_builtins.str] vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if inventory_item_id is not None:
             pulumi.set(__self__, "inventory_item_id", inventory_item_id)
         if location is not None:
@@ -52,6 +51,8 @@ class VirtualNetworkArgs:
             pulumi.set(__self__, "tags", tags)
         if uuid is not None:
             pulumi.set(__self__, "uuid", uuid)
+        if virtual_network_name is not None:
+            pulumi.set(__self__, "virtual_network_name", virtual_network_name)
         if vmm_server_id is not None:
             pulumi.set(__self__, "vmm_server_id", vmm_server_id)
 
@@ -78,18 +79,6 @@ class VirtualNetworkArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkName")
-    def virtual_network_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the VirtualNetwork.
-        """
-        return pulumi.get(self, "virtual_network_name")
-
-    @virtual_network_name.setter
-    def virtual_network_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="inventoryItemId")
@@ -138,6 +127,18 @@ class VirtualNetworkArgs:
     @uuid.setter
     def uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "uuid", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkName")
+    def virtual_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the VirtualNetwork.
+        """
+        return pulumi.get(self, "virtual_network_name")
+
+    @virtual_network_name.setter
+    def virtual_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmmServerId")
@@ -242,8 +243,6 @@ class VirtualNetwork(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["uuid"] = uuid
-            if virtual_network_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_name'")
             __props__.__dict__["virtual_network_name"] = virtual_network_name
             __props__.__dict__["vmm_server_id"] = vmm_server_id
             __props__.__dict__["azure_api_version"] = None

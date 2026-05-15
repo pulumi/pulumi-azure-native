@@ -24,10 +24,10 @@ class CassandraResourceCassandraRoleDefinitionArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 role_definition_id: pulumi.Input[_builtins.str],
                  assignable_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  permissions: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionArgs']]]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  role_name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional['RoleDefinitionType']] = None):
         """
@@ -35,22 +35,23 @@ class CassandraResourceCassandraRoleDefinitionArgs:
 
         :param pulumi.Input[_builtins.str] account_name: Cosmos DB database account name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] role_definition_id: The GUID for the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] assignable_scopes: A set of fully qualified Scopes at or below which Cassandra Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
         :param pulumi.Input[_builtins.str] id: The path id for the Role Definition.
         :param pulumi.Input[Sequence[pulumi.Input['PermissionArgs']]] permissions: The set of operations allowed through this Role Definition.
+        :param pulumi.Input[_builtins.str] role_definition_id: The GUID for the Role Definition.
         :param pulumi.Input[_builtins.str] role_name: A user-friendly name for the Role Definition. Must be unique for the database account.
         :param pulumi.Input['RoleDefinitionType'] type: Indicates whether the Role Definition was built-in or user created.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "role_definition_id", role_definition_id)
         if assignable_scopes is not None:
             pulumi.set(__self__, "assignable_scopes", assignable_scopes)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
+        if role_definition_id is not None:
+            pulumi.set(__self__, "role_definition_id", role_definition_id)
         if role_name is not None:
             pulumi.set(__self__, "role_name", role_name)
         if type is not None:
@@ -79,18 +80,6 @@ class CassandraResourceCassandraRoleDefinitionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="roleDefinitionId")
-    def role_definition_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The GUID for the Role Definition.
-        """
-        return pulumi.get(self, "role_definition_id")
-
-    @role_definition_id.setter
-    def role_definition_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="assignableScopes")
@@ -127,6 +116,18 @@ class CassandraResourceCassandraRoleDefinitionArgs:
     @permissions.setter
     def permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionArgs']]]]):
         pulumi.set(self, "permissions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="roleDefinitionId")
+    def role_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The GUID for the Role Definition.
+        """
+        return pulumi.get(self, "role_definition_id")
+
+    @role_definition_id.setter
+    def role_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "role_definition_id", value)
 
     @_builtins.property
     @pulumi.getter(name="roleName")
@@ -242,8 +243,6 @@ class CassandraResourceCassandraRoleDefinition(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if role_definition_id is None and not opts.urn:
-                raise TypeError("Missing required property 'role_definition_id'")
             __props__.__dict__["role_definition_id"] = role_definition_id
             __props__.__dict__["role_name"] = role_name
             __props__.__dict__["type"] = type

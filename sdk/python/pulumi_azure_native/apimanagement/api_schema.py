@@ -22,10 +22,10 @@ class ApiSchemaArgs:
                  api_id: pulumi.Input[_builtins.str],
                  content_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 schema_id: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  components: Optional[Any] = None,
                  definitions: Optional[Any] = None,
+                 schema_id: pulumi.Input[Optional[_builtins.str]] = None,
                  value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiSchema resource.
@@ -33,21 +33,22 @@ class ApiSchemaArgs:
         :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[_builtins.str] content_type: Must be a valid a media type used in a Content-Type header as defined in the RFC 2616. Media type of the schema document (e.g. application/json, application/xml). </br> - `Swagger` Schema use `application/vnd.ms-azure-apim.swagger.definitions+json` </br> - `WSDL` Schema use `application/vnd.ms-azure-apim.xsd+xml` </br> - `OpenApi` Schema use `application/vnd.oai.openapi.components+json` </br> - `WADL Schema` use `application/vnd.ms-azure-apim.wadl.grammars+xml` </br> - `OData Schema` use `application/vnd.ms-azure-apim.odata.schema` </br> - `gRPC Schema` use `text/protobuf`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] schema_id: Schema id identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param Any components: Types definitions. Used for Swagger/OpenAPI v2/v3 schemas only, null otherwise.
         :param Any definitions: Types definitions. Used for Swagger/OpenAPI v1 schemas only, null otherwise.
+        :param pulumi.Input[_builtins.str] schema_id: Schema id identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] value: Json escaped string defining the document representing the Schema. Used for schemas other than Swagger/OpenAPI.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "content_type", content_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schema_id", schema_id)
         pulumi.set(__self__, "service_name", service_name)
         if components is not None:
             pulumi.set(__self__, "components", components)
         if definitions is not None:
             pulumi.set(__self__, "definitions", definitions)
+        if schema_id is not None:
+            pulumi.set(__self__, "schema_id", schema_id)
         if value is not None:
             pulumi.set(__self__, "value", value)
 
@@ -88,18 +89,6 @@ class ApiSchemaArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="schemaId")
-    def schema_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Schema id identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "schema_id")
-
-    @schema_id.setter
-    def schema_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "schema_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="serviceName")
     def service_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -134,6 +123,18 @@ class ApiSchemaArgs:
     @definitions.setter
     def definitions(self, value: Optional[Any]):
         pulumi.set(self, "definitions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Schema id identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -239,8 +240,6 @@ class ApiSchema(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schema_id is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_id'")
             __props__.__dict__["schema_id"] = schema_id
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")

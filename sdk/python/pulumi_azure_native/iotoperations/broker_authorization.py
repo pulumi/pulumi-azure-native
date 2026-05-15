@@ -22,41 +22,30 @@ __all__ = ['BrokerAuthorizationArgs', 'BrokerAuthorization']
 @pulumi.input_type
 class BrokerAuthorizationArgs:
     def __init__(__self__, *,
-                 authorization_name: pulumi.Input[_builtins.str],
                  broker_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 authorization_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['BrokerAuthorizationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BrokerAuthorization resource.
 
-        :param pulumi.Input[_builtins.str] authorization_name: Name of Instance broker authorization resource
         :param pulumi.Input[_builtins.str] broker_name: Name of broker.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] authorization_name: Name of Instance broker authorization resource
         :param pulumi.Input['BrokerAuthorizationPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "authorization_name", authorization_name)
         pulumi.set(__self__, "broker_name", broker_name)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authorization_name is not None:
+            pulumi.set(__self__, "authorization_name", authorization_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationName")
-    def authorization_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of Instance broker authorization resource
-        """
-        return pulumi.get(self, "authorization_name")
-
-    @authorization_name.setter
-    def authorization_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter(name="brokerName")
@@ -105,6 +94,18 @@ class BrokerAuthorizationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationName")
+    def authorization_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of Instance broker authorization resource
+        """
+        return pulumi.get(self, "authorization_name")
+
+    @authorization_name.setter
+    def authorization_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorization_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -193,8 +194,6 @@ class BrokerAuthorization(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BrokerAuthorizationArgs.__new__(BrokerAuthorizationArgs)
 
-            if authorization_name is None and not opts.urn:
-                raise TypeError("Missing required property 'authorization_name'")
             __props__.__dict__["authorization_name"] = authorization_name
             if broker_name is None and not opts.urn:
                 raise TypeError("Missing required property 'broker_name'")

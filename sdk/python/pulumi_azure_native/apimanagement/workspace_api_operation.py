@@ -24,12 +24,12 @@ class WorkspaceApiOperationArgs:
                  api_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  method: pulumi.Input[_builtins.str],
-                 operation_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  url_template: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 operation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  policies: pulumi.Input[Optional[_builtins.str]] = None,
                  request: pulumi.Input[Optional['RequestContractArgs']] = None,
                  responses: pulumi.Input[Optional[Sequence[pulumi.Input['ResponseContractArgs']]]] = None,
@@ -40,12 +40,12 @@ class WorkspaceApiOperationArgs:
         :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[_builtins.str] display_name: Operation Name.
         :param pulumi.Input[_builtins.str] method: A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
-        :param pulumi.Input[_builtins.str] operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] url_template: Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] description: Description of the operation. May include HTML formatting tags.
+        :param pulumi.Input[_builtins.str] operation_id: Operation identifier within an API. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] policies: Operation Policies
         :param pulumi.Input['RequestContractArgs'] request: An entity containing request details.
         :param pulumi.Input[Sequence[pulumi.Input['ResponseContractArgs']]] responses: Array of Operation responses.
@@ -54,13 +54,14 @@ class WorkspaceApiOperationArgs:
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "operation_id", operation_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "url_template", url_template)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
         if policies is not None:
             pulumi.set(__self__, "policies", policies)
         if request is not None:
@@ -105,18 +106,6 @@ class WorkspaceApiOperationArgs:
     @method.setter
     def method(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "method", value)
-
-    @_builtins.property
-    @pulumi.getter(name="operationId")
-    def operation_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Operation identifier within an API. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "operation_id")
-
-    @operation_id.setter
-    def operation_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "operation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -177,6 +166,18 @@ class WorkspaceApiOperationArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Operation identifier within an API. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "operation_id")
+
+    @operation_id.setter
+    def operation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "operation_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -332,8 +333,6 @@ class WorkspaceApiOperation(pulumi.CustomResource):
             if method is None and not opts.urn:
                 raise TypeError("Missing required property 'method'")
             __props__.__dict__["method"] = method
-            if operation_id is None and not opts.urn:
-                raise TypeError("Missing required property 'operation_id'")
             __props__.__dict__["operation_id"] = operation_id
             __props__.__dict__["policies"] = policies
             __props__.__dict__["request"] = request

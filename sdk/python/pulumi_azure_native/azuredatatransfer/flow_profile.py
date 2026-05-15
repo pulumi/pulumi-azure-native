@@ -22,9 +22,9 @@ __all__ = ['FlowProfileArgs', 'FlowProfile']
 @pulumi.input_type
 class FlowProfileArgs:
     def __init__(__self__, *,
-                 flow_profile_name: pulumi.Input[_builtins.str],
                  pipeline_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 flow_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['FlowProfilePropertiesArgs']] = None,
@@ -32,17 +32,18 @@ class FlowProfileArgs:
         """
         The set of arguments for constructing a FlowProfile resource.
 
-        :param pulumi.Input[_builtins.str] flow_profile_name: The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
         :param pulumi.Input[_builtins.str] pipeline_name: The name of the pipeline on which to operate.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] flow_profile_name: The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['FlowProfilePropertiesArgs'] properties: The set of configuration properties that define the behavior and rules of the FlowProfile.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "flow_profile_name", flow_profile_name)
         pulumi.set(__self__, "pipeline_name", pipeline_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if flow_profile_name is not None:
+            pulumi.set(__self__, "flow_profile_name", flow_profile_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -51,18 +52,6 @@ class FlowProfileArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="flowProfileName")
-    def flow_profile_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
-        """
-        return pulumi.get(self, "flow_profile_name")
-
-    @flow_profile_name.setter
-    def flow_profile_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "flow_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pipelineName")
@@ -87,6 +76,18 @@ class FlowProfileArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowProfileName")
+    def flow_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
+        """
+        return pulumi.get(self, "flow_profile_name")
+
+    @flow_profile_name.setter
+    def flow_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "flow_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -214,8 +215,6 @@ class FlowProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FlowProfileArgs.__new__(FlowProfileArgs)
 
-            if flow_profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'flow_profile_name'")
             __props__.__dict__["flow_profile_name"] = flow_profile_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

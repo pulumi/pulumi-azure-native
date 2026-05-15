@@ -21,35 +21,24 @@ __all__ = ['ReplicationFabricArgs', 'ReplicationFabric']
 @pulumi.input_type
 class ReplicationFabricArgs:
     def __init__(__self__, *,
-                 fabric_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['FabricCreationInputPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ReplicationFabric resource.
 
-        :param pulumi.Input[_builtins.str] fabric_name: Name of the ASR fabric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input[_builtins.str] fabric_name: Name of the ASR fabric.
         :param pulumi.Input['FabricCreationInputPropertiesArgs'] properties: Fabric creation input.
         """
-        pulumi.set(__self__, "fabric_name", fabric_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if fabric_name is not None:
+            pulumi.set(__self__, "fabric_name", fabric_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="fabricName")
-    def fabric_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the ASR fabric.
-        """
-        return pulumi.get(self, "fabric_name")
-
-    @fabric_name.setter
-    def fabric_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fabric_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -74,6 +63,18 @@ class ReplicationFabricArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fabricName")
+    def fabric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the ASR fabric.
+        """
+        return pulumi.get(self, "fabric_name")
+
+    @fabric_name.setter
+    def fabric_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fabric_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -156,8 +157,6 @@ class ReplicationFabric(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationFabricArgs.__new__(ReplicationFabricArgs)
 
-            if fabric_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fabric_name'")
             __props__.__dict__["fabric_name"] = fabric_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

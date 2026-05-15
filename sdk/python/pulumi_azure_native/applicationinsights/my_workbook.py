@@ -25,13 +25,13 @@ class MyWorkbookArgs:
                  category: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str],
                  serialized_data: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['MyWorkbookManagedIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[Union[_builtins.str, 'Kind']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -43,13 +43,13 @@ class MyWorkbookArgs:
         :param pulumi.Input[_builtins.str] category: Workbook category, as defined by the user at creation time.
         :param pulumi.Input[_builtins.str] display_name: The user-defined name of the private workbook.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.str] serialized_data: Configuration of this particular private workbook. Configuration data is a string containing valid JSON
         :param pulumi.Input[_builtins.str] id: Azure resource Id
         :param pulumi.Input['MyWorkbookManagedIdentityArgs'] identity: Identity used for BYOS
         :param pulumi.Input[Union[_builtins.str, 'Kind']] kind: The kind of workbook. Choices are user and shared.
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input[_builtins.str] name: Azure resource name
+        :param pulumi.Input[_builtins.str] resource_name: The name of the Application Insights component resource.
         :param pulumi.Input[_builtins.str] source_id: Optional resourceId for a source resource.
         :param pulumi.Input[_builtins.str] storage_uri: BYOS Storage Account URI
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
@@ -59,7 +59,6 @@ class MyWorkbookArgs:
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_name", resource_name)
         pulumi.set(__self__, "serialized_data", serialized_data)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -71,6 +70,8 @@ class MyWorkbookArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if resource_name is not None:
+            pulumi.set(__self__, "resource_name", resource_name)
         if source_id is not None:
             pulumi.set(__self__, "source_id", source_id)
         if storage_uri is not None:
@@ -117,18 +118,6 @@ class MyWorkbookArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceName")
-    def resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Application Insights component resource.
-        """
-        return pulumi.get(self, "resource_name")
-
-    @resource_name.setter
-    def resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="serializedData")
@@ -201,6 +190,18 @@ class MyWorkbookArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceName")
+    def resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Application Insights component resource.
+        """
+        return pulumi.get(self, "resource_name")
+
+    @resource_name.setter
+    def resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceId")
@@ -378,8 +379,6 @@ class MyWorkbook(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_name_ is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             if serialized_data is None and not opts.urn:
                 raise TypeError("Missing required property 'serialized_data'")

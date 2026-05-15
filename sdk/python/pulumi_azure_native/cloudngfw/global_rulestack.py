@@ -22,10 +22,10 @@ __all__ = ['GlobalRulestackArgs', 'GlobalRulestack']
 @pulumi.input_type
 class GlobalRulestackArgs:
     def __init__(__self__, *,
-                 global_rulestack_name: pulumi.Input[_builtins.str],
                  associated_subscriptions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_mode: pulumi.Input[Optional[Union[_builtins.str, 'DefaultMode']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['AzureResourceManagerManagedIdentityPropertiesArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  min_app_id_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -36,10 +36,10 @@ class GlobalRulestackArgs:
         """
         The set of arguments for constructing a GlobalRulestack resource.
 
-        :param pulumi.Input[_builtins.str] global_rulestack_name: GlobalRulestack resource name
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_subscriptions: subscription scope of global rulestack
         :param pulumi.Input[Union[_builtins.str, 'DefaultMode']] default_mode: Mode for default rules creation
         :param pulumi.Input[_builtins.str] description: rulestack description
+        :param pulumi.Input[_builtins.str] global_rulestack_name: GlobalRulestack resource name
         :param pulumi.Input['AzureResourceManagerManagedIdentityPropertiesArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: Global Location
         :param pulumi.Input[_builtins.str] min_app_id_version: minimum version
@@ -48,13 +48,14 @@ class GlobalRulestackArgs:
         :param pulumi.Input[Union[_builtins.str, 'ScopeType']] scope: Rulestack Type
         :param pulumi.Input['SecurityServicesArgs'] security_services: Security Profile
         """
-        pulumi.set(__self__, "global_rulestack_name", global_rulestack_name)
         if associated_subscriptions is not None:
             pulumi.set(__self__, "associated_subscriptions", associated_subscriptions)
         if default_mode is not None:
             pulumi.set(__self__, "default_mode", default_mode)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if global_rulestack_name is not None:
+            pulumi.set(__self__, "global_rulestack_name", global_rulestack_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -69,18 +70,6 @@ class GlobalRulestackArgs:
             pulumi.set(__self__, "scope", scope)
         if security_services is not None:
             pulumi.set(__self__, "security_services", security_services)
-
-    @_builtins.property
-    @pulumi.getter(name="globalRulestackName")
-    def global_rulestack_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        GlobalRulestack resource name
-        """
-        return pulumi.get(self, "global_rulestack_name")
-
-    @global_rulestack_name.setter
-    def global_rulestack_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "global_rulestack_name", value)
 
     @_builtins.property
     @pulumi.getter(name="associatedSubscriptions")
@@ -117,6 +106,18 @@ class GlobalRulestackArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalRulestackName")
+    def global_rulestack_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        GlobalRulestack resource name
+        """
+        return pulumi.get(self, "global_rulestack_name")
+
+    @global_rulestack_name.setter
+    def global_rulestack_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "global_rulestack_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -247,7 +248,7 @@ class GlobalRulestack(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: GlobalRulestackArgs,
+                 args: Optional[GlobalRulestackArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         PaloAltoNetworks GlobalRulestack
@@ -295,8 +296,6 @@ class GlobalRulestack(pulumi.CustomResource):
             __props__.__dict__["associated_subscriptions"] = associated_subscriptions
             __props__.__dict__["default_mode"] = default_mode
             __props__.__dict__["description"] = description
-            if global_rulestack_name is None and not opts.urn:
-                raise TypeError("Missing required property 'global_rulestack_name'")
             __props__.__dict__["global_rulestack_name"] = global_rulestack_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

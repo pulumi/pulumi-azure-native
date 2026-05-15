@@ -26,7 +26,6 @@ class WatchlistArgs:
                  items_search_key: pulumi.Input[_builtins.str],
                  provider: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 watchlist_alias: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  content_type: pulumi.Input[Optional[_builtins.str]] = None,
                  created: pulumi.Input[Optional[_builtins.str]] = None,
@@ -43,6 +42,7 @@ class WatchlistArgs:
                  updated: pulumi.Input[Optional[_builtins.str]] = None,
                  updated_by: pulumi.Input[Optional['WatchlistUserInfoArgs']] = None,
                  upload_status: pulumi.Input[Optional[_builtins.str]] = None,
+                 watchlist_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  watchlist_id: pulumi.Input[Optional[_builtins.str]] = None,
                  watchlist_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -52,7 +52,6 @@ class WatchlistArgs:
         :param pulumi.Input[_builtins.str] items_search_key: The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
         :param pulumi.Input[_builtins.str] provider: The provider of the watchlist
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] watchlist_alias: The alias of the watchlist
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] content_type: The content type of the raw content. Example : text/csv or text/tsv
         :param pulumi.Input[_builtins.str] created: The time the watchlist was created
@@ -69,6 +68,7 @@ class WatchlistArgs:
         :param pulumi.Input[_builtins.str] updated: The last time the watchlist was updated
         :param pulumi.Input['WatchlistUserInfoArgs'] updated_by: Describes a user that updated the watchlist
         :param pulumi.Input[_builtins.str] upload_status: The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
+        :param pulumi.Input[_builtins.str] watchlist_alias: The alias of the watchlist
         :param pulumi.Input[_builtins.str] watchlist_id: The id (a Guid) of the watchlist
         :param pulumi.Input[_builtins.str] watchlist_type: The type of the watchlist
         """
@@ -76,7 +76,6 @@ class WatchlistArgs:
         pulumi.set(__self__, "items_search_key", items_search_key)
         pulumi.set(__self__, "provider", provider)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "watchlist_alias", watchlist_alias)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if content_type is not None:
             pulumi.set(__self__, "content_type", content_type)
@@ -108,6 +107,8 @@ class WatchlistArgs:
             pulumi.set(__self__, "updated_by", updated_by)
         if upload_status is not None:
             pulumi.set(__self__, "upload_status", upload_status)
+        if watchlist_alias is not None:
+            pulumi.set(__self__, "watchlist_alias", watchlist_alias)
         if watchlist_id is not None:
             pulumi.set(__self__, "watchlist_id", watchlist_id)
         if watchlist_type is not None:
@@ -160,18 +161,6 @@ class WatchlistArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="watchlistAlias")
-    def watchlist_alias(self) -> pulumi.Input[_builtins.str]:
-        """
-        The alias of the watchlist
-        """
-        return pulumi.get(self, "watchlist_alias")
-
-    @watchlist_alias.setter
-    def watchlist_alias(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "watchlist_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
@@ -366,6 +355,18 @@ class WatchlistArgs:
         pulumi.set(self, "upload_status", value)
 
     @_builtins.property
+    @pulumi.getter(name="watchlistAlias")
+    def watchlist_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The alias of the watchlist
+        """
+        return pulumi.get(self, "watchlist_alias")
+
+    @watchlist_alias.setter
+    def watchlist_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "watchlist_alias", value)
+
+    @_builtins.property
     @pulumi.getter(name="watchlistId")
     def watchlist_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -542,8 +543,6 @@ class Watchlist(pulumi.CustomResource):
             __props__.__dict__["updated"] = updated
             __props__.__dict__["updated_by"] = updated_by
             __props__.__dict__["upload_status"] = upload_status
-            if watchlist_alias is None and not opts.urn:
-                raise TypeError("Missing required property 'watchlist_alias'")
             __props__.__dict__["watchlist_alias"] = watchlist_alias
             __props__.__dict__["watchlist_id"] = watchlist_id
             __props__.__dict__["watchlist_type"] = watchlist_type

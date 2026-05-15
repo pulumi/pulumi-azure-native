@@ -22,51 +22,40 @@ __all__ = ['KustoPoolAttachedDatabaseConfigurationArgs', 'KustoPoolAttachedDatab
 @pulumi.input_type
 class KustoPoolAttachedDatabaseConfigurationArgs:
     def __init__(__self__, *,
-                 attached_database_configuration_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  default_principals_modification_kind: pulumi.Input[Union[_builtins.str, 'DefaultPrincipalsModificationKind']],
                  kusto_pool_name: pulumi.Input[_builtins.str],
                  kusto_pool_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
+                 attached_database_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  table_level_sharing_properties: pulumi.Input[Optional['TableLevelSharingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a KustoPoolAttachedDatabaseConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] attached_database_configuration_name: The name of the attached database configuration.
         :param pulumi.Input[_builtins.str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         :param pulumi.Input[Union[_builtins.str, 'DefaultPrincipalsModificationKind']] default_principals_modification_kind: The default principals modification kind
         :param pulumi.Input[_builtins.str] kusto_pool_name: The name of the Kusto pool.
         :param pulumi.Input[_builtins.str] kusto_pool_resource_id: The resource id of the kusto pool where the databases you would like to attach reside.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] attached_database_configuration_name: The name of the attached database configuration.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing specifications
         """
-        pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "default_principals_modification_kind", default_principals_modification_kind)
         pulumi.set(__self__, "kusto_pool_name", kusto_pool_name)
         pulumi.set(__self__, "kusto_pool_resource_id", kusto_pool_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if attached_database_configuration_name is not None:
+            pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if table_level_sharing_properties is not None:
             pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="attachedDatabaseConfigurationName")
-    def attached_database_configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the attached database configuration.
-        """
-        return pulumi.get(self, "attached_database_configuration_name")
-
-    @attached_database_configuration_name.setter
-    def attached_database_configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "attached_database_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -139,6 +128,18 @@ class KustoPoolAttachedDatabaseConfigurationArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="attachedDatabaseConfigurationName")
+    def attached_database_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the attached database configuration.
+        """
+        return pulumi.get(self, "attached_database_configuration_name")
+
+    @attached_database_configuration_name.setter
+    def attached_database_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "attached_database_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -244,8 +245,6 @@ class KustoPoolAttachedDatabaseConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KustoPoolAttachedDatabaseConfigurationArgs.__new__(KustoPoolAttachedDatabaseConfigurationArgs)
 
-            if attached_database_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'attached_database_configuration_name'")
             __props__.__dict__["attached_database_configuration_name"] = attached_database_configuration_name
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")

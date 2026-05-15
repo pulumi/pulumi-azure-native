@@ -23,19 +23,20 @@ __all__ = ['DefaultRolloutArgs', 'DefaultRollout']
 class DefaultRolloutArgs:
     def __init__(__self__, *,
                  provider_namespace: pulumi.Input[_builtins.str],
-                 rollout_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['DefaultRolloutPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['DefaultRolloutPropertiesArgs']] = None,
+                 rollout_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DefaultRollout resource.
 
         :param pulumi.Input[_builtins.str] provider_namespace: The name of the resource provider hosted within ProviderHub.
-        :param pulumi.Input[_builtins.str] rollout_name: The rollout name.
         :param pulumi.Input['DefaultRolloutPropertiesArgs'] properties: Properties of the rollout.
+        :param pulumi.Input[_builtins.str] rollout_name: The rollout name.
         """
         pulumi.set(__self__, "provider_namespace", provider_namespace)
-        pulumi.set(__self__, "rollout_name", rollout_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if rollout_name is not None:
+            pulumi.set(__self__, "rollout_name", rollout_name)
 
     @_builtins.property
     @pulumi.getter(name="providerNamespace")
@@ -50,18 +51,6 @@ class DefaultRolloutArgs:
         pulumi.set(self, "provider_namespace", value)
 
     @_builtins.property
-    @pulumi.getter(name="rolloutName")
-    def rollout_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The rollout name.
-        """
-        return pulumi.get(self, "rollout_name")
-
-    @rollout_name.setter
-    def rollout_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rollout_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['DefaultRolloutPropertiesArgs']]:
         """
@@ -72,6 +61,18 @@ class DefaultRolloutArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['DefaultRolloutPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rolloutName")
+    def rollout_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The rollout name.
+        """
+        return pulumi.get(self, "rollout_name")
+
+    @rollout_name.setter
+    def rollout_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rollout_name", value)
 
 
 @pulumi.type_token("azure-native:providerhub:DefaultRollout")
@@ -143,8 +144,6 @@ class DefaultRollout(pulumi.CustomResource):
             if provider_namespace is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_namespace'")
             __props__.__dict__["provider_namespace"] = provider_namespace
-            if rollout_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rollout_name'")
             __props__.__dict__["rollout_name"] = rollout_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

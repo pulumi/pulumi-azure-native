@@ -24,7 +24,6 @@ class VirtualMachineArgs:
     def __init__(__self__, *,
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_machine_name: pulumi.Input[_builtins.str],
                  availability_sets: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachinePropertiesAvailabilitySetsArgs']]]] = None,
                  checkpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
                  checkpoints: pulumi.Input[Optional[Sequence[pulumi.Input['CheckpointArgs']]]] = None,
@@ -41,6 +40,7 @@ class VirtualMachineArgs:
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  template_id: pulumi.Input[Optional[_builtins.str]] = None,
                  uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vmm_server_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -48,7 +48,6 @@ class VirtualMachineArgs:
 
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the VirtualMachine.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualMachinePropertiesAvailabilitySetsArgs']]] availability_sets: Availability Sets in vm.
         :param pulumi.Input[_builtins.str] checkpoint_type: Type of checkpoint supported for the vm.
         :param pulumi.Input[Sequence[pulumi.Input['CheckpointArgs']]] checkpoints: Checkpoints in the vm.
@@ -65,12 +64,12 @@ class VirtualMachineArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         :param pulumi.Input[_builtins.str] template_id: ARM Id of the template resource to use for deploying the vm.
         :param pulumi.Input[_builtins.str] uuid: Unique ID of the virtual machine.
+        :param pulumi.Input[_builtins.str] virtual_machine_name: Name of the VirtualMachine.
         :param pulumi.Input[_builtins.str] vm_name: VMName is the name of VM on the SCVMM server.
         :param pulumi.Input[_builtins.str] vmm_server_id: ARM Id of the vmmServer resource in which this resource resides.
         """
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
         if availability_sets is not None:
             pulumi.set(__self__, "availability_sets", availability_sets)
         if checkpoint_type is not None:
@@ -103,6 +102,8 @@ class VirtualMachineArgs:
             pulumi.set(__self__, "template_id", template_id)
         if uuid is not None:
             pulumi.set(__self__, "uuid", uuid)
+        if virtual_machine_name is not None:
+            pulumi.set(__self__, "virtual_machine_name", virtual_machine_name)
         if vm_name is not None:
             pulumi.set(__self__, "vm_name", vm_name)
         if vmm_server_id is not None:
@@ -131,18 +132,6 @@ class VirtualMachineArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualMachineName")
-    def virtual_machine_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the VirtualMachine.
-        """
-        return pulumi.get(self, "virtual_machine_name")
-
-    @virtual_machine_name.setter
-    def virtual_machine_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="availabilitySets")
@@ -337,6 +326,18 @@ class VirtualMachineArgs:
         pulumi.set(self, "uuid", value)
 
     @_builtins.property
+    @pulumi.getter(name="virtualMachineName")
+    def virtual_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the VirtualMachine.
+        """
+        return pulumi.get(self, "virtual_machine_name")
+
+    @virtual_machine_name.setter
+    def virtual_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_machine_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="vmName")
     def vm_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -502,8 +503,6 @@ class VirtualMachine(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["template_id"] = template_id
             __props__.__dict__["uuid"] = uuid
-            if virtual_machine_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_machine_name'")
             __props__.__dict__["virtual_machine_name"] = virtual_machine_name
             __props__.__dict__["vm_name"] = vm_name
             __props__.__dict__["vmm_server_id"] = vmm_server_id

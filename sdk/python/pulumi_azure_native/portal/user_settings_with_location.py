@@ -24,7 +24,7 @@ class UserSettingsWithLocationArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['UserPropertiesArgs'],
-                 user_settings_name: pulumi.Input[_builtins.str]):
+                 user_settings_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UserSettingsWithLocation resource.
 
@@ -34,7 +34,8 @@ class UserSettingsWithLocationArgs:
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "properties", properties)
-        pulumi.set(__self__, "user_settings_name", user_settings_name)
+        if user_settings_name is not None:
+            pulumi.set(__self__, "user_settings_name", user_settings_name)
 
     @_builtins.property
     @pulumi.getter
@@ -62,14 +63,14 @@ class UserSettingsWithLocationArgs:
 
     @_builtins.property
     @pulumi.getter(name="userSettingsName")
-    def user_settings_name(self) -> pulumi.Input[_builtins.str]:
+    def user_settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the user settings
         """
         return pulumi.get(self, "user_settings_name")
 
     @user_settings_name.setter
-    def user_settings_name(self, value: pulumi.Input[_builtins.str]):
+    def user_settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "user_settings_name", value)
 
 
@@ -140,8 +141,6 @@ class UserSettingsWithLocation(pulumi.CustomResource):
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")
             __props__.__dict__["properties"] = properties
-            if user_settings_name is None and not opts.urn:
-                raise TypeError("Missing required property 'user_settings_name'")
             __props__.__dict__["user_settings_name"] = user_settings_name
             __props__.__dict__["azure_api_version"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:portal/v20181001:UserSettingsWithLocation")])

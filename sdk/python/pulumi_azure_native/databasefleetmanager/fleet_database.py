@@ -22,38 +22,27 @@ __all__ = ['FleetDatabaseArgs', 'FleetDatabase']
 @pulumi.input_type
 class FleetDatabaseArgs:
     def __init__(__self__, *,
-                 database_name: pulumi.Input[_builtins.str],
                  fleet_name: pulumi.Input[_builtins.str],
                  fleetspace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['FleetDatabasePropertiesArgs']] = None):
         """
         The set of arguments for constructing a FleetDatabase resource.
 
-        :param pulumi.Input[_builtins.str] database_name: Name of the database.
         :param pulumi.Input[_builtins.str] fleet_name: Name of the database fleet.
         :param pulumi.Input[_builtins.str] fleetspace_name: Name of the fleetspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] database_name: Name of the database.
         :param pulumi.Input['FleetDatabasePropertiesArgs'] properties: Fleet database properties.
         """
-        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "fleetspace_name", fleetspace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the database.
-        """
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetName")
@@ -90,6 +79,18 @@ class FleetDatabaseArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -171,8 +172,6 @@ class FleetDatabase(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetDatabaseArgs.__new__(FleetDatabaseArgs)
 
-            if database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             if fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_name'")

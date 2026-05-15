@@ -25,12 +25,12 @@ class ExtensionArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  cluster_resource_name: pulumi.Input[_builtins.str],
                  cluster_rp: pulumi.Input[_builtins.str],
-                 extension_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  aks_assigned_identity: pulumi.Input[Optional['ExtensionAksAssignedIdentityArgs']] = None,
                  auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  configuration_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 extension_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extension_type: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
                  plan: pulumi.Input[Optional['PlanArgs']] = None,
@@ -44,12 +44,12 @@ class ExtensionArgs:
         :param pulumi.Input[_builtins.str] cluster_name: The name of the kubernetes cluster.
         :param pulumi.Input[_builtins.str] cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         :param pulumi.Input[_builtins.str] cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
-        :param pulumi.Input[_builtins.str] extension_name: Name of the Extension.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtensionAksAssignedIdentityArgs'] aks_assigned_identity: Identity of the Extension resource in an AKS cluster
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Flag to note if this extension participates in auto upgrade of minor version, or not.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_protected_settings: Configuration settings that are sensitive, as name-value pairs for configuring this extension.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_settings: Configuration settings, as name-value pairs for configuring this extension.
+        :param pulumi.Input[_builtins.str] extension_name: Name of the Extension.
         :param pulumi.Input[_builtins.str] extension_type: Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
         :param pulumi.Input['IdentityArgs'] identity: Identity of the Extension resource
         :param pulumi.Input['PlanArgs'] plan: The plan information.
@@ -61,7 +61,6 @@ class ExtensionArgs:
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "cluster_resource_name", cluster_resource_name)
         pulumi.set(__self__, "cluster_rp", cluster_rp)
-        pulumi.set(__self__, "extension_name", extension_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if aks_assigned_identity is not None:
             pulumi.set(__self__, "aks_assigned_identity", aks_assigned_identity)
@@ -73,6 +72,8 @@ class ExtensionArgs:
             pulumi.set(__self__, "configuration_protected_settings", configuration_protected_settings)
         if configuration_settings is not None:
             pulumi.set(__self__, "configuration_settings", configuration_settings)
+        if extension_name is not None:
+            pulumi.set(__self__, "extension_name", extension_name)
         if extension_type is not None:
             pulumi.set(__self__, "extension_type", extension_type)
         if identity is not None:
@@ -125,18 +126,6 @@ class ExtensionArgs:
     @cluster_rp.setter
     def cluster_rp(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_rp", value)
-
-    @_builtins.property
-    @pulumi.getter(name="extensionName")
-    def extension_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Extension.
-        """
-        return pulumi.get(self, "extension_name")
-
-    @extension_name.setter
-    def extension_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -197,6 +186,18 @@ class ExtensionArgs:
     @configuration_settings.setter
     def configuration_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extensionName")
+    def extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Extension.
+        """
+        return pulumi.get(self, "extension_name")
+
+    @extension_name.setter
+    def extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extensionType")
@@ -402,8 +403,6 @@ class Extension(pulumi.CustomResource):
             __props__.__dict__["cluster_rp"] = cluster_rp
             __props__.__dict__["configuration_protected_settings"] = configuration_protected_settings
             __props__.__dict__["configuration_settings"] = configuration_settings
-            if extension_name is None and not opts.urn:
-                raise TypeError("Missing required property 'extension_name'")
             __props__.__dict__["extension_name"] = extension_name
             __props__.__dict__["extension_type"] = extension_type
             __props__.__dict__["identity"] = identity

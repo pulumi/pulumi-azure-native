@@ -388,7 +388,7 @@ def get_web_app_site_extension_slot(name: Optional[_builtins.str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_web_app_site_extension_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           site_extension_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           site_extension_id: pulumi.Input[Optional[_builtins.str]] = None,
                                            slot: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSiteExtensionSlotResult]:
     """

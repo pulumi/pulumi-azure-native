@@ -22,7 +22,6 @@ __all__ = ['MigrationArgs', 'Migration']
 @pulumi.input_type
 class MigrationArgs:
     def __init__(__self__, *,
-                 migration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  cancel: pulumi.Input[Optional[Union[_builtins.str, 'Cancel']]] = None,
@@ -33,6 +32,7 @@ class MigrationArgs:
                  migrate_roles: pulumi.Input[Optional[Union[_builtins.str, 'MigrateRolesAndPermissions']]] = None,
                  migration_instance_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  migration_mode: pulumi.Input[Optional[Union[_builtins.str, 'MigrationMode']]] = None,
+                 migration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  migration_option: pulumi.Input[Optional[Union[_builtins.str, 'MigrationOption']]] = None,
                  migration_window_end_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  migration_window_start_time_in_utc: pulumi.Input[Optional[_builtins.str]] = None,
@@ -50,7 +50,6 @@ class MigrationArgs:
         """
         The set of arguments for constructing a Migration resource.
 
-        :param pulumi.Input[_builtins.str] migration_name: Name of migration.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[Union[_builtins.str, 'Cancel']] cancel: Indicates if cancel must be triggered for the entire migration.
@@ -61,6 +60,7 @@ class MigrationArgs:
         :param pulumi.Input[Union[_builtins.str, 'MigrateRolesAndPermissions']] migrate_roles: Indicates if roles and permissions must be migrated.
         :param pulumi.Input[_builtins.str] migration_instance_resource_id: Identifier of the private endpoint migration instance.
         :param pulumi.Input[Union[_builtins.str, 'MigrationMode']] migration_mode: Mode used to perform the migration: Online or Offline.
+        :param pulumi.Input[_builtins.str] migration_name: Name of migration.
         :param pulumi.Input[Union[_builtins.str, 'MigrationOption']] migration_option: Supported option for a migration.
         :param pulumi.Input[_builtins.str] migration_window_end_time_in_utc: End time (UTC) for migration window.
         :param pulumi.Input[_builtins.str] migration_window_start_time_in_utc: Start time (UTC) for migration window.
@@ -76,7 +76,6 @@ class MigrationArgs:
         :param pulumi.Input[_builtins.str] target_db_server_fully_qualified_domain_name: Fully qualified domain name (FQDN) or IP address of the target server. This property is optional. When provided, the migration service will always use it to connect to the target server.
         :param pulumi.Input[Union[_builtins.str, 'TriggerCutover']] trigger_cutover: Indicates if cutover must be triggered for the entire migration.
         """
-        pulumi.set(__self__, "migration_name", migration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         if cancel is not None:
@@ -95,6 +94,8 @@ class MigrationArgs:
             pulumi.set(__self__, "migration_instance_resource_id", migration_instance_resource_id)
         if migration_mode is not None:
             pulumi.set(__self__, "migration_mode", migration_mode)
+        if migration_name is not None:
+            pulumi.set(__self__, "migration_name", migration_name)
         if migration_option is not None:
             pulumi.set(__self__, "migration_option", migration_option)
         if migration_window_end_time_in_utc is not None:
@@ -123,18 +124,6 @@ class MigrationArgs:
             pulumi.set(__self__, "target_db_server_fully_qualified_domain_name", target_db_server_fully_qualified_domain_name)
         if trigger_cutover is not None:
             pulumi.set(__self__, "trigger_cutover", trigger_cutover)
-
-    @_builtins.property
-    @pulumi.getter(name="migrationName")
-    def migration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of migration.
-        """
-        return pulumi.get(self, "migration_name")
-
-    @migration_name.setter
-    def migration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "migration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -255,6 +244,18 @@ class MigrationArgs:
     @migration_mode.setter
     def migration_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MigrationMode']]]):
         pulumi.set(self, "migration_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="migrationName")
+    def migration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of migration.
+        """
+        return pulumi.get(self, "migration_name")
+
+    @migration_name.setter
+    def migration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "migration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="migrationOption")
@@ -564,8 +565,6 @@ class Migration(pulumi.CustomResource):
             __props__.__dict__["migrate_roles"] = migrate_roles
             __props__.__dict__["migration_instance_resource_id"] = migration_instance_resource_id
             __props__.__dict__["migration_mode"] = migration_mode
-            if migration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'migration_name'")
             __props__.__dict__["migration_name"] = migration_name
             __props__.__dict__["migration_option"] = migration_option
             __props__.__dict__["migration_window_end_time_in_utc"] = migration_window_end_time_in_utc

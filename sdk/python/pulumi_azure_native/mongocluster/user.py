@@ -24,21 +24,22 @@ class UserArgs:
     def __init__(__self__, *,
                  mongo_cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 user_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['UserPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['UserPropertiesArgs']] = None,
+                 user_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a User resource.
 
         :param pulumi.Input[_builtins.str] mongo_cluster_name: The name of the mongo cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] user_name: The name of the mongo cluster user.
         :param pulumi.Input['UserPropertiesArgs'] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[_builtins.str] user_name: The name of the mongo cluster user.
         """
         pulumi.set(__self__, "mongo_cluster_name", mongo_cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "user_name", user_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
 
     @_builtins.property
     @pulumi.getter(name="mongoClusterName")
@@ -65,18 +66,6 @@ class UserArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="userName")
-    def user_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the mongo cluster user.
-        """
-        return pulumi.get(self, "user_name")
-
-    @user_name.setter
-    def user_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "user_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['UserPropertiesArgs']]:
         """
@@ -87,6 +76,18 @@ class UserArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['UserPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the mongo cluster user.
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_name", value)
 
 
 @pulumi.type_token("azure-native:mongocluster:User")
@@ -164,8 +165,6 @@ class User(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if user_name is None and not opts.urn:
-                raise TypeError("Missing required property 'user_name'")
             __props__.__dict__["user_name"] = user_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

@@ -22,7 +22,6 @@ __all__ = ['IncidentArgs', 'Incident']
 @pulumi.input_type
 class IncidentArgs:
     def __init__(__self__, *,
-                 incident_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  severity: pulumi.Input[Union[_builtins.str, 'IncidentSeverity']],
                  status: pulumi.Input[Union[_builtins.str, 'IncidentStatus']],
@@ -33,13 +32,13 @@ class IncidentArgs:
                  classification_reason: pulumi.Input[Optional[Union[_builtins.str, 'IncidentClassificationReason']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  first_activity_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_id: pulumi.Input[Optional[_builtins.str]] = None,
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input['IncidentLabelArgs']]]] = None,
                  last_activity_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional['IncidentOwnerInfoArgs']] = None):
         """
         The set of arguments for constructing a Incident resource.
 
-        :param pulumi.Input[_builtins.str] incident_id: Incident ID
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'IncidentSeverity']] severity: The severity of the incident
         :param pulumi.Input[Union[_builtins.str, 'IncidentStatus']] status: The status of the incident
@@ -50,11 +49,11 @@ class IncidentArgs:
         :param pulumi.Input[Union[_builtins.str, 'IncidentClassificationReason']] classification_reason: The classification reason the incident was closed with
         :param pulumi.Input[_builtins.str] description: The description of the incident
         :param pulumi.Input[_builtins.str] first_activity_time_utc: The time of the first activity in the incident
+        :param pulumi.Input[_builtins.str] incident_id: Incident ID
         :param pulumi.Input[Sequence[pulumi.Input['IncidentLabelArgs']]] labels: List of labels relevant to this incident
         :param pulumi.Input[_builtins.str] last_activity_time_utc: The time of the last activity in the incident
         :param pulumi.Input['IncidentOwnerInfoArgs'] owner: Describes a user that the incident is assigned to
         """
-        pulumi.set(__self__, "incident_id", incident_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "severity", severity)
         pulumi.set(__self__, "status", status)
@@ -70,24 +69,14 @@ class IncidentArgs:
             pulumi.set(__self__, "description", description)
         if first_activity_time_utc is not None:
             pulumi.set(__self__, "first_activity_time_utc", first_activity_time_utc)
+        if incident_id is not None:
+            pulumi.set(__self__, "incident_id", incident_id)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
         if last_activity_time_utc is not None:
             pulumi.set(__self__, "last_activity_time_utc", last_activity_time_utc)
         if owner is not None:
             pulumi.set(__self__, "owner", owner)
-
-    @_builtins.property
-    @pulumi.getter(name="incidentId")
-    def incident_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Incident ID
-        """
-        return pulumi.get(self, "incident_id")
-
-    @incident_id.setter
-    def incident_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "incident_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -208,6 +197,18 @@ class IncidentArgs:
     @first_activity_time_utc.setter
     def first_activity_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "first_activity_time_utc", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentId")
+    def incident_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Incident ID
+        """
+        return pulumi.get(self, "incident_id")
+
+    @incident_id.setter
+    def incident_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "incident_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -349,8 +350,6 @@ class Incident(pulumi.CustomResource):
             __props__.__dict__["classification_reason"] = classification_reason
             __props__.__dict__["description"] = description
             __props__.__dict__["first_activity_time_utc"] = first_activity_time_utc
-            if incident_id is None and not opts.urn:
-                raise TypeError("Missing required property 'incident_id'")
             __props__.__dict__["incident_id"] = incident_id
             __props__.__dict__["labels"] = labels
             __props__.__dict__["last_activity_time_utc"] = last_activity_time_utc

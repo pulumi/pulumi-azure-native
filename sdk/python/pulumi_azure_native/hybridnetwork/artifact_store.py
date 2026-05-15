@@ -22,43 +22,32 @@ __all__ = ['ArtifactStoreArgs', 'ArtifactStore']
 @pulumi.input_type
 class ArtifactStoreArgs:
     def __init__(__self__, *,
-                 artifact_store_name: pulumi.Input[_builtins.str],
                  publisher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 artifact_store_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ArtifactStorePropertiesFormatArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ArtifactStore resource.
 
-        :param pulumi.Input[_builtins.str] artifact_store_name: The name of the artifact store.
         :param pulumi.Input[_builtins.str] publisher_name: The name of the publisher.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] artifact_store_name: The name of the artifact store.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ArtifactStorePropertiesFormatArgs'] properties: ArtifactStores properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "artifact_store_name", artifact_store_name)
         pulumi.set(__self__, "publisher_name", publisher_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if artifact_store_name is not None:
+            pulumi.set(__self__, "artifact_store_name", artifact_store_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="artifactStoreName")
-    def artifact_store_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the artifact store.
-        """
-        return pulumi.get(self, "artifact_store_name")
-
-    @artifact_store_name.setter
-    def artifact_store_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "artifact_store_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherName")
@@ -83,6 +72,18 @@ class ArtifactStoreArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactStoreName")
+    def artifact_store_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the artifact store.
+        """
+        return pulumi.get(self, "artifact_store_name")
+
+    @artifact_store_name.setter
+    def artifact_store_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "artifact_store_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -195,8 +196,6 @@ class ArtifactStore(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ArtifactStoreArgs.__new__(ArtifactStoreArgs)
 
-            if artifact_store_name is None and not opts.urn:
-                raise TypeError("Missing required property 'artifact_store_name'")
             __props__.__dict__["artifact_store_name"] = artifact_store_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

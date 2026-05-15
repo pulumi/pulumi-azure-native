@@ -363,7 +363,7 @@ def get_topic(namespace_name: Optional[_builtins.str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_topic_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     topic_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Returns a description for the specified topic.

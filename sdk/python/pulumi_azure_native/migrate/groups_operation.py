@@ -21,43 +21,32 @@ __all__ = ['GroupsOperationArgs', 'GroupsOperation']
 @pulumi.input_type
 class GroupsOperationArgs:
     def __init__(__self__, *,
-                 group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  group_type: pulumi.Input[Optional[Union[_builtins.str, 'GroupType']]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
                  supported_assessment_types: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]]] = None):
         """
         The set of arguments for constructing a GroupsOperation resource.
 
-        :param pulumi.Input[_builtins.str] group_name: Group ARM name
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] group_name: Group ARM name
         :param pulumi.Input[Union[_builtins.str, 'GroupType']] group_type: The type of group.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The status of the last operation.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AssessmentType']]]] supported_assessment_types: List of assessment types supported on this group.
         """
-        pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
         if group_type is not None:
             pulumi.set(__self__, "group_type", group_type)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if supported_assessment_types is not None:
             pulumi.set(__self__, "supported_assessment_types", supported_assessment_types)
-
-    @_builtins.property
-    @pulumi.getter(name="groupName")
-    def group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Group ARM name
-        """
-        return pulumi.get(self, "group_name")
-
-    @group_name.setter
-    def group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -82,6 +71,18 @@ class GroupsOperationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Group ARM name
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="groupType")
@@ -194,8 +195,6 @@ class GroupsOperation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GroupsOperationArgs.__new__(GroupsOperationArgs)
 
-            if group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'group_name'")
             __props__.__dict__["group_name"] = group_name
             __props__.__dict__["group_type"] = group_type
             if project_name is None and not opts.urn:

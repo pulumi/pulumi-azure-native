@@ -24,25 +24,24 @@ class TestBaseAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['TestBaseAccountSKUArgs'],
-                 test_base_account_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  restore: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TestBaseAccount resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['TestBaseAccountSKUArgs'] sku: The SKU of the Test Base Account.
-        :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
         :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The identity of the testBaseAccount.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.bool] restore: The flag indicating if we would like to restore the Test Base Accounts which were soft deleted before.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] test_base_account_name: The resource name of the Test Base Account.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
-        pulumi.set(__self__, "test_base_account_name", test_base_account_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -51,6 +50,8 @@ class TestBaseAccountArgs:
             pulumi.set(__self__, "restore", restore)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if test_base_account_name is not None:
+            pulumi.set(__self__, "test_base_account_name", test_base_account_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -75,18 +76,6 @@ class TestBaseAccountArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['TestBaseAccountSKUArgs']):
         pulumi.set(self, "sku", value)
-
-    @_builtins.property
-    @pulumi.getter(name="testBaseAccountName")
-    def test_base_account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The resource name of the Test Base Account.
-        """
-        return pulumi.get(self, "test_base_account_name")
-
-    @test_base_account_name.setter
-    def test_base_account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "test_base_account_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -135,6 +124,18 @@ class TestBaseAccountArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="testBaseAccountName")
+    def test_base_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The resource name of the Test Base Account.
+        """
+        return pulumi.get(self, "test_base_account_name")
+
+    @test_base_account_name.setter
+    def test_base_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "test_base_account_name", value)
 
 
 @pulumi.type_token("azure-native:testbase:TestBaseAccount")
@@ -224,8 +225,6 @@ class TestBaseAccount(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            if test_base_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'test_base_account_name'")
             __props__.__dict__["test_base_account_name"] = test_base_account_name
             __props__.__dict__["access_level"] = None
             __props__.__dict__["azure_api_version"] = None

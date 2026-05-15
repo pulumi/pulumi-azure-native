@@ -22,21 +22,22 @@ __all__ = ['SettingArgs', 'Setting']
 class SettingArgs:
     def __init__(__self__, *,
                  scope: pulumi.Input[_builtins.str],
-                 setting_name: pulumi.Input[_builtins.str],
                  cache: pulumi.Input[Optional[Sequence[pulumi.Input['SettingsPropertiesCacheArgs']]]] = None,
+                 setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                  start_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Setting resource.
 
         :param pulumi.Input[_builtins.str] scope: Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
-        :param pulumi.Input[_builtins.str] setting_name: Name of the setting. Allowed values: myscope
         :param pulumi.Input[Sequence[pulumi.Input['SettingsPropertiesCacheArgs']]] cache: Array of scopes with additional details used by Cost Management in the Azure portal.
+        :param pulumi.Input[_builtins.str] setting_name: Name of the setting. Allowed values: myscope
         :param pulumi.Input[_builtins.str] start_on: Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
         """
         pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "setting_name", setting_name)
         if cache is not None:
             pulumi.set(__self__, "cache", cache)
+        if setting_name is not None:
+            pulumi.set(__self__, "setting_name", setting_name)
         if start_on is not None:
             pulumi.set(__self__, "start_on", start_on)
 
@@ -53,18 +54,6 @@ class SettingArgs:
         pulumi.set(self, "scope", value)
 
     @_builtins.property
-    @pulumi.getter(name="settingName")
-    def setting_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the setting. Allowed values: myscope
-        """
-        return pulumi.get(self, "setting_name")
-
-    @setting_name.setter
-    def setting_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "setting_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def cache(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SettingsPropertiesCacheArgs']]]]:
         """
@@ -75,6 +64,18 @@ class SettingArgs:
     @cache.setter
     def cache(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SettingsPropertiesCacheArgs']]]]):
         pulumi.set(self, "cache", value)
+
+    @_builtins.property
+    @pulumi.getter(name="settingName")
+    def setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the setting. Allowed values: myscope
+        """
+        return pulumi.get(self, "setting_name")
+
+    @setting_name.setter
+    def setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="startOn")
@@ -157,8 +158,6 @@ class Setting(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
-            if setting_name is None and not opts.urn:
-                raise TypeError("Missing required property 'setting_name'")
             __props__.__dict__["setting_name"] = setting_name
             __props__.__dict__["start_on"] = start_on
             __props__.__dict__["azure_api_version"] = None

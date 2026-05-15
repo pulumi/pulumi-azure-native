@@ -683,7 +683,7 @@ def get_managed_cluster(cluster_name: Optional[_builtins.str] = None,
         use_custom_vnet=pulumi.get(__ret__, 'use_custom_vnet'),
         zonal_resiliency=pulumi.get(__ret__, 'zonal_resiliency'),
         zonal_update_mode=pulumi.get(__ret__, 'zonal_update_mode'))
-def get_managed_cluster_output(cluster_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_managed_cluster_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedClusterResult]:
     """

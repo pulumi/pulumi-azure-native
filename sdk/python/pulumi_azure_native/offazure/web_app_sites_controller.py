@@ -24,27 +24,28 @@ class WebAppSitesControllerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
-                 web_app_site_name: pulumi.Input[_builtins.str],
                  discovery_scenario: pulumi.Input[Optional[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]] = None,
-                 site_appliance_properties_collection: pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]] = None):
+                 site_appliance_properties_collection: pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]] = None,
+                 web_app_site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppSitesController resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: Site name
-        :param pulumi.Input[_builtins.str] web_app_site_name: Web app site name.
         :param pulumi.Input[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']] discovery_scenario: Gets or sets the discovery scenario.
         :param pulumi.Input[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]] site_appliance_properties_collection: Gets or sets the appliance details used by service to communicate
                           
                to the appliance.
+        :param pulumi.Input[_builtins.str] web_app_site_name: Web app site name.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "site_name", site_name)
-        pulumi.set(__self__, "web_app_site_name", web_app_site_name)
         if discovery_scenario is not None:
             pulumi.set(__self__, "discovery_scenario", discovery_scenario)
         if site_appliance_properties_collection is not None:
             pulumi.set(__self__, "site_appliance_properties_collection", site_appliance_properties_collection)
+        if web_app_site_name is not None:
+            pulumi.set(__self__, "web_app_site_name", web_app_site_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -71,18 +72,6 @@ class WebAppSitesControllerArgs:
         pulumi.set(self, "site_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="webAppSiteName")
-    def web_app_site_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Web app site name.
-        """
-        return pulumi.get(self, "web_app_site_name")
-
-    @web_app_site_name.setter
-    def web_app_site_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "web_app_site_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="discoveryScenario")
     def discovery_scenario(self) -> pulumi.Input[Optional[Union[_builtins.str, 'WebAppSitePropertiesDiscoveryScenario']]]:
         """
@@ -107,6 +96,18 @@ class WebAppSitesControllerArgs:
     @site_appliance_properties_collection.setter
     def site_appliance_properties_collection(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]]):
         pulumi.set(self, "site_appliance_properties_collection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webAppSiteName")
+    def web_app_site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Web app site name.
+        """
+        return pulumi.get(self, "web_app_site_name")
+
+    @web_app_site_name.setter
+    def web_app_site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "web_app_site_name", value)
 
 
 @pulumi.type_token("azure-native:offazure:WebAppSitesController")
@@ -190,8 +191,6 @@ class WebAppSitesController(pulumi.CustomResource):
             if site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
-            if web_app_site_name is None and not opts.urn:
-                raise TypeError("Missing required property 'web_app_site_name'")
             __props__.__dict__["web_app_site_name"] = web_app_site_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

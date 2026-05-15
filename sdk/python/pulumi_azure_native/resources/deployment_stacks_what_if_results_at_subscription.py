@@ -22,7 +22,7 @@ __all__ = ['DeploymentStacksWhatIfResultsAtSubscriptionArgs', 'DeploymentStacksW
 @pulumi.input_type
 class DeploymentStacksWhatIfResultsAtSubscriptionArgs:
     def __init__(__self__, *,
-                 deployment_stacks_what_if_result_name: pulumi.Input[_builtins.str],
+                 deployment_stacks_what_if_result_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DeploymentStacksWhatIfResultPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -34,7 +34,8 @@ class DeploymentStacksWhatIfResultsAtSubscriptionArgs:
         :param pulumi.Input['DeploymentStacksWhatIfResultPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "deployment_stacks_what_if_result_name", deployment_stacks_what_if_result_name)
+        if deployment_stacks_what_if_result_name is not None:
+            pulumi.set(__self__, "deployment_stacks_what_if_result_name", deployment_stacks_what_if_result_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -44,14 +45,14 @@ class DeploymentStacksWhatIfResultsAtSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="deploymentStacksWhatIfResultName")
-    def deployment_stacks_what_if_result_name(self) -> pulumi.Input[_builtins.str]:
+    def deployment_stacks_what_if_result_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the deployment stack what-if result.
         """
         return pulumi.get(self, "deployment_stacks_what_if_result_name")
 
     @deployment_stacks_what_if_result_name.setter
-    def deployment_stacks_what_if_result_name(self, value: pulumi.Input[_builtins.str]):
+    def deployment_stacks_what_if_result_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "deployment_stacks_what_if_result_name", value)
 
     @_builtins.property
@@ -119,7 +120,7 @@ class DeploymentStacksWhatIfResultsAtSubscription(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: DeploymentStacksWhatIfResultsAtSubscriptionArgs,
+                 args: Optional[DeploymentStacksWhatIfResultsAtSubscriptionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deployment stack object.
@@ -155,8 +156,6 @@ class DeploymentStacksWhatIfResultsAtSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentStacksWhatIfResultsAtSubscriptionArgs.__new__(DeploymentStacksWhatIfResultsAtSubscriptionArgs)
 
-            if deployment_stacks_what_if_result_name is None and not opts.urn:
-                raise TypeError("Missing required property 'deployment_stacks_what_if_result_name'")
             __props__.__dict__["deployment_stacks_what_if_result_name"] = deployment_stacks_what_if_result_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

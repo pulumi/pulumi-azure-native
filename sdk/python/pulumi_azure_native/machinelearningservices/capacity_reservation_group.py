@@ -23,8 +23,8 @@ __all__ = ['CapacityReservationGroupInitArgs', 'CapacityReservationGroup']
 class CapacityReservationGroupInitArgs:
     def __init__(__self__, *,
                  capacity_reservation_group_properties: pulumi.Input['CapacityReservationGroupArgs'],
-                 group_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,8 +34,8 @@ class CapacityReservationGroupInitArgs:
         The set of arguments for constructing a CapacityReservationGroup resource.
 
         :param pulumi.Input['CapacityReservationGroupArgs'] capacity_reservation_group_properties: [Required] Additional attributes of the entity.
-        :param pulumi.Input[_builtins.str] group_id: Group ID
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] group_id: Group ID
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -43,8 +43,9 @@ class CapacityReservationGroupInitArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "capacity_reservation_group_properties", capacity_reservation_group_properties)
-        pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if group_id is not None:
+            pulumi.set(__self__, "group_id", group_id)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if kind is not None:
@@ -69,18 +70,6 @@ class CapacityReservationGroupInitArgs:
         pulumi.set(self, "capacity_reservation_group_properties", value)
 
     @_builtins.property
-    @pulumi.getter(name="groupId")
-    def group_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Group ID
-        """
-        return pulumi.get(self, "group_id")
-
-    @group_id.setter
-    def group_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "group_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -91,6 +80,18 @@ class CapacityReservationGroupInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Group ID
+        """
+        return pulumi.get(self, "group_id")
+
+    @group_id.setter
+    def group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -232,8 +233,6 @@ class CapacityReservationGroup(pulumi.CustomResource):
             if capacity_reservation_group_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'capacity_reservation_group_properties'")
             __props__.__dict__["capacity_reservation_group_properties"] = capacity_reservation_group_properties
-            if group_id is None and not opts.urn:
-                raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
             __props__.__dict__["identity"] = identity
             __props__.__dict__["kind"] = kind

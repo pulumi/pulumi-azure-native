@@ -22,35 +22,24 @@ __all__ = ['MonitoredSubscriptionInitArgs', 'MonitoredSubscription']
 @pulumi.input_type
 class MonitoredSubscriptionInitArgs:
     def __init__(__self__, *,
-                 configuration_name: pulumi.Input[_builtins.str],
                  monitor_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['SubscriptionListArgs']] = None):
         """
         The set of arguments for constructing a MonitoredSubscription resource.
 
-        :param pulumi.Input[_builtins.str] configuration_name: The configuration name. Only 'default' value is supported.
         :param pulumi.Input[_builtins.str] monitor_name: Monitor resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] configuration_name: The configuration name. Only 'default' value is supported.
         :param pulumi.Input['SubscriptionListArgs'] properties: The request to update subscriptions needed to be monitored by the Datadog monitor resource.
         """
-        pulumi.set(__self__, "configuration_name", configuration_name)
         pulumi.set(__self__, "monitor_name", monitor_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if configuration_name is not None:
+            pulumi.set(__self__, "configuration_name", configuration_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationName")
-    def configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The configuration name. Only 'default' value is supported.
-        """
-        return pulumi.get(self, "configuration_name")
-
-    @configuration_name.setter
-    def configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="monitorName")
@@ -75,6 +64,18 @@ class MonitoredSubscriptionInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationName")
+    def configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configuration name. Only 'default' value is supported.
+        """
+        return pulumi.get(self, "configuration_name")
+
+    @configuration_name.setter
+    def configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,8 +158,6 @@ class MonitoredSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MonitoredSubscriptionInitArgs.__new__(MonitoredSubscriptionInitArgs)
 
-            if configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_name'")
             __props__.__dict__["configuration_name"] = configuration_name
             if monitor_name is None and not opts.urn:
                 raise TypeError("Missing required property 'monitor_name'")

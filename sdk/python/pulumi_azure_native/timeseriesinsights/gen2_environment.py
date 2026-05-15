@@ -22,53 +22,42 @@ __all__ = ['Gen2EnvironmentArgs', 'Gen2Environment']
 @pulumi.input_type
 class Gen2EnvironmentArgs:
     def __init__(__self__, *,
-                 environment_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
                  storage_configuration: pulumi.Input['Gen2StorageConfigurationInputArgs'],
                  time_series_id_properties: pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]],
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  warm_store_configuration: pulumi.Input[Optional['WarmStoreConfigurationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Gen2Environment resource.
 
-        :param pulumi.Input[_builtins.str] environment_name: Name of the environment
         :param pulumi.Input[_builtins.str] kind: The kind of the environment.
                Expected value is 'Gen2'.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input['SkuArgs'] sku: The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
         :param pulumi.Input['Gen2StorageConfigurationInputArgs'] storage_configuration: The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
         :param pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]] time_series_id_properties: The list of event properties which will be used to define the environment's time series id.
+        :param pulumi.Input[_builtins.str] environment_name: Name of the environment
         :param pulumi.Input[_builtins.str] location: The location of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of additional properties for the resource.
         :param pulumi.Input['WarmStoreConfigurationPropertiesArgs'] warm_store_configuration: The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
         """
-        pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "kind", 'Gen2')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         pulumi.set(__self__, "storage_configuration", storage_configuration)
         pulumi.set(__self__, "time_series_id_properties", time_series_id_properties)
+        if environment_name is not None:
+            pulumi.set(__self__, "environment_name", environment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if warm_store_configuration is not None:
             pulumi.set(__self__, "warm_store_configuration", warm_store_configuration)
-
-    @_builtins.property
-    @pulumi.getter(name="environmentName")
-    def environment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the environment
-        """
-        return pulumi.get(self, "environment_name")
-
-    @environment_name.setter
-    def environment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -130,6 +119,18 @@ class Gen2EnvironmentArgs:
     @time_series_id_properties.setter
     def time_series_id_properties(self, value: pulumi.Input[Sequence[pulumi.Input['TimeSeriesIdPropertyArgs']]]):
         pulumi.set(self, "time_series_id_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the environment
+        """
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -248,8 +249,6 @@ class Gen2Environment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = Gen2EnvironmentArgs.__new__(Gen2EnvironmentArgs)
 
-            if environment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

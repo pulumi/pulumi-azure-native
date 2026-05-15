@@ -22,9 +22,9 @@ __all__ = ['GalleryArgs', 'Gallery']
 @pulumi.input_type
 class GalleryArgs:
     def __init__(__self__, *,
-                 gallery_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 gallery_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['GalleryIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sharing_profile: pulumi.Input[Optional['SharingProfileArgs']] = None,
@@ -33,19 +33,20 @@ class GalleryArgs:
         """
         The set of arguments for constructing a Gallery resource.
 
-        :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] description: The description of this Shared Image Gallery resource. This property is updatable.
+        :param pulumi.Input[_builtins.str] gallery_name: The name of the Shared Image Gallery.
         :param pulumi.Input['GalleryIdentityArgs'] identity: The identity of the gallery, if configured.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['SharingProfileArgs'] sharing_profile: Profile for gallery sharing to subscription or tenant
         :param pulumi.Input['SoftDeletePolicyArgs'] soft_delete_policy: Contains information about the soft deletion policy of the gallery.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "gallery_name", gallery_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if gallery_name is not None:
+            pulumi.set(__self__, "gallery_name", gallery_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -56,18 +57,6 @@ class GalleryArgs:
             pulumi.set(__self__, "soft_delete_policy", soft_delete_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="galleryName")
-    def gallery_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Shared Image Gallery.
-        """
-        return pulumi.get(self, "gallery_name")
-
-    @gallery_name.setter
-    def gallery_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "gallery_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -92,6 +81,18 @@ class GalleryArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="galleryName")
+    def gallery_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Shared Image Gallery.
+        """
+        return pulumi.get(self, "gallery_name")
+
+    @gallery_name.setter
+    def gallery_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "gallery_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -235,8 +236,6 @@ class Gallery(pulumi.CustomResource):
             __props__ = GalleryArgs.__new__(GalleryArgs)
 
             __props__.__dict__["description"] = description
-            if gallery_name is None and not opts.urn:
-                raise TypeError("Missing required property 'gallery_name'")
             __props__.__dict__["gallery_name"] = gallery_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

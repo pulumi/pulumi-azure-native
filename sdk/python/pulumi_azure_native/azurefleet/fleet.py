@@ -23,10 +23,10 @@ __all__ = ['FleetArgs', 'Fleet']
 class FleetArgs:
     def __init__(__self__, *,
                  compute_profile: pulumi.Input['ComputeProfileArgs'],
-                 fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vm_sizes_profile: pulumi.Input[Sequence[pulumi.Input['VmSizeProfileArgs']]],
                  additional_locations_profile: pulumi.Input[Optional['AdditionalLocationsProfileArgs']] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  plan: pulumi.Input[Optional['PlanArgs']] = None,
@@ -39,10 +39,10 @@ class FleetArgs:
         The set of arguments for constructing a Fleet resource.
 
         :param pulumi.Input['ComputeProfileArgs'] compute_profile: Compute Profile to use for running user's workloads.
-        :param pulumi.Input[_builtins.str] fleet_name: The name of the Compute Fleet
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['VmSizeProfileArgs']]] vm_sizes_profile: List of VM sizes supported for Compute Fleet
         :param pulumi.Input['AdditionalLocationsProfileArgs'] additional_locations_profile: Represents the configuration for additional locations where Fleet resources may be deployed.
+        :param pulumi.Input[_builtins.str] fleet_name: The name of the Compute Fleet
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['PlanArgs'] plan: Details of the resource plan.
@@ -53,11 +53,12 @@ class FleetArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Zones in which the Compute Fleet is available
         """
         pulumi.set(__self__, "compute_profile", compute_profile)
-        pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_sizes_profile", vm_sizes_profile)
         if additional_locations_profile is not None:
             pulumi.set(__self__, "additional_locations_profile", additional_locations_profile)
+        if fleet_name is not None:
+            pulumi.set(__self__, "fleet_name", fleet_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -86,18 +87,6 @@ class FleetArgs:
     @compute_profile.setter
     def compute_profile(self, value: pulumi.Input['ComputeProfileArgs']):
         pulumi.set(self, "compute_profile", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fleetName")
-    def fleet_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Compute Fleet
-        """
-        return pulumi.get(self, "fleet_name")
-
-    @fleet_name.setter
-    def fleet_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fleet_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -134,6 +123,18 @@ class FleetArgs:
     @additional_locations_profile.setter
     def additional_locations_profile(self, value: pulumi.Input[Optional['AdditionalLocationsProfileArgs']]):
         pulumi.set(self, "additional_locations_profile", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fleetName")
+    def fleet_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Compute Fleet
+        """
+        return pulumi.get(self, "fleet_name")
+
+    @fleet_name.setter
+    def fleet_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fleet_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -331,8 +332,6 @@ class Fleet(pulumi.CustomResource):
             if compute_profile is None and not opts.urn:
                 raise TypeError("Missing required property 'compute_profile'")
             __props__.__dict__["compute_profile"] = compute_profile
-            if fleet_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fleet_name'")
             __props__.__dict__["fleet_name"] = fleet_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

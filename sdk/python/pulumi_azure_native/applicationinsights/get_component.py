@@ -476,7 +476,7 @@ def get_component(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         workspace_resource_id=pulumi.get(__ret__, 'workspace_resource_id'))
 def get_component_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentResult]:
     """
     Returns an Application Insights component.

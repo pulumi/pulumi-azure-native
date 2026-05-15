@@ -184,7 +184,7 @@ def get_api_tag_description(api_id: Optional[_builtins.str] = None,
 def get_api_tag_description_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   tag_description_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   tag_description_id: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiTagDescriptionResult]:
     """
     Get Tag description in scope of API

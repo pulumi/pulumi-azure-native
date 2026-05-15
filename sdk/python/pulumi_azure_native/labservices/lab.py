@@ -24,11 +24,11 @@ class LabArgs:
     def __init__(__self__, *,
                  auto_shutdown_profile: pulumi.Input['AutoShutdownProfileArgs'],
                  connection_profile: pulumi.Input['ConnectionProfileArgs'],
-                 lab_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  security_profile: pulumi.Input['SecurityProfileArgs'],
                  virtual_machine_profile: pulumi.Input['VirtualMachineProfileArgs'],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 lab_name: pulumi.Input[Optional[_builtins.str]] = None,
                  lab_plan_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  network_profile: pulumi.Input[Optional['LabNetworkProfileArgs']] = None,
@@ -40,11 +40,11 @@ class LabArgs:
 
         :param pulumi.Input['AutoShutdownProfileArgs'] auto_shutdown_profile: The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
         :param pulumi.Input['ConnectionProfileArgs'] connection_profile: The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
-        :param pulumi.Input[_builtins.str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SecurityProfileArgs'] security_profile: The lab security profile.
         :param pulumi.Input['VirtualMachineProfileArgs'] virtual_machine_profile: The profile used for creating lab virtual machines.
         :param pulumi.Input[_builtins.str] description: The description of the lab.
+        :param pulumi.Input[_builtins.str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
         :param pulumi.Input[_builtins.str] lab_plan_id: The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['LabNetworkProfileArgs'] network_profile: The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
@@ -54,12 +54,13 @@ class LabArgs:
         """
         pulumi.set(__self__, "auto_shutdown_profile", auto_shutdown_profile)
         pulumi.set(__self__, "connection_profile", connection_profile)
-        pulumi.set(__self__, "lab_name", lab_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "security_profile", security_profile)
         pulumi.set(__self__, "virtual_machine_profile", virtual_machine_profile)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if lab_name is not None:
+            pulumi.set(__self__, "lab_name", lab_name)
         if lab_plan_id is not None:
             pulumi.set(__self__, "lab_plan_id", lab_plan_id)
         if location is not None:
@@ -96,18 +97,6 @@ class LabArgs:
     @connection_profile.setter
     def connection_profile(self, value: pulumi.Input['ConnectionProfileArgs']):
         pulumi.set(self, "connection_profile", value)
-
-    @_builtins.property
-    @pulumi.getter(name="labName")
-    def lab_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
-        """
-        return pulumi.get(self, "lab_name")
-
-    @lab_name.setter
-    def lab_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "lab_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -156,6 +145,18 @@ class LabArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="labName")
+    def lab_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
+        """
+        return pulumi.get(self, "lab_name")
+
+    @lab_name.setter
+    def lab_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "lab_name", value)
 
     @_builtins.property
     @pulumi.getter(name="labPlanId")
@@ -332,8 +333,6 @@ class Lab(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connection_profile'")
             __props__.__dict__["connection_profile"] = connection_profile
             __props__.__dict__["description"] = description
-            if lab_name is None and not opts.urn:
-                raise TypeError("Missing required property 'lab_name'")
             __props__.__dict__["lab_name"] = lab_name
             __props__.__dict__["lab_plan_id"] = lab_plan_id
             __props__.__dict__["location"] = location

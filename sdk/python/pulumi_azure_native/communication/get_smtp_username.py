@@ -168,7 +168,7 @@ def get_smtp_username(communication_service_name: Optional[_builtins.str] = None
         username=pulumi.get(__ret__, 'username'))
 def get_smtp_username_output(communication_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             smtp_username: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             smtp_username: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSmtpUsernameResult]:
     """
     Get a SmtpUsernameResource.

@@ -22,42 +22,31 @@ __all__ = ['SqlServerDatabaseArgs', 'SqlServerDatabase']
 @pulumi.input_type
 class SqlServerDatabaseArgs:
     def __init__(__self__, *,
-                 database_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['SqlServerDatabaseResourcePropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sql_server_instance_name: pulumi.Input[_builtins.str],
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlServerDatabase resource.
 
-        :param pulumi.Input[_builtins.str] database_name: Name of the database
         :param pulumi.Input['SqlServerDatabaseResourcePropertiesArgs'] properties: Properties of Arc Sql Server database
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group
         :param pulumi.Input[_builtins.str] sql_server_instance_name: Name of SQL Server Instance
+        :param pulumi.Input[_builtins.str] database_name: Name of the database
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sql_server_instance_name", sql_server_instance_name)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the database
-        """
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -94,6 +83,18 @@ class SqlServerDatabaseArgs:
     @sql_server_instance_name.setter
     def sql_server_instance_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sql_server_instance_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the database
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -194,8 +195,6 @@ class SqlServerDatabase(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SqlServerDatabaseArgs.__new__(SqlServerDatabaseArgs)
 
-            if database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["location"] = location
             if properties is None and not opts.urn:

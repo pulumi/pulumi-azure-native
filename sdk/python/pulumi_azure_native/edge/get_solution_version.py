@@ -171,7 +171,7 @@ def get_solution_version(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_solution_version_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 solution_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                solution_version_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                solution_version_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 target_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionVersionResult]:
     """

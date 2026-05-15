@@ -21,40 +21,29 @@ __all__ = ['CacheNodesOperationArgs', 'CacheNodesOperation']
 @pulumi.input_type
 class CacheNodesOperationArgs:
     def __init__(__self__, *,
-                 customer_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 customer_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['CacheNodeOldResponseArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CacheNodesOperation resource.
 
-        :param pulumi.Input[_builtins.str] customer_resource_name: Name of the Customer resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] customer_resource_name: Name of the Customer resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['CacheNodeOldResponseArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "customer_resource_name", customer_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if customer_resource_name is not None:
+            pulumi.set(__self__, "customer_resource_name", customer_resource_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="customerResourceName")
-    def customer_resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Customer resource
-        """
-        return pulumi.get(self, "customer_resource_name")
-
-    @customer_resource_name.setter
-    def customer_resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "customer_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -67,6 +56,18 @@ class CacheNodesOperationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customerResourceName")
+    def customer_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Customer resource
+        """
+        return pulumi.get(self, "customer_resource_name")
+
+    @customer_resource_name.setter
+    def customer_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "customer_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -172,8 +173,6 @@ class CacheNodesOperation(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CacheNodesOperationArgs.__new__(CacheNodesOperationArgs)
 
-            if customer_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'customer_resource_name'")
             __props__.__dict__["customer_resource_name"] = customer_resource_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

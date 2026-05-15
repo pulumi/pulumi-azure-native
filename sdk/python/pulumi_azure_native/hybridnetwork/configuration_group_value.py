@@ -21,40 +21,29 @@ __all__ = ['ConfigurationGroupValueArgs', 'ConfigurationGroupValue']
 @pulumi.input_type
 class ConfigurationGroupValueArgs:
     def __init__(__self__, *,
-                 configuration_group_value_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 configuration_group_value_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithoutSecretsArgs']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ConfigurationGroupValue resource.
 
-        :param pulumi.Input[_builtins.str] configuration_group_value_name: The name of the configuration group value.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] configuration_group_value_name: The name of the configuration group value.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['ConfigurationValueWithSecretsArgs', 'ConfigurationValueWithoutSecretsArgs']] properties: Hybrid configuration group value properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "configuration_group_value_name", configuration_group_value_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if configuration_group_value_name is not None:
+            pulumi.set(__self__, "configuration_group_value_name", configuration_group_value_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationGroupValueName")
-    def configuration_group_value_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the configuration group value.
-        """
-        return pulumi.get(self, "configuration_group_value_name")
-
-    @configuration_group_value_name.setter
-    def configuration_group_value_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "configuration_group_value_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -67,6 +56,18 @@ class ConfigurationGroupValueArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationGroupValueName")
+    def configuration_group_value_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the configuration group value.
+        """
+        return pulumi.get(self, "configuration_group_value_name")
+
+    @configuration_group_value_name.setter
+    def configuration_group_value_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_group_value_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -176,8 +177,6 @@ class ConfigurationGroupValue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationGroupValueArgs.__new__(ConfigurationGroupValueArgs)
 
-            if configuration_group_value_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_group_value_name'")
             __props__.__dict__["configuration_group_value_name"] = configuration_group_value_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

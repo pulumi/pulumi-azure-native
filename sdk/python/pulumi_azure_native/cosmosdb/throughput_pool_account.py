@@ -21,26 +21,27 @@ __all__ = ['ThroughputPoolAccountArgs', 'ThroughputPoolAccount']
 class ThroughputPoolAccountArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 throughput_pool_account_name: pulumi.Input[_builtins.str],
                  throughput_pool_name: pulumi.Input[_builtins.str],
                  account_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 account_resource_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+                 account_resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 throughput_pool_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ThroughputPoolAccount resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] throughput_pool_account_name: Cosmos DB global database account in a Throughput Pool
         :param pulumi.Input[_builtins.str] throughput_pool_name: Cosmos DB Throughput Pool name.
         :param pulumi.Input[_builtins.str] account_location: The location of  global database account in the throughputPool.
         :param pulumi.Input[_builtins.str] account_resource_identifier: The resource identifier of global database account in the throughputPool.
+        :param pulumi.Input[_builtins.str] throughput_pool_account_name: Cosmos DB global database account in a Throughput Pool
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "throughput_pool_account_name", throughput_pool_account_name)
         pulumi.set(__self__, "throughput_pool_name", throughput_pool_name)
         if account_location is not None:
             pulumi.set(__self__, "account_location", account_location)
         if account_resource_identifier is not None:
             pulumi.set(__self__, "account_resource_identifier", account_resource_identifier)
+        if throughput_pool_account_name is not None:
+            pulumi.set(__self__, "throughput_pool_account_name", throughput_pool_account_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -53,18 +54,6 @@ class ThroughputPoolAccountArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="throughputPoolAccountName")
-    def throughput_pool_account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Cosmos DB global database account in a Throughput Pool
-        """
-        return pulumi.get(self, "throughput_pool_account_name")
-
-    @throughput_pool_account_name.setter
-    def throughput_pool_account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "throughput_pool_account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="throughputPoolName")
@@ -101,6 +90,18 @@ class ThroughputPoolAccountArgs:
     @account_resource_identifier.setter
     def account_resource_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_resource_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="throughputPoolAccountName")
+    def throughput_pool_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Cosmos DB global database account in a Throughput Pool
+        """
+        return pulumi.get(self, "throughput_pool_account_name")
+
+    @throughput_pool_account_name.setter
+    def throughput_pool_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "throughput_pool_account_name", value)
 
 
 @pulumi.type_token("azure-native:cosmosdb:ThroughputPoolAccount")
@@ -179,8 +180,6 @@ class ThroughputPoolAccount(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if throughput_pool_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'throughput_pool_account_name'")
             __props__.__dict__["throughput_pool_account_name"] = throughput_pool_account_name
             if throughput_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'throughput_pool_name'")

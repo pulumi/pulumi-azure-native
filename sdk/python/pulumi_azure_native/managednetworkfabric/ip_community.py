@@ -22,43 +22,32 @@ __all__ = ['IpCommunityArgs', 'IpCommunity']
 @pulumi.input_type
 class IpCommunityArgs:
     def __init__(__self__, *,
-                 ip_community_name: pulumi.Input[_builtins.str],
                  ip_community_rules: pulumi.Input[Sequence[pulumi.Input['IpCommunityRuleArgs']]],
                  resource_group_name: pulumi.Input[_builtins.str],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_community_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a IpCommunity resource.
 
-        :param pulumi.Input[_builtins.str] ip_community_name: Name of the IP Community.
         :param pulumi.Input[Sequence[pulumi.Input['IpCommunityRuleArgs']]] ip_community_rules: List of IP Community Rules.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
+        :param pulumi.Input[_builtins.str] ip_community_name: Name of the IP Community.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "ip_community_name", ip_community_name)
         pulumi.set(__self__, "ip_community_rules", ip_community_rules)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
+        if ip_community_name is not None:
+            pulumi.set(__self__, "ip_community_name", ip_community_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="ipCommunityName")
-    def ip_community_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the IP Community.
-        """
-        return pulumi.get(self, "ip_community_name")
-
-    @ip_community_name.setter
-    def ip_community_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "ip_community_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipCommunityRules")
@@ -95,6 +84,18 @@ class IpCommunityArgs:
     @annotation.setter
     def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipCommunityName")
+    def ip_community_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the IP Community.
+        """
+        return pulumi.get(self, "ip_community_name")
+
+    @ip_community_name.setter
+    def ip_community_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ip_community_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,8 +197,6 @@ class IpCommunity(pulumi.CustomResource):
             __props__ = IpCommunityArgs.__new__(IpCommunityArgs)
 
             __props__.__dict__["annotation"] = annotation
-            if ip_community_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ip_community_name'")
             __props__.__dict__["ip_community_name"] = ip_community_name
             if ip_community_rules is None and not opts.urn:
                 raise TypeError("Missing required property 'ip_community_rules'")

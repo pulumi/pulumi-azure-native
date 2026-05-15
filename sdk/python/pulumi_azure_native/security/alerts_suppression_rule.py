@@ -23,9 +23,9 @@ __all__ = ['AlertsSuppressionRuleArgs', 'AlertsSuppressionRule']
 class AlertsSuppressionRuleArgs:
     def __init__(__self__, *,
                  alert_type: pulumi.Input[_builtins.str],
-                 alerts_suppression_rule_name: pulumi.Input[_builtins.str],
                  reason: pulumi.Input[_builtins.str],
                  state: pulumi.Input[Union[_builtins.str, 'RuleState']],
+                 alerts_suppression_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  comment: pulumi.Input[Optional[_builtins.str]] = None,
                  expiration_date_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  suppression_alerts_scope: pulumi.Input[Optional['SuppressionAlertsScopeArgs']] = None):
@@ -33,17 +33,18 @@ class AlertsSuppressionRuleArgs:
         The set of arguments for constructing a AlertsSuppressionRule resource.
 
         :param pulumi.Input[_builtins.str] alert_type: Type of the alert to automatically suppress. For all alert types, use '*'
-        :param pulumi.Input[_builtins.str] alerts_suppression_rule_name: The unique name of the suppression alert rule
         :param pulumi.Input[_builtins.str] reason: The reason for dismissing the alert
         :param pulumi.Input[Union[_builtins.str, 'RuleState']] state: Possible states of the rule
+        :param pulumi.Input[_builtins.str] alerts_suppression_rule_name: The unique name of the suppression alert rule
         :param pulumi.Input[_builtins.str] comment: Any comment regarding the rule
         :param pulumi.Input[_builtins.str] expiration_date_utc: Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
         :param pulumi.Input['SuppressionAlertsScopeArgs'] suppression_alerts_scope: The suppression conditions
         """
         pulumi.set(__self__, "alert_type", alert_type)
-        pulumi.set(__self__, "alerts_suppression_rule_name", alerts_suppression_rule_name)
         pulumi.set(__self__, "reason", reason)
         pulumi.set(__self__, "state", state)
+        if alerts_suppression_rule_name is not None:
+            pulumi.set(__self__, "alerts_suppression_rule_name", alerts_suppression_rule_name)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if expiration_date_utc is not None:
@@ -62,18 +63,6 @@ class AlertsSuppressionRuleArgs:
     @alert_type.setter
     def alert_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "alert_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="alertsSuppressionRuleName")
-    def alerts_suppression_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The unique name of the suppression alert rule
-        """
-        return pulumi.get(self, "alerts_suppression_rule_name")
-
-    @alerts_suppression_rule_name.setter
-    def alerts_suppression_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "alerts_suppression_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -98,6 +87,18 @@ class AlertsSuppressionRuleArgs:
     @state.setter
     def state(self, value: pulumi.Input[Union[_builtins.str, 'RuleState']]):
         pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="alertsSuppressionRuleName")
+    def alerts_suppression_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unique name of the suppression alert rule
+        """
+        return pulumi.get(self, "alerts_suppression_rule_name")
+
+    @alerts_suppression_rule_name.setter
+    def alerts_suppression_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "alerts_suppression_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -212,8 +213,6 @@ class AlertsSuppressionRule(pulumi.CustomResource):
             if alert_type is None and not opts.urn:
                 raise TypeError("Missing required property 'alert_type'")
             __props__.__dict__["alert_type"] = alert_type
-            if alerts_suppression_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'alerts_suppression_rule_name'")
             __props__.__dict__["alerts_suppression_rule_name"] = alerts_suppression_rule_name
             __props__.__dict__["comment"] = comment
             __props__.__dict__["expiration_date_utc"] = expiration_date_utc

@@ -192,7 +192,7 @@ def get_virtual_network_gateway_nat_rule(nat_rule_name: Optional[_builtins.str] 
         name=pulumi.get(__ret__, 'name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_virtual_network_gateway_nat_rule_output(nat_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_virtual_network_gateway_nat_rule_output(nat_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayNatRuleResult]:

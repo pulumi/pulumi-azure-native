@@ -23,22 +23,23 @@ __all__ = ['EncryptionScopeArgs', 'EncryptionScope']
 class EncryptionScopeArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 encryption_scope_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 encryption_scope_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['EncryptionScopePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EncryptionScope resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input[_builtins.str] encryption_scope_name: The name of the encryptionScope associated with the Cognitive Services Account
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] encryption_scope_name: The name of the encryptionScope associated with the Cognitive Services Account
         :param pulumi.Input['EncryptionScopePropertiesArgs'] properties: Properties of Cognitive Services EncryptionScope.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "encryption_scope_name", encryption_scope_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if encryption_scope_name is not None:
+            pulumi.set(__self__, "encryption_scope_name", encryption_scope_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
@@ -57,18 +58,6 @@ class EncryptionScopeArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="encryptionScopeName")
-    def encryption_scope_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the encryptionScope associated with the Cognitive Services Account
-        """
-        return pulumi.get(self, "encryption_scope_name")
-
-    @encryption_scope_name.setter
-    def encryption_scope_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "encryption_scope_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -79,6 +68,18 @@ class EncryptionScopeArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionScopeName")
+    def encryption_scope_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the encryptionScope associated with the Cognitive Services Account
+        """
+        return pulumi.get(self, "encryption_scope_name")
+
+    @encryption_scope_name.setter
+    def encryption_scope_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "encryption_scope_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -179,8 +180,6 @@ class EncryptionScope(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if encryption_scope_name is None and not opts.urn:
-                raise TypeError("Missing required property 'encryption_scope_name'")
             __props__.__dict__["encryption_scope_name"] = encryption_scope_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

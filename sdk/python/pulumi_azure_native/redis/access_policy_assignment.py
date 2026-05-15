@@ -20,40 +20,29 @@ __all__ = ['AccessPolicyAssignmentArgs', 'AccessPolicyAssignment']
 @pulumi.input_type
 class AccessPolicyAssignmentArgs:
     def __init__(__self__, *,
-                 access_policy_assignment_name: pulumi.Input[_builtins.str],
                  access_policy_name: pulumi.Input[_builtins.str],
                  cache_name: pulumi.Input[_builtins.str],
                  object_id: pulumi.Input[_builtins.str],
                  object_id_alias: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 access_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicyAssignment resource.
 
-        :param pulumi.Input[_builtins.str] access_policy_assignment_name: The name of the access policy assignment.
         :param pulumi.Input[_builtins.str] access_policy_name: The name of the access policy that is being assigned
         :param pulumi.Input[_builtins.str] cache_name: The name of the Redis cache.
         :param pulumi.Input[_builtins.str] object_id: Object Id to assign access policy to
         :param pulumi.Input[_builtins.str] object_id_alias: User friendly name for object id. Also represents username for token based authentication
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] access_policy_assignment_name: The name of the access policy assignment.
         """
-        pulumi.set(__self__, "access_policy_assignment_name", access_policy_assignment_name)
         pulumi.set(__self__, "access_policy_name", access_policy_name)
         pulumi.set(__self__, "cache_name", cache_name)
         pulumi.set(__self__, "object_id", object_id)
         pulumi.set(__self__, "object_id_alias", object_id_alias)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @_builtins.property
-    @pulumi.getter(name="accessPolicyAssignmentName")
-    def access_policy_assignment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the access policy assignment.
-        """
-        return pulumi.get(self, "access_policy_assignment_name")
-
-    @access_policy_assignment_name.setter
-    def access_policy_assignment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "access_policy_assignment_name", value)
+        if access_policy_assignment_name is not None:
+            pulumi.set(__self__, "access_policy_assignment_name", access_policy_assignment_name)
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
@@ -114,6 +103,18 @@ class AccessPolicyAssignmentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPolicyAssignmentName")
+    def access_policy_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the access policy assignment.
+        """
+        return pulumi.get(self, "access_policy_assignment_name")
+
+    @access_policy_assignment_name.setter
+    def access_policy_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "access_policy_assignment_name", value)
 
 
 @pulumi.type_token("azure-native:redis:AccessPolicyAssignment")
@@ -190,8 +191,6 @@ class AccessPolicyAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessPolicyAssignmentArgs.__new__(AccessPolicyAssignmentArgs)
 
-            if access_policy_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'access_policy_assignment_name'")
             __props__.__dict__["access_policy_assignment_name"] = access_policy_assignment_name
             if access_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy_name'")

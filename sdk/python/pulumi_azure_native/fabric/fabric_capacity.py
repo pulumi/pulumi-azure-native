@@ -23,25 +23,26 @@ __all__ = ['FabricCapacityArgs', 'FabricCapacity']
 class FabricCapacityArgs:
     def __init__(__self__, *,
                  administration: pulumi.Input['CapacityAdministrationArgs'],
-                 capacity_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['RpSkuArgs'],
+                 capacity_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a FabricCapacity resource.
 
         :param pulumi.Input['CapacityAdministrationArgs'] administration: The capacity administration
-        :param pulumi.Input[_builtins.str] capacity_name: The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['RpSkuArgs'] sku: The SKU details
+        :param pulumi.Input[_builtins.str] capacity_name: The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "administration", administration)
-        pulumi.set(__self__, "capacity_name", capacity_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if capacity_name is not None:
+            pulumi.set(__self__, "capacity_name", capacity_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -58,18 +59,6 @@ class FabricCapacityArgs:
     @administration.setter
     def administration(self, value: pulumi.Input['CapacityAdministrationArgs']):
         pulumi.set(self, "administration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="capacityName")
-    def capacity_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
-        """
-        return pulumi.get(self, "capacity_name")
-
-    @capacity_name.setter
-    def capacity_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "capacity_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -94,6 +83,18 @@ class FabricCapacityArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['RpSkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityName")
+    def capacity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Microsoft Fabric capacity. It must be a minimum of 3 characters, and a maximum of 63.
+        """
+        return pulumi.get(self, "capacity_name")
+
+    @capacity_name.setter
+    def capacity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "capacity_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -197,8 +198,6 @@ class FabricCapacity(pulumi.CustomResource):
             if administration is None and not opts.urn:
                 raise TypeError("Missing required property 'administration'")
             __props__.__dict__["administration"] = administration
-            if capacity_name is None and not opts.urn:
-                raise TypeError("Missing required property 'capacity_name'")
             __props__.__dict__["capacity_name"] = capacity_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

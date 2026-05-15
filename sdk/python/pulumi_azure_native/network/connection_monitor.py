@@ -22,10 +22,10 @@ __all__ = ['ConnectionMonitorArgs', 'ConnectionMonitor']
 @pulumi.input_type
 class ConnectionMonitorArgs:
     def __init__(__self__, *,
-                 connection_monitor_name: pulumi.Input[_builtins.str],
                  network_watcher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_start: pulumi.Input[Optional[_builtins.bool]] = None,
+                 connection_monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
                  destination: pulumi.Input[Optional['ConnectionMonitorDestinationArgs']] = None,
                  endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,10 +40,10 @@ class ConnectionMonitorArgs:
         """
         The set of arguments for constructing a ConnectionMonitor resource.
 
-        :param pulumi.Input[_builtins.str] connection_monitor_name: The name of the connection monitor.
         :param pulumi.Input[_builtins.str] network_watcher_name: The name of the Network Watcher resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group containing Network Watcher.
         :param pulumi.Input[_builtins.bool] auto_start: Determines if the connection monitor will start automatically once created.
+        :param pulumi.Input[_builtins.str] connection_monitor_name: The name of the connection monitor.
         :param pulumi.Input['ConnectionMonitorDestinationArgs'] destination: Describes the destination of connection monitor.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorEndpointArgs']]] endpoints: List of connection monitor endpoints.
         :param pulumi.Input[_builtins.str] location: Connection monitor location.
@@ -56,13 +56,14 @@ class ConnectionMonitorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestConfigurationArgs']]] test_configurations: List of connection monitor test configurations.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectionMonitorTestGroupArgs']]] test_groups: List of connection monitor test groups.
         """
-        pulumi.set(__self__, "connection_monitor_name", connection_monitor_name)
         pulumi.set(__self__, "network_watcher_name", network_watcher_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_start is None:
             auto_start = True
         if auto_start is not None:
             pulumi.set(__self__, "auto_start", auto_start)
+        if connection_monitor_name is not None:
+            pulumi.set(__self__, "connection_monitor_name", connection_monitor_name)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if endpoints is not None:
@@ -87,18 +88,6 @@ class ConnectionMonitorArgs:
             pulumi.set(__self__, "test_configurations", test_configurations)
         if test_groups is not None:
             pulumi.set(__self__, "test_groups", test_groups)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionMonitorName")
-    def connection_monitor_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the connection monitor.
-        """
-        return pulumi.get(self, "connection_monitor_name")
-
-    @connection_monitor_name.setter
-    def connection_monitor_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "connection_monitor_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkWatcherName")
@@ -135,6 +124,18 @@ class ConnectionMonitorArgs:
     @auto_start.setter
     def auto_start(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "auto_start", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionMonitorName")
+    def connection_monitor_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the connection monitor.
+        """
+        return pulumi.get(self, "connection_monitor_name")
+
+    @connection_monitor_name.setter
+    def connection_monitor_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_monitor_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -373,8 +374,6 @@ class ConnectionMonitor(pulumi.CustomResource):
             if auto_start is None:
                 auto_start = True
             __props__.__dict__["auto_start"] = auto_start
-            if connection_monitor_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_monitor_name'")
             __props__.__dict__["connection_monitor_name"] = connection_monitor_name
             __props__.__dict__["destination"] = destination
             __props__.__dict__["endpoints"] = endpoints

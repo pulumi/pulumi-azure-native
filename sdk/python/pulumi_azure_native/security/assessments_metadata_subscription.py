@@ -20,10 +20,10 @@ __all__ = ['AssessmentsMetadataSubscriptionArgs', 'AssessmentsMetadataSubscripti
 @pulumi.input_type
 class AssessmentsMetadataSubscriptionArgs:
     def __init__(__self__, *,
-                 assessment_metadata_name: pulumi.Input[_builtins.str],
                  assessment_type: pulumi.Input[Union[_builtins.str, 'AssessmentType']],
                  display_name: pulumi.Input[_builtins.str],
                  severity: pulumi.Input[Union[_builtins.str, 'Severity']],
+                 assessment_metadata_name: pulumi.Input[Optional[_builtins.str]] = None,
                  categories: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'Categories']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  implementation_effort: pulumi.Input[Optional[Union[_builtins.str, 'ImplementationEffort']]] = None,
@@ -34,20 +34,21 @@ class AssessmentsMetadataSubscriptionArgs:
         """
         The set of arguments for constructing a AssessmentsMetadataSubscription resource.
 
-        :param pulumi.Input[_builtins.str] assessment_metadata_name: The Assessment Key - Unique key for the assessment type
         :param pulumi.Input[Union[_builtins.str, 'AssessmentType']] assessment_type: BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
         :param pulumi.Input[_builtins.str] display_name: User friendly display name of the assessment
         :param pulumi.Input[Union[_builtins.str, 'Severity']] severity: The severity level of the assessment
+        :param pulumi.Input[_builtins.str] assessment_metadata_name: The Assessment Key - Unique key for the assessment type
         :param pulumi.Input[_builtins.str] description: Human readable description of the assessment
         :param pulumi.Input[Union[_builtins.str, 'ImplementationEffort']] implementation_effort: The implementation effort required to remediate this assessment
         :param pulumi.Input[_builtins.bool] preview: True if this assessment is in preview release status
         :param pulumi.Input[_builtins.str] remediation_description: Human readable description of what you should do to mitigate this security issue
         :param pulumi.Input[Union[_builtins.str, 'UserImpact']] user_impact: The user impact of the assessment
         """
-        pulumi.set(__self__, "assessment_metadata_name", assessment_metadata_name)
         pulumi.set(__self__, "assessment_type", assessment_type)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "severity", severity)
+        if assessment_metadata_name is not None:
+            pulumi.set(__self__, "assessment_metadata_name", assessment_metadata_name)
         if categories is not None:
             pulumi.set(__self__, "categories", categories)
         if description is not None:
@@ -62,18 +63,6 @@ class AssessmentsMetadataSubscriptionArgs:
             pulumi.set(__self__, "threats", threats)
         if user_impact is not None:
             pulumi.set(__self__, "user_impact", user_impact)
-
-    @_builtins.property
-    @pulumi.getter(name="assessmentMetadataName")
-    def assessment_metadata_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Assessment Key - Unique key for the assessment type
-        """
-        return pulumi.get(self, "assessment_metadata_name")
-
-    @assessment_metadata_name.setter
-    def assessment_metadata_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "assessment_metadata_name", value)
 
     @_builtins.property
     @pulumi.getter(name="assessmentType")
@@ -110,6 +99,18 @@ class AssessmentsMetadataSubscriptionArgs:
     @severity.setter
     def severity(self, value: pulumi.Input[Union[_builtins.str, 'Severity']]):
         pulumi.set(self, "severity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assessmentMetadataName")
+    def assessment_metadata_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Assessment Key - Unique key for the assessment type
+        """
+        return pulumi.get(self, "assessment_metadata_name")
+
+    @assessment_metadata_name.setter
+    def assessment_metadata_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assessment_metadata_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -273,8 +274,6 @@ class AssessmentsMetadataSubscription(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssessmentsMetadataSubscriptionArgs.__new__(AssessmentsMetadataSubscriptionArgs)
 
-            if assessment_metadata_name is None and not opts.urn:
-                raise TypeError("Missing required property 'assessment_metadata_name'")
             __props__.__dict__["assessment_metadata_name"] = assessment_metadata_name
             if assessment_type is None and not opts.urn:
                 raise TypeError("Missing required property 'assessment_type'")

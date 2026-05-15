@@ -24,29 +24,28 @@ class ProtectedItemArgs:
     def __init__(__self__, *,
                  container_name: pulumi.Input[_builtins.str],
                  fabric_name: pulumi.Input[_builtins.str],
-                 protected_item_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vault_name: pulumi.Input[_builtins.str],
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['AzureFileshareProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgs', 'AzureSqlProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'DPMProtectedItemArgs', 'GenericProtectedItemArgs', 'MabFileFolderProtectedItemArgs']]] = None,
+                 protected_item_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProtectedItem resource.
 
         :param pulumi.Input[_builtins.str] container_name: Container name associated with the backup item.
         :param pulumi.Input[_builtins.str] fabric_name: Fabric name associated with the backup item.
-        :param pulumi.Input[_builtins.str] protected_item_name: Item name to be backed up.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] vault_name: The name of the recovery services vault.
         :param pulumi.Input[_builtins.str] e_tag: Optional ETag.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Union['AzureFileshareProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgs', 'AzureSqlProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'DPMProtectedItemArgs', 'GenericProtectedItemArgs', 'MabFileFolderProtectedItemArgs']] properties: ProtectedItemResource properties
+        :param pulumi.Input[_builtins.str] protected_item_name: Item name to be backed up.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "container_name", container_name)
         pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "protected_item_name", protected_item_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vault_name", vault_name)
         if e_tag is not None:
@@ -55,6 +54,8 @@ class ProtectedItemArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if protected_item_name is not None:
+            pulumi.set(__self__, "protected_item_name", protected_item_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -81,18 +82,6 @@ class ProtectedItemArgs:
     @fabric_name.setter
     def fabric_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "fabric_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="protectedItemName")
-    def protected_item_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Item name to be backed up.
-        """
-        return pulumi.get(self, "protected_item_name")
-
-    @protected_item_name.setter
-    def protected_item_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "protected_item_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -153,6 +142,18 @@ class ProtectedItemArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional[Union['AzureFileshareProtectedItemArgs', 'AzureIaaSClassicComputeVMProtectedItemArgs', 'AzureIaaSComputeVMProtectedItemArgs', 'AzureIaaSVMProtectedItemArgs', 'AzureSqlProtectedItemArgs', 'AzureVmWorkloadProtectedItemArgs', 'AzureVmWorkloadSAPAseDatabaseProtectedItemArgs', 'AzureVmWorkloadSAPHanaDBInstanceProtectedItemArgs', 'AzureVmWorkloadSAPHanaDatabaseProtectedItemArgs', 'AzureVmWorkloadSQLDatabaseProtectedItemArgs', 'DPMProtectedItemArgs', 'GenericProtectedItemArgs', 'MabFileFolderProtectedItemArgs']]]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="protectedItemName")
+    def protected_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Item name to be backed up.
+        """
+        return pulumi.get(self, "protected_item_name")
+
+    @protected_item_name.setter
+    def protected_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "protected_item_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -259,8 +260,6 @@ class ProtectedItem(pulumi.CustomResource):
             __props__.__dict__["fabric_name"] = fabric_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
-            if protected_item_name is None and not opts.urn:
-                raise TypeError("Missing required property 'protected_item_name'")
             __props__.__dict__["protected_item_name"] = protected_item_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

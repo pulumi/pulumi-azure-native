@@ -22,42 +22,31 @@ __all__ = ['InstanceArgs', 'Instance']
 @pulumi.input_type
 class InstanceArgs:
     def __init__(__self__, *,
-                 instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  solution_name: pulumi.Input[_builtins.str],
                  target_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['InstancePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Instance resource.
 
-        :param pulumi.Input[_builtins.str] instance_name: Name of the instance
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] solution_name: Name of the solution
         :param pulumi.Input[_builtins.str] target_name: Name of the target
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
+        :param pulumi.Input[_builtins.str] instance_name: Name of the instance
         :param pulumi.Input['InstancePropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "solution_name", solution_name)
         pulumi.set(__self__, "target_name", target_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="instanceName")
-    def instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the instance
-        """
-        return pulumi.get(self, "instance_name")
-
-    @instance_name.setter
-    def instance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -106,6 +95,18 @@ class InstanceArgs:
     @extended_location.setter
     def extended_location(self, value: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the instance
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -195,8 +196,6 @@ class Instance(pulumi.CustomResource):
             __props__ = InstanceArgs.__new__(InstanceArgs)
 
             __props__.__dict__["extended_location"] = extended_location
-            if instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

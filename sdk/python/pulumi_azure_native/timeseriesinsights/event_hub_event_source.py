@@ -25,13 +25,13 @@ class EventHubEventSourceArgs:
                  consumer_group_name: pulumi.Input[_builtins.str],
                  environment_name: pulumi.Input[_builtins.str],
                  event_hub_name: pulumi.Input[_builtins.str],
-                 event_source_name: pulumi.Input[_builtins.str],
                  event_source_resource_id: pulumi.Input[_builtins.str],
                  key_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_bus_namespace: pulumi.Input[_builtins.str],
                  shared_access_key: pulumi.Input[_builtins.str],
+                 event_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  local_timestamp: pulumi.Input[Optional['LocalTimestampArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -44,7 +44,6 @@ class EventHubEventSourceArgs:
         :param pulumi.Input[_builtins.str] consumer_group_name: The name of the event hub's consumer group that holds the partitions from which events will be read.
         :param pulumi.Input[_builtins.str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
         :param pulumi.Input[_builtins.str] event_hub_name: The name of the event hub.
-        :param pulumi.Input[_builtins.str] event_source_name: Name of the event source.
         :param pulumi.Input[_builtins.str] event_source_resource_id: The resource id of the event source in Azure Resource Manager.
         :param pulumi.Input[_builtins.str] key_name: The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
         :param pulumi.Input[_builtins.str] kind: The kind of the event source.
@@ -52,6 +51,7 @@ class EventHubEventSourceArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
         :param pulumi.Input[_builtins.str] service_bus_namespace: The name of the service bus that contains the event hub.
         :param pulumi.Input[_builtins.str] shared_access_key: The value of the shared access key that grants the Time Series Insights service read access to the event hub. This property is not shown in event source responses.
+        :param pulumi.Input[_builtins.str] event_source_name: Name of the event source.
         :param pulumi.Input['LocalTimestampArgs'] local_timestamp: An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
         :param pulumi.Input[_builtins.str] location: The location of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of additional properties for the resource.
@@ -62,13 +62,14 @@ class EventHubEventSourceArgs:
         pulumi.set(__self__, "consumer_group_name", consumer_group_name)
         pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "event_hub_name", event_hub_name)
-        pulumi.set(__self__, "event_source_name", event_source_name)
         pulumi.set(__self__, "event_source_resource_id", event_source_resource_id)
         pulumi.set(__self__, "key_name", key_name)
         pulumi.set(__self__, "kind", 'Microsoft.EventHub')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_bus_namespace", service_bus_namespace)
         pulumi.set(__self__, "shared_access_key", shared_access_key)
+        if event_source_name is not None:
+            pulumi.set(__self__, "event_source_name", event_source_name)
         if local_timestamp is not None:
             pulumi.set(__self__, "local_timestamp", local_timestamp)
         if location is not None:
@@ -117,18 +118,6 @@ class EventHubEventSourceArgs:
     @event_hub_name.setter
     def event_hub_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "event_hub_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="eventSourceName")
-    def event_source_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the event source.
-        """
-        return pulumi.get(self, "event_source_name")
-
-    @event_source_name.setter
-    def event_source_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "event_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eventSourceResourceId")
@@ -202,6 +191,18 @@ class EventHubEventSourceArgs:
     @shared_access_key.setter
     def shared_access_key(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "shared_access_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="eventSourceName")
+    def event_source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the event source.
+        """
+        return pulumi.get(self, "event_source_name")
+
+    @event_source_name.setter
+    def event_source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "event_source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="localTimestamp")
@@ -386,8 +387,6 @@ class EventHubEventSource(pulumi.CustomResource):
             if event_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_name'")
             __props__.__dict__["event_hub_name"] = event_hub_name
-            if event_source_name is None and not opts.urn:
-                raise TypeError("Missing required property 'event_source_name'")
             __props__.__dict__["event_source_name"] = event_source_name
             if event_source_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'event_source_resource_id'")

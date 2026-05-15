@@ -236,7 +236,7 @@ def get_policy_set_definition_version_at_management_group(expand: Optional[_buil
         version=pulumi.get(__ret__, 'version'))
 def get_policy_set_definition_version_at_management_group_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                                  management_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                                 policy_definition_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                                 policy_definition_version: pulumi.Input[Optional[_builtins.str]] = None,
                                                                  policy_set_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicySetDefinitionVersionAtManagementGroupResult]:
     """

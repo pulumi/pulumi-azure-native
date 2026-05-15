@@ -376,7 +376,7 @@ def get_runbook(automation_account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_runbook_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       runbook_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       runbook_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRunbookResult]:
     """
     Retrieve the runbook identified by runbook name.

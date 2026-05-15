@@ -138,7 +138,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[_
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_output(private_endpoint_connection_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_private_endpoint_connection_output(private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            project_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionResult]:

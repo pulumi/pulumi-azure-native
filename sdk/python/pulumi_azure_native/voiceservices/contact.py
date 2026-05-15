@@ -21,31 +21,32 @@ __all__ = ['ContactArgs', 'Contact']
 class ContactArgs:
     def __init__(__self__, *,
                  communications_gateway_name: pulumi.Input[_builtins.str],
-                 contact_name: pulumi.Input[_builtins.str],
                  email: pulumi.Input[_builtins.str],
                  phone_number: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  role: pulumi.Input[_builtins.str],
+                 contact_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Contact resource.
 
         :param pulumi.Input[_builtins.str] communications_gateway_name: Unique identifier for this deployment
-        :param pulumi.Input[_builtins.str] contact_name: Full name of contact
         :param pulumi.Input[_builtins.str] email: Email address of contact
         :param pulumi.Input[_builtins.str] phone_number: Telephone number of contact
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] role: Job title of contact
+        :param pulumi.Input[_builtins.str] contact_name: Full name of contact
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "communications_gateway_name", communications_gateway_name)
-        pulumi.set(__self__, "contact_name", contact_name)
         pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "phone_number", phone_number)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "role", role)
+        if contact_name is not None:
+            pulumi.set(__self__, "contact_name", contact_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -62,18 +63,6 @@ class ContactArgs:
     @communications_gateway_name.setter
     def communications_gateway_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "communications_gateway_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="contactName")
-    def contact_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Full name of contact
-        """
-        return pulumi.get(self, "contact_name")
-
-    @contact_name.setter
-    def contact_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "contact_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -122,6 +111,18 @@ class ContactArgs:
     @role.setter
     def role(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contactName")
+    def contact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Full name of contact
+        """
+        return pulumi.get(self, "contact_name")
+
+    @contact_name.setter
+    def contact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "contact_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -227,8 +228,6 @@ class Contact(pulumi.CustomResource):
             if communications_gateway_name is None and not opts.urn:
                 raise TypeError("Missing required property 'communications_gateway_name'")
             __props__.__dict__["communications_gateway_name"] = communications_gateway_name
-            if contact_name is None and not opts.urn:
-                raise TypeError("Missing required property 'contact_name'")
             __props__.__dict__["contact_name"] = contact_name
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")

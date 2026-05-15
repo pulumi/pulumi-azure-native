@@ -22,7 +22,7 @@ __all__ = ['VariableArgs', 'Variable']
 class VariableArgs:
     def __init__(__self__, *,
                  columns: pulumi.Input[Sequence[pulumi.Input['PolicyVariableColumnArgs']]],
-                 variable_name: pulumi.Input[_builtins.str]):
+                 variable_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Variable resource.
 
@@ -30,7 +30,8 @@ class VariableArgs:
         :param pulumi.Input[_builtins.str] variable_name: The name of the variable to operate on.
         """
         pulumi.set(__self__, "columns", columns)
-        pulumi.set(__self__, "variable_name", variable_name)
+        if variable_name is not None:
+            pulumi.set(__self__, "variable_name", variable_name)
 
     @_builtins.property
     @pulumi.getter
@@ -46,14 +47,14 @@ class VariableArgs:
 
     @_builtins.property
     @pulumi.getter(name="variableName")
-    def variable_name(self) -> pulumi.Input[_builtins.str]:
+    def variable_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the variable to operate on.
         """
         return pulumi.get(self, "variable_name")
 
     @variable_name.setter
-    def variable_name(self, value: pulumi.Input[_builtins.str]):
+    def variable_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "variable_name", value)
 
 
@@ -122,8 +123,6 @@ class Variable(pulumi.CustomResource):
             if columns is None and not opts.urn:
                 raise TypeError("Missing required property 'columns'")
             __props__.__dict__["columns"] = columns
-            if variable_name is None and not opts.urn:
-                raise TypeError("Missing required property 'variable_name'")
             __props__.__dict__["variable_name"] = variable_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

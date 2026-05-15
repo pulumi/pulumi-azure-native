@@ -23,8 +23,8 @@ __all__ = ['IssueArgs', 'Issue']
 class IssueArgs:
     def __init__(__self__, *,
                  azure_monitor_workspace_name: pulumi.Input[_builtins.str],
-                 issue_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 issue_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['IssuePropertiesArgs']] = None,
                  related: pulumi.Input[Optional[_builtins.str]] = None,
                  start_investigation: pulumi.Input[Optional[_builtins.bool]] = None):
@@ -32,15 +32,16 @@ class IssueArgs:
         The set of arguments for constructing a Issue resource.
 
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
-        :param pulumi.Input[_builtins.str] issue_name: The name of the IssueResource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] issue_name: The name of the IssueResource
         :param pulumi.Input['IssuePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[_builtins.str] related: Related resource or alert that is to be added to the issue (default: empty - the issue will be created without any related resources or alerts)
         :param pulumi.Input[_builtins.bool] start_investigation: Whether to automatically start an investigation once the issue is created (default: false)
         """
         pulumi.set(__self__, "azure_monitor_workspace_name", azure_monitor_workspace_name)
-        pulumi.set(__self__, "issue_name", issue_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if issue_name is not None:
+            pulumi.set(__self__, "issue_name", issue_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if related is not None:
@@ -61,18 +62,6 @@ class IssueArgs:
         pulumi.set(self, "azure_monitor_workspace_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="issueName")
-    def issue_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the IssueResource
-        """
-        return pulumi.get(self, "issue_name")
-
-    @issue_name.setter
-    def issue_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "issue_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -83,6 +72,18 @@ class IssueArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="issueName")
+    def issue_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the IssueResource
+        """
+        return pulumi.get(self, "issue_name")
+
+    @issue_name.setter
+    def issue_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "issue_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -198,8 +199,6 @@ class Issue(pulumi.CustomResource):
             if azure_monitor_workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_monitor_workspace_name'")
             __props__.__dict__["azure_monitor_workspace_name"] = azure_monitor_workspace_name
-            if issue_name is None and not opts.urn:
-                raise TypeError("Missing required property 'issue_name'")
             __props__.__dict__["issue_name"] = issue_name
             __props__.__dict__["properties"] = properties
             __props__.__dict__["related"] = related

@@ -132,7 +132,7 @@ def get_workspace_tag_operation_link(operation_link_id: Optional[_builtins.str] 
         name=pulumi.get(__ret__, 'name'),
         operation_id=pulumi.get(__ret__, 'operation_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_workspace_tag_operation_link_output(operation_link_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_workspace_tag_operation_link_output(operation_link_id: pulumi.Input[Optional[_builtins.str]] = None,
                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             tag_id: pulumi.Input[Optional[_builtins.str]] = None,

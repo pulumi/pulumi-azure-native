@@ -23,12 +23,12 @@ __all__ = ['NetworkTapRuleArgs', 'NetworkTapRule']
 class NetworkTapRuleArgs:
     def __init__(__self__, *,
                  configuration_type: pulumi.Input[Union[_builtins.str, 'ConfigurationType']],
-                 network_tap_rule_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
                  dynamic_match_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['CommonDynamicMatchConfigurationArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  match_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkTapRuleMatchConfigurationArgs']]]] = None,
+                 network_tap_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  polling_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tap_rules_url: pulumi.Input[Optional[_builtins.str]] = None):
@@ -36,18 +36,17 @@ class NetworkTapRuleArgs:
         The set of arguments for constructing a NetworkTapRule resource.
 
         :param pulumi.Input[Union[_builtins.str, 'ConfigurationType']] configuration_type: Input method to configure Network Tap Rule.
-        :param pulumi.Input[_builtins.str] network_tap_rule_name: Name of the Network Tap Rule.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input[Sequence[pulumi.Input['CommonDynamicMatchConfigurationArgs']]] dynamic_match_configurations: List of dynamic match configurations.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['NetworkTapRuleMatchConfigurationArgs']]] match_configurations: List of match configurations.
+        :param pulumi.Input[_builtins.str] network_tap_rule_name: Name of the Network Tap Rule.
         :param pulumi.Input[_builtins.int] polling_interval_in_seconds: Polling interval in seconds.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] tap_rules_url: Network Tap Rules file URL.
         """
         pulumi.set(__self__, "configuration_type", configuration_type)
-        pulumi.set(__self__, "network_tap_rule_name", network_tap_rule_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
@@ -57,6 +56,8 @@ class NetworkTapRuleArgs:
             pulumi.set(__self__, "location", location)
         if match_configurations is not None:
             pulumi.set(__self__, "match_configurations", match_configurations)
+        if network_tap_rule_name is not None:
+            pulumi.set(__self__, "network_tap_rule_name", network_tap_rule_name)
         if polling_interval_in_seconds is None:
             polling_interval_in_seconds = 30
         if polling_interval_in_seconds is not None:
@@ -77,18 +78,6 @@ class NetworkTapRuleArgs:
     @configuration_type.setter
     def configuration_type(self, value: pulumi.Input[Union[_builtins.str, 'ConfigurationType']]):
         pulumi.set(self, "configuration_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkTapRuleName")
-    def network_tap_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Network Tap Rule.
-        """
-        return pulumi.get(self, "network_tap_rule_name")
-
-    @network_tap_rule_name.setter
-    def network_tap_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_tap_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -149,6 +138,18 @@ class NetworkTapRuleArgs:
     @match_configurations.setter
     def match_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkTapRuleMatchConfigurationArgs']]]]):
         pulumi.set(self, "match_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkTapRuleName")
+    def network_tap_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Network Tap Rule.
+        """
+        return pulumi.get(self, "network_tap_rule_name")
+
+    @network_tap_rule_name.setter
+    def network_tap_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_tap_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="pollingIntervalInSeconds")
@@ -280,8 +281,6 @@ class NetworkTapRule(pulumi.CustomResource):
             __props__.__dict__["dynamic_match_configurations"] = dynamic_match_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["match_configurations"] = match_configurations
-            if network_tap_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_tap_rule_name'")
             __props__.__dict__["network_tap_rule_name"] = network_tap_rule_name
             if polling_interval_in_seconds is None:
                 polling_interval_in_seconds = 30

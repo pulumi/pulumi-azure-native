@@ -22,7 +22,6 @@ __all__ = ['ManagedEnvironmentArgs', 'ManagedEnvironment']
 @pulumi.input_type
 class ManagedEnvironmentArgs:
     def __init__(__self__, *,
-                 environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  app_insights_configuration: pulumi.Input[Optional['AppInsightsConfigurationArgs']] = None,
                  app_logs_configuration: pulumi.Input[Optional['AppLogsConfigurationArgs']] = None,
@@ -31,6 +30,7 @@ class ManagedEnvironmentArgs:
                  dapr_ai_connection_string: pulumi.Input[Optional[_builtins.str]] = None,
                  dapr_ai_instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_encryption_configuration: pulumi.Input[Optional['DiskEncryptionConfigurationArgs']] = None,
+                 environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  infrastructure_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  ingress_configuration: pulumi.Input[Optional['IngressConfigurationArgs']] = None,
@@ -47,7 +47,6 @@ class ManagedEnvironmentArgs:
         """
         The set of arguments for constructing a ManagedEnvironment resource.
 
-        :param pulumi.Input[_builtins.str] environment_name: Name of the Environment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AppInsightsConfigurationArgs'] app_insights_configuration: Environment level Application Insights configuration
         :param pulumi.Input['AppLogsConfigurationArgs'] app_logs_configuration: Cluster configuration which enables the log daemon to export app logs to configured destination
@@ -56,6 +55,7 @@ class ManagedEnvironmentArgs:
         :param pulumi.Input[_builtins.str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[_builtins.str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input['DiskEncryptionConfigurationArgs'] disk_encryption_configuration: Disk encryption configuration for the Managed Environment.
+        :param pulumi.Input[_builtins.str] environment_name: Name of the Environment.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed identities for the Managed Environment to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[_builtins.str] infrastructure_resource_group: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. If a subnet ID is provided, this resource group will be created in the same subscription as the subnet.
         :param pulumi.Input['IngressConfigurationArgs'] ingress_configuration: Ingress configuration for the Managed Environment.
@@ -70,7 +70,6 @@ class ManagedEnvironmentArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WorkloadProfileArgs']]] workload_profiles: Workload profiles configured for the Managed Environment.
         :param pulumi.Input[_builtins.bool] zone_redundant: Whether or not this Managed Environment is zone-redundant.
         """
-        pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if app_insights_configuration is not None:
             pulumi.set(__self__, "app_insights_configuration", app_insights_configuration)
@@ -86,6 +85,8 @@ class ManagedEnvironmentArgs:
             pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
         if disk_encryption_configuration is not None:
             pulumi.set(__self__, "disk_encryption_configuration", disk_encryption_configuration)
+        if environment_name is not None:
+            pulumi.set(__self__, "environment_name", environment_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if infrastructure_resource_group is not None:
@@ -112,18 +113,6 @@ class ManagedEnvironmentArgs:
             pulumi.set(__self__, "workload_profiles", workload_profiles)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
-
-    @_builtins.property
-    @pulumi.getter(name="environmentName")
-    def environment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Environment.
-        """
-        return pulumi.get(self, "environment_name")
-
-    @environment_name.setter
-    def environment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -220,6 +209,18 @@ class ManagedEnvironmentArgs:
     @disk_encryption_configuration.setter
     def disk_encryption_configuration(self, value: pulumi.Input[Optional['DiskEncryptionConfigurationArgs']]):
         pulumi.set(self, "disk_encryption_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Environment.
+        """
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "environment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -507,8 +508,6 @@ class ManagedEnvironment(pulumi.CustomResource):
             __props__.__dict__["dapr_ai_connection_string"] = dapr_ai_connection_string
             __props__.__dict__["dapr_ai_instrumentation_key"] = dapr_ai_instrumentation_key
             __props__.__dict__["disk_encryption_configuration"] = disk_encryption_configuration
-            if environment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'environment_name'")
             __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["infrastructure_resource_group"] = infrastructure_resource_group

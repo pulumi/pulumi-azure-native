@@ -21,35 +21,24 @@ __all__ = ['JobArgs', 'Job']
 @pulumi.input_type
 class JobArgs:
     def __init__(__self__, *,
-                 job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['JobResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Job resource.
 
-        :param pulumi.Input[_builtins.str] job_name: The name of the Job resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
+        :param pulumi.Input[_builtins.str] job_name: The name of the Job resource.
         :param pulumi.Input['JobResourcePropertiesArgs'] properties: Properties of the Job resource
         """
-        pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        if job_name is not None:
+            pulumi.set(__self__, "job_name", job_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="jobName")
-    def job_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Job resource.
-        """
-        return pulumi.get(self, "job_name")
-
-    @job_name.setter
-    def job_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -74,6 +63,18 @@ class JobArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Job resource.
+        """
+        return pulumi.get(self, "job_name")
+
+    @job_name.setter
+    def job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -152,8 +153,6 @@ class Job(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = JobArgs.__new__(JobArgs)
 
-            if job_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_name'")
             __props__.__dict__["job_name"] = job_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

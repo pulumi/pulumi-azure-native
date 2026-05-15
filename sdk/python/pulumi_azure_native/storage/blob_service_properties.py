@@ -23,9 +23,9 @@ __all__ = ['BlobServicePropertiesArgs', 'BlobServiceProperties']
 class BlobServicePropertiesArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 blob_services_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  automatic_snapshot_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 blob_services_name: pulumi.Input[Optional[_builtins.str]] = None,
                  change_feed: pulumi.Input[Optional['ChangeFeedArgs']] = None,
                  container_delete_retention_policy: pulumi.Input[Optional['DeleteRetentionPolicyArgs']] = None,
                  cors: pulumi.Input[Optional['CorsRulesArgs']] = None,
@@ -38,9 +38,9 @@ class BlobServicePropertiesArgs:
         The set of arguments for constructing a BlobServiceProperties resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
-        :param pulumi.Input[_builtins.str] blob_services_name: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[_builtins.bool] automatic_snapshot_policy_enabled: Deprecated in favor of isVersioningEnabled property.
+        :param pulumi.Input[_builtins.str] blob_services_name: The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
         :param pulumi.Input['ChangeFeedArgs'] change_feed: The blob service properties for change feed events.
         :param pulumi.Input['DeleteRetentionPolicyArgs'] container_delete_retention_policy: The blob service properties for container soft delete.
         :param pulumi.Input['CorsRulesArgs'] cors: Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
@@ -51,10 +51,11 @@ class BlobServicePropertiesArgs:
         :param pulumi.Input['RestorePolicyPropertiesArgs'] restore_policy: The blob service properties for blob restore policy.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "blob_services_name", blob_services_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if automatic_snapshot_policy_enabled is not None:
             pulumi.set(__self__, "automatic_snapshot_policy_enabled", automatic_snapshot_policy_enabled)
+        if blob_services_name is not None:
+            pulumi.set(__self__, "blob_services_name", blob_services_name)
         if change_feed is not None:
             pulumi.set(__self__, "change_feed", change_feed)
         if container_delete_retention_policy is not None:
@@ -85,18 +86,6 @@ class BlobServicePropertiesArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="blobServicesName")
-    def blob_services_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
-        """
-        return pulumi.get(self, "blob_services_name")
-
-    @blob_services_name.setter
-    def blob_services_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "blob_services_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -119,6 +108,18 @@ class BlobServicePropertiesArgs:
     @automatic_snapshot_policy_enabled.setter
     def automatic_snapshot_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automatic_snapshot_policy_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="blobServicesName")
+    def blob_services_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the blob Service within the specified storage account. Blob Service Name must be 'default'
+        """
+        return pulumi.get(self, "blob_services_name")
+
+    @blob_services_name.setter
+    def blob_services_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "blob_services_name", value)
 
     @_builtins.property
     @pulumi.getter(name="changeFeed")
@@ -313,8 +314,6 @@ class BlobServiceProperties(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["automatic_snapshot_policy_enabled"] = automatic_snapshot_policy_enabled
-            if blob_services_name is None and not opts.urn:
-                raise TypeError("Missing required property 'blob_services_name'")
             __props__.__dict__["blob_services_name"] = blob_services_name
             __props__.__dict__["change_feed"] = change_feed
             __props__.__dict__["container_delete_retention_policy"] = container_delete_retention_policy

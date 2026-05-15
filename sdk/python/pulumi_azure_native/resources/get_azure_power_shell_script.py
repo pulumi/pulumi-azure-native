@@ -371,7 +371,7 @@ def get_azure_power_shell_script(resource_group_name: Optional[_builtins.str] = 
         timeout=pulumi.get(__ret__, 'timeout'),
         type=pulumi.get(__ret__, 'type'))
 def get_azure_power_shell_script_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        script_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        script_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAzurePowerShellScriptResult]:
     """
     Gets a deployment script with a given name.

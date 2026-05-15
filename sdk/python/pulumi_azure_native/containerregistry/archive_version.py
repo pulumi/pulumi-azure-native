@@ -21,24 +21,25 @@ __all__ = ['ArchiveVersionArgs', 'ArchiveVersion']
 class ArchiveVersionArgs:
     def __init__(__self__, *,
                  archive_name: pulumi.Input[_builtins.str],
-                 archive_version_name: pulumi.Input[_builtins.str],
                  package_type: pulumi.Input[_builtins.str],
                  registry_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 archive_version_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ArchiveVersion resource.
 
         :param pulumi.Input[_builtins.str] archive_name: The name of the archive resource.
-        :param pulumi.Input[_builtins.str] archive_version_name: The name of the archive version resource.
         :param pulumi.Input[_builtins.str] package_type: The type of the package resource.
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] archive_version_name: The name of the archive version resource.
         """
         pulumi.set(__self__, "archive_name", archive_name)
-        pulumi.set(__self__, "archive_version_name", archive_version_name)
         pulumi.set(__self__, "package_type", package_type)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if archive_version_name is not None:
+            pulumi.set(__self__, "archive_version_name", archive_version_name)
 
     @_builtins.property
     @pulumi.getter(name="archiveName")
@@ -51,18 +52,6 @@ class ArchiveVersionArgs:
     @archive_name.setter
     def archive_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "archive_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="archiveVersionName")
-    def archive_version_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the archive version resource.
-        """
-        return pulumi.get(self, "archive_version_name")
-
-    @archive_version_name.setter
-    def archive_version_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "archive_version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="packageType")
@@ -99,6 +88,18 @@ class ArchiveVersionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="archiveVersionName")
+    def archive_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the archive version resource.
+        """
+        return pulumi.get(self, "archive_version_name")
+
+    @archive_version_name.setter
+    def archive_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "archive_version_name", value)
 
 
 @pulumi.type_token("azure-native:containerregistry:ArchiveVersion")
@@ -175,8 +176,6 @@ class ArchiveVersion(pulumi.CustomResource):
             if archive_name is None and not opts.urn:
                 raise TypeError("Missing required property 'archive_name'")
             __props__.__dict__["archive_name"] = archive_name
-            if archive_version_name is None and not opts.urn:
-                raise TypeError("Missing required property 'archive_version_name'")
             __props__.__dict__["archive_version_name"] = archive_version_name
             if package_type is None and not opts.urn:
                 raise TypeError("Missing required property 'package_type'")

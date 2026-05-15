@@ -24,27 +24,28 @@ class NetworkInterfaceTapConfigurationArgs:
     def __init__(__self__, *,
                  network_interface_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 tap_configuration_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tap_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_tap: pulumi.Input[Optional['VirtualNetworkTapArgs']] = None):
         """
         The set of arguments for constructing a NetworkInterfaceTapConfiguration resource.
 
         :param pulumi.Input[_builtins.str] network_interface_name: The name of the network interface.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] tap_configuration_name: The name of the tap configuration.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
+        :param pulumi.Input[_builtins.str] tap_configuration_name: The name of the tap configuration.
         :param pulumi.Input['VirtualNetworkTapArgs'] virtual_network_tap: The reference to the Virtual Network Tap resource.
         """
         pulumi.set(__self__, "network_interface_name", network_interface_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "tap_configuration_name", tap_configuration_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tap_configuration_name is not None:
+            pulumi.set(__self__, "tap_configuration_name", tap_configuration_name)
         if virtual_network_tap is not None:
             pulumi.set(__self__, "virtual_network_tap", virtual_network_tap)
 
@@ -73,18 +74,6 @@ class NetworkInterfaceTapConfigurationArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="tapConfigurationName")
-    def tap_configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the tap configuration.
-        """
-        return pulumi.get(self, "tap_configuration_name")
-
-    @tap_configuration_name.setter
-    def tap_configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "tap_configuration_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -107,6 +96,18 @@ class NetworkInterfaceTapConfigurationArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tapConfigurationName")
+    def tap_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the tap configuration.
+        """
+        return pulumi.get(self, "tap_configuration_name")
+
+    @tap_configuration_name.setter
+    def tap_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tap_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkTap")
@@ -203,8 +204,6 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if tap_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'tap_configuration_name'")
             __props__.__dict__["tap_configuration_name"] = tap_configuration_name
             __props__.__dict__["virtual_network_tap"] = virtual_network_tap
             __props__.__dict__["azure_api_version"] = None

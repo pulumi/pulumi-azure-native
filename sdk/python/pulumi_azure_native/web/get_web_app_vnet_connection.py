@@ -221,7 +221,7 @@ def get_web_app_vnet_connection(name: Optional[_builtins.str] = None,
         vnet_resource_id=pulumi.get(__ret__, 'vnet_resource_id'))
 def get_web_app_vnet_connection_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                       vnet_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       vnet_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppVnetConnectionResult]:
     """
     Description for Gets a virtual network the app (or deployment slot) is connected to by name.

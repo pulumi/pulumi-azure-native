@@ -272,7 +272,7 @@ def get_integration_account_schema(integration_account_name: Optional[_builtins.
         type=pulumi.get(__ret__, 'type'))
 def get_integration_account_schema_output(integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          schema_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          schema_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAccountSchemaResult]:
     """
     Gets an integration account schema.

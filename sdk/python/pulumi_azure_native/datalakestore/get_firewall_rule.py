@@ -138,7 +138,7 @@ def get_firewall_rule(account_name: Optional[_builtins.str] = None,
         start_ip_address=pulumi.get(__ret__, 'start_ip_address'),
         type=pulumi.get(__ret__, 'type'))
 def get_firewall_rule_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             firewall_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             firewall_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleResult]:
     """

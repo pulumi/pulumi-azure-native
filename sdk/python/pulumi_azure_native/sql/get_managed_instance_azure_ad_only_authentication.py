@@ -126,7 +126,7 @@ def get_managed_instance_azure_ad_only_authentication(authentication_name: Optio
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_instance_azure_ad_only_authentication_output(authentication_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_managed_instance_azure_ad_only_authentication_output(authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                              managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedInstanceAzureADOnlyAuthenticationResult]:

@@ -246,7 +246,7 @@ def get_source_control(automation_account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_source_control_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              source_control_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              source_control_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlResult]:
     """
     Retrieve the source control identified by source control name.

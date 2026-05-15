@@ -21,43 +21,32 @@ __all__ = ['KubernetesClusterFeatureArgs', 'KubernetesClusterFeature']
 @pulumi.input_type
 class KubernetesClusterFeatureArgs:
     def __init__(__self__, *,
-                 feature_name: pulumi.Input[_builtins.str],
                  kubernetes_cluster_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 feature_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  options: pulumi.Input[Optional[Sequence[pulumi.Input['StringKeyValuePairArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KubernetesClusterFeature resource.
 
-        :param pulumi.Input[_builtins.str] feature_name: The name of the feature.
         :param pulumi.Input[_builtins.str] kubernetes_cluster_name: The name of the Kubernetes cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] feature_name: The name of the feature.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['StringKeyValuePairArgs']]] options: The configured options for the feature.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "feature_name", feature_name)
         pulumi.set(__self__, "kubernetes_cluster_name", kubernetes_cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if feature_name is not None:
+            pulumi.set(__self__, "feature_name", feature_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if options is not None:
             pulumi.set(__self__, "options", options)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="featureName")
-    def feature_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the feature.
-        """
-        return pulumi.get(self, "feature_name")
-
-    @feature_name.setter
-    def feature_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "feature_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesClusterName")
@@ -82,6 +71,18 @@ class KubernetesClusterFeatureArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="featureName")
+    def feature_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the feature.
+        """
+        return pulumi.get(self, "feature_name")
+
+    @feature_name.setter
+    def feature_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "feature_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -190,8 +191,6 @@ class KubernetesClusterFeature(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KubernetesClusterFeatureArgs.__new__(KubernetesClusterFeatureArgs)
 
-            if feature_name is None and not opts.urn:
-                raise TypeError("Missing required property 'feature_name'")
             __props__.__dict__["feature_name"] = feature_name
             if kubernetes_cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_cluster_name'")

@@ -222,7 +222,7 @@ def get_key_value(config_store_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
 def get_key_value_output(config_store_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         key_value_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         key_value_name: pulumi.Input[Optional[_builtins.str]] = None,
                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyValueResult]:
     """

@@ -450,7 +450,7 @@ def get_virtual_hub(resource_group_name: Optional[_builtins.str] = None,
         virtual_wan=pulumi.get(__ret__, 'virtual_wan'),
         vpn_gateway=pulumi.get(__ret__, 'vpn_gateway'))
 def get_virtual_hub_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           virtual_hub_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualHubResult]:
     """
     Retrieves the details of a VirtualHub.

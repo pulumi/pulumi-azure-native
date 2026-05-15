@@ -22,9 +22,9 @@ __all__ = ['LicenseInitArgs', 'License']
 @pulumi.input_type
 class LicenseInitArgs:
     def __init__(__self__, *,
-                 license_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  license_details: pulumi.Input[Optional['LicenseDetailsArgs']] = None,
+                 license_name: pulumi.Input[Optional[_builtins.str]] = None,
                  license_type: pulumi.Input[Optional[Union[_builtins.str, 'LicenseType']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -32,18 +32,19 @@ class LicenseInitArgs:
         """
         The set of arguments for constructing a License resource.
 
-        :param pulumi.Input[_builtins.str] license_name: The name of the license.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['LicenseDetailsArgs'] license_details: Describes the properties of a License.
+        :param pulumi.Input[_builtins.str] license_name: The name of the license.
         :param pulumi.Input[Union[_builtins.str, 'LicenseType']] license_type: The type of the license resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] tenant_id: Describes the tenant id.
         """
-        pulumi.set(__self__, "license_name", license_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if license_details is not None:
             pulumi.set(__self__, "license_details", license_details)
+        if license_name is not None:
+            pulumi.set(__self__, "license_name", license_name)
         if license_type is not None:
             pulumi.set(__self__, "license_type", license_type)
         if location is not None:
@@ -52,18 +53,6 @@ class LicenseInitArgs:
             pulumi.set(__self__, "tags", tags)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @_builtins.property
-    @pulumi.getter(name="licenseName")
-    def license_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the license.
-        """
-        return pulumi.get(self, "license_name")
-
-    @license_name.setter
-    def license_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "license_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -88,6 +77,18 @@ class LicenseInitArgs:
     @license_details.setter
     def license_details(self, value: pulumi.Input[Optional['LicenseDetailsArgs']]):
         pulumi.set(self, "license_details", value)
+
+    @_builtins.property
+    @pulumi.getter(name="licenseName")
+    def license_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the license.
+        """
+        return pulumi.get(self, "license_name")
+
+    @license_name.setter
+    def license_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "license_name", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
@@ -216,8 +217,6 @@ class License(pulumi.CustomResource):
             __props__ = LicenseInitArgs.__new__(LicenseInitArgs)
 
             __props__.__dict__["license_details"] = license_details
-            if license_name is None and not opts.urn:
-                raise TypeError("Missing required property 'license_name'")
             __props__.__dict__["license_name"] = license_name
             __props__.__dict__["license_type"] = license_type
             __props__.__dict__["location"] = location

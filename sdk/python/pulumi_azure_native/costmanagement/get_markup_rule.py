@@ -192,7 +192,7 @@ def get_markup_rule(billing_account_id: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_markup_rule_output(billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                            billing_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
-                           name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMarkupRuleResult]:
     """
     Get a markup rule by its rule name.

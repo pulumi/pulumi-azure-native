@@ -24,29 +24,28 @@ class RoutePolicyArgs:
     def __init__(__self__, *,
                  network_fabric_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 route_policy_name: pulumi.Input[_builtins.str],
                  statements: pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]],
                  address_family_type: pulumi.Input[Optional[Union[_builtins.str, 'AddressFamilyType']]] = None,
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
                  default_action: pulumi.Input[Optional[Union[_builtins.str, 'CommunityActionTypes']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a RoutePolicy resource.
 
         :param pulumi.Input[_builtins.str] network_fabric_id: Arm Resource ID of Network Fabric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] route_policy_name: Name of the Route Policy.
         :param pulumi.Input[Sequence[pulumi.Input['RoutePolicyStatementPropertiesArgs']]] statements: Route Policy statements.
         :param pulumi.Input[Union[_builtins.str, 'AddressFamilyType']] address_family_type: AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
         :param pulumi.Input[Union[_builtins.str, 'CommunityActionTypes']] default_action: Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] route_policy_name: Name of the Route Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "route_policy_name", route_policy_name)
         pulumi.set(__self__, "statements", statements)
         if address_family_type is None:
             address_family_type = 'IPv4'
@@ -60,6 +59,8 @@ class RoutePolicyArgs:
             pulumi.set(__self__, "default_action", default_action)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if route_policy_name is not None:
+            pulumi.set(__self__, "route_policy_name", route_policy_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -86,18 +87,6 @@ class RoutePolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="routePolicyName")
-    def route_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Route Policy.
-        """
-        return pulumi.get(self, "route_policy_name")
-
-    @route_policy_name.setter
-    def route_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "route_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -158,6 +147,18 @@ class RoutePolicyArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routePolicyName")
+    def route_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Route Policy.
+        """
+        return pulumi.get(self, "route_policy_name")
+
+    @route_policy_name.setter
+    def route_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "route_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -269,8 +270,6 @@ class RoutePolicy(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if route_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'route_policy_name'")
             __props__.__dict__["route_policy_name"] = route_policy_name
             if statements is None and not opts.urn:
                 raise TypeError("Missing required property 'statements'")

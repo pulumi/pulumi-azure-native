@@ -22,45 +22,34 @@ __all__ = ['AgentArgs', 'Agent']
 @pulumi.input_type
 class AgentArgs:
     def __init__(__self__, *,
-                 agent_name: pulumi.Input[_builtins.str],
                  arc_resource_id: pulumi.Input[_builtins.str],
                  arc_vm_uuid: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_mover_name: pulumi.Input[_builtins.str],
+                 agent_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  upload_limit_schedule: pulumi.Input[Optional['UploadLimitScheduleArgs']] = None):
         """
         The set of arguments for constructing a Agent resource.
 
-        :param pulumi.Input[_builtins.str] agent_name: The name of the Agent resource.
         :param pulumi.Input[_builtins.str] arc_resource_id: The fully qualified resource ID of the Hybrid Compute resource for the Agent.
         :param pulumi.Input[_builtins.str] arc_vm_uuid: The VM UUID of the Hybrid Compute resource for the Agent.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] storage_mover_name: The name of the Storage Mover resource.
+        :param pulumi.Input[_builtins.str] agent_name: The name of the Agent resource.
         :param pulumi.Input[_builtins.str] description: A description for the Agent.
         :param pulumi.Input['UploadLimitScheduleArgs'] upload_limit_schedule: The WAN-link upload limit schedule that applies to any Job Run the agent executes. Data plane operations (migrating files) are affected. Control plane operations ensure seamless migration functionality and are not limited by this schedule. The schedule is interpreted with the agent's local time.
         """
-        pulumi.set(__self__, "agent_name", agent_name)
         pulumi.set(__self__, "arc_resource_id", arc_resource_id)
         pulumi.set(__self__, "arc_vm_uuid", arc_vm_uuid)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_mover_name", storage_mover_name)
+        if agent_name is not None:
+            pulumi.set(__self__, "agent_name", agent_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if upload_limit_schedule is not None:
             pulumi.set(__self__, "upload_limit_schedule", upload_limit_schedule)
-
-    @_builtins.property
-    @pulumi.getter(name="agentName")
-    def agent_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Agent resource.
-        """
-        return pulumi.get(self, "agent_name")
-
-    @agent_name.setter
-    def agent_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter(name="arcResourceId")
@@ -109,6 +98,18 @@ class AgentArgs:
     @storage_mover_name.setter
     def storage_mover_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "storage_mover_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="agentName")
+    def agent_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Agent resource.
+        """
+        return pulumi.get(self, "agent_name")
+
+    @agent_name.setter
+    def agent_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "agent_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -212,8 +213,6 @@ class Agent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentArgs.__new__(AgentArgs)
 
-            if agent_name is None and not opts.urn:
-                raise TypeError("Missing required property 'agent_name'")
             __props__.__dict__["agent_name"] = agent_name
             if arc_resource_id is None and not opts.urn:
                 raise TypeError("Missing required property 'arc_resource_id'")

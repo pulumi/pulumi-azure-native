@@ -23,24 +23,25 @@ __all__ = ['AgentApplicationArgs', 'AgentApplication']
 class AgentApplicationArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['AgenticApplicationPropertiesArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AgentApplication resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of Cognitive Services account.
-        :param pulumi.Input[_builtins.str] name: Name for the Agent Application.
         :param pulumi.Input[_builtins.str] project_name: The name of Cognitive Services account's project.
         :param pulumi.Input['AgenticApplicationPropertiesArgs'] properties: [Required] Additional attributes of the entity.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] name: Name for the Agent Application.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -53,18 +54,6 @@ class AgentApplicationArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name for the Agent Application.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -101,6 +90,18 @@ class AgentApplicationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name for the Agent Application.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:cognitiveservices:AgentApplication")
@@ -173,8 +174,6 @@ class AgentApplication(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

@@ -24,29 +24,28 @@ class VolumeGroupArgs:
     def __init__(__self__, *,
                  elastic_san_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 volume_group_name: pulumi.Input[_builtins.str],
                  encryption: pulumi.Input[Optional[Union[_builtins.str, 'EncryptionType']]] = None,
                  encryption_properties: pulumi.Input[Optional['EncryptionPropertiesArgs']] = None,
                  enforce_data_integrity_check_for_iscsi: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
                  network_acls: pulumi.Input[Optional['NetworkRuleSetArgs']] = None,
-                 protocol_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageTargetType']]] = None):
+                 protocol_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageTargetType']]] = None,
+                 volume_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VolumeGroup resource.
 
         :param pulumi.Input[_builtins.str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] volume_group_name: The name of the VolumeGroup.
         :param pulumi.Input[Union[_builtins.str, 'EncryptionType']] encryption: Type of encryption
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption_properties: Encryption Properties describing Key Vault and Identity information
         :param pulumi.Input[_builtins.bool] enforce_data_integrity_check_for_iscsi: A boolean indicating whether or not Data Integrity Check is enabled
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: A collection of rules governing the accessibility from specific network locations.
         :param pulumi.Input[Union[_builtins.str, 'StorageTargetType']] protocol_type: Type of storage target
+        :param pulumi.Input[_builtins.str] volume_group_name: The name of the VolumeGroup.
         """
         pulumi.set(__self__, "elastic_san_name", elastic_san_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "volume_group_name", volume_group_name)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if encryption_properties is not None:
@@ -59,6 +58,8 @@ class VolumeGroupArgs:
             pulumi.set(__self__, "network_acls", network_acls)
         if protocol_type is not None:
             pulumi.set(__self__, "protocol_type", protocol_type)
+        if volume_group_name is not None:
+            pulumi.set(__self__, "volume_group_name", volume_group_name)
 
     @_builtins.property
     @pulumi.getter(name="elasticSanName")
@@ -83,18 +84,6 @@ class VolumeGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="volumeGroupName")
-    def volume_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the VolumeGroup.
-        """
-        return pulumi.get(self, "volume_group_name")
-
-    @volume_group_name.setter
-    def volume_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "volume_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -167,6 +156,18 @@ class VolumeGroupArgs:
     @protocol_type.setter
     def protocol_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'StorageTargetType']]]):
         pulumi.set(self, "protocol_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeGroupName")
+    def volume_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the VolumeGroup.
+        """
+        return pulumi.get(self, "volume_group_name")
+
+    @volume_group_name.setter
+    def volume_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "volume_group_name", value)
 
 
 @pulumi.type_token("azure-native:elasticsan:VolumeGroup")
@@ -264,8 +265,6 @@ class VolumeGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if volume_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'volume_group_name'")
             __props__.__dict__["volume_group_name"] = volume_group_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

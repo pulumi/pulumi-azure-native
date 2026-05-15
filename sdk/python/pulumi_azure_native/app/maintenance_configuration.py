@@ -22,34 +22,23 @@ __all__ = ['MaintenanceConfigurationArgs', 'MaintenanceConfiguration']
 @pulumi.input_type
 class MaintenanceConfigurationArgs:
     def __init__(__self__, *,
-                 config_name: pulumi.Input[_builtins.str],
                  environment_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 scheduled_entries: pulumi.Input[Sequence[pulumi.Input['ScheduledEntryArgs']]]):
+                 scheduled_entries: pulumi.Input[Sequence[pulumi.Input['ScheduledEntryArgs']]],
+                 config_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MaintenanceConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] config_name: The name of the maintenance configuration.
         :param pulumi.Input[_builtins.str] environment_name: The name of the Managed Environment.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduledEntryArgs']]] scheduled_entries: List of maintenance schedules for a managed environment.
+        :param pulumi.Input[_builtins.str] config_name: The name of the maintenance configuration.
         """
-        pulumi.set(__self__, "config_name", config_name)
         pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scheduled_entries", scheduled_entries)
-
-    @_builtins.property
-    @pulumi.getter(name="configName")
-    def config_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the maintenance configuration.
-        """
-        return pulumi.get(self, "config_name")
-
-    @config_name.setter
-    def config_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "config_name", value)
+        if config_name is not None:
+            pulumi.set(__self__, "config_name", config_name)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
@@ -86,6 +75,18 @@ class MaintenanceConfigurationArgs:
     @scheduled_entries.setter
     def scheduled_entries(self, value: pulumi.Input[Sequence[pulumi.Input['ScheduledEntryArgs']]]):
         pulumi.set(self, "scheduled_entries", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configName")
+    def config_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the maintenance configuration.
+        """
+        return pulumi.get(self, "config_name")
+
+    @config_name.setter
+    def config_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "config_name", value)
 
 
 @pulumi.type_token("azure-native:app:MaintenanceConfiguration")
@@ -156,8 +157,6 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MaintenanceConfigurationArgs.__new__(MaintenanceConfigurationArgs)
 
-            if config_name is None and not opts.urn:
-                raise TypeError("Missing required property 'config_name'")
             __props__.__dict__["config_name"] = config_name
             if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")

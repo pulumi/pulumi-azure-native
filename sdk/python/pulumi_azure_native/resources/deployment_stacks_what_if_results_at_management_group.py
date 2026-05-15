@@ -22,40 +22,29 @@ __all__ = ['DeploymentStacksWhatIfResultsAtManagementGroupArgs', 'DeploymentStac
 @pulumi.input_type
 class DeploymentStacksWhatIfResultsAtManagementGroupArgs:
     def __init__(__self__, *,
-                 deployment_stacks_what_if_result_name: pulumi.Input[_builtins.str],
                  management_group_id: pulumi.Input[_builtins.str],
+                 deployment_stacks_what_if_result_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['DeploymentStacksWhatIfResultPropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DeploymentStacksWhatIfResultsAtManagementGroup resource.
 
-        :param pulumi.Input[_builtins.str] deployment_stacks_what_if_result_name: Name of the deployment stack what-if result.
         :param pulumi.Input[_builtins.str] management_group_id: The management group ID.
+        :param pulumi.Input[_builtins.str] deployment_stacks_what_if_result_name: Name of the deployment stack what-if result.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         :param pulumi.Input['DeploymentStacksWhatIfResultPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "deployment_stacks_what_if_result_name", deployment_stacks_what_if_result_name)
         pulumi.set(__self__, "management_group_id", management_group_id)
+        if deployment_stacks_what_if_result_name is not None:
+            pulumi.set(__self__, "deployment_stacks_what_if_result_name", deployment_stacks_what_if_result_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentStacksWhatIfResultName")
-    def deployment_stacks_what_if_result_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the deployment stack what-if result.
-        """
-        return pulumi.get(self, "deployment_stacks_what_if_result_name")
-
-    @deployment_stacks_what_if_result_name.setter
-    def deployment_stacks_what_if_result_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "deployment_stacks_what_if_result_name", value)
 
     @_builtins.property
     @pulumi.getter(name="managementGroupId")
@@ -68,6 +57,18 @@ class DeploymentStacksWhatIfResultsAtManagementGroupArgs:
     @management_group_id.setter
     def management_group_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "management_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentStacksWhatIfResultName")
+    def deployment_stacks_what_if_result_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the deployment stack what-if result.
+        """
+        return pulumi.get(self, "deployment_stacks_what_if_result_name")
+
+    @deployment_stacks_what_if_result_name.setter
+    def deployment_stacks_what_if_result_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "deployment_stacks_what_if_result_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -173,8 +174,6 @@ class DeploymentStacksWhatIfResultsAtManagementGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DeploymentStacksWhatIfResultsAtManagementGroupArgs.__new__(DeploymentStacksWhatIfResultsAtManagementGroupArgs)
 
-            if deployment_stacks_what_if_result_name is None and not opts.urn:
-                raise TypeError("Missing required property 'deployment_stacks_what_if_result_name'")
             __props__.__dict__["deployment_stacks_what_if_result_name"] = deployment_stacks_what_if_result_name
             __props__.__dict__["location"] = location
             if management_group_id is None and not opts.urn:

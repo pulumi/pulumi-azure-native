@@ -22,10 +22,10 @@ __all__ = ['AccessBridgeArgs', 'AccessBridge']
 @pulumi.input_type
 class AccessBridgeArgs:
     def __init__(__self__, *,
-                 access_bridge_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  network_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 access_bridge_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv4_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  ipv6_connected_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,20 +34,21 @@ class AccessBridgeArgs:
         """
         The set of arguments for constructing a AccessBridge resource.
 
-        :param pulumi.Input[_builtins.str] access_bridge_name: The name of the access bridge.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[_builtins.str] network_id: The resource ID of the internal network in a layer 3 isolation domain containing the IP subnets to use.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] access_bridge_name: The name of the access bridge.
         :param pulumi.Input[_builtins.str] ipv4_connected_prefix: The IPv4 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.
         :param pulumi.Input[_builtins.str] ipv6_connected_prefix: The IPv6 subnet from which the access bridge allocates an address. This subnet must be part of the internal network specified by networkId.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Sequence[pulumi.Input['AccessBridgeSecurityRuleArgs']]] security_rules: The list of security rules enforced by the access bridge.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "access_bridge_name", access_bridge_name)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "network_id", network_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if access_bridge_name is not None:
+            pulumi.set(__self__, "access_bridge_name", access_bridge_name)
         if ipv4_connected_prefix is not None:
             pulumi.set(__self__, "ipv4_connected_prefix", ipv4_connected_prefix)
         if ipv6_connected_prefix is not None:
@@ -58,18 +59,6 @@ class AccessBridgeArgs:
             pulumi.set(__self__, "security_rules", security_rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="accessBridgeName")
-    def access_bridge_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the access bridge.
-        """
-        return pulumi.get(self, "access_bridge_name")
-
-    @access_bridge_name.setter
-    def access_bridge_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "access_bridge_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -106,6 +95,18 @@ class AccessBridgeArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessBridgeName")
+    def access_bridge_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the access bridge.
+        """
+        return pulumi.get(self, "access_bridge_name")
+
+    @access_bridge_name.setter
+    def access_bridge_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "access_bridge_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv4ConnectedPrefix")
@@ -243,8 +244,6 @@ class AccessBridge(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessBridgeArgs.__new__(AccessBridgeArgs)
 
-            if access_bridge_name is None and not opts.urn:
-                raise TypeError("Missing required property 'access_bridge_name'")
             __props__.__dict__["access_bridge_name"] = access_bridge_name
             if extended_location is None and not opts.urn:
                 raise TypeError("Missing required property 'extended_location'")

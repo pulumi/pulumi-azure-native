@@ -23,23 +23,24 @@ __all__ = ['EntityArgs', 'Entity']
 class EntityArgs:
     def __init__(__self__, *,
                  azure_monitor_workspace_name: pulumi.Input[_builtins.str],
-                 entity_name: pulumi.Input[_builtins.str],
                  health_model_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 entity_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['EntityPropertiesArgs']] = None):
         """
         The set of arguments for constructing a Entity resource.
 
         :param pulumi.Input[_builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
-        :param pulumi.Input[_builtins.str] entity_name: Name of the entity. Must be unique within a health model.
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] entity_name: Name of the entity. Must be unique within a health model.
         :param pulumi.Input['EntityPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
         pulumi.set(__self__, "azure_monitor_workspace_name", azure_monitor_workspace_name)
-        pulumi.set(__self__, "entity_name", entity_name)
         pulumi.set(__self__, "health_model_name", health_model_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if entity_name is not None:
+            pulumi.set(__self__, "entity_name", entity_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -54,18 +55,6 @@ class EntityArgs:
     @azure_monitor_workspace_name.setter
     def azure_monitor_workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "azure_monitor_workspace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="entityName")
-    def entity_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the entity. Must be unique within a health model.
-        """
-        return pulumi.get(self, "entity_name")
-
-    @entity_name.setter
-    def entity_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "entity_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthModelName")
@@ -90,6 +79,18 @@ class EntityArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="entityName")
+    def entity_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the entity. Must be unique within a health model.
+        """
+        return pulumi.get(self, "entity_name")
+
+    @entity_name.setter
+    def entity_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "entity_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,8 +175,6 @@ class Entity(pulumi.CustomResource):
             if azure_monitor_workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azure_monitor_workspace_name'")
             __props__.__dict__["azure_monitor_workspace_name"] = azure_monitor_workspace_name
-            if entity_name is None and not opts.urn:
-                raise TypeError("Missing required property 'entity_name'")
             __props__.__dict__["entity_name"] = entity_name
             if health_model_name is None and not opts.urn:
                 raise TypeError("Missing required property 'health_model_name'")

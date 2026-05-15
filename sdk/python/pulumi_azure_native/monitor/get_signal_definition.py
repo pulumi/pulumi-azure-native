@@ -144,7 +144,7 @@ def get_signal_definition(azure_monitor_workspace_name: Optional[_builtins.str] 
 def get_signal_definition_output(azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 signal_definition_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 signal_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalDefinitionResult]:
     """
     Get a SignalDefinition

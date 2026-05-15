@@ -181,7 +181,7 @@ def get_gremlin_resource_gremlin_role_assignment(account_name: Optional[_builtin
         type=pulumi.get(__ret__, 'type'))
 def get_gremlin_resource_gremlin_role_assignment_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        role_assignment_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        role_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGremlinResourceGremlinRoleAssignmentResult]:
     """
     Retrieves the properties of an existing Azure Cosmos DB Gremlin Role Assignment with the given Id.

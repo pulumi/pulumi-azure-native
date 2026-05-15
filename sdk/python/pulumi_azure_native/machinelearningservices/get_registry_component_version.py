@@ -146,7 +146,7 @@ def get_registry_component_version(component_name: Optional[_builtins.str] = Non
 def get_registry_component_version_output(component_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                          version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                          version: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistryComponentVersionResult]:
     """
     Get version.

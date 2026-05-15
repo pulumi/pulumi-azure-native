@@ -23,28 +23,27 @@ __all__ = ['CustomizableConnectorDefinitionArgs', 'CustomizableConnectorDefiniti
 class CustomizableConnectorDefinitionArgs:
     def __init__(__self__, *,
                  connector_ui_config: pulumi.Input['CustomizableConnectorUiConfigArgs'],
-                 data_connector_definition_name: pulumi.Input[_builtins.str],
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  connections_config: pulumi.Input[Optional['CustomizableConnectionsConfigArgs']] = None,
                  created_time_utc: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_connector_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  last_modified_utc: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomizableConnectorDefinition resource.
 
         :param pulumi.Input['CustomizableConnectorUiConfigArgs'] connector_ui_config: The UiConfig for 'Customizable' connector definition kind.
-        :param pulumi.Input[_builtins.str] data_connector_definition_name: The data connector definition name.
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector definitions
                Expected value is 'Customizable'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input['CustomizableConnectionsConfigArgs'] connections_config: The UiConfig for 'Customizable' connector definition kind.
         :param pulumi.Input[_builtins.str] created_time_utc: Gets or sets the connector definition created date in UTC format.
+        :param pulumi.Input[_builtins.str] data_connector_definition_name: The data connector definition name.
         :param pulumi.Input[_builtins.str] last_modified_utc: Gets or sets the connector definition last modified date in UTC format.
         """
         pulumi.set(__self__, "connector_ui_config", connector_ui_config)
-        pulumi.set(__self__, "data_connector_definition_name", data_connector_definition_name)
         pulumi.set(__self__, "kind", 'Customizable')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
@@ -52,6 +51,8 @@ class CustomizableConnectorDefinitionArgs:
             pulumi.set(__self__, "connections_config", connections_config)
         if created_time_utc is not None:
             pulumi.set(__self__, "created_time_utc", created_time_utc)
+        if data_connector_definition_name is not None:
+            pulumi.set(__self__, "data_connector_definition_name", data_connector_definition_name)
         if last_modified_utc is not None:
             pulumi.set(__self__, "last_modified_utc", last_modified_utc)
 
@@ -66,18 +67,6 @@ class CustomizableConnectorDefinitionArgs:
     @connector_ui_config.setter
     def connector_ui_config(self, value: pulumi.Input['CustomizableConnectorUiConfigArgs']):
         pulumi.set(self, "connector_ui_config", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataConnectorDefinitionName")
-    def data_connector_definition_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The data connector definition name.
-        """
-        return pulumi.get(self, "data_connector_definition_name")
-
-    @data_connector_definition_name.setter
-    def data_connector_definition_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data_connector_definition_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -139,6 +128,18 @@ class CustomizableConnectorDefinitionArgs:
     @created_time_utc.setter
     def created_time_utc(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_time_utc", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataConnectorDefinitionName")
+    def data_connector_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data connector definition name.
+        """
+        return pulumi.get(self, "data_connector_definition_name")
+
+    @data_connector_definition_name.setter
+    def data_connector_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_connector_definition_name", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedUtc")
@@ -235,8 +236,6 @@ class CustomizableConnectorDefinition(pulumi.CustomResource):
                 raise TypeError("Missing required property 'connector_ui_config'")
             __props__.__dict__["connector_ui_config"] = connector_ui_config
             __props__.__dict__["created_time_utc"] = created_time_utc
-            if data_connector_definition_name is None and not opts.urn:
-                raise TypeError("Missing required property 'data_connector_definition_name'")
             __props__.__dict__["data_connector_definition_name"] = data_connector_definition_name
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")

@@ -23,13 +23,13 @@ __all__ = ['SmartDetectorAlertRuleArgs', 'SmartDetectorAlertRule']
 class SmartDetectorAlertRuleArgs:
     def __init__(__self__, *,
                  action_groups: pulumi.Input['ActionGroupsInformationArgs'],
-                 alert_rule_name: pulumi.Input[_builtins.str],
                  detector: pulumi.Input['DetectorArgs'],
                  frequency: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  severity: pulumi.Input[Union[_builtins.str, 'Severity']],
                  state: pulumi.Input[Union[_builtins.str, 'AlertRuleState']],
+                 alert_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -38,26 +38,27 @@ class SmartDetectorAlertRuleArgs:
         The set of arguments for constructing a SmartDetectorAlertRule resource.
 
         :param pulumi.Input['ActionGroupsInformationArgs'] action_groups: The alert rule actions.
-        :param pulumi.Input[_builtins.str] alert_rule_name: The name of the alert rule.
         :param pulumi.Input['DetectorArgs'] detector: The alert rule's detector.
         :param pulumi.Input[_builtins.str] frequency: The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scope: The alert rule resources scope.
         :param pulumi.Input[Union[_builtins.str, 'Severity']] severity: The alert rule severity.
         :param pulumi.Input[Union[_builtins.str, 'AlertRuleState']] state: The alert rule state.
+        :param pulumi.Input[_builtins.str] alert_rule_name: The name of the alert rule.
         :param pulumi.Input[_builtins.str] description: The alert rule description.
         :param pulumi.Input[_builtins.str] location: The resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The resource tags.
         :param pulumi.Input['ThrottlingInformationArgs'] throttling: The alert rule throttling information.
         """
         pulumi.set(__self__, "action_groups", action_groups)
-        pulumi.set(__self__, "alert_rule_name", alert_rule_name)
         pulumi.set(__self__, "detector", detector)
         pulumi.set(__self__, "frequency", frequency)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "severity", severity)
         pulumi.set(__self__, "state", state)
+        if alert_rule_name is not None:
+            pulumi.set(__self__, "alert_rule_name", alert_rule_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location is None:
@@ -80,18 +81,6 @@ class SmartDetectorAlertRuleArgs:
     @action_groups.setter
     def action_groups(self, value: pulumi.Input['ActionGroupsInformationArgs']):
         pulumi.set(self, "action_groups", value)
-
-    @_builtins.property
-    @pulumi.getter(name="alertRuleName")
-    def alert_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the alert rule.
-        """
-        return pulumi.get(self, "alert_rule_name")
-
-    @alert_rule_name.setter
-    def alert_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "alert_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -164,6 +153,18 @@ class SmartDetectorAlertRuleArgs:
     @state.setter
     def state(self, value: pulumi.Input[Union[_builtins.str, 'AlertRuleState']]):
         pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="alertRuleName")
+    def alert_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the alert rule.
+        """
+        return pulumi.get(self, "alert_rule_name")
+
+    @alert_rule_name.setter
+    def alert_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "alert_rule_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -309,8 +310,6 @@ class SmartDetectorAlertRule(pulumi.CustomResource):
             if action_groups is None and not opts.urn:
                 raise TypeError("Missing required property 'action_groups'")
             __props__.__dict__["action_groups"] = action_groups
-            if alert_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'alert_rule_name'")
             __props__.__dict__["alert_rule_name"] = alert_rule_name
             __props__.__dict__["description"] = description
             if detector is None and not opts.urn:

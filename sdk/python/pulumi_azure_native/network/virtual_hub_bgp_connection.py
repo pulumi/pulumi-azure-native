@@ -21,9 +21,9 @@ __all__ = ['VirtualHubBgpConnectionArgs', 'VirtualHubBgpConnection']
 @pulumi.input_type
 class VirtualHubBgpConnectionArgs:
     def __init__(__self__, *,
-                 connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_hub_name: pulumi.Input[_builtins.str],
+                 connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  hub_virtual_network_connection: pulumi.Input[Optional['SubResourceArgs']] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,18 +32,19 @@ class VirtualHubBgpConnectionArgs:
         """
         The set of arguments for constructing a VirtualHubBgpConnection resource.
 
-        :param pulumi.Input[_builtins.str] connection_name: The name of the connection.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VirtualHub.
         :param pulumi.Input[_builtins.str] virtual_hub_name: The name of the VirtualHub.
+        :param pulumi.Input[_builtins.str] connection_name: The name of the connection.
         :param pulumi.Input['SubResourceArgs'] hub_virtual_network_connection: The reference to the HubVirtualNetworkConnection resource.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: Name of the connection.
         :param pulumi.Input[_builtins.float] peer_asn: Peer ASN.
         :param pulumi.Input[_builtins.str] peer_ip: Peer IP.
         """
-        pulumi.set(__self__, "connection_name", connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_hub_name", virtual_hub_name)
+        if connection_name is not None:
+            pulumi.set(__self__, "connection_name", connection_name)
         if hub_virtual_network_connection is not None:
             pulumi.set(__self__, "hub_virtual_network_connection", hub_virtual_network_connection)
         if id is not None:
@@ -54,18 +55,6 @@ class VirtualHubBgpConnectionArgs:
             pulumi.set(__self__, "peer_asn", peer_asn)
         if peer_ip is not None:
             pulumi.set(__self__, "peer_ip", peer_ip)
-
-    @_builtins.property
-    @pulumi.getter(name="connectionName")
-    def connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the connection.
-        """
-        return pulumi.get(self, "connection_name")
-
-    @connection_name.setter
-    def connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -90,6 +79,18 @@ class VirtualHubBgpConnectionArgs:
     @virtual_hub_name.setter
     def virtual_hub_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "virtual_hub_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionName")
+    def connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the connection.
+        """
+        return pulumi.get(self, "connection_name")
+
+    @connection_name.setter
+    def connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hubVirtualNetworkConnection")
@@ -232,8 +233,6 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VirtualHubBgpConnectionArgs.__new__(VirtualHubBgpConnectionArgs)
 
-            if connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
             __props__.__dict__["hub_virtual_network_connection"] = hub_virtual_network_connection
             __props__.__dict__["id"] = id

@@ -23,23 +23,22 @@ __all__ = ['TargetArgs', 'Target']
 class TargetArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 target_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['TargetPropertiesArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 target_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Target resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] target_name: Name of the target
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['TargetPropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] target_name: Name of the target
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_name", target_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
@@ -48,6 +47,8 @@ class TargetArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if target_name is not None:
+            pulumi.set(__self__, "target_name", target_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -60,18 +61,6 @@ class TargetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetName")
-    def target_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the target
-        """
-        return pulumi.get(self, "target_name")
-
-    @target_name.setter
-    def target_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "target_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -120,6 +109,18 @@ class TargetArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetName")
+    def target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the target
+        """
+        return pulumi.get(self, "target_name")
+
+    @target_name.setter
+    def target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "target_name", value)
 
 
 @pulumi.type_token("azure-native:edge:Target")
@@ -203,8 +204,6 @@ class Target(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
-            if target_name is None and not opts.urn:
-                raise TypeError("Missing required property 'target_name'")
             __props__.__dict__["target_name"] = target_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None

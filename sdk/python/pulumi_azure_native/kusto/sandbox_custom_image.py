@@ -23,31 +23,32 @@ class SandboxCustomImageArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  language: pulumi.Input[Union[_builtins.str, 'Language']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 sandbox_custom_image_name: pulumi.Input[_builtins.str],
                  base_image_name: pulumi.Input[Optional[_builtins.str]] = None,
                  language_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 requirements_file_content: pulumi.Input[Optional[_builtins.str]] = None):
+                 requirements_file_content: pulumi.Input[Optional[_builtins.str]] = None,
+                 sandbox_custom_image_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SandboxCustomImage resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[Union[_builtins.str, 'Language']] language: The language name, for example Python.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] sandbox_custom_image_name: The name of the sandbox custom image.
         :param pulumi.Input[_builtins.str] base_image_name: The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
         :param pulumi.Input[_builtins.str] language_version: The version of the language. Either this property or baseImageName should be specified.
         :param pulumi.Input[_builtins.str] requirements_file_content: The requirements file content.
+        :param pulumi.Input[_builtins.str] sandbox_custom_image_name: The name of the sandbox custom image.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "language", language)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sandbox_custom_image_name", sandbox_custom_image_name)
         if base_image_name is not None:
             pulumi.set(__self__, "base_image_name", base_image_name)
         if language_version is not None:
             pulumi.set(__self__, "language_version", language_version)
         if requirements_file_content is not None:
             pulumi.set(__self__, "requirements_file_content", requirements_file_content)
+        if sandbox_custom_image_name is not None:
+            pulumi.set(__self__, "sandbox_custom_image_name", sandbox_custom_image_name)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -86,18 +87,6 @@ class SandboxCustomImageArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="sandboxCustomImageName")
-    def sandbox_custom_image_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the sandbox custom image.
-        """
-        return pulumi.get(self, "sandbox_custom_image_name")
-
-    @sandbox_custom_image_name.setter
-    def sandbox_custom_image_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sandbox_custom_image_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="baseImageName")
     def base_image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -132,6 +121,18 @@ class SandboxCustomImageArgs:
     @requirements_file_content.setter
     def requirements_file_content(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "requirements_file_content", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sandboxCustomImageName")
+    def sandbox_custom_image_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the sandbox custom image.
+        """
+        return pulumi.get(self, "sandbox_custom_image_name")
+
+    @sandbox_custom_image_name.setter
+    def sandbox_custom_image_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sandbox_custom_image_name", value)
 
 
 @pulumi.type_token("azure-native:kusto:SandboxCustomImage")
@@ -223,8 +224,6 @@ class SandboxCustomImage(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sandbox_custom_image_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sandbox_custom_image_name'")
             __props__.__dict__["sandbox_custom_image_name"] = sandbox_custom_image_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

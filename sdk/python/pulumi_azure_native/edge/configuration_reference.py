@@ -21,32 +21,21 @@ __all__ = ['ConfigurationReferenceArgs', 'ConfigurationReference']
 @pulumi.input_type
 class ConfigurationReferenceArgs:
     def __init__(__self__, *,
-                 configuration_reference_name: pulumi.Input[_builtins.str],
                  resource_uri: pulumi.Input[_builtins.str],
+                 configuration_reference_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ConfigurationReferencePropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationReference resource.
 
-        :param pulumi.Input[_builtins.str] configuration_reference_name: The name of the ConfigurationReference
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
+        :param pulumi.Input[_builtins.str] configuration_reference_name: The name of the ConfigurationReference
         :param pulumi.Input['ConfigurationReferencePropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "configuration_reference_name", configuration_reference_name)
         pulumi.set(__self__, "resource_uri", resource_uri)
+        if configuration_reference_name is not None:
+            pulumi.set(__self__, "configuration_reference_name", configuration_reference_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="configurationReferenceName")
-    def configuration_reference_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the ConfigurationReference
-        """
-        return pulumi.get(self, "configuration_reference_name")
-
-    @configuration_reference_name.setter
-    def configuration_reference_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "configuration_reference_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceUri")
@@ -59,6 +48,18 @@ class ConfigurationReferenceArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationReferenceName")
+    def configuration_reference_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the ConfigurationReference
+        """
+        return pulumi.get(self, "configuration_reference_name")
+
+    @configuration_reference_name.setter
+    def configuration_reference_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_reference_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -138,8 +139,6 @@ class ConfigurationReference(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ConfigurationReferenceArgs.__new__(ConfigurationReferenceArgs)
 
-            if configuration_reference_name is None and not opts.urn:
-                raise TypeError("Missing required property 'configuration_reference_name'")
             __props__.__dict__["configuration_reference_name"] = configuration_reference_name
             __props__.__dict__["properties"] = properties
             if resource_uri is None and not opts.urn:

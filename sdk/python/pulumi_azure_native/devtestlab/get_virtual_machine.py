@@ -611,7 +611,7 @@ def get_virtual_machine(expand: Optional[_builtins.str] = None,
         virtual_machine_creation_source=pulumi.get(__ret__, 'virtual_machine_creation_source'))
 def get_virtual_machine_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                lab_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """

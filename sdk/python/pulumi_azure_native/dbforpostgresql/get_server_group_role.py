@@ -188,7 +188,7 @@ def get_server_group_role(cluster_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_server_group_role_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 role_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 role_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerGroupRoleResult]:
     """
     Gets information about a cluster role.

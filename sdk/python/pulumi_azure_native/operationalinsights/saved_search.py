@@ -25,10 +25,10 @@ class SavedSearchArgs:
                  display_name: pulumi.Input[_builtins.str],
                  query: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 saved_search_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  function_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  function_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 saved_search_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['TagArgs']]]] = None,
                  version: pulumi.Input[Optional[_builtins.float]] = None):
         """
@@ -38,10 +38,10 @@ class SavedSearchArgs:
         :param pulumi.Input[_builtins.str] display_name: Saved search display name.
         :param pulumi.Input[_builtins.str] query: The query expression for the saved search.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] saved_search_id: The id of the saved search.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] function_alias: The function alias if query serves as a function.
         :param pulumi.Input[_builtins.str] function_parameters: The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
+        :param pulumi.Input[_builtins.str] saved_search_id: The id of the saved search.
         :param pulumi.Input[Sequence[pulumi.Input['TagArgs']]] tags: The tags attached to the saved search.
         :param pulumi.Input[_builtins.float] version: The version number of the query language. The current version is 2 and is the default.
         """
@@ -49,12 +49,13 @@ class SavedSearchArgs:
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "query", query)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "saved_search_id", saved_search_id)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if function_alias is not None:
             pulumi.set(__self__, "function_alias", function_alias)
         if function_parameters is not None:
             pulumi.set(__self__, "function_parameters", function_parameters)
+        if saved_search_id is not None:
+            pulumi.set(__self__, "saved_search_id", saved_search_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
@@ -109,18 +110,6 @@ class SavedSearchArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="savedSearchId")
-    def saved_search_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The id of the saved search.
-        """
-        return pulumi.get(self, "saved_search_id")
-
-    @saved_search_id.setter
-    def saved_search_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "saved_search_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="workspaceName")
     def workspace_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -155,6 +144,18 @@ class SavedSearchArgs:
     @function_parameters.setter
     def function_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="savedSearchId")
+    def saved_search_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The id of the saved search.
+        """
+        return pulumi.get(self, "saved_search_id")
+
+    @saved_search_id.setter
+    def saved_search_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "saved_search_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -281,8 +282,6 @@ class SavedSearch(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if saved_search_id is None and not opts.urn:
-                raise TypeError("Missing required property 'saved_search_id'")
             __props__.__dict__["saved_search_id"] = saved_search_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version

@@ -23,24 +23,25 @@ __all__ = ['JitNetworkAccessPolicyArgs', 'JitNetworkAccessPolicy']
 class JitNetworkAccessPolicyArgs:
     def __init__(__self__, *,
                  asc_location: pulumi.Input[_builtins.str],
-                 jit_network_access_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_machines: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]],
+                 jit_network_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  requests: pulumi.Input[Optional[Sequence[pulumi.Input['JitNetworkAccessRequestArgs']]]] = None):
         """
         The set of arguments for constructing a JitNetworkAccessPolicy resource.
 
         :param pulumi.Input[_builtins.str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
-        :param pulumi.Input[_builtins.str] jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]] virtual_machines: Configurations for Microsoft.Compute/virtualMachines resource type.
+        :param pulumi.Input[_builtins.str] jit_network_access_policy_name: Name of a Just-in-Time access configuration policy.
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
         """
         pulumi.set(__self__, "asc_location", asc_location)
-        pulumi.set(__self__, "jit_network_access_policy_name", jit_network_access_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_machines", virtual_machines)
+        if jit_network_access_policy_name is not None:
+            pulumi.set(__self__, "jit_network_access_policy_name", jit_network_access_policy_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if requests is not None:
@@ -57,18 +58,6 @@ class JitNetworkAccessPolicyArgs:
     @asc_location.setter
     def asc_location(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "asc_location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="jitNetworkAccessPolicyName")
-    def jit_network_access_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of a Just-in-Time access configuration policy.
-        """
-        return pulumi.get(self, "jit_network_access_policy_name")
-
-    @jit_network_access_policy_name.setter
-    def jit_network_access_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "jit_network_access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -93,6 +82,18 @@ class JitNetworkAccessPolicyArgs:
     @virtual_machines.setter
     def virtual_machines(self, value: pulumi.Input[Sequence[pulumi.Input['JitNetworkAccessPolicyVirtualMachineArgs']]]):
         pulumi.set(self, "virtual_machines", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jitNetworkAccessPolicyName")
+    def jit_network_access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of a Just-in-Time access configuration policy.
+        """
+        return pulumi.get(self, "jit_network_access_policy_name")
+
+    @jit_network_access_policy_name.setter
+    def jit_network_access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "jit_network_access_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -184,8 +185,6 @@ class JitNetworkAccessPolicy(pulumi.CustomResource):
             if asc_location is None and not opts.urn:
                 raise TypeError("Missing required property 'asc_location'")
             __props__.__dict__["asc_location"] = asc_location
-            if jit_network_access_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'jit_network_access_policy_name'")
             __props__.__dict__["jit_network_access_policy_name"] = jit_network_access_policy_name
             __props__.__dict__["kind"] = kind
             __props__.__dict__["requests"] = requests

@@ -209,7 +209,7 @@ def get_mqtt_bridge_topic_map(mq_name: Optional[_builtins.str] = None,
 def get_mqtt_bridge_topic_map_output(mq_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      mqtt_bridge_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     topic_map_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     topic_map_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMqttBridgeTopicMapResult]:
     """
     Get a MqttBridgeTopicMapResource

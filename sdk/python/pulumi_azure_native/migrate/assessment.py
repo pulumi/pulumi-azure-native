@@ -22,41 +22,30 @@ __all__ = ['AssessmentArgs', 'Assessment']
 @pulumi.input_type
 class AssessmentArgs:
     def __init__(__self__, *,
-                 assessment_name: pulumi.Input[_builtins.str],
                  group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['AssessmentPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  e_tag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Assessment resource.
 
-        :param pulumi.Input[_builtins.str] assessment_name: Unique name of an assessment within a project.
         :param pulumi.Input[_builtins.str] group_name: Unique name of a group within a project.
         :param pulumi.Input[_builtins.str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input['AssessmentPropertiesArgs'] properties: Properties of the assessment.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
+        :param pulumi.Input[_builtins.str] assessment_name: Unique name of an assessment within a project.
         :param pulumi.Input[_builtins.str] e_tag: For optimistic concurrency control.
         """
-        pulumi.set(__self__, "assessment_name", assessment_name)
         pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if assessment_name is not None:
+            pulumi.set(__self__, "assessment_name", assessment_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
-
-    @_builtins.property
-    @pulumi.getter(name="assessmentName")
-    def assessment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique name of an assessment within a project.
-        """
-        return pulumi.get(self, "assessment_name")
-
-    @assessment_name.setter
-    def assessment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="groupName")
@@ -105,6 +94,18 @@ class AssessmentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="assessmentName")
+    def assessment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Unique name of an assessment within a project.
+        """
+        return pulumi.get(self, "assessment_name")
+
+    @assessment_name.setter
+    def assessment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "assessment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="eTag")
@@ -189,8 +190,6 @@ class Assessment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AssessmentArgs.__new__(AssessmentArgs)
 
-            if assessment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'assessment_name'")
             __props__.__dict__["assessment_name"] = assessment_name
             __props__.__dict__["e_tag"] = e_tag
             if group_name is None and not opts.urn:

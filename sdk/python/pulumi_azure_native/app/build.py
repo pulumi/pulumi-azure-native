@@ -21,39 +21,28 @@ __all__ = ['BuildArgs', 'Build']
 @pulumi.input_type
 class BuildArgs:
     def __init__(__self__, *,
-                 build_name: pulumi.Input[_builtins.str],
                  builder_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 build_name: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration: pulumi.Input[Optional['BuildConfigurationArgs']] = None,
                  destination_container_registry: pulumi.Input[Optional['ContainerRegistryWithCustomImageArgs']] = None):
         """
         The set of arguments for constructing a Build resource.
 
-        :param pulumi.Input[_builtins.str] build_name: The name of a build.
         :param pulumi.Input[_builtins.str] builder_name: The name of the builder.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] build_name: The name of a build.
         :param pulumi.Input['BuildConfigurationArgs'] configuration: Configuration of the build.
         :param pulumi.Input['ContainerRegistryWithCustomImageArgs'] destination_container_registry: Container registry that the final image will be uploaded to.
         """
-        pulumi.set(__self__, "build_name", build_name)
         pulumi.set(__self__, "builder_name", builder_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if build_name is not None:
+            pulumi.set(__self__, "build_name", build_name)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if destination_container_registry is not None:
             pulumi.set(__self__, "destination_container_registry", destination_container_registry)
-
-    @_builtins.property
-    @pulumi.getter(name="buildName")
-    def build_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of a build.
-        """
-        return pulumi.get(self, "build_name")
-
-    @build_name.setter
-    def build_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "build_name", value)
 
     @_builtins.property
     @pulumi.getter(name="builderName")
@@ -78,6 +67,18 @@ class BuildArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="buildName")
+    def build_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of a build.
+        """
+        return pulumi.get(self, "build_name")
+
+    @build_name.setter
+    def build_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "build_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -175,8 +176,6 @@ class Build(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BuildArgs.__new__(BuildArgs)
 
-            if build_name is None and not opts.urn:
-                raise TypeError("Missing required property 'build_name'")
             __props__.__dict__["build_name"] = build_name
             if builder_name is None and not opts.urn:
                 raise TypeError("Missing required property 'builder_name'")

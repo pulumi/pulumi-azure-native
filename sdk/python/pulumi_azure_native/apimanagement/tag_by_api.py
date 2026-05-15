@@ -22,7 +22,7 @@ class TagByApiArgs:
                  api_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 tag_id: pulumi.Input[_builtins.str]):
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagByApi resource.
 
@@ -34,7 +34,8 @@ class TagByApiArgs:
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "tag_id", tag_id)
+        if tag_id is not None:
+            pulumi.set(__self__, "tag_id", tag_id)
 
     @_builtins.property
     @pulumi.getter(name="apiId")
@@ -74,14 +75,14 @@ class TagByApiArgs:
 
     @_builtins.property
     @pulumi.getter(name="tagId")
-    def tag_id(self) -> pulumi.Input[_builtins.str]:
+    def tag_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tag identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "tag_id")
 
     @tag_id.setter
-    def tag_id(self, value: pulumi.Input[_builtins.str]):
+    def tag_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_id", value)
 
 
@@ -162,8 +163,6 @@ class TagByApi(pulumi.CustomResource):
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
-            if tag_id is None and not opts.urn:
-                raise TypeError("Missing required property 'tag_id'")
             __props__.__dict__["tag_id"] = tag_id
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["display_name"] = None

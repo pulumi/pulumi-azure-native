@@ -25,11 +25,11 @@ class FluxConfigurationArgs:
                  cluster_name: pulumi.Input[_builtins.str],
                  cluster_resource_name: pulumi.Input[_builtins.str],
                  cluster_rp: pulumi.Input[_builtins.str],
-                 flux_configuration_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  azure_blob: pulumi.Input[Optional['AzureBlobDefinitionArgs']] = None,
                  bucket: pulumi.Input[Optional['BucketDefinitionArgs']] = None,
                  configuration_protected_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 flux_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  git_repository: pulumi.Input[Optional['GitRepositoryDefinitionArgs']] = None,
                  kustomizations: pulumi.Input[Optional[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]]] = None,
                  namespace: pulumi.Input[Optional[_builtins.str]] = None,
@@ -44,11 +44,11 @@ class FluxConfigurationArgs:
         :param pulumi.Input[_builtins.str] cluster_name: The name of the kubernetes cluster.
         :param pulumi.Input[_builtins.str] cluster_resource_name: The Kubernetes cluster resource name - i.e. managedClusters, connectedClusters, provisionedClusters.
         :param pulumi.Input[_builtins.str] cluster_rp: The Kubernetes cluster RP - i.e. Microsoft.ContainerService, Microsoft.Kubernetes, Microsoft.HybridContainerService.
-        :param pulumi.Input[_builtins.str] flux_configuration_name: Name of the Flux Configuration.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AzureBlobDefinitionArgs'] azure_blob: Parameters to reconcile to the AzureBlob source kind type.
         :param pulumi.Input['BucketDefinitionArgs'] bucket: Parameters to reconcile to the Bucket source kind type.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] configuration_protected_settings: Key-value pairs of protected configuration settings for the configuration
+        :param pulumi.Input[_builtins.str] flux_configuration_name: Name of the Flux Configuration.
         :param pulumi.Input['GitRepositoryDefinitionArgs'] git_repository: Parameters to reconcile to the GitRepository source kind type.
         :param pulumi.Input[Mapping[str, pulumi.Input['KustomizationDefinitionArgs']]] kustomizations: Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster.
         :param pulumi.Input[_builtins.str] namespace: The namespace to which this configuration is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
@@ -61,7 +61,6 @@ class FluxConfigurationArgs:
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "cluster_resource_name", cluster_resource_name)
         pulumi.set(__self__, "cluster_rp", cluster_rp)
-        pulumi.set(__self__, "flux_configuration_name", flux_configuration_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if azure_blob is not None:
             pulumi.set(__self__, "azure_blob", azure_blob)
@@ -69,6 +68,8 @@ class FluxConfigurationArgs:
             pulumi.set(__self__, "bucket", bucket)
         if configuration_protected_settings is not None:
             pulumi.set(__self__, "configuration_protected_settings", configuration_protected_settings)
+        if flux_configuration_name is not None:
+            pulumi.set(__self__, "flux_configuration_name", flux_configuration_name)
         if git_repository is not None:
             pulumi.set(__self__, "git_repository", git_repository)
         if kustomizations is not None:
@@ -129,18 +130,6 @@ class FluxConfigurationArgs:
         pulumi.set(self, "cluster_rp", value)
 
     @_builtins.property
-    @pulumi.getter(name="fluxConfigurationName")
-    def flux_configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Flux Configuration.
-        """
-        return pulumi.get(self, "flux_configuration_name")
-
-    @flux_configuration_name.setter
-    def flux_configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "flux_configuration_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -187,6 +176,18 @@ class FluxConfigurationArgs:
     @configuration_protected_settings.setter
     def configuration_protected_settings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "configuration_protected_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fluxConfigurationName")
+    def flux_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Flux Configuration.
+        """
+        return pulumi.get(self, "flux_configuration_name")
+
+    @flux_configuration_name.setter
+    def flux_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "flux_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gitRepository")
@@ -401,8 +402,6 @@ class FluxConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'cluster_rp'")
             __props__.__dict__["cluster_rp"] = cluster_rp
             __props__.__dict__["configuration_protected_settings"] = configuration_protected_settings
-            if flux_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'flux_configuration_name'")
             __props__.__dict__["flux_configuration_name"] = flux_configuration_name
             __props__.__dict__["git_repository"] = git_repository
             __props__.__dict__["kustomizations"] = kustomizations

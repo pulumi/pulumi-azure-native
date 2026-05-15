@@ -21,37 +21,26 @@ __all__ = ['EventHubAuthorizationRuleArgs', 'EventHubAuthorizationRule']
 @pulumi.input_type
 class EventHubAuthorizationRuleArgs:
     def __init__(__self__, *,
-                 authorization_rule_name: pulumi.Input[_builtins.str],
                  event_hub_name: pulumi.Input[_builtins.str],
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]):
+                 rights: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]],
+                 authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a EventHubAuthorizationRule resource.
 
-        :param pulumi.Input[_builtins.str] authorization_rule_name: The authorization rule name.
         :param pulumi.Input[_builtins.str] event_hub_name: The Event Hub name
         :param pulumi.Input[_builtins.str] namespace_name: The Namespace name
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group within the azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]] rights: The rights associated with the rule.
+        :param pulumi.Input[_builtins.str] authorization_rule_name: The authorization rule name.
         """
-        pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
         pulumi.set(__self__, "event_hub_name", event_hub_name)
         pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rights", rights)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationRuleName")
-    def authorization_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The authorization rule name.
-        """
-        return pulumi.get(self, "authorization_rule_name")
-
-    @authorization_rule_name.setter
-    def authorization_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "authorization_rule_name", value)
+        if authorization_rule_name is not None:
+            pulumi.set(__self__, "authorization_rule_name", authorization_rule_name)
 
     @_builtins.property
     @pulumi.getter(name="eventHubName")
@@ -100,6 +89,18 @@ class EventHubAuthorizationRuleArgs:
     @rights.setter
     def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessRights']]]]):
         pulumi.set(self, "rights", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationRuleName")
+    def authorization_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The authorization rule name.
+        """
+        return pulumi.get(self, "authorization_rule_name")
+
+    @authorization_rule_name.setter
+    def authorization_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorization_rule_name", value)
 
 
 @pulumi.type_token("azure-native:eventhub:EventHubAuthorizationRule")
@@ -173,8 +174,6 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EventHubAuthorizationRuleArgs.__new__(EventHubAuthorizationRuleArgs)
 
-            if authorization_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'authorization_rule_name'")
             __props__.__dict__["authorization_rule_name"] = authorization_rule_name
             if event_hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'event_hub_name'")

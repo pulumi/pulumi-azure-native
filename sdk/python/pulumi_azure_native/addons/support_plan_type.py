@@ -19,28 +19,17 @@ __all__ = ['SupportPlanTypeArgs', 'SupportPlanType']
 @pulumi.input_type
 class SupportPlanTypeArgs:
     def __init__(__self__, *,
-                 plan_type_name: pulumi.Input[_builtins.str],
-                 provider_name: pulumi.Input[_builtins.str]):
+                 provider_name: pulumi.Input[_builtins.str],
+                 plan_type_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SupportPlanType resource.
 
-        :param pulumi.Input[_builtins.str] plan_type_name: The Canonical support plan type.
         :param pulumi.Input[_builtins.str] provider_name: The support plan type. For now the only valid type is "canonical".
+        :param pulumi.Input[_builtins.str] plan_type_name: The Canonical support plan type.
         """
-        pulumi.set(__self__, "plan_type_name", plan_type_name)
         pulumi.set(__self__, "provider_name", provider_name)
-
-    @_builtins.property
-    @pulumi.getter(name="planTypeName")
-    def plan_type_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Canonical support plan type.
-        """
-        return pulumi.get(self, "plan_type_name")
-
-    @plan_type_name.setter
-    def plan_type_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "plan_type_name", value)
+        if plan_type_name is not None:
+            pulumi.set(__self__, "plan_type_name", plan_type_name)
 
     @_builtins.property
     @pulumi.getter(name="providerName")
@@ -53,6 +42,18 @@ class SupportPlanTypeArgs:
     @provider_name.setter
     def provider_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "provider_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="planTypeName")
+    def plan_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Canonical support plan type.
+        """
+        return pulumi.get(self, "plan_type_name")
+
+    @plan_type_name.setter
+    def plan_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "plan_type_name", value)
 
 
 @pulumi.type_token("azure-native:addons:SupportPlanType")
@@ -113,8 +114,6 @@ class SupportPlanType(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SupportPlanTypeArgs.__new__(SupportPlanTypeArgs)
 
-            if plan_type_name is None and not opts.urn:
-                raise TypeError("Missing required property 'plan_type_name'")
             __props__.__dict__["plan_type_name"] = plan_type_name
             if provider_name is None and not opts.urn:
                 raise TypeError("Missing required property 'provider_name'")

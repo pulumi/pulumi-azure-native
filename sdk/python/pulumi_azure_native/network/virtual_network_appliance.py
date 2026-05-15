@@ -23,25 +23,24 @@ __all__ = ['VirtualNetworkApplianceArgs', 'VirtualNetworkAppliance']
 class VirtualNetworkApplianceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_network_appliance_name: pulumi.Input[_builtins.str],
                  bandwidth_in_gbps: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet: pulumi.Input[Optional['SubnetArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_appliance_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkAppliance resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] virtual_network_appliance_name: The name of the virtual network appliance.
         :param pulumi.Input[_builtins.str] bandwidth_in_gbps: Bandwidth of the VirtualNetworkAppliance resource in Gbps.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['SubnetArgs'] subnet: The reference to the subnet resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] virtual_network_appliance_name: The name of the virtual network appliance.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_network_appliance_name", virtual_network_appliance_name)
         if bandwidth_in_gbps is not None:
             pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
         if id is not None:
@@ -52,6 +51,8 @@ class VirtualNetworkApplianceArgs:
             pulumi.set(__self__, "subnet", subnet)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if virtual_network_appliance_name is not None:
+            pulumi.set(__self__, "virtual_network_appliance_name", virtual_network_appliance_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -64,18 +65,6 @@ class VirtualNetworkApplianceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkApplianceName")
-    def virtual_network_appliance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the virtual network appliance.
-        """
-        return pulumi.get(self, "virtual_network_appliance_name")
-
-    @virtual_network_appliance_name.setter
-    def virtual_network_appliance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_network_appliance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="bandwidthInGbps")
@@ -136,6 +125,18 @@ class VirtualNetworkApplianceArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkApplianceName")
+    def virtual_network_appliance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the virtual network appliance.
+        """
+        return pulumi.get(self, "virtual_network_appliance_name")
+
+    @virtual_network_appliance_name.setter
+    def virtual_network_appliance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_network_appliance_name", value)
 
 
 @pulumi.type_token("azure-native:network:VirtualNetworkAppliance")
@@ -219,8 +220,6 @@ class VirtualNetworkAppliance(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subnet"] = subnet
             __props__.__dict__["tags"] = tags
-            if virtual_network_appliance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_appliance_name'")
             __props__.__dict__["virtual_network_appliance_name"] = virtual_network_appliance_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

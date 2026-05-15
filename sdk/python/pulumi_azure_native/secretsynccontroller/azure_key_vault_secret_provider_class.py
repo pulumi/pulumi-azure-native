@@ -22,11 +22,11 @@ __all__ = ['AzureKeyVaultSecretProviderClassArgs', 'AzureKeyVaultSecretProviderC
 @pulumi.input_type
 class AzureKeyVaultSecretProviderClassArgs:
     def __init__(__self__, *,
-                 azure_key_vault_secret_provider_class_name: pulumi.Input[_builtins.str],
                  client_id: pulumi.Input[_builtins.str],
                  keyvault_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  tenant_id: pulumi.Input[_builtins.str],
+                 azure_key_vault_secret_provider_class_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  objects: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,21 +34,22 @@ class AzureKeyVaultSecretProviderClassArgs:
         """
         The set of arguments for constructing a AzureKeyVaultSecretProviderClass resource.
 
-        :param pulumi.Input[_builtins.str] azure_key_vault_secret_provider_class_name: The name of the AzureKeyVaultSecretProviderClass
         :param pulumi.Input[_builtins.str] client_id: The user assigned managed identity client ID that should be used to access the Azure Key Vault.
         :param pulumi.Input[_builtins.str] keyvault_name: The name of the Azure Key Vault to sync secrets from.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] tenant_id: The Azure Active Directory tenant ID that should be used for authenticating requests to the Azure Key Vault.
+        :param pulumi.Input[_builtins.str] azure_key_vault_secret_provider_class_name: The name of the AzureKeyVaultSecretProviderClass
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] objects: Objects defines the desired state of synced K8s secret objects
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "azure_key_vault_secret_provider_class_name", azure_key_vault_secret_provider_class_name)
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "keyvault_name", keyvault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "tenant_id", tenant_id)
+        if azure_key_vault_secret_provider_class_name is not None:
+            pulumi.set(__self__, "azure_key_vault_secret_provider_class_name", azure_key_vault_secret_provider_class_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if location is not None:
@@ -57,18 +58,6 @@ class AzureKeyVaultSecretProviderClassArgs:
             pulumi.set(__self__, "objects", objects)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="azureKeyVaultSecretProviderClassName")
-    def azure_key_vault_secret_provider_class_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the AzureKeyVaultSecretProviderClass
-        """
-        return pulumi.get(self, "azure_key_vault_secret_provider_class_name")
-
-    @azure_key_vault_secret_provider_class_name.setter
-    def azure_key_vault_secret_provider_class_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "azure_key_vault_secret_provider_class_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -117,6 +106,18 @@ class AzureKeyVaultSecretProviderClassArgs:
     @tenant_id.setter
     def tenant_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "tenant_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureKeyVaultSecretProviderClassName")
+    def azure_key_vault_secret_provider_class_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the AzureKeyVaultSecretProviderClass
+        """
+        return pulumi.get(self, "azure_key_vault_secret_provider_class_name")
+
+    @azure_key_vault_secret_provider_class_name.setter
+    def azure_key_vault_secret_provider_class_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "azure_key_vault_secret_provider_class_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -246,8 +247,6 @@ class AzureKeyVaultSecretProviderClass(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AzureKeyVaultSecretProviderClassArgs.__new__(AzureKeyVaultSecretProviderClassArgs)
 
-            if azure_key_vault_secret_provider_class_name is None and not opts.urn:
-                raise TypeError("Missing required property 'azure_key_vault_secret_provider_class_name'")
             __props__.__dict__["azure_key_vault_secret_provider_class_name"] = azure_key_vault_secret_provider_class_name
             if client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'client_id'")

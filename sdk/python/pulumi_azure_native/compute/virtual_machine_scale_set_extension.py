@@ -23,7 +23,6 @@ class VirtualMachineScaleSetExtensionInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  vm_scale_set_name: pulumi.Input[_builtins.str],
-                 vmss_extension_name: pulumi.Input[_builtins.str],
                  auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_update_tag: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,13 +34,13 @@ class VirtualMachineScaleSetExtensionInitArgs:
                  settings: Optional[Any] = None,
                  suppress_failures: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None):
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 vmss_extension_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineScaleSetExtension resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] vm_scale_set_name: The name of the VM scale set.
-        :param pulumi.Input[_builtins.str] vmss_extension_name: The name of the VM scale set extension.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[_builtins.bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         :param pulumi.Input[_builtins.str] force_update_tag: If a value is provided and is different from the previous value, the extension handler will be forced to update even if the extension configuration has not changed.
@@ -54,10 +53,10 @@ class VirtualMachineScaleSetExtensionInitArgs:
         :param pulumi.Input[_builtins.bool] suppress_failures: Indicates whether failures stemming from the extension will be suppressed (Operational failures such as not connecting to the VM will not be suppressed regardless of this value). The default is false.
         :param pulumi.Input[_builtins.str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[_builtins.str] type_handler_version: Specifies the version of the script handler.
+        :param pulumi.Input[_builtins.str] vmss_extension_name: The name of the VM scale set extension.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vm_scale_set_name", vm_scale_set_name)
-        pulumi.set(__self__, "vmss_extension_name", vmss_extension_name)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
         if enable_automatic_upgrade is not None:
@@ -82,6 +81,8 @@ class VirtualMachineScaleSetExtensionInitArgs:
             pulumi.set(__self__, "type", type)
         if type_handler_version is not None:
             pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if vmss_extension_name is not None:
+            pulumi.set(__self__, "vmss_extension_name", vmss_extension_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -106,18 +107,6 @@ class VirtualMachineScaleSetExtensionInitArgs:
     @vm_scale_set_name.setter
     def vm_scale_set_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vm_scale_set_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vmssExtensionName")
-    def vmss_extension_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the VM scale set extension.
-        """
-        return pulumi.get(self, "vmss_extension_name")
-
-    @vmss_extension_name.setter
-    def vmss_extension_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "vmss_extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="autoUpgradeMinorVersion")
@@ -263,6 +252,18 @@ class VirtualMachineScaleSetExtensionInitArgs:
     def type_handler_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_handler_version", value)
 
+    @_builtins.property
+    @pulumi.getter(name="vmssExtensionName")
+    def vmss_extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the VM scale set extension.
+        """
+        return pulumi.get(self, "vmss_extension_name")
+
+    @vmss_extension_name.setter
+    def vmss_extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vmss_extension_name", value)
+
 
 @pulumi.type_token("azure-native:compute:VirtualMachineScaleSetExtension")
 class VirtualMachineScaleSetExtension(pulumi.CustomResource):
@@ -383,8 +384,6 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             if vm_scale_set_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_scale_set_name'")
             __props__.__dict__["vm_scale_set_name"] = vm_scale_set_name
-            if vmss_extension_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vmss_extension_name'")
             __props__.__dict__["vmss_extension_name"] = vmss_extension_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["provisioning_state"] = None

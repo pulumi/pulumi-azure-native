@@ -21,35 +21,24 @@ __all__ = ['KeyGroupArgs', 'KeyGroup']
 @pulumi.input_type
 class KeyGroupArgs:
     def __init__(__self__, *,
-                 key_group_name: pulumi.Input[_builtins.str],
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 key_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  key_references: pulumi.Input[Optional[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None):
         """
         The set of arguments for constructing a KeyGroup resource.
 
-        :param pulumi.Input[_builtins.str] key_group_name: Name of the KeyGroup under the profile.
         :param pulumi.Input[_builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium which is unique within the resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] key_group_name: Name of the KeyGroup under the profile.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] key_references: Names of UrlSigningKey type secret objects
         """
-        pulumi.set(__self__, "key_group_name", key_group_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if key_group_name is not None:
+            pulumi.set(__self__, "key_group_name", key_group_name)
         if key_references is not None:
             pulumi.set(__self__, "key_references", key_references)
-
-    @_builtins.property
-    @pulumi.getter(name="keyGroupName")
-    def key_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the KeyGroup under the profile.
-        """
-        return pulumi.get(self, "key_group_name")
-
-    @key_group_name.setter
-    def key_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "key_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="profileName")
@@ -74,6 +63,18 @@ class KeyGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyGroupName")
+    def key_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the KeyGroup under the profile.
+        """
+        return pulumi.get(self, "key_group_name")
+
+    @key_group_name.setter
+    def key_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyReferences")
@@ -156,8 +157,6 @@ class KeyGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KeyGroupArgs.__new__(KeyGroupArgs)
 
-            if key_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'key_group_name'")
             __props__.__dict__["key_group_name"] = key_group_name
             __props__.__dict__["key_references"] = key_references
             if profile_name is None and not opts.urn:

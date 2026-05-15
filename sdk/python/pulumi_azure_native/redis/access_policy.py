@@ -20,34 +20,23 @@ __all__ = ['AccessPolicyArgs', 'AccessPolicy']
 @pulumi.input_type
 class AccessPolicyArgs:
     def __init__(__self__, *,
-                 access_policy_name: pulumi.Input[_builtins.str],
                  cache_name: pulumi.Input[_builtins.str],
                  permissions: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 access_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicy resource.
 
-        :param pulumi.Input[_builtins.str] access_policy_name: The name of the access policy that is being added to the Redis cache.
         :param pulumi.Input[_builtins.str] cache_name: The name of the Redis cache.
         :param pulumi.Input[_builtins.str] permissions: Permissions for the access policy. Learn how to configure permissions at https://aka.ms/redis/AADPreRequisites
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] access_policy_name: The name of the access policy that is being added to the Redis cache.
         """
-        pulumi.set(__self__, "access_policy_name", access_policy_name)
         pulumi.set(__self__, "cache_name", cache_name)
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @_builtins.property
-    @pulumi.getter(name="accessPolicyName")
-    def access_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the access policy that is being added to the Redis cache.
-        """
-        return pulumi.get(self, "access_policy_name")
-
-    @access_policy_name.setter
-    def access_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "access_policy_name", value)
+        if access_policy_name is not None:
+            pulumi.set(__self__, "access_policy_name", access_policy_name)
 
     @_builtins.property
     @pulumi.getter(name="cacheName")
@@ -84,6 +73,18 @@ class AccessPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPolicyName")
+    def access_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the access policy that is being added to the Redis cache.
+        """
+        return pulumi.get(self, "access_policy_name")
+
+    @access_policy_name.setter
+    def access_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "access_policy_name", value)
 
 
 @pulumi.type_token("azure-native:redis:AccessPolicy")
@@ -154,8 +155,6 @@ class AccessPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessPolicyArgs.__new__(AccessPolicyArgs)
 
-            if access_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'access_policy_name'")
             __props__.__dict__["access_policy_name"] = access_policy_name
             if cache_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cache_name'")

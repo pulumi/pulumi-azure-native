@@ -23,7 +23,6 @@ __all__ = ['NotificationHubArgs', 'NotificationHub']
 class NotificationHubArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
-                 notification_hub_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  adm_credential: pulumi.Input[Optional['AdmCredentialArgs']] = None,
                  apns_credential: pulumi.Input[Optional['ApnsCredentialArgs']] = None,
@@ -34,6 +33,7 @@ class NotificationHubArgs:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mpns_credential: pulumi.Input[Optional['MpnsCredentialArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  registration_ttl: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -43,7 +43,6 @@ class NotificationHubArgs:
         The set of arguments for constructing a NotificationHub resource.
 
         :param pulumi.Input[_builtins.str] namespace_name: Namespace name
-        :param pulumi.Input[_builtins.str] notification_hub_name: Notification Hub name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AdmCredentialArgs'] adm_credential: Description of a NotificationHub AdmCredential.
         :param pulumi.Input['ApnsCredentialArgs'] apns_credential: Description of a NotificationHub ApnsCredential.
@@ -54,6 +53,7 @@ class NotificationHubArgs:
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['MpnsCredentialArgs'] mpns_credential: Description of a NotificationHub MpnsCredential.
         :param pulumi.Input[_builtins.str] name: Gets or sets the NotificationHub name.
+        :param pulumi.Input[_builtins.str] notification_hub_name: Notification Hub name
         :param pulumi.Input[_builtins.str] registration_ttl: Gets or sets the RegistrationTtl of the created NotificationHub
         :param pulumi.Input['SkuArgs'] sku: The Sku description for a namespace
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -61,7 +61,6 @@ class NotificationHubArgs:
         :param pulumi.Input['XiaomiCredentialArgs'] xiaomi_credential: Description of a NotificationHub XiaomiCredential.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
-        pulumi.set(__self__, "notification_hub_name", notification_hub_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if adm_credential is not None:
             pulumi.set(__self__, "adm_credential", adm_credential)
@@ -81,6 +80,8 @@ class NotificationHubArgs:
             pulumi.set(__self__, "mpns_credential", mpns_credential)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if notification_hub_name is not None:
+            pulumi.set(__self__, "notification_hub_name", notification_hub_name)
         if registration_ttl is not None:
             pulumi.set(__self__, "registration_ttl", registration_ttl)
         if sku is not None:
@@ -103,18 +104,6 @@ class NotificationHubArgs:
     @namespace_name.setter
     def namespace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "namespace_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="notificationHubName")
-    def notification_hub_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Notification Hub name
-        """
-        return pulumi.get(self, "notification_hub_name")
-
-    @notification_hub_name.setter
-    def notification_hub_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "notification_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -235,6 +224,18 @@ class NotificationHubArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notificationHubName")
+    def notification_hub_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Notification Hub name
+        """
+        return pulumi.get(self, "notification_hub_name")
+
+    @notification_hub_name.setter
+    def notification_hub_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "notification_hub_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registrationTtl")
@@ -416,8 +417,6 @@ class NotificationHub(pulumi.CustomResource):
             if namespace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
-            if notification_hub_name is None and not opts.urn:
-                raise TypeError("Missing required property 'notification_hub_name'")
             __props__.__dict__["notification_hub_name"] = notification_hub_name
             __props__.__dict__["registration_ttl"] = registration_ttl
             if resource_group_name is None and not opts.urn:

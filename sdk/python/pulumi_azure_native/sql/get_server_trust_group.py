@@ -142,7 +142,7 @@ def get_server_trust_group(location_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_server_trust_group_output(location_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                  server_trust_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                  server_trust_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerTrustGroupResult]:
     """
     Gets a server trust group.

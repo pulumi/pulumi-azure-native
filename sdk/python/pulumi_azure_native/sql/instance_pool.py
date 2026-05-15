@@ -22,11 +22,11 @@ __all__ = ['InstancePoolArgs', 'InstancePool']
 @pulumi.input_type
 class InstancePoolArgs:
     def __init__(__self__, *,
-                 instance_pool_name: pulumi.Input[_builtins.str],
                  license_type: pulumi.Input[Union[_builtins.str, 'InstancePoolLicenseType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
                  v_cores: pulumi.Input[_builtins.int],
+                 instance_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  maintenance_configuration_id: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
@@ -34,21 +34,22 @@ class InstancePoolArgs:
         """
         The set of arguments for constructing a InstancePool resource.
 
-        :param pulumi.Input[_builtins.str] instance_pool_name: The name of the instance pool to be created or updated.
         :param pulumi.Input[Union[_builtins.str, 'InstancePoolLicenseType']] license_type: The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] subnet_id: Resource ID of the subnet to place this instance pool in.
         :param pulumi.Input[_builtins.int] v_cores: Count of vCores belonging to this instance pool.
+        :param pulumi.Input[_builtins.str] instance_pool_name: The name of the instance pool to be created or updated.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[_builtins.str] maintenance_configuration_id: Specifies maintenance configuration id to apply to this managed instance.
         :param pulumi.Input['SkuArgs'] sku: The name and tier of the SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "instance_pool_name", instance_pool_name)
         pulumi.set(__self__, "license_type", license_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "subnet_id", subnet_id)
         pulumi.set(__self__, "v_cores", v_cores)
+        if instance_pool_name is not None:
+            pulumi.set(__self__, "instance_pool_name", instance_pool_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if maintenance_configuration_id is not None:
@@ -57,18 +58,6 @@ class InstancePoolArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="instancePoolName")
-    def instance_pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the instance pool to be created or updated.
-        """
-        return pulumi.get(self, "instance_pool_name")
-
-    @instance_pool_name.setter
-    def instance_pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "instance_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="licenseType")
@@ -117,6 +106,18 @@ class InstancePoolArgs:
     @v_cores.setter
     def v_cores(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "v_cores", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instancePoolName")
+    def instance_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the instance pool to be created or updated.
+        """
+        return pulumi.get(self, "instance_pool_name")
+
+    @instance_pool_name.setter
+    def instance_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -250,8 +251,6 @@ class InstancePool(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InstancePoolArgs.__new__(InstancePoolArgs)
 
-            if instance_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_pool_name'")
             __props__.__dict__["instance_pool_name"] = instance_pool_name
             if license_type is None and not opts.urn:
                 raise TypeError("Missing required property 'license_type'")

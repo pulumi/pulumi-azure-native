@@ -163,7 +163,7 @@ def get_device_security_group(device_security_group_name: Optional[_builtins.str
         threshold_rules=pulumi.get(__ret__, 'threshold_rules'),
         time_window_rules=pulumi.get(__ret__, 'time_window_rules'),
         type=pulumi.get(__ret__, 'type'))
-def get_device_security_group_output(device_security_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_device_security_group_output(device_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeviceSecurityGroupResult]:
     """

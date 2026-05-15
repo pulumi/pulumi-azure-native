@@ -20,37 +20,26 @@ __all__ = ['IncidentCommentArgs', 'IncidentComment']
 @pulumi.input_type
 class IncidentCommentArgs:
     def __init__(__self__, *,
-                 incident_comment_id: pulumi.Input[_builtins.str],
                  incident_id: pulumi.Input[_builtins.str],
                  message: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str]):
+                 workspace_name: pulumi.Input[_builtins.str],
+                 incident_comment_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a IncidentComment resource.
 
-        :param pulumi.Input[_builtins.str] incident_comment_id: Incident comment ID
         :param pulumi.Input[_builtins.str] incident_id: Incident ID
         :param pulumi.Input[_builtins.str] message: The comment message
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] incident_comment_id: Incident comment ID
         """
-        pulumi.set(__self__, "incident_comment_id", incident_comment_id)
         pulumi.set(__self__, "incident_id", incident_id)
         pulumi.set(__self__, "message", message)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
-
-    @_builtins.property
-    @pulumi.getter(name="incidentCommentId")
-    def incident_comment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Incident comment ID
-        """
-        return pulumi.get(self, "incident_comment_id")
-
-    @incident_comment_id.setter
-    def incident_comment_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "incident_comment_id", value)
+        if incident_comment_id is not None:
+            pulumi.set(__self__, "incident_comment_id", incident_comment_id)
 
     @_builtins.property
     @pulumi.getter(name="incidentId")
@@ -99,6 +88,18 @@ class IncidentCommentArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentCommentId")
+    def incident_comment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Incident comment ID
+        """
+        return pulumi.get(self, "incident_comment_id")
+
+    @incident_comment_id.setter
+    def incident_comment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "incident_comment_id", value)
 
 
 @pulumi.type_token("azure-native:securityinsights:IncidentComment")
@@ -172,8 +173,6 @@ class IncidentComment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IncidentCommentArgs.__new__(IncidentCommentArgs)
 
-            if incident_comment_id is None and not opts.urn:
-                raise TypeError("Missing required property 'incident_comment_id'")
             __props__.__dict__["incident_comment_id"] = incident_comment_id
             if incident_id is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_id'")

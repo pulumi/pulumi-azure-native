@@ -24,7 +24,6 @@ class SnapshotArgs:
     def __init__(__self__, *,
                  creation_data: pulumi.Input['CreationDataArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 snapshot_name: pulumi.Input[_builtins.str],
                  completion_percent: pulumi.Input[Optional[_builtins.float]] = None,
                  copy_completion_error: pulumi.Input[Optional['CopyCompletionErrorArgs']] = None,
                  data_access_auth_mode: pulumi.Input[Optional[Union[_builtins.str, 'DataAccessAuthMode']]] = None,
@@ -42,6 +41,7 @@ class SnapshotArgs:
                  purchase_plan: pulumi.Input[Optional['DiskPurchasePlanArgs']] = None,
                  security_profile: pulumi.Input[Optional['DiskSecurityProfileArgs']] = None,
                  sku: pulumi.Input[Optional['SnapshotSkuArgs']] = None,
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
                  supported_capabilities: pulumi.Input[Optional['SupportedCapabilitiesArgs']] = None,
                  supports_hibernation: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -50,7 +50,6 @@ class SnapshotArgs:
 
         :param pulumi.Input['CreationDataArgs'] creation_data: Disk source information. CreationData information cannot be changed after the disk has been created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
         :param pulumi.Input[_builtins.float] completion_percent: Percentage complete for the background copy when a resource is created via the CopyStart operation.
         :param pulumi.Input['CopyCompletionErrorArgs'] copy_completion_error: Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
         :param pulumi.Input[Union[_builtins.str, 'DataAccessAuthMode']] data_access_auth_mode: Additional authentication requirements when exporting or uploading to a disk or snapshot.
@@ -68,13 +67,13 @@ class SnapshotArgs:
         :param pulumi.Input['DiskPurchasePlanArgs'] purchase_plan: Purchase plan information for the image from which the source disk for the snapshot was originally created.
         :param pulumi.Input['DiskSecurityProfileArgs'] security_profile: Contains the security related information for the resource.
         :param pulumi.Input['SnapshotSkuArgs'] sku: The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
+        :param pulumi.Input[_builtins.str] snapshot_name: The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
         :param pulumi.Input['SupportedCapabilitiesArgs'] supported_capabilities: List of supported capabilities for the image from which the source disk from the snapshot was originally created.
         :param pulumi.Input[_builtins.bool] supports_hibernation: Indicates the OS on a snapshot supports hibernation.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "creation_data", creation_data)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "snapshot_name", snapshot_name)
         if completion_percent is not None:
             pulumi.set(__self__, "completion_percent", completion_percent)
         if copy_completion_error is not None:
@@ -109,6 +108,8 @@ class SnapshotArgs:
             pulumi.set(__self__, "security_profile", security_profile)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if snapshot_name is not None:
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
         if supported_capabilities is not None:
             pulumi.set(__self__, "supported_capabilities", supported_capabilities)
         if supports_hibernation is not None:
@@ -139,18 +140,6 @@ class SnapshotArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
-        """
-        return pulumi.get(self, "snapshot_name")
-
-    @snapshot_name.setter
-    def snapshot_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "snapshot_name", value)
 
     @_builtins.property
     @pulumi.getter(name="completionPercent")
@@ -357,6 +346,18 @@ class SnapshotArgs:
         pulumi.set(self, "sku", value)
 
     @_builtins.property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the snapshot that is being created. The name can't be changed after the snapshot is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The max name length is 80 characters.
+        """
+        return pulumi.get(self, "snapshot_name")
+
+    @snapshot_name.setter
+    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "snapshot_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="supportedCapabilities")
     def supported_capabilities(self) -> pulumi.Input[Optional['SupportedCapabilitiesArgs']]:
         """
@@ -541,8 +542,6 @@ class Snapshot(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["security_profile"] = security_profile
             __props__.__dict__["sku"] = sku
-            if snapshot_name is None and not opts.urn:
-                raise TypeError("Missing required property 'snapshot_name'")
             __props__.__dict__["snapshot_name"] = snapshot_name
             __props__.__dict__["supported_capabilities"] = supported_capabilities
             __props__.__dict__["supports_hibernation"] = supports_hibernation

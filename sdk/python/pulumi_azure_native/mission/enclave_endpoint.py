@@ -22,42 +22,31 @@ __all__ = ['EnclaveEndpointArgs', 'EnclaveEndpoint']
 @pulumi.input_type
 class EnclaveEndpointArgs:
     def __init__(__self__, *,
-                 enclave_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_collection: pulumi.Input[Sequence[pulumi.Input['EnclaveEndpointDestinationRuleArgs']]],
                  virtual_enclave_name: pulumi.Input[_builtins.str],
+                 enclave_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnclaveEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] enclave_endpoint_name: The name of the Enclave Endpoint Resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['EnclaveEndpointDestinationRuleArgs']]] rule_collection: Enclave Endpoint Rule Collection.
         :param pulumi.Input[_builtins.str] virtual_enclave_name: The name of the enclaveResource Resource
+        :param pulumi.Input[_builtins.str] enclave_endpoint_name: The name of the Enclave Endpoint Resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "enclave_endpoint_name", enclave_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rule_collection", rule_collection)
         pulumi.set(__self__, "virtual_enclave_name", virtual_enclave_name)
+        if enclave_endpoint_name is not None:
+            pulumi.set(__self__, "enclave_endpoint_name", enclave_endpoint_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="enclaveEndpointName")
-    def enclave_endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Enclave Endpoint Resource
-        """
-        return pulumi.get(self, "enclave_endpoint_name")
-
-    @enclave_endpoint_name.setter
-    def enclave_endpoint_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "enclave_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -94,6 +83,18 @@ class EnclaveEndpointArgs:
     @virtual_enclave_name.setter
     def virtual_enclave_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "virtual_enclave_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enclaveEndpointName")
+    def enclave_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Enclave Endpoint Resource
+        """
+        return pulumi.get(self, "enclave_endpoint_name")
+
+    @enclave_endpoint_name.setter
+    def enclave_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "enclave_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -194,8 +195,6 @@ class EnclaveEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EnclaveEndpointArgs.__new__(EnclaveEndpointArgs)
 
-            if enclave_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'enclave_endpoint_name'")
             __props__.__dict__["enclave_endpoint_name"] = enclave_endpoint_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

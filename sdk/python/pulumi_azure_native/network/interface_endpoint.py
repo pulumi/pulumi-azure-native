@@ -22,27 +22,26 @@ __all__ = ['InterfaceEndpointArgs', 'InterfaceEndpoint']
 @pulumi.input_type
 class InterfaceEndpointArgs:
     def __init__(__self__, *,
-                 interface_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  endpoint_service: pulumi.Input[Optional['EndpointServiceArgs']] = None,
                  fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
+                 interface_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet: pulumi.Input[Optional['SubnetArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a InterfaceEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] interface_endpoint_name: The name of the interface endpoint.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input['EndpointServiceArgs'] endpoint_service: A reference to the service being brought into the virtual network.
         :param pulumi.Input[_builtins.str] fqdn: A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
         :param pulumi.Input[_builtins.str] id: Resource ID.
+        :param pulumi.Input[_builtins.str] interface_endpoint_name: The name of the interface endpoint.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['SubnetArgs'] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "interface_endpoint_name", interface_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if endpoint_service is not None:
             pulumi.set(__self__, "endpoint_service", endpoint_service)
@@ -50,24 +49,14 @@ class InterfaceEndpointArgs:
             pulumi.set(__self__, "fqdn", fqdn)
         if id is not None:
             pulumi.set(__self__, "id", id)
+        if interface_endpoint_name is not None:
+            pulumi.set(__self__, "interface_endpoint_name", interface_endpoint_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="interfaceEndpointName")
-    def interface_endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the interface endpoint.
-        """
-        return pulumi.get(self, "interface_endpoint_name")
-
-    @interface_endpoint_name.setter
-    def interface_endpoint_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "interface_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -116,6 +105,18 @@ class InterfaceEndpointArgs:
     @id.setter
     def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="interfaceEndpointName")
+    def interface_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the interface endpoint.
+        """
+        return pulumi.get(self, "interface_endpoint_name")
+
+    @interface_endpoint_name.setter
+    def interface_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "interface_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -237,8 +238,6 @@ class InterfaceEndpoint(pulumi.CustomResource):
             __props__.__dict__["endpoint_service"] = endpoint_service
             __props__.__dict__["fqdn"] = fqdn
             __props__.__dict__["id"] = id
-            if interface_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'interface_endpoint_name'")
             __props__.__dict__["interface_endpoint_name"] = interface_endpoint_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

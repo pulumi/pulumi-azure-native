@@ -20,31 +20,20 @@ __all__ = ['HcxEnterpriseSiteArgs', 'HcxEnterpriseSite']
 @pulumi.input_type
 class HcxEnterpriseSiteArgs:
     def __init__(__self__, *,
-                 hcx_enterprise_site_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 hcx_enterprise_site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HcxEnterpriseSite resource.
 
-        :param pulumi.Input[_builtins.str] hcx_enterprise_site_name: Name of the HCX Enterprise Site
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] hcx_enterprise_site_name: Name of the HCX Enterprise Site
         """
-        pulumi.set(__self__, "hcx_enterprise_site_name", hcx_enterprise_site_name)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-
-    @_builtins.property
-    @pulumi.getter(name="hcxEnterpriseSiteName")
-    def hcx_enterprise_site_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the HCX Enterprise Site
-        """
-        return pulumi.get(self, "hcx_enterprise_site_name")
-
-    @hcx_enterprise_site_name.setter
-    def hcx_enterprise_site_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "hcx_enterprise_site_name", value)
+        if hcx_enterprise_site_name is not None:
+            pulumi.set(__self__, "hcx_enterprise_site_name", hcx_enterprise_site_name)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -69,6 +58,18 @@ class HcxEnterpriseSiteArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hcxEnterpriseSiteName")
+    def hcx_enterprise_site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the HCX Enterprise Site
+        """
+        return pulumi.get(self, "hcx_enterprise_site_name")
+
+    @hcx_enterprise_site_name.setter
+    def hcx_enterprise_site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hcx_enterprise_site_name", value)
 
 
 @pulumi.type_token("azure-native:avs:HcxEnterpriseSite")
@@ -136,8 +137,6 @@ class HcxEnterpriseSite(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HcxEnterpriseSiteArgs.__new__(HcxEnterpriseSiteArgs)
 
-            if hcx_enterprise_site_name is None and not opts.urn:
-                raise TypeError("Missing required property 'hcx_enterprise_site_name'")
             __props__.__dict__["hcx_enterprise_site_name"] = hcx_enterprise_site_name
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

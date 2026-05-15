@@ -21,10 +21,10 @@ __all__ = ['InventoryItemArgs', 'InventoryItem']
 @pulumi.input_type
 class InventoryItemArgs:
     def __init__(__self__, *,
-                 inventory_item_name: pulumi.Input[_builtins.str],
                  inventory_type: pulumi.Input[Union[_builtins.str, 'InventoryType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vcenter_name: pulumi.Input[_builtins.str],
+                 inventory_item_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  mo_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,19 +32,20 @@ class InventoryItemArgs:
         """
         The set of arguments for constructing a InventoryItem resource.
 
-        :param pulumi.Input[_builtins.str] inventory_item_name: Name of the inventoryItem.
         :param pulumi.Input[Union[_builtins.str, 'InventoryType']] inventory_type: They inventory type.
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input[_builtins.str] vcenter_name: Name of the vCenter.
+        :param pulumi.Input[_builtins.str] inventory_item_name: Name of the inventoryItem.
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] managed_resource_id: Gets or sets the tracked resource id corresponding to the inventory resource.
         :param pulumi.Input[_builtins.str] mo_name: Gets or sets the vCenter Managed Object name for the inventory item.
         :param pulumi.Input[_builtins.str] mo_ref_id: Gets or sets the MoRef (Managed Object Reference) ID for the inventory item.
         """
-        pulumi.set(__self__, "inventory_item_name", inventory_item_name)
         pulumi.set(__self__, "inventory_type", inventory_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vcenter_name", vcenter_name)
+        if inventory_item_name is not None:
+            pulumi.set(__self__, "inventory_item_name", inventory_item_name)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if managed_resource_id is not None:
@@ -53,18 +54,6 @@ class InventoryItemArgs:
             pulumi.set(__self__, "mo_name", mo_name)
         if mo_ref_id is not None:
             pulumi.set(__self__, "mo_ref_id", mo_ref_id)
-
-    @_builtins.property
-    @pulumi.getter(name="inventoryItemName")
-    def inventory_item_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the inventoryItem.
-        """
-        return pulumi.get(self, "inventory_item_name")
-
-    @inventory_item_name.setter
-    def inventory_item_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "inventory_item_name", value)
 
     @_builtins.property
     @pulumi.getter(name="inventoryType")
@@ -101,6 +90,18 @@ class InventoryItemArgs:
     @vcenter_name.setter
     def vcenter_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vcenter_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inventoryItemName")
+    def inventory_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the inventoryItem.
+        """
+        return pulumi.get(self, "inventory_item_name")
+
+    @inventory_item_name.setter
+    def inventory_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "inventory_item_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -231,8 +232,6 @@ class InventoryItem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = InventoryItemArgs.__new__(InventoryItemArgs)
 
-            if inventory_item_name is None and not opts.urn:
-                raise TypeError("Missing required property 'inventory_item_name'")
             __props__.__dict__["inventory_item_name"] = inventory_item_name
             if inventory_type is None and not opts.urn:
                 raise TypeError("Missing required property 'inventory_type'")

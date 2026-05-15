@@ -24,23 +24,24 @@ class SqlServerLicenseArgs:
     def __init__(__self__, *,
                  properties: pulumi.Input['SqlServerLicensePropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 sql_server_license_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_license_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SqlServerLicense resource.
 
         :param pulumi.Input['SqlServerLicensePropertiesArgs'] properties: SQL Server license properties
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group
-        :param pulumi.Input[_builtins.str] sql_server_license_name: Name of SQL Server License
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] sql_server_license_name: Name of SQL Server License
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_server_license_name", sql_server_license_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if sql_server_license_name is not None:
+            pulumi.set(__self__, "sql_server_license_name", sql_server_license_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -69,18 +70,6 @@ class SqlServerLicenseArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="sqlServerLicenseName")
-    def sql_server_license_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of SQL Server License
-        """
-        return pulumi.get(self, "sql_server_license_name")
-
-    @sql_server_license_name.setter
-    def sql_server_license_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sql_server_license_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -91,6 +80,18 @@ class SqlServerLicenseArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlServerLicenseName")
+    def sql_server_license_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of SQL Server License
+        """
+        return pulumi.get(self, "sql_server_license_name")
+
+    @sql_server_license_name.setter
+    def sql_server_license_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sql_server_license_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -183,8 +184,6 @@ class SqlServerLicense(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sql_server_license_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_server_license_name'")
             __props__.__dict__["sql_server_license_name"] = sql_server_license_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["azure_api_version"] = None

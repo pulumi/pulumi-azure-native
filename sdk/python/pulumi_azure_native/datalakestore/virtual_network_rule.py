@@ -22,7 +22,7 @@ class VirtualNetworkRuleArgs:
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 virtual_network_rule_name: pulumi.Input[_builtins.str]):
+                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkRule resource.
 
@@ -34,7 +34,8 @@ class VirtualNetworkRuleArgs:
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "subnet_id", subnet_id)
-        pulumi.set(__self__, "virtual_network_rule_name", virtual_network_rule_name)
+        if virtual_network_rule_name is not None:
+            pulumi.set(__self__, "virtual_network_rule_name", virtual_network_rule_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -74,14 +75,14 @@ class VirtualNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRuleName")
-    def virtual_network_rule_name(self) -> pulumi.Input[_builtins.str]:
+    def virtual_network_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual network rule to create or update.
         """
         return pulumi.get(self, "virtual_network_rule_name")
 
     @virtual_network_rule_name.setter
-    def virtual_network_rule_name(self, value: pulumi.Input[_builtins.str]):
+    def virtual_network_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_rule_name", value)
 
 
@@ -158,8 +159,6 @@ class VirtualNetworkRule(pulumi.CustomResource):
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
             __props__.__dict__["subnet_id"] = subnet_id
-            if virtual_network_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_rule_name'")
             __props__.__dict__["virtual_network_rule_name"] = virtual_network_rule_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

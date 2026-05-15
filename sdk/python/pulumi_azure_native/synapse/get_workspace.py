@@ -411,7 +411,7 @@ def get_workspace(resource_group_name: Optional[_builtins.str] = None,
         workspace_repository_configuration=pulumi.get(__ret__, 'workspace_repository_configuration'),
         workspace_uid=pulumi.get(__ret__, 'workspace_uid'))
 def get_workspace_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         workspace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets a workspace

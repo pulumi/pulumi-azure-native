@@ -21,21 +21,22 @@ __all__ = ['ManagementGroupNetworkManagerConnectionArgs', 'ManagementGroupNetwor
 class ManagementGroupNetworkManagerConnectionArgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[_builtins.str],
-                 network_manager_connection_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_manager_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagementGroupNetworkManagerConnection resource.
 
         :param pulumi.Input[_builtins.str] management_group_id: The management group Id which uniquely identify the Microsoft Azure management group.
-        :param pulumi.Input[_builtins.str] network_manager_connection_name: Name for the network manager connection.
         :param pulumi.Input[_builtins.str] description: A description of the network manager connection.
+        :param pulumi.Input[_builtins.str] network_manager_connection_name: Name for the network manager connection.
         :param pulumi.Input[_builtins.str] network_manager_id: Network Manager Id.
         """
         pulumi.set(__self__, "management_group_id", management_group_id)
-        pulumi.set(__self__, "network_manager_connection_name", network_manager_connection_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if network_manager_connection_name is not None:
+            pulumi.set(__self__, "network_manager_connection_name", network_manager_connection_name)
         if network_manager_id is not None:
             pulumi.set(__self__, "network_manager_id", network_manager_id)
 
@@ -52,18 +53,6 @@ class ManagementGroupNetworkManagerConnectionArgs:
         pulumi.set(self, "management_group_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="networkManagerConnectionName")
-    def network_manager_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name for the network manager connection.
-        """
-        return pulumi.get(self, "network_manager_connection_name")
-
-    @network_manager_connection_name.setter
-    def network_manager_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_manager_connection_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -74,6 +63,18 @@ class ManagementGroupNetworkManagerConnectionArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkManagerConnectionName")
+    def network_manager_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name for the network manager connection.
+        """
+        return pulumi.get(self, "network_manager_connection_name")
+
+    @network_manager_connection_name.setter
+    def network_manager_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_manager_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerId")
@@ -160,8 +161,6 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
             if management_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'management_group_id'")
             __props__.__dict__["management_group_id"] = management_group_id
-            if network_manager_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_manager_connection_name'")
             __props__.__dict__["network_manager_connection_name"] = network_manager_connection_name
             __props__.__dict__["network_manager_id"] = network_manager_id
             __props__.__dict__["azure_api_version"] = None

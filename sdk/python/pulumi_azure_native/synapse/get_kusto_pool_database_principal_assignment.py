@@ -237,7 +237,7 @@ def get_kusto_pool_database_principal_assignment(database_name: Optional[_builti
         type=pulumi.get(__ret__, 'type'))
 def get_kusto_pool_database_principal_assignment_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        principal_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        principal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKustoPoolDatabasePrincipalAssignmentResult]:

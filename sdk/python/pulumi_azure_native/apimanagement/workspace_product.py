@@ -21,12 +21,12 @@ __all__ = ['WorkspaceProductArgs', 'WorkspaceProduct']
 class WorkspaceProductArgs:
     def __init__(__self__, *,
                  display_name: pulumi.Input[_builtins.str],
-                 product_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  workspace_id: pulumi.Input[_builtins.str],
                  approval_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional['ProductState']] = None,
                  subscription_required: pulumi.Input[Optional[_builtins.bool]] = None,
                  subscriptions_limit: pulumi.Input[Optional[_builtins.int]] = None,
@@ -35,19 +35,18 @@ class WorkspaceProductArgs:
         The set of arguments for constructing a WorkspaceProduct resource.
 
         :param pulumi.Input[_builtins.str] display_name: Product name.
-        :param pulumi.Input[_builtins.str] product_id: Product identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.bool] approval_required: whether subscription approval is required. If false, new subscriptions will be approved automatically enabling developers to call the product’s APIs immediately after subscribing. If true, administrators must manually approve the subscription before the developer can any of the product’s APIs. Can be present only if subscriptionRequired property is present and has a value of false.
         :param pulumi.Input[_builtins.str] description: Product description. May include HTML formatting tags.
+        :param pulumi.Input[_builtins.str] product_id: Product identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input['ProductState'] state: whether product is published or not. Published products are discoverable by users of developer portal. Non published products are visible only to administrators. Default state of Product is notPublished.
         :param pulumi.Input[_builtins.bool] subscription_required: Whether a product subscription is required for accessing APIs included in this product. If true, the product is referred to as "protected" and a valid subscription key is required for a request to an API included in the product to succeed. If false, the product is referred to as "open" and requests to an API included in the product can be made without a subscription key. If property is omitted when creating a new product it's value is assumed to be true.
         :param pulumi.Input[_builtins.int] subscriptions_limit: Whether the number of subscriptions a user can have to this product at the same time. Set to null or omit to allow unlimited per user subscriptions. Can be present only if subscriptionRequired property is present and has a value of false.
         :param pulumi.Input[_builtins.str] terms: Product terms of use. Developers trying to subscribe to the product will be presented and required to accept these terms before they can complete the subscription process.
         """
         pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "product_id", product_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -55,6 +54,8 @@ class WorkspaceProductArgs:
             pulumi.set(__self__, "approval_required", approval_required)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if subscription_required is not None:
@@ -75,18 +76,6 @@ class WorkspaceProductArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "display_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="productId")
-    def product_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Product identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "product_id")
-
-    @product_id.setter
-    def product_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -147,6 +136,18 @@ class WorkspaceProductArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Product identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "product_id")
+
+    @product_id.setter
+    def product_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "product_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -291,8 +292,6 @@ class WorkspaceProduct(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
-            if product_id is None and not opts.urn:
-                raise TypeError("Missing required property 'product_id'")
             __props__.__dict__["product_id"] = product_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

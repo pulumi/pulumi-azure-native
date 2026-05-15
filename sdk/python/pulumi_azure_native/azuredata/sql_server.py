@@ -20,27 +20,26 @@ __all__ = ['SqlServerArgs', 'SqlServer']
 class SqlServerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 sql_server_name: pulumi.Input[_builtins.str],
                  sql_server_registration_name: pulumi.Input[_builtins.str],
                  cores: pulumi.Input[Optional[_builtins.int]] = None,
                  edition: pulumi.Input[Optional[_builtins.str]] = None,
                  property_bag: pulumi.Input[Optional[_builtins.str]] = None,
                  registration_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlServer resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[_builtins.str] sql_server_name: Name of the SQL Server.
         :param pulumi.Input[_builtins.str] sql_server_registration_name: Name of the SQL Server registration.
         :param pulumi.Input[_builtins.int] cores: Cores of the Sql Server.
         :param pulumi.Input[_builtins.str] edition: Sql Server Edition.
         :param pulumi.Input[_builtins.str] property_bag: Sql Server Json Property Bag.
         :param pulumi.Input[_builtins.str] registration_id: ID for Parent Sql Server Registration.
+        :param pulumi.Input[_builtins.str] sql_server_name: Name of the SQL Server.
         :param pulumi.Input[_builtins.str] version: Version of the Sql Server.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_server_name", sql_server_name)
         pulumi.set(__self__, "sql_server_registration_name", sql_server_registration_name)
         if cores is not None:
             pulumi.set(__self__, "cores", cores)
@@ -50,6 +49,8 @@ class SqlServerArgs:
             pulumi.set(__self__, "property_bag", property_bag)
         if registration_id is not None:
             pulumi.set(__self__, "registration_id", registration_id)
+        if sql_server_name is not None:
+            pulumi.set(__self__, "sql_server_name", sql_server_name)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -64,18 +65,6 @@ class SqlServerArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sqlServerName")
-    def sql_server_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the SQL Server.
-        """
-        return pulumi.get(self, "sql_server_name")
-
-    @sql_server_name.setter
-    def sql_server_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sql_server_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlServerRegistrationName")
@@ -136,6 +125,18 @@ class SqlServerArgs:
     @registration_id.setter
     def registration_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "registration_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlServerName")
+    def sql_server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the SQL Server.
+        """
+        return pulumi.get(self, "sql_server_name")
+
+    @sql_server_name.setter
+    def sql_server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sql_server_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -233,8 +234,6 @@ class SqlServer(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sql_server_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_server_name'")
             __props__.__dict__["sql_server_name"] = sql_server_name
             if sql_server_registration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'sql_server_registration_name'")

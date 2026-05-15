@@ -20,33 +20,22 @@ __all__ = ['SubscriptionNetworkManagerConnectionArgs', 'SubscriptionNetworkManag
 @pulumi.input_type
 class SubscriptionNetworkManagerConnectionArgs:
     def __init__(__self__, *,
-                 network_manager_connection_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_manager_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_manager_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriptionNetworkManagerConnection resource.
 
-        :param pulumi.Input[_builtins.str] network_manager_connection_name: Name for the network manager connection.
         :param pulumi.Input[_builtins.str] description: A description of the network manager connection.
+        :param pulumi.Input[_builtins.str] network_manager_connection_name: Name for the network manager connection.
         :param pulumi.Input[_builtins.str] network_manager_id: Network Manager Id.
         """
-        pulumi.set(__self__, "network_manager_connection_name", network_manager_connection_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if network_manager_connection_name is not None:
+            pulumi.set(__self__, "network_manager_connection_name", network_manager_connection_name)
         if network_manager_id is not None:
             pulumi.set(__self__, "network_manager_id", network_manager_id)
-
-    @_builtins.property
-    @pulumi.getter(name="networkManagerConnectionName")
-    def network_manager_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name for the network manager connection.
-        """
-        return pulumi.get(self, "network_manager_connection_name")
-
-    @network_manager_connection_name.setter
-    def network_manager_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_manager_connection_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -59,6 +48,18 @@ class SubscriptionNetworkManagerConnectionArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkManagerConnectionName")
+    def network_manager_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name for the network manager connection.
+        """
+        return pulumi.get(self, "network_manager_connection_name")
+
+    @network_manager_connection_name.setter
+    def network_manager_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_manager_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkManagerId")
@@ -101,7 +102,7 @@ class SubscriptionNetworkManagerConnection(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: SubscriptionNetworkManagerConnectionArgs,
+                 args: Optional[SubscriptionNetworkManagerConnectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Network Manager Connection resource
@@ -139,8 +140,6 @@ class SubscriptionNetworkManagerConnection(pulumi.CustomResource):
             __props__ = SubscriptionNetworkManagerConnectionArgs.__new__(SubscriptionNetworkManagerConnectionArgs)
 
             __props__.__dict__["description"] = description
-            if network_manager_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_manager_connection_name'")
             __props__.__dict__["network_manager_connection_name"] = network_manager_connection_name
             __props__.__dict__["network_manager_id"] = network_manager_id
             __props__.__dict__["azure_api_version"] = None

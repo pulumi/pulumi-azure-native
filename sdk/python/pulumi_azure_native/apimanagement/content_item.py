@@ -19,38 +19,27 @@ __all__ = ['ContentItemArgs', 'ContentItem']
 @pulumi.input_type
 class ContentItemArgs:
     def __init__(__self__, *,
-                 content_item_id: pulumi.Input[_builtins.str],
                  content_type_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 content_item_id: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: Optional[Any] = None):
         """
         The set of arguments for constructing a ContentItem resource.
 
-        :param pulumi.Input[_builtins.str] content_item_id: Content item identifier.
         :param pulumi.Input[_builtins.str] content_type_id: Content type identifier.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
+        :param pulumi.Input[_builtins.str] content_item_id: Content item identifier.
         :param Any properties: Properties of the content item.
         """
-        pulumi.set(__self__, "content_item_id", content_item_id)
         pulumi.set(__self__, "content_type_id", content_type_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        if content_item_id is not None:
+            pulumi.set(__self__, "content_item_id", content_item_id)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="contentItemId")
-    def content_item_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Content item identifier.
-        """
-        return pulumi.get(self, "content_item_id")
-
-    @content_item_id.setter
-    def content_item_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "content_item_id", value)
 
     @_builtins.property
     @pulumi.getter(name="contentTypeId")
@@ -87,6 +76,18 @@ class ContentItemArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentItemId")
+    def content_item_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Content item identifier.
+        """
+        return pulumi.get(self, "content_item_id")
+
+    @content_item_id.setter
+    def content_item_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "content_item_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -172,8 +173,6 @@ class ContentItem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContentItemArgs.__new__(ContentItemArgs)
 
-            if content_item_id is None and not opts.urn:
-                raise TypeError("Missing required property 'content_item_id'")
             __props__.__dict__["content_item_id"] = content_item_id
             if content_type_id is None and not opts.urn:
                 raise TypeError("Missing required property 'content_type_id'")

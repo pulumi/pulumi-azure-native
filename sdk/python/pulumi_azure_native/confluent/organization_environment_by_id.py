@@ -22,43 +22,32 @@ __all__ = ['OrganizationEnvironmentByIdArgs', 'OrganizationEnvironmentById']
 @pulumi.input_type
 class OrganizationEnvironmentByIdArgs:
     def __init__(__self__, *,
-                 environment_id: pulumi.Input[_builtins.str],
                  organization_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: pulumi.Input[Optional['SCMetadataEntityArgs']] = None,
                  stream_governance_config: pulumi.Input[Optional['StreamGovernanceConfigArgs']] = None):
         """
         The set of arguments for constructing a OrganizationEnvironmentById resource.
 
-        :param pulumi.Input[_builtins.str] environment_id: Confluent environment id
         :param pulumi.Input[_builtins.str] organization_name: Organization resource name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] environment_id: Confluent environment id
         :param pulumi.Input[_builtins.str] kind: Type of environment
         :param pulumi.Input['SCMetadataEntityArgs'] metadata: Metadata of the record
         :param pulumi.Input['StreamGovernanceConfigArgs'] stream_governance_config: Stream governance configuration
         """
-        pulumi.set(__self__, "environment_id", environment_id)
         pulumi.set(__self__, "organization_name", organization_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if environment_id is not None:
+            pulumi.set(__self__, "environment_id", environment_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
         if stream_governance_config is not None:
             pulumi.set(__self__, "stream_governance_config", stream_governance_config)
-
-    @_builtins.property
-    @pulumi.getter(name="environmentId")
-    def environment_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Confluent environment id
-        """
-        return pulumi.get(self, "environment_id")
-
-    @environment_id.setter
-    def environment_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter(name="organizationName")
@@ -83,6 +72,18 @@ class OrganizationEnvironmentByIdArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentId")
+    def environment_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Confluent environment id
+        """
+        return pulumi.get(self, "environment_id")
+
+    @environment_id.setter
+    def environment_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "environment_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -195,8 +196,6 @@ class OrganizationEnvironmentById(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OrganizationEnvironmentByIdArgs.__new__(OrganizationEnvironmentByIdArgs)
 
-            if environment_id is None and not opts.urn:
-                raise TypeError("Missing required property 'environment_id'")
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["metadata"] = metadata

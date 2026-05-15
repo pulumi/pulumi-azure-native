@@ -22,19 +22,18 @@ __all__ = ['VirtualRouterArgs', 'VirtualRouter']
 class VirtualRouterArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_router_name: pulumi.Input[_builtins.str],
                  hosted_gateway: pulumi.Input[Optional['SubResourceArgs']] = None,
                  hosted_subnet: pulumi.Input[Optional['SubResourceArgs']] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  virtual_router_asn: pulumi.Input[Optional[_builtins.float]] = None,
-                 virtual_router_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 virtual_router_ips: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 virtual_router_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualRouter resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] virtual_router_name: The name of the Virtual Router.
         :param pulumi.Input['SubResourceArgs'] hosted_gateway: The Gateway on which VirtualRouter is hosted.
         :param pulumi.Input['SubResourceArgs'] hosted_subnet: The Subnet on which VirtualRouter is hosted.
         :param pulumi.Input[_builtins.str] id: Resource ID.
@@ -42,9 +41,9 @@ class VirtualRouterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.float] virtual_router_asn: VirtualRouter ASN.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] virtual_router_ips: VirtualRouter IPs.
+        :param pulumi.Input[_builtins.str] virtual_router_name: The name of the Virtual Router.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_router_name", virtual_router_name)
         if hosted_gateway is not None:
             pulumi.set(__self__, "hosted_gateway", hosted_gateway)
         if hosted_subnet is not None:
@@ -59,6 +58,8 @@ class VirtualRouterArgs:
             pulumi.set(__self__, "virtual_router_asn", virtual_router_asn)
         if virtual_router_ips is not None:
             pulumi.set(__self__, "virtual_router_ips", virtual_router_ips)
+        if virtual_router_name is not None:
+            pulumi.set(__self__, "virtual_router_name", virtual_router_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -71,18 +72,6 @@ class VirtualRouterArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualRouterName")
-    def virtual_router_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Virtual Router.
-        """
-        return pulumi.get(self, "virtual_router_name")
-
-    @virtual_router_name.setter
-    def virtual_router_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_router_name", value)
 
     @_builtins.property
     @pulumi.getter(name="hostedGateway")
@@ -167,6 +156,18 @@ class VirtualRouterArgs:
     @virtual_router_ips.setter
     def virtual_router_ips(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "virtual_router_ips", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualRouterName")
+    def virtual_router_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Virtual Router.
+        """
+        return pulumi.get(self, "virtual_router_name")
+
+    @virtual_router_name.setter
+    def virtual_router_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_router_name", value)
 
 
 @pulumi.type_token("azure-native:network:VirtualRouter")
@@ -262,8 +263,6 @@ class VirtualRouter(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["virtual_router_asn"] = virtual_router_asn
             __props__.__dict__["virtual_router_ips"] = virtual_router_ips
-            if virtual_router_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_router_name'")
             __props__.__dict__["virtual_router_name"] = virtual_router_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

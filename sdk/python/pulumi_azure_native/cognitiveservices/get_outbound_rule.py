@@ -139,7 +139,7 @@ def get_outbound_rule(account_name: Optional[_builtins.str] = None,
 def get_outbound_rule_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                              managed_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOutboundRuleResult]:
     """
     Uses Azure REST API version 2025-10-01-preview.

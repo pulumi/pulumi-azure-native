@@ -219,7 +219,7 @@ def get_dapr_subscription(environment_name: Optional[_builtins.str] = None,
         topic=pulumi.get(__ret__, 'topic'),
         type=pulumi.get(__ret__, 'type'))
 def get_dapr_subscription_output(environment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 name: pulumi.Input[Optional[_builtins.str]] = None,
                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDaprSubscriptionResult]:
     """

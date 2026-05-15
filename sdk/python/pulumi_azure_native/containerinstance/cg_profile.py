@@ -22,11 +22,11 @@ __all__ = ['CGProfileArgs', 'CGProfile']
 @pulumi.input_type
 class CGProfileArgs:
     def __init__(__self__, *,
-                 container_group_profile_name: pulumi.Input[_builtins.str],
                  containers: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]],
                  os_type: pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  confidential_compute_properties: pulumi.Input[Optional['ConfidentialComputePropertiesArgs']] = None,
+                 container_group_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  diagnostics: pulumi.Input[Optional['ContainerGroupDiagnosticsArgs']] = None,
                  encryption_properties: pulumi.Input[Optional['EncryptionPropertiesArgs']] = None,
                  extensions: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]] = None,
@@ -47,11 +47,11 @@ class CGProfileArgs:
         """
         The set of arguments for constructing a CGProfile resource.
 
-        :param pulumi.Input[_builtins.str] container_group_profile_name: ContainerGroupProfile name.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: The containers within the container group.
         :param pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ConfidentialComputePropertiesArgs'] confidential_compute_properties: The properties for confidential container group
+        :param pulumi.Input[_builtins.str] container_group_profile_name: ContainerGroupProfile name.
         :param pulumi.Input['ContainerGroupDiagnosticsArgs'] diagnostics: The diagnostic information for a container group.
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption_properties: The encryption properties for a container group.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]] extensions: extensions used by virtual kubelet
@@ -73,12 +73,13 @@ class CGProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]] volumes: The list of volumes that can be mounted by containers in this container group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The zones for the container group.
         """
-        pulumi.set(__self__, "container_group_profile_name", container_group_profile_name)
         pulumi.set(__self__, "containers", containers)
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if confidential_compute_properties is not None:
             pulumi.set(__self__, "confidential_compute_properties", confidential_compute_properties)
+        if container_group_profile_name is not None:
+            pulumi.set(__self__, "container_group_profile_name", container_group_profile_name)
         if diagnostics is not None:
             pulumi.set(__self__, "diagnostics", diagnostics)
         if encryption_properties is not None:
@@ -113,18 +114,6 @@ class CGProfileArgs:
             pulumi.set(__self__, "volumes", volumes)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter(name="containerGroupProfileName")
-    def container_group_profile_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        ContainerGroupProfile name.
-        """
-        return pulumi.get(self, "container_group_profile_name")
-
-    @container_group_profile_name.setter
-    def container_group_profile_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "container_group_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -173,6 +162,18 @@ class CGProfileArgs:
     @confidential_compute_properties.setter
     def confidential_compute_properties(self, value: pulumi.Input[Optional['ConfidentialComputePropertiesArgs']]):
         pulumi.set(self, "confidential_compute_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="containerGroupProfileName")
+    def container_group_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ContainerGroupProfile name.
+        """
+        return pulumi.get(self, "container_group_profile_name")
+
+    @container_group_profile_name.setter
+    def container_group_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "container_group_profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -508,8 +509,6 @@ class CGProfile(pulumi.CustomResource):
             __props__ = CGProfileArgs.__new__(CGProfileArgs)
 
             __props__.__dict__["confidential_compute_properties"] = confidential_compute_properties
-            if container_group_profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'container_group_profile_name'")
             __props__.__dict__["container_group_profile_name"] = container_group_profile_name
             if containers is None and not opts.urn:
                 raise TypeError("Missing required property 'containers'")

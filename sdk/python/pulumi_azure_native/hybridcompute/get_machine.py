@@ -596,7 +596,7 @@ def get_machine(expand: Optional[_builtins.str] = None,
         vm_id=pulumi.get(__ret__, 'vm_id'),
         vm_uuid=pulumi.get(__ret__, 'vm_uuid'))
 def get_machine_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                       machine_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMachineResult]:
     """

@@ -19,9 +19,9 @@ __all__ = ['ContentTypeArgs', 'ContentType']
 @pulumi.input_type
 class ContentTypeArgs:
     def __init__(__self__, *,
-                 content_type_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 content_type_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -30,18 +30,19 @@ class ContentTypeArgs:
         """
         The set of arguments for constructing a ContentType resource.
 
-        :param pulumi.Input[_builtins.str] content_type_id: Content type identifier.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
+        :param pulumi.Input[_builtins.str] content_type_id: Content type identifier.
         :param pulumi.Input[_builtins.str] description: Content type description.
         :param pulumi.Input[_builtins.str] id: Content type identifier
         :param pulumi.Input[_builtins.str] name: Content type name. Must be 1 to 250 characters long.
         :param Any schema: Content type schema.
         :param pulumi.Input[_builtins.str] version: Content type version.
         """
-        pulumi.set(__self__, "content_type_id", content_type_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        if content_type_id is not None:
+            pulumi.set(__self__, "content_type_id", content_type_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if id is not None:
@@ -52,18 +53,6 @@ class ContentTypeArgs:
             pulumi.set(__self__, "schema", schema)
         if version is not None:
             pulumi.set(__self__, "version", version)
-
-    @_builtins.property
-    @pulumi.getter(name="contentTypeId")
-    def content_type_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Content type identifier.
-        """
-        return pulumi.get(self, "content_type_id")
-
-    @content_type_id.setter
-    def content_type_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "content_type_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -88,6 +77,18 @@ class ContentTypeArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentTypeId")
+    def content_type_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Content type identifier.
+        """
+        return pulumi.get(self, "content_type_id")
+
+    @content_type_id.setter
+    def content_type_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "content_type_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -230,8 +231,6 @@ class ContentType(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContentTypeArgs.__new__(ContentTypeArgs)
 
-            if content_type_id is None and not opts.urn:
-                raise TypeError("Missing required property 'content_type_id'")
             __props__.__dict__["content_type_id"] = content_type_id
             __props__.__dict__["description"] = description
             __props__.__dict__["id"] = id

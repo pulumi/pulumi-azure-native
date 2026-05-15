@@ -22,7 +22,6 @@ __all__ = ['FlowLogArgs', 'FlowLog']
 @pulumi.input_type
 class FlowLogArgs:
     def __init__(__self__, *,
-                 flow_log_name: pulumi.Input[_builtins.str],
                  network_watcher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  storage_id: pulumi.Input[_builtins.str],
@@ -30,6 +29,7 @@ class FlowLogArgs:
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled_filtering_criteria: pulumi.Input[Optional[_builtins.str]] = None,
                  flow_analytics_configuration: pulumi.Input[Optional['TrafficAnalyticsPropertiesArgs']] = None,
+                 flow_log_name: pulumi.Input[Optional[_builtins.str]] = None,
                  format: pulumi.Input[Optional['FlowLogFormatParametersArgs']] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
@@ -39,7 +39,6 @@ class FlowLogArgs:
         """
         The set of arguments for constructing a FlowLog resource.
 
-        :param pulumi.Input[_builtins.str] flow_log_name: The name of the flow log.
         :param pulumi.Input[_builtins.str] network_watcher_name: The name of the network watcher.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] storage_id: ID of the storage account which is used to store the flow log.
@@ -47,6 +46,7 @@ class FlowLogArgs:
         :param pulumi.Input[_builtins.bool] enabled: Flag to enable/disable flow logging.
         :param pulumi.Input[_builtins.str] enabled_filtering_criteria: Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
         :param pulumi.Input['TrafficAnalyticsPropertiesArgs'] flow_analytics_configuration: Parameters that define the configuration of traffic analytics.
+        :param pulumi.Input[_builtins.str] flow_log_name: The name of the flow log.
         :param pulumi.Input['FlowLogFormatParametersArgs'] format: Parameters that define the flow log format.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: FlowLog resource Managed Identity
@@ -54,7 +54,6 @@ class FlowLogArgs:
         :param pulumi.Input['RetentionPolicyParametersArgs'] retention_policy: Parameters that define the retention policy for flow log.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "flow_log_name", flow_log_name)
         pulumi.set(__self__, "network_watcher_name", network_watcher_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "storage_id", storage_id)
@@ -65,6 +64,8 @@ class FlowLogArgs:
             pulumi.set(__self__, "enabled_filtering_criteria", enabled_filtering_criteria)
         if flow_analytics_configuration is not None:
             pulumi.set(__self__, "flow_analytics_configuration", flow_analytics_configuration)
+        if flow_log_name is not None:
+            pulumi.set(__self__, "flow_log_name", flow_log_name)
         if format is not None:
             pulumi.set(__self__, "format", format)
         if id is not None:
@@ -77,18 +78,6 @@ class FlowLogArgs:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="flowLogName")
-    def flow_log_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the flow log.
-        """
-        return pulumi.get(self, "flow_log_name")
-
-    @flow_log_name.setter
-    def flow_log_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "flow_log_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkWatcherName")
@@ -173,6 +162,18 @@ class FlowLogArgs:
     @flow_analytics_configuration.setter
     def flow_analytics_configuration(self, value: pulumi.Input[Optional['TrafficAnalyticsPropertiesArgs']]):
         pulumi.set(self, "flow_analytics_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogName")
+    def flow_log_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the flow log.
+        """
+        return pulumi.get(self, "flow_log_name")
+
+    @flow_log_name.setter
+    def flow_log_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "flow_log_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -348,8 +349,6 @@ class FlowLog(pulumi.CustomResource):
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["enabled_filtering_criteria"] = enabled_filtering_criteria
             __props__.__dict__["flow_analytics_configuration"] = flow_analytics_configuration
-            if flow_log_name is None and not opts.urn:
-                raise TypeError("Missing required property 'flow_log_name'")
             __props__.__dict__["flow_log_name"] = flow_log_name
             __props__.__dict__["format"] = format
             __props__.__dict__["id"] = id

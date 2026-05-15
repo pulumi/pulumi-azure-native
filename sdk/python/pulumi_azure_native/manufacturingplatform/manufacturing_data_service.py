@@ -22,48 +22,37 @@ __all__ = ['ManufacturingDataServiceArgs', 'ManufacturingDataService']
 @pulumi.input_type
 class ManufacturingDataServiceArgs:
     def __init__(__self__, *,
-                 mds_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 mds_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['MdsResourcePropertiesArgs']] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManufacturingDataService resource.
 
-        :param pulumi.Input[_builtins.str] mds_resource_name: Name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] mds_resource_name: Name.
         :param pulumi.Input['MdsResourcePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "mds_resource_name", mds_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if mds_resource_name is not None:
+            pulumi.set(__self__, "mds_resource_name", mds_resource_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="mdsResourceName")
-    def mds_resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name.
-        """
-        return pulumi.get(self, "mds_resource_name")
-
-    @mds_resource_name.setter
-    def mds_resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "mds_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -100,6 +89,18 @@ class ManufacturingDataServiceArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mdsResourceName")
+    def mds_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name.
+        """
+        return pulumi.get(self, "mds_resource_name")
+
+    @mds_resource_name.setter
+    def mds_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mds_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -213,8 +214,6 @@ class ManufacturingDataService(pulumi.CustomResource):
 
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            if mds_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'mds_resource_name'")
             __props__.__dict__["mds_resource_name"] = mds_resource_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

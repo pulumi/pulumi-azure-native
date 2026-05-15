@@ -24,7 +24,6 @@ class SourceArgs:
     def __init__(__self__, *,
                  credit_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 source_name: pulumi.Input[_builtins.str],
                  credit: pulumi.Input[Optional['CommitmentArgs']] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  impacted_billing_period: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,6 +32,7 @@ class SourceArgs:
                  managed_by: pulumi.Input[Optional[_builtins.str]] = None,
                  plan: pulumi.Input[Optional['PlanArgs']] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
+                 source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[Union[_builtins.str, 'CreditStatus']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -41,7 +41,6 @@ class SourceArgs:
 
         :param pulumi.Input[_builtins.str] credit_name: Name of the credit
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] source_name: Name of the credit source
         :param pulumi.Input['CommitmentArgs'] credit: Commitment towards the benefit.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[_builtins.str] impacted_billing_period: The billing period of the impact for the resource. Format YYYYMM
@@ -50,13 +49,13 @@ class SourceArgs:
         :param pulumi.Input[_builtins.str] managed_by: The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
         :param pulumi.Input['PlanArgs'] plan: Plan for the resource.
         :param pulumi.Input['SkuArgs'] sku: The resource model definition representing SKU
+        :param pulumi.Input[_builtins.str] source_name: Name of the credit source
         :param pulumi.Input[_builtins.str] source_resource_id: The uri of the resource impacted which lead to the grant of the credit.
         :param pulumi.Input[Union[_builtins.str, 'CreditStatus']] status: Status of the credit
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "credit_name", credit_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "source_name", source_name)
         if credit is not None:
             pulumi.set(__self__, "credit", credit)
         if identity is not None:
@@ -73,6 +72,8 @@ class SourceArgs:
             pulumi.set(__self__, "plan", plan)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
         if source_resource_id is not None:
             pulumi.set(__self__, "source_resource_id", source_resource_id)
         if status is not None:
@@ -103,18 +104,6 @@ class SourceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceName")
-    def source_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the credit source
-        """
-        return pulumi.get(self, "source_name")
-
-    @source_name.setter
-    def source_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "source_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -211,6 +200,18 @@ class SourceArgs:
     @sku.setter
     def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the credit source
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_name", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceResourceId")
@@ -361,8 +362,6 @@ class Source(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
-            if source_name is None and not opts.urn:
-                raise TypeError("Missing required property 'source_name'")
             __props__.__dict__["source_name"] = source_name
             __props__.__dict__["source_resource_id"] = source_resource_id
             __props__.__dict__["status"] = status

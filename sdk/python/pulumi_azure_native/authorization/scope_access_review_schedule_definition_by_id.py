@@ -22,7 +22,6 @@ __all__ = ['ScopeAccessReviewScheduleDefinitionByIdArgs', 'ScopeAccessReviewSche
 @pulumi.input_type
 class ScopeAccessReviewScheduleDefinitionByIdArgs:
     def __init__(__self__, *,
-                 schedule_definition_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
                  auto_apply_decisions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  backup_reviewers: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
@@ -47,11 +46,11 @@ class ScopeAccessReviewScheduleDefinitionByIdArgs:
                  recommendations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  reminder_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  reviewers: pulumi.Input[Optional[Sequence[pulumi.Input['AccessReviewReviewerArgs']]]] = None,
+                 schedule_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]] = None):
         """
         The set of arguments for constructing a ScopeAccessReviewScheduleDefinitionById resource.
 
-        :param pulumi.Input[_builtins.str] schedule_definition_id: The id of the access review schedule definition.
         :param pulumi.Input[_builtins.str] scope: The scope of the resource.
         :param pulumi.Input[_builtins.bool] auto_apply_decisions_enabled: Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]] backup_reviewers: This is the collection of backup reviewers.
@@ -76,9 +75,9 @@ class ScopeAccessReviewScheduleDefinitionByIdArgs:
         :param pulumi.Input[_builtins.bool] recommendations_enabled: Flag to indicate whether showing recommendations to reviewers is enabled.
         :param pulumi.Input[_builtins.bool] reminder_notifications_enabled: Flag to indicate whether sending reminder emails to reviewers are enabled.
         :param pulumi.Input[Sequence[pulumi.Input['AccessReviewReviewerArgs']]] reviewers: This is the collection of reviewers.
+        :param pulumi.Input[_builtins.str] schedule_definition_id: The id of the access review schedule definition.
         :param pulumi.Input[Union[_builtins.str, 'AccessReviewRecurrencePatternType']] type: The recurrence type : weekly, monthly, etc.
         """
-        pulumi.set(__self__, "schedule_definition_id", schedule_definition_id)
         pulumi.set(__self__, "scope", scope)
         if auto_apply_decisions_enabled is not None:
             pulumi.set(__self__, "auto_apply_decisions_enabled", auto_apply_decisions_enabled)
@@ -126,20 +125,10 @@ class ScopeAccessReviewScheduleDefinitionByIdArgs:
             pulumi.set(__self__, "reminder_notifications_enabled", reminder_notifications_enabled)
         if reviewers is not None:
             pulumi.set(__self__, "reviewers", reviewers)
+        if schedule_definition_id is not None:
+            pulumi.set(__self__, "schedule_definition_id", schedule_definition_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
-
-    @_builtins.property
-    @pulumi.getter(name="scheduleDefinitionId")
-    def schedule_definition_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The id of the access review schedule definition.
-        """
-        return pulumi.get(self, "schedule_definition_id")
-
-    @schedule_definition_id.setter
-    def schedule_definition_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "schedule_definition_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -430,6 +419,18 @@ class ScopeAccessReviewScheduleDefinitionByIdArgs:
         pulumi.set(self, "reviewers", value)
 
     @_builtins.property
+    @pulumi.getter(name="scheduleDefinitionId")
+    def schedule_definition_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The id of the access review schedule definition.
+        """
+        return pulumi.get(self, "schedule_definition_id")
+
+    @schedule_definition_id.setter
+    def schedule_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schedule_definition_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AccessReviewRecurrencePatternType']]]:
         """
@@ -595,8 +596,6 @@ class ScopeAccessReviewScheduleDefinitionById(pulumi.CustomResource):
             __props__.__dict__["recommendations_enabled"] = recommendations_enabled
             __props__.__dict__["reminder_notifications_enabled"] = reminder_notifications_enabled
             __props__.__dict__["reviewers"] = reviewers
-            if schedule_definition_id is None and not opts.urn:
-                raise TypeError("Missing required property 'schedule_definition_id'")
             __props__.__dict__["schedule_definition_id"] = schedule_definition_id
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

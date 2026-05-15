@@ -22,7 +22,6 @@ __all__ = ['DatabaseArgs', 'Database']
 @pulumi.input_type
 class DatabaseArgs:
     def __init__(__self__, *,
-                 database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  auto_pause_delay: pulumi.Input[Optional[_builtins.int]] = None,
@@ -30,6 +29,7 @@ class DatabaseArgs:
                  catalog_collation: pulumi.Input[Optional[Union[_builtins.str, 'CatalogCollationType']]] = None,
                  collation: pulumi.Input[Optional[_builtins.str]] = None,
                  create_mode: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  elastic_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_protector: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_protector_auto_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -66,7 +66,6 @@ class DatabaseArgs:
         """
         The set of arguments for constructing a Database resource.
 
-        :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.int] auto_pause_delay: Time in minutes after which database is automatically paused. A value of -1 means that automatic pause is disabled
@@ -90,6 +89,7 @@ class DatabaseArgs:
                RestoreLongTermRetentionBackup: Creates a database by restoring from a long term retention vault. recoveryServicesRecoveryPointResourceId must be specified as the recovery point resource ID.
                
                Copy, Secondary, and RestoreLongTermRetentionBackup are not supported for DataWarehouse edition.
+        :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] elastic_pool_id: The resource identifier of the elastic pool containing this database.
         :param pulumi.Input[_builtins.str] encryption_protector: The azure key vault URI of the database if it's configured with per Database Customer Managed Keys.
         :param pulumi.Input[_builtins.bool] encryption_protector_auto_rotation: The flag to enable or disable auto rotation of database encryption protector AKV key.
@@ -162,7 +162,6 @@ class DatabaseArgs:
         :param pulumi.Input[_builtins.bool] use_free_limit: Whether or not the database uses free monthly limits. Allowed on one database in a subscription.
         :param pulumi.Input[_builtins.bool] zone_redundant: Whether or not this database is zone redundant, which means the replicas of this database will be spread across multiple availability zones.
         """
-        pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         if auto_pause_delay is not None:
@@ -175,6 +174,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "collation", collation)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
         if elastic_pool_id is not None:
             pulumi.set(__self__, "elastic_pool_id", elastic_pool_id)
         if encryption_protector is not None:
@@ -241,18 +242,6 @@ class DatabaseArgs:
             pulumi.set(__self__, "use_free_limit", use_free_limit)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
-
-    @_builtins.property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the database.
-        """
-        return pulumi.get(self, "database_name")
-
-    @database_name.setter
-    def database_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -353,6 +342,18 @@ class DatabaseArgs:
     @create_mode.setter
     def create_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'CreateMode']]]):
         pulumi.set(self, "create_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="elasticPoolId")
@@ -1027,8 +1028,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["catalog_collation"] = catalog_collation
             __props__.__dict__["collation"] = collation
             __props__.__dict__["create_mode"] = create_mode
-            if database_name is None and not opts.urn:
-                raise TypeError("Missing required property 'database_name'")
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["elastic_pool_id"] = elastic_pool_id
             __props__.__dict__["encryption_protector"] = encryption_protector

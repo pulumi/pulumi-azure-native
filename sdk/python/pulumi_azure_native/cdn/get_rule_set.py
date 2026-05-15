@@ -165,7 +165,7 @@ def get_rule_set(profile_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_rule_set_output(profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        rule_set_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleSetResult]:
     """
     Gets an existing AzureFrontDoor rule set with the specified rule set name under the specified subscription, resource group and profile.

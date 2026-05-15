@@ -22,46 +22,35 @@ __all__ = ['ClusterArgs', 'Cluster']
 @pulumi.input_type
 class ClusterArgs:
     def __init__(__self__, *,
-                 cluster_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input['SkuArgs'],
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_size: pulumi.Input[Optional[_builtins.int]] = None,
                  hosts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vsan_datastore_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Cluster resource.
 
-        :param pulumi.Input[_builtins.str] cluster_name: Name of the cluster
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SkuArgs'] sku: The SKU (Stock Keeping Unit) assigned to this resource.
+        :param pulumi.Input[_builtins.str] cluster_name: Name of the cluster
         :param pulumi.Input[_builtins.int] cluster_size: The cluster size
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] hosts: The hosts
         :param pulumi.Input[_builtins.str] vsan_datastore_name: Name of the vsan datastore associated with the cluster
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if cluster_size is not None:
             pulumi.set(__self__, "cluster_size", cluster_size)
         if hosts is not None:
             pulumi.set(__self__, "hosts", hosts)
         if vsan_datastore_name is not None:
             pulumi.set(__self__, "vsan_datastore_name", vsan_datastore_name)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the cluster
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -98,6 +87,18 @@ class ClusterArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the cluster
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterSize")
@@ -213,8 +214,6 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["cluster_size"] = cluster_size
             __props__.__dict__["hosts"] = hosts

@@ -168,7 +168,7 @@ def get_trigger(image_template_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_trigger_output(image_template_name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                       trigger_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                       trigger_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTriggerResult]:
     """
     Get the specified trigger for the specified image template resource

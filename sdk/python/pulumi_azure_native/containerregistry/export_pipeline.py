@@ -22,46 +22,35 @@ __all__ = ['ExportPipelineArgs', 'ExportPipeline']
 @pulumi.input_type
 class ExportPipelineArgs:
     def __init__(__self__, *,
-                 export_pipeline_name: pulumi.Input[_builtins.str],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  target: pulumi.Input['ExportPipelineTargetPropertiesArgs'],
+                 export_pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['IdentityPropertiesArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  options: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]]] = None):
         """
         The set of arguments for constructing a ExportPipeline resource.
 
-        :param pulumi.Input[_builtins.str] export_pipeline_name: The name of the export pipeline.
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExportPipelineTargetPropertiesArgs'] target: The target properties of the export pipeline.
+        :param pulumi.Input[_builtins.str] export_pipeline_name: The name of the export pipeline.
         :param pulumi.Input['IdentityPropertiesArgs'] identity: The identity of the export pipeline.
         :param pulumi.Input[_builtins.str] location: The location of the export pipeline.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'PipelineOptions']]]] options: The list of all options configured for the pipeline.
         """
-        pulumi.set(__self__, "export_pipeline_name", export_pipeline_name)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "target", target)
+        if export_pipeline_name is not None:
+            pulumi.set(__self__, "export_pipeline_name", export_pipeline_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if options is not None:
             pulumi.set(__self__, "options", options)
-
-    @_builtins.property
-    @pulumi.getter(name="exportPipelineName")
-    def export_pipeline_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the export pipeline.
-        """
-        return pulumi.get(self, "export_pipeline_name")
-
-    @export_pipeline_name.setter
-    def export_pipeline_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "export_pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
@@ -98,6 +87,18 @@ class ExportPipelineArgs:
     @target.setter
     def target(self, value: pulumi.Input['ExportPipelineTargetPropertiesArgs']):
         pulumi.set(self, "target", value)
+
+    @_builtins.property
+    @pulumi.getter(name="exportPipelineName")
+    def export_pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the export pipeline.
+        """
+        return pulumi.get(self, "export_pipeline_name")
+
+    @export_pipeline_name.setter
+    def export_pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "export_pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -213,8 +214,6 @@ class ExportPipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ExportPipelineArgs.__new__(ExportPipelineArgs)
 
-            if export_pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'export_pipeline_name'")
             __props__.__dict__["export_pipeline_name"] = export_pipeline_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

@@ -215,7 +215,7 @@ def get_express_route_gateway(express_route_gateway_name: Optional[_builtins.str
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
-def get_express_route_gateway_output(express_route_gateway_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_express_route_gateway_output(express_route_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteGatewayResult]:
     """

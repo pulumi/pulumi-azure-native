@@ -23,31 +23,32 @@ __all__ = ['SqlVirtualMachineGroupArgs', 'SqlVirtualMachineGroup']
 class SqlVirtualMachineGroupArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 sql_virtual_machine_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sql_image_offer: pulumi.Input[Optional[_builtins.str]] = None,
                  sql_image_sku: pulumi.Input[Optional[Union[_builtins.str, 'SqlVmGroupImageSku']]] = None,
+                 sql_virtual_machine_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  wsfc_domain_profile: pulumi.Input[Optional['WsfcDomainProfileArgs']] = None):
         """
         The set of arguments for constructing a SqlVirtualMachineGroup resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] sql_virtual_machine_group_name: Name of the SQL virtual machine group.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] sql_image_offer: SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016.
         :param pulumi.Input[Union[_builtins.str, 'SqlVmGroupImageSku']] sql_image_sku: SQL image sku.
+        :param pulumi.Input[_builtins.str] sql_virtual_machine_group_name: Name of the SQL virtual machine group.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['WsfcDomainProfileArgs'] wsfc_domain_profile: Cluster Active Directory domain profile.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sql_virtual_machine_group_name", sql_virtual_machine_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if sql_image_offer is not None:
             pulumi.set(__self__, "sql_image_offer", sql_image_offer)
         if sql_image_sku is not None:
             pulumi.set(__self__, "sql_image_sku", sql_image_sku)
+        if sql_virtual_machine_group_name is not None:
+            pulumi.set(__self__, "sql_virtual_machine_group_name", sql_virtual_machine_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if wsfc_domain_profile is not None:
@@ -64,18 +65,6 @@ class SqlVirtualMachineGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sqlVirtualMachineGroupName")
-    def sql_virtual_machine_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the SQL virtual machine group.
-        """
-        return pulumi.get(self, "sql_virtual_machine_group_name")
-
-    @sql_virtual_machine_group_name.setter
-    def sql_virtual_machine_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sql_virtual_machine_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -112,6 +101,18 @@ class SqlVirtualMachineGroupArgs:
     @sql_image_sku.setter
     def sql_image_sku(self, value: pulumi.Input[Optional[Union[_builtins.str, 'SqlVmGroupImageSku']]]):
         pulumi.set(self, "sql_image_sku", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlVirtualMachineGroupName")
+    def sql_virtual_machine_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the SQL virtual machine group.
+        """
+        return pulumi.get(self, "sql_virtual_machine_group_name")
+
+    @sql_virtual_machine_group_name.setter
+    def sql_virtual_machine_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sql_virtual_machine_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -221,8 +222,6 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sql_image_offer"] = sql_image_offer
             __props__.__dict__["sql_image_sku"] = sql_image_sku
-            if sql_virtual_machine_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_virtual_machine_group_name'")
             __props__.__dict__["sql_virtual_machine_group_name"] = sql_virtual_machine_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["wsfc_domain_profile"] = wsfc_domain_profile

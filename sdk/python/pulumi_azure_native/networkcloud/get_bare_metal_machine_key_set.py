@@ -319,7 +319,7 @@ def get_bare_metal_machine_key_set(bare_metal_machine_key_set_name: Optional[_bu
         type=pulumi.get(__ret__, 'type'),
         user_list=pulumi.get(__ret__, 'user_list'),
         user_list_status=pulumi.get(__ret__, 'user_list_status'))
-def get_bare_metal_machine_key_set_output(bare_metal_machine_key_set_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_bare_metal_machine_key_set_output(bare_metal_machine_key_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBareMetalMachineKeySetResult]:

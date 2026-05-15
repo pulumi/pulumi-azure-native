@@ -268,7 +268,7 @@ def get_orchestrator_instance_service_details(resource_group_name: Optional[_bui
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_orchestrator_instance_service_details_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                     resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrchestratorInstanceServiceDetailsResult]:
     """
     Gets details about the orchestrator instance.

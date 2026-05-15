@@ -21,7 +21,7 @@ __all__ = ['SharedLimitArgs', 'SharedLimit']
 class SharedLimitArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str]):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedLimit resource.
 
@@ -29,7 +29,8 @@ class SharedLimitArgs:
         :param pulumi.Input[_builtins.str] name: The name of the SharedLimit
         """
         pulumi.set(__self__, "location", location)
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter
@@ -45,14 +46,14 @@ class SharedLimitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the SharedLimit
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -117,8 +118,6 @@ class SharedLimit(pulumi.CustomResource):
             if location is None and not opts.urn:
                 raise TypeError("Missing required property 'location'")
             __props__.__dict__["location"] = location
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["limit"] = None

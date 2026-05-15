@@ -239,7 +239,7 @@ def get_contact_profile(contact_profile_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         third_party_configurations=pulumi.get(__ret__, 'third_party_configurations'),
         type=pulumi.get(__ret__, 'type'))
-def get_contact_profile_output(contact_profile_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_contact_profile_output(contact_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactProfileResult]:
     """

@@ -24,21 +24,22 @@ class TimeSeriesDatabaseConnectionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 time_series_database_connection_name: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['AzureDataExplorerConnectionPropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['AzureDataExplorerConnectionPropertiesArgs']] = None,
+                 time_series_database_connection_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TimeSeriesDatabaseConnection resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input[_builtins.str] resource_name: The name of the DigitalTwinsInstance.
-        :param pulumi.Input[_builtins.str] time_series_database_connection_name: Name of time series database connection.
         :param pulumi.Input['AzureDataExplorerConnectionPropertiesArgs'] properties: Properties of a specific time series database connection.
+        :param pulumi.Input[_builtins.str] time_series_database_connection_name: Name of time series database connection.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
-        pulumi.set(__self__, "time_series_database_connection_name", time_series_database_connection_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if time_series_database_connection_name is not None:
+            pulumi.set(__self__, "time_series_database_connection_name", time_series_database_connection_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -65,18 +66,6 @@ class TimeSeriesDatabaseConnectionArgs:
         pulumi.set(self, "resource_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="timeSeriesDatabaseConnectionName")
-    def time_series_database_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of time series database connection.
-        """
-        return pulumi.get(self, "time_series_database_connection_name")
-
-    @time_series_database_connection_name.setter
-    def time_series_database_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "time_series_database_connection_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['AzureDataExplorerConnectionPropertiesArgs']]:
         """
@@ -87,6 +76,18 @@ class TimeSeriesDatabaseConnectionArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['AzureDataExplorerConnectionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeSeriesDatabaseConnectionName")
+    def time_series_database_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of time series database connection.
+        """
+        return pulumi.get(self, "time_series_database_connection_name")
+
+    @time_series_database_connection_name.setter
+    def time_series_database_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "time_series_database_connection_name", value)
 
 
 @pulumi.type_token("azure-native:digitaltwins:TimeSeriesDatabaseConnection")
@@ -160,8 +161,6 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
             if resource_name_ is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
-            if time_series_database_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'time_series_database_connection_name'")
             __props__.__dict__["time_series_database_connection_name"] = time_series_database_connection_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

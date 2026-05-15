@@ -22,12 +22,12 @@ __all__ = ['AttachedDatabaseConfigurationArgs', 'AttachedDatabaseConfiguration']
 @pulumi.input_type
 class AttachedDatabaseConfigurationArgs:
     def __init__(__self__, *,
-                 attached_database_configuration_name: pulumi.Input[_builtins.str],
                  cluster_name: pulumi.Input[_builtins.str],
                  cluster_resource_id: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  default_principals_modification_kind: pulumi.Input[Union[_builtins.str, 'DefaultPrincipalsModificationKind']],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 attached_database_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name_override: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,23 +35,24 @@ class AttachedDatabaseConfigurationArgs:
         """
         The set of arguments for constructing a AttachedDatabaseConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] attached_database_configuration_name: The name of the attached database configuration.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
         :param pulumi.Input[_builtins.str] cluster_resource_id: The resource id of the cluster where the databases you would like to attach reside.
         :param pulumi.Input[_builtins.str] database_name: The name of the database which you would like to attach, use * if you want to follow all current and future databases.
         :param pulumi.Input[Union[_builtins.str, 'DefaultPrincipalsModificationKind']] default_principals_modification_kind: The default principals modification kind
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] attached_database_configuration_name: The name of the attached database configuration.
         :param pulumi.Input[_builtins.str] database_name_override: Overrides the original database name. Relevant only when attaching to a specific database.
         :param pulumi.Input[_builtins.str] database_name_prefix: Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input['TableLevelSharingPropertiesArgs'] table_level_sharing_properties: Table level sharing specifications
         """
-        pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "cluster_resource_id", cluster_resource_id)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "default_principals_modification_kind", default_principals_modification_kind)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if attached_database_configuration_name is not None:
+            pulumi.set(__self__, "attached_database_configuration_name", attached_database_configuration_name)
         if database_name_override is not None:
             pulumi.set(__self__, "database_name_override", database_name_override)
         if database_name_prefix is not None:
@@ -60,18 +61,6 @@ class AttachedDatabaseConfigurationArgs:
             pulumi.set(__self__, "location", location)
         if table_level_sharing_properties is not None:
             pulumi.set(__self__, "table_level_sharing_properties", table_level_sharing_properties)
-
-    @_builtins.property
-    @pulumi.getter(name="attachedDatabaseConfigurationName")
-    def attached_database_configuration_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the attached database configuration.
-        """
-        return pulumi.get(self, "attached_database_configuration_name")
-
-    @attached_database_configuration_name.setter
-    def attached_database_configuration_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "attached_database_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterName")
@@ -132,6 +121,18 @@ class AttachedDatabaseConfigurationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="attachedDatabaseConfigurationName")
+    def attached_database_configuration_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the attached database configuration.
+        """
+        return pulumi.get(self, "attached_database_configuration_name")
+
+    @attached_database_configuration_name.setter
+    def attached_database_configuration_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "attached_database_configuration_name", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseNameOverride")
@@ -268,8 +269,6 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AttachedDatabaseConfigurationArgs.__new__(AttachedDatabaseConfigurationArgs)
 
-            if attached_database_configuration_name is None and not opts.urn:
-                raise TypeError("Missing required property 'attached_database_configuration_name'")
             __props__.__dict__["attached_database_configuration_name"] = attached_database_configuration_name
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")

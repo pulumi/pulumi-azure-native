@@ -24,7 +24,6 @@ class VirtualNetworkPeeringInitArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network_name: pulumi.Input[_builtins.str],
-                 virtual_network_peering_name: pulumi.Input[_builtins.str],
                  allow_forwarded_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
                  allow_gateway_transit: pulumi.Input[Optional[_builtins.bool]] = None,
                  allow_virtual_network_access: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -45,13 +44,13 @@ class VirtualNetworkPeeringInitArgs:
                  remote_virtual_network_address_space: pulumi.Input[Optional['AddressSpaceArgs']] = None,
                  sync_remote_address_space: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 use_remote_gateways: pulumi.Input[Optional[_builtins.bool]] = None):
+                 use_remote_gateways: pulumi.Input[Optional[_builtins.bool]] = None,
+                 virtual_network_peering_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkPeering resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network.
-        :param pulumi.Input[_builtins.str] virtual_network_peering_name: The name of the peering.
         :param pulumi.Input[_builtins.bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
         :param pulumi.Input[_builtins.bool] allow_gateway_transit: If gateway links can be used in remote virtual networking to link to this virtual network.
         :param pulumi.Input[_builtins.bool] allow_virtual_network_access: Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
@@ -73,10 +72,10 @@ class VirtualNetworkPeeringInitArgs:
         :param pulumi.Input[_builtins.str] sync_remote_address_space: Parameter indicates the intention to sync the peering with the current address space on the remote vNet after it's updated.
         :param pulumi.Input[_builtins.str] type: Resource type.
         :param pulumi.Input[_builtins.bool] use_remote_gateways: If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
+        :param pulumi.Input[_builtins.str] virtual_network_peering_name: The name of the peering.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_network_name", virtual_network_name)
-        pulumi.set(__self__, "virtual_network_peering_name", virtual_network_peering_name)
         if allow_forwarded_traffic is not None:
             pulumi.set(__self__, "allow_forwarded_traffic", allow_forwarded_traffic)
         if allow_gateway_transit is not None:
@@ -119,6 +118,8 @@ class VirtualNetworkPeeringInitArgs:
             pulumi.set(__self__, "type", type)
         if use_remote_gateways is not None:
             pulumi.set(__self__, "use_remote_gateways", use_remote_gateways)
+        if virtual_network_peering_name is not None:
+            pulumi.set(__self__, "virtual_network_peering_name", virtual_network_peering_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -143,18 +144,6 @@ class VirtualNetworkPeeringInitArgs:
     @virtual_network_name.setter
     def virtual_network_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "virtual_network_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkPeeringName")
-    def virtual_network_peering_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the peering.
-        """
-        return pulumi.get(self, "virtual_network_peering_name")
-
-    @virtual_network_peering_name.setter
-    def virtual_network_peering_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_network_peering_name", value)
 
     @_builtins.property
     @pulumi.getter(name="allowForwardedTraffic")
@@ -408,6 +397,18 @@ class VirtualNetworkPeeringInitArgs:
     def use_remote_gateways(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "use_remote_gateways", value)
 
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkPeeringName")
+    def virtual_network_peering_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the peering.
+        """
+        return pulumi.get(self, "virtual_network_peering_name")
+
+    @virtual_network_peering_name.setter
+    def virtual_network_peering_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_network_peering_name", value)
+
 
 @pulumi.type_token("azure-native:network:VirtualNetworkPeering")
 class VirtualNetworkPeering(pulumi.CustomResource):
@@ -564,8 +565,6 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__.__dict__["virtual_network_name"] = virtual_network_name
-            if virtual_network_peering_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_peering_name'")
             __props__.__dict__["virtual_network_peering_name"] = virtual_network_peering_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

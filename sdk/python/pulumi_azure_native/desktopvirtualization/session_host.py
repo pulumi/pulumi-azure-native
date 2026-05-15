@@ -22,29 +22,30 @@ class SessionHostArgs:
     def __init__(__self__, *,
                  host_pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 session_host_name: pulumi.Input[_builtins.str],
                  allow_new_session: pulumi.Input[Optional[_builtins.bool]] = None,
                  assigned_user: pulumi.Input[Optional[_builtins.str]] = None,
-                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_host_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SessionHost resource.
 
         :param pulumi.Input[_builtins.str] host_pool_name: The name of the host pool within the specified resource group
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] session_host_name: The name of the session host within the specified host pool
         :param pulumi.Input[_builtins.bool] allow_new_session: Allow a new session.
         :param pulumi.Input[_builtins.str] assigned_user: User assigned to SessionHost.
         :param pulumi.Input[_builtins.str] friendly_name: Friendly name of SessionHost
+        :param pulumi.Input[_builtins.str] session_host_name: The name of the session host within the specified host pool
         """
         pulumi.set(__self__, "host_pool_name", host_pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "session_host_name", session_host_name)
         if allow_new_session is not None:
             pulumi.set(__self__, "allow_new_session", allow_new_session)
         if assigned_user is not None:
             pulumi.set(__self__, "assigned_user", assigned_user)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if session_host_name is not None:
+            pulumi.set(__self__, "session_host_name", session_host_name)
 
     @_builtins.property
     @pulumi.getter(name="hostPoolName")
@@ -69,18 +70,6 @@ class SessionHostArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sessionHostName")
-    def session_host_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the session host within the specified host pool
-        """
-        return pulumi.get(self, "session_host_name")
-
-    @session_host_name.setter
-    def session_host_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "session_host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="allowNewSession")
@@ -117,6 +106,18 @@ class SessionHostArgs:
     @friendly_name.setter
     def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sessionHostName")
+    def session_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the session host within the specified host pool
+        """
+        return pulumi.get(self, "session_host_name")
+
+    @session_host_name.setter
+    def session_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "session_host_name", value)
 
 
 @pulumi.type_token("azure-native:desktopvirtualization:SessionHost")
@@ -198,8 +199,6 @@ class SessionHost(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if session_host_name is None and not opts.urn:
-                raise TypeError("Missing required property 'session_host_name'")
             __props__.__dict__["session_host_name"] = session_host_name
             __props__.__dict__["active_sessions"] = None
             __props__.__dict__["agent_version"] = None

@@ -154,7 +154,7 @@ def get_workload_deployment(modernize_project_name: Optional[_builtins.str] = No
 def get_workload_deployment_output(modernize_project_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    subscription_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                   workload_deployment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   workload_deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkloadDeploymentResult]:
     """
     Gets the details of the workload deployment.

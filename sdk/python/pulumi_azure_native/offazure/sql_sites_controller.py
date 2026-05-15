@@ -24,27 +24,28 @@ class SqlSitesControllerArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  site_name: pulumi.Input[_builtins.str],
-                 sql_site_name: pulumi.Input[_builtins.str],
                  discovery_scenario: pulumi.Input[Optional[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]] = None,
-                 site_appliance_properties_collection: pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]] = None):
+                 site_appliance_properties_collection: pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]] = None,
+                 sql_site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SqlSitesController resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] site_name: Site name
-        :param pulumi.Input[_builtins.str] sql_site_name: SQL site name.
         :param pulumi.Input[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']] discovery_scenario: Gets or sets the discovery scenario.
         :param pulumi.Input[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]] site_appliance_properties_collection: Gets or sets the appliance details used by service to communicate
                           
                to the appliance.
+        :param pulumi.Input[_builtins.str] sql_site_name: SQL site name.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "site_name", site_name)
-        pulumi.set(__self__, "sql_site_name", sql_site_name)
         if discovery_scenario is not None:
             pulumi.set(__self__, "discovery_scenario", discovery_scenario)
         if site_appliance_properties_collection is not None:
             pulumi.set(__self__, "site_appliance_properties_collection", site_appliance_properties_collection)
+        if sql_site_name is not None:
+            pulumi.set(__self__, "sql_site_name", sql_site_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -71,18 +72,6 @@ class SqlSitesControllerArgs:
         pulumi.set(self, "site_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="sqlSiteName")
-    def sql_site_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        SQL site name.
-        """
-        return pulumi.get(self, "sql_site_name")
-
-    @sql_site_name.setter
-    def sql_site_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sql_site_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="discoveryScenario")
     def discovery_scenario(self) -> pulumi.Input[Optional[Union[_builtins.str, 'SqlSitePropertiesDiscoveryScenario']]]:
         """
@@ -107,6 +96,18 @@ class SqlSitesControllerArgs:
     @site_appliance_properties_collection.setter
     def site_appliance_properties_collection(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SiteAppliancePropertiesArgs']]]]):
         pulumi.set(self, "site_appliance_properties_collection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sqlSiteName")
+    def sql_site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SQL site name.
+        """
+        return pulumi.get(self, "sql_site_name")
+
+    @sql_site_name.setter
+    def sql_site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sql_site_name", value)
 
 
 @pulumi.type_token("azure-native:offazure:SqlSitesController")
@@ -190,8 +191,6 @@ class SqlSitesController(pulumi.CustomResource):
             if site_name is None and not opts.urn:
                 raise TypeError("Missing required property 'site_name'")
             __props__.__dict__["site_name"] = site_name
-            if sql_site_name is None and not opts.urn:
-                raise TypeError("Missing required property 'sql_site_name'")
             __props__.__dict__["sql_site_name"] = sql_site_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

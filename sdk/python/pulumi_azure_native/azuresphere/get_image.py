@@ -243,7 +243,7 @@ def get_image(catalog_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         uri=pulumi.get(__ret__, 'uri'))
 def get_image_output(catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
-                     image_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     image_name: pulumi.Input[Optional[_builtins.str]] = None,
                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """

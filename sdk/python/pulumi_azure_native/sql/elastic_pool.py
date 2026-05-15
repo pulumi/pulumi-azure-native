@@ -22,11 +22,11 @@ __all__ = ['ElasticPoolArgs', 'ElasticPool']
 @pulumi.input_type
 class ElasticPoolArgs:
     def __init__(__self__, *,
-                 elastic_pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  auto_pause_delay: pulumi.Input[Optional[_builtins.int]] = None,
                  availability_zone: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]] = None,
+                 elastic_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
                  license_type: pulumi.Input[Optional[Union[_builtins.str, 'ElasticPoolLicenseType']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -41,11 +41,11 @@ class ElasticPoolArgs:
         """
         The set of arguments for constructing a ElasticPool resource.
 
-        :param pulumi.Input[_builtins.str] elastic_pool_name: The name of the elastic pool.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
         :param pulumi.Input[_builtins.int] auto_pause_delay: Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
         :param pulumi.Input[Union[_builtins.str, 'AvailabilityZoneType']] availability_zone: Specifies the availability zone the pool's primary replica is pinned to.
+        :param pulumi.Input[_builtins.str] elastic_pool_name: The name of the elastic pool.
         :param pulumi.Input[_builtins.int] high_availability_replica_count: The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
         :param pulumi.Input[Union[_builtins.str, 'ElasticPoolLicenseType']] license_type: The license type to apply for this elastic pool.
         :param pulumi.Input[_builtins.str] location: Resource location.
@@ -64,13 +64,14 @@ class ElasticPoolArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.bool] zone_redundant: Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
         """
-        pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "server_name", server_name)
         if auto_pause_delay is not None:
             pulumi.set(__self__, "auto_pause_delay", auto_pause_delay)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if elastic_pool_name is not None:
+            pulumi.set(__self__, "elastic_pool_name", elastic_pool_name)
         if high_availability_replica_count is not None:
             pulumi.set(__self__, "high_availability_replica_count", high_availability_replica_count)
         if license_type is not None:
@@ -93,18 +94,6 @@ class ElasticPoolArgs:
             pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
             pulumi.set(__self__, "zone_redundant", zone_redundant)
-
-    @_builtins.property
-    @pulumi.getter(name="elasticPoolName")
-    def elastic_pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the elastic pool.
-        """
-        return pulumi.get(self, "elastic_pool_name")
-
-    @elastic_pool_name.setter
-    def elastic_pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "elastic_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -153,6 +142,18 @@ class ElasticPoolArgs:
     @availability_zone.setter
     def availability_zone(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AvailabilityZoneType']]]):
         pulumi.set(self, "availability_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="elasticPoolName")
+    def elastic_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the elastic pool.
+        """
+        return pulumi.get(self, "elastic_pool_name")
+
+    @elastic_pool_name.setter
+    def elastic_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "elastic_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityReplicaCount")
@@ -405,8 +406,6 @@ class ElasticPool(pulumi.CustomResource):
 
             __props__.__dict__["auto_pause_delay"] = auto_pause_delay
             __props__.__dict__["availability_zone"] = availability_zone
-            if elastic_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'elastic_pool_name'")
             __props__.__dict__["elastic_pool_name"] = elastic_pool_name
             __props__.__dict__["high_availability_replica_count"] = high_availability_replica_count
             __props__.__dict__["license_type"] = license_type

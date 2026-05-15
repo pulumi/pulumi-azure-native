@@ -22,7 +22,6 @@ __all__ = ['StreamingJobArgs', 'StreamingJob']
 @pulumi.input_type
 class StreamingJobArgs:
     def __init__(__self__, *,
-                 job_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  cluster: pulumi.Input[Optional['ClusterInfoArgs']] = None,
                  compatibility_level: pulumi.Input[Optional[Union[_builtins.str, 'CompatibilityLevel']]] = None,
@@ -34,6 +33,7 @@ class StreamingJobArgs:
                  functions: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionArgs']]]] = None,
                  identity: pulumi.Input[Optional['IdentityArgs']] = None,
                  inputs: pulumi.Input[Optional[Sequence[pulumi.Input['InputArgs']]]] = None,
+                 job_name: pulumi.Input[Optional[_builtins.str]] = None,
                  job_storage_account: pulumi.Input[Optional['JobStorageAccountArgs']] = None,
                  job_type: pulumi.Input[Optional[Union[_builtins.str, 'JobType']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -47,7 +47,6 @@ class StreamingJobArgs:
         """
         The set of arguments for constructing a StreamingJob resource.
 
-        :param pulumi.Input[_builtins.str] job_name: The name of the streaming job.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ClusterInfoArgs'] cluster: The cluster which streaming jobs will run on.
         :param pulumi.Input[Union[_builtins.str, 'CompatibilityLevel']] compatibility_level: Controls certain runtime behaviors of the streaming job.
@@ -59,6 +58,7 @@ class StreamingJobArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArgs']]] functions: A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         :param pulumi.Input['IdentityArgs'] identity: Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
         :param pulumi.Input[Sequence[pulumi.Input['InputArgs']]] inputs: A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
+        :param pulumi.Input[_builtins.str] job_name: The name of the streaming job.
         :param pulumi.Input['JobStorageAccountArgs'] job_storage_account: The properties that are associated with an Azure Storage account with MSI
         :param pulumi.Input[Union[_builtins.str, 'JobType']] job_type: Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -70,7 +70,6 @@ class StreamingJobArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['TransformationArgs'] transformation: Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
         """
-        pulumi.set(__self__, "job_name", job_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cluster is not None:
             pulumi.set(__self__, "cluster", cluster)
@@ -92,6 +91,8 @@ class StreamingJobArgs:
             pulumi.set(__self__, "identity", identity)
         if inputs is not None:
             pulumi.set(__self__, "inputs", inputs)
+        if job_name is not None:
+            pulumi.set(__self__, "job_name", job_name)
         if job_storage_account is not None:
             pulumi.set(__self__, "job_storage_account", job_storage_account)
         if job_type is not None:
@@ -112,18 +113,6 @@ class StreamingJobArgs:
             pulumi.set(__self__, "tags", tags)
         if transformation is not None:
             pulumi.set(__self__, "transformation", transformation)
-
-    @_builtins.property
-    @pulumi.getter(name="jobName")
-    def job_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the streaming job.
-        """
-        return pulumi.get(self, "job_name")
-
-    @job_name.setter
-    def job_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -256,6 +245,18 @@ class StreamingJobArgs:
     @inputs.setter
     def inputs(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['InputArgs']]]]):
         pulumi.set(self, "inputs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jobName")
+    def job_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the streaming job.
+        """
+        return pulumi.get(self, "job_name")
+
+    @job_name.setter
+    def job_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "job_name", value)
 
     @_builtins.property
     @pulumi.getter(name="jobStorageAccount")
@@ -510,8 +511,6 @@ class StreamingJob(pulumi.CustomResource):
             __props__.__dict__["functions"] = functions
             __props__.__dict__["identity"] = identity
             __props__.__dict__["inputs"] = inputs
-            if job_name is None and not opts.urn:
-                raise TypeError("Missing required property 'job_name'")
             __props__.__dict__["job_name"] = job_name
             __props__.__dict__["job_storage_account"] = job_storage_account
             __props__.__dict__["job_type"] = job_type

@@ -201,7 +201,7 @@ def get_private_link_services_for_scc_powershell(resource_group_name: Optional[_
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_private_link_services_for_scc_powershell_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicesForSCCPowershellResult]:
     """
     Get the metadata of a privateLinkServicesForSCCPowershell resource.

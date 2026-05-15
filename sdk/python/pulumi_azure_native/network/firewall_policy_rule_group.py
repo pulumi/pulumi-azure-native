@@ -24,31 +24,32 @@ class FirewallPolicyRuleGroupArgs:
     def __init__(__self__, *,
                  firewall_policy_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_group_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleArgs', 'FirewallPolicyNatRuleArgs']]]]] = None):
         """
         The set of arguments for constructing a FirewallPolicyRuleGroup resource.
 
         :param pulumi.Input[_builtins.str] firewall_policy_name: The name of the Firewall Policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] rule_group_name: The name of the FirewallPolicyRuleGroup.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] name: The name of the resource that is unique within a resource group. This name can be used to access the resource.
         :param pulumi.Input[_builtins.int] priority: Priority of the Firewall Policy Rule Group resource.
+        :param pulumi.Input[_builtins.str] rule_group_name: The name of the FirewallPolicyRuleGroup.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FirewallPolicyFilterRuleArgs', 'FirewallPolicyNatRuleArgs']]]] rules: Group of Firewall Policy rules.
         """
         pulumi.set(__self__, "firewall_policy_name", firewall_policy_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_group_name", rule_group_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
+        if rule_group_name is not None:
+            pulumi.set(__self__, "rule_group_name", rule_group_name)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -75,18 +76,6 @@ class FirewallPolicyRuleGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ruleGroupName")
-    def rule_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the FirewallPolicyRuleGroup.
-        """
-        return pulumi.get(self, "rule_group_name")
-
-    @rule_group_name.setter
-    def rule_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rule_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -123,6 +112,18 @@ class FirewallPolicyRuleGroupArgs:
     @priority.setter
     def priority(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "priority", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleGroupName")
+    def rule_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the FirewallPolicyRuleGroup.
+        """
+        return pulumi.get(self, "rule_group_name")
+
+    @rule_group_name.setter
+    def rule_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -223,8 +224,6 @@ class FirewallPolicyRuleGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if rule_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_group_name'")
             __props__.__dict__["rule_group_name"] = rule_group_name
             __props__.__dict__["rules"] = rules
             __props__.__dict__["azure_api_version"] = None

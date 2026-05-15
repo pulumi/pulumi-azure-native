@@ -21,39 +21,28 @@ __all__ = ['FleetAnalyticArgs', 'FleetAnalytic']
 @pulumi.input_type
 class FleetAnalyticArgs:
     def __init__(__self__, *,
-                 fleet_analytics_name: pulumi.Input[_builtins.str],
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 fleet_analytics_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_location_type: pulumi.Input[Optional[Union[_builtins.str, 'StorageLocationType']]] = None,
                  storage_location_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetAnalytic resource.
 
-        :param pulumi.Input[_builtins.str] fleet_analytics_name: Cosmos DB fleetAnalytics name.
         :param pulumi.Input[_builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] fleet_analytics_name: Cosmos DB fleetAnalytics name.
         :param pulumi.Input[Union[_builtins.str, 'StorageLocationType']] storage_location_type: The type of the fleet analytics resource.
         :param pulumi.Input[_builtins.str] storage_location_uri: The unique identifier of the fleet analytics resource.
         """
-        pulumi.set(__self__, "fleet_analytics_name", fleet_analytics_name)
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if fleet_analytics_name is not None:
+            pulumi.set(__self__, "fleet_analytics_name", fleet_analytics_name)
         if storage_location_type is not None:
             pulumi.set(__self__, "storage_location_type", storage_location_type)
         if storage_location_uri is not None:
             pulumi.set(__self__, "storage_location_uri", storage_location_uri)
-
-    @_builtins.property
-    @pulumi.getter(name="fleetAnalyticsName")
-    def fleet_analytics_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Cosmos DB fleetAnalytics name.
-        """
-        return pulumi.get(self, "fleet_analytics_name")
-
-    @fleet_analytics_name.setter
-    def fleet_analytics_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fleet_analytics_name", value)
 
     @_builtins.property
     @pulumi.getter(name="fleetName")
@@ -78,6 +67,18 @@ class FleetAnalyticArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fleetAnalyticsName")
+    def fleet_analytics_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Cosmos DB fleetAnalytics name.
+        """
+        return pulumi.get(self, "fleet_analytics_name")
+
+    @fleet_analytics_name.setter
+    def fleet_analytics_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fleet_analytics_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageLocationType")
@@ -175,8 +176,6 @@ class FleetAnalytic(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FleetAnalyticArgs.__new__(FleetAnalyticArgs)
 
-            if fleet_analytics_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fleet_analytics_name'")
             __props__.__dict__["fleet_analytics_name"] = fleet_analytics_name
             if fleet_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fleet_name'")

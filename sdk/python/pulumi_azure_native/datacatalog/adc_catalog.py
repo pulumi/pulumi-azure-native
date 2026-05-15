@@ -22,9 +22,9 @@ __all__ = ['ADCCatalogArgs', 'ADCCatalog']
 @pulumi.input_type
 class ADCCatalogArgs:
     def __init__(__self__, *,
-                 catalog_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  admins: pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalsArgs']]]] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_automatic_unit_adjustment: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[Union[_builtins.str, 'SkuType']]] = None,
@@ -35,9 +35,9 @@ class ADCCatalogArgs:
         """
         The set of arguments for constructing a ADCCatalog resource.
 
-        :param pulumi.Input[_builtins.str] catalog_name: The name of the data catalog in the specified subscription and resource group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]] admins: Azure data catalog admin list.
+        :param pulumi.Input[_builtins.str] catalog_name: The name of the data catalog in the specified subscription and resource group.
         :param pulumi.Input[_builtins.bool] enable_automatic_unit_adjustment: Automatic unit adjustment enabled or not.
         :param pulumi.Input[_builtins.str] location: Resource location
         :param pulumi.Input[Union[_builtins.str, 'SkuType']] sku: Azure data catalog SKU.
@@ -46,10 +46,11 @@ class ADCCatalogArgs:
         :param pulumi.Input[_builtins.int] units: Azure data catalog units.
         :param pulumi.Input[Sequence[pulumi.Input['PrincipalsArgs']]] users: Azure data catalog user list.
         """
-        pulumi.set(__self__, "catalog_name", catalog_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if admins is not None:
             pulumi.set(__self__, "admins", admins)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
         if enable_automatic_unit_adjustment is not None:
             pulumi.set(__self__, "enable_automatic_unit_adjustment", enable_automatic_unit_adjustment)
         if location is not None:
@@ -64,18 +65,6 @@ class ADCCatalogArgs:
             pulumi.set(__self__, "units", units)
         if users is not None:
             pulumi.set(__self__, "users", users)
-
-    @_builtins.property
-    @pulumi.getter(name="catalogName")
-    def catalog_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the data catalog in the specified subscription and resource group.
-        """
-        return pulumi.get(self, "catalog_name")
-
-    @catalog_name.setter
-    def catalog_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -100,6 +89,18 @@ class ADCCatalogArgs:
     @admins.setter
     def admins(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrincipalsArgs']]]]):
         pulumi.set(self, "admins", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the data catalog in the specified subscription and resource group.
+        """
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter(name="enableAutomaticUnitAdjustment")
@@ -269,8 +270,6 @@ class ADCCatalog(pulumi.CustomResource):
             __props__ = ADCCatalogArgs.__new__(ADCCatalogArgs)
 
             __props__.__dict__["admins"] = admins
-            if catalog_name is None and not opts.urn:
-                raise TypeError("Missing required property 'catalog_name'")
             __props__.__dict__["catalog_name"] = catalog_name
             __props__.__dict__["enable_automatic_unit_adjustment"] = enable_automatic_unit_adjustment
             __props__.__dict__["location"] = location

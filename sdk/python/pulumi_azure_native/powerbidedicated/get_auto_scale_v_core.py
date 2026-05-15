@@ -201,7 +201,7 @@ def get_auto_scale_v_core(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_auto_scale_v_core_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 vcore_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 vcore_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoScaleVCoreResult]:
     """
     Gets details about the specified auto scale v-core.

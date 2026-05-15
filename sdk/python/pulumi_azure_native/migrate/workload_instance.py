@@ -24,29 +24,30 @@ class WorkloadInstanceArgs:
     def __init__(__self__, *,
                  modernize_project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workload_instance_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Optional['WorkloadInstanceModelPropertiesArgs']] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workload_instance_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadInstance resource.
 
         :param pulumi.Input[_builtins.str] modernize_project_name: ModernizeProject name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
-        :param pulumi.Input[_builtins.str] workload_instance_name: Workload instance name.
         :param pulumi.Input['WorkloadInstanceModelPropertiesArgs'] properties: Workload instance model properties.
         :param pulumi.Input[_builtins.str] subscription_id: Azure Subscription Id in which project was created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the resource tags.
+        :param pulumi.Input[_builtins.str] workload_instance_name: Workload instance name.
         """
         pulumi.set(__self__, "modernize_project_name", modernize_project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workload_instance_name", workload_instance_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if subscription_id is not None:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workload_instance_name is not None:
+            pulumi.set(__self__, "workload_instance_name", workload_instance_name)
 
     @_builtins.property
     @pulumi.getter(name="modernizeProjectName")
@@ -71,18 +72,6 @@ class WorkloadInstanceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workloadInstanceName")
-    def workload_instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Workload instance name.
-        """
-        return pulumi.get(self, "workload_instance_name")
-
-    @workload_instance_name.setter
-    def workload_instance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "workload_instance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -119,6 +108,18 @@ class WorkloadInstanceArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadInstanceName")
+    def workload_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Workload instance name.
+        """
+        return pulumi.get(self, "workload_instance_name")
+
+    @workload_instance_name.setter
+    def workload_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "workload_instance_name", value)
 
 
 @pulumi.type_token("azure-native:migrate:WorkloadInstance")
@@ -200,8 +201,6 @@ class WorkloadInstance(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tags"] = tags
-            if workload_instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workload_instance_name'")
             __props__.__dict__["workload_instance_name"] = workload_instance_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

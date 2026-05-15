@@ -326,7 +326,7 @@ def get_script_execution(private_cloud_name: Optional[_builtins.str] = None,
         warnings=pulumi.get(__ret__, 'warnings'))
 def get_script_execution_output(private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                script_execution_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                script_execution_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScriptExecutionResult]:
     """
     Get a ScriptExecution

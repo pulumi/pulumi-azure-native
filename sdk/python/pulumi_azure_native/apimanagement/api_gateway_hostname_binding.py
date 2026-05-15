@@ -23,23 +23,24 @@ class ApiGatewayHostnameBindingArgs:
     def __init__(__self__, *,
                  gateway_name: pulumi.Input[_builtins.str],
                  hostname: pulumi.Input[_builtins.str],
-                 hostname_binding_name: pulumi.Input[_builtins.str],
                  key_vault: pulumi.Input['GatewayHostnameBindingKeyVaultArgs'],
-                 resource_group_name: pulumi.Input[_builtins.str]):
+                 resource_group_name: pulumi.Input[_builtins.str],
+                 hostname_binding_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ApiGatewayHostnameBinding resource.
 
         :param pulumi.Input[_builtins.str] gateway_name: The name of the API Management gateway.
         :param pulumi.Input[_builtins.str] hostname: The default hostname of the data-plane gateway.
-        :param pulumi.Input[_builtins.str] hostname_binding_name: Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
         :param pulumi.Input['GatewayHostnameBindingKeyVaultArgs'] key_vault: The link to the API Management service workspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] hostname_binding_name: Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
         """
         pulumi.set(__self__, "gateway_name", gateway_name)
         pulumi.set(__self__, "hostname", hostname)
-        pulumi.set(__self__, "hostname_binding_name", hostname_binding_name)
         pulumi.set(__self__, "key_vault", key_vault)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if hostname_binding_name is not None:
+            pulumi.set(__self__, "hostname_binding_name", hostname_binding_name)
 
     @_builtins.property
     @pulumi.getter(name="gatewayName")
@@ -66,18 +67,6 @@ class ApiGatewayHostnameBindingArgs:
         pulumi.set(self, "hostname", value)
 
     @_builtins.property
-    @pulumi.getter(name="hostnameBindingName")
-    def hostname_binding_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
-        """
-        return pulumi.get(self, "hostname_binding_name")
-
-    @hostname_binding_name.setter
-    def hostname_binding_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "hostname_binding_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="keyVault")
     def key_vault(self) -> pulumi.Input['GatewayHostnameBindingKeyVaultArgs']:
         """
@@ -100,6 +89,18 @@ class ApiGatewayHostnameBindingArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostnameBindingName")
+    def hostname_binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Gateway hostname binding identifier. Must be unique in the scope of parent Gateway entity.
+        """
+        return pulumi.get(self, "hostname_binding_name")
+
+    @hostname_binding_name.setter
+    def hostname_binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hostname_binding_name", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:ApiGatewayHostnameBinding")
@@ -175,8 +176,6 @@ class ApiGatewayHostnameBinding(pulumi.CustomResource):
             if hostname is None and not opts.urn:
                 raise TypeError("Missing required property 'hostname'")
             __props__.__dict__["hostname"] = hostname
-            if hostname_binding_name is None and not opts.urn:
-                raise TypeError("Missing required property 'hostname_binding_name'")
             __props__.__dict__["hostname_binding_name"] = hostname_binding_name
             if key_vault is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault'")

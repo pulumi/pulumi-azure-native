@@ -161,7 +161,7 @@ def get_deployment_stacks_what_if_results_at_resource_group(deployment_stacks_wh
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_deployment_stacks_what_if_results_at_resource_group_output(deployment_stacks_what_if_result_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_deployment_stacks_what_if_results_at_resource_group_output(deployment_stacks_what_if_result_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStacksWhatIfResultsAtResourceGroupResult]:
     """

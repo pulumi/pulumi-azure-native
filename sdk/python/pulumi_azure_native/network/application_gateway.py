@@ -22,8 +22,8 @@ __all__ = ['ApplicationGatewayArgs', 'ApplicationGateway']
 @pulumi.input_type
 class ApplicationGatewayArgs:
     def __init__(__self__, *,
-                 application_gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 application_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  authentication_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]]] = None,
                  autoscale_configuration: pulumi.Input[Optional['ApplicationGatewayAutoscaleConfigurationArgs']] = None,
                  backend_address_pools: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
@@ -63,8 +63,8 @@ class ApplicationGatewayArgs:
         """
         The set of arguments for constructing a ApplicationGateway resource.
 
-        :param pulumi.Input[_builtins.str] application_gateway_name: The name of the application gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] application_gateway_name: The name of the application gateway.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayAuthenticationCertificateArgs']]] authentication_certificates: Authentication certificates of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
         :param pulumi.Input['ApplicationGatewayAutoscaleConfigurationArgs'] autoscale_configuration: Autoscale Configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]] backend_address_pools: Backend address pool of the application gateway resource. For default limits, see [Application Gateway limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#application-gateway-limits).
@@ -102,8 +102,9 @@ class ApplicationGatewayArgs:
         :param pulumi.Input['ApplicationGatewayWebApplicationFirewallConfigurationArgs'] web_application_firewall_configuration: Web application firewall configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting where the resource needs to come from.
         """
-        pulumi.set(__self__, "application_gateway_name", application_gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if application_gateway_name is not None:
+            pulumi.set(__self__, "application_gateway_name", application_gateway_name)
         if authentication_certificates is not None:
             pulumi.set(__self__, "authentication_certificates", authentication_certificates)
         if autoscale_configuration is not None:
@@ -178,18 +179,6 @@ class ApplicationGatewayArgs:
             pulumi.set(__self__, "zones", zones)
 
     @_builtins.property
-    @pulumi.getter(name="applicationGatewayName")
-    def application_gateway_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the application gateway.
-        """
-        return pulumi.get(self, "application_gateway_name")
-
-    @application_gateway_name.setter
-    def application_gateway_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "application_gateway_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -200,6 +189,18 @@ class ApplicationGatewayArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationGatewayName")
+    def application_gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the application gateway.
+        """
+        return pulumi.get(self, "application_gateway_name")
+
+    @application_gateway_name.setter
+    def application_gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "application_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationCertificates")
@@ -804,8 +805,6 @@ class ApplicationGateway(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationGatewayArgs.__new__(ApplicationGatewayArgs)
 
-            if application_gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_gateway_name'")
             __props__.__dict__["application_gateway_name"] = application_gateway_name
             __props__.__dict__["authentication_certificates"] = authentication_certificates
             __props__.__dict__["autoscale_configuration"] = autoscale_configuration

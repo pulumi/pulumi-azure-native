@@ -154,7 +154,7 @@ def get_billing_role_assignment_by_department(billing_account_name: Optional[_bu
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_billing_role_assignment_by_department_output(billing_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                     billing_role_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                     billing_role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      department_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingRoleAssignmentByDepartmentResult]:
     """

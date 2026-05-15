@@ -22,22 +22,23 @@ class RedisFirewallRuleArgs:
                  cache_name: pulumi.Input[_builtins.str],
                  end_ip: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 rule_name: pulumi.Input[_builtins.str],
-                 start_ip: pulumi.Input[_builtins.str]):
+                 start_ip: pulumi.Input[_builtins.str],
+                 rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RedisFirewallRule resource.
 
         :param pulumi.Input[_builtins.str] cache_name: The name of the Redis cache.
         :param pulumi.Input[_builtins.str] end_ip: highest IP address included in the range
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] rule_name: The name of the firewall rule.
         :param pulumi.Input[_builtins.str] start_ip: lowest IP address included in the range
+        :param pulumi.Input[_builtins.str] rule_name: The name of the firewall rule.
         """
         pulumi.set(__self__, "cache_name", cache_name)
         pulumi.set(__self__, "end_ip", end_ip)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "rule_name", rule_name)
         pulumi.set(__self__, "start_ip", start_ip)
+        if rule_name is not None:
+            pulumi.set(__self__, "rule_name", rule_name)
 
     @_builtins.property
     @pulumi.getter(name="cacheName")
@@ -76,18 +77,6 @@ class RedisFirewallRuleArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="ruleName")
-    def rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the firewall rule.
-        """
-        return pulumi.get(self, "rule_name")
-
-    @rule_name.setter
-    def rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "rule_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="startIP")
     def start_ip(self) -> pulumi.Input[_builtins.str]:
         """
@@ -98,6 +87,18 @@ class RedisFirewallRuleArgs:
     @start_ip.setter
     def start_ip(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "start_ip", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the firewall rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @rule_name.setter
+    def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rule_name", value)
 
 
 @pulumi.type_token("azure-native:redis:RedisFirewallRule")
@@ -176,8 +177,6 @@ class RedisFirewallRule(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'rule_name'")
             __props__.__dict__["rule_name"] = rule_name
             if start_ip is None and not opts.urn:
                 raise TypeError("Missing required property 'start_ip'")

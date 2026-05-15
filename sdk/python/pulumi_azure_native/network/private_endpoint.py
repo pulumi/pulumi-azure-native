@@ -22,7 +22,6 @@ __all__ = ['PrivateEndpointArgs', 'PrivateEndpoint']
 @pulumi.input_type
 class PrivateEndpointArgs:
     def __init__(__self__, *,
-                 private_endpoint_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  application_security_groups: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]]] = None,
                  custom_dns_configs: pulumi.Input[Optional[Sequence[pulumi.Input['CustomDnsConfigPropertiesFormatArgs']]]] = None,
@@ -32,13 +31,13 @@ class PrivateEndpointArgs:
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointIPConfigurationArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  manual_private_link_service_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]] = None,
                  subnet: pulumi.Input[Optional['SubnetArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PrivateEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationSecurityGroupArgs']]] application_security_groups: Application security groups in which the private endpoint IP configuration is included.
         :param pulumi.Input[Sequence[pulumi.Input['CustomDnsConfigPropertiesFormatArgs']]] custom_dns_configs: An array of custom dns configurations.
@@ -48,11 +47,11 @@ class PrivateEndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointIPConfigurationArgs']]] ip_configurations: A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
+        :param pulumi.Input[_builtins.str] private_endpoint_name: The name of the private endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]] private_link_service_connections: A grouping of information about the connection to the remote resource.
         :param pulumi.Input['SubnetArgs'] subnet: The ID of the subnet from which the private IP will be allocated.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if application_security_groups is not None:
             pulumi.set(__self__, "application_security_groups", application_security_groups)
@@ -70,24 +69,14 @@ class PrivateEndpointArgs:
             pulumi.set(__self__, "location", location)
         if manual_private_link_service_connections is not None:
             pulumi.set(__self__, "manual_private_link_service_connections", manual_private_link_service_connections)
+        if private_endpoint_name is not None:
+            pulumi.set(__self__, "private_endpoint_name", private_endpoint_name)
         if private_link_service_connections is not None:
             pulumi.set(__self__, "private_link_service_connections", private_link_service_connections)
         if subnet is not None:
             pulumi.set(__self__, "subnet", subnet)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointName")
-    def private_endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the private endpoint.
-        """
-        return pulumi.get(self, "private_endpoint_name")
-
-    @private_endpoint_name.setter
-    def private_endpoint_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "private_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +185,18 @@ class PrivateEndpointArgs:
     @manual_private_link_service_connections.setter
     def manual_private_link_service_connections(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateLinkServiceConnectionArgs']]]]):
         pulumi.set(self, "manual_private_link_service_connections", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointName")
+    def private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the private endpoint.
+        """
+        return pulumi.get(self, "private_endpoint_name")
+
+    @private_endpoint_name.setter
+    def private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnections")
@@ -337,8 +338,6 @@ class PrivateEndpoint(pulumi.CustomResource):
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["manual_private_link_service_connections"] = manual_private_link_service_connections
-            if private_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_endpoint_name'")
             __props__.__dict__["private_endpoint_name"] = private_endpoint_name
             __props__.__dict__["private_link_service_connections"] = private_link_service_connections
             if resource_group_name is None and not opts.urn:

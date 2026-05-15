@@ -23,31 +23,30 @@ __all__ = ['StandardArgs', 'Standard']
 class StandardArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 standard_id: pulumi.Input[_builtins.str],
                  category: pulumi.Input[Optional[_builtins.str]] = None,
                  components: pulumi.Input[Optional[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 standard_id: pulumi.Input[Optional[_builtins.str]] = None,
                  supported_clouds: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSupportedClouds']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Standard resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] standard_id: The Security Standard key - unique key for the standard type
         :param pulumi.Input[_builtins.str] category: category of the standard provided
         :param pulumi.Input[Sequence[pulumi.Input['StandardComponentPropertiesArgs']]] components: List of component objects containing component unique keys (such as assessment keys) to apply to standard scope.  Currently only supports assessment keys.
         :param pulumi.Input[_builtins.str] description: description of the standard
         :param pulumi.Input[_builtins.str] display_name: display name of the standard, equivalent to the standardId
         :param pulumi.Input[_builtins.str] kind: Kind of the resource
         :param pulumi.Input[_builtins.str] location: Location where the resource is stored
+        :param pulumi.Input[_builtins.str] standard_id: The Security Standard key - unique key for the standard type
         :param pulumi.Input[Sequence[pulumi.Input['StandardSupportedClouds']]] supported_clouds: List of all standard supported clouds.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of key value pairs that describe the resource.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "standard_id", standard_id)
         if category is not None:
             pulumi.set(__self__, "category", category)
         if components is not None:
@@ -60,6 +59,8 @@ class StandardArgs:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if standard_id is not None:
+            pulumi.set(__self__, "standard_id", standard_id)
         if supported_clouds is not None:
             pulumi.set(__self__, "supported_clouds", supported_clouds)
         if tags is not None:
@@ -76,18 +77,6 @@ class StandardArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="standardId")
-    def standard_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Security Standard key - unique key for the standard type
-        """
-        return pulumi.get(self, "standard_id")
-
-    @standard_id.setter
-    def standard_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "standard_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -160,6 +149,18 @@ class StandardArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="standardId")
+    def standard_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Security Standard key - unique key for the standard type
+        """
+        return pulumi.get(self, "standard_id")
+
+    @standard_id.setter
+    def standard_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "standard_id", value)
 
     @_builtins.property
     @pulumi.getter(name="supportedClouds")
@@ -277,8 +278,6 @@ class Standard(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if standard_id is None and not opts.urn:
-                raise TypeError("Missing required property 'standard_id'")
             __props__.__dict__["standard_id"] = standard_id
             __props__.__dict__["supported_clouds"] = supported_clouds
             __props__.__dict__["tags"] = tags

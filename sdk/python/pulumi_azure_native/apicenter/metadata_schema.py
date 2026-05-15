@@ -22,38 +22,27 @@ __all__ = ['MetadataSchemaArgs', 'MetadataSchema']
 @pulumi.input_type
 class MetadataSchemaArgs:
     def __init__(__self__, *,
-                 metadata_schema_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  schema: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 assigned_to: pulumi.Input[Optional[Sequence[pulumi.Input['MetadataAssignmentArgs']]]] = None):
+                 assigned_to: pulumi.Input[Optional[Sequence[pulumi.Input['MetadataAssignmentArgs']]]] = None,
+                 metadata_schema_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MetadataSchema resource.
 
-        :param pulumi.Input[_builtins.str] metadata_schema_name: The name of the metadata schema.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] schema: The schema defining the type.
         :param pulumi.Input[_builtins.str] service_name: The name of Azure API Center service.
         :param pulumi.Input[Sequence[pulumi.Input['MetadataAssignmentArgs']]] assigned_to: The assignees
+        :param pulumi.Input[_builtins.str] metadata_schema_name: The name of the metadata schema.
         """
-        pulumi.set(__self__, "metadata_schema_name", metadata_schema_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "schema", schema)
         pulumi.set(__self__, "service_name", service_name)
         if assigned_to is not None:
             pulumi.set(__self__, "assigned_to", assigned_to)
-
-    @_builtins.property
-    @pulumi.getter(name="metadataSchemaName")
-    def metadata_schema_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the metadata schema.
-        """
-        return pulumi.get(self, "metadata_schema_name")
-
-    @metadata_schema_name.setter
-    def metadata_schema_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "metadata_schema_name", value)
+        if metadata_schema_name is not None:
+            pulumi.set(__self__, "metadata_schema_name", metadata_schema_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -102,6 +91,18 @@ class MetadataSchemaArgs:
     @assigned_to.setter
     def assigned_to(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MetadataAssignmentArgs']]]]):
         pulumi.set(self, "assigned_to", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataSchemaName")
+    def metadata_schema_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the metadata schema.
+        """
+        return pulumi.get(self, "metadata_schema_name")
+
+    @metadata_schema_name.setter
+    def metadata_schema_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "metadata_schema_name", value)
 
 
 @pulumi.type_token("azure-native:apicenter:MetadataSchema")
@@ -176,8 +177,6 @@ class MetadataSchema(pulumi.CustomResource):
             __props__ = MetadataSchemaArgs.__new__(MetadataSchemaArgs)
 
             __props__.__dict__["assigned_to"] = assigned_to
-            if metadata_schema_name is None and not opts.urn:
-                raise TypeError("Missing required property 'metadata_schema_name'")
             __props__.__dict__["metadata_schema_name"] = metadata_schema_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

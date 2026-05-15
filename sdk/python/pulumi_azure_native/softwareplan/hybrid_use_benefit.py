@@ -21,31 +21,20 @@ __all__ = ['HybridUseBenefitArgs', 'HybridUseBenefit']
 @pulumi.input_type
 class HybridUseBenefitArgs:
     def __init__(__self__, *,
-                 plan_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 sku: pulumi.Input['SkuArgs']):
+                 sku: pulumi.Input['SkuArgs'],
+                 plan_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HybridUseBenefit resource.
 
-        :param pulumi.Input[_builtins.str] plan_id: This is a unique identifier for a plan. Should be a guid.
         :param pulumi.Input[_builtins.str] scope: The scope at which the operation is performed. This is limited to Microsoft.Compute/virtualMachines and Microsoft.Compute/hostGroups/hosts for now
         :param pulumi.Input['SkuArgs'] sku: Hybrid use benefit SKU
+        :param pulumi.Input[_builtins.str] plan_id: This is a unique identifier for a plan. Should be a guid.
         """
-        pulumi.set(__self__, "plan_id", plan_id)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "sku", sku)
-
-    @_builtins.property
-    @pulumi.getter(name="planId")
-    def plan_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        This is a unique identifier for a plan. Should be a guid.
-        """
-        return pulumi.get(self, "plan_id")
-
-    @plan_id.setter
-    def plan_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "plan_id", value)
+        if plan_id is not None:
+            pulumi.set(__self__, "plan_id", plan_id)
 
     @_builtins.property
     @pulumi.getter
@@ -70,6 +59,18 @@ class HybridUseBenefitArgs:
     @sku.setter
     def sku(self, value: pulumi.Input['SkuArgs']):
         pulumi.set(self, "sku", value)
+
+    @_builtins.property
+    @pulumi.getter(name="planId")
+    def plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        This is a unique identifier for a plan. Should be a guid.
+        """
+        return pulumi.get(self, "plan_id")
+
+    @plan_id.setter
+    def plan_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "plan_id", value)
 
 
 @pulumi.type_token("azure-native:softwareplan:HybridUseBenefit")
@@ -133,8 +134,6 @@ class HybridUseBenefit(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HybridUseBenefitArgs.__new__(HybridUseBenefitArgs)
 
-            if plan_id is None and not opts.urn:
-                raise TypeError("Missing required property 'plan_id'")
             __props__.__dict__["plan_id"] = plan_id
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")

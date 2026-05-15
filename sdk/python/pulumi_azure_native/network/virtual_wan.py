@@ -21,19 +21,18 @@ __all__ = ['VirtualWanArgs', 'VirtualWan']
 class VirtualWanArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 virtual_wan_name: pulumi.Input[_builtins.str],
                  allow_branch_to_branch_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
                  allow_vnet_to_vnet_traffic: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_vpn_encryption: pulumi.Input[Optional[_builtins.bool]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 type: pulumi.Input[Optional[_builtins.str]] = None):
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_wan_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualWan resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name of the VirtualWan.
-        :param pulumi.Input[_builtins.str] virtual_wan_name: The name of the VirtualWAN being created or updated.
         :param pulumi.Input[_builtins.bool] allow_branch_to_branch_traffic: True if branch to branch traffic is allowed.
         :param pulumi.Input[_builtins.bool] allow_vnet_to_vnet_traffic: True if Vnet to Vnet traffic is allowed.
         :param pulumi.Input[_builtins.bool] disable_vpn_encryption: Vpn encryption to be disabled or not.
@@ -41,9 +40,9 @@ class VirtualWanArgs:
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] type: The type of the VirtualWAN.
+        :param pulumi.Input[_builtins.str] virtual_wan_name: The name of the VirtualWAN being created or updated.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "virtual_wan_name", virtual_wan_name)
         if allow_branch_to_branch_traffic is not None:
             pulumi.set(__self__, "allow_branch_to_branch_traffic", allow_branch_to_branch_traffic)
         if allow_vnet_to_vnet_traffic is not None:
@@ -58,6 +57,8 @@ class VirtualWanArgs:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if virtual_wan_name is not None:
+            pulumi.set(__self__, "virtual_wan_name", virtual_wan_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -70,18 +71,6 @@ class VirtualWanArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualWANName")
-    def virtual_wan_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the VirtualWAN being created or updated.
-        """
-        return pulumi.get(self, "virtual_wan_name")
-
-    @virtual_wan_name.setter
-    def virtual_wan_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_wan_name", value)
 
     @_builtins.property
     @pulumi.getter(name="allowBranchToBranchTraffic")
@@ -166,6 +155,18 @@ class VirtualWanArgs:
     @type.setter
     def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualWANName")
+    def virtual_wan_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the VirtualWAN being created or updated.
+        """
+        return pulumi.get(self, "virtual_wan_name")
+
+    @virtual_wan_name.setter
+    def virtual_wan_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_wan_name", value)
 
 
 @pulumi.type_token("azure-native:network:VirtualWan")
@@ -261,8 +262,6 @@ class VirtualWan(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
-            if virtual_wan_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_wan_name'")
             __props__.__dict__["virtual_wan_name"] = virtual_wan_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

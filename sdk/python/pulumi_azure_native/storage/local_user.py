@@ -23,7 +23,6 @@ class LocalUserArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 username: pulumi.Input[_builtins.str],
                  allow_acl_authorization: pulumi.Input[Optional[_builtins.bool]] = None,
                  extended_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  group_id: pulumi.Input[Optional[_builtins.int]] = None,
@@ -33,13 +32,13 @@ class LocalUserArgs:
                  home_directory: pulumi.Input[Optional[_builtins.str]] = None,
                  is_nf_sv3_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  permission_scopes: pulumi.Input[Optional[Sequence[pulumi.Input['PermissionScopeArgs']]]] = None,
-                 ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None):
+                 ssh_authorized_keys: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a LocalUser resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] username: The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
         :param pulumi.Input[_builtins.bool] allow_acl_authorization: Indicates whether ACL authorization is allowed for this user. Set it to false to disallow using ACL authorization.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] extended_groups: Supplementary group membership. Only applicable for local users enabled for NFSv3 access.
         :param pulumi.Input[_builtins.int] group_id: An identifier for associating a group of users.
@@ -50,10 +49,10 @@ class LocalUserArgs:
         :param pulumi.Input[_builtins.bool] is_nf_sv3_enabled: Indicates if the local user is enabled for access with NFSv3 protocol.
         :param pulumi.Input[Sequence[pulumi.Input['PermissionScopeArgs']]] permission_scopes: The permission scopes of the local user.
         :param pulumi.Input[Sequence[pulumi.Input['SshPublicKeyArgs']]] ssh_authorized_keys: Optional, local user ssh authorized keys for SFTP.
+        :param pulumi.Input[_builtins.str] username: The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "username", username)
         if allow_acl_authorization is not None:
             pulumi.set(__self__, "allow_acl_authorization", allow_acl_authorization)
         if extended_groups is not None:
@@ -74,6 +73,8 @@ class LocalUserArgs:
             pulumi.set(__self__, "permission_scopes", permission_scopes)
         if ssh_authorized_keys is not None:
             pulumi.set(__self__, "ssh_authorized_keys", ssh_authorized_keys)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -98,18 +99,6 @@ class LocalUserArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "username", value)
 
     @_builtins.property
     @pulumi.getter(name="allowAclAuthorization")
@@ -231,6 +220,18 @@ class LocalUserArgs:
     def ssh_authorized_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SshPublicKeyArgs']]]]):
         pulumi.set(self, "ssh_authorized_keys", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of local user. The username must contain lowercase letters and numbers only. It must be unique only within the storage account.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
 
 @pulumi.type_token("azure-native:storage:LocalUser")
 class LocalUser(pulumi.CustomResource):
@@ -343,8 +344,6 @@ class LocalUser(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["ssh_authorized_keys"] = ssh_authorized_keys
-            if username is None and not opts.urn:
-                raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

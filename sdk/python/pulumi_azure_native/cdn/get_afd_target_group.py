@@ -163,7 +163,7 @@ def get_afd_target_group(profile_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_afd_target_group_output(profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                target_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                target_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAFDTargetGroupResult]:
     """
     Gets an existing target group within a profile.

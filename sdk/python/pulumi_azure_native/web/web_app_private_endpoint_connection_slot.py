@@ -22,11 +22,11 @@ __all__ = ['WebAppPrivateEndpointConnectionSlotArgs', 'WebAppPrivateEndpointConn
 class WebAppPrivateEndpointConnectionSlotArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 private_endpoint_connection_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  slot: pulumi.Input[_builtins.str],
                  ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_connection_state: pulumi.Input[Optional['PrivateLinkConnectionStateArgs']] = None):
         """
         The set of arguments for constructing a WebAppPrivateEndpointConnectionSlot resource.
@@ -38,13 +38,14 @@ class WebAppPrivateEndpointConnectionSlotArgs:
         :param pulumi.Input['PrivateLinkConnectionStateArgs'] private_link_service_connection_state: The state of a private link connection
         """
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "slot", slot)
         if ip_addresses is not None:
             pulumi.set(__self__, "ip_addresses", ip_addresses)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
+        if private_endpoint_connection_name is not None:
+            pulumi.set(__self__, "private_endpoint_connection_name", private_endpoint_connection_name)
         if private_link_service_connection_state is not None:
             pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
 
@@ -59,15 +60,6 @@ class WebAppPrivateEndpointConnectionSlotArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="privateEndpointConnectionName")
-    def private_endpoint_connection_name(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "private_endpoint_connection_name")
-
-    @private_endpoint_connection_name.setter
-    def private_endpoint_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -113,6 +105,15 @@ class WebAppPrivateEndpointConnectionSlotArgs:
     @kind.setter
     def kind(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kind", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointConnectionName")
+    def private_endpoint_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "private_endpoint_connection_name")
+
+    @private_endpoint_connection_name.setter
+    def private_endpoint_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_endpoint_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateLinkServiceConnectionState")
@@ -207,8 +208,6 @@ class WebAppPrivateEndpointConnectionSlot(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
-            if private_endpoint_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'private_endpoint_connection_name'")
             __props__.__dict__["private_endpoint_connection_name"] = private_endpoint_connection_name
             __props__.__dict__["private_link_service_connection_state"] = private_link_service_connection_state
             if resource_group_name is None and not opts.urn:

@@ -22,7 +22,6 @@ __all__ = ['FhirServiceArgs', 'FhirService']
 @pulumi.input_type
 class FhirServiceArgs:
     def __init__(__self__, *,
-                 fhir_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  acr_configuration: pulumi.Input[Optional['FhirServiceAcrConfigurationArgs']] = None,
@@ -30,6 +29,7 @@ class FhirServiceArgs:
                  cors_configuration: pulumi.Input[Optional['FhirServiceCorsConfigurationArgs']] = None,
                  encryption: pulumi.Input[Optional['EncryptionArgs']] = None,
                  export_configuration: pulumi.Input[Optional['FhirServiceExportConfigurationArgs']] = None,
+                 fhir_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ServiceManagedIdentityIdentityArgs']] = None,
                  implementation_guides_configuration: pulumi.Input[Optional['ImplementationGuidesConfigurationArgs']] = None,
                  import_configuration: pulumi.Input[Optional['FhirServiceImportConfigurationArgs']] = None,
@@ -40,7 +40,6 @@ class FhirServiceArgs:
         """
         The set of arguments for constructing a FhirService resource.
 
-        :param pulumi.Input[_builtins.str] fhir_service_name: The name of FHIR Service resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[_builtins.str] workspace_name: The name of workspace resource.
         :param pulumi.Input['FhirServiceAcrConfigurationArgs'] acr_configuration: Fhir Service Azure container registry configuration.
@@ -48,6 +47,7 @@ class FhirServiceArgs:
         :param pulumi.Input['FhirServiceCorsConfigurationArgs'] cors_configuration: Fhir Service Cors configuration.
         :param pulumi.Input['EncryptionArgs'] encryption: The encryption settings of the FHIR service
         :param pulumi.Input['FhirServiceExportConfigurationArgs'] export_configuration: Fhir Service export configuration.
+        :param pulumi.Input[_builtins.str] fhir_service_name: The name of FHIR Service resource.
         :param pulumi.Input['ServiceManagedIdentityIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input['ImplementationGuidesConfigurationArgs'] implementation_guides_configuration: Implementation Guides configuration.
         :param pulumi.Input['FhirServiceImportConfigurationArgs'] import_configuration: Fhir Service import configuration.
@@ -56,7 +56,6 @@ class FhirServiceArgs:
         :param pulumi.Input['ResourceVersionPolicyConfigurationArgs'] resource_version_policy_configuration: Determines tracking of history for resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "fhir_service_name", fhir_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if acr_configuration is not None:
@@ -69,6 +68,8 @@ class FhirServiceArgs:
             pulumi.set(__self__, "encryption", encryption)
         if export_configuration is not None:
             pulumi.set(__self__, "export_configuration", export_configuration)
+        if fhir_service_name is not None:
+            pulumi.set(__self__, "fhir_service_name", fhir_service_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if implementation_guides_configuration is not None:
@@ -83,18 +84,6 @@ class FhirServiceArgs:
             pulumi.set(__self__, "resource_version_policy_configuration", resource_version_policy_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="fhirServiceName")
-    def fhir_service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of FHIR Service resource.
-        """
-        return pulumi.get(self, "fhir_service_name")
-
-    @fhir_service_name.setter
-    def fhir_service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "fhir_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -179,6 +168,18 @@ class FhirServiceArgs:
     @export_configuration.setter
     def export_configuration(self, value: pulumi.Input[Optional['FhirServiceExportConfigurationArgs']]):
         pulumi.set(self, "export_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fhirServiceName")
+    def fhir_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of FHIR Service resource.
+        """
+        return pulumi.get(self, "fhir_service_name")
+
+    @fhir_service_name.setter
+    def fhir_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "fhir_service_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -371,8 +372,6 @@ class FhirService(pulumi.CustomResource):
             __props__.__dict__["cors_configuration"] = cors_configuration
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["export_configuration"] = export_configuration
-            if fhir_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'fhir_service_name'")
             __props__.__dict__["fhir_service_name"] = fhir_service_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["implementation_guides_configuration"] = implementation_guides_configuration

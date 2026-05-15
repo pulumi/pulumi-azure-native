@@ -21,39 +21,28 @@ __all__ = ['CurationProfileArgs', 'CurationProfile']
 @pulumi.input_type
 class CurationProfileArgs:
     def __init__(__self__, *,
-                 curation_profile_name: pulumi.Input[_builtins.str],
                  dev_center_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 curation_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_policies: pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyArgs']]]] = None,
                  scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CurationProfile resource.
 
-        :param pulumi.Input[_builtins.str] curation_profile_name: The name of the curation profile.
         :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] curation_profile_name: The name of the curation profile.
         :param pulumi.Input[Sequence[pulumi.Input['ResourcePolicyArgs']]] resource_policies: Resource policies that are a part of this curation profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] scopes: Resources that have access to the shared resources that are a part of this curation profile.
         """
-        pulumi.set(__self__, "curation_profile_name", curation_profile_name)
         pulumi.set(__self__, "dev_center_name", dev_center_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if curation_profile_name is not None:
+            pulumi.set(__self__, "curation_profile_name", curation_profile_name)
         if resource_policies is not None:
             pulumi.set(__self__, "resource_policies", resource_policies)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
-
-    @_builtins.property
-    @pulumi.getter(name="curationProfileName")
-    def curation_profile_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the curation profile.
-        """
-        return pulumi.get(self, "curation_profile_name")
-
-    @curation_profile_name.setter
-    def curation_profile_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "curation_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="devCenterName")
@@ -78,6 +67,18 @@ class CurationProfileArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="curationProfileName")
+    def curation_profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the curation profile.
+        """
+        return pulumi.get(self, "curation_profile_name")
+
+    @curation_profile_name.setter
+    def curation_profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "curation_profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicies")
@@ -175,8 +176,6 @@ class CurationProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CurationProfileArgs.__new__(CurationProfileArgs)
 
-            if curation_profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'curation_profile_name'")
             __props__.__dict__["curation_profile_name"] = curation_profile_name
             if dev_center_name is None and not opts.urn:
                 raise TypeError("Missing required property 'dev_center_name'")

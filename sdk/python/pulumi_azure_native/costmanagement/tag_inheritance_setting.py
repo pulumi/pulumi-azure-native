@@ -23,22 +23,23 @@ class TagInheritanceSettingArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 type: pulumi.Input[_builtins.str],
-                 properties: pulumi.Input[Optional['TagInheritancePropertiesArgs']] = None):
+                 properties: pulumi.Input[Optional['TagInheritancePropertiesArgs']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TagInheritanceSetting resource.
 
         :param pulumi.Input[_builtins.str] kind: Specifies the kind of settings.
                Expected value is 'taginheritance'.
         :param pulumi.Input[_builtins.str] scope: The scope associated with this setting. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billing profile scope.
-        :param pulumi.Input[_builtins.str] type: Setting type.
         :param pulumi.Input['TagInheritancePropertiesArgs'] properties: The properties of the tag inheritance setting.
+        :param pulumi.Input[_builtins.str] type: Setting type.
         """
         pulumi.set(__self__, "kind", 'taginheritance')
         pulumi.set(__self__, "scope", scope)
-        pulumi.set(__self__, "type", type)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
 
     @_builtins.property
     @pulumi.getter
@@ -67,18 +68,6 @@ class TagInheritanceSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Setting type.
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter
     def properties(self) -> pulumi.Input[Optional['TagInheritancePropertiesArgs']]:
         """
         The properties of the tag inheritance setting.
@@ -88,6 +77,18 @@ class TagInheritanceSettingArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['TagInheritancePropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Setting type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.type_token("azure-native:costmanagement:TagInheritanceSetting")
@@ -162,8 +163,6 @@ class TagInheritanceSetting(pulumi.CustomResource):
             if scope is None and not opts.urn:
                 raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
-            if type is None and not opts.urn:
-                raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

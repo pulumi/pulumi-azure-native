@@ -24,27 +24,26 @@ class WorkspaceArgs:
                  owner_email: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  user_storage_account_id: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
                  key_vault_identifier_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
         :param pulumi.Input[_builtins.str] owner_email: The email id of the owner for this workspace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group to which the machine learning workspace belongs.
         :param pulumi.Input[_builtins.str] user_storage_account_id: The fully qualified arm id of the storage account associated with this workspace.
-        :param pulumi.Input[_builtins.str] workspace_name: The name of the machine learning workspace.
         :param pulumi.Input[_builtins.str] key_vault_identifier_id: The key vault identifier used for encrypted workspaces.
         :param pulumi.Input[_builtins.str] location: The location of the resource. This cannot be changed after the resource is created.
         :param pulumi.Input['SkuArgs'] sku: The sku of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags of the resource.
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the machine learning workspace.
         """
         pulumi.set(__self__, "owner_email", owner_email)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "user_storage_account_id", user_storage_account_id)
-        pulumi.set(__self__, "workspace_name", workspace_name)
         if key_vault_identifier_id is not None:
             pulumi.set(__self__, "key_vault_identifier_id", key_vault_identifier_id)
         if location is not None:
@@ -53,6 +52,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if workspace_name is not None:
+            pulumi.set(__self__, "workspace_name", workspace_name)
 
     @_builtins.property
     @pulumi.getter(name="ownerEmail")
@@ -89,18 +90,6 @@ class WorkspaceArgs:
     @user_storage_account_id.setter
     def user_storage_account_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "user_storage_account_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the machine learning workspace.
-        """
-        return pulumi.get(self, "workspace_name")
-
-    @workspace_name.setter
-    def workspace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "workspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVaultIdentifierId")
@@ -149,6 +138,18 @@ class WorkspaceArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the machine learning workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "workspace_name", value)
 
 
 @pulumi.type_token("azure-native:machinelearning:Workspace")
@@ -240,8 +241,6 @@ class Workspace(pulumi.CustomResource):
             if user_storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_storage_account_id'")
             __props__.__dict__["user_storage_account_id"] = user_storage_account_id
-            if workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None

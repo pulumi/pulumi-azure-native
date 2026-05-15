@@ -21,26 +21,27 @@ __all__ = ['OuContainerArgs', 'OuContainer']
 class OuContainerArgs:
     def __init__(__self__, *,
                  domain_service_name: pulumi.Input[_builtins.str],
-                 ou_container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ou_container_name: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  spn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OuContainer resource.
 
         :param pulumi.Input[_builtins.str] domain_service_name: The name of the domain service.
-        :param pulumi.Input[_builtins.str] ou_container_name: The name of the OuContainer.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
         :param pulumi.Input[_builtins.str] account_name: The account name
+        :param pulumi.Input[_builtins.str] ou_container_name: The name of the OuContainer.
         :param pulumi.Input[_builtins.str] password: The account password
         :param pulumi.Input[_builtins.str] spn: The account spn
         """
         pulumi.set(__self__, "domain_service_name", domain_service_name)
-        pulumi.set(__self__, "ou_container_name", ou_container_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_name is not None:
             pulumi.set(__self__, "account_name", account_name)
+        if ou_container_name is not None:
+            pulumi.set(__self__, "ou_container_name", ou_container_name)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if spn is not None:
@@ -57,18 +58,6 @@ class OuContainerArgs:
     @domain_service_name.setter
     def domain_service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "domain_service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ouContainerName")
-    def ou_container_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the OuContainer.
-        """
-        return pulumi.get(self, "ou_container_name")
-
-    @ou_container_name.setter
-    def ou_container_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "ou_container_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -93,6 +82,18 @@ class OuContainerArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ouContainerName")
+    def ou_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the OuContainer.
+        """
+        return pulumi.get(self, "ou_container_name")
+
+    @ou_container_name.setter
+    def ou_container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ou_container_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -197,8 +198,6 @@ class OuContainer(pulumi.CustomResource):
             if domain_service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_service_name'")
             __props__.__dict__["domain_service_name"] = domain_service_name
-            if ou_container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'ou_container_name'")
             __props__.__dict__["ou_container_name"] = ou_container_name
             __props__.__dict__["password"] = password
             if resource_group_name is None and not opts.urn:

@@ -19,37 +19,26 @@ __all__ = ['WorkspaceNotificationRecipientEmailArgs', 'WorkspaceNotificationReci
 @pulumi.input_type
 class WorkspaceNotificationRecipientEmailArgs:
     def __init__(__self__, *,
-                 email: pulumi.Input[_builtins.str],
                  notification_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 workspace_id: pulumi.Input[_builtins.str]):
+                 workspace_id: pulumi.Input[_builtins.str],
+                 email: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceNotificationRecipientEmail resource.
 
-        :param pulumi.Input[_builtins.str] email: Email identifier.
         :param pulumi.Input[_builtins.str] notification_name: Notification Name Identifier.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
+        :param pulumi.Input[_builtins.str] email: Email identifier.
         """
-        pulumi.set(__self__, "email", email)
         pulumi.set(__self__, "notification_name", notification_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "workspace_id", workspace_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> pulumi.Input[_builtins.str]:
-        """
-        Email identifier.
-        """
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "email", value)
+        if email is not None:
+            pulumi.set(__self__, "email", email)
 
     @_builtins.property
     @pulumi.getter(name="notificationName")
@@ -98,6 +87,18 @@ class WorkspaceNotificationRecipientEmailArgs:
     @workspace_id.setter
     def workspace_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Email identifier.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "email", value)
 
 
 @pulumi.type_token("azure-native:apimanagement:WorkspaceNotificationRecipientEmail")
@@ -171,8 +172,6 @@ class WorkspaceNotificationRecipientEmail(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkspaceNotificationRecipientEmailArgs.__new__(WorkspaceNotificationRecipientEmailArgs)
 
-            if email is None and not opts.urn:
-                raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
             if notification_name is None and not opts.urn:
                 raise TypeError("Missing required property 'notification_name'")

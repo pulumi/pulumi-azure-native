@@ -22,23 +22,22 @@ __all__ = ['PublicIPAddressArgs', 'PublicIPAddress']
 @pulumi.input_type
 class PublicIPAddressArgs:
     def __init__(__self__, *,
-                 public_ip_address_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['PublicIPAddressPropertiesArgs']] = None,
+                 public_ip_address_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PublicIPAddress resource.
 
-        :param pulumi.Input[_builtins.str] public_ip_address_name: Name of the public IP
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extendedLocation of the resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['PublicIPAddressPropertiesArgs'] properties: The resource-specific properties for this resource.
+        :param pulumi.Input[_builtins.str] public_ip_address_name: Name of the public IP
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "public_ip_address_name", public_ip_address_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
@@ -46,20 +45,10 @@ class PublicIPAddressArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if public_ip_address_name is not None:
+            pulumi.set(__self__, "public_ip_address_name", public_ip_address_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="publicIPAddressName")
-    def public_ip_address_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the public IP
-        """
-        return pulumi.get(self, "public_ip_address_name")
-
-    @public_ip_address_name.setter
-    def public_ip_address_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "public_ip_address_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -108,6 +97,18 @@ class PublicIPAddressArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['PublicIPAddressPropertiesArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddressName")
+    def public_ip_address_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the public IP
+        """
+        return pulumi.get(self, "public_ip_address_name")
+
+    @public_ip_address_name.setter
+    def public_ip_address_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "public_ip_address_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -199,8 +200,6 @@ class PublicIPAddress(pulumi.CustomResource):
             __props__.__dict__["extended_location"] = extended_location
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
-            if public_ip_address_name is None and not opts.urn:
-                raise TypeError("Missing required property 'public_ip_address_name'")
             __props__.__dict__["public_ip_address_name"] = public_ip_address_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

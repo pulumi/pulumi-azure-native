@@ -22,35 +22,36 @@ class ApiIssueArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[_builtins.str],
                  description: pulumi.Input[_builtins.str],
-                 issue_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  title: pulumi.Input[_builtins.str],
                  user_id: pulumi.Input[_builtins.str],
                  created_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 issue_id: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None):
         """
         The set of arguments for constructing a ApiIssue resource.
 
         :param pulumi.Input[_builtins.str] api_id: A resource identifier for the API the issue was created for.
         :param pulumi.Input[_builtins.str] description: Text describing the issue.
-        :param pulumi.Input[_builtins.str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[_builtins.str] title: The issue title.
         :param pulumi.Input[_builtins.str] user_id: A resource identifier for the user created the issue.
         :param pulumi.Input[_builtins.str] created_date: Date and time when the issue was created.
+        :param pulumi.Input[_builtins.str] issue_id: Issue identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[Union[_builtins.str, 'State']] state: Status of the issue.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "issue_id", issue_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "title", title)
         pulumi.set(__self__, "user_id", user_id)
         if created_date is not None:
             pulumi.set(__self__, "created_date", created_date)
+        if issue_id is not None:
+            pulumi.set(__self__, "issue_id", issue_id)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -77,18 +78,6 @@ class ApiIssueArgs:
     @description.setter
     def description(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="issueId")
-    def issue_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Issue identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "issue_id")
-
-    @issue_id.setter
-    def issue_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "issue_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -149,6 +138,18 @@ class ApiIssueArgs:
     @created_date.setter
     def created_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "created_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="issueId")
+    def issue_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Issue identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "issue_id")
+
+    @issue_id.setter
+    def issue_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "issue_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -253,8 +254,6 @@ class ApiIssue(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
-            if issue_id is None and not opts.urn:
-                raise TypeError("Missing required property 'issue_id'")
             __props__.__dict__["issue_id"] = issue_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

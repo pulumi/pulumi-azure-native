@@ -23,7 +23,6 @@ __all__ = ['StorageClassArgs', 'StorageClass']
 class StorageClassArgs:
     def __init__(__self__, *,
                  resource_uri: pulumi.Input[_builtins.str],
-                 storage_class_name: pulumi.Input[_builtins.str],
                  type_properties: pulumi.Input[Union['BlobStorageClassTypePropertiesArgs', 'NativeStorageClassTypePropertiesArgs', 'NfsStorageClassTypePropertiesArgs', 'RwxStorageClassTypePropertiesArgs', 'SmbStorageClassTypePropertiesArgs']],
                  access_modes: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'AccessMode']]]]] = None,
                  allow_volume_expansion: pulumi.Input[Optional[Union[_builtins.str, 'VolumeExpansion']]] = None,
@@ -34,12 +33,12 @@ class StorageClassArgs:
                  performance: pulumi.Input[Optional[Union[_builtins.str, 'PerformanceTier']]] = None,
                  priority: pulumi.Input[Optional[_builtins.float]] = None,
                  provisioner: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_class_name: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_binding_mode: pulumi.Input[Optional[Union[_builtins.str, 'VolumeBindingMode']]] = None):
         """
         The set of arguments for constructing a StorageClass resource.
 
         :param pulumi.Input[_builtins.str] resource_uri: The fully qualified Azure Resource manager identifier of the resource.
-        :param pulumi.Input[_builtins.str] storage_class_name: The name of the the storage class
         :param pulumi.Input[Union['BlobStorageClassTypePropertiesArgs', 'NativeStorageClassTypePropertiesArgs', 'NfsStorageClassTypePropertiesArgs', 'RwxStorageClassTypePropertiesArgs', 'SmbStorageClassTypePropertiesArgs']] type_properties: Properties of the StorageClass
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'AccessMode']]]] access_modes: The access mode: [ReadWriteOnce, ReadWriteMany] or [ReadWriteOnce]
         :param pulumi.Input[Union[_builtins.str, 'VolumeExpansion']] allow_volume_expansion: Volume can be expanded or not
@@ -50,10 +49,10 @@ class StorageClassArgs:
         :param pulumi.Input[Union[_builtins.str, 'PerformanceTier']] performance: Performance tier
         :param pulumi.Input[_builtins.float] priority: Selection priority when multiple storage classes meet the criteria. 0: Highest, -1: Never use
         :param pulumi.Input[_builtins.str] provisioner: Provisioner name
+        :param pulumi.Input[_builtins.str] storage_class_name: The name of the the storage class
         :param pulumi.Input[Union[_builtins.str, 'VolumeBindingMode']] volume_binding_mode: Binding mode of volumes: Immediate, WaitForFirstConsumer
         """
         pulumi.set(__self__, "resource_uri", resource_uri)
-        pulumi.set(__self__, "storage_class_name", storage_class_name)
         pulumi.set(__self__, "type_properties", type_properties)
         if access_modes is not None:
             pulumi.set(__self__, "access_modes", access_modes)
@@ -73,6 +72,8 @@ class StorageClassArgs:
             pulumi.set(__self__, "priority", priority)
         if provisioner is not None:
             pulumi.set(__self__, "provisioner", provisioner)
+        if storage_class_name is not None:
+            pulumi.set(__self__, "storage_class_name", storage_class_name)
         if volume_binding_mode is not None:
             pulumi.set(__self__, "volume_binding_mode", volume_binding_mode)
 
@@ -87,18 +88,6 @@ class StorageClassArgs:
     @resource_uri.setter
     def resource_uri(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_uri", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageClassName")
-    def storage_class_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the the storage class
-        """
-        return pulumi.get(self, "storage_class_name")
-
-    @storage_class_name.setter
-    def storage_class_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_class_name", value)
 
     @_builtins.property
     @pulumi.getter(name="typeProperties")
@@ -221,6 +210,18 @@ class StorageClassArgs:
         pulumi.set(self, "provisioner", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageClassName")
+    def storage_class_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the the storage class
+        """
+        return pulumi.get(self, "storage_class_name")
+
+    @storage_class_name.setter
+    def storage_class_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_class_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="volumeBindingMode")
     def volume_binding_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'VolumeBindingMode']]]:
         """
@@ -336,8 +337,6 @@ class StorageClass(pulumi.CustomResource):
             if resource_uri is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_uri'")
             __props__.__dict__["resource_uri"] = resource_uri
-            if storage_class_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_class_name'")
             __props__.__dict__["storage_class_name"] = storage_class_name
             if type_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'type_properties'")

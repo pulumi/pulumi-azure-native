@@ -216,7 +216,7 @@ def get_bot(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_bot_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                   resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotResult]:
     """
     Returns a BotService specified by the parameters.

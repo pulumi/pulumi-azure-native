@@ -21,9 +21,9 @@ __all__ = ['HostArgs', 'Host']
 @pulumi.input_type
 class HostArgs:
     def __init__(__self__, *,
-                 host_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
+                 host_name: pulumi.Input[Optional[_builtins.str]] = None,
                  inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,9 +33,9 @@ class HostArgs:
         """
         The set of arguments for constructing a Host resource.
 
-        :param pulumi.Input[_builtins.str] host_name: Name of the host.
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
+        :param pulumi.Input[_builtins.str] host_name: Name of the host.
         :param pulumi.Input[_builtins.str] inventory_item_id: Gets or sets the inventory Item ID for the host.
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location.
@@ -43,10 +43,11 @@ class HostArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the Resource tags.
         :param pulumi.Input[_builtins.str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this host resides.
         """
-        pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
         if inventory_item_id is not None:
             pulumi.set(__self__, "inventory_item_id", inventory_item_id)
         if kind is not None:
@@ -59,18 +60,6 @@ class HostArgs:
             pulumi.set(__self__, "tags", tags)
         if v_center_id is not None:
             pulumi.set(__self__, "v_center_id", v_center_id)
-
-    @_builtins.property
-    @pulumi.getter(name="hostName")
-    def host_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the host.
-        """
-        return pulumi.get(self, "host_name")
-
-    @host_name.setter
-    def host_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -95,6 +84,18 @@ class HostArgs:
     @extended_location.setter
     def extended_location(self, value: pulumi.Input[Optional['ExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the host.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "host_name", value)
 
     @_builtins.property
     @pulumi.getter(name="inventoryItemId")
@@ -253,8 +254,6 @@ class Host(pulumi.CustomResource):
             __props__ = HostArgs.__new__(HostArgs)
 
             __props__.__dict__["extended_location"] = extended_location
-            if host_name is None and not opts.urn:
-                raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
             __props__.__dict__["inventory_item_id"] = inventory_item_id
             __props__.__dict__["kind"] = kind

@@ -21,9 +21,9 @@ __all__ = ['ResourceSyncRuleArgs', 'ResourceSyncRule']
 @pulumi.input_type
 class ResourceSyncRuleArgs:
     def __init__(__self__, *,
-                 child_resource_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
+                 child_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  selector: pulumi.Input[Optional['ResourceSyncRulePropertiesSelectorArgs']] = None,
@@ -32,18 +32,19 @@ class ResourceSyncRuleArgs:
         """
         The set of arguments for constructing a ResourceSyncRule resource.
 
-        :param pulumi.Input[_builtins.str] child_resource_name: Resource Sync Rule name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: Custom Locations name.
+        :param pulumi.Input[_builtins.str] child_resource_name: Resource Sync Rule name.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] priority: Priority represents a priority of the Resource Sync Rule
         :param pulumi.Input['ResourceSyncRulePropertiesSelectorArgs'] selector: A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] target_resource_group: For an unmapped custom resource, its labels will be used to find matching resource sync rules. If this resource sync rule is one of the matching rules with highest priority, then the unmapped custom resource will be projected to the target resource group associated with this resource sync rule. The user creating this resource sync rule should have write permissions on the target resource group and this write permission will be validated when creating the resource sync rule.
         """
-        pulumi.set(__self__, "child_resource_name", child_resource_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if child_resource_name is not None:
+            pulumi.set(__self__, "child_resource_name", child_resource_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if priority is not None:
@@ -54,18 +55,6 @@ class ResourceSyncRuleArgs:
             pulumi.set(__self__, "tags", tags)
         if target_resource_group is not None:
             pulumi.set(__self__, "target_resource_group", target_resource_group)
-
-    @_builtins.property
-    @pulumi.getter(name="childResourceName")
-    def child_resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Resource Sync Rule name.
-        """
-        return pulumi.get(self, "child_resource_name")
-
-    @child_resource_name.setter
-    def child_resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "child_resource_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -90,6 +79,18 @@ class ResourceSyncRuleArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="childResourceName")
+    def child_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Resource Sync Rule name.
+        """
+        return pulumi.get(self, "child_resource_name")
+
+    @child_resource_name.setter
+    def child_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "child_resource_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -232,8 +233,6 @@ class ResourceSyncRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourceSyncRuleArgs.__new__(ResourceSyncRuleArgs)
 
-            if child_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'child_resource_name'")
             __props__.__dict__["child_resource_name"] = child_resource_name
             __props__.__dict__["location"] = location
             __props__.__dict__["priority"] = priority

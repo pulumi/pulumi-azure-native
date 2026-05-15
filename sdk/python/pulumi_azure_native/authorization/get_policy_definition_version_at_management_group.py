@@ -233,7 +233,7 @@ def get_policy_definition_version_at_management_group(management_group_name: Opt
         version=pulumi.get(__ret__, 'version'))
 def get_policy_definition_version_at_management_group_output(management_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                              policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                             policy_definition_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                             policy_definition_version: pulumi.Input[Optional[_builtins.str]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyDefinitionVersionAtManagementGroupResult]:
     """
     This operation retrieves the policy definition version in the given management group with the given name.

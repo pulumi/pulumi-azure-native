@@ -155,7 +155,7 @@ def get_sync_group(resource_group_name: Optional[_builtins.str] = None,
         unique_id=pulumi.get(__ret__, 'unique_id'))
 def get_sync_group_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          sync_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          sync_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSyncGroupResult]:
     """
     Get a given SyncGroup.

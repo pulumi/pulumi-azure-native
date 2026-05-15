@@ -202,7 +202,7 @@ def get_job_step_output(job_agent_name: pulumi.Input[Optional[_builtins.str]] = 
                         job_name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                         server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        step_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        step_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobStepResult]:
     """
     Gets a job step in a job's current version.

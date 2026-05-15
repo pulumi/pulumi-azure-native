@@ -164,7 +164,7 @@ def get_vpn_server_configuration(resource_group_name: Optional[_builtins.str] = 
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_vpn_server_configuration_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                        vpn_server_configuration_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                        vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnServerConfigurationResult]:
     """
     Retrieves the details of a VpnServerConfiguration.

@@ -19,31 +19,20 @@ __all__ = ['APICollectionByAzureApiManagementServiceArgs', 'APICollectionByAzure
 @pulumi.input_type
 class APICollectionByAzureApiManagementServiceArgs:
     def __init__(__self__, *,
-                 api_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 service_name: pulumi.Input[_builtins.str]):
+                 service_name: pulumi.Input[_builtins.str],
+                 api_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a APICollectionByAzureApiManagementService resource.
 
-        :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
+        :param pulumi.Input[_builtins.str] api_id: API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
         """
-        pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-
-    @_builtins.property
-    @pulumi.getter(name="apiId")
-    def api_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
-        """
-        return pulumi.get(self, "api_id")
-
-    @api_id.setter
-    def api_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "api_id", value)
+        if api_id is not None:
+            pulumi.set(__self__, "api_id", api_id)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -68,6 +57,18 @@ class APICollectionByAzureApiManagementServiceArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        API revision identifier. Must be unique in the API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
+        """
+        return pulumi.get(self, "api_id")
+
+    @api_id.setter
+    def api_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "api_id", value)
 
 
 @pulumi.type_token("azure-native:security:APICollectionByAzureApiManagementService")
@@ -131,8 +132,6 @@ class APICollectionByAzureApiManagementService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = APICollectionByAzureApiManagementServiceArgs.__new__(APICollectionByAzureApiManagementServiceArgs)
 
-            if api_id is None and not opts.urn:
-                raise TypeError("Missing required property 'api_id'")
             __props__.__dict__["api_id"] = api_id
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

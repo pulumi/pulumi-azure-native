@@ -21,29 +21,30 @@ __all__ = ['ClusterPrincipalAssignmentArgs', 'ClusterPrincipalAssignment']
 class ClusterPrincipalAssignmentArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 principal_assignment_name: pulumi.Input[_builtins.str],
                  principal_id: pulumi.Input[_builtins.str],
                  principal_type: pulumi.Input[Union[_builtins.str, 'PrincipalType']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  role: pulumi.Input[Union[_builtins.str, 'ClusterPrincipalRole']],
+                 principal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClusterPrincipalAssignment resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Kusto cluster.
-        :param pulumi.Input[_builtins.str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[_builtins.str] principal_id: The principal ID assigned to the cluster principal. It can be a user email, application ID, or security group name.
         :param pulumi.Input[Union[_builtins.str, 'PrincipalType']] principal_type: Principal type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'ClusterPrincipalRole']] role: Cluster principal role.
+        :param pulumi.Input[_builtins.str] principal_assignment_name: The name of the Kusto principalAssignment.
         :param pulumi.Input[_builtins.str] tenant_id: The tenant id of the principal
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "principal_assignment_name", principal_assignment_name)
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "principal_type", principal_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "role", role)
+        if principal_assignment_name is not None:
+            pulumi.set(__self__, "principal_assignment_name", principal_assignment_name)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
@@ -58,18 +59,6 @@ class ClusterPrincipalAssignmentArgs:
     @cluster_name.setter
     def cluster_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="principalAssignmentName")
-    def principal_assignment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Kusto principalAssignment.
-        """
-        return pulumi.get(self, "principal_assignment_name")
-
-    @principal_assignment_name.setter
-    def principal_assignment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "principal_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
@@ -118,6 +107,18 @@ class ClusterPrincipalAssignmentArgs:
     @role.setter
     def role(self, value: pulumi.Input[Union[_builtins.str, 'ClusterPrincipalRole']]):
         pulumi.set(self, "role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="principalAssignmentName")
+    def principal_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Kusto principalAssignment.
+        """
+        return pulumi.get(self, "principal_assignment_name")
+
+    @principal_assignment_name.setter
+    def principal_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "principal_assignment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -212,8 +213,6 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if principal_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'principal_assignment_name'")
             __props__.__dict__["principal_assignment_name"] = principal_assignment_name
             if principal_id is None and not opts.urn:
                 raise TypeError("Missing required property 'principal_id'")

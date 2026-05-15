@@ -220,7 +220,7 @@ def get_template_spec_version(resource_group_name: Optional[_builtins.str] = Non
         ui_form_definition=pulumi.get(__ret__, 'ui_form_definition'))
 def get_template_spec_version_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      template_spec_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                     template_spec_version: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     template_spec_version: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateSpecVersionResult]:
     """
     Gets a Template Spec version from a specific Template Spec.

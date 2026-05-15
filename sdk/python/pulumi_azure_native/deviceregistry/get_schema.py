@@ -219,7 +219,7 @@ def get_schema(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
 def get_schema_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                      schema_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      schema_name: pulumi.Input[Optional[_builtins.str]] = None,
                       schema_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaResult]:
     """

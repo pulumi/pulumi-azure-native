@@ -185,7 +185,7 @@ def get_sender_username(domain_name: Optional[_builtins.str] = None,
 def get_sender_username_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                                email_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               sender_username: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               sender_username: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSenderUsernameResult]:
     """
     Get a valid sender username for a domains resource.

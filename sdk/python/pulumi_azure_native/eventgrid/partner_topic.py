@@ -22,7 +22,6 @@ __all__ = ['PartnerTopicArgs', 'PartnerTopic']
 @pulumi.input_type
 class PartnerTopicArgs:
     def __init__(__self__, *,
-                 partner_topic_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  activation_state: pulumi.Input[Optional[Union[_builtins.str, 'PartnerTopicActivationState']]] = None,
                  event_type_info: pulumi.Input[Optional['EventTypeInfoArgs']] = None,
@@ -32,12 +31,12 @@ class PartnerTopicArgs:
                  message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_registration_immutable_id: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_topic_friendly_description: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PartnerTopic resource.
 
-        :param pulumi.Input[_builtins.str] partner_topic_name: Name of the partner topic.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input[Union[_builtins.str, 'PartnerTopicActivationState']] activation_state: Activation state of the partner topic.
         :param pulumi.Input['EventTypeInfoArgs'] event_type_info: Event Type information from the corresponding event channel.
@@ -49,10 +48,10 @@ class PartnerTopicArgs:
         :param pulumi.Input[_builtins.str] partner_registration_immutable_id: The immutableId of the corresponding partner registration.
         :param pulumi.Input[_builtins.str] partner_topic_friendly_description: Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
                This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
+        :param pulumi.Input[_builtins.str] partner_topic_name: Name of the partner topic.
         :param pulumi.Input[_builtins.str] source: Source associated with this partner topic. This represents a unique partner resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags of the resource.
         """
-        pulumi.set(__self__, "partner_topic_name", partner_topic_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if activation_state is not None:
             pulumi.set(__self__, "activation_state", activation_state)
@@ -70,22 +69,12 @@ class PartnerTopicArgs:
             pulumi.set(__self__, "partner_registration_immutable_id", partner_registration_immutable_id)
         if partner_topic_friendly_description is not None:
             pulumi.set(__self__, "partner_topic_friendly_description", partner_topic_friendly_description)
+        if partner_topic_name is not None:
+            pulumi.set(__self__, "partner_topic_name", partner_topic_name)
         if source is not None:
             pulumi.set(__self__, "source", source)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="partnerTopicName")
-    def partner_topic_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the partner topic.
-        """
-        return pulumi.get(self, "partner_topic_name")
-
-    @partner_topic_name.setter
-    def partner_topic_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "partner_topic_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -196,6 +185,18 @@ class PartnerTopicArgs:
     @partner_topic_friendly_description.setter
     def partner_topic_friendly_description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_topic_friendly_description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partnerTopicName")
+    def partner_topic_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the partner topic.
+        """
+        return pulumi.get(self, "partner_topic_name")
+
+    @partner_topic_name.setter
+    def partner_topic_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "partner_topic_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -324,8 +325,6 @@ class PartnerTopic(pulumi.CustomResource):
             __props__.__dict__["message_for_activation"] = message_for_activation
             __props__.__dict__["partner_registration_immutable_id"] = partner_registration_immutable_id
             __props__.__dict__["partner_topic_friendly_description"] = partner_topic_friendly_description
-            if partner_topic_name is None and not opts.urn:
-                raise TypeError("Missing required property 'partner_topic_name'")
             __props__.__dict__["partner_topic_name"] = partner_topic_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

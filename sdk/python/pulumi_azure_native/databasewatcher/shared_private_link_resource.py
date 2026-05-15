@@ -24,9 +24,9 @@ class SharedPrivateLinkResourceArgs:
                  private_link_resource_id: pulumi.Input[_builtins.str],
                  request_message: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 shared_private_link_resource_name: pulumi.Input[_builtins.str],
                  watcher_name: pulumi.Input[_builtins.str],
-                 dns_zone: pulumi.Input[Optional[_builtins.str]] = None):
+                 dns_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 shared_private_link_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SharedPrivateLinkResource resource.
 
@@ -34,18 +34,19 @@ class SharedPrivateLinkResourceArgs:
         :param pulumi.Input[_builtins.str] private_link_resource_id: The resource ID of the resource the shared private link resource is for.
         :param pulumi.Input[_builtins.str] request_message: The request message for requesting approval of the shared private link resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] shared_private_link_resource_name: The Shared Private Link resource name.
         :param pulumi.Input[_builtins.str] watcher_name: The database watcher name.
         :param pulumi.Input[_builtins.str] dns_zone: The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
+        :param pulumi.Input[_builtins.str] shared_private_link_resource_name: The Shared Private Link resource name.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "private_link_resource_id", private_link_resource_id)
         pulumi.set(__self__, "request_message", request_message)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "shared_private_link_resource_name", shared_private_link_resource_name)
         pulumi.set(__self__, "watcher_name", watcher_name)
         if dns_zone is not None:
             pulumi.set(__self__, "dns_zone", dns_zone)
+        if shared_private_link_resource_name is not None:
+            pulumi.set(__self__, "shared_private_link_resource_name", shared_private_link_resource_name)
 
     @_builtins.property
     @pulumi.getter(name="groupId")
@@ -96,18 +97,6 @@ class SharedPrivateLinkResourceArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="sharedPrivateLinkResourceName")
-    def shared_private_link_resource_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Shared Private Link resource name.
-        """
-        return pulumi.get(self, "shared_private_link_resource_name")
-
-    @shared_private_link_resource_name.setter
-    def shared_private_link_resource_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "shared_private_link_resource_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="watcherName")
     def watcher_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -130,6 +119,18 @@ class SharedPrivateLinkResourceArgs:
     @dns_zone.setter
     def dns_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dns_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sharedPrivateLinkResourceName")
+    def shared_private_link_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Shared Private Link resource name.
+        """
+        return pulumi.get(self, "shared_private_link_resource_name")
+
+    @shared_private_link_resource_name.setter
+    def shared_private_link_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "shared_private_link_resource_name", value)
 
 
 @pulumi.type_token("azure-native:databasewatcher:SharedPrivateLinkResource")
@@ -222,8 +223,6 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if shared_private_link_resource_name is None and not opts.urn:
-                raise TypeError("Missing required property 'shared_private_link_resource_name'")
             __props__.__dict__["shared_private_link_resource_name"] = shared_private_link_resource_name
             if watcher_name is None and not opts.urn:
                 raise TypeError("Missing required property 'watcher_name'")

@@ -19,40 +19,29 @@ __all__ = ['ApplicationSecurityGroupInitArgs', 'ApplicationSecurityGroup']
 @pulumi.input_type
 class ApplicationSecurityGroupInitArgs:
     def __init__(__self__, *,
-                 application_security_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 application_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ApplicationSecurityGroup resource.
 
-        :param pulumi.Input[_builtins.str] application_security_group_name: The name of the application security group.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
+        :param pulumi.Input[_builtins.str] application_security_group_name: The name of the application security group.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "application_security_group_name", application_security_group_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if application_security_group_name is not None:
+            pulumi.set(__self__, "application_security_group_name", application_security_group_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationSecurityGroupName")
-    def application_security_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the application security group.
-        """
-        return pulumi.get(self, "application_security_group_name")
-
-    @application_security_group_name.setter
-    def application_security_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "application_security_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -65,6 +54,18 @@ class ApplicationSecurityGroupInitArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationSecurityGroupName")
+    def application_security_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the application security group.
+        """
+        return pulumi.get(self, "application_security_group_name")
+
+    @application_security_group_name.setter
+    def application_security_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "application_security_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,8 +175,6 @@ class ApplicationSecurityGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationSecurityGroupInitArgs.__new__(ApplicationSecurityGroupInitArgs)
 
-            if application_security_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_security_group_name'")
             __props__.__dict__["application_security_group_name"] = application_security_group_name
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location

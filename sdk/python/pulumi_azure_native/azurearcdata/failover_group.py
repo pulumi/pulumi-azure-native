@@ -22,34 +22,23 @@ __all__ = ['FailoverGroupArgs', 'FailoverGroup']
 @pulumi.input_type
 class FailoverGroupArgs:
     def __init__(__self__, *,
-                 failover_group_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['FailoverGroupPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 sql_managed_instance_name: pulumi.Input[_builtins.str]):
+                 sql_managed_instance_name: pulumi.Input[_builtins.str],
+                 failover_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FailoverGroup resource.
 
-        :param pulumi.Input[_builtins.str] failover_group_name: The name of the Failover Group
         :param pulumi.Input['FailoverGroupPropertiesArgs'] properties: null
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Azure resource group
         :param pulumi.Input[_builtins.str] sql_managed_instance_name: Name of SQL Managed Instance
+        :param pulumi.Input[_builtins.str] failover_group_name: The name of the Failover Group
         """
-        pulumi.set(__self__, "failover_group_name", failover_group_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sql_managed_instance_name", sql_managed_instance_name)
-
-    @_builtins.property
-    @pulumi.getter(name="failoverGroupName")
-    def failover_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Failover Group
-        """
-        return pulumi.get(self, "failover_group_name")
-
-    @failover_group_name.setter
-    def failover_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "failover_group_name", value)
+        if failover_group_name is not None:
+            pulumi.set(__self__, "failover_group_name", failover_group_name)
 
     @_builtins.property
     @pulumi.getter
@@ -86,6 +75,18 @@ class FailoverGroupArgs:
     @sql_managed_instance_name.setter
     def sql_managed_instance_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "sql_managed_instance_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="failoverGroupName")
+    def failover_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Failover Group
+        """
+        return pulumi.get(self, "failover_group_name")
+
+    @failover_group_name.setter
+    def failover_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "failover_group_name", value)
 
 
 @pulumi.type_token("azure-native:azurearcdata:FailoverGroup")
@@ -156,8 +157,6 @@ class FailoverGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FailoverGroupArgs.__new__(FailoverGroupArgs)
 
-            if failover_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'failover_group_name'")
             __props__.__dict__["failover_group_name"] = failover_group_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

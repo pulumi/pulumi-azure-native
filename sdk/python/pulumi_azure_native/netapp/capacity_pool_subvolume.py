@@ -23,27 +23,26 @@ class CapacityPoolSubvolumeArgs:
                  account_name: pulumi.Input[_builtins.str],
                  pool_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 subvolume_name: pulumi.Input[_builtins.str],
                  volume_name: pulumi.Input[_builtins.str],
                  parent_path: pulumi.Input[Optional[_builtins.str]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
-                 size: pulumi.Input[Optional[_builtins.float]] = None):
+                 size: pulumi.Input[Optional[_builtins.float]] = None,
+                 subvolume_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CapacityPoolSubvolume resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
         :param pulumi.Input[_builtins.str] pool_name: The name of the capacity pool
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] subvolume_name: The name of the subvolume.
         :param pulumi.Input[_builtins.str] volume_name: The name of the volume
         :param pulumi.Input[_builtins.str] parent_path: parent path to the subvolume
         :param pulumi.Input[_builtins.str] path: Path to the subvolume
         :param pulumi.Input[_builtins.float] size: Truncate subvolume to the provided size in bytes
+        :param pulumi.Input[_builtins.str] subvolume_name: The name of the subvolume.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "subvolume_name", subvolume_name)
         pulumi.set(__self__, "volume_name", volume_name)
         if parent_path is not None:
             pulumi.set(__self__, "parent_path", parent_path)
@@ -51,6 +50,8 @@ class CapacityPoolSubvolumeArgs:
             pulumi.set(__self__, "path", path)
         if size is not None:
             pulumi.set(__self__, "size", size)
+        if subvolume_name is not None:
+            pulumi.set(__self__, "subvolume_name", subvolume_name)
 
     @_builtins.property
     @pulumi.getter(name="accountName")
@@ -87,18 +88,6 @@ class CapacityPoolSubvolumeArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="subvolumeName")
-    def subvolume_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the subvolume.
-        """
-        return pulumi.get(self, "subvolume_name")
-
-    @subvolume_name.setter
-    def subvolume_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "subvolume_name", value)
 
     @_builtins.property
     @pulumi.getter(name="volumeName")
@@ -147,6 +136,18 @@ class CapacityPoolSubvolumeArgs:
     @size.setter
     def size(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subvolumeName")
+    def subvolume_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the subvolume.
+        """
+        return pulumi.get(self, "subvolume_name")
+
+    @subvolume_name.setter
+    def subvolume_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "subvolume_name", value)
 
 
 @pulumi.type_token("azure-native:netapp:CapacityPoolSubvolume")
@@ -241,8 +242,6 @@ class CapacityPoolSubvolume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["size"] = size
-            if subvolume_name is None and not opts.urn:
-                raise TypeError("Missing required property 'subvolume_name'")
             __props__.__dict__["subvolume_name"] = subvolume_name
             if volume_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_name'")

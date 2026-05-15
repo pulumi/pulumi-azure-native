@@ -362,7 +362,7 @@ def get_policy_assignment(expand: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_policy_assignment_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                 policy_assignment_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  scope: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssignmentResult]:
     """

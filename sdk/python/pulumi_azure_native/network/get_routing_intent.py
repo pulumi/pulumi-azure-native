@@ -154,7 +154,7 @@ def get_routing_intent(resource_group_name: Optional[_builtins.str] = None,
         routing_policies=pulumi.get(__ret__, 'routing_policies'),
         type=pulumi.get(__ret__, 'type'))
 def get_routing_intent_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              routing_intent_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              routing_intent_name: pulumi.Input[Optional[_builtins.str]] = None,
                               virtual_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoutingIntentResult]:
     """

@@ -22,7 +22,6 @@ __all__ = ['MachineLearningDatastoreArgs', 'MachineLearningDatastore']
 class MachineLearningDatastoreArgs:
     def __init__(__self__, *,
                  data_store_type: pulumi.Input[Union[_builtins.str, 'DatastoreTypeArm']],
-                 datastore_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  account_key: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,6 +33,7 @@ class MachineLearningDatastoreArgs:
                  client_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  container_name: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  enforce_ssl: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -59,7 +59,6 @@ class MachineLearningDatastoreArgs:
         The set of arguments for constructing a MachineLearningDatastore resource.
 
         :param pulumi.Input[Union[_builtins.str, 'DatastoreTypeArm']] data_store_type: Specifies datastore type.
-        :param pulumi.Input[_builtins.str] datastore_name: The Datastore name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group in which workspace is located.
         :param pulumi.Input[_builtins.str] workspace_name: Name of Azure Machine Learning workspace.
         :param pulumi.Input[_builtins.str] account_key: Account Key of storage account.
@@ -71,6 +70,7 @@ class MachineLearningDatastoreArgs:
         :param pulumi.Input[_builtins.str] client_secret: The service principal's secret.
         :param pulumi.Input[_builtins.str] container_name: The name of the azure blob container.
         :param pulumi.Input[_builtins.str] database_name: The database name.
+        :param pulumi.Input[_builtins.str] datastore_name: The Datastore name.
         :param pulumi.Input[_builtins.str] description: The description of the datastore.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint of the server.
         :param pulumi.Input[_builtins.bool] enforce_ssl: This sets the ssl value of the server. Defaults to true if not set.
@@ -94,7 +94,6 @@ class MachineLearningDatastoreArgs:
         :param pulumi.Input[_builtins.bool] workspace_system_assigned_identity: If set to true, datastore support data access authenticated with Workspace MSI.
         """
         pulumi.set(__self__, "data_store_type", data_store_type)
-        pulumi.set(__self__, "datastore_name", datastore_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if account_key is not None:
@@ -115,6 +114,8 @@ class MachineLearningDatastoreArgs:
             pulumi.set(__self__, "container_name", container_name)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if datastore_name is not None:
+            pulumi.set(__self__, "datastore_name", datastore_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if endpoint is not None:
@@ -173,18 +174,6 @@ class MachineLearningDatastoreArgs:
     @data_store_type.setter
     def data_store_type(self, value: pulumi.Input[Union[_builtins.str, 'DatastoreTypeArm']]):
         pulumi.set(self, "data_store_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="datastoreName")
-    def datastore_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Datastore name.
-        """
-        return pulumi.get(self, "datastore_name")
-
-    @datastore_name.setter
-    def datastore_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "datastore_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -317,6 +306,18 @@ class MachineLearningDatastoreArgs:
     @database_name.setter
     def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datastoreName")
+    def datastore_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Datastore name.
+        """
+        return pulumi.get(self, "datastore_name")
+
+    @datastore_name.setter
+    def datastore_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "datastore_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -737,8 +738,6 @@ class MachineLearningDatastore(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_store_type'")
             __props__.__dict__["data_store_type"] = data_store_type
             __props__.__dict__["database_name"] = database_name
-            if datastore_name is None and not opts.urn:
-                raise TypeError("Missing required property 'datastore_name'")
             __props__.__dict__["datastore_name"] = datastore_name
             __props__.__dict__["description"] = description
             __props__.__dict__["endpoint"] = endpoint

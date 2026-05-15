@@ -21,40 +21,29 @@ __all__ = ['ManagedNetworkArgs', 'ManagedNetwork']
 @pulumi.input_type
 class ManagedNetworkArgs:
     def __init__(__self__, *,
-                 managed_network_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional['ScopeArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ManagedNetwork resource.
 
-        :param pulumi.Input[_builtins.str] managed_network_name: The name of the Managed Network.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] managed_network_name: The name of the Managed Network.
         :param pulumi.Input['ScopeArgs'] scope: The collection of management groups, subscriptions, virtual networks, and subnets by the Managed Network. This is a read-only property that is reflective of all ScopeAssignments for this Managed Network
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags
         """
-        pulumi.set(__self__, "managed_network_name", managed_network_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_network_name is not None:
+            pulumi.set(__self__, "managed_network_name", managed_network_name)
         if scope is not None:
             pulumi.set(__self__, "scope", scope)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="managedNetworkName")
-    def managed_network_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Managed Network.
-        """
-        return pulumi.get(self, "managed_network_name")
-
-    @managed_network_name.setter
-    def managed_network_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "managed_network_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -79,6 +68,18 @@ class ManagedNetworkArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedNetworkName")
+    def managed_network_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Managed Network.
+        """
+        return pulumi.get(self, "managed_network_name")
+
+    @managed_network_name.setter
+    def managed_network_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "managed_network_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -173,8 +174,6 @@ class ManagedNetwork(pulumi.CustomResource):
             __props__ = ManagedNetworkArgs.__new__(ManagedNetworkArgs)
 
             __props__.__dict__["location"] = location
-            if managed_network_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_network_name'")
             __props__.__dict__["managed_network_name"] = managed_network_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

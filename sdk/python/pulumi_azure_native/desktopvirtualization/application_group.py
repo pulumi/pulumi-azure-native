@@ -22,10 +22,10 @@ __all__ = ['ApplicationGroupArgs', 'ApplicationGroup']
 @pulumi.input_type
 class ApplicationGroupArgs:
     def __init__(__self__, *,
-                 application_group_name: pulumi.Input[_builtins.str],
                  application_group_type: pulumi.Input[Union[_builtins.str, 'ApplicationGroupType']],
                  host_pool_arm_path: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 application_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ResourceModelWithAllowedPropertySetIdentityArgs']] = None,
@@ -39,10 +39,10 @@ class ApplicationGroupArgs:
         """
         The set of arguments for constructing a ApplicationGroup resource.
 
-        :param pulumi.Input[_builtins.str] application_group_name: The name of the application group
         :param pulumi.Input[Union[_builtins.str, 'ApplicationGroupType']] application_group_type: Resource Type of ApplicationGroup.
         :param pulumi.Input[_builtins.str] host_pool_arm_path: HostPool arm path of ApplicationGroup.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] application_group_name: The name of the application group
         :param pulumi.Input[_builtins.str] description: Description of ApplicationGroup.
         :param pulumi.Input[_builtins.str] friendly_name: Friendly name of ApplicationGroup.
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
@@ -51,10 +51,11 @@ class ApplicationGroupArgs:
         :param pulumi.Input[_builtins.bool] show_in_feed: Boolean representing whether the applicationGroup is show in the feed.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "application_group_name", application_group_name)
         pulumi.set(__self__, "application_group_type", application_group_type)
         pulumi.set(__self__, "host_pool_arm_path", host_pool_arm_path)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if application_group_name is not None:
+            pulumi.set(__self__, "application_group_name", application_group_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if friendly_name is not None:
@@ -75,18 +76,6 @@ class ApplicationGroupArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="applicationGroupName")
-    def application_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the application group
-        """
-        return pulumi.get(self, "application_group_name")
-
-    @application_group_name.setter
-    def application_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "application_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationGroupType")
@@ -123,6 +112,18 @@ class ApplicationGroupArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="applicationGroupName")
+    def application_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the application group
+        """
+        return pulumi.get(self, "application_group_name")
+
+    @application_group_name.setter
+    def application_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "application_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -331,8 +332,6 @@ class ApplicationGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationGroupArgs.__new__(ApplicationGroupArgs)
 
-            if application_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'application_group_name'")
             __props__.__dict__["application_group_name"] = application_group_name
             if application_group_type is None and not opts.urn:
                 raise TypeError("Missing required property 'application_group_type'")

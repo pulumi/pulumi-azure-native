@@ -135,7 +135,7 @@ def get_issue(issue_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_issue_output(issue_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_issue_output(issue_name: pulumi.Input[Optional[_builtins.str]] = None,
                      resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIssueResult]:
     """

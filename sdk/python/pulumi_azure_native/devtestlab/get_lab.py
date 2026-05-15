@@ -414,7 +414,7 @@ def get_lab(expand: Optional[_builtins.str] = None,
         vault_name=pulumi.get(__ret__, 'vault_name'),
         vm_creation_resource_group=pulumi.get(__ret__, 'vm_creation_resource_group'))
 def get_lab_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                   name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                   name: pulumi.Input[Optional[_builtins.str]] = None,
                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLabResult]:
     """

@@ -21,20 +21,21 @@ class WebAppSiteExtensionSlotArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 site_extension_id: pulumi.Input[_builtins.str],
-                 slot: pulumi.Input[_builtins.str]):
+                 slot: pulumi.Input[_builtins.str],
+                 site_extension_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WebAppSiteExtensionSlot resource.
 
         :param pulumi.Input[_builtins.str] name: Site name.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
-        :param pulumi.Input[_builtins.str] site_extension_id: Site extension name.
         :param pulumi.Input[_builtins.str] slot: Name of the deployment slot. If a slot is not specified, the API uses the production slot.
+        :param pulumi.Input[_builtins.str] site_extension_id: Site extension name.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "site_extension_id", site_extension_id)
         pulumi.set(__self__, "slot", slot)
+        if site_extension_id is not None:
+            pulumi.set(__self__, "site_extension_id", site_extension_id)
 
     @_builtins.property
     @pulumi.getter
@@ -61,18 +62,6 @@ class WebAppSiteExtensionSlotArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="siteExtensionId")
-    def site_extension_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Site extension name.
-        """
-        return pulumi.get(self, "site_extension_id")
-
-    @site_extension_id.setter
-    def site_extension_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "site_extension_id", value)
-
-    @_builtins.property
     @pulumi.getter
     def slot(self) -> pulumi.Input[_builtins.str]:
         """
@@ -83,6 +72,18 @@ class WebAppSiteExtensionSlotArgs:
     @slot.setter
     def slot(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "slot", value)
+
+    @_builtins.property
+    @pulumi.getter(name="siteExtensionId")
+    def site_extension_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Site extension name.
+        """
+        return pulumi.get(self, "site_extension_id")
+
+    @site_extension_id.setter
+    def site_extension_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "site_extension_id", value)
 
 
 @pulumi.type_token("azure-native:web:WebAppSiteExtensionSlot")
@@ -159,8 +160,6 @@ class WebAppSiteExtensionSlot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if site_extension_id is None and not opts.urn:
-                raise TypeError("Missing required property 'site_extension_id'")
             __props__.__dict__["site_extension_id"] = site_extension_id
             if slot is None and not opts.urn:
                 raise TypeError("Missing required property 'slot'")

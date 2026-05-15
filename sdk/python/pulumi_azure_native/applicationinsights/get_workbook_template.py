@@ -203,7 +203,7 @@ def get_workbook_template(resource_group_name: Optional[_builtins.str] = None,
         template_data=pulumi.get(__ret__, 'template_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_workbook_template_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                 resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkbookTemplateResult]:
     """
     Get a single workbook template by its resourceName.

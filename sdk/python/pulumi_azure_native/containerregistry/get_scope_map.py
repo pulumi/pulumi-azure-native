@@ -183,7 +183,7 @@ def get_scope_map(registry_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_scope_map_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         scope_map_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         scope_map_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScopeMapResult]:
     """
     Gets the properties of the specified scope map.

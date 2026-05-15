@@ -180,7 +180,7 @@ def get_credential(automation_account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_name=pulumi.get(__ret__, 'user_name'))
 def get_credential_output(automation_account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          credential_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          credential_name: pulumi.Input[Optional[_builtins.str]] = None,
                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCredentialResult]:
     """

@@ -206,7 +206,7 @@ def get_network_profile(expand: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_network_profile_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                               network_profile_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               network_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkProfileResult]:
     """

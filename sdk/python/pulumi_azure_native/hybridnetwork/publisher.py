@@ -22,23 +22,22 @@ __all__ = ['PublisherArgs', 'Publisher']
 @pulumi.input_type
 class PublisherArgs:
     def __init__(__self__, *,
-                 publisher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['PublisherPropertiesFormatArgs']] = None,
+                 publisher_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Publisher resource.
 
-        :param pulumi.Input[_builtins.str] publisher_name: The name of the publisher.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed identity of the publisher, if configured.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['PublisherPropertiesFormatArgs'] properties: Publisher properties.
+        :param pulumi.Input[_builtins.str] publisher_name: The name of the publisher.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "publisher_name", publisher_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -46,20 +45,10 @@ class PublisherArgs:
             pulumi.set(__self__, "location", location)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if publisher_name is not None:
+            pulumi.set(__self__, "publisher_name", publisher_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="publisherName")
-    def publisher_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the publisher.
-        """
-        return pulumi.get(self, "publisher_name")
-
-    @publisher_name.setter
-    def publisher_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "publisher_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -108,6 +97,18 @@ class PublisherArgs:
     @properties.setter
     def properties(self, value: pulumi.Input[Optional['PublisherPropertiesFormatArgs']]):
         pulumi.set(self, "properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publisherName")
+    def publisher_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the publisher.
+        """
+        return pulumi.get(self, "publisher_name")
+
+    @publisher_name.setter
+    def publisher_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "publisher_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -199,8 +200,6 @@ class Publisher(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties
-            if publisher_name is None and not opts.urn:
-                raise TypeError("Missing required property 'publisher_name'")
             __props__.__dict__["publisher_name"] = publisher_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

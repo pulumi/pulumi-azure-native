@@ -20,23 +20,22 @@ __all__ = ['NetworkExperimentProfileArgs', 'NetworkExperimentProfile']
 @pulumi.input_type
 class NetworkExperimentProfileArgs:
     def __init__(__self__, *,
-                 profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  enabled_state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkExperimentProfile resource.
 
-        :param pulumi.Input[_builtins.str] profile_name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Union[_builtins.str, 'State']] enabled_state: The state of the Experiment
         :param pulumi.Input[_builtins.str] location: Resource location.
         :param pulumi.Input[_builtins.str] name: The name of the Profile
+        :param pulumi.Input[_builtins.str] profile_name: The Profile identifier associated with the Tenant and Partner
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if enabled_state is not None:
             pulumi.set(__self__, "enabled_state", enabled_state)
@@ -44,20 +43,10 @@ class NetworkExperimentProfileArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if profile_name is not None:
+            pulumi.set(__self__, "profile_name", profile_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="profileName")
-    def profile_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Profile identifier associated with the Tenant and Partner
-        """
-        return pulumi.get(self, "profile_name")
-
-    @profile_name.setter
-    def profile_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -106,6 +95,18 @@ class NetworkExperimentProfileArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="profileName")
+    def profile_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Profile identifier associated with the Tenant and Partner
+        """
+        return pulumi.get(self, "profile_name")
+
+    @profile_name.setter
+    def profile_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "profile_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -197,8 +198,6 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             __props__.__dict__["enabled_state"] = enabled_state
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
-            if profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'profile_name'")
             __props__.__dict__["profile_name"] = profile_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

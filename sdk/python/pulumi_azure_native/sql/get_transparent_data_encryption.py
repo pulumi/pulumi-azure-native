@@ -132,7 +132,7 @@ def get_transparent_data_encryption(database_name: Optional[_builtins.str] = Non
 def get_transparent_data_encryption_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            server_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                           tde_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                           tde_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransparentDataEncryptionResult]:
     """
     Gets a logical database's transparent data encryption.

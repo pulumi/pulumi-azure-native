@@ -317,7 +317,7 @@ def get_trunked_network(resource_group_name: Optional[_builtins.str] = None,
         virtual_machines_associated_ids=pulumi.get(__ret__, 'virtual_machines_associated_ids'),
         vlans=pulumi.get(__ret__, 'vlans'))
 def get_trunked_network_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                               trunked_network_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               trunked_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrunkedNetworkResult]:
     """
     Get properties of the provided trunked network.

@@ -25,22 +25,23 @@ class ServerTrustGroupArgs:
                  group_members: pulumi.Input[Sequence[pulumi.Input['ServerInfoArgs']]],
                  location_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 server_trust_group_name: pulumi.Input[_builtins.str],
-                 trust_scopes: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]):
+                 trust_scopes: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]],
+                 server_trust_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerTrustGroup resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['ServerInfoArgs']]] group_members: Group members information for the server trust group.
         :param pulumi.Input[_builtins.str] location_name: The name of the region where the resource is located.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[_builtins.str] server_trust_group_name: The name of the server trust group.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]] trust_scopes: Trust scope of the server trust group.
+        :param pulumi.Input[_builtins.str] server_trust_group_name: The name of the server trust group.
         """
         pulumi.set(__self__, "group_members", group_members)
         pulumi.set(__self__, "location_name", location_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "server_trust_group_name", server_trust_group_name)
         pulumi.set(__self__, "trust_scopes", trust_scopes)
+        if server_trust_group_name is not None:
+            pulumi.set(__self__, "server_trust_group_name", server_trust_group_name)
 
     @_builtins.property
     @pulumi.getter(name="groupMembers")
@@ -79,18 +80,6 @@ class ServerTrustGroupArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="serverTrustGroupName")
-    def server_trust_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the server trust group.
-        """
-        return pulumi.get(self, "server_trust_group_name")
-
-    @server_trust_group_name.setter
-    def server_trust_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "server_trust_group_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="trustScopes")
     def trust_scopes(self) -> pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]:
         """
@@ -101,6 +90,18 @@ class ServerTrustGroupArgs:
     @trust_scopes.setter
     def trust_scopes(self, value: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'TrustScope']]]]):
         pulumi.set(self, "trust_scopes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverTrustGroupName")
+    def server_trust_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the server trust group.
+        """
+        return pulumi.get(self, "server_trust_group_name")
+
+    @server_trust_group_name.setter
+    def server_trust_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_trust_group_name", value)
 
 
 @pulumi.type_token("azure-native:sql:ServerTrustGroup")
@@ -183,8 +184,6 @@ class ServerTrustGroup(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if server_trust_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'server_trust_group_name'")
             __props__.__dict__["server_trust_group_name"] = server_trust_group_name
             if trust_scopes is None and not opts.urn:
                 raise TypeError("Missing required property 'trust_scopes'")

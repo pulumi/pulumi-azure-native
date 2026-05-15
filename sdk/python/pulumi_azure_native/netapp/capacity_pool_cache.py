@@ -23,10 +23,10 @@ __all__ = ['CapacityPoolCacheArgs', 'CapacityPoolCache']
 class CapacityPoolCacheArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 cache_name: pulumi.Input[_builtins.str],
                  pool_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['CachePropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
@@ -34,19 +34,20 @@ class CapacityPoolCacheArgs:
         The set of arguments for constructing a CapacityPoolCache resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the NetApp account
-        :param pulumi.Input[_builtins.str] cache_name: The name of the cache resource.
         :param pulumi.Input[_builtins.str] pool_name: The name of the capacity pool
         :param pulumi.Input['CachePropertiesArgs'] properties: Cache properties
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] cache_name: The name of the cache resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: The availability zones.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "cache_name", cache_name)
         pulumi.set(__self__, "pool_name", pool_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cache_name is not None:
+            pulumi.set(__self__, "cache_name", cache_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -65,18 +66,6 @@ class CapacityPoolCacheArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cacheName")
-    def cache_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the cache resource.
-        """
-        return pulumi.get(self, "cache_name")
-
-    @cache_name.setter
-    def cache_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cache_name", value)
 
     @_builtins.property
     @pulumi.getter(name="poolName")
@@ -113,6 +102,18 @@ class CapacityPoolCacheArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cacheName")
+    def cache_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the cache resource.
+        """
+        return pulumi.get(self, "cache_name")
+
+    @cache_name.setter
+    def cache_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cache_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -234,8 +235,6 @@ class CapacityPoolCache(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if cache_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cache_name'")
             __props__.__dict__["cache_name"] = cache_name
             __props__.__dict__["location"] = location
             if pool_name is None and not opts.urn:

@@ -203,7 +203,7 @@ def get_security_partner_provider(resource_group_name: Optional[_builtins.str] =
         type=pulumi.get(__ret__, 'type'),
         virtual_hub=pulumi.get(__ret__, 'virtual_hub'))
 def get_security_partner_provider_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         security_partner_provider_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         security_partner_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPartnerProviderResult]:
     """
     Gets the specified Security Partner Provider.

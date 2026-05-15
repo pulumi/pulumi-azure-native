@@ -19,49 +19,38 @@ __all__ = ['AuthorizationAccessPolicyArgs', 'AuthorizationAccessPolicy']
 @pulumi.input_type
 class AuthorizationAccessPolicyArgs:
     def __init__(__self__, *,
-                 authorization_access_policy_id: pulumi.Input[_builtins.str],
                  authorization_id: pulumi.Input[_builtins.str],
                  authorization_provider_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  app_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 authorization_access_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  object_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AuthorizationAccessPolicy resource.
 
-        :param pulumi.Input[_builtins.str] authorization_access_policy_id: Identifier of the authorization access policy.
         :param pulumi.Input[_builtins.str] authorization_id: Identifier of the authorization.
         :param pulumi.Input[_builtins.str] authorization_provider_id: Identifier of the authorization provider.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] app_ids: The allowed Azure Active Directory Application IDs
+        :param pulumi.Input[_builtins.str] authorization_access_policy_id: Identifier of the authorization access policy.
         :param pulumi.Input[_builtins.str] object_id: The Object Id
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant Id
         """
-        pulumi.set(__self__, "authorization_access_policy_id", authorization_access_policy_id)
         pulumi.set(__self__, "authorization_id", authorization_id)
         pulumi.set(__self__, "authorization_provider_id", authorization_provider_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
         if app_ids is not None:
             pulumi.set(__self__, "app_ids", app_ids)
+        if authorization_access_policy_id is not None:
+            pulumi.set(__self__, "authorization_access_policy_id", authorization_access_policy_id)
         if object_id is not None:
             pulumi.set(__self__, "object_id", object_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationAccessPolicyId")
-    def authorization_access_policy_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the authorization access policy.
-        """
-        return pulumi.get(self, "authorization_access_policy_id")
-
-    @authorization_access_policy_id.setter
-    def authorization_access_policy_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "authorization_access_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="authorizationId")
@@ -122,6 +111,18 @@ class AuthorizationAccessPolicyArgs:
     @app_ids.setter
     def app_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "app_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationAccessPolicyId")
+    def authorization_access_policy_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the authorization access policy.
+        """
+        return pulumi.get(self, "authorization_access_policy_id")
+
+    @authorization_access_policy_id.setter
+    def authorization_access_policy_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorization_access_policy_id", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
@@ -229,8 +230,6 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
             __props__ = AuthorizationAccessPolicyArgs.__new__(AuthorizationAccessPolicyArgs)
 
             __props__.__dict__["app_ids"] = app_ids
-            if authorization_access_policy_id is None and not opts.urn:
-                raise TypeError("Missing required property 'authorization_access_policy_id'")
             __props__.__dict__["authorization_access_policy_id"] = authorization_access_policy_id
             if authorization_id is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_id'")

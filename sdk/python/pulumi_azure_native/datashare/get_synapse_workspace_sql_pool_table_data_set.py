@@ -169,7 +169,7 @@ def get_synapse_workspace_sql_pool_table_data_set(account_name: Optional[_builti
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_synapse_workspace_sql_pool_table_data_set_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                         data_set_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                         data_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          share_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSynapseWorkspaceSqlPoolTableDataSetResult]:

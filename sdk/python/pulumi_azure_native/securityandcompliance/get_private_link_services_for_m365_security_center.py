@@ -201,7 +201,7 @@ def get_private_link_services_for_m365_security_center(resource_group_name: Opti
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_private_link_services_for_m365_security_center_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                              resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                              resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateLinkServicesForM365SecurityCenterResult]:
     """
     Get the metadata of a privateLinkServicesForM365SecurityCenter resource.

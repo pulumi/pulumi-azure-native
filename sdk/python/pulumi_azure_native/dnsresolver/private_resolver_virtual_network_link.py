@@ -24,23 +24,24 @@ class PrivateResolverVirtualNetworkLinkArgs:
                  dns_forwarding_ruleset_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  virtual_network: pulumi.Input['SubResourceArgs'],
-                 virtual_network_link_name: pulumi.Input[_builtins.str],
-                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrivateResolverVirtualNetworkLink resource.
 
         :param pulumi.Input[_builtins.str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SubResourceArgs'] virtual_network: The reference to the virtual network. This cannot be changed after creation.
-        :param pulumi.Input[_builtins.str] virtual_network_link_name: The name of the virtual network link.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata attached to the virtual network link.
+        :param pulumi.Input[_builtins.str] virtual_network_link_name: The name of the virtual network link.
         """
         pulumi.set(__self__, "dns_forwarding_ruleset_name", dns_forwarding_ruleset_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_network", virtual_network)
-        pulumi.set(__self__, "virtual_network_link_name", virtual_network_link_name)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if virtual_network_link_name is not None:
+            pulumi.set(__self__, "virtual_network_link_name", virtual_network_link_name)
 
     @_builtins.property
     @pulumi.getter(name="dnsForwardingRulesetName")
@@ -79,18 +80,6 @@ class PrivateResolverVirtualNetworkLinkArgs:
         pulumi.set(self, "virtual_network", value)
 
     @_builtins.property
-    @pulumi.getter(name="virtualNetworkLinkName")
-    def virtual_network_link_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the virtual network link.
-        """
-        return pulumi.get(self, "virtual_network_link_name")
-
-    @virtual_network_link_name.setter
-    def virtual_network_link_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "virtual_network_link_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -101,6 +90,18 @@ class PrivateResolverVirtualNetworkLinkArgs:
     @metadata.setter
     def metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "metadata", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkLinkName")
+    def virtual_network_link_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the virtual network link.
+        """
+        return pulumi.get(self, "virtual_network_link_name")
+
+    @virtual_network_link_name.setter
+    def virtual_network_link_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "virtual_network_link_name", value)
 
 
 @pulumi.type_token("azure-native:dnsresolver:PrivateResolverVirtualNetworkLink")
@@ -184,8 +185,6 @@ class PrivateResolverVirtualNetworkLink(pulumi.CustomResource):
             if virtual_network is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network'")
             __props__.__dict__["virtual_network"] = virtual_network
-            if virtual_network_link_name is None and not opts.urn:
-                raise TypeError("Missing required property 'virtual_network_link_name'")
             __props__.__dict__["virtual_network_link_name"] = virtual_network_link_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

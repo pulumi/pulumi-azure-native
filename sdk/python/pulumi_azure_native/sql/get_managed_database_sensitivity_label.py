@@ -267,7 +267,7 @@ def get_managed_database_sensitivity_label_output(column_name: pulumi.Input[Opti
                                                   managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  sensitivity_label_source: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                  sensitivity_label_source: pulumi.Input[Optional[_builtins.str]] = None,
                                                   table_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedDatabaseSensitivityLabelResult]:
     """

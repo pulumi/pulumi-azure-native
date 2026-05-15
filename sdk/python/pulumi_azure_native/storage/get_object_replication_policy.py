@@ -193,7 +193,7 @@ def get_object_replication_policy(account_name: Optional[_builtins.str] = None,
         source_account=pulumi.get(__ret__, 'source_account'),
         type=pulumi.get(__ret__, 'type'))
 def get_object_replication_policy_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                         object_replication_policy_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         object_replication_policy_id: pulumi.Input[Optional[_builtins.str]] = None,
                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectReplicationPolicyResult]:
     """

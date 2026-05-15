@@ -21,22 +21,23 @@ __all__ = ['ElasticBackupVaultArgs', 'ElasticBackupVault']
 class ElasticBackupVaultArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 backup_vault_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 backup_vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ElasticBackupVault resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the ElasticAccount
-        :param pulumi.Input[_builtins.str] backup_vault_name: The name of the ElasticBackupVault
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] backup_vault_name: The name of the ElasticBackupVault
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "backup_vault_name", backup_vault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if backup_vault_name is not None:
+            pulumi.set(__self__, "backup_vault_name", backup_vault_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -55,18 +56,6 @@ class ElasticBackupVaultArgs:
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="backupVaultName")
-    def backup_vault_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the ElasticBackupVault
-        """
-        return pulumi.get(self, "backup_vault_name")
-
-    @backup_vault_name.setter
-    def backup_vault_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "backup_vault_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -77,6 +66,18 @@ class ElasticBackupVaultArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backupVaultName")
+    def backup_vault_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the ElasticBackupVault
+        """
+        return pulumi.get(self, "backup_vault_name")
+
+    @backup_vault_name.setter
+    def backup_vault_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "backup_vault_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -177,8 +178,6 @@ class ElasticBackupVault(pulumi.CustomResource):
             if account_name is None and not opts.urn:
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
-            if backup_vault_name is None and not opts.urn:
-                raise TypeError("Missing required property 'backup_vault_name'")
             __props__.__dict__["backup_vault_name"] = backup_vault_name
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:

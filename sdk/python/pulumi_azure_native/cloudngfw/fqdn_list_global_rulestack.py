@@ -22,25 +22,26 @@ class FqdnListGlobalRulestackArgs:
     def __init__(__self__, *,
                  fqdn_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  global_rulestack_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FqdnListGlobalRulestack resource.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fqdn_list: fqdn list
         :param pulumi.Input[_builtins.str] global_rulestack_name: GlobalRulestack resource name
-        :param pulumi.Input[_builtins.str] name: fqdn list name
         :param pulumi.Input[_builtins.str] audit_comment: comment for this object
         :param pulumi.Input[_builtins.str] description: fqdn object description
+        :param pulumi.Input[_builtins.str] name: fqdn list name
         """
         pulumi.set(__self__, "fqdn_list", fqdn_list)
         pulumi.set(__self__, "global_rulestack_name", global_rulestack_name)
-        pulumi.set(__self__, "name", name)
         if audit_comment is not None:
             pulumi.set(__self__, "audit_comment", audit_comment)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="fqdnList")
@@ -67,18 +68,6 @@ class FqdnListGlobalRulestackArgs:
         pulumi.set(self, "global_rulestack_name", value)
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        fqdn list name
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
     @pulumi.getter(name="auditComment")
     def audit_comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -101,6 +90,18 @@ class FqdnListGlobalRulestackArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        fqdn list name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:cloudngfw:FqdnListGlobalRulestack")
@@ -182,8 +183,6 @@ class FqdnListGlobalRulestack(pulumi.CustomResource):
             if global_rulestack_name is None and not opts.urn:
                 raise TypeError("Missing required property 'global_rulestack_name'")
             __props__.__dict__["global_rulestack_name"] = global_rulestack_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["etag"] = None

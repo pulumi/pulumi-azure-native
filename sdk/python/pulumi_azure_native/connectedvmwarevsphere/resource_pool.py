@@ -22,29 +22,28 @@ __all__ = ['ResourcePoolArgs', 'ResourcePool']
 class ResourcePoolArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_pool_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input[Optional['ExtendedLocationArgs']] = None,
                  inventory_item_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mo_ref_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  v_center_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ResourcePool resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The Resource Group Name.
-        :param pulumi.Input[_builtins.str] resource_pool_name: Name of the resourcePool.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Gets or sets the extended location.
         :param pulumi.Input[_builtins.str] inventory_item_id: Gets or sets the inventory Item ID for the resource pool.
         :param pulumi.Input[_builtins.str] kind: Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
         :param pulumi.Input[_builtins.str] location: Gets or sets the location.
         :param pulumi.Input[_builtins.str] mo_ref_id: Gets or sets the vCenter MoRef (Managed Object Reference) ID for the resource pool.
+        :param pulumi.Input[_builtins.str] resource_pool_name: Name of the resourcePool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Gets or sets the Resource tags.
         :param pulumi.Input[_builtins.str] v_center_id: Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "resource_pool_name", resource_pool_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
         if inventory_item_id is not None:
@@ -55,6 +54,8 @@ class ResourcePoolArgs:
             pulumi.set(__self__, "location", location)
         if mo_ref_id is not None:
             pulumi.set(__self__, "mo_ref_id", mo_ref_id)
+        if resource_pool_name is not None:
+            pulumi.set(__self__, "resource_pool_name", resource_pool_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if v_center_id is not None:
@@ -71,18 +72,6 @@ class ResourcePoolArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourcePoolName")
-    def resource_pool_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the resourcePool.
-        """
-        return pulumi.get(self, "resource_pool_name")
-
-    @resource_pool_name.setter
-    def resource_pool_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_pool_name", value)
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
@@ -143,6 +132,18 @@ class ResourcePoolArgs:
     @mo_ref_id.setter
     def mo_ref_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mo_ref_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourcePoolName")
+    def resource_pool_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the resourcePool.
+        """
+        return pulumi.get(self, "resource_pool_name")
+
+    @resource_pool_name.setter
+    def resource_pool_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "resource_pool_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -260,8 +261,6 @@ class ResourcePool(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if resource_pool_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_pool_name'")
             __props__.__dict__["resource_pool_name"] = resource_pool_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v_center_id"] = v_center_id

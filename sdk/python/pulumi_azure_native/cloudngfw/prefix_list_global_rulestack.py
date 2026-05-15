@@ -21,26 +21,27 @@ __all__ = ['PrefixListGlobalRulestackArgs', 'PrefixListGlobalRulestack']
 class PrefixListGlobalRulestackArgs:
     def __init__(__self__, *,
                  global_rulestack_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  prefix_list: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  audit_comment: pulumi.Input[Optional[_builtins.str]] = None,
-                 description: pulumi.Input[Optional[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a PrefixListGlobalRulestack resource.
 
         :param pulumi.Input[_builtins.str] global_rulestack_name: GlobalRulestack resource name
-        :param pulumi.Input[_builtins.str] name: Local Rule priority
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] prefix_list: prefix list
         :param pulumi.Input[_builtins.str] audit_comment: comment for this object
         :param pulumi.Input[_builtins.str] description: prefix description
+        :param pulumi.Input[_builtins.str] name: Local Rule priority
         """
         pulumi.set(__self__, "global_rulestack_name", global_rulestack_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "prefix_list", prefix_list)
         if audit_comment is not None:
             pulumi.set(__self__, "audit_comment", audit_comment)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="globalRulestackName")
@@ -53,18 +54,6 @@ class PrefixListGlobalRulestackArgs:
     @global_rulestack_name.setter
     def global_rulestack_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "global_rulestack_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Local Rule priority
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="prefixList")
@@ -101,6 +90,18 @@ class PrefixListGlobalRulestackArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Local Rule priority
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.type_token("azure-native:cloudngfw:PrefixListGlobalRulestack")
@@ -179,8 +180,6 @@ class PrefixListGlobalRulestack(pulumi.CustomResource):
             if global_rulestack_name is None and not opts.urn:
                 raise TypeError("Missing required property 'global_rulestack_name'")
             __props__.__dict__["global_rulestack_name"] = global_rulestack_name
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if prefix_list is None and not opts.urn:
                 raise TypeError("Missing required property 'prefix_list'")

@@ -245,7 +245,7 @@ def get_proximity_placement_group(include_colocation_status: Optional[_builtins.
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'),
         zones=pulumi.get(__ret__, 'zones'))
 def get_proximity_placement_group_output(include_colocation_status: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                         proximity_placement_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                         proximity_placement_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProximityPlacementGroupResult]:
     """

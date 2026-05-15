@@ -19,41 +19,30 @@ __all__ = ['ClientApplicationArgs', 'ClientApplication']
 @pulumi.input_type
 class ClientApplicationArgs:
     def __init__(__self__, *,
-                 client_application_id: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
                  owner_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 client_application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ClientApplication resource.
 
-        :param pulumi.Input[_builtins.str] client_application_id: Client Application identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] display_name: Client application name.
         :param pulumi.Input[_builtins.str] owner_id: A resource identifier for the user who owns the application.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
+        :param pulumi.Input[_builtins.str] client_application_id: Client Application identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[_builtins.str] description: Client application description.
         """
-        pulumi.set(__self__, "client_application_id", client_application_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "owner_id", owner_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        if client_application_id is not None:
+            pulumi.set(__self__, "client_application_id", client_application_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
-
-    @_builtins.property
-    @pulumi.getter(name="clientApplicationId")
-    def client_application_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Client Application identifier. Must be unique in the current API Management service instance.
-        """
-        return pulumi.get(self, "client_application_id")
-
-    @client_application_id.setter
-    def client_application_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "client_application_id", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -102,6 +91,18 @@ class ClientApplicationArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientApplicationId")
+    def client_application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Client Application identifier. Must be unique in the current API Management service instance.
+        """
+        return pulumi.get(self, "client_application_id")
+
+    @client_application_id.setter
+    def client_application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_application_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -190,8 +191,6 @@ class ClientApplication(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClientApplicationArgs.__new__(ClientApplicationArgs)
 
-            if client_application_id is None and not opts.urn:
-                raise TypeError("Missing required property 'client_application_id'")
             __props__.__dict__["client_application_id"] = client_application_id
             __props__.__dict__["description"] = description
             if display_name is None and not opts.urn:

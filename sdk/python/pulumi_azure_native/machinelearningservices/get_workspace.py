@@ -621,7 +621,7 @@ def get_workspace(resource_group_name: Optional[_builtins.str] = None,
         workspace_hub_config=pulumi.get(__ret__, 'workspace_hub_config'),
         workspace_id=pulumi.get(__ret__, 'workspace_id'))
 def get_workspace_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                         workspace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Gets the properties of the specified machine learning workspace.

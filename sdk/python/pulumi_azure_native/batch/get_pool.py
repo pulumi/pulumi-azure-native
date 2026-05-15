@@ -546,7 +546,7 @@ def get_pool(account_name: Optional[_builtins.str] = None,
         user_accounts=pulumi.get(__ret__, 'user_accounts'),
         vm_size=pulumi.get(__ret__, 'vm_size'))
 def get_pool_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
-                    pool_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPoolResult]:
     """

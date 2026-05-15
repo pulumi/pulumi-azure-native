@@ -211,7 +211,7 @@ def get_volume(elastic_san_name: Optional[_builtins.str] = None,
 def get_volume_output(elastic_san_name: pulumi.Input[Optional[_builtins.str]] = None,
                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       volume_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                      volume_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      volume_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVolumeResult]:
     """
     Get an Volume.

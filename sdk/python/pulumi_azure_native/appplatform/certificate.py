@@ -22,35 +22,24 @@ __all__ = ['CertificateArgs', 'Certificate']
 @pulumi.input_type
 class CertificateArgs:
     def __init__(__self__, *,
-                 certificate_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
+                 certificate_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['ContentCertificatePropertiesArgs', 'KeyVaultCertificatePropertiesArgs']]] = None):
         """
         The set of arguments for constructing a Certificate resource.
 
-        :param pulumi.Input[_builtins.str] certificate_name: The name of the certificate resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[_builtins.str] service_name: The name of the Service resource.
+        :param pulumi.Input[_builtins.str] certificate_name: The name of the certificate resource.
         :param pulumi.Input[Union['ContentCertificatePropertiesArgs', 'KeyVaultCertificatePropertiesArgs']] properties: Properties of the certificate resource payload.
         """
-        pulumi.set(__self__, "certificate_name", certificate_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="certificateName")
-    def certificate_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the certificate resource.
-        """
-        return pulumi.get(self, "certificate_name")
-
-    @certificate_name.setter
-    def certificate_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -75,6 +64,18 @@ class CertificateArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "service_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the certificate resource.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -157,8 +158,6 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
-            if certificate_name is None and not opts.urn:
-                raise TypeError("Missing required property 'certificate_name'")
             __props__.__dict__["certificate_name"] = certificate_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

@@ -21,35 +21,24 @@ __all__ = ['AuthenticationSettingArgs', 'AuthenticationSetting']
 @pulumi.input_type
 class AuthenticationSettingArgs:
     def __init__(__self__, *,
-                 authentication_setting_name: pulumi.Input[_builtins.str],
                  health_model_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 authentication_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['ManagedIdentityAuthenticationSettingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a AuthenticationSetting resource.
 
-        :param pulumi.Input[_builtins.str] authentication_setting_name: Name of the authentication setting. Must be unique within a health model.
         :param pulumi.Input[_builtins.str] health_model_name: Name of health model resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] authentication_setting_name: Name of the authentication setting. Must be unique within a health model.
         :param pulumi.Input['ManagedIdentityAuthenticationSettingPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "authentication_setting_name", authentication_setting_name)
         pulumi.set(__self__, "health_model_name", health_model_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authentication_setting_name is not None:
+            pulumi.set(__self__, "authentication_setting_name", authentication_setting_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationSettingName")
-    def authentication_setting_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the authentication setting. Must be unique within a health model.
-        """
-        return pulumi.get(self, "authentication_setting_name")
-
-    @authentication_setting_name.setter
-    def authentication_setting_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "authentication_setting_name", value)
 
     @_builtins.property
     @pulumi.getter(name="healthModelName")
@@ -74,6 +63,18 @@ class AuthenticationSettingArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationSettingName")
+    def authentication_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the authentication setting. Must be unique within a health model.
+        """
+        return pulumi.get(self, "authentication_setting_name")
+
+    @authentication_setting_name.setter
+    def authentication_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authentication_setting_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -156,8 +157,6 @@ class AuthenticationSetting(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AuthenticationSettingArgs.__new__(AuthenticationSettingArgs)
 
-            if authentication_setting_name is None and not opts.urn:
-                raise TypeError("Missing required property 'authentication_setting_name'")
             __props__.__dict__["authentication_setting_name"] = authentication_setting_name
             if health_model_name is None and not opts.urn:
                 raise TypeError("Missing required property 'health_model_name'")

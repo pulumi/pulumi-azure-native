@@ -21,7 +21,6 @@ __all__ = ['BareMetalMachineArgs', 'BareMetalMachine']
 @pulumi.input_type
 class BareMetalMachineArgs:
     def __init__(__self__, *,
-                 bare_metal_machine_name: pulumi.Input[_builtins.str],
                  bmc_connection_string: pulumi.Input[_builtins.str],
                  bmc_credentials: pulumi.Input['AdministrativeCredentialsArgs'],
                  bmc_mac_address: pulumi.Input[_builtins.str],
@@ -34,13 +33,13 @@ class BareMetalMachineArgs:
                  rack_slot: pulumi.Input[_builtins.float],
                  resource_group_name: pulumi.Input[_builtins.str],
                  serial_number: pulumi.Input[_builtins.str],
+                 bare_metal_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  machine_cluster_version: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BareMetalMachine resource.
 
-        :param pulumi.Input[_builtins.str] bare_metal_machine_name: The name of the bare metal machine.
         :param pulumi.Input[_builtins.str] bmc_connection_string: The connection string for the baseboard management controller including IP address and protocol.
         :param pulumi.Input['AdministrativeCredentialsArgs'] bmc_credentials: The credentials of the baseboard management controller on this bare metal machine.
         :param pulumi.Input[_builtins.str] bmc_mac_address: The MAC address of the BMC device.
@@ -53,11 +52,11 @@ class BareMetalMachineArgs:
         :param pulumi.Input[_builtins.float] rack_slot: The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] serial_number: The serial number of the bare metal machine.
+        :param pulumi.Input[_builtins.str] bare_metal_machine_name: The name of the bare metal machine.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.str] machine_cluster_version: The cluster version that has been applied to this machine during deployment or a version update.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "bare_metal_machine_name", bare_metal_machine_name)
         pulumi.set(__self__, "bmc_connection_string", bmc_connection_string)
         pulumi.set(__self__, "bmc_credentials", bmc_credentials)
         pulumi.set(__self__, "bmc_mac_address", bmc_mac_address)
@@ -70,24 +69,14 @@ class BareMetalMachineArgs:
         pulumi.set(__self__, "rack_slot", rack_slot)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "serial_number", serial_number)
+        if bare_metal_machine_name is not None:
+            pulumi.set(__self__, "bare_metal_machine_name", bare_metal_machine_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if machine_cluster_version is not None:
             pulumi.set(__self__, "machine_cluster_version", machine_cluster_version)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="bareMetalMachineName")
-    def bare_metal_machine_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the bare metal machine.
-        """
-        return pulumi.get(self, "bare_metal_machine_name")
-
-    @bare_metal_machine_name.setter
-    def bare_metal_machine_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "bare_metal_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="bmcConnectionString")
@@ -234,6 +223,18 @@ class BareMetalMachineArgs:
         pulumi.set(self, "serial_number", value)
 
     @_builtins.property
+    @pulumi.getter(name="bareMetalMachineName")
+    def bare_metal_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the bare metal machine.
+        """
+        return pulumi.get(self, "bare_metal_machine_name")
+
+    @bare_metal_machine_name.setter
+    def bare_metal_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bare_metal_machine_name", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -370,8 +371,6 @@ class BareMetalMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BareMetalMachineArgs.__new__(BareMetalMachineArgs)
 
-            if bare_metal_machine_name is None and not opts.urn:
-                raise TypeError("Missing required property 'bare_metal_machine_name'")
             __props__.__dict__["bare_metal_machine_name"] = bare_metal_machine_name
             if bmc_connection_string is None and not opts.urn:
                 raise TypeError("Missing required property 'bmc_connection_string'")

@@ -24,21 +24,22 @@ class WorkflowArgs:
     def __init__(__self__, *,
                  context_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workflow_name: pulumi.Input[_builtins.str],
-                 extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None):
+                 extended_location: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']] = None,
+                 workflow_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workflow resource.
 
         :param pulumi.Input[_builtins.str] context_name: The name of the Context.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workflow_name: Name of the workflow
         :param pulumi.Input['AzureResourceManagerCommonTypesExtendedLocationArgs'] extended_location: The complex type of the extended location.
+        :param pulumi.Input[_builtins.str] workflow_name: Name of the workflow
         """
         pulumi.set(__self__, "context_name", context_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workflow_name", workflow_name)
         if extended_location is not None:
             pulumi.set(__self__, "extended_location", extended_location)
+        if workflow_name is not None:
+            pulumi.set(__self__, "workflow_name", workflow_name)
 
     @_builtins.property
     @pulumi.getter(name="contextName")
@@ -65,18 +66,6 @@ class WorkflowArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="workflowName")
-    def workflow_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the workflow
-        """
-        return pulumi.get(self, "workflow_name")
-
-    @workflow_name.setter
-    def workflow_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "workflow_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="extendedLocation")
     def extended_location(self) -> pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]:
         """
@@ -87,6 +76,18 @@ class WorkflowArgs:
     @extended_location.setter
     def extended_location(self, value: pulumi.Input[Optional['AzureResourceManagerCommonTypesExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="workflowName")
+    def workflow_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the workflow
+        """
+        return pulumi.get(self, "workflow_name")
+
+    @workflow_name.setter
+    def workflow_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "workflow_name", value)
 
 
 @pulumi.type_token("azure-native:edge:Workflow")
@@ -164,8 +165,6 @@ class Workflow(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if workflow_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workflow_name'")
             __props__.__dict__["workflow_name"] = workflow_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["e_tag"] = None

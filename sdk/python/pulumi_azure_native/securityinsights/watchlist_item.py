@@ -24,7 +24,6 @@ class WatchlistItemArgs:
                  items_key_value: Any,
                  resource_group_name: pulumi.Input[_builtins.str],
                  watchlist_alias: pulumi.Input[_builtins.str],
-                 watchlist_item_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  created: pulumi.Input[Optional[_builtins.str]] = None,
                  created_by: pulumi.Input[Optional['WatchlistUserInfoArgs']] = None,
@@ -33,6 +32,7 @@ class WatchlistItemArgs:
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  updated: pulumi.Input[Optional[_builtins.str]] = None,
                  updated_by: pulumi.Input[Optional['WatchlistUserInfoArgs']] = None,
+                 watchlist_item_id: pulumi.Input[Optional[_builtins.str]] = None,
                  watchlist_item_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WatchlistItem resource.
@@ -40,7 +40,6 @@ class WatchlistItemArgs:
         :param Any items_key_value: key-value pairs for a watchlist item
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] watchlist_alias: The watchlist alias
-        :param pulumi.Input[_builtins.str] watchlist_item_id: The id (a Guid) of the watchlist item
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] created: The time the watchlist item was created
         :param pulumi.Input['WatchlistUserInfoArgs'] created_by: Describes a user that created the watchlist item
@@ -49,12 +48,12 @@ class WatchlistItemArgs:
         :param pulumi.Input[_builtins.str] tenant_id: The tenantId to which the watchlist item belongs to
         :param pulumi.Input[_builtins.str] updated: The last time the watchlist item was updated
         :param pulumi.Input['WatchlistUserInfoArgs'] updated_by: Describes a user that updated the watchlist item
+        :param pulumi.Input[_builtins.str] watchlist_item_id: The id (a Guid) of the watchlist item
         :param pulumi.Input[_builtins.str] watchlist_item_type: The type of the watchlist item
         """
         pulumi.set(__self__, "items_key_value", items_key_value)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "watchlist_alias", watchlist_alias)
-        pulumi.set(__self__, "watchlist_item_id", watchlist_item_id)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if created is not None:
             pulumi.set(__self__, "created", created)
@@ -70,6 +69,8 @@ class WatchlistItemArgs:
             pulumi.set(__self__, "updated", updated)
         if updated_by is not None:
             pulumi.set(__self__, "updated_by", updated_by)
+        if watchlist_item_id is not None:
+            pulumi.set(__self__, "watchlist_item_id", watchlist_item_id)
         if watchlist_item_type is not None:
             pulumi.set(__self__, "watchlist_item_type", watchlist_item_type)
 
@@ -108,18 +109,6 @@ class WatchlistItemArgs:
     @watchlist_alias.setter
     def watchlist_alias(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "watchlist_alias", value)
-
-    @_builtins.property
-    @pulumi.getter(name="watchlistItemId")
-    def watchlist_item_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The id (a Guid) of the watchlist item
-        """
-        return pulumi.get(self, "watchlist_item_id")
-
-    @watchlist_item_id.setter
-    def watchlist_item_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "watchlist_item_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
@@ -216,6 +205,18 @@ class WatchlistItemArgs:
     @updated_by.setter
     def updated_by(self, value: pulumi.Input[Optional['WatchlistUserInfoArgs']]):
         pulumi.set(self, "updated_by", value)
+
+    @_builtins.property
+    @pulumi.getter(name="watchlistItemId")
+    def watchlist_item_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The id (a Guid) of the watchlist item
+        """
+        return pulumi.get(self, "watchlist_item_id")
+
+    @watchlist_item_id.setter
+    def watchlist_item_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "watchlist_item_id", value)
 
     @_builtins.property
     @pulumi.getter(name="watchlistItemType")
@@ -341,8 +342,6 @@ class WatchlistItem(pulumi.CustomResource):
             if watchlist_alias is None and not opts.urn:
                 raise TypeError("Missing required property 'watchlist_alias'")
             __props__.__dict__["watchlist_alias"] = watchlist_alias
-            if watchlist_item_id is None and not opts.urn:
-                raise TypeError("Missing required property 'watchlist_item_id'")
             __props__.__dict__["watchlist_item_id"] = watchlist_item_id
             __props__.__dict__["watchlist_item_type"] = watchlist_item_type
             if workspace_name is None and not opts.urn:

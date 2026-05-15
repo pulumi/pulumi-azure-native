@@ -23,7 +23,6 @@ __all__ = ['VirtualMachineExtensionArgs', 'VirtualMachineExtension']
 class VirtualMachineExtensionArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 vm_extension_name: pulumi.Input[_builtins.str],
                  vm_name: pulumi.Input[_builtins.str],
                  auto_upgrade_minor_version: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_automatic_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -38,12 +37,12 @@ class VirtualMachineExtensionArgs:
                  suppress_failures: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None):
+                 type_handler_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 vm_extension_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualMachineExtension resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] vm_extension_name: The name of the virtual machine extension.
         :param pulumi.Input[_builtins.str] vm_name: The name of the virtual machine.
         :param pulumi.Input[_builtins.bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
         :param pulumi.Input[_builtins.bool] enable_automatic_upgrade: Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
@@ -59,9 +58,9 @@ class VirtualMachineExtensionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] type: Specifies the type of the extension; an example is "CustomScriptExtension".
         :param pulumi.Input[_builtins.str] type_handler_version: Specifies the version of the script handler.
+        :param pulumi.Input[_builtins.str] vm_extension_name: The name of the virtual machine extension.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vm_extension_name", vm_extension_name)
         pulumi.set(__self__, "vm_name", vm_name)
         if auto_upgrade_minor_version is not None:
             pulumi.set(__self__, "auto_upgrade_minor_version", auto_upgrade_minor_version)
@@ -91,6 +90,8 @@ class VirtualMachineExtensionArgs:
             pulumi.set(__self__, "type", type)
         if type_handler_version is not None:
             pulumi.set(__self__, "type_handler_version", type_handler_version)
+        if vm_extension_name is not None:
+            pulumi.set(__self__, "vm_extension_name", vm_extension_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -103,18 +104,6 @@ class VirtualMachineExtensionArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vmExtensionName")
-    def vm_extension_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the virtual machine extension.
-        """
-        return pulumi.get(self, "vm_extension_name")
-
-    @vm_extension_name.setter
-    def vm_extension_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "vm_extension_name", value)
 
     @_builtins.property
     @pulumi.getter(name="vmName")
@@ -296,6 +285,18 @@ class VirtualMachineExtensionArgs:
     def type_handler_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type_handler_version", value)
 
+    @_builtins.property
+    @pulumi.getter(name="vmExtensionName")
+    def vm_extension_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the virtual machine extension.
+        """
+        return pulumi.get(self, "vm_extension_name")
+
+    @vm_extension_name.setter
+    def vm_extension_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vm_extension_name", value)
+
 
 @pulumi.type_token("azure-native:compute:VirtualMachineExtension")
 class VirtualMachineExtension(pulumi.CustomResource):
@@ -421,8 +422,6 @@ class VirtualMachineExtension(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["type"] = type
             __props__.__dict__["type_handler_version"] = type_handler_version
-            if vm_extension_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vm_extension_name'")
             __props__.__dict__["vm_extension_name"] = vm_extension_name
             if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")

@@ -22,12 +22,12 @@ __all__ = ['ExpressRouteCircuitArgs', 'ExpressRouteCircuit']
 @pulumi.input_type
 class ExpressRouteCircuitArgs:
     def __init__(__self__, *,
-                 circuit_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  allow_classic_operations: pulumi.Input[Optional[_builtins.bool]] = None,
                  authorization_key: pulumi.Input[Optional[_builtins.str]] = None,
                  authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]]] = None,
                  bandwidth_in_gbps: pulumi.Input[Optional[_builtins.float]] = None,
+                 circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
                  circuit_provisioning_state: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_direct_port_rate_limit: pulumi.Input[Optional[_builtins.bool]] = None,
                  express_route_port: pulumi.Input[Optional['SubResourceArgs']] = None,
@@ -45,13 +45,13 @@ class ExpressRouteCircuitArgs:
         """
         The set of arguments for constructing a ExpressRouteCircuit resource.
 
-        :param pulumi.Input[_builtins.str] circuit_name: The name of the circuit.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.bool] allow_classic_operations: Allow classic operations.
         :param pulumi.Input[_builtins.str] authorization_key: The authorizationKey.
         :param pulumi.Input[Sequence[pulumi.Input['ExpressRouteCircuitAuthorizationArgs']]] authorizations: The list of authorizations.
                These are also available as standalone resources. Do not mix inline and standalone resource as they will conflict with each other, leading to resources deletion.
         :param pulumi.Input[_builtins.float] bandwidth_in_gbps: The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
+        :param pulumi.Input[_builtins.str] circuit_name: The name of the circuit.
         :param pulumi.Input[_builtins.str] circuit_provisioning_state: The CircuitProvisioningState state of the resource.
         :param pulumi.Input[_builtins.bool] enable_direct_port_rate_limit: Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
         :param pulumi.Input['SubResourceArgs'] express_route_port: The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
@@ -68,7 +68,6 @@ class ExpressRouteCircuitArgs:
         :param pulumi.Input['ExpressRouteCircuitSkuArgs'] sku: The SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "circuit_name", circuit_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if allow_classic_operations is not None:
             pulumi.set(__self__, "allow_classic_operations", allow_classic_operations)
@@ -78,6 +77,8 @@ class ExpressRouteCircuitArgs:
             pulumi.set(__self__, "authorizations", authorizations)
         if bandwidth_in_gbps is not None:
             pulumi.set(__self__, "bandwidth_in_gbps", bandwidth_in_gbps)
+        if circuit_name is not None:
+            pulumi.set(__self__, "circuit_name", circuit_name)
         if circuit_provisioning_state is not None:
             pulumi.set(__self__, "circuit_provisioning_state", circuit_provisioning_state)
         if enable_direct_port_rate_limit is not None:
@@ -106,18 +107,6 @@ class ExpressRouteCircuitArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="circuitName")
-    def circuit_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the circuit.
-        """
-        return pulumi.get(self, "circuit_name")
-
-    @circuit_name.setter
-    def circuit_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "circuit_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -179,6 +168,18 @@ class ExpressRouteCircuitArgs:
     @bandwidth_in_gbps.setter
     def bandwidth_in_gbps(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "bandwidth_in_gbps", value)
+
+    @_builtins.property
+    @pulumi.getter(name="circuitName")
+    def circuit_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the circuit.
+        """
+        return pulumi.get(self, "circuit_name")
+
+    @circuit_name.setter
+    def circuit_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "circuit_name", value)
 
     @_builtins.property
     @pulumi.getter(name="circuitProvisioningState")
@@ -472,8 +473,6 @@ class ExpressRouteCircuit(pulumi.CustomResource):
             __props__.__dict__["authorization_key"] = authorization_key
             __props__.__dict__["authorizations"] = authorizations
             __props__.__dict__["bandwidth_in_gbps"] = bandwidth_in_gbps
-            if circuit_name is None and not opts.urn:
-                raise TypeError("Missing required property 'circuit_name'")
             __props__.__dict__["circuit_name"] = circuit_name
             __props__.__dict__["circuit_provisioning_state"] = circuit_provisioning_state
             __props__.__dict__["enable_direct_port_rate_limit"] = enable_direct_port_rate_limit

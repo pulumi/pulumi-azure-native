@@ -26,7 +26,7 @@ class RegistryEnvironmentVersionArgs:
                  properties: pulumi.Input['EnvironmentVersionPropertiesArgs'],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 version: pulumi.Input[_builtins.str]):
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegistryEnvironmentVersion resource.
 
@@ -40,7 +40,8 @@ class RegistryEnvironmentVersionArgs:
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "version", version)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter(name="environmentName")
@@ -92,14 +93,14 @@ class RegistryEnvironmentVersionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> pulumi.Input[_builtins.str]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version identifier. This is case-sensitive.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: pulumi.Input[_builtins.str]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -186,8 +187,6 @@ class RegistryEnvironmentVersion(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if version is None and not opts.urn:
-                raise TypeError("Missing required property 'version'")
             __props__.__dict__["version"] = version
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None

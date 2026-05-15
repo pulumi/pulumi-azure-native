@@ -201,7 +201,7 @@ def get_security_standard(scope: Optional[_builtins.str] = None,
         standard_type=pulumi.get(__ret__, 'standard_type'),
         type=pulumi.get(__ret__, 'type'))
 def get_security_standard_output(scope: pulumi.Input[Optional[_builtins.str]] = None,
-                                 standard_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                 standard_id: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityStandardResult]:
     """
     Get a specific security standard for the requested scope by standardId

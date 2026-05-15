@@ -122,7 +122,7 @@ def get_server_collector(project_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_server_collector_output(project_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                server_collector_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                server_collector_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerCollectorResult]:
     """
     Get a Server collector.

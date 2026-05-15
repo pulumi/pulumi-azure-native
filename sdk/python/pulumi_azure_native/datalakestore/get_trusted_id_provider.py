@@ -126,7 +126,7 @@ def get_trusted_id_provider(account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_trusted_id_provider_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                   trusted_id_provider_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   trusted_id_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustedIdProviderResult]:
     """
     Gets the specified Data Lake Store trusted identity provider.

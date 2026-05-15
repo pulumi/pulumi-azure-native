@@ -208,7 +208,7 @@ def get_task_run(registry_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_task_run_output(registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        task_run_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        task_run_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskRunResult]:
     """
     Gets the detailed information for a given task run.

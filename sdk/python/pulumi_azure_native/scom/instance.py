@@ -22,9 +22,9 @@ __all__ = ['InstanceArgs', 'Instance']
 @pulumi.input_type
 class InstanceArgs:
     def __init__(__self__, *,
-                 instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['ManagedIdentityArgs']] = None,
+                 instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['MonitoringInstancePropertiesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -32,18 +32,19 @@ class InstanceArgs:
         """
         The set of arguments for constructing a Instance resource.
 
-        :param pulumi.Input[_builtins.str] instance_name: Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ManagedIdentityArgs'] identity: The Azure Active Directory identity of the SCOM instance
+        :param pulumi.Input[_builtins.str] instance_name: Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['MonitoringInstancePropertiesArgs'] properties: The properties of a SCOM instance resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.bool] validation_mode: Validation mode for the SCOM managed instance
         """
-        pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if properties is not None:
@@ -52,18 +53,6 @@ class InstanceArgs:
             pulumi.set(__self__, "tags", tags)
         if validation_mode is not None:
             pulumi.set(__self__, "validation_mode", validation_mode)
-
-    @_builtins.property
-    @pulumi.getter(name="instanceName")
-    def instance_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)
-        """
-        return pulumi.get(self, "instance_name")
-
-    @instance_name.setter
-    def instance_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -88,6 +77,18 @@ class InstanceArgs:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['ManagedIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Azure Monitor Operations Manager Managed Instance (SCOM MI)
+        """
+        return pulumi.get(self, "instance_name")
+
+    @instance_name.setter
+    def instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "instance_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -212,8 +213,6 @@ class Instance(pulumi.CustomResource):
             __props__ = InstanceArgs.__new__(InstanceArgs)
 
             __props__.__dict__["identity"] = identity
-            if instance_name is None and not opts.urn:
-                raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["location"] = location
             __props__.__dict__["properties"] = properties

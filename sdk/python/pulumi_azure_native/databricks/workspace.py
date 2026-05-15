@@ -24,7 +24,6 @@ class WorkspaceArgs:
     def __init__(__self__, *,
                  managed_resource_group_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
                  access_connector: pulumi.Input[Optional['WorkspacePropertiesAccessConnectorArgs']] = None,
                  authorizations: pulumi.Input[Optional[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]]] = None,
                  default_catalog: pulumi.Input[Optional['DefaultCatalogPropertiesArgs']] = None,
@@ -37,13 +36,13 @@ class WorkspaceArgs:
                  required_nsg_rules: pulumi.Input[Optional[Union[_builtins.str, 'RequiredNsgRules']]] = None,
                  sku: pulumi.Input[Optional['SkuArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ui_definition_uri: pulumi.Input[Optional[_builtins.str]] = None):
+                 ui_definition_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
         :param pulumi.Input[_builtins.str] managed_resource_group_id: The managed resource group Id.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input['WorkspacePropertiesAccessConnectorArgs'] access_connector: Access Connector Resource that is going to be associated with Databricks Workspace
         :param pulumi.Input[Sequence[pulumi.Input['WorkspaceProviderAuthorizationArgs']]] authorizations: The workspace provider authorizations.
         :param pulumi.Input['DefaultCatalogPropertiesArgs'] default_catalog: Properties for Default Catalog configuration during workspace creation.
@@ -57,10 +56,10 @@ class WorkspaceArgs:
         :param pulumi.Input['SkuArgs'] sku: The SKU of the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] ui_definition_uri: The blob URI where the UI definition file is located.
+        :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         """
         pulumi.set(__self__, "managed_resource_group_id", managed_resource_group_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
         if access_connector is not None:
             pulumi.set(__self__, "access_connector", access_connector)
         if authorizations is not None:
@@ -87,6 +86,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "tags", tags)
         if ui_definition_uri is not None:
             pulumi.set(__self__, "ui_definition_uri", ui_definition_uri)
+        if workspace_name is not None:
+            pulumi.set(__self__, "workspace_name", workspace_name)
 
     @_builtins.property
     @pulumi.getter(name="managedResourceGroupId")
@@ -111,18 +112,6 @@ class WorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the workspace.
-        """
-        return pulumi.get(self, "workspace_name")
-
-    @workspace_name.setter
-    def workspace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "workspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="accessConnector")
@@ -280,6 +269,18 @@ class WorkspaceArgs:
     def ui_definition_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ui_definition_uri", value)
 
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the workspace.
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "workspace_name", value)
+
 
 @pulumi.type_token("azure-native:databricks:Workspace")
 class Workspace(pulumi.CustomResource):
@@ -404,8 +405,6 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["ui_definition_uri"] = ui_definition_uri
-            if workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_by"] = None

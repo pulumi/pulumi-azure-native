@@ -228,7 +228,7 @@ def get_organization(organization_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         user_detail=pulumi.get(__ret__, 'user_detail'))
-def get_organization_output(organization_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_organization_output(organization_name: pulumi.Input[Optional[_builtins.str]] = None,
                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """

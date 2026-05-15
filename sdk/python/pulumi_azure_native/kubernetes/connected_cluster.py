@@ -23,12 +23,12 @@ __all__ = ['ConnectedClusterArgs', 'ConnectedCluster']
 class ConnectedClusterArgs:
     def __init__(__self__, *,
                  agent_public_key_certificate: pulumi.Input[_builtins.str],
-                 cluster_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input['ConnectedClusterIdentityArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  aad_profile: pulumi.Input[Optional['AadProfileArgs']] = None,
                  arc_agent_profile: pulumi.Input[Optional['ArcAgentProfileArgs']] = None,
                  azure_hybrid_benefit: pulumi.Input[Optional[Union[_builtins.str, 'AzureHybridBenefit']]] = None,
+                 cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  distribution: pulumi.Input[Optional[_builtins.str]] = None,
                  distribution_version: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure: pulumi.Input[Optional[_builtins.str]] = None,
@@ -42,12 +42,12 @@ class ConnectedClusterArgs:
         The set of arguments for constructing a ConnectedCluster resource.
 
         :param pulumi.Input[_builtins.str] agent_public_key_certificate: Base64 encoded public certificate used by the agent to do the initial handshake to the backend services in Azure.
-        :param pulumi.Input[_builtins.str] cluster_name: The name of the Kubernetes cluster on which get is called.
         :param pulumi.Input['ConnectedClusterIdentityArgs'] identity: The identity of the connected cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AadProfileArgs'] aad_profile: AAD profile for the connected cluster.
         :param pulumi.Input['ArcAgentProfileArgs'] arc_agent_profile: Arc agentry configuration for the provisioned cluster.
         :param pulumi.Input[Union[_builtins.str, 'AzureHybridBenefit']] azure_hybrid_benefit: Indicates whether Azure Hybrid Benefit is opted in
+        :param pulumi.Input[_builtins.str] cluster_name: The name of the Kubernetes cluster on which get is called.
         :param pulumi.Input[_builtins.str] distribution: The Kubernetes distribution running on this connected cluster.
         :param pulumi.Input[_builtins.str] distribution_version: The Kubernetes distribution version on this connected cluster.
         :param pulumi.Input[_builtins.str] infrastructure: The infrastructure on which the Kubernetes cluster represented by this connected cluster is running on.
@@ -59,7 +59,6 @@ class ConnectedClusterArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "agent_public_key_certificate", agent_public_key_certificate)
-        pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "identity", identity)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if aad_profile is not None:
@@ -70,6 +69,8 @@ class ConnectedClusterArgs:
             azure_hybrid_benefit = 'NotApplicable'
         if azure_hybrid_benefit is not None:
             pulumi.set(__self__, "azure_hybrid_benefit", azure_hybrid_benefit)
+        if cluster_name is not None:
+            pulumi.set(__self__, "cluster_name", cluster_name)
         if distribution is not None:
             pulumi.set(__self__, "distribution", distribution)
         if distribution_version is not None:
@@ -102,18 +103,6 @@ class ConnectedClusterArgs:
     @agent_public_key_certificate.setter
     def agent_public_key_certificate(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "agent_public_key_certificate", value)
-
-    @_builtins.property
-    @pulumi.getter(name="clusterName")
-    def cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Kubernetes cluster on which get is called.
-        """
-        return pulumi.get(self, "cluster_name")
-
-    @cluster_name.setter
-    def cluster_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -174,6 +163,18 @@ class ConnectedClusterArgs:
     @azure_hybrid_benefit.setter
     def azure_hybrid_benefit(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AzureHybridBenefit']]]):
         pulumi.set(self, "azure_hybrid_benefit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterName")
+    def cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Kubernetes cluster on which get is called.
+        """
+        return pulumi.get(self, "cluster_name")
+
+    @cluster_name.setter
+    def cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -396,8 +397,6 @@ class ConnectedCluster(pulumi.CustomResource):
             if azure_hybrid_benefit is None:
                 azure_hybrid_benefit = 'NotApplicable'
             __props__.__dict__["azure_hybrid_benefit"] = azure_hybrid_benefit
-            if cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
             __props__.__dict__["distribution"] = distribution
             __props__.__dict__["distribution_version"] = distribution_version

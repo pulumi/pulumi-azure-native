@@ -23,7 +23,6 @@ __all__ = ['AuthorizationServerArgs', 'AuthorizationServer']
 class AuthorizationServerArgs:
     def __init__(__self__, *,
                  authorization_endpoint: pulumi.Input[_builtins.str],
-                 authsid: pulumi.Input[_builtins.str],
                  client_id: pulumi.Input[_builtins.str],
                  client_registration_endpoint: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[_builtins.str],
@@ -31,6 +30,7 @@ class AuthorizationServerArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
                  authorization_methods: pulumi.Input[Optional[Sequence[pulumi.Input['AuthorizationMethod']]]] = None,
+                 authsid: pulumi.Input[Optional[_builtins.str]] = None,
                  bearer_token_sending_methods: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethod']]]]] = None,
                  client_authentication_method: pulumi.Input[Optional[Sequence[pulumi.Input[Union[_builtins.str, 'ClientAuthenticationMethod']]]]] = None,
                  client_secret: pulumi.Input[Optional[_builtins.str]] = None,
@@ -47,7 +47,6 @@ class AuthorizationServerArgs:
         The set of arguments for constructing a AuthorizationServer resource.
 
         :param pulumi.Input[_builtins.str] authorization_endpoint: OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
-        :param pulumi.Input[_builtins.str] authsid: Identifier of the authorization server.
         :param pulumi.Input[_builtins.str] client_id: Client or app id registered with this authorization server.
         :param pulumi.Input[_builtins.str] client_registration_endpoint: Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
         :param pulumi.Input[_builtins.str] display_name: User-friendly authorization server name.
@@ -55,6 +54,7 @@ class AuthorizationServerArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] service_name: The name of the API Management service.
         :param pulumi.Input[Sequence[pulumi.Input['AuthorizationMethod']]] authorization_methods: HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
+        :param pulumi.Input[_builtins.str] authsid: Identifier of the authorization server.
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'BearerTokenSendingMethod']]]] bearer_token_sending_methods: Specifies the mechanism by which access token is passed to the API. 
         :param pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'ClientAuthenticationMethod']]]] client_authentication_method: Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
         :param pulumi.Input[_builtins.str] client_secret: Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
@@ -69,7 +69,6 @@ class AuthorizationServerArgs:
         :param pulumi.Input[_builtins.bool] use_in_test_console: If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
-        pulumi.set(__self__, "authsid", authsid)
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "client_registration_endpoint", client_registration_endpoint)
         pulumi.set(__self__, "display_name", display_name)
@@ -78,6 +77,8 @@ class AuthorizationServerArgs:
         pulumi.set(__self__, "service_name", service_name)
         if authorization_methods is not None:
             pulumi.set(__self__, "authorization_methods", authorization_methods)
+        if authsid is not None:
+            pulumi.set(__self__, "authsid", authsid)
         if bearer_token_sending_methods is not None:
             pulumi.set(__self__, "bearer_token_sending_methods", bearer_token_sending_methods)
         if client_authentication_method is not None:
@@ -114,18 +115,6 @@ class AuthorizationServerArgs:
     @authorization_endpoint.setter
     def authorization_endpoint(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "authorization_endpoint", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def authsid(self) -> pulumi.Input[_builtins.str]:
-        """
-        Identifier of the authorization server.
-        """
-        return pulumi.get(self, "authsid")
-
-    @authsid.setter
-    def authsid(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "authsid", value)
 
     @_builtins.property
     @pulumi.getter(name="clientId")
@@ -210,6 +199,18 @@ class AuthorizationServerArgs:
     @authorization_methods.setter
     def authorization_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AuthorizationMethod']]]]):
         pulumi.set(self, "authorization_methods", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def authsid(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the authorization server.
+        """
+        return pulumi.get(self, "authsid")
+
+    @authsid.setter
+    def authsid(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authsid", value)
 
     @_builtins.property
     @pulumi.getter(name="bearerTokenSendingMethods")
@@ -479,8 +480,6 @@ class AuthorizationServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'authorization_endpoint'")
             __props__.__dict__["authorization_endpoint"] = authorization_endpoint
             __props__.__dict__["authorization_methods"] = authorization_methods
-            if authsid is None and not opts.urn:
-                raise TypeError("Missing required property 'authsid'")
             __props__.__dict__["authsid"] = authsid
             __props__.__dict__["bearer_token_sending_methods"] = bearer_token_sending_methods
             __props__.__dict__["client_authentication_method"] = client_authentication_method

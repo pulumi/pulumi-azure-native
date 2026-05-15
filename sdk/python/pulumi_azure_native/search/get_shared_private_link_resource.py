@@ -142,7 +142,7 @@ def get_shared_private_link_resource(resource_group_name: Optional[_builtins.str
         type=pulumi.get(__ret__, 'type'))
 def get_shared_private_link_resource_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             search_service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                            shared_private_link_resource_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            shared_private_link_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedPrivateLinkResourceResult]:
     """
     Gets the details of the shared private link resource managed by the search service in the given resource group.

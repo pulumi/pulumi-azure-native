@@ -26,12 +26,12 @@ class ConnectorMappingArgs:
                  entity_type: pulumi.Input['EntityTypes'],
                  entity_type_name: pulumi.Input[_builtins.str],
                  hub_name: pulumi.Input[_builtins.str],
-                 mapping_name: pulumi.Input[_builtins.str],
                  mapping_properties: pulumi.Input['ConnectorMappingPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  connector_type: pulumi.Input[Optional[Union[_builtins.str, 'ConnectorTypes']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectorMapping resource.
 
@@ -39,18 +39,17 @@ class ConnectorMappingArgs:
         :param pulumi.Input['EntityTypes'] entity_type: Defines which entity type the file should map to.
         :param pulumi.Input[_builtins.str] entity_type_name: The mapping entity name.
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
-        :param pulumi.Input[_builtins.str] mapping_name: The name of the connector mapping.
         :param pulumi.Input['ConnectorMappingPropertiesArgs'] mapping_properties: The properties of the mapping.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[_builtins.str, 'ConnectorTypes']] connector_type: Type of connector.
         :param pulumi.Input[_builtins.str] description: The description of the connector mapping.
         :param pulumi.Input[_builtins.str] display_name: Display name for the connector mapping.
+        :param pulumi.Input[_builtins.str] mapping_name: The name of the connector mapping.
         """
         pulumi.set(__self__, "connector_name", connector_name)
         pulumi.set(__self__, "entity_type", entity_type)
         pulumi.set(__self__, "entity_type_name", entity_type_name)
         pulumi.set(__self__, "hub_name", hub_name)
-        pulumi.set(__self__, "mapping_name", mapping_name)
         pulumi.set(__self__, "mapping_properties", mapping_properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if connector_type is not None:
@@ -59,6 +58,8 @@ class ConnectorMappingArgs:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if mapping_name is not None:
+            pulumi.set(__self__, "mapping_name", mapping_name)
 
     @_builtins.property
     @pulumi.getter(name="connectorName")
@@ -107,18 +108,6 @@ class ConnectorMappingArgs:
     @hub_name.setter
     def hub_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "hub_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="mappingName")
-    def mapping_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the connector mapping.
-        """
-        return pulumi.get(self, "mapping_name")
-
-    @mapping_name.setter
-    def mapping_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "mapping_name", value)
 
     @_builtins.property
     @pulumi.getter(name="mappingProperties")
@@ -179,6 +168,18 @@ class ConnectorMappingArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mappingName")
+    def mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the connector mapping.
+        """
+        return pulumi.get(self, "mapping_name")
+
+    @mapping_name.setter
+    def mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mapping_name", value)
 
 
 @pulumi.type_token("azure-native:customerinsights:ConnectorMapping")
@@ -278,8 +279,6 @@ class ConnectorMapping(pulumi.CustomResource):
             if hub_name is None and not opts.urn:
                 raise TypeError("Missing required property 'hub_name'")
             __props__.__dict__["hub_name"] = hub_name
-            if mapping_name is None and not opts.urn:
-                raise TypeError("Missing required property 'mapping_name'")
             __props__.__dict__["mapping_name"] = mapping_name
             if mapping_properties is None and not opts.urn:
                 raise TypeError("Missing required property 'mapping_properties'")

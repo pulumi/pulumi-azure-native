@@ -306,7 +306,7 @@ def get_elastic_san(elastic_san_name: Optional[_builtins.str] = None,
         total_volume_size_gi_b=pulumi.get(__ret__, 'total_volume_size_gi_b'),
         type=pulumi.get(__ret__, 'type'),
         volume_group_count=pulumi.get(__ret__, 'volume_group_count'))
-def get_elastic_san_output(elastic_san_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_elastic_san_output(elastic_san_name: pulumi.Input[Optional[_builtins.str]] = None,
                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElasticSanResult]:
     """

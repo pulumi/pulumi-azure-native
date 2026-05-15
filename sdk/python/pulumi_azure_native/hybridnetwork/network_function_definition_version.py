@@ -23,29 +23,30 @@ __all__ = ['NetworkFunctionDefinitionVersionArgs', 'NetworkFunctionDefinitionVer
 class NetworkFunctionDefinitionVersionArgs:
     def __init__(__self__, *,
                  network_function_definition_group_name: pulumi.Input[_builtins.str],
-                 network_function_definition_version_name: pulumi.Input[_builtins.str],
                  publisher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_definition_version_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['ContainerizedNetworkFunctionDefinitionVersionArgs', 'VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgs']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkFunctionDefinitionVersion resource.
 
         :param pulumi.Input[_builtins.str] network_function_definition_group_name: The name of the network function definition group.
-        :param pulumi.Input[_builtins.str] network_function_definition_version_name: The name of the network function definition version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
         :param pulumi.Input[_builtins.str] publisher_name: The name of the publisher.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] network_function_definition_version_name: The name of the network function definition version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
         :param pulumi.Input[Union['ContainerizedNetworkFunctionDefinitionVersionArgs', 'VirtualNetworkFunctionNetworkFunctionDefinitionVersionArgs']] properties: Network function definition version properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "network_function_definition_group_name", network_function_definition_group_name)
-        pulumi.set(__self__, "network_function_definition_version_name", network_function_definition_version_name)
         pulumi.set(__self__, "publisher_name", publisher_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_function_definition_version_name is not None:
+            pulumi.set(__self__, "network_function_definition_version_name", network_function_definition_version_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
@@ -62,18 +63,6 @@ class NetworkFunctionDefinitionVersionArgs:
     @network_function_definition_group_name.setter
     def network_function_definition_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_function_definition_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkFunctionDefinitionVersionName")
-    def network_function_definition_version_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the network function definition version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
-        """
-        return pulumi.get(self, "network_function_definition_version_name")
-
-    @network_function_definition_version_name.setter
-    def network_function_definition_version_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_function_definition_version_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherName")
@@ -110,6 +99,18 @@ class NetworkFunctionDefinitionVersionArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkFunctionDefinitionVersionName")
+    def network_function_definition_version_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the network function definition version. The name should conform to the SemVer 2.0.0 specification: https://semver.org/spec/v2.0.0.html.
+        """
+        return pulumi.get(self, "network_function_definition_version_name")
+
+    @network_function_definition_version_name.setter
+    def network_function_definition_version_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_function_definition_version_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -217,8 +218,6 @@ class NetworkFunctionDefinitionVersion(pulumi.CustomResource):
             if network_function_definition_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_function_definition_group_name'")
             __props__.__dict__["network_function_definition_group_name"] = network_function_definition_group_name
-            if network_function_definition_version_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_function_definition_version_name'")
             __props__.__dict__["network_function_definition_version_name"] = network_function_definition_version_name
             __props__.__dict__["properties"] = properties
             if publisher_name is None and not opts.urn:

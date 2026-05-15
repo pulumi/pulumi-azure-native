@@ -24,29 +24,28 @@ class SchemaRegistryArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 schema_registry_name: pulumi.Input[_builtins.str],
                  storage_account_container_url: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['SystemAssignedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_registry_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a SchemaRegistry resource.
 
         :param pulumi.Input[_builtins.str] namespace: Schema registry namespace. Uniquely identifies a schema registry within a tenant.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] schema_registry_name: Schema registry name parameter.
         :param pulumi.Input[_builtins.str] storage_account_container_url: The Storage Account's Container URL where schemas will be stored.
         :param pulumi.Input[_builtins.str] description: Human-readable description of the schema registry.
         :param pulumi.Input[_builtins.str] display_name: Human-readable display name.
         :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] schema_registry_name: Schema registry name parameter.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "namespace", namespace)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "schema_registry_name", schema_registry_name)
         pulumi.set(__self__, "storage_account_container_url", storage_account_container_url)
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -56,6 +55,8 @@ class SchemaRegistryArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if schema_registry_name is not None:
+            pulumi.set(__self__, "schema_registry_name", schema_registry_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -82,18 +83,6 @@ class SchemaRegistryArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="schemaRegistryName")
-    def schema_registry_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Schema registry name parameter.
-        """
-        return pulumi.get(self, "schema_registry_name")
-
-    @schema_registry_name.setter
-    def schema_registry_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "schema_registry_name", value)
 
     @_builtins.property
     @pulumi.getter(name="storageAccountContainerUrl")
@@ -154,6 +143,18 @@ class SchemaRegistryArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="schemaRegistryName")
+    def schema_registry_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Schema registry name parameter.
+        """
+        return pulumi.get(self, "schema_registry_name")
+
+    @schema_registry_name.setter
+    def schema_registry_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "schema_registry_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -261,8 +262,6 @@ class SchemaRegistry(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if schema_registry_name is None and not opts.urn:
-                raise TypeError("Missing required property 'schema_registry_name'")
             __props__.__dict__["schema_registry_name"] = schema_registry_name
             if storage_account_container_url is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_container_url'")

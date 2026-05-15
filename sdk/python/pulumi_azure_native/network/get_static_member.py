@@ -185,7 +185,7 @@ def get_static_member(network_group_name: Optional[_builtins.str] = None,
 def get_static_member_output(network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             static_member_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             static_member_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticMemberResult]:
     """
     Gets the specified static member.

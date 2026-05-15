@@ -20,32 +20,33 @@ __all__ = ['L2IsolationDomainArgs', 'L2IsolationDomain']
 @pulumi.input_type
 class L2IsolationDomainArgs:
     def __init__(__self__, *,
-                 l2_isolation_domain_name: pulumi.Input[_builtins.str],
                  network_fabric_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  vlan_id: pulumi.Input[_builtins.int],
                  annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 l2_isolation_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  mtu: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a L2IsolationDomain resource.
 
-        :param pulumi.Input[_builtins.str] l2_isolation_domain_name: Name of the L2 Isolation Domain.
         :param pulumi.Input[_builtins.str] network_fabric_id: ARM Resource ID of the Network Fabric.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.int] vlan_id: Vlan Identifier of the Network Fabric. Example: 501.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
+        :param pulumi.Input[_builtins.str] l2_isolation_domain_name: Name of the L2 Isolation Domain.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[_builtins.int] mtu: Maximum transmission unit. Default value is 1500.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "l2_isolation_domain_name", l2_isolation_domain_name)
         pulumi.set(__self__, "network_fabric_id", network_fabric_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "vlan_id", vlan_id)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
+        if l2_isolation_domain_name is not None:
+            pulumi.set(__self__, "l2_isolation_domain_name", l2_isolation_domain_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if mtu is None:
@@ -54,18 +55,6 @@ class L2IsolationDomainArgs:
             pulumi.set(__self__, "mtu", mtu)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="l2IsolationDomainName")
-    def l2_isolation_domain_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the L2 Isolation Domain.
-        """
-        return pulumi.get(self, "l2_isolation_domain_name")
-
-    @l2_isolation_domain_name.setter
-    def l2_isolation_domain_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "l2_isolation_domain_name", value)
 
     @_builtins.property
     @pulumi.getter(name="networkFabricId")
@@ -114,6 +103,18 @@ class L2IsolationDomainArgs:
     @annotation.setter
     def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="l2IsolationDomainName")
+    def l2_isolation_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the L2 Isolation Domain.
+        """
+        return pulumi.get(self, "l2_isolation_domain_name")
+
+    @l2_isolation_domain_name.setter
+    def l2_isolation_domain_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "l2_isolation_domain_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -233,8 +234,6 @@ class L2IsolationDomain(pulumi.CustomResource):
             __props__ = L2IsolationDomainArgs.__new__(L2IsolationDomainArgs)
 
             __props__.__dict__["annotation"] = annotation
-            if l2_isolation_domain_name is None and not opts.urn:
-                raise TypeError("Missing required property 'l2_isolation_domain_name'")
             __props__.__dict__["l2_isolation_domain_name"] = l2_isolation_domain_name
             __props__.__dict__["location"] = location
             if mtu is None:

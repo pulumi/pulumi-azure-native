@@ -20,44 +20,33 @@ __all__ = ['CacheRuleArgs', 'CacheRule']
 @pulumi.input_type
 class CacheRuleArgs:
     def __init__(__self__, *,
-                 cache_rule_name: pulumi.Input[_builtins.str],
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 cache_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  credential_set_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_repository: pulumi.Input[Optional[_builtins.str]] = None,
                  target_repository: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CacheRule resource.
 
-        :param pulumi.Input[_builtins.str] cache_rule_name: The name of the cache rule.
         :param pulumi.Input[_builtins.str] registry_name: The name of the container registry.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] cache_rule_name: The name of the cache rule.
         :param pulumi.Input[_builtins.str] credential_set_resource_id: The ARM resource ID of the credential store which is associated with the cache rule.
         :param pulumi.Input[_builtins.str] source_repository: Source repository pulled from upstream.
         :param pulumi.Input[_builtins.str] target_repository: Target repository specified in docker pull command.
                Eg: docker pull myregistry.azurecr.io/{targetRepository}:{tag}
         """
-        pulumi.set(__self__, "cache_rule_name", cache_rule_name)
         pulumi.set(__self__, "registry_name", registry_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cache_rule_name is not None:
+            pulumi.set(__self__, "cache_rule_name", cache_rule_name)
         if credential_set_resource_id is not None:
             pulumi.set(__self__, "credential_set_resource_id", credential_set_resource_id)
         if source_repository is not None:
             pulumi.set(__self__, "source_repository", source_repository)
         if target_repository is not None:
             pulumi.set(__self__, "target_repository", target_repository)
-
-    @_builtins.property
-    @pulumi.getter(name="cacheRuleName")
-    def cache_rule_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the cache rule.
-        """
-        return pulumi.get(self, "cache_rule_name")
-
-    @cache_rule_name.setter
-    def cache_rule_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cache_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="registryName")
@@ -82,6 +71,18 @@ class CacheRuleArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cacheRuleName")
+    def cache_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the cache rule.
+        """
+        return pulumi.get(self, "cache_rule_name")
+
+    @cache_rule_name.setter
+    def cache_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cache_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialSetResourceId")
@@ -196,8 +197,6 @@ class CacheRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CacheRuleArgs.__new__(CacheRuleArgs)
 
-            if cache_rule_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cache_rule_name'")
             __props__.__dict__["cache_rule_name"] = cache_rule_name
             __props__.__dict__["credential_set_resource_id"] = credential_set_resource_id
             if registry_name is None and not opts.urn:

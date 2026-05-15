@@ -326,7 +326,7 @@ def get_iac_profile(iac_profile_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         templates=pulumi.get(__ret__, 'templates'),
         type=pulumi.get(__ret__, 'type'))
-def get_iac_profile_output(iac_profile_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_iac_profile_output(iac_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIacProfileResult]:
     """

@@ -20,39 +20,28 @@ __all__ = ['CommitmentPlanAssociationArgs', 'CommitmentPlanAssociation']
 @pulumi.input_type
 class CommitmentPlanAssociationArgs:
     def __init__(__self__, *,
-                 commitment_plan_association_name: pulumi.Input[_builtins.str],
                  commitment_plan_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 commitment_plan_association_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommitmentPlanAssociation resource.
 
-        :param pulumi.Input[_builtins.str] commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
         :param pulumi.Input[_builtins.str] commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] account_id: The Azure resource id of the account.
+        :param pulumi.Input[_builtins.str] commitment_plan_association_name: The name of the commitment plan association with the Cognitive Services Account
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "commitment_plan_association_name", commitment_plan_association_name)
         pulumi.set(__self__, "commitment_plan_name", commitment_plan_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if commitment_plan_association_name is not None:
+            pulumi.set(__self__, "commitment_plan_association_name", commitment_plan_association_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="commitmentPlanAssociationName")
-    def commitment_plan_association_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the commitment plan association with the Cognitive Services Account
-        """
-        return pulumi.get(self, "commitment_plan_association_name")
-
-    @commitment_plan_association_name.setter
-    def commitment_plan_association_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "commitment_plan_association_name", value)
 
     @_builtins.property
     @pulumi.getter(name="commitmentPlanName")
@@ -89,6 +78,18 @@ class CommitmentPlanAssociationArgs:
     @account_id.setter
     def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="commitmentPlanAssociationName")
+    def commitment_plan_association_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the commitment plan association with the Cognitive Services Account
+        """
+        return pulumi.get(self, "commitment_plan_association_name")
+
+    @commitment_plan_association_name.setter
+    def commitment_plan_association_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "commitment_plan_association_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -175,8 +176,6 @@ class CommitmentPlanAssociation(pulumi.CustomResource):
             __props__ = CommitmentPlanAssociationArgs.__new__(CommitmentPlanAssociationArgs)
 
             __props__.__dict__["account_id"] = account_id
-            if commitment_plan_association_name is None and not opts.urn:
-                raise TypeError("Missing required property 'commitment_plan_association_name'")
             __props__.__dict__["commitment_plan_association_name"] = commitment_plan_association_name
             if commitment_plan_name is None and not opts.urn:
                 raise TypeError("Missing required property 'commitment_plan_name'")

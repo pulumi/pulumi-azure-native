@@ -155,7 +155,7 @@ def get_schema_version(resource_group_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_schema_version_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               schema_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              schema_version_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              schema_version_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaVersionResult]:
     """
     Get a Schema Version Resource

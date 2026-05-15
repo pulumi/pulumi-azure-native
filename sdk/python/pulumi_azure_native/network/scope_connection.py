@@ -22,27 +22,28 @@ class ScopeConnectionArgs:
     def __init__(__self__, *,
                  network_manager_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 scope_connection_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScopeConnection resource.
 
         :param pulumi.Input[_builtins.str] network_manager_name: The name of the network manager.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[_builtins.str] scope_connection_name: Name for the cross-tenant connection.
         :param pulumi.Input[_builtins.str] description: A description of the scope connection.
         :param pulumi.Input[_builtins.str] resource_id: Resource ID.
+        :param pulumi.Input[_builtins.str] scope_connection_name: Name for the cross-tenant connection.
         :param pulumi.Input[_builtins.str] tenant_id: Tenant ID.
         """
         pulumi.set(__self__, "network_manager_name", network_manager_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "scope_connection_name", scope_connection_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
+        if scope_connection_name is not None:
+            pulumi.set(__self__, "scope_connection_name", scope_connection_name)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
 
@@ -71,18 +72,6 @@ class ScopeConnectionArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="scopeConnectionName")
-    def scope_connection_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name for the cross-tenant connection.
-        """
-        return pulumi.get(self, "scope_connection_name")
-
-    @scope_connection_name.setter
-    def scope_connection_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "scope_connection_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -105,6 +94,18 @@ class ScopeConnectionArgs:
     @resource_id.setter
     def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="scopeConnectionName")
+    def scope_connection_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name for the cross-tenant connection.
+        """
+        return pulumi.get(self, "scope_connection_name")
+
+    @scope_connection_name.setter
+    def scope_connection_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "scope_connection_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
@@ -201,8 +202,6 @@ class ScopeConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["resource_id"] = resource_id
-            if scope_connection_name is None and not opts.urn:
-                raise TypeError("Missing required property 'scope_connection_name'")
             __props__.__dict__["scope_connection_name"] = scope_connection_name
             __props__.__dict__["tenant_id"] = tenant_id
             __props__.__dict__["azure_api_version"] = None

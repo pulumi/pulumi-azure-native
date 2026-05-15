@@ -21,40 +21,29 @@ __all__ = ['AccessPolicyAssignmentArgs', 'AccessPolicyAssignment']
 @pulumi.input_type
 class AccessPolicyAssignmentArgs:
     def __init__(__self__, *,
-                 access_policy_assignment_name: pulumi.Input[_builtins.str],
                  access_policy_name: pulumi.Input[_builtins.str],
                  cluster_name: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 user: pulumi.Input['AccessPolicyAssignmentPropertiesUserArgs']):
+                 user: pulumi.Input['AccessPolicyAssignmentPropertiesUserArgs'],
+                 access_policy_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a AccessPolicyAssignment resource.
 
-        :param pulumi.Input[_builtins.str] access_policy_assignment_name: The name of the Redis Enterprise database access policy assignment.
         :param pulumi.Input[_builtins.str] access_policy_name: Name of access policy under specific access policy assignment. Only "default" policy is supported for now.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         :param pulumi.Input[_builtins.str] database_name: The name of the Redis Enterprise database.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AccessPolicyAssignmentPropertiesUserArgs'] user: The user associated with the access policy.
+        :param pulumi.Input[_builtins.str] access_policy_assignment_name: The name of the Redis Enterprise database access policy assignment.
         """
-        pulumi.set(__self__, "access_policy_assignment_name", access_policy_assignment_name)
         pulumi.set(__self__, "access_policy_name", access_policy_name)
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "user", user)
-
-    @_builtins.property
-    @pulumi.getter(name="accessPolicyAssignmentName")
-    def access_policy_assignment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Redis Enterprise database access policy assignment.
-        """
-        return pulumi.get(self, "access_policy_assignment_name")
-
-    @access_policy_assignment_name.setter
-    def access_policy_assignment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "access_policy_assignment_name", value)
+        if access_policy_assignment_name is not None:
+            pulumi.set(__self__, "access_policy_assignment_name", access_policy_assignment_name)
 
     @_builtins.property
     @pulumi.getter(name="accessPolicyName")
@@ -115,6 +104,18 @@ class AccessPolicyAssignmentArgs:
     @user.setter
     def user(self, value: pulumi.Input['AccessPolicyAssignmentPropertiesUserArgs']):
         pulumi.set(self, "user", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPolicyAssignmentName")
+    def access_policy_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Redis Enterprise database access policy assignment.
+        """
+        return pulumi.get(self, "access_policy_assignment_name")
+
+    @access_policy_assignment_name.setter
+    def access_policy_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "access_policy_assignment_name", value)
 
 
 @pulumi.type_token("azure-native:redisenterprise:AccessPolicyAssignment")
@@ -191,8 +192,6 @@ class AccessPolicyAssignment(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccessPolicyAssignmentArgs.__new__(AccessPolicyAssignmentArgs)
 
-            if access_policy_assignment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'access_policy_assignment_name'")
             __props__.__dict__["access_policy_assignment_name"] = access_policy_assignment_name
             if access_policy_name is None and not opts.urn:
                 raise TypeError("Missing required property 'access_policy_name'")

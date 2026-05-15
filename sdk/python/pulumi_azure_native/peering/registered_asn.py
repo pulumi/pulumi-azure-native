@@ -20,22 +20,23 @@ __all__ = ['RegisteredAsnArgs', 'RegisteredAsn']
 class RegisteredAsnArgs:
     def __init__(__self__, *,
                  peering_name: pulumi.Input[_builtins.str],
-                 registered_asn_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 asn: pulumi.Input[Optional[_builtins.int]] = None):
+                 asn: pulumi.Input[Optional[_builtins.int]] = None,
+                 registered_asn_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RegisteredAsn resource.
 
         :param pulumi.Input[_builtins.str] peering_name: The name of the peering.
-        :param pulumi.Input[_builtins.str] registered_asn_name: The name of the ASN.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.int] asn: The customer's ASN from which traffic originates.
+        :param pulumi.Input[_builtins.str] registered_asn_name: The name of the ASN.
         """
         pulumi.set(__self__, "peering_name", peering_name)
-        pulumi.set(__self__, "registered_asn_name", registered_asn_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if asn is not None:
             pulumi.set(__self__, "asn", asn)
+        if registered_asn_name is not None:
+            pulumi.set(__self__, "registered_asn_name", registered_asn_name)
 
     @_builtins.property
     @pulumi.getter(name="peeringName")
@@ -48,18 +49,6 @@ class RegisteredAsnArgs:
     @peering_name.setter
     def peering_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "peering_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="registeredAsnName")
-    def registered_asn_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the ASN.
-        """
-        return pulumi.get(self, "registered_asn_name")
-
-    @registered_asn_name.setter
-    def registered_asn_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "registered_asn_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -84,6 +73,18 @@ class RegisteredAsnArgs:
     @asn.setter
     def asn(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "asn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="registeredAsnName")
+    def registered_asn_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the ASN.
+        """
+        return pulumi.get(self, "registered_asn_name")
+
+    @registered_asn_name.setter
+    def registered_asn_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "registered_asn_name", value)
 
 
 @pulumi.type_token("azure-native:peering:RegisteredAsn")
@@ -158,8 +159,6 @@ class RegisteredAsn(pulumi.CustomResource):
             if peering_name is None and not opts.urn:
                 raise TypeError("Missing required property 'peering_name'")
             __props__.__dict__["peering_name"] = peering_name
-            if registered_asn_name is None and not opts.urn:
-                raise TypeError("Missing required property 'registered_asn_name'")
             __props__.__dict__["registered_asn_name"] = registered_asn_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

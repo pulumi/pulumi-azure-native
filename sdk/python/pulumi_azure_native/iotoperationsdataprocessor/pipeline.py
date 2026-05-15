@@ -25,11 +25,11 @@ class PipelineArgs:
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  input: pulumi.Input['PipelineInputArgs'],
                  instance_name: pulumi.Input[_builtins.str],
-                 pipeline_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  stages: pulumi.Input[Mapping[str, pulumi.Input['PipelineStageArgs']]],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Pipeline resource.
@@ -38,24 +38,25 @@ class PipelineArgs:
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: Edge location of the resource.
         :param pulumi.Input['PipelineInputArgs'] input: Information about where to pull input data from.
         :param pulumi.Input[_builtins.str] instance_name: Name of instance.
-        :param pulumi.Input[_builtins.str] pipeline_name: Name of pipeline
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input['PipelineStageArgs']]] stages: Map of stage ids to stage configurations for all pipeline processing and output stages.
         :param pulumi.Input[_builtins.str] description: Detailed description of the Pipeline.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] pipeline_name: Name of pipeline
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "input", input)
         pulumi.set(__self__, "instance_name", instance_name)
-        pulumi.set(__self__, "pipeline_name", pipeline_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "stages", stages)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if pipeline_name is not None:
+            pulumi.set(__self__, "pipeline_name", pipeline_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -108,18 +109,6 @@ class PipelineArgs:
         pulumi.set(self, "instance_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of pipeline
-        """
-        return pulumi.get(self, "pipeline_name")
-
-    @pipeline_name.setter
-    def pipeline_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "pipeline_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -166,6 +155,18 @@ class PipelineArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineName")
+    def pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of pipeline
+        """
+        return pulumi.get(self, "pipeline_name")
+
+    @pipeline_name.setter
+    def pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -276,8 +277,6 @@ class Pipeline(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_name'")
             __props__.__dict__["instance_name"] = instance_name
             __props__.__dict__["location"] = location
-            if pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pipeline_name'")
             __props__.__dict__["pipeline_name"] = pipeline_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

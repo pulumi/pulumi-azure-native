@@ -20,9 +20,9 @@ __all__ = ['LinkedServiceArgs', 'LinkedService']
 @pulumi.input_type
 class LinkedServiceArgs:
     def __init__(__self__, *,
-                 linked_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
+                 linked_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'LinkedServiceEntityStatus']]] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -30,17 +30,18 @@ class LinkedServiceArgs:
         """
         The set of arguments for constructing a LinkedService resource.
 
-        :param pulumi.Input[_builtins.str] linked_service_name: Name of the linkedServices resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] linked_service_name: Name of the linkedServices resource
         :param pulumi.Input[Union[_builtins.str, 'LinkedServiceEntityStatus']] provisioning_state: The provisioning state of the linked service.
         :param pulumi.Input[_builtins.str] resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require read access
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] write_access_resource_id: The resource id of the resource that will be linked to the workspace. This should be used for linking resources which require write access
         """
-        pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if linked_service_name is not None:
+            pulumi.set(__self__, "linked_service_name", linked_service_name)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if resource_id is not None:
@@ -49,18 +50,6 @@ class LinkedServiceArgs:
             pulumi.set(__self__, "tags", tags)
         if write_access_resource_id is not None:
             pulumi.set(__self__, "write_access_resource_id", write_access_resource_id)
-
-    @_builtins.property
-    @pulumi.getter(name="linkedServiceName")
-    def linked_service_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the linkedServices resource
-        """
-        return pulumi.get(self, "linked_service_name")
-
-    @linked_service_name.setter
-    def linked_service_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "linked_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -85,6 +74,18 @@ class LinkedServiceArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the linkedServices resource
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "linked_service_name", value)
 
     @_builtins.property
     @pulumi.getter(name="provisioningState")
@@ -212,8 +213,6 @@ class LinkedService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkedServiceArgs.__new__(LinkedServiceArgs)
 
-            if linked_service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'linked_service_name'")
             __props__.__dict__["linked_service_name"] = linked_service_name
             __props__.__dict__["provisioning_state"] = provisioning_state
             if resource_group_name is None and not opts.urn:

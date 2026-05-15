@@ -22,12 +22,12 @@ __all__ = ['FrontDoorArgs', 'FrontDoor']
 @pulumi.input_type
 class FrontDoorArgs:
     def __init__(__self__, *,
-                 front_door_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  backend_pools: pulumi.Input[Optional[Sequence[pulumi.Input['BackendPoolArgs']]]] = None,
                  backend_pools_settings: pulumi.Input[Optional['BackendPoolsSettingsArgs']] = None,
                  enabled_state: pulumi.Input[Optional[Union[_builtins.str, 'FrontDoorEnabledState']]] = None,
                  friendly_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 front_door_name: pulumi.Input[Optional[_builtins.str]] = None,
                  frontend_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['FrontendEndpointArgs']]]] = None,
                  health_probe_settings: pulumi.Input[Optional[Sequence[pulumi.Input['HealthProbeSettingsModelArgs']]]] = None,
                  load_balancing_settings: pulumi.Input[Optional[Sequence[pulumi.Input['LoadBalancingSettingsModelArgs']]]] = None,
@@ -37,12 +37,12 @@ class FrontDoorArgs:
         """
         The set of arguments for constructing a FrontDoor resource.
 
-        :param pulumi.Input[_builtins.str] front_door_name: Name of the Front Door which is globally unique.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
         :param pulumi.Input[Sequence[pulumi.Input['BackendPoolArgs']]] backend_pools: Backend pools available to routing rules.
         :param pulumi.Input['BackendPoolsSettingsArgs'] backend_pools_settings: Settings for all backendPools
         :param pulumi.Input[Union[_builtins.str, 'FrontDoorEnabledState']] enabled_state: Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[_builtins.str] friendly_name: A friendly name for the frontDoor
+        :param pulumi.Input[_builtins.str] front_door_name: Name of the Front Door which is globally unique.
         :param pulumi.Input[Sequence[pulumi.Input['FrontendEndpointArgs']]] frontend_endpoints: Frontend endpoints available to routing rules.
         :param pulumi.Input[Sequence[pulumi.Input['HealthProbeSettingsModelArgs']]] health_probe_settings: Health probe settings associated with this Front Door instance.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancingSettingsModelArgs']]] load_balancing_settings: Load balancing settings associated with this Front Door instance.
@@ -50,7 +50,6 @@ class FrontDoorArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleArgs']]] routing_rules: Routing rules associated with this Front Door.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "front_door_name", front_door_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if backend_pools is not None:
             pulumi.set(__self__, "backend_pools", backend_pools)
@@ -60,6 +59,8 @@ class FrontDoorArgs:
             pulumi.set(__self__, "enabled_state", enabled_state)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
+        if front_door_name is not None:
+            pulumi.set(__self__, "front_door_name", front_door_name)
         if frontend_endpoints is not None:
             pulumi.set(__self__, "frontend_endpoints", frontend_endpoints)
         if health_probe_settings is not None:
@@ -72,18 +73,6 @@ class FrontDoorArgs:
             pulumi.set(__self__, "routing_rules", routing_rules)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="frontDoorName")
-    def front_door_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Front Door which is globally unique.
-        """
-        return pulumi.get(self, "front_door_name")
-
-    @front_door_name.setter
-    def front_door_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "front_door_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -144,6 +133,18 @@ class FrontDoorArgs:
     @friendly_name.setter
     def friendly_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "friendly_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontDoorName")
+    def front_door_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Front Door which is globally unique.
+        """
+        return pulumi.get(self, "front_door_name")
+
+    @front_door_name.setter
+    def front_door_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "front_door_name", value)
 
     @_builtins.property
     @pulumi.getter(name="frontendEndpoints")
@@ -314,8 +315,6 @@ class FrontDoor(pulumi.CustomResource):
             __props__.__dict__["backend_pools_settings"] = backend_pools_settings
             __props__.__dict__["enabled_state"] = enabled_state
             __props__.__dict__["friendly_name"] = friendly_name
-            if front_door_name is None and not opts.urn:
-                raise TypeError("Missing required property 'front_door_name'")
             __props__.__dict__["front_door_name"] = front_door_name
             __props__.__dict__["frontend_endpoints"] = frontend_endpoints
             __props__.__dict__["health_probe_settings"] = health_probe_settings

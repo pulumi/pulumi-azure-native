@@ -21,35 +21,24 @@ __all__ = ['IdentityBindingArgs', 'IdentityBinding']
 @pulumi.input_type
 class IdentityBindingArgs:
     def __init__(__self__, *,
-                 identity_binding_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
+                 identity_binding_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['IdentityBindingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a IdentityBinding resource.
 
-        :param pulumi.Input[_builtins.str] identity_binding_name: The name of the identity binding.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] resource_name: The name of the managed cluster resource.
+        :param pulumi.Input[_builtins.str] identity_binding_name: The name of the identity binding.
         :param pulumi.Input['IdentityBindingPropertiesArgs'] properties: The resource-specific properties for this resource.
         """
-        pulumi.set(__self__, "identity_binding_name", identity_binding_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if identity_binding_name is not None:
+            pulumi.set(__self__, "identity_binding_name", identity_binding_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
-
-    @_builtins.property
-    @pulumi.getter(name="identityBindingName")
-    def identity_binding_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the identity binding.
-        """
-        return pulumi.get(self, "identity_binding_name")
-
-    @identity_binding_name.setter
-    def identity_binding_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "identity_binding_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -74,6 +63,18 @@ class IdentityBindingArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityBindingName")
+    def identity_binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the identity binding.
+        """
+        return pulumi.get(self, "identity_binding_name")
+
+    @identity_binding_name.setter
+    def identity_binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "identity_binding_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -156,8 +157,6 @@ class IdentityBinding(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = IdentityBindingArgs.__new__(IdentityBindingArgs)
 
-            if identity_binding_name is None and not opts.urn:
-                raise TypeError("Missing required property 'identity_binding_name'")
             __props__.__dict__["identity_binding_name"] = identity_binding_name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:

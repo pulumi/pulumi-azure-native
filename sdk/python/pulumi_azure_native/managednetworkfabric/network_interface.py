@@ -21,22 +21,23 @@ __all__ = ['NetworkInterfaceArgs', 'NetworkInterface']
 class NetworkInterfaceArgs:
     def __init__(__self__, *,
                  network_device_name: pulumi.Input[_builtins.str],
-                 network_interface_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 annotation: pulumi.Input[Optional[_builtins.str]] = None):
+                 annotation: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_interface_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a NetworkInterface resource.
 
         :param pulumi.Input[_builtins.str] network_device_name: Name of the Network Device.
-        :param pulumi.Input[_builtins.str] network_interface_name: Name of the Network Interface.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] annotation: Switch configuration description.
+        :param pulumi.Input[_builtins.str] network_interface_name: Name of the Network Interface.
         """
         pulumi.set(__self__, "network_device_name", network_device_name)
-        pulumi.set(__self__, "network_interface_name", network_interface_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if annotation is not None:
             pulumi.set(__self__, "annotation", annotation)
+        if network_interface_name is not None:
+            pulumi.set(__self__, "network_interface_name", network_interface_name)
 
     @_builtins.property
     @pulumi.getter(name="networkDeviceName")
@@ -49,18 +50,6 @@ class NetworkInterfaceArgs:
     @network_device_name.setter
     def network_device_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "network_device_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="networkInterfaceName")
-    def network_interface_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the Network Interface.
-        """
-        return pulumi.get(self, "network_interface_name")
-
-    @network_interface_name.setter
-    def network_interface_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_interface_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -85,6 +74,18 @@ class NetworkInterfaceArgs:
     @annotation.setter
     def annotation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "annotation", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceName")
+    def network_interface_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the Network Interface.
+        """
+        return pulumi.get(self, "network_interface_name")
+
+    @network_interface_name.setter
+    def network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_interface_name", value)
 
 
 @pulumi.type_token("azure-native:managednetworkfabric:NetworkInterface")
@@ -159,8 +160,6 @@ class NetworkInterface(pulumi.CustomResource):
             if network_device_name is None and not opts.urn:
                 raise TypeError("Missing required property 'network_device_name'")
             __props__.__dict__["network_device_name"] = network_device_name
-            if network_interface_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_interface_name'")
             __props__.__dict__["network_interface_name"] = network_interface_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

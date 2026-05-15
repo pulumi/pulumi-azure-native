@@ -21,26 +21,27 @@ __all__ = ['HuntRelationArgs', 'HuntRelation']
 class HuntRelationArgs:
     def __init__(__self__, *,
                  hunt_id: pulumi.Input[_builtins.str],
-                 hunt_relation_id: pulumi.Input[_builtins.str],
                  related_resource_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
+                 hunt_relation_id: pulumi.Input[Optional[_builtins.str]] = None,
                  labels: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HuntRelation resource.
 
         :param pulumi.Input[_builtins.str] hunt_id: The hunt id (GUID)
-        :param pulumi.Input[_builtins.str] hunt_relation_id: The hunt relation id (GUID)
         :param pulumi.Input[_builtins.str] related_resource_id: The id of the related resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
+        :param pulumi.Input[_builtins.str] hunt_relation_id: The hunt relation id (GUID)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] labels: List of labels relevant to this hunt
         """
         pulumi.set(__self__, "hunt_id", hunt_id)
-        pulumi.set(__self__, "hunt_relation_id", hunt_relation_id)
         pulumi.set(__self__, "related_resource_id", related_resource_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if hunt_relation_id is not None:
+            pulumi.set(__self__, "hunt_relation_id", hunt_relation_id)
         if labels is not None:
             pulumi.set(__self__, "labels", labels)
 
@@ -55,18 +56,6 @@ class HuntRelationArgs:
     @hunt_id.setter
     def hunt_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "hunt_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="huntRelationId")
-    def hunt_relation_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The hunt relation id (GUID)
-        """
-        return pulumi.get(self, "hunt_relation_id")
-
-    @hunt_relation_id.setter
-    def hunt_relation_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "hunt_relation_id", value)
 
     @_builtins.property
     @pulumi.getter(name="relatedResourceId")
@@ -103,6 +92,18 @@ class HuntRelationArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="huntRelationId")
+    def hunt_relation_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The hunt relation id (GUID)
+        """
+        return pulumi.get(self, "hunt_relation_id")
+
+    @hunt_relation_id.setter
+    def hunt_relation_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "hunt_relation_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -194,8 +195,6 @@ class HuntRelation(pulumi.CustomResource):
             if hunt_id is None and not opts.urn:
                 raise TypeError("Missing required property 'hunt_id'")
             __props__.__dict__["hunt_id"] = hunt_id
-            if hunt_relation_id is None and not opts.urn:
-                raise TypeError("Missing required property 'hunt_relation_id'")
             __props__.__dict__["hunt_relation_id"] = hunt_relation_id
             __props__.__dict__["labels"] = labels
             if related_resource_id is None and not opts.urn:

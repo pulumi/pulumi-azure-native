@@ -22,42 +22,31 @@ __all__ = ['CommunityEndpointArgs', 'CommunityEndpoint']
 @pulumi.input_type
 class CommunityEndpointArgs:
     def __init__(__self__, *,
-                 community_endpoint_name: pulumi.Input[_builtins.str],
                  community_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_collection: pulumi.Input[Sequence[pulumi.Input['CommunityEndpointDestinationRuleArgs']]],
+                 community_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommunityEndpoint resource.
 
-        :param pulumi.Input[_builtins.str] community_endpoint_name: The name of the Community Endpoint Resource
         :param pulumi.Input[_builtins.str] community_name: The name of the communityResource Resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['CommunityEndpointDestinationRuleArgs']]] rule_collection: Community Endpoint Rule Collection.
+        :param pulumi.Input[_builtins.str] community_endpoint_name: The name of the Community Endpoint Resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "community_endpoint_name", community_endpoint_name)
         pulumi.set(__self__, "community_name", community_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "rule_collection", rule_collection)
+        if community_endpoint_name is not None:
+            pulumi.set(__self__, "community_endpoint_name", community_endpoint_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="communityEndpointName")
-    def community_endpoint_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Community Endpoint Resource
-        """
-        return pulumi.get(self, "community_endpoint_name")
-
-    @community_endpoint_name.setter
-    def community_endpoint_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "community_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter(name="communityName")
@@ -94,6 +83,18 @@ class CommunityEndpointArgs:
     @rule_collection.setter
     def rule_collection(self, value: pulumi.Input[Sequence[pulumi.Input['CommunityEndpointDestinationRuleArgs']]]):
         pulumi.set(self, "rule_collection", value)
+
+    @_builtins.property
+    @pulumi.getter(name="communityEndpointName")
+    def community_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Community Endpoint Resource
+        """
+        return pulumi.get(self, "community_endpoint_name")
+
+    @community_endpoint_name.setter
+    def community_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "community_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -194,8 +195,6 @@ class CommunityEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CommunityEndpointArgs.__new__(CommunityEndpointArgs)
 
-            if community_endpoint_name is None and not opts.urn:
-                raise TypeError("Missing required property 'community_endpoint_name'")
             __props__.__dict__["community_endpoint_name"] = community_endpoint_name
             if community_name is None and not opts.urn:
                 raise TypeError("Missing required property 'community_name'")

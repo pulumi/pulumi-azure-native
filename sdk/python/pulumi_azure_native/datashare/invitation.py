@@ -21,10 +21,10 @@ __all__ = ['InvitationArgs', 'Invitation']
 class InvitationArgs:
     def __init__(__self__, *,
                  account_name: pulumi.Input[_builtins.str],
-                 invitation_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
                  expiration_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 invitation_name: pulumi.Input[Optional[_builtins.str]] = None,
                  target_active_directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  target_email: pulumi.Input[Optional[_builtins.str]] = None,
                  target_object_id: pulumi.Input[Optional[_builtins.str]] = None):
@@ -32,10 +32,10 @@ class InvitationArgs:
         The set of arguments for constructing a Invitation resource.
 
         :param pulumi.Input[_builtins.str] account_name: The name of the share account.
-        :param pulumi.Input[_builtins.str] invitation_name: The name of the invitation.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[_builtins.str] share_name: The name of the share to send the invitation for.
         :param pulumi.Input[_builtins.str] expiration_date: The expiration date for the invitation and share subscription.
+        :param pulumi.Input[_builtins.str] invitation_name: The name of the invitation.
         :param pulumi.Input[_builtins.str] target_active_directory_id: The target Azure AD Id. Can't be combined with email.
         :param pulumi.Input[_builtins.str] target_email: The email the invitation is directed to.
         :param pulumi.Input[_builtins.str] target_object_id: The target user or application Id that invitation is being sent to.
@@ -43,11 +43,12 @@ class InvitationArgs:
                invitations to specific users or applications in an AD tenant.
         """
         pulumi.set(__self__, "account_name", account_name)
-        pulumi.set(__self__, "invitation_name", invitation_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "share_name", share_name)
         if expiration_date is not None:
             pulumi.set(__self__, "expiration_date", expiration_date)
+        if invitation_name is not None:
+            pulumi.set(__self__, "invitation_name", invitation_name)
         if target_active_directory_id is not None:
             pulumi.set(__self__, "target_active_directory_id", target_active_directory_id)
         if target_email is not None:
@@ -66,18 +67,6 @@ class InvitationArgs:
     @account_name.setter
     def account_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="invitationName")
-    def invitation_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the invitation.
-        """
-        return pulumi.get(self, "invitation_name")
-
-    @invitation_name.setter
-    def invitation_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "invitation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -114,6 +103,18 @@ class InvitationArgs:
     @expiration_date.setter
     def expiration_date(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "expiration_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="invitationName")
+    def invitation_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the invitation.
+        """
+        return pulumi.get(self, "invitation_name")
+
+    @invitation_name.setter
+    def invitation_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "invitation_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetActiveDirectoryId")
@@ -236,8 +237,6 @@ class Invitation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["expiration_date"] = expiration_date
-            if invitation_name is None and not opts.urn:
-                raise TypeError("Missing required property 'invitation_name'")
             __props__.__dict__["invitation_name"] = invitation_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

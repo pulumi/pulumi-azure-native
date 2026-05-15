@@ -22,11 +22,11 @@ __all__ = ['AppResiliencyArgs', 'AppResiliency']
 class AppResiliencyArgs:
     def __init__(__self__, *,
                  app_name: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  circuit_breaker_policy: pulumi.Input[Optional['CircuitBreakerPolicyArgs']] = None,
                  http_connection_pool: pulumi.Input[Optional['HttpConnectionPoolArgs']] = None,
                  http_retry_policy: pulumi.Input[Optional['HttpRetryPolicyArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  tcp_connection_pool: pulumi.Input[Optional['TcpConnectionPoolArgs']] = None,
                  tcp_retry_policy: pulumi.Input[Optional['TcpRetryPolicyArgs']] = None,
                  timeout_policy: pulumi.Input[Optional['TimeoutPolicyArgs']] = None):
@@ -34,17 +34,16 @@ class AppResiliencyArgs:
         The set of arguments for constructing a AppResiliency resource.
 
         :param pulumi.Input[_builtins.str] app_name: Name of the Container App.
-        :param pulumi.Input[_builtins.str] name: Name of the resiliency policy.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['CircuitBreakerPolicyArgs'] circuit_breaker_policy: Policy that defines circuit breaker conditions
         :param pulumi.Input['HttpConnectionPoolArgs'] http_connection_pool: Defines parameters for http connection pooling
         :param pulumi.Input['HttpRetryPolicyArgs'] http_retry_policy: Policy that defines http request retry conditions
+        :param pulumi.Input[_builtins.str] name: Name of the resiliency policy.
         :param pulumi.Input['TcpConnectionPoolArgs'] tcp_connection_pool: Defines parameters for tcp connection pooling
         :param pulumi.Input['TcpRetryPolicyArgs'] tcp_retry_policy: Policy that defines tcp request retry conditions
         :param pulumi.Input['TimeoutPolicyArgs'] timeout_policy: Policy to set request timeouts
         """
         pulumi.set(__self__, "app_name", app_name)
-        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if circuit_breaker_policy is not None:
             pulumi.set(__self__, "circuit_breaker_policy", circuit_breaker_policy)
@@ -52,6 +51,8 @@ class AppResiliencyArgs:
             pulumi.set(__self__, "http_connection_pool", http_connection_pool)
         if http_retry_policy is not None:
             pulumi.set(__self__, "http_retry_policy", http_retry_policy)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if tcp_connection_pool is not None:
             pulumi.set(__self__, "tcp_connection_pool", tcp_connection_pool)
         if tcp_retry_policy is not None:
@@ -70,18 +71,6 @@ class AppResiliencyArgs:
     @app_name.setter
     def app_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "app_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the resiliency policy.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -130,6 +119,18 @@ class AppResiliencyArgs:
     @http_retry_policy.setter
     def http_retry_policy(self, value: pulumi.Input[Optional['HttpRetryPolicyArgs']]):
         pulumi.set(self, "http_retry_policy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the resiliency policy.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="tcpConnectionPool")
@@ -257,8 +258,6 @@ class AppResiliency(pulumi.CustomResource):
             __props__.__dict__["circuit_breaker_policy"] = circuit_breaker_policy
             __props__.__dict__["http_connection_pool"] = http_connection_pool
             __props__.__dict__["http_retry_policy"] = http_retry_policy
-            if name is None and not opts.urn:
-                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

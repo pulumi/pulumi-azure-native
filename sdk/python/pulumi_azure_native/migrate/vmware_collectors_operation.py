@@ -24,29 +24,30 @@ class VmwareCollectorsOperationArgs:
     def __init__(__self__, *,
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 vm_ware_collector_name: pulumi.Input[_builtins.str],
                  agent_properties: pulumi.Input[Optional['CollectorAgentPropertiesBaseArgs']] = None,
                  discovery_site_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None):
+                 provisioning_state: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]] = None,
+                 vm_ware_collector_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VmwareCollectorsOperation resource.
 
         :param pulumi.Input[_builtins.str] project_name: Assessment Project Name
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] vm_ware_collector_name: VMware collector ARM name
         :param pulumi.Input['CollectorAgentPropertiesBaseArgs'] agent_properties: Gets or sets the collector agent properties.
         :param pulumi.Input[_builtins.str] discovery_site_id: Gets the discovery site id.
         :param pulumi.Input[Union[_builtins.str, 'ProvisioningState']] provisioning_state: The status of the last operation.
+        :param pulumi.Input[_builtins.str] vm_ware_collector_name: VMware collector ARM name
         """
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "vm_ware_collector_name", vm_ware_collector_name)
         if agent_properties is not None:
             pulumi.set(__self__, "agent_properties", agent_properties)
         if discovery_site_id is not None:
             pulumi.set(__self__, "discovery_site_id", discovery_site_id)
         if provisioning_state is not None:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if vm_ware_collector_name is not None:
+            pulumi.set(__self__, "vm_ware_collector_name", vm_ware_collector_name)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -71,18 +72,6 @@ class VmwareCollectorsOperationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vmWareCollectorName")
-    def vm_ware_collector_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        VMware collector ARM name
-        """
-        return pulumi.get(self, "vm_ware_collector_name")
-
-    @vm_ware_collector_name.setter
-    def vm_ware_collector_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "vm_ware_collector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="agentProperties")
@@ -119,6 +108,18 @@ class VmwareCollectorsOperationArgs:
     @provisioning_state.setter
     def provisioning_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ProvisioningState']]]):
         pulumi.set(self, "provisioning_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vmWareCollectorName")
+    def vm_ware_collector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        VMware collector ARM name
+        """
+        return pulumi.get(self, "vm_ware_collector_name")
+
+    @vm_ware_collector_name.setter
+    def vm_ware_collector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "vm_ware_collector_name", value)
 
 
 @pulumi.type_token("azure-native:migrate:VmwareCollectorsOperation")
@@ -204,8 +205,6 @@ class VmwareCollectorsOperation(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if vm_ware_collector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'vm_ware_collector_name'")
             __props__.__dict__["vm_ware_collector_name"] = vm_ware_collector_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["created_timestamp"] = None

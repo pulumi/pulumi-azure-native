@@ -24,22 +24,23 @@ class VolumeSnapshotArgs:
                  creation_data: pulumi.Input['SnapshotCreationDataArgs'],
                  elastic_san_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 snapshot_name: pulumi.Input[_builtins.str],
-                 volume_group_name: pulumi.Input[_builtins.str]):
+                 volume_group_name: pulumi.Input[_builtins.str],
+                 snapshot_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VolumeSnapshot resource.
 
         :param pulumi.Input['SnapshotCreationDataArgs'] creation_data: Data used when creating a volume snapshot.
         :param pulumi.Input[_builtins.str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] snapshot_name: The name of the volume snapshot within the given volume group.
         :param pulumi.Input[_builtins.str] volume_group_name: The name of the VolumeGroup.
+        :param pulumi.Input[_builtins.str] snapshot_name: The name of the volume snapshot within the given volume group.
         """
         pulumi.set(__self__, "creation_data", creation_data)
         pulumi.set(__self__, "elastic_san_name", elastic_san_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "snapshot_name", snapshot_name)
         pulumi.set(__self__, "volume_group_name", volume_group_name)
+        if snapshot_name is not None:
+            pulumi.set(__self__, "snapshot_name", snapshot_name)
 
     @_builtins.property
     @pulumi.getter(name="creationData")
@@ -78,18 +79,6 @@ class VolumeSnapshotArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="snapshotName")
-    def snapshot_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the volume snapshot within the given volume group.
-        """
-        return pulumi.get(self, "snapshot_name")
-
-    @snapshot_name.setter
-    def snapshot_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "snapshot_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="volumeGroupName")
     def volume_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -100,6 +89,18 @@ class VolumeSnapshotArgs:
     @volume_group_name.setter
     def volume_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "volume_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotName")
+    def snapshot_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the volume snapshot within the given volume group.
+        """
+        return pulumi.get(self, "snapshot_name")
+
+    @snapshot_name.setter
+    def snapshot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "snapshot_name", value)
 
 
 @pulumi.type_token("azure-native:elasticsan:VolumeSnapshot")
@@ -182,8 +183,6 @@ class VolumeSnapshot(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if snapshot_name is None and not opts.urn:
-                raise TypeError("Missing required property 'snapshot_name'")
             __props__.__dict__["snapshot_name"] = snapshot_name
             if volume_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_group_name'")

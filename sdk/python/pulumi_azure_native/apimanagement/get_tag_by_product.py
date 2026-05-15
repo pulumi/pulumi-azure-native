@@ -132,7 +132,7 @@ def get_tag_by_product(product_id: Optional[_builtins.str] = None,
 def get_tag_by_product_output(product_id: pulumi.Input[Optional[_builtins.str]] = None,
                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                              tag_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              tag_id: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagByProductResult]:
     """
     Get tag associated with the Product.

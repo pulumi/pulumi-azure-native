@@ -23,23 +23,24 @@ __all__ = ['PlacementPolicyArgs', 'PlacementPolicy']
 class PlacementPolicyArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[_builtins.str],
-                 placement_policy_name: pulumi.Input[_builtins.str],
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 placement_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']]] = None):
         """
         The set of arguments for constructing a PlacementPolicy resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: Name of the cluster
-        :param pulumi.Input[_builtins.str] placement_policy_name: Name of the placement policy.
         :param pulumi.Input[_builtins.str] private_cloud_name: Name of the private cloud
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] placement_policy_name: Name of the placement policy.
         :param pulumi.Input[Union['VmHostPlacementPolicyPropertiesArgs', 'VmVmPlacementPolicyPropertiesArgs']] properties: The resource-specific properties for this resource.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "placement_policy_name", placement_policy_name)
         pulumi.set(__self__, "private_cloud_name", private_cloud_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if placement_policy_name is not None:
+            pulumi.set(__self__, "placement_policy_name", placement_policy_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
 
@@ -54,18 +55,6 @@ class PlacementPolicyArgs:
     @cluster_name.setter
     def cluster_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="placementPolicyName")
-    def placement_policy_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the placement policy.
-        """
-        return pulumi.get(self, "placement_policy_name")
-
-    @placement_policy_name.setter
-    def placement_policy_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "placement_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateCloudName")
@@ -90,6 +79,18 @@ class PlacementPolicyArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="placementPolicyName")
+    def placement_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the placement policy.
+        """
+        return pulumi.get(self, "placement_policy_name")
+
+    @placement_policy_name.setter
+    def placement_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "placement_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,8 +179,6 @@ class PlacementPolicy(pulumi.CustomResource):
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
             __props__.__dict__["cluster_name"] = cluster_name
-            if placement_policy_name is None and not opts.urn:
-                raise TypeError("Missing required property 'placement_policy_name'")
             __props__.__dict__["placement_policy_name"] = placement_policy_name
             if private_cloud_name is None and not opts.urn:
                 raise TypeError("Missing required property 'private_cloud_name'")

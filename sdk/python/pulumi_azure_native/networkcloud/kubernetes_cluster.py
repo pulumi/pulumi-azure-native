@@ -25,12 +25,12 @@ class KubernetesClusterArgs:
                  control_plane_node_configuration: pulumi.Input['ControlPlaneNodeConfigurationArgs'],
                  extended_location: pulumi.Input['ExtendedLocationArgs'],
                  initial_agent_pool_configurations: pulumi.Input[Sequence[pulumi.Input['InitialAgentPoolConfigurationArgs']]],
-                 kubernetes_cluster_name: pulumi.Input[_builtins.str],
                  kubernetes_version: pulumi.Input[_builtins.str],
                  network_configuration: pulumi.Input['NetworkConfigurationArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  aad_configuration: pulumi.Input[Optional['AadConfigurationArgs']] = None,
                  administrator_configuration: pulumi.Input[Optional['AdministratorConfigurationArgs']] = None,
+                 kubernetes_cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_configuration: pulumi.Input[Optional['ManagedResourceGroupConfigurationArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -40,12 +40,12 @@ class KubernetesClusterArgs:
         :param pulumi.Input['ControlPlaneNodeConfigurationArgs'] control_plane_node_configuration: The defining characteristics of the control plane for this Kubernetes Cluster.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the cluster associated with the resource.
         :param pulumi.Input[Sequence[pulumi.Input['InitialAgentPoolConfigurationArgs']]] initial_agent_pool_configurations: The agent pools that are created with this Kubernetes cluster for running critical system services and workloads. This data in this field is only used during creation, and the field will be empty following the creation of the Kubernetes Cluster. After creation, the management of agent pools is done using the agentPools sub-resource.
-        :param pulumi.Input[_builtins.str] kubernetes_cluster_name: The name of the Kubernetes cluster.
         :param pulumi.Input[_builtins.str] kubernetes_version: The Kubernetes version for this cluster.
         :param pulumi.Input['NetworkConfigurationArgs'] network_configuration: The configuration of the Kubernetes cluster networking, including the attachment of networks that span the cluster.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AadConfigurationArgs'] aad_configuration: The Azure Active Directory Integration properties.
         :param pulumi.Input['AdministratorConfigurationArgs'] administrator_configuration: The administrative credentials that will be applied to the control plane and agent pool nodes that do not specify their own values.
+        :param pulumi.Input[_builtins.str] kubernetes_cluster_name: The name of the Kubernetes cluster.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['ManagedResourceGroupConfigurationArgs'] managed_resource_group_configuration: The configuration of the managed resource group associated with the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
@@ -53,7 +53,6 @@ class KubernetesClusterArgs:
         pulumi.set(__self__, "control_plane_node_configuration", control_plane_node_configuration)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "initial_agent_pool_configurations", initial_agent_pool_configurations)
-        pulumi.set(__self__, "kubernetes_cluster_name", kubernetes_cluster_name)
         pulumi.set(__self__, "kubernetes_version", kubernetes_version)
         pulumi.set(__self__, "network_configuration", network_configuration)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -61,6 +60,8 @@ class KubernetesClusterArgs:
             pulumi.set(__self__, "aad_configuration", aad_configuration)
         if administrator_configuration is not None:
             pulumi.set(__self__, "administrator_configuration", administrator_configuration)
+        if kubernetes_cluster_name is not None:
+            pulumi.set(__self__, "kubernetes_cluster_name", kubernetes_cluster_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_resource_group_configuration is not None:
@@ -103,18 +104,6 @@ class KubernetesClusterArgs:
     @initial_agent_pool_configurations.setter
     def initial_agent_pool_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['InitialAgentPoolConfigurationArgs']]]):
         pulumi.set(self, "initial_agent_pool_configurations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="kubernetesClusterName")
-    def kubernetes_cluster_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Kubernetes cluster.
-        """
-        return pulumi.get(self, "kubernetes_cluster_name")
-
-    @kubernetes_cluster_name.setter
-    def kubernetes_cluster_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "kubernetes_cluster_name", value)
 
     @_builtins.property
     @pulumi.getter(name="kubernetesVersion")
@@ -175,6 +164,18 @@ class KubernetesClusterArgs:
     @administrator_configuration.setter
     def administrator_configuration(self, value: pulumi.Input[Optional['AdministratorConfigurationArgs']]):
         pulumi.set(self, "administrator_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kubernetesClusterName")
+    def kubernetes_cluster_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Kubernetes cluster.
+        """
+        return pulumi.get(self, "kubernetes_cluster_name")
+
+    @kubernetes_cluster_name.setter
+    def kubernetes_cluster_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kubernetes_cluster_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -312,8 +313,6 @@ class KubernetesCluster(pulumi.CustomResource):
             if initial_agent_pool_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'initial_agent_pool_configurations'")
             __props__.__dict__["initial_agent_pool_configurations"] = initial_agent_pool_configurations
-            if kubernetes_cluster_name is None and not opts.urn:
-                raise TypeError("Missing required property 'kubernetes_cluster_name'")
             __props__.__dict__["kubernetes_cluster_name"] = kubernetes_cluster_name
             if kubernetes_version is None and not opts.urn:
                 raise TypeError("Missing required property 'kubernetes_version'")

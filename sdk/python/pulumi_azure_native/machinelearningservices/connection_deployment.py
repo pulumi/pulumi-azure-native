@@ -23,25 +23,26 @@ __all__ = ['ConnectionDeploymentArgs', 'ConnectionDeployment']
 class ConnectionDeploymentArgs:
     def __init__(__self__, *,
                  connection_name: pulumi.Input[_builtins.str],
-                 deployment_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input[Union['ContentSafetyEndpointDeploymentResourcePropertiesArgs', 'ManagedOnlineEndpointDeploymentResourcePropertiesArgs', 'OpenAIEndpointDeploymentResourcePropertiesArgs', 'SpeechEndpointDeploymentResourcePropertiesArgs']],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
+                 deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  proxy_api_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ConnectionDeployment resource.
 
         :param pulumi.Input[_builtins.str] connection_name: Friendly name of the workspace connection
-        :param pulumi.Input[_builtins.str] deployment_name: Name of the deployment resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
+        :param pulumi.Input[_builtins.str] deployment_name: Name of the deployment resource
         :param pulumi.Input[_builtins.str] proxy_api_version: Api version used by proxy call
         """
         pulumi.set(__self__, "connection_name", connection_name)
-        pulumi.set(__self__, "deployment_name", deployment_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if deployment_name is not None:
+            pulumi.set(__self__, "deployment_name", deployment_name)
         if proxy_api_version is not None:
             pulumi.set(__self__, "proxy_api_version", proxy_api_version)
 
@@ -56,18 +57,6 @@ class ConnectionDeploymentArgs:
     @connection_name.setter
     def connection_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "connection_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="deploymentName")
-    def deployment_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the deployment resource
-        """
-        return pulumi.get(self, "deployment_name")
-
-    @deployment_name.setter
-    def deployment_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -101,6 +90,18 @@ class ConnectionDeploymentArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workspace_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentName")
+    def deployment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the deployment resource
+        """
+        return pulumi.get(self, "deployment_name")
+
+    @deployment_name.setter
+    def deployment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "deployment_name", value)
 
     @_builtins.property
     @pulumi.getter(name="proxyApiVersion")
@@ -187,8 +188,6 @@ class ConnectionDeployment(pulumi.CustomResource):
             if connection_name is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_name'")
             __props__.__dict__["connection_name"] = connection_name
-            if deployment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'deployment_name'")
             __props__.__dict__["deployment_name"] = deployment_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

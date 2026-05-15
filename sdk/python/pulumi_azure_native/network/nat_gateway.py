@@ -22,11 +22,11 @@ __all__ = ['NatGatewayInitArgs', 'NatGateway']
 @pulumi.input_type
 class NatGatewayInitArgs:
     def __init__(__self__, *,
-                 nat_gateway_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 nat_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  public_ip_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input['SubResourceArgs']]]] = None,
                  sku: pulumi.Input[Optional['NatGatewaySkuArgs']] = None,
@@ -35,18 +35,17 @@ class NatGatewayInitArgs:
         """
         The set of arguments for constructing a NatGateway resource.
 
-        :param pulumi.Input[_builtins.str] nat_gateway_name: The name of the nat gateway.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group.
         :param pulumi.Input[_builtins.str] id: Resource ID.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: The idle timeout of the nat gateway.
         :param pulumi.Input[_builtins.str] location: Resource location.
+        :param pulumi.Input[_builtins.str] nat_gateway_name: The name of the nat gateway.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] public_ip_addresses: An array of public ip addresses associated with the nat gateway resource.
         :param pulumi.Input[Sequence[pulumi.Input['SubResourceArgs']]] public_ip_prefixes: An array of public ip prefixes associated with the nat gateway resource.
         :param pulumi.Input['NatGatewaySkuArgs'] sku: The nat gateway SKU.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: A list of availability zones denoting the zone in which Nat Gateway should be deployed.
         """
-        pulumi.set(__self__, "nat_gateway_name", nat_gateway_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -54,6 +53,8 @@ class NatGatewayInitArgs:
             pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if nat_gateway_name is not None:
+            pulumi.set(__self__, "nat_gateway_name", nat_gateway_name)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
         if public_ip_prefixes is not None:
@@ -64,18 +65,6 @@ class NatGatewayInitArgs:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
-
-    @_builtins.property
-    @pulumi.getter(name="natGatewayName")
-    def nat_gateway_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the nat gateway.
-        """
-        return pulumi.get(self, "nat_gateway_name")
-
-    @nat_gateway_name.setter
-    def nat_gateway_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "nat_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -124,6 +113,18 @@ class NatGatewayInitArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natGatewayName")
+    def nat_gateway_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the nat gateway.
+        """
+        return pulumi.get(self, "nat_gateway_name")
+
+    @nat_gateway_name.setter
+    def nat_gateway_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "nat_gateway_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIpAddresses")
@@ -275,8 +276,6 @@ class NatGateway(pulumi.CustomResource):
             __props__.__dict__["id"] = id
             __props__.__dict__["idle_timeout_in_minutes"] = idle_timeout_in_minutes
             __props__.__dict__["location"] = location
-            if nat_gateway_name is None and not opts.urn:
-                raise TypeError("Missing required property 'nat_gateway_name'")
             __props__.__dict__["nat_gateway_name"] = nat_gateway_name
             __props__.__dict__["public_ip_addresses"] = public_ip_addresses
             __props__.__dict__["public_ip_prefixes"] = public_ip_prefixes

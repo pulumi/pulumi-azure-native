@@ -22,8 +22,8 @@ __all__ = ['EdgeMachineArgs', 'EdgeMachine']
 @pulumi.input_type
 class EdgeMachineArgs:
     def __init__(__self__, *,
-                 edge_machine_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 edge_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['ManagedServiceIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['EdgeMachinePropertiesArgs']] = None,
@@ -31,15 +31,16 @@ class EdgeMachineArgs:
         """
         The set of arguments for constructing a EdgeMachine resource.
 
-        :param pulumi.Input[_builtins.str] edge_machine_name: Name of Device
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] edge_machine_name: Name of Device
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The managed service identities assigned to this resource.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['EdgeMachinePropertiesArgs'] properties: The resource-specific properties for this resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "edge_machine_name", edge_machine_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if edge_machine_name is not None:
+            pulumi.set(__self__, "edge_machine_name", edge_machine_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
@@ -48,18 +49,6 @@ class EdgeMachineArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="edgeMachineName")
-    def edge_machine_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of Device
-        """
-        return pulumi.get(self, "edge_machine_name")
-
-    @edge_machine_name.setter
-    def edge_machine_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "edge_machine_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -72,6 +61,18 @@ class EdgeMachineArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="edgeMachineName")
+    def edge_machine_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of Device
+        """
+        return pulumi.get(self, "edge_machine_name")
+
+    @edge_machine_name.setter
+    def edge_machine_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "edge_machine_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -196,8 +197,6 @@ class EdgeMachine(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = EdgeMachineArgs.__new__(EdgeMachineArgs)
 
-            if edge_machine_name is None and not opts.urn:
-                raise TypeError("Missing required property 'edge_machine_name'")
             __props__.__dict__["edge_machine_name"] = edge_machine_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location

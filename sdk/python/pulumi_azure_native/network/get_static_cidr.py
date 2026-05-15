@@ -146,7 +146,7 @@ def get_static_cidr(network_manager_name: Optional[_builtins.str] = None,
 def get_static_cidr_output(network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
                            pool_name: pulumi.Input[Optional[_builtins.str]] = None,
                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                           static_cidr_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                           static_cidr_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticCidrResult]:
     """
     Instance of StaticCidr resource.

@@ -139,7 +139,7 @@ def get_registration_assignment(expand_registration_definition: Optional[_builti
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_registration_assignment_output(expand_registration_definition: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
-                                       registration_assignment_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       registration_assignment_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        scope: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegistrationAssignmentResult]:
     """

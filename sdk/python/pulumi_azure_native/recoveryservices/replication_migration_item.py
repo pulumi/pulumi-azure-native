@@ -23,27 +23,28 @@ __all__ = ['ReplicationMigrationItemArgs', 'ReplicationMigrationItem']
 class ReplicationMigrationItemArgs:
     def __init__(__self__, *,
                  fabric_name: pulumi.Input[_builtins.str],
-                 migration_item_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['EnableMigrationInputPropertiesArgs'],
                  protection_container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 resource_name: pulumi.Input[_builtins.str]):
+                 resource_name: pulumi.Input[_builtins.str],
+                 migration_item_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationMigrationItem resource.
 
         :param pulumi.Input[_builtins.str] fabric_name: Fabric name.
-        :param pulumi.Input[_builtins.str] migration_item_name: Migration item name.
         :param pulumi.Input['EnableMigrationInputPropertiesArgs'] properties: Enable migration input properties.
         :param pulumi.Input[_builtins.str] protection_container_name: Protection container name.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the recovery services vault is present.
         :param pulumi.Input[_builtins.str] resource_name: The name of the recovery services vault.
+        :param pulumi.Input[_builtins.str] migration_item_name: Migration item name.
         """
         pulumi.set(__self__, "fabric_name", fabric_name)
-        pulumi.set(__self__, "migration_item_name", migration_item_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "protection_container_name", protection_container_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "resource_name", resource_name)
+        if migration_item_name is not None:
+            pulumi.set(__self__, "migration_item_name", migration_item_name)
 
     @_builtins.property
     @pulumi.getter(name="fabricName")
@@ -56,18 +57,6 @@ class ReplicationMigrationItemArgs:
     @fabric_name.setter
     def fabric_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "fabric_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="migrationItemName")
-    def migration_item_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Migration item name.
-        """
-        return pulumi.get(self, "migration_item_name")
-
-    @migration_item_name.setter
-    def migration_item_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "migration_item_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -116,6 +105,18 @@ class ReplicationMigrationItemArgs:
     @resource_name.setter
     def resource_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="migrationItemName")
+    def migration_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Migration item name.
+        """
+        return pulumi.get(self, "migration_item_name")
+
+    @migration_item_name.setter
+    def migration_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "migration_item_name", value)
 
 
 @pulumi.type_token("azure-native:recoveryservices:ReplicationMigrationItem")
@@ -195,8 +196,6 @@ class ReplicationMigrationItem(pulumi.CustomResource):
             if fabric_name is None and not opts.urn:
                 raise TypeError("Missing required property 'fabric_name'")
             __props__.__dict__["fabric_name"] = fabric_name
-            if migration_item_name is None and not opts.urn:
-                raise TypeError("Missing required property 'migration_item_name'")
             __props__.__dict__["migration_item_name"] = migration_item_name
             if properties is None and not opts.urn:
                 raise TypeError("Missing required property 'properties'")

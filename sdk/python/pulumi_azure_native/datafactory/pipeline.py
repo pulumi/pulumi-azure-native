@@ -23,7 +23,6 @@ __all__ = ['PipelineArgs', 'Pipeline']
 class PipelineArgs:
     def __init__(__self__, *,
                  factory_name: pulumi.Input[_builtins.str],
-                 pipeline_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  activities: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksJobActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'SynapseNotebookActivityArgs', 'SynapseSparkJobDefinitionActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]]] = None,
                  annotations: pulumi.Input[Optional[Sequence[Any]]] = None,
@@ -31,6 +30,7 @@ class PipelineArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  folder: pulumi.Input[Optional['PipelineFolderArgs']] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy: pulumi.Input[Optional['PipelinePolicyArgs']] = None,
                  run_dimensions: pulumi.Input[Optional[Mapping[str, Any]]] = None,
                  variables: pulumi.Input[Optional[Mapping[str, pulumi.Input['VariableSpecificationArgs']]]] = None):
@@ -38,7 +38,6 @@ class PipelineArgs:
         The set of arguments for constructing a Pipeline resource.
 
         :param pulumi.Input[_builtins.str] factory_name: The factory name.
-        :param pulumi.Input[_builtins.str] pipeline_name: The pipeline name.
         :param pulumi.Input[_builtins.str] resource_group_name: The resource group name.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppendVariableActivityArgs', 'AzureDataExplorerCommandActivityArgs', 'AzureFunctionActivityArgs', 'AzureMLBatchExecutionActivityArgs', 'AzureMLExecutePipelineActivityArgs', 'AzureMLUpdateResourceActivityArgs', 'ControlActivityArgs', 'CopyActivityArgs', 'CustomActivityArgs', 'DataLakeAnalyticsUSQLActivityArgs', 'DatabricksJobActivityArgs', 'DatabricksNotebookActivityArgs', 'DatabricksSparkJarActivityArgs', 'DatabricksSparkPythonActivityArgs', 'DeleteActivityArgs', 'ExecuteDataFlowActivityArgs', 'ExecutePipelineActivityArgs', 'ExecuteSSISPackageActivityArgs', 'ExecuteWranglingDataflowActivityArgs', 'ExecutionActivityArgs', 'FailActivityArgs', 'FilterActivityArgs', 'ForEachActivityArgs', 'GetMetadataActivityArgs', 'HDInsightHiveActivityArgs', 'HDInsightMapReduceActivityArgs', 'HDInsightPigActivityArgs', 'HDInsightSparkActivityArgs', 'HDInsightStreamingActivityArgs', 'IfConditionActivityArgs', 'LookupActivityArgs', 'ScriptActivityArgs', 'SetVariableActivityArgs', 'SqlServerStoredProcedureActivityArgs', 'SwitchActivityArgs', 'SynapseNotebookActivityArgs', 'SynapseSparkJobDefinitionActivityArgs', 'UntilActivityArgs', 'ValidationActivityArgs', 'WaitActivityArgs', 'WebActivityArgs', 'WebHookActivityArgs']]]] activities: List of activities in pipeline.
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Pipeline.
@@ -46,12 +45,12 @@ class PipelineArgs:
         :param pulumi.Input[_builtins.str] description: The description of the pipeline.
         :param pulumi.Input['PipelineFolderArgs'] folder: The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: List of parameters for pipeline.
+        :param pulumi.Input[_builtins.str] pipeline_name: The pipeline name.
         :param pulumi.Input['PipelinePolicyArgs'] policy: Pipeline Policy.
         :param pulumi.Input[Mapping[str, Any]] run_dimensions: Dimensions emitted by Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input['VariableSpecificationArgs']]] variables: List of variables for pipeline.
         """
         pulumi.set(__self__, "factory_name", factory_name)
-        pulumi.set(__self__, "pipeline_name", pipeline_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if activities is not None:
             pulumi.set(__self__, "activities", activities)
@@ -65,6 +64,8 @@ class PipelineArgs:
             pulumi.set(__self__, "folder", folder)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if pipeline_name is not None:
+            pulumi.set(__self__, "pipeline_name", pipeline_name)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if run_dimensions is not None:
@@ -83,18 +84,6 @@ class PipelineArgs:
     @factory_name.setter
     def factory_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "factory_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="pipelineName")
-    def pipeline_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The pipeline name.
-        """
-        return pulumi.get(self, "pipeline_name")
-
-    @pipeline_name.setter
-    def pipeline_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -179,6 +168,18 @@ class PipelineArgs:
     @parameters.setter
     def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pipelineName")
+    def pipeline_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The pipeline name.
+        """
+        return pulumi.get(self, "pipeline_name")
+
+    @pipeline_name.setter
+    def pipeline_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "pipeline_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -314,8 +315,6 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["factory_name"] = factory_name
             __props__.__dict__["folder"] = folder
             __props__.__dict__["parameters"] = parameters
-            if pipeline_name is None and not opts.urn:
-                raise TypeError("Missing required property 'pipeline_name'")
             __props__.__dict__["pipeline_name"] = pipeline_name
             __props__.__dict__["policy"] = policy
             if resource_group_name is None and not opts.urn:

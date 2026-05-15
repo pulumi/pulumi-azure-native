@@ -241,7 +241,7 @@ def get_policy_exemption(policy_exemption_name: Optional[_builtins.str] = None,
         resource_selectors=pulumi.get(__ret__, 'resource_selectors'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_policy_exemption_output(policy_exemption_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+def get_policy_exemption_output(policy_exemption_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyExemptionResult]:
     """

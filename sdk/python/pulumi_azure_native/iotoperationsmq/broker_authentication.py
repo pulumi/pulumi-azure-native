@@ -23,34 +23,35 @@ __all__ = ['BrokerAuthenticationArgs', 'BrokerAuthentication']
 class BrokerAuthenticationArgs:
     def __init__(__self__, *,
                  authentication_methods: pulumi.Input[Sequence[pulumi.Input['BrokerAuthenticatorMethodsArgs']]],
-                 authentication_name: pulumi.Input[_builtins.str],
                  broker_name: pulumi.Input[_builtins.str],
                  extended_location: pulumi.Input['ExtendedLocationPropertyArgs'],
                  listener_ref: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  mq_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BrokerAuthentication resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['BrokerAuthenticatorMethodsArgs']]] authentication_methods: The list of authentication methods supported by the Authentication Resource. For each array element, NOTE - Enum only authenticator type supported.
-        :param pulumi.Input[_builtins.str] authentication_name: Name of MQ broker/authentication resource
         :param pulumi.Input[_builtins.str] broker_name: Name of MQ broker resource
         :param pulumi.Input['ExtendedLocationPropertyArgs'] extended_location: Extended Location
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] listener_ref: The array of listener Resources it supports.
         :param pulumi.Input[_builtins.str] mq_name: Name of MQ resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] authentication_name: Name of MQ broker/authentication resource
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "authentication_methods", authentication_methods)
-        pulumi.set(__self__, "authentication_name", authentication_name)
         pulumi.set(__self__, "broker_name", broker_name)
         pulumi.set(__self__, "extended_location", extended_location)
         pulumi.set(__self__, "listener_ref", listener_ref)
         pulumi.set(__self__, "mq_name", mq_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authentication_name is not None:
+            pulumi.set(__self__, "authentication_name", authentication_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
@@ -67,18 +68,6 @@ class BrokerAuthenticationArgs:
     @authentication_methods.setter
     def authentication_methods(self, value: pulumi.Input[Sequence[pulumi.Input['BrokerAuthenticatorMethodsArgs']]]):
         pulumi.set(self, "authentication_methods", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationName")
-    def authentication_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of MQ broker/authentication resource
-        """
-        return pulumi.get(self, "authentication_name")
-
-    @authentication_name.setter
-    def authentication_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "authentication_name", value)
 
     @_builtins.property
     @pulumi.getter(name="brokerName")
@@ -139,6 +128,18 @@ class BrokerAuthenticationArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationName")
+    def authentication_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of MQ broker/authentication resource
+        """
+        return pulumi.get(self, "authentication_name")
+
+    @authentication_name.setter
+    def authentication_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authentication_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -247,8 +248,6 @@ class BrokerAuthentication(pulumi.CustomResource):
             if authentication_methods is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_methods'")
             __props__.__dict__["authentication_methods"] = authentication_methods
-            if authentication_name is None and not opts.urn:
-                raise TypeError("Missing required property 'authentication_name'")
             __props__.__dict__["authentication_name"] = authentication_name
             if broker_name is None and not opts.urn:
                 raise TypeError("Missing required property 'broker_name'")

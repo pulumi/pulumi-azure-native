@@ -193,7 +193,7 @@ def get_dns_resolver_policy_virtual_network_link(dns_resolver_policy_name: Optio
         type=pulumi.get(__ret__, 'type'),
         virtual_network=pulumi.get(__ret__, 'virtual_network'))
 def get_dns_resolver_policy_virtual_network_link_output(dns_resolver_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                        dns_resolver_policy_virtual_network_link_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                        dns_resolver_policy_virtual_network_link_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDnsResolverPolicyVirtualNetworkLinkResult]:
     """

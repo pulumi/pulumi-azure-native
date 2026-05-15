@@ -24,8 +24,8 @@ class IscsiTargetArgs:
     def __init__(__self__, *,
                  acl_mode: pulumi.Input[Union[_builtins.str, 'IscsiTargetAclMode']],
                  disk_pool_name: pulumi.Input[_builtins.str],
-                 iscsi_target_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 iscsi_target_name: pulumi.Input[Optional[_builtins.str]] = None,
                  luns: pulumi.Input[Optional[Sequence[pulumi.Input['IscsiLunArgs']]]] = None,
                  managed_by: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_by_extended: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -36,8 +36,8 @@ class IscsiTargetArgs:
 
         :param pulumi.Input[Union[_builtins.str, 'IscsiTargetAclMode']] acl_mode: Mode for Target connectivity.
         :param pulumi.Input[_builtins.str] disk_pool_name: The name of the Disk Pool.
-        :param pulumi.Input[_builtins.str] iscsi_target_name: The name of the iSCSI Target.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] iscsi_target_name: The name of the iSCSI Target.
         :param pulumi.Input[Sequence[pulumi.Input['IscsiLunArgs']]] luns: List of LUNs to be exposed through iSCSI Target.
         :param pulumi.Input[_builtins.str] managed_by: Azure resource id. Indicates if this resource is managed by another Azure resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_by_extended: List of Azure resource ids that manage this resource.
@@ -46,8 +46,9 @@ class IscsiTargetArgs:
         """
         pulumi.set(__self__, "acl_mode", acl_mode)
         pulumi.set(__self__, "disk_pool_name", disk_pool_name)
-        pulumi.set(__self__, "iscsi_target_name", iscsi_target_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if iscsi_target_name is not None:
+            pulumi.set(__self__, "iscsi_target_name", iscsi_target_name)
         if luns is not None:
             pulumi.set(__self__, "luns", luns)
         if managed_by is not None:
@@ -84,18 +85,6 @@ class IscsiTargetArgs:
         pulumi.set(self, "disk_pool_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="iscsiTargetName")
-    def iscsi_target_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the iSCSI Target.
-        """
-        return pulumi.get(self, "iscsi_target_name")
-
-    @iscsi_target_name.setter
-    def iscsi_target_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "iscsi_target_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -106,6 +95,18 @@ class IscsiTargetArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="iscsiTargetName")
+    def iscsi_target_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the iSCSI Target.
+        """
+        return pulumi.get(self, "iscsi_target_name")
+
+    @iscsi_target_name.setter
+    def iscsi_target_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "iscsi_target_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -253,8 +254,6 @@ class IscsiTarget(pulumi.CustomResource):
             if disk_pool_name is None and not opts.urn:
                 raise TypeError("Missing required property 'disk_pool_name'")
             __props__.__dict__["disk_pool_name"] = disk_pool_name
-            if iscsi_target_name is None and not opts.urn:
-                raise TypeError("Missing required property 'iscsi_target_name'")
             __props__.__dict__["iscsi_target_name"] = iscsi_target_name
             __props__.__dict__["luns"] = luns
             __props__.__dict__["managed_by"] = managed_by

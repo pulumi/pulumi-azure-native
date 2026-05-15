@@ -22,8 +22,8 @@ __all__ = ['CacheArgs', 'Cache']
 @pulumi.input_type
 class CacheArgs:
     def __init__(__self__, *,
-                 cache_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 cache_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cache_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  directory_services_settings: pulumi.Input[Optional['CacheDirectorySettingsArgs']] = None,
                  encryption_settings: pulumi.Input[Optional['CacheEncryptionSettingsArgs']] = None,
@@ -39,8 +39,8 @@ class CacheArgs:
         """
         The set of arguments for constructing a Cache resource.
 
-        :param pulumi.Input[_builtins.str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
         :param pulumi.Input[_builtins.int] cache_size_gb: The size of this Cache, in GB.
         :param pulumi.Input['CacheDirectorySettingsArgs'] directory_services_settings: Specifies Directory Services settings of the cache.
         :param pulumi.Input['CacheEncryptionSettingsArgs'] encryption_settings: Specifies encryption settings of the cache.
@@ -54,8 +54,9 @@ class CacheArgs:
         :param pulumi.Input['CacheUpgradeSettingsArgs'] upgrade_settings: Upgrade settings of the cache.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Availability zones for resources. This field should only contain a single element in the array.
         """
-        pulumi.set(__self__, "cache_name", cache_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if cache_name is not None:
+            pulumi.set(__self__, "cache_name", cache_name)
         if cache_size_gb is not None:
             pulumi.set(__self__, "cache_size_gb", cache_size_gb)
         if directory_services_settings is not None:
@@ -82,18 +83,6 @@ class CacheArgs:
             pulumi.set(__self__, "zones", zones)
 
     @_builtins.property
-    @pulumi.getter(name="cacheName")
-    def cache_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
-        """
-        return pulumi.get(self, "cache_name")
-
-    @cache_name.setter
-    def cache_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cache_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -104,6 +93,18 @@ class CacheArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cacheName")
+    def cache_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
+        """
+        return pulumi.get(self, "cache_name")
+
+    @cache_name.setter
+    def cache_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cache_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cacheSizeGB")
@@ -348,8 +349,6 @@ class Cache(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CacheArgs.__new__(CacheArgs)
 
-            if cache_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cache_name'")
             __props__.__dict__["cache_name"] = cache_name
             __props__.__dict__["cache_size_gb"] = cache_size_gb
             __props__.__dict__["directory_services_settings"] = directory_services_settings

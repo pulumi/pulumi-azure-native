@@ -21,24 +21,25 @@ __all__ = ['EnvironmentTypeArgs', 'EnvironmentType']
 class EnvironmentTypeArgs:
     def __init__(__self__, *,
                  dev_center_name: pulumi.Input[_builtins.str],
-                 environment_type_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 environment_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentType resource.
 
         :param pulumi.Input[_builtins.str] dev_center_name: The name of the devcenter.
-        :param pulumi.Input[_builtins.str] environment_type_name: The name of the environment type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] display_name: The display name of the environment type.
+        :param pulumi.Input[_builtins.str] environment_type_name: The name of the environment type.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "dev_center_name", dev_center_name)
-        pulumi.set(__self__, "environment_type_name", environment_type_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if environment_type_name is not None:
+            pulumi.set(__self__, "environment_type_name", environment_type_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -53,18 +54,6 @@ class EnvironmentTypeArgs:
     @dev_center_name.setter
     def dev_center_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "dev_center_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="environmentTypeName")
-    def environment_type_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the environment type.
-        """
-        return pulumi.get(self, "environment_type_name")
-
-    @environment_type_name.setter
-    def environment_type_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "environment_type_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -89,6 +78,18 @@ class EnvironmentTypeArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="environmentTypeName")
+    def environment_type_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the environment type.
+        """
+        return pulumi.get(self, "environment_type_name")
+
+    @environment_type_name.setter
+    def environment_type_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "environment_type_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -178,8 +179,6 @@ class EnvironmentType(pulumi.CustomResource):
                 raise TypeError("Missing required property 'dev_center_name'")
             __props__.__dict__["dev_center_name"] = dev_center_name
             __props__.__dict__["display_name"] = display_name
-            if environment_type_name is None and not opts.urn:
-                raise TypeError("Missing required property 'environment_type_name'")
             __props__.__dict__["environment_type_name"] = environment_type_name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")

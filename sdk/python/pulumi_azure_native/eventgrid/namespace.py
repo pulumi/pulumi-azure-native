@@ -22,13 +22,13 @@ __all__ = ['NamespaceArgs', 'Namespace']
 @pulumi.input_type
 class NamespaceArgs:
     def __init__(__self__, *,
-                 namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  identity: pulumi.Input[Optional['IdentityInfoArgs']] = None,
                  inbound_ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['InboundIpRuleArgs']]]] = None,
                  is_zone_redundant: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version_allowed: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  private_endpoint_connections: pulumi.Input[Optional[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]]] = None,
                  public_network_access: pulumi.Input[Optional[Union[_builtins.str, 'PublicNetworkAccess']]] = None,
                  sku: pulumi.Input[Optional['NamespaceSkuArgs']] = None,
@@ -38,7 +38,6 @@ class NamespaceArgs:
         """
         The set of arguments for constructing a Namespace resource.
 
-        :param pulumi.Input[_builtins.str] namespace_name: Name of the namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the user's subscription.
         :param pulumi.Input['IdentityInfoArgs'] identity: Identity information for the Namespace resource.
         :param pulumi.Input[Sequence[pulumi.Input['InboundIpRuleArgs']]] inbound_ip_rules: This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
@@ -49,6 +48,7 @@ class NamespaceArgs:
                Once specified, this property cannot be updated.
         :param pulumi.Input[_builtins.str] location: Location of the resource.
         :param pulumi.Input[Union[_builtins.str, 'TlsVersion']] minimum_tls_version_allowed: Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
+        :param pulumi.Input[_builtins.str] namespace_name: Name of the namespace.
         :param pulumi.Input[Sequence[pulumi.Input['PrivateEndpointConnectionArgs']]] private_endpoint_connections: List of private endpoint connections.
         :param pulumi.Input[Union[_builtins.str, 'PublicNetworkAccess']] public_network_access: This determines if traffic is allowed over public network. By default it is enabled.
                You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PubSub.NamespaceProperties.InboundIpRules" />
@@ -57,7 +57,6 @@ class NamespaceArgs:
         :param pulumi.Input['TopicSpacesConfigurationArgs'] topic_spaces_configuration: Topic spaces configuration information for the namespace resource
         :param pulumi.Input['TopicsConfigurationArgs'] topics_configuration: Topics configuration information for the namespace resource
         """
-        pulumi.set(__self__, "namespace_name", namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
@@ -69,6 +68,8 @@ class NamespaceArgs:
             pulumi.set(__self__, "location", location)
         if minimum_tls_version_allowed is not None:
             pulumi.set(__self__, "minimum_tls_version_allowed", minimum_tls_version_allowed)
+        if namespace_name is not None:
+            pulumi.set(__self__, "namespace_name", namespace_name)
         if private_endpoint_connections is not None:
             pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         if public_network_access is not None:
@@ -81,18 +82,6 @@ class NamespaceArgs:
             pulumi.set(__self__, "topic_spaces_configuration", topic_spaces_configuration)
         if topics_configuration is not None:
             pulumi.set(__self__, "topics_configuration", topics_configuration)
-
-    @_builtins.property
-    @pulumi.getter(name="namespaceName")
-    def namespace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the namespace.
-        """
-        return pulumi.get(self, "namespace_name")
-
-    @namespace_name.setter
-    def namespace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -169,6 +158,18 @@ class NamespaceArgs:
     @minimum_tls_version_allowed.setter
     def minimum_tls_version_allowed(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TlsVersion']]]):
         pulumi.set(self, "minimum_tls_version_allowed", value)
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceName")
+    def namespace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the namespace.
+        """
+        return pulumi.get(self, "namespace_name")
+
+    @namespace_name.setter
+    def namespace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "namespace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointConnections")
@@ -349,8 +350,6 @@ class Namespace(pulumi.CustomResource):
             __props__.__dict__["is_zone_redundant"] = is_zone_redundant
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version_allowed"] = minimum_tls_version_allowed
-            if namespace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'namespace_name'")
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["private_endpoint_connections"] = private_endpoint_connections
             __props__.__dict__["public_network_access"] = public_network_access

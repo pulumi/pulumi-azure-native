@@ -23,7 +23,6 @@ __all__ = ['WorkspaceArgs', 'Workspace']
 class WorkspaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 workspace_name: pulumi.Input[_builtins.str],
                  allow_public_access_when_behind_vnet: pulumi.Input[Optional[_builtins.bool]] = None,
                  application_insights: pulumi.Input[Optional[_builtins.str]] = None,
                  associated_workspaces: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -54,12 +53,12 @@ class WorkspaceArgs:
                  system_datastores_auth_mode: pulumi.Input[Optional[Union[_builtins.str, 'SystemDatastoresAuthMode']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  v1_legacy_mode: pulumi.Input[Optional[_builtins.bool]] = None,
-                 workspace_hub_config: pulumi.Input[Optional['WorkspaceHubConfigArgs']] = None):
+                 workspace_hub_config: pulumi.Input[Optional['WorkspaceHubConfigArgs']] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Workspace resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         :param pulumi.Input[_builtins.bool] allow_public_access_when_behind_vnet: The flag to indicate whether to allow public access when behind VNet.
         :param pulumi.Input[_builtins.str] application_insights: ARM id of the application insights associated with this workspace.
         :param pulumi.Input[_builtins.str] container_registry: ARM id of the container registry associated with this workspace.
@@ -83,9 +82,9 @@ class WorkspaceArgs:
         :param pulumi.Input[Union[_builtins.str, 'SystemDatastoresAuthMode']] system_datastores_auth_mode: The auth mode used for accessing the system datastores of the workspace.
         :param pulumi.Input[_builtins.bool] v1_legacy_mode: Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
         :param pulumi.Input['WorkspaceHubConfigArgs'] workspace_hub_config: WorkspaceHub's configuration object.
+        :param pulumi.Input[_builtins.str] workspace_name: Azure Machine Learning Workspace Name
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "workspace_name", workspace_name)
         if allow_public_access_when_behind_vnet is not None:
             pulumi.set(__self__, "allow_public_access_when_behind_vnet", allow_public_access_when_behind_vnet)
         if application_insights is not None:
@@ -148,6 +147,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "v1_legacy_mode", v1_legacy_mode)
         if workspace_hub_config is not None:
             pulumi.set(__self__, "workspace_hub_config", workspace_hub_config)
+        if workspace_name is not None:
+            pulumi.set(__self__, "workspace_name", workspace_name)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -160,18 +161,6 @@ class WorkspaceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="workspaceName")
-    def workspace_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Azure Machine Learning Workspace Name
-        """
-        return pulumi.get(self, "workspace_name")
-
-    @workspace_name.setter
-    def workspace_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "workspace_name", value)
 
     @_builtins.property
     @pulumi.getter(name="allowPublicAccessWhenBehindVnet")
@@ -521,6 +510,18 @@ class WorkspaceArgs:
     def workspace_hub_config(self, value: pulumi.Input[Optional['WorkspaceHubConfigArgs']]):
         pulumi.set(self, "workspace_hub_config", value)
 
+    @_builtins.property
+    @pulumi.getter(name="workspaceName")
+    def workspace_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Azure Machine Learning Workspace Name
+        """
+        return pulumi.get(self, "workspace_name")
+
+    @workspace_name.setter
+    def workspace_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "workspace_name", value)
+
 
 @pulumi.type_token("azure-native:machinelearningservices:Workspace")
 class Workspace(pulumi.CustomResource):
@@ -703,8 +704,6 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["v1_legacy_mode"] = v1_legacy_mode
             __props__.__dict__["workspace_hub_config"] = workspace_hub_config
-            if workspace_name is None and not opts.urn:
-                raise TypeError("Missing required property 'workspace_name'")
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["ml_flow_tracking_uri"] = None

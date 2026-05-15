@@ -357,7 +357,7 @@ def get_extension(cluster_name: Optional[_builtins.str] = None,
 def get_extension_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                          cluster_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                          cluster_rp: pulumi.Input[Optional[_builtins.str]] = None,
-                         extension_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                         extension_name: pulumi.Input[Optional[_builtins.str]] = None,
                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """

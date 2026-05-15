@@ -21,38 +21,27 @@ __all__ = ['GroupArgs', 'Group']
 @pulumi.input_type
 class GroupArgs:
     def __init__(__self__, *,
-                 group_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  properties: pulumi.Input['GroupPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 e_tag: pulumi.Input[Optional[_builtins.str]] = None):
+                 e_tag: pulumi.Input[Optional[_builtins.str]] = None,
+                 group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Group resource.
 
-        :param pulumi.Input[_builtins.str] group_name: Unique name of a group within a project.
         :param pulumi.Input[_builtins.str] project_name: Name of the Azure Migrate project.
         :param pulumi.Input['GroupPropertiesArgs'] properties: Properties of the group.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the Azure Resource Group that project is part of.
         :param pulumi.Input[_builtins.str] e_tag: For optimistic concurrency control.
+        :param pulumi.Input[_builtins.str] group_name: Unique name of a group within a project.
         """
-        pulumi.set(__self__, "group_name", group_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "properties", properties)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if e_tag is not None:
             pulumi.set(__self__, "e_tag", e_tag)
-
-    @_builtins.property
-    @pulumi.getter(name="groupName")
-    def group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Unique name of a group within a project.
-        """
-        return pulumi.get(self, "group_name")
-
-    @group_name.setter
-    def group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "group_name", value)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -101,6 +90,18 @@ class GroupArgs:
     @e_tag.setter
     def e_tag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "e_tag", value)
+
+    @_builtins.property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Unique name of a group within a project.
+        """
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "group_name", value)
 
 
 @pulumi.type_token("azure-native:migrate:Group")
@@ -171,8 +172,6 @@ class Group(pulumi.CustomResource):
             __props__ = GroupArgs.__new__(GroupArgs)
 
             __props__.__dict__["e_tag"] = e_tag
-            if group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'group_name'")
             __props__.__dict__["group_name"] = group_name
             if project_name is None and not opts.urn:
                 raise TypeError("Missing required property 'project_name'")

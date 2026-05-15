@@ -175,7 +175,7 @@ def get_shared_limit(location: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         unit=pulumi.get(__ret__, 'unit'))
 def get_shared_limit_output(location: pulumi.Input[Optional[_builtins.str]] = None,
-                            name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharedLimitResult]:
     """
     Gets the properties of a compute limit shared by the host subscription with its guest subscriptions.

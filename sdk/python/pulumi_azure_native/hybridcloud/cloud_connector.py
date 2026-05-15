@@ -21,44 +21,33 @@ __all__ = ['CloudConnectorArgs', 'CloudConnector']
 @pulumi.input_type
 class CloudConnectorArgs:
     def __init__(__self__, *,
-                 cloud_connector_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 cloud_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cloud_type: pulumi.Input[Optional[Union[_builtins.str, 'CloudType']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CloudConnector resource.
 
-        :param pulumi.Input[_builtins.str] cloud_connector_name: The name of the cloud connector resource
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] account_id: Account identifier of the remote cloud.
+        :param pulumi.Input[_builtins.str] cloud_connector_name: The name of the cloud connector resource
         :param pulumi.Input[Union[_builtins.str, 'CloudType']] cloud_type: The cloud connector type.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "cloud_connector_name", cloud_connector_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if cloud_connector_name is not None:
+            pulumi.set(__self__, "cloud_connector_name", cloud_connector_name)
         if cloud_type is not None:
             pulumi.set(__self__, "cloud_type", cloud_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudConnectorName")
-    def cloud_connector_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the cloud connector resource
-        """
-        return pulumi.get(self, "cloud_connector_name")
-
-    @cloud_connector_name.setter
-    def cloud_connector_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cloud_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -83,6 +72,18 @@ class CloudConnectorArgs:
     @account_id.setter
     def account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudConnectorName")
+    def cloud_connector_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the cloud connector resource
+        """
+        return pulumi.get(self, "cloud_connector_name")
+
+    @cloud_connector_name.setter
+    def cloud_connector_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cloud_connector_name", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudType")
@@ -192,8 +193,6 @@ class CloudConnector(pulumi.CustomResource):
             __props__ = CloudConnectorArgs.__new__(CloudConnectorArgs)
 
             __props__.__dict__["account_id"] = account_id
-            if cloud_connector_name is None and not opts.urn:
-                raise TypeError("Missing required property 'cloud_connector_name'")
             __props__.__dict__["cloud_connector_name"] = cloud_connector_name
             __props__.__dict__["cloud_type"] = cloud_type
             __props__.__dict__["location"] = location

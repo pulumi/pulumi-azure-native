@@ -23,26 +23,27 @@ class SenderUsernameArgs:
                  domain_name: pulumi.Input[_builtins.str],
                  email_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 sender_username: pulumi.Input[_builtins.str],
                  username: pulumi.Input[_builtins.str],
-                 display_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sender_username: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SenderUsername resource.
 
         :param pulumi.Input[_builtins.str] domain_name: The name of the Domains resource.
         :param pulumi.Input[_builtins.str] email_service_name: The name of the EmailService resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] sender_username: The valid sender Username.
         :param pulumi.Input[_builtins.str] username: A sender senderUsername to be used when sending emails.
         :param pulumi.Input[_builtins.str] display_name: The display name for the senderUsername.
+        :param pulumi.Input[_builtins.str] sender_username: The valid sender Username.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "email_service_name", email_service_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "sender_username", sender_username)
         pulumi.set(__self__, "username", username)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if sender_username is not None:
+            pulumi.set(__self__, "sender_username", sender_username)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
@@ -81,18 +82,6 @@ class SenderUsernameArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="senderUsername")
-    def sender_username(self) -> pulumi.Input[_builtins.str]:
-        """
-        The valid sender Username.
-        """
-        return pulumi.get(self, "sender_username")
-
-    @sender_username.setter
-    def sender_username(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "sender_username", value)
-
-    @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Input[_builtins.str]:
         """
@@ -115,6 +104,18 @@ class SenderUsernameArgs:
     @display_name.setter
     def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="senderUsername")
+    def sender_username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The valid sender Username.
+        """
+        return pulumi.get(self, "sender_username")
+
+    @sender_username.setter
+    def sender_username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sender_username", value)
 
 
 @pulumi.type_token("azure-native:communication:SenderUsername")
@@ -201,8 +202,6 @@ class SenderUsername(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
-            if sender_username is None and not opts.urn:
-                raise TypeError("Missing required property 'sender_username'")
             __props__.__dict__["sender_username"] = sender_username
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")

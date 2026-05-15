@@ -272,7 +272,7 @@ def get_security_rule(network_security_group_name: Optional[_builtins.str] = Non
         type=pulumi.get(__ret__, 'type'))
 def get_security_rule_output(network_security_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                             security_rule_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                             security_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityRuleResult]:
     """
     Gets the specified security rule.

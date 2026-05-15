@@ -220,7 +220,7 @@ def get_update_run(fleet_name: Optional[_builtins.str] = None,
         update_strategy_id=pulumi.get(__ret__, 'update_strategy_id'))
 def get_update_run_output(fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          update_run_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          update_run_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUpdateRunResult]:
     """
     Get a UpdateRun

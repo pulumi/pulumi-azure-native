@@ -143,7 +143,7 @@ def get_iot_hub_resource_event_hub_consumer_group(event_hub_endpoint_name: Optio
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
 def get_iot_hub_resource_event_hub_consumer_group_output(event_hub_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                         name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                         name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIotHubResourceEventHubConsumerGroupResult]:

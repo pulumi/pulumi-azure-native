@@ -253,7 +253,7 @@ def get_standard(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_standard_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                        standard_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                        standard_id: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStandardResult]:
     """
     Get a specific security standard for the requested scope

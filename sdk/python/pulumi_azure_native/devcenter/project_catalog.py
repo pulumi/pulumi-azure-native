@@ -22,47 +22,36 @@ __all__ = ['ProjectCatalogArgs', 'ProjectCatalog']
 @pulumi.input_type
 class ProjectCatalogArgs:
     def __init__(__self__, *,
-                 catalog_name: pulumi.Input[_builtins.str],
                  project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  ado_git: pulumi.Input[Optional['GitCatalogArgs']] = None,
+                 catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
                  git_hub: pulumi.Input[Optional['GitCatalogArgs']] = None,
                  sync_type: pulumi.Input[Optional[Union[_builtins.str, 'CatalogSyncType']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ProjectCatalog resource.
 
-        :param pulumi.Input[_builtins.str] catalog_name: The name of the Catalog.
         :param pulumi.Input[_builtins.str] project_name: The name of the project.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['GitCatalogArgs'] ado_git: Properties for an Azure DevOps catalog type.
+        :param pulumi.Input[_builtins.str] catalog_name: The name of the Catalog.
         :param pulumi.Input['GitCatalogArgs'] git_hub: Properties for a GitHub catalog type.
         :param pulumi.Input[Union[_builtins.str, 'CatalogSyncType']] sync_type: Indicates the type of sync that is configured for the catalog.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "catalog_name", catalog_name)
         pulumi.set(__self__, "project_name", project_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if ado_git is not None:
             pulumi.set(__self__, "ado_git", ado_git)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
         if git_hub is not None:
             pulumi.set(__self__, "git_hub", git_hub)
         if sync_type is not None:
             pulumi.set(__self__, "sync_type", sync_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="catalogName")
-    def catalog_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the Catalog.
-        """
-        return pulumi.get(self, "catalog_name")
-
-    @catalog_name.setter
-    def catalog_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter(name="projectName")
@@ -99,6 +88,18 @@ class ProjectCatalogArgs:
     @ado_git.setter
     def ado_git(self, value: pulumi.Input[Optional['GitCatalogArgs']]):
         pulumi.set(self, "ado_git", value)
+
+    @_builtins.property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the Catalog.
+        """
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "catalog_name", value)
 
     @_builtins.property
     @pulumi.getter(name="gitHub")
@@ -215,8 +216,6 @@ class ProjectCatalog(pulumi.CustomResource):
             __props__ = ProjectCatalogArgs.__new__(ProjectCatalogArgs)
 
             __props__.__dict__["ado_git"] = ado_git
-            if catalog_name is None and not opts.urn:
-                raise TypeError("Missing required property 'catalog_name'")
             __props__.__dict__["catalog_name"] = catalog_name
             __props__.__dict__["git_hub"] = git_hub
             if project_name is None and not opts.urn:

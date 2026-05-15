@@ -132,7 +132,7 @@ def get_tag_by_api(api_id: Optional[_builtins.str] = None,
 def get_tag_by_api_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                          tag_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          tag_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagByApiResult]:
     """
     Get tag associated with the API.

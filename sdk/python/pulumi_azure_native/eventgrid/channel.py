@@ -22,9 +22,9 @@ __all__ = ['ChannelArgs', 'Channel']
 @pulumi.input_type
 class ChannelArgs:
     def __init__(__self__, *,
-                 channel_name: pulumi.Input[_builtins.str],
                  partner_namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  channel_type: pulumi.Input[Optional[Union[_builtins.str, 'ChannelType']]] = None,
                  expiration_time_if_not_activated_utc: pulumi.Input[Optional[_builtins.str]] = None,
                  message_for_activation: pulumi.Input[Optional[_builtins.str]] = None,
@@ -34,9 +34,9 @@ class ChannelArgs:
         """
         The set of arguments for constructing a Channel resource.
 
-        :param pulumi.Input[_builtins.str] channel_name: Name of the channel.
         :param pulumi.Input[_builtins.str] partner_namespace_name: Name of the partner namespace.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group within the partners subscription.
+        :param pulumi.Input[_builtins.str] channel_name: Name of the channel.
         :param pulumi.Input[Union[_builtins.str, 'ChannelType']] channel_type: The type of the event channel which represents the direction flow of events.
         :param pulumi.Input[_builtins.str] expiration_time_if_not_activated_utc: Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
                the channel and corresponding partner topic are deleted.
@@ -45,9 +45,10 @@ class ChannelArgs:
         :param pulumi.Input[Union[_builtins.str, 'ChannelProvisioningState']] provisioning_state: Provisioning state of the channel.
         :param pulumi.Input[Union[_builtins.str, 'ReadinessState']] readiness_state: The readiness state of the corresponding partner topic.
         """
-        pulumi.set(__self__, "channel_name", channel_name)
         pulumi.set(__self__, "partner_namespace_name", partner_namespace_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if channel_name is not None:
+            pulumi.set(__self__, "channel_name", channel_name)
         if channel_type is not None:
             pulumi.set(__self__, "channel_type", channel_type)
         if expiration_time_if_not_activated_utc is not None:
@@ -60,18 +61,6 @@ class ChannelArgs:
             pulumi.set(__self__, "provisioning_state", provisioning_state)
         if readiness_state is not None:
             pulumi.set(__self__, "readiness_state", readiness_state)
-
-    @_builtins.property
-    @pulumi.getter(name="channelName")
-    def channel_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the channel.
-        """
-        return pulumi.get(self, "channel_name")
-
-    @channel_name.setter
-    def channel_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerNamespaceName")
@@ -96,6 +85,18 @@ class ChannelArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the channel.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "channel_name", value)
 
     @_builtins.property
     @pulumi.getter(name="channelType")
@@ -255,8 +256,6 @@ class Channel(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ChannelArgs.__new__(ChannelArgs)
 
-            if channel_name is None and not opts.urn:
-                raise TypeError("Missing required property 'channel_name'")
             __props__.__dict__["channel_name"] = channel_name
             __props__.__dict__["channel_type"] = channel_type
             __props__.__dict__["expiration_time_if_not_activated_utc"] = expiration_time_if_not_activated_utc

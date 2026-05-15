@@ -23,29 +23,28 @@ __all__ = ['IncidentTaskArgs', 'IncidentTask']
 class IncidentTaskArgs:
     def __init__(__self__, *,
                  incident_id: pulumi.Input[_builtins.str],
-                 incident_task_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  status: pulumi.Input[Union[_builtins.str, 'IncidentTaskStatus']],
                  title: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  created_by: pulumi.Input[Optional['ClientInfoArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 incident_task_id: pulumi.Input[Optional[_builtins.str]] = None,
                  last_modified_by: pulumi.Input[Optional['ClientInfoArgs']] = None):
         """
         The set of arguments for constructing a IncidentTask resource.
 
         :param pulumi.Input[_builtins.str] incident_id: Incident ID
-        :param pulumi.Input[_builtins.str] incident_task_id: Incident task ID
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'IncidentTaskStatus']] status: The status of the task
         :param pulumi.Input[_builtins.str] title: The title of the task
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input['ClientInfoArgs'] created_by: Information on the client (user or application) that made some action
         :param pulumi.Input[_builtins.str] description: The description of the task
+        :param pulumi.Input[_builtins.str] incident_task_id: Incident task ID
         :param pulumi.Input['ClientInfoArgs'] last_modified_by: Information on the client (user or application) that made some action
         """
         pulumi.set(__self__, "incident_id", incident_id)
-        pulumi.set(__self__, "incident_task_id", incident_task_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "title", title)
@@ -54,6 +53,8 @@ class IncidentTaskArgs:
             pulumi.set(__self__, "created_by", created_by)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if incident_task_id is not None:
+            pulumi.set(__self__, "incident_task_id", incident_task_id)
         if last_modified_by is not None:
             pulumi.set(__self__, "last_modified_by", last_modified_by)
 
@@ -68,18 +69,6 @@ class IncidentTaskArgs:
     @incident_id.setter
     def incident_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "incident_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="incidentTaskId")
-    def incident_task_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        Incident task ID
-        """
-        return pulumi.get(self, "incident_task_id")
-
-    @incident_task_id.setter
-    def incident_task_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "incident_task_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -152,6 +141,18 @@ class IncidentTaskArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="incidentTaskId")
+    def incident_task_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Incident task ID
+        """
+        return pulumi.get(self, "incident_task_id")
+
+    @incident_task_id.setter
+    def incident_task_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "incident_task_id", value)
 
     @_builtins.property
     @pulumi.getter(name="lastModifiedBy")
@@ -254,8 +255,6 @@ class IncidentTask(pulumi.CustomResource):
             if incident_id is None and not opts.urn:
                 raise TypeError("Missing required property 'incident_id'")
             __props__.__dict__["incident_id"] = incident_id
-            if incident_task_id is None and not opts.urn:
-                raise TypeError("Missing required property 'incident_task_id'")
             __props__.__dict__["incident_task_id"] = incident_task_id
             __props__.__dict__["last_modified_by"] = last_modified_by
             if resource_group_name is None and not opts.urn:

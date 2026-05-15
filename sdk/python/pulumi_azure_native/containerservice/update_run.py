@@ -25,8 +25,8 @@ class UpdateRunArgs:
                  fleet_name: pulumi.Input[_builtins.str],
                  managed_cluster_update: pulumi.Input['ManagedClusterUpdateArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 update_run_name: pulumi.Input[_builtins.str],
                  strategy: pulumi.Input[Optional['UpdateRunStrategyArgs']] = None,
+                 update_run_name: pulumi.Input[Optional[_builtins.str]] = None,
                  update_strategy_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a UpdateRun resource.
@@ -34,10 +34,10 @@ class UpdateRunArgs:
         :param pulumi.Input[_builtins.str] fleet_name: The name of the Fleet resource.
         :param pulumi.Input['ManagedClusterUpdateArgs'] managed_cluster_update: The update to be applied to all clusters in the UpdateRun. The managedClusterUpdate can be modified until the run is started.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[_builtins.str] update_run_name: The name of the UpdateRun resource.
         :param pulumi.Input['UpdateRunStrategyArgs'] strategy: The strategy defines the order in which the clusters will be updated.
                If not set, all members will be updated sequentially. The UpdateRun status will show a single UpdateStage and a single UpdateGroup targeting all members.
                The strategy of the UpdateRun can be modified until the run is started.
+        :param pulumi.Input[_builtins.str] update_run_name: The name of the UpdateRun resource.
         :param pulumi.Input[_builtins.str] update_strategy_id: The resource id of the FleetUpdateStrategy resource to reference.
                
                When creating a new run, there are three ways to define a strategy for the run:
@@ -54,9 +54,10 @@ class UpdateRunArgs:
         pulumi.set(__self__, "fleet_name", fleet_name)
         pulumi.set(__self__, "managed_cluster_update", managed_cluster_update)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "update_run_name", update_run_name)
         if strategy is not None:
             pulumi.set(__self__, "strategy", strategy)
+        if update_run_name is not None:
+            pulumi.set(__self__, "update_run_name", update_run_name)
         if update_strategy_id is not None:
             pulumi.set(__self__, "update_strategy_id", update_strategy_id)
 
@@ -97,18 +98,6 @@ class UpdateRunArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="updateRunName")
-    def update_run_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the UpdateRun resource.
-        """
-        return pulumi.get(self, "update_run_name")
-
-    @update_run_name.setter
-    def update_run_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "update_run_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def strategy(self) -> pulumi.Input[Optional['UpdateRunStrategyArgs']]:
         """
@@ -121,6 +110,18 @@ class UpdateRunArgs:
     @strategy.setter
     def strategy(self, value: pulumi.Input[Optional['UpdateRunStrategyArgs']]):
         pulumi.set(self, "strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="updateRunName")
+    def update_run_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the UpdateRun resource.
+        """
+        return pulumi.get(self, "update_run_name")
+
+    @update_run_name.setter
+    def update_run_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update_run_name", value)
 
     @_builtins.property
     @pulumi.getter(name="updateStrategyId")
@@ -243,8 +244,6 @@ class UpdateRun(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["strategy"] = strategy
-            if update_run_name is None and not opts.urn:
-                raise TypeError("Missing required property 'update_run_name'")
             __props__.__dict__["update_run_name"] = update_run_name
             __props__.__dict__["update_strategy_id"] = update_strategy_id
             __props__.__dict__["azure_api_version"] = None

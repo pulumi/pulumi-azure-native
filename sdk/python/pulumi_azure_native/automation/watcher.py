@@ -22,20 +22,19 @@ class WatcherArgs:
     def __init__(__self__, *,
                  automation_account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 watcher_name: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_frequency_in_seconds: pulumi.Input[Optional[_builtins.float]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  script_name: pulumi.Input[Optional[_builtins.str]] = None,
                  script_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  script_run_on: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 watcher_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Watcher resource.
 
         :param pulumi.Input[_builtins.str] automation_account_name: The name of the automation account.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of an Azure Resource group.
-        :param pulumi.Input[_builtins.str] watcher_name: The watcher name.
         :param pulumi.Input[_builtins.str] description: Gets or sets the description.
         :param pulumi.Input[_builtins.float] execution_frequency_in_seconds: Gets or sets the frequency at which the watcher is invoked.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
@@ -43,10 +42,10 @@ class WatcherArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] script_parameters: Gets or sets the parameters of the script.
         :param pulumi.Input[_builtins.str] script_run_on: Gets or sets the name of the hybrid worker group the watcher will run on.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[_builtins.str] watcher_name: The watcher name.
         """
         pulumi.set(__self__, "automation_account_name", automation_account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "watcher_name", watcher_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if execution_frequency_in_seconds is not None:
@@ -61,6 +60,8 @@ class WatcherArgs:
             pulumi.set(__self__, "script_run_on", script_run_on)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if watcher_name is not None:
+            pulumi.set(__self__, "watcher_name", watcher_name)
 
     @_builtins.property
     @pulumi.getter(name="automationAccountName")
@@ -85,18 +86,6 @@ class WatcherArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="watcherName")
-    def watcher_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The watcher name.
-        """
-        return pulumi.get(self, "watcher_name")
-
-    @watcher_name.setter
-    def watcher_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "watcher_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -181,6 +170,18 @@ class WatcherArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="watcherName")
+    def watcher_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The watcher name.
+        """
+        return pulumi.get(self, "watcher_name")
+
+    @watcher_name.setter
+    def watcher_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "watcher_name", value)
 
 
 @pulumi.type_token("azure-native:automation:Watcher")
@@ -282,8 +283,6 @@ class Watcher(pulumi.CustomResource):
             __props__.__dict__["script_parameters"] = script_parameters
             __props__.__dict__["script_run_on"] = script_run_on
             __props__.__dict__["tags"] = tags
-            if watcher_name is None and not opts.urn:
-                raise TypeError("Missing required property 'watcher_name'")
             __props__.__dict__["watcher_name"] = watcher_name
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["creation_time"] = None

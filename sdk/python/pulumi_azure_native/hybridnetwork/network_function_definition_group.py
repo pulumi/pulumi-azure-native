@@ -21,43 +21,32 @@ __all__ = ['NetworkFunctionDefinitionGroupArgs', 'NetworkFunctionDefinitionGroup
 @pulumi.input_type
 class NetworkFunctionDefinitionGroupArgs:
     def __init__(__self__, *,
-                 network_function_definition_group_name: pulumi.Input[_builtins.str],
                  publisher_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_function_definition_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  properties: pulumi.Input[Optional['NetworkFunctionDefinitionGroupPropertiesFormatArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a NetworkFunctionDefinitionGroup resource.
 
-        :param pulumi.Input[_builtins.str] network_function_definition_group_name: The name of the network function definition group.
         :param pulumi.Input[_builtins.str] publisher_name: The name of the publisher.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
+        :param pulumi.Input[_builtins.str] network_function_definition_group_name: The name of the network function definition group.
         :param pulumi.Input['NetworkFunctionDefinitionGroupPropertiesFormatArgs'] properties: Network function definition group properties.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "network_function_definition_group_name", network_function_definition_group_name)
         pulumi.set(__self__, "publisher_name", publisher_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if network_function_definition_group_name is not None:
+            pulumi.set(__self__, "network_function_definition_group_name", network_function_definition_group_name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @_builtins.property
-    @pulumi.getter(name="networkFunctionDefinitionGroupName")
-    def network_function_definition_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The name of the network function definition group.
-        """
-        return pulumi.get(self, "network_function_definition_group_name")
-
-    @network_function_definition_group_name.setter
-    def network_function_definition_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "network_function_definition_group_name", value)
 
     @_builtins.property
     @pulumi.getter(name="publisherName")
@@ -94,6 +83,18 @@ class NetworkFunctionDefinitionGroupArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkFunctionDefinitionGroupName")
+    def network_function_definition_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the network function definition group.
+        """
+        return pulumi.get(self, "network_function_definition_group_name")
+
+    @network_function_definition_group_name.setter
+    def network_function_definition_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_function_definition_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -195,8 +196,6 @@ class NetworkFunctionDefinitionGroup(pulumi.CustomResource):
             __props__ = NetworkFunctionDefinitionGroupArgs.__new__(NetworkFunctionDefinitionGroupArgs)
 
             __props__.__dict__["location"] = location
-            if network_function_definition_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'network_function_definition_group_name'")
             __props__.__dict__["network_function_definition_group_name"] = network_function_definition_group_name
             __props__.__dict__["properties"] = properties
             if publisher_name is None and not opts.urn:
