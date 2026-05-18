@@ -635,6 +635,23 @@
      "type": "array"
     }
    },
+   "listInputs": {
+    "description": "Operation to return the list of Private Link Policies For AzureAD scoped to the resourceGroup.",
+    "properties": {
+     "resourceGroupName": {
+      "description": "Name of an Azure resource group.",
+      "type": "string"
+     },
+     "subscriptionId": {
+      "description": "Azure subscription ID.",
+      "type": "string"
+     }
+    },
+    "required": [
+     "resourceGroupName"
+    ],
+    "type": "object"
+   },
    "properties": {
     "allTenants": {
      "description": "Flag indicating whether all tenants are allowed",
@@ -1442,6 +1459,33 @@
    ],
    "apiVersion": "2020-03-01",
    "defaultBody": null,
+   "listMetadata": {
+    "itemName": "value",
+    "method": "GET",
+    "nextLinkName": "nextLink",
+    "operationPath": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd",
+    "parameters": [
+     {
+      "location": "path",
+      "name": "subscriptionId",
+      "required": true,
+      "value": {
+       "type": "string"
+      }
+     },
+     {
+      "location": "path",
+      "name": "resourceGroupName",
+      "required": true,
+      "value": {
+       "maxLength": 90,
+       "minLength": 1,
+       "pattern": "^[-\\w\\._\\(\\)]+$",
+       "type": "string"
+      }
+     }
+    ]
+   },
    "path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName}",
    "putAsyncStyle": "azure-async-operation",
    "response": {

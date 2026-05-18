@@ -32,6 +32,7 @@ import (
 	"github.com/pkg/errors"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/collections"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/paths"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -369,7 +370,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 			// Populate resources and get invokes.
 			for typeName, resource := range util.MapOrdered(versionResources.Resources) {
 				nestedResourceBodyRefs := findNestedResourceBodyRefs(resource, versionResources.Resources)
-				err := gen.genResources(typeName, resource, nestedResourceBodyRefs)
+				err := gen.genResources(typeName, resource, nestedResourceBodyRefs, versionResources.ListOperations)
 				if err != nil {
 					return nil, err
 				}
@@ -843,7 +844,12 @@ type packageGenerator struct {
 	previousCompatibleTokensLookup *CompatibleTokensLookup
 }
 
-func (g *packageGenerator) genResources(typeName string, resource *openapi.ResourceSpec, nestedResourceBodyRefs []string) error {
+func (g *packageGenerator) genResources(
+	typeName string,
+	resource *openapi.ResourceSpec,
+	nestedResourceBodyRefs []string,
+	listOperations map[openapi.ResourceName]*openapi.ListOperationSpec,
+) error {
 	// Resource names should consistently start with upper case.
 	typeNameAliases := g.genAliases(typeName)
 	titleCasedTypeName := strings.Title(typeName)
@@ -873,6 +879,12 @@ func (g *packageGenerator) genResources(typeName string, resource *openapi.Resou
 		ResourceSpec: resource,
 		typeName:     titleCasedTypeName,
 	}
+
+	// Attach list operation to the main resource if exists.
+	if listOperation, ok := listOperations[typeName]; ok {
+		mainResource.listOperation = listOperation
+	}
+
 	if resource.DeprecationMessage != "" {
 		mainResource.deprecationMessage = resource.DeprecationMessage
 	}
@@ -901,6 +913,7 @@ type resourceVariant struct {
 	body               *openapi.Schema
 	response           *openapi.Schema
 	deprecationMessage string
+	listOperation      *openapi.ListOperationSpec
 }
 
 // findResourceVariants searches for discriminated unions in the resource's API specs and returns
@@ -1076,7 +1089,13 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	parameters := resource.Swagger.MergeParameters(updateOp.Parameters, path.Parameters)
 	autoNamer := resources.NewAutoNamer(resource.Path)
 
-	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &autoNamer, resource.body, true)
+	resourceRequest, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &methodParametersOptions{
+		bodySchema:       resource.body,
+		namer:            &autoNamer,
+		isResourceGetter: true,
+		listParameters:   false,
+	})
+
 	if err != nil {
 		return errors.Wrapf(err, "failed to generate '%s': request type", resourceTok)
 	}
@@ -1113,6 +1132,33 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		Aliases:            g.generateAliases(resourceTok, resource, typeNameAliases...),
 		DeprecationMessage: resource.deprecationMessage,
 	}
+
+	// if the resource is listable, add ListInputs to the resource spec
+	// And the list parameters to the resourceAPI metadata
+	var listRequestData *parameterBag
+	if resource.listOperation != nil {
+		operation := resource.listOperation.Operation
+		listParameters := resource.Swagger.MergeParameters(operation.Parameters, path.Parameters)
+		listRequest, err := gen.genListParameters(listParameters, swagger.ReferenceContext, nil, nil, true)
+		if err != nil {
+			return errors.Wrapf(err, "failed to generate '%s': list input properties", resourceTok)
+		}
+		resourceSpec.ListInputs = &pschema.ObjectTypeSpec{
+			Description: operation.Description,
+			Type:        "object",
+			Properties:  listRequest.specs,
+			Required:    listRequest.requiredSpecs.SortedValues(),
+		}
+
+		listRequestData = &parameterBag{
+			specs:              listRequest.specs,
+			requiredSpecs:      listRequest.requiredSpecs,
+			requiredContainers: listRequest.requiredContainers,
+			parameters:         listRequest.parameters,
+			description:        listRequest.description,
+		}
+	}
+
 	g.pkg.Resources[resourceTok] = resourceSpec
 
 	// Generate the function to get this resource.
@@ -1133,7 +1179,13 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		}
 
 		parameters = swagger.MergeParameters(readOp.Parameters, path.Parameters)
-		requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, resource.body, true)
+		requestFunction, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &methodParametersOptions{
+			bodySchema:       resource.body,
+			namer:            nil,
+			isResourceGetter: true,
+			listParameters:   false,
+		})
+
 		if err != nil {
 			return errors.Wrapf(err, "failed to generate '%s': request type", functionTok)
 		}
@@ -1204,6 +1256,18 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 		RequiredContainers:    requiredContainers,
 		DefaultProperties:     propertyDefaults(module, resource.typeName),
 		ApiVersionIsUserInput: apiVersionIsUserInput(string(g.moduleName), resource.typeName),
+	}
+
+	if listRequestData != nil {
+		// Embed List-related metadata into the resource metadata
+		// This is used later during calls of List(...) at the provider interface level
+		r.ListMetadata = &resources.AzureAPIListMetadata{
+			Parameters:    listRequestData.parameters,
+			Method:        resource.listOperation.Method,
+			OperationPath: resource.listOperation.Path,
+			NextLinkName:  resource.listOperation.NextLinkName,
+			ItemName:      resource.listOperation.ItemName,
+		}
 	}
 
 	g.metadata.Resources[resourceTok] = r
@@ -1329,7 +1393,13 @@ func (g *packageGenerator) genFunctions(typeName, path string, specParams []spec
 	}
 
 	parameters := swagger.MergeParameters(operation.Parameters, specParams)
-	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, nil, nil, false)
+	request, err := gen.genMethodParameters(parameters, swagger.ReferenceContext, &methodParametersOptions{
+		bodySchema:       nil,
+		namer:            nil,
+		isResourceGetter: true,
+		listParameters:   false,
+	})
+
 	if err != nil {
 		log.Printf("failed to generate '%s': request type: %s", functionTok, err.Error())
 		return
@@ -1626,8 +1696,38 @@ func normalizeParamPattern(param *openapi.Parameter) string {
 	return param.Pattern
 }
 
-func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext,
+func (m *moduleGenerator) genListParameters(parameters []spec.Parameter, ctx *openapi.ReferenceContext,
 	namer *resources.AutoNamer, bodySchema *openapi.Schema, isResourceGetter bool) (*parameterBag, error) {
+	result, err := m.genMethodParameters(parameters, ctx, &methodParametersOptions{
+		isResourceGetter: false,
+		listParameters:   true,
+		bodySchema:       bodySchema,
+		namer:            namer,
+	})
+
+	if err != nil {
+		return nil, err
+	}
+
+	return result, nil
+}
+
+type methodParametersOptions struct {
+	isResourceGetter bool
+	listParameters   bool
+	bodySchema       *openapi.Schema
+	namer            *resources.AutoNamer
+}
+
+func (m *moduleGenerator) genMethodParameters(
+	parameters []spec.Parameter,
+	ctx *openapi.ReferenceContext,
+	options *methodParametersOptions,
+) (*parameterBag, error) {
+	if options == nil {
+		options = &methodParametersOptions{}
+	}
+
 	result := newParameterBag()
 	var autoNamedSpec string
 
@@ -1657,25 +1757,25 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 		switch {
 		case param.In == "header":
 			continue // Header parameters aren't mapped to the SDK.
-		case providerHasDefaultValue && !isMethodParameter(param):
+		case providerHasDefaultValue && !isMethodParameter(param) && !options.listParameters:
 			// Don't include values with a provider-configured value to the schema unless it's a method parameter.
-		case m.paramIsSetByProvider(param, bodySchema):
+		case m.paramIsSetByProvider(param, options.bodySchema):
 			continue // No need to include params like API version in the schema or meta, they are added automatically by the provider.
 		case param.In == "body":
 			if param.Schema == nil {
 				return nil, errors.Errorf("no schema for body parameter '%s'", param.Name)
 			}
 
-			if bodySchema == nil {
-				bodySchema, err = param.ResolveSchema(param.Schema)
+			if options.bodySchema == nil {
+				options.bodySchema, err = param.ResolveSchema(param.Schema)
 				if err != nil {
 					return nil, errors.Wrapf(err, "body parameter '%s'", param.Name)
 				}
 			}
 
 			// The body parameter is flattened, so that all its properties become the properties of the type.
-			props, err := m.genProperties(bodySchema, genPropertiesVariant{
-				isTopLevel: isResourceGetter,
+			props, err := m.genProperties(options.bodySchema, genPropertiesVariant{
+				isTopLevel: options.isResourceGetter,
 				isOutput:   false,
 				isType:     false,
 				isResponse: false,
@@ -1719,12 +1819,18 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 					Type: param.Type,
 				},
 				// All path parameters are part of resource ID, so they always cause replacement.
-				WillReplaceOnChanges: param.In == "path",
+				WillReplaceOnChanges: param.In == "path" && !options.listParameters,
+			}
+
+			if param.Type == "array" {
+				propertySpec.TypeSpec.Items = &pschema.TypeSpec{
+					Ref: convert.TypeAny,
+				}
 			}
 
 			// Check each parameter for auto-naming.
-			if namer != nil {
-				if kind, ok := namer.AutoName(param.Name, param.Format); ok {
+			if options.namer != nil && !options.listParameters {
+				if kind, ok := options.namer.AutoName(param.Name, param.Format); ok {
 					apiParameter.Value.AutoName = kind
 					autoNamedSpec = name
 				}
@@ -1736,6 +1842,12 @@ func (m *moduleGenerator) genMethodParameters(parameters []spec.Parameter, ctx *
 			}
 		}
 
+		if options.listParameters {
+			// for List parameters, the subscriptionId can be derived from
+			// the provider configuration. Keep it optional for if the users
+			// providers a different subscriptionId than the one in the provider config.
+			result.requiredSpecs.Delete("subscriptionId")
+		}
 		result.parameters = append(result.parameters, apiParameter)
 	}
 

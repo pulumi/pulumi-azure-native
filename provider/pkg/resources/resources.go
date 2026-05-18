@@ -97,6 +97,19 @@ type AzureAPIType struct {
 	RequiredProperties []string                    `json:"required,omitempty"`
 }
 
+type AzureAPIListMetadata struct {
+	// ListParameters are the parameters for the List operation if the resource is listable. This is used to populate the List function on the resource's collection in the SDK.
+	Parameters []AzureAPIParameter `json:"parameters,omitempty"`
+	// The HTTP path to calling the list operation for this resource type.
+	OperationPath string `json:"operationPath,omitempty"`
+	// The HTTP method to call to list resources, e.g. GET or POST.
+	Method string `json:"method,omitempty"`
+	// The property name in the response data which includes the link
+	NextLinkName string `json:"nextLinkName,omitempty"`
+	// The property name in the response data which includes the array of resources
+	ItemName string `json:"itemName,omitempty"`
+}
+
 // AzureAPIResource is a resource in Azure REST API.
 type AzureAPIResource struct {
 	// API version in "2020-10-01" format.
@@ -137,6 +150,9 @@ type AzureAPIResource struct {
 	RequiredContainers [][]string `json:"requiredContainers,omitempty"`
 	// Default values to be used when the property is removed or in importing. Must be top-level properties.
 	DefaultProperties map[string]interface{} `json:"defaultProperties,omitempty"`
+	// Contains metadata for how to call the Listing operation for this resource
+	// when there is no metadata, the resource is not listable.
+	ListMetadata *AzureAPIListMetadata `json:"listMetadata,omitempty"`
 }
 
 type ResourceLookupFunc func(resourceType string) (AzureAPIResource, bool, error)

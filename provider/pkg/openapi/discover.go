@@ -178,14 +178,16 @@ func (d *DiscoveryDiagnostics) addPathItem(pathItem spec.PathItem, moduleName Mo
 
 // VersionResources contains all resources and invokes in a given API version.
 type VersionResources struct {
-	Resources map[ResourceName]*ResourceSpec
-	Invokes   map[InvokeName]*ResourceSpec
+	Resources      map[ResourceName]*ResourceSpec
+	ListOperations map[ResourceName]*ListOperationSpec
+	Invokes        map[InvokeName]*ResourceSpec
 }
 
 func NewVersionResources() VersionResources {
 	return VersionResources{
-		Resources: map[ResourceName]*ResourceSpec{},
-		Invokes:   map[InvokeName]*ResourceSpec{},
+		Resources:      map[ResourceName]*ResourceSpec{},
+		ListOperations: map[ResourceName]*ListOperationSpec{},
+		Invokes:        map[InvokeName]*ResourceSpec{},
 	}
 }
 
@@ -244,6 +246,20 @@ type ResourceSpec struct {
 	DeprecationMessage string
 	PreviousVersion    ApiVersion
 	ModuleNaming       resources.ModuleNaming
+}
+
+type ListOperationSpec struct {
+	// The operation metadata
+	Operation *spec.Operation
+	// The API path of the list operation
+	Path string
+	// The HTTP method of the list operation, e.g. GET or POST
+	Method string
+	// The property name in the List response object that contains the link to the next page of results, if any (e.g. "nextLink")
+	NextLinkName string
+	// The property name in the List response object that contains the array of resources, if any (e.g. "value"). This defaults to "value" if not specified in the Open API Spec.
+	// See https://github.com/Azure/autorest/blob/main/docs/extensions/readme.md#x-ms-pageable
+	ItemName string
 }
 
 // ApplyTransformations adds the default version for each module and deprecates and removes specified API versions.
@@ -305,6 +321,7 @@ func ApplyDeprecations(modules AzureModules, deprecated ModuleVersionList) Azure
 func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[ResourceName]DefinitionVersion, previousResourceVersions map[ResourceName]DefinitionVersion) VersionResources {
 	resources := map[string]*ResourceSpec{}
 	invokes := map[string]*ResourceSpec{}
+	listOperations := map[string]*ListOperationSpec{}
 	for resourceName, apiVersion := range util.MapOrdered(defaultResourceVersions) {
 		if versionResources, ok := versionMap[apiVersion.ApiVersion]; ok {
 			if resource, ok := versionResources.Resources[resourceName]; ok {
@@ -313,6 +330,9 @@ func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[
 					resourceCopy.PreviousVersion = previousVersion.ApiVersion
 				}
 				resources[resourceName] = &resourceCopy
+				if listOp, ok := versionResources.ListOperations[resourceName]; ok {
+					listOperations[resourceName] = listOp
+				}
 			} else if invoke, ok := versionResources.Invokes[resourceName]; ok {
 				invokeCopy := *invoke
 				if previousVersion, hasPreviousVersion := previousResourceVersions[resourceName]; hasPreviousVersion {
@@ -323,8 +343,9 @@ func buildDefaultVersion(versionMap ModuleVersions, defaultResourceVersions map[
 		}
 	}
 	return VersionResources{
-		Resources: resources,
-		Invokes:   invokes,
+		Resources:      resources,
+		Invokes:        invokes,
+		ListOperations: listOperations,
 	}
 }
 
@@ -536,6 +557,33 @@ func exclude(filePath string) bool {
 	return false
 }
 
+func extractListOperations(
+	fileLocation string,
+	swagger *Spec,
+	path string,
+) (
+	map[string]*ListOperationSpec,
+	[]resources.NameDisambiguation,
+) {
+	pathItem := swagger.Paths.Paths[path]
+	listOperations := map[string]*ListOperationSpec{}
+	disambiguations := []resources.NameDisambiguation{}
+	recordDisambiguation := func(disambiguation *resources.NameDisambiguation) {
+		if disambiguation != nil {
+			disambiguation.FileLocation = fileLocation
+			disambiguations = append(disambiguations, *disambiguation)
+		}
+	}
+
+	if operation := findListOperation(path, pathItem); operation != nil {
+		typeName, disambiguation := getTypeName(operation.Operation, path)
+		recordDisambiguation(disambiguation)
+		listOperations[typeName] = operation
+	}
+
+	return listOperations, disambiguations
+}
+
 // addAPIPath considers whether an API path contains resources and/or invokes and adds corresponding entries to the
 // module map. Modules are mutated in-place.
 func (modules AzureModules) addAPIPath(specsDir, fileLocation, path string, swagger *Spec) DiscoveryDiagnostics {
@@ -568,7 +616,16 @@ func (modules AzureModules) addAPIPath(specsDir, fileLocation, path string, swag
 		versionMap[apiVersion] = version
 	}
 
-	return addResourcesAndInvokes(version, fileLocation, path, moduleNaming, swagger)
+	diagnostics := addResourcesAndInvokes(version, fileLocation, path, moduleNaming, swagger)
+
+	// Extract list operations for resources
+	listOperations, disambiguations := extractListOperations(fileLocation, swagger, path)
+	for typeName, operation := range listOperations {
+		version.ListOperations[typeName] = operation
+	}
+
+	diagnostics.NamingDisambiguations = append(diagnostics.NamingDisambiguations, disambiguations...)
+	return diagnostics
 }
 
 // getTypeName returns the type name for a given operation and path. The path is used to check for custom resource
@@ -578,6 +635,51 @@ func getTypeName(op *spec.Operation, path string) (string, *resources.NameDisamb
 		return typeName, nil
 	}
 	return resources.ResourceName(op.ID, path)
+}
+
+func findListOperation(path string, pathItem spec.PathItem) *ListOperationSpec {
+	var operation *spec.Operation
+	props := pathItem.PathItemProps
+	method := ""
+	if props.Get != nil && !props.Get.Deprecated {
+		operation = props.Get
+		method = "GET"
+	} else if props.Post != nil && !props.Post.Deprecated {
+		operation = props.Post
+		method = "POST"
+	}
+
+	// make sure the operation has `x-ms-pageable` extension, otherwise it's not a list operation
+	// pageable operations have an extension of the shape
+	// { "x-ms-pageable": { "nextLinkName": "nextLink" | null } }
+	// where the nextLinkName property is optional and defaults to "nextLink" if not specified.
+	// the nextLinkName property specifies the name of the property in the response that contains the URL for the next page of results, if any.
+	if operation != nil {
+		extensions := operation.VendorExtensible.Extensions
+		if pageable, ok := extensions["x-ms-pageable"]; ok {
+			nextLinkName := "nextLink"
+			itemName := "value"
+			if pageableMap, ok := pageable.(map[string]interface{}); ok {
+				// the default nextLinkName is "nextLink", but it can be overridden in the extension, so check for that.
+				if nextLink, ok := pageableMap["nextLinkName"].(string); ok {
+					nextLinkName = nextLink
+				}
+				if item, ok := pageableMap["itemName"].(string); ok {
+					itemName = item
+				}
+			}
+
+			return &ListOperationSpec{
+				Operation:    operation,
+				Path:         path,
+				Method:       method,
+				NextLinkName: nextLinkName,
+				ItemName:     itemName,
+			}
+		}
+	}
+
+	return nil
 }
 
 func addResourcesAndInvokes(version VersionResources, fileLocation, path string, moduleNaming resources.ModuleNaming, swagger *Spec) DiscoveryDiagnostics {
