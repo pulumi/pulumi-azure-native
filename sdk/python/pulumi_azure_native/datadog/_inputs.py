@@ -44,39 +44,39 @@ class DatadogOrganizationPropertiesArgsDict(TypedDict):
     """
     Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
     """
-    api_key: NotRequired[pulumi.Input[_builtins.str]]
+    api_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Api key associated to the Datadog organization.
     """
-    application_key: NotRequired[pulumi.Input[_builtins.str]]
+    application_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Application key associated to the Datadog organization.
     """
-    cspm: NotRequired[pulumi.Input[_builtins.bool]]
+    cspm: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     The configuration which describes the state of cloud security posture management. This collects configuration information for all resources in a subscription and track conformance to industry benchmarks.
     """
-    enterprise_app_id: NotRequired[pulumi.Input[_builtins.str]]
+    enterprise_app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Id of the Enterprise App used for Single sign on.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of the Datadog organization.
     """
-    linking_auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    linking_auth_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The auth code used to linking to an existing Datadog organization.
     """
-    linking_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    linking_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The client_id from an existing in exchange for an auth token to link organization.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the Datadog organization.
     """
-    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    redirect_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The redirect URI for linking.
     """
@@ -84,15 +84,15 @@ class DatadogOrganizationPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DatadogOrganizationPropertiesArgs:
     def __init__(__self__, *,
-                 api_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 application_key: Optional[pulumi.Input[_builtins.str]] = None,
-                 cspm: Optional[pulumi.Input[_builtins.bool]] = None,
-                 enterprise_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 linking_auth_code: Optional[pulumi.Input[_builtins.str]] = None,
-                 linking_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 redirect_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 application_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cspm: pulumi.Input[Optional[_builtins.bool]] = None,
+                 enterprise_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 linking_auth_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 linking_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
 
@@ -127,110 +127,110 @@ class DatadogOrganizationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
-    def api_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Api key associated to the Datadog organization.
         """
         return pulumi.get(self, "api_key")
 
     @api_key.setter
-    def api_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
     @pulumi.getter(name="applicationKey")
-    def application_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application key associated to the Datadog organization.
         """
         return pulumi.get(self, "application_key")
 
     @application_key.setter
-    def application_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_key", value)
 
     @_builtins.property
     @pulumi.getter
-    def cspm(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def cspm(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         The configuration which describes the state of cloud security posture management. This collects configuration information for all resources in a subscription and track conformance to industry benchmarks.
         """
         return pulumi.get(self, "cspm")
 
     @cspm.setter
-    def cspm(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def cspm(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "cspm", value)
 
     @_builtins.property
     @pulumi.getter(name="enterpriseAppId")
-    def enterprise_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def enterprise_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Id of the Enterprise App used for Single sign on.
         """
         return pulumi.get(self, "enterprise_app_id")
 
     @enterprise_app_id.setter
-    def enterprise_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def enterprise_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "enterprise_app_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the Datadog organization.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="linkingAuthCode")
-    def linking_auth_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linking_auth_code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The auth code used to linking to an existing Datadog organization.
         """
         return pulumi.get(self, "linking_auth_code")
 
     @linking_auth_code.setter
-    def linking_auth_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linking_auth_code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linking_auth_code", value)
 
     @_builtins.property
     @pulumi.getter(name="linkingClientId")
-    def linking_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def linking_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The client_id from an existing in exchange for an auth token to link organization.
         """
         return pulumi.get(self, "linking_client_id")
 
     @linking_client_id.setter
-    def linking_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def linking_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "linking_client_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the Datadog organization.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="redirectUri")
-    def redirect_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def redirect_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The redirect URI for linking.
         """
         return pulumi.get(self, "redirect_uri")
 
     @redirect_uri.setter
-    def redirect_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def redirect_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "redirect_uri", value)
 
 
@@ -238,15 +238,15 @@ class FilteringTagArgsDict(TypedDict):
     """
     The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
     """
-    action: NotRequired[pulumi.Input[Union[_builtins.str, 'TagAction']]]
+    action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'TagAction']]]]
     """
     Valid actions for a filtering tag. Exclusion takes priority over inclusion.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name (also known as the key) of the tag.
     """
-    value: NotRequired[pulumi.Input[_builtins.str]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The value of the tag.
     """
@@ -254,9 +254,9 @@ class FilteringTagArgsDict(TypedDict):
 @pulumi.input_type
 class FilteringTagArgs:
     def __init__(__self__, *,
-                 action: Optional[pulumi.Input[Union[_builtins.str, 'TagAction']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 value: Optional[pulumi.Input[_builtins.str]] = None):
+                 action: pulumi.Input[Optional[Union[_builtins.str, 'TagAction']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The definition of a filtering tag. Filtering tags are used for capturing resources and include/exclude them from being monitored.
 
@@ -273,43 +273,43 @@ class FilteringTagArgs:
 
     @_builtins.property
     @pulumi.getter
-    def action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TagAction']]]:
+    def action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'TagAction']]]:
         """
         Valid actions for a filtering tag. Exclusion takes priority over inclusion.
         """
         return pulumi.get(self, "action")
 
     @action.setter
-    def action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TagAction']]]):
+    def action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'TagAction']]]):
         pulumi.set(self, "action", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name (also known as the key) of the tag.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The value of the tag.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
 
 
 class IdentityPropertiesArgsDict(TypedDict):
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]]]
     """
     Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
     """
@@ -317,7 +317,7 @@ class IdentityPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityPropertiesArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]] = None):
         """
         :param pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']] type: Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
         """
@@ -326,14 +326,14 @@ class IdentityPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]]:
         """
         Specifies the identity type of the Datadog Monitor. At this time the only allowed value is 'SystemAssigned'.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]]):
         pulumi.set(self, "type", value)
 
 
@@ -341,19 +341,19 @@ class LogRulesArgsDict(TypedDict):
     """
     Set of rules for sending logs for the Monitor resource.
     """
-    filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgsDict']]]]
+    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgsDict']]]]]
     """
     List of filtering tags to be used for capturing logs. This only takes effect if SendResourceLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
     """
-    send_aad_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    send_aad_logs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag specifying if AAD logs should be sent for the Monitor resource.
     """
-    send_resource_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    send_resource_logs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag specifying if Azure resource logs should be sent for the Monitor resource.
     """
-    send_subscription_logs: NotRequired[pulumi.Input[_builtins.bool]]
+    send_subscription_logs: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Flag specifying if Azure subscription logs should be sent for the Monitor resource.
     """
@@ -361,10 +361,10 @@ class LogRulesArgsDict(TypedDict):
 @pulumi.input_type
 class LogRulesArgs:
     def __init__(__self__, *,
-                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
-                 send_aad_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_resource_logs: Optional[pulumi.Input[_builtins.bool]] = None,
-                 send_subscription_logs: Optional[pulumi.Input[_builtins.bool]] = None):
+                 filtering_tags: pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgs']]]] = None,
+                 send_aad_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_resource_logs: pulumi.Input[Optional[_builtins.bool]] = None,
+                 send_subscription_logs: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Set of rules for sending logs for the Monitor resource.
 
@@ -384,50 +384,50 @@ class LogRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="filteringTags")
-    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]:
+    def filtering_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgs']]]]:
         """
         List of filtering tags to be used for capturing logs. This only takes effect if SendResourceLogs flag is enabled. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
         return pulumi.get(self, "filtering_tags")
 
     @filtering_tags.setter
-    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]):
+    def filtering_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgs']]]]):
         pulumi.set(self, "filtering_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="sendAadLogs")
-    def send_aad_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_aad_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag specifying if AAD logs should be sent for the Monitor resource.
         """
         return pulumi.get(self, "send_aad_logs")
 
     @send_aad_logs.setter
-    def send_aad_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_aad_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_aad_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="sendResourceLogs")
-    def send_resource_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_resource_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag specifying if Azure resource logs should be sent for the Monitor resource.
         """
         return pulumi.get(self, "send_resource_logs")
 
     @send_resource_logs.setter
-    def send_resource_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_resource_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_resource_logs", value)
 
     @_builtins.property
     @pulumi.getter(name="sendSubscriptionLogs")
-    def send_subscription_logs(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def send_subscription_logs(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Flag specifying if Azure subscription logs should be sent for the Monitor resource.
         """
         return pulumi.get(self, "send_subscription_logs")
 
     @send_subscription_logs.setter
-    def send_subscription_logs(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def send_subscription_logs(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "send_subscription_logs", value)
 
 
@@ -435,7 +435,7 @@ class MetricRulesArgsDict(TypedDict):
     """
     Set of rules for sending metrics for the Monitor resource.
     """
-    filtering_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgsDict']]]]
+    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgsDict']]]]]
     """
     List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
     """
@@ -443,7 +443,7 @@ class MetricRulesArgsDict(TypedDict):
 @pulumi.input_type
 class MetricRulesArgs:
     def __init__(__self__, *,
-                 filtering_tags: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]] = None):
+                 filtering_tags: pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgs']]]] = None):
         """
         Set of rules for sending metrics for the Monitor resource.
 
@@ -454,14 +454,14 @@ class MetricRulesArgs:
 
     @_builtins.property
     @pulumi.getter(name="filteringTags")
-    def filtering_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]:
+    def filtering_tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgs']]]]:
         """
         List of filtering tags to be used for capturing metrics. If empty, all resources will be captured. If only Exclude action is specified, the rules will apply to the list of all available resources. If Include actions are specified, the rules will only include resources with the associated tags.
         """
         return pulumi.get(self, "filtering_tags")
 
     @filtering_tags.setter
-    def filtering_tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilteringTagArgs']]]]):
+    def filtering_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FilteringTagArgs']]]]):
         pulumi.set(self, "filtering_tags", value)
 
 
@@ -469,15 +469,15 @@ class MonitorPropertiesArgsDict(TypedDict):
     """
     Properties specific to the monitor resource.
     """
-    datadog_organization_properties: NotRequired[pulumi.Input['DatadogOrganizationPropertiesArgsDict']]
+    datadog_organization_properties: NotRequired[pulumi.Input[Optional['DatadogOrganizationPropertiesArgsDict']]]
     """
     Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
     """
-    monitoring_status: NotRequired[pulumi.Input[Union[_builtins.str, 'MonitoringStatus']]]
+    monitoring_status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'MonitoringStatus']]]]
     """
     Flag specifying if the resource monitoring is enabled or disabled.
     """
-    user_info: NotRequired[pulumi.Input['UserInfoArgsDict']]
+    user_info: NotRequired[pulumi.Input[Optional['UserInfoArgsDict']]]
     """
     Includes name, email and optionally, phone number. User Information can't be null.
     """
@@ -485,9 +485,9 @@ class MonitorPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class MonitorPropertiesArgs:
     def __init__(__self__, *,
-                 datadog_organization_properties: Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']] = None,
-                 monitoring_status: Optional[pulumi.Input[Union[_builtins.str, 'MonitoringStatus']]] = None,
-                 user_info: Optional[pulumi.Input['UserInfoArgs']] = None):
+                 datadog_organization_properties: pulumi.Input[Optional['DatadogOrganizationPropertiesArgs']] = None,
+                 monitoring_status: pulumi.Input[Optional[Union[_builtins.str, 'MonitoringStatus']]] = None,
+                 user_info: pulumi.Input[Optional['UserInfoArgs']] = None):
         """
         Properties specific to the monitor resource.
 
@@ -504,38 +504,38 @@ class MonitorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="datadogOrganizationProperties")
-    def datadog_organization_properties(self) -> Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']]:
+    def datadog_organization_properties(self) -> pulumi.Input[Optional['DatadogOrganizationPropertiesArgs']]:
         """
         Specify the Datadog organization name. In the case of linking to existing organizations, Id, ApiKey, and Applicationkey is required as well.
         """
         return pulumi.get(self, "datadog_organization_properties")
 
     @datadog_organization_properties.setter
-    def datadog_organization_properties(self, value: Optional[pulumi.Input['DatadogOrganizationPropertiesArgs']]):
+    def datadog_organization_properties(self, value: pulumi.Input[Optional['DatadogOrganizationPropertiesArgs']]):
         pulumi.set(self, "datadog_organization_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="monitoringStatus")
-    def monitoring_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MonitoringStatus']]]:
+    def monitoring_status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'MonitoringStatus']]]:
         """
         Flag specifying if the resource monitoring is enabled or disabled.
         """
         return pulumi.get(self, "monitoring_status")
 
     @monitoring_status.setter
-    def monitoring_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MonitoringStatus']]]):
+    def monitoring_status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'MonitoringStatus']]]):
         pulumi.set(self, "monitoring_status", value)
 
     @_builtins.property
     @pulumi.getter(name="userInfo")
-    def user_info(self) -> Optional[pulumi.Input['UserInfoArgs']]:
+    def user_info(self) -> pulumi.Input[Optional['UserInfoArgs']]:
         """
         Includes name, email and optionally, phone number. User Information can't be null.
         """
         return pulumi.get(self, "user_info")
 
     @user_info.setter
-    def user_info(self, value: Optional[pulumi.Input['UserInfoArgs']]):
+    def user_info(self, value: pulumi.Input[Optional['UserInfoArgs']]):
         pulumi.set(self, "user_info", value)
 
 
@@ -543,19 +543,19 @@ class MonitoredSubscriptionArgsDict(TypedDict):
     """
     The list of subscriptions and it's monitoring status by current Datadog monitor.
     """
-    error: NotRequired[pulumi.Input[_builtins.str]]
+    error: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason of not monitoring the subscription.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'Status']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Status']]]]
     """
     The state of monitoring.
     """
-    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The subscriptionId to be monitored.
     """
-    tag_rules: NotRequired[pulumi.Input['MonitoringTagRulesPropertiesArgsDict']]
+    tag_rules: NotRequired[pulumi.Input[Optional['MonitoringTagRulesPropertiesArgsDict']]]
     """
     Definition of the properties for a TagRules resource.
     """
@@ -563,10 +563,10 @@ class MonitoredSubscriptionArgsDict(TypedDict):
 @pulumi.input_type
 class MonitoredSubscriptionArgs:
     def __init__(__self__, *,
-                 error: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'Status']]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_rules: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']] = None):
+                 error: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'Status']]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_rules: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']] = None):
         """
         The list of subscriptions and it's monitoring status by current Datadog monitor.
 
@@ -586,50 +586,50 @@ class MonitoredSubscriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def error(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def error(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason of not monitoring the subscription.
         """
         return pulumi.get(self, "error")
 
     @error.setter
-    def error(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def error(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "error", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Status']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Status']]]:
         """
         The state of monitoring.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Status']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Status']]]):
         pulumi.set(self, "status", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The subscriptionId to be monitored.
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tagRules")
-    def tag_rules(self) -> Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]:
+    def tag_rules(self) -> pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']]:
         """
         Definition of the properties for a TagRules resource.
         """
         return pulumi.get(self, "tag_rules")
 
     @tag_rules.setter
-    def tag_rules(self, value: Optional[pulumi.Input['MonitoringTagRulesPropertiesArgs']]):
+    def tag_rules(self, value: pulumi.Input[Optional['MonitoringTagRulesPropertiesArgs']]):
         pulumi.set(self, "tag_rules", value)
 
 
@@ -637,19 +637,19 @@ class MonitoringTagRulesPropertiesArgsDict(TypedDict):
     """
     Definition of the properties for a TagRules resource.
     """
-    automuting: NotRequired[pulumi.Input[_builtins.bool]]
+    automuting: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Configuration to enable/disable auto-muting flag
     """
-    custom_metrics: NotRequired[pulumi.Input[_builtins.bool]]
+    custom_metrics: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Configuration to enable/disable custom metrics. If enabled, custom metrics from app insights will be sent.
     """
-    log_rules: NotRequired[pulumi.Input['LogRulesArgsDict']]
+    log_rules: NotRequired[pulumi.Input[Optional['LogRulesArgsDict']]]
     """
     Set of rules for sending logs for the Monitor resource.
     """
-    metric_rules: NotRequired[pulumi.Input['MetricRulesArgsDict']]
+    metric_rules: NotRequired[pulumi.Input[Optional['MetricRulesArgsDict']]]
     """
     Set of rules for sending metrics for the Monitor resource.
     """
@@ -657,10 +657,10 @@ class MonitoringTagRulesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class MonitoringTagRulesPropertiesArgs:
     def __init__(__self__, *,
-                 automuting: Optional[pulumi.Input[_builtins.bool]] = None,
-                 custom_metrics: Optional[pulumi.Input[_builtins.bool]] = None,
-                 log_rules: Optional[pulumi.Input['LogRulesArgs']] = None,
-                 metric_rules: Optional[pulumi.Input['MetricRulesArgs']] = None):
+                 automuting: pulumi.Input[Optional[_builtins.bool]] = None,
+                 custom_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
+                 log_rules: pulumi.Input[Optional['LogRulesArgs']] = None,
+                 metric_rules: pulumi.Input[Optional['MetricRulesArgs']] = None):
         """
         Definition of the properties for a TagRules resource.
 
@@ -680,50 +680,50 @@ class MonitoringTagRulesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def automuting(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def automuting(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Configuration to enable/disable auto-muting flag
         """
         return pulumi.get(self, "automuting")
 
     @automuting.setter
-    def automuting(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def automuting(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "automuting", value)
 
     @_builtins.property
     @pulumi.getter(name="customMetrics")
-    def custom_metrics(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def custom_metrics(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Configuration to enable/disable custom metrics. If enabled, custom metrics from app insights will be sent.
         """
         return pulumi.get(self, "custom_metrics")
 
     @custom_metrics.setter
-    def custom_metrics(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def custom_metrics(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "custom_metrics", value)
 
     @_builtins.property
     @pulumi.getter(name="logRules")
-    def log_rules(self) -> Optional[pulumi.Input['LogRulesArgs']]:
+    def log_rules(self) -> pulumi.Input[Optional['LogRulesArgs']]:
         """
         Set of rules for sending logs for the Monitor resource.
         """
         return pulumi.get(self, "log_rules")
 
     @log_rules.setter
-    def log_rules(self, value: Optional[pulumi.Input['LogRulesArgs']]):
+    def log_rules(self, value: pulumi.Input[Optional['LogRulesArgs']]):
         pulumi.set(self, "log_rules", value)
 
     @_builtins.property
     @pulumi.getter(name="metricRules")
-    def metric_rules(self) -> Optional[pulumi.Input['MetricRulesArgs']]:
+    def metric_rules(self) -> pulumi.Input[Optional['MetricRulesArgs']]:
         """
         Set of rules for sending metrics for the Monitor resource.
         """
         return pulumi.get(self, "metric_rules")
 
     @metric_rules.setter
-    def metric_rules(self, value: Optional[pulumi.Input['MetricRulesArgs']]):
+    def metric_rules(self, value: pulumi.Input[Optional['MetricRulesArgs']]):
         pulumi.set(self, "metric_rules", value)
 
 
@@ -759,11 +759,11 @@ class SubscriptionListArgsDict(TypedDict):
     """
     The request to update subscriptions needed to be monitored by the Datadog monitor resource.
     """
-    monitored_subscription_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgsDict']]]]
+    monitored_subscription_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitoredSubscriptionArgsDict']]]]]
     """
     List of subscriptions and the state of the monitoring.
     """
-    operation: NotRequired[pulumi.Input[Union[_builtins.str, 'Operation']]]
+    operation: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Operation']]]]
     """
     The operation for the patch on the resource.
     """
@@ -771,8 +771,8 @@ class SubscriptionListArgsDict(TypedDict):
 @pulumi.input_type
 class SubscriptionListArgs:
     def __init__(__self__, *,
-                 monitored_subscription_list: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]] = None,
-                 operation: Optional[pulumi.Input[Union[_builtins.str, 'Operation']]] = None):
+                 monitored_subscription_list: pulumi.Input[Optional[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]] = None,
+                 operation: pulumi.Input[Optional[Union[_builtins.str, 'Operation']]] = None):
         """
         The request to update subscriptions needed to be monitored by the Datadog monitor resource.
 
@@ -786,26 +786,26 @@ class SubscriptionListArgs:
 
     @_builtins.property
     @pulumi.getter(name="monitoredSubscriptionList")
-    def monitored_subscription_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]:
+    def monitored_subscription_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]:
         """
         List of subscriptions and the state of the monitoring.
         """
         return pulumi.get(self, "monitored_subscription_list")
 
     @monitored_subscription_list.setter
-    def monitored_subscription_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]):
+    def monitored_subscription_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitoredSubscriptionArgs']]]]):
         pulumi.set(self, "monitored_subscription_list", value)
 
     @_builtins.property
     @pulumi.getter
-    def operation(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Operation']]]:
+    def operation(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Operation']]]:
         """
         The operation for the patch on the resource.
         """
         return pulumi.get(self, "operation")
 
     @operation.setter
-    def operation(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Operation']]]):
+    def operation(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Operation']]]):
         pulumi.set(self, "operation", value)
 
 
@@ -813,15 +813,15 @@ class UserInfoArgsDict(TypedDict):
     """
     Includes name, email and optionally, phone number. User Information can't be null.
     """
-    email_address: NotRequired[pulumi.Input[_builtins.str]]
+    email_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Email of the user used by Datadog for contacting them if needed
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the user
     """
-    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    phone_number: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Phone number of the user used by Datadog for contacting them if needed
     """
@@ -829,9 +829,9 @@ class UserInfoArgsDict(TypedDict):
 @pulumi.input_type
 class UserInfoArgs:
     def __init__(__self__, *,
-                 email_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 phone_number: Optional[pulumi.Input[_builtins.str]] = None):
+                 email_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 phone_number: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Includes name, email and optionally, phone number. User Information can't be null.
 
@@ -848,38 +848,38 @@ class UserInfoArgs:
 
     @_builtins.property
     @pulumi.getter(name="emailAddress")
-    def email_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def email_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email of the user used by Datadog for contacting them if needed
         """
         return pulumi.get(self, "email_address")
 
     @email_address.setter
-    def email_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def email_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "email_address", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the user
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="phoneNumber")
-    def phone_number(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def phone_number(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Phone number of the user used by Datadog for contacting them if needed
         """
         return pulumi.get(self, "phone_number")
 
     @phone_number.setter
-    def phone_number(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def phone_number(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone_number", value)
 
 

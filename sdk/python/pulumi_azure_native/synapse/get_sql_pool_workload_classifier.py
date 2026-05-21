@@ -197,11 +197,11 @@ def get_sql_pool_workload_classifier(resource_group_name: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         start_time=pulumi.get(__ret__, 'start_time'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_pool_workload_classifier_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            workload_classifier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            workload_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_pool_workload_classifier_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            workload_classifier_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            workload_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolWorkloadClassifierResult]:
     """
     Get a workload classifier of Sql pool's workload group.

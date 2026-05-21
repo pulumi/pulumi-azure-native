@@ -205,9 +205,9 @@ def get_assessment(assessment_name: Optional[_builtins.str] = None,
         resource_details=pulumi.get(__ret__, 'resource_details'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_assessment_output(assessment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_assessment_output(assessment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssessmentResult]:
     """
     Get a security assessment on your scanned resource

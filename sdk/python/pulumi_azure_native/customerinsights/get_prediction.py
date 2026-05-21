@@ -333,9 +333,9 @@ def get_prediction(hub_name: Optional[_builtins.str] = None,
         system_generated_entities=pulumi.get(__ret__, 'system_generated_entities'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_prediction_output(hub_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          prediction_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_prediction_output(hub_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          prediction_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPredictionResult]:
     """
     Gets a Prediction in the hub.

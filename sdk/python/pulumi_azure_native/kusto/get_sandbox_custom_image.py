@@ -178,9 +178,9 @@ def get_sandbox_custom_image(cluster_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         requirements_file_content=pulumi.get(__ret__, 'requirements_file_content'),
         type=pulumi.get(__ret__, 'type'))
-def get_sandbox_custom_image_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    sandbox_custom_image_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sandbox_custom_image_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    sandbox_custom_image_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSandboxCustomImageResult]:
     """
     Returns a sandbox custom image

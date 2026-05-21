@@ -219,9 +219,9 @@ def get_agent_pool(agent_pool_name: Optional[_builtins.str] = None,
         tier=pulumi.get(__ret__, 'tier'),
         type=pulumi.get(__ret__, 'type'),
         virtual_network_subnet_resource_id=pulumi.get(__ret__, 'virtual_network_subnet_resource_id'))
-def get_agent_pool_output(agent_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agent_pool_output(agent_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentPoolResult]:
     """
     Gets the detailed information for a given agent pool.

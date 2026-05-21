@@ -139,9 +139,9 @@ def get_database_account_cassandra_keyspace(account_name: Optional[_builtins.str
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_database_account_cassandra_keyspace_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   keyspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_account_cassandra_keyspace_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseAccountCassandraKeyspaceResult]:
     """
     Gets the Cassandra keyspaces under an existing Azure Cosmos DB database account with the provided name.

@@ -221,10 +221,10 @@ def get_express_route_circuit_connection(circuit_name: Optional[_builtins.str] =
         peer_express_route_circuit_peering=pulumi.get(__ret__, 'peer_express_route_circuit_peering'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_express_route_circuit_connection_output(circuit_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_express_route_circuit_connection_output(circuit_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                peering_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExpressRouteCircuitConnectionResult]:
     """
     Gets the specified Express Route Circuit Connection from the specified express route circuit.

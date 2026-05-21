@@ -387,9 +387,9 @@ def get_auto_export_job(aml_filesystem_name: Optional[_builtins.str] = None,
         total_files_failed=pulumi.get(__ret__, 'total_files_failed'),
         total_mi_b_exported=pulumi.get(__ret__, 'total_mi_b_exported'),
         type=pulumi.get(__ret__, 'type'))
-def get_auto_export_job_output(aml_filesystem_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               auto_export_job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_auto_export_job_output(aml_filesystem_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               auto_export_job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoExportJobResult]:
     """
     Returns an auto export job.

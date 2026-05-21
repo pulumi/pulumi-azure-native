@@ -26,7 +26,7 @@ class AppliancePropertiesInfrastructureConfigArgsDict(TypedDict):
     """
     Contains infrastructure information about the Appliance
     """
-    provider: NotRequired[pulumi.Input[Union[_builtins.str, 'Provider']]]
+    provider: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Provider']]]]
     """
     Information about the connected appliance.
     """
@@ -34,7 +34,7 @@ class AppliancePropertiesInfrastructureConfigArgsDict(TypedDict):
 @pulumi.input_type
 class AppliancePropertiesInfrastructureConfigArgs:
     def __init__(__self__, *,
-                 provider: Optional[pulumi.Input[Union[_builtins.str, 'Provider']]] = None):
+                 provider: pulumi.Input[Optional[Union[_builtins.str, 'Provider']]] = None):
         """
         Contains infrastructure information about the Appliance
 
@@ -45,14 +45,14 @@ class AppliancePropertiesInfrastructureConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def provider(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Provider']]]:
+    def provider(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Provider']]]:
         """
         Information about the connected appliance.
         """
         return pulumi.get(self, "provider")
 
     @provider.setter
-    def provider(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Provider']]]):
+    def provider(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Provider']]]):
         pulumi.set(self, "provider", value)
 
 
@@ -60,7 +60,7 @@ class IdentityArgsDict(TypedDict):
     """
     Identity for the resource.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]]
     """
     The identity type.
     """
@@ -68,7 +68,7 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]] = None):
         """
         Identity for the resource.
 
@@ -79,14 +79,14 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]:
         """
         The identity type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ResourceIdentityType']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ResourceIdentityType']]]):
         pulumi.set(self, "type", value)
 
 

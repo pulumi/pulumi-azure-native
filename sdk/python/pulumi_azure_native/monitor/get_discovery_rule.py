@@ -141,10 +141,10 @@ def get_discovery_rule(azure_monitor_workspace_name: Optional[_builtins.str] = N
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_discovery_rule_output(azure_monitor_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              discovery_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_discovery_rule_output(azure_monitor_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              discovery_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiscoveryRuleResult]:
     """
     Get a DiscoveryRule

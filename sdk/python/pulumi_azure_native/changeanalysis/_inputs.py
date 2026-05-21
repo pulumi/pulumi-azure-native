@@ -30,15 +30,15 @@ class AzureMonitorWorkspacePropertiesArgsDict(TypedDict):
     """
     Configuration properties of an Azure Monitor workspace that receives change notifications.
     """
-    include_change_details: NotRequired[pulumi.Input[Union[_builtins.str, 'ChangeDetailsMode']]]
+    include_change_details: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ChangeDetailsMode']]]]
     """
     The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
     """
-    workspace_id: NotRequired[pulumi.Input[_builtins.str]]
+    workspace_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
     """
-    workspace_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    workspace_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
     """
@@ -46,9 +46,9 @@ class AzureMonitorWorkspacePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class AzureMonitorWorkspacePropertiesArgs:
     def __init__(__self__, *,
-                 include_change_details: Optional[pulumi.Input[Union[_builtins.str, 'ChangeDetailsMode']]] = None,
-                 workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 include_change_details: pulumi.Input[Optional[Union[_builtins.str, 'ChangeDetailsMode']]] = None,
+                 workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Configuration properties of an Azure Monitor workspace that receives change notifications.
 
@@ -65,38 +65,38 @@ class AzureMonitorWorkspacePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="includeChangeDetails")
-    def include_change_details(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ChangeDetailsMode']]]:
+    def include_change_details(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ChangeDetailsMode']]]:
         """
         The mode of includeChangeDetails feature. The flag configures whether to include or exclude content of the change before and after values.
         """
         return pulumi.get(self, "include_change_details")
 
     @include_change_details.setter
-    def include_change_details(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ChangeDetailsMode']]]):
+    def include_change_details(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ChangeDetailsMode']]]):
         pulumi.set(self, "include_change_details", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceId")
-    def workspace_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Monitor workspace ID - the unique identifier for the Log Analytics workspace.
         """
         return pulumi.get(self, "workspace_id")
 
     @workspace_id.setter
-    def workspace_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceResourceId")
-    def workspace_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Monitor workspace ARM Resource ID. The resource ID should be in the following format: /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}
         """
         return pulumi.get(self, "workspace_resource_id")
 
     @workspace_resource_id.setter
-    def workspace_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_resource_id", value)
 
 
@@ -104,7 +104,7 @@ class ConfigurationProfileResourcePropertiesArgsDict(TypedDict):
     """
     The properties of a configuration profile.
     """
-    notifications: NotRequired[pulumi.Input['NotificationSettingsArgsDict']]
+    notifications: NotRequired[pulumi.Input[Optional['NotificationSettingsArgsDict']]]
     """
     Settings of change notification configuration for a subscription.
     """
@@ -112,7 +112,7 @@ class ConfigurationProfileResourcePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class ConfigurationProfileResourcePropertiesArgs:
     def __init__(__self__, *,
-                 notifications: Optional[pulumi.Input['NotificationSettingsArgs']] = None):
+                 notifications: pulumi.Input[Optional['NotificationSettingsArgs']] = None):
         """
         The properties of a configuration profile.
 
@@ -123,14 +123,14 @@ class ConfigurationProfileResourcePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def notifications(self) -> Optional[pulumi.Input['NotificationSettingsArgs']]:
+    def notifications(self) -> pulumi.Input[Optional['NotificationSettingsArgs']]:
         """
         Settings of change notification configuration for a subscription.
         """
         return pulumi.get(self, "notifications")
 
     @notifications.setter
-    def notifications(self, value: Optional[pulumi.Input['NotificationSettingsArgs']]):
+    def notifications(self, value: pulumi.Input[Optional['NotificationSettingsArgs']]):
         pulumi.set(self, "notifications", value)
 
 
@@ -138,11 +138,11 @@ class NotificationSettingsArgsDict(TypedDict):
     """
     Settings of change notification configuration for a subscription.
     """
-    activation_state: NotRequired[pulumi.Input[Union[_builtins.str, 'NotificationsState']]]
+    activation_state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NotificationsState']]]]
     """
     The state of notifications feature.
     """
-    azure_monitor_workspace_properties: NotRequired[pulumi.Input['AzureMonitorWorkspacePropertiesArgsDict']]
+    azure_monitor_workspace_properties: NotRequired[pulumi.Input[Optional['AzureMonitorWorkspacePropertiesArgsDict']]]
     """
     Configuration properties of an Azure Monitor workspace that receives change notifications.
     """
@@ -150,8 +150,8 @@ class NotificationSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class NotificationSettingsArgs:
     def __init__(__self__, *,
-                 activation_state: Optional[pulumi.Input[Union[_builtins.str, 'NotificationsState']]] = None,
-                 azure_monitor_workspace_properties: Optional[pulumi.Input['AzureMonitorWorkspacePropertiesArgs']] = None):
+                 activation_state: pulumi.Input[Optional[Union[_builtins.str, 'NotificationsState']]] = None,
+                 azure_monitor_workspace_properties: pulumi.Input[Optional['AzureMonitorWorkspacePropertiesArgs']] = None):
         """
         Settings of change notification configuration for a subscription.
 
@@ -165,26 +165,26 @@ class NotificationSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="activationState")
-    def activation_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NotificationsState']]]:
+    def activation_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NotificationsState']]]:
         """
         The state of notifications feature.
         """
         return pulumi.get(self, "activation_state")
 
     @activation_state.setter
-    def activation_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NotificationsState']]]):
+    def activation_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NotificationsState']]]):
         pulumi.set(self, "activation_state", value)
 
     @_builtins.property
     @pulumi.getter(name="azureMonitorWorkspaceProperties")
-    def azure_monitor_workspace_properties(self) -> Optional[pulumi.Input['AzureMonitorWorkspacePropertiesArgs']]:
+    def azure_monitor_workspace_properties(self) -> pulumi.Input[Optional['AzureMonitorWorkspacePropertiesArgs']]:
         """
         Configuration properties of an Azure Monitor workspace that receives change notifications.
         """
         return pulumi.get(self, "azure_monitor_workspace_properties")
 
     @azure_monitor_workspace_properties.setter
-    def azure_monitor_workspace_properties(self, value: Optional[pulumi.Input['AzureMonitorWorkspacePropertiesArgs']]):
+    def azure_monitor_workspace_properties(self, value: pulumi.Input[Optional['AzureMonitorWorkspacePropertiesArgs']]):
         pulumi.set(self, "azure_monitor_workspace_properties", value)
 
 
@@ -192,7 +192,7 @@ class ResourceIdentityArgsDict(TypedDict):
     """
     The identity block returned by ARM resource that supports managed identity.
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]]]
     """
     The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
     """
@@ -200,7 +200,7 @@ class ResourceIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]] = None):
         """
         The identity block returned by ARM resource that supports managed identity.
 
@@ -211,14 +211,14 @@ class ResourceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]]:
         """
         The type of managed identity used. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user-assigned identities. The type 'None' will remove any identities.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ManagedIdentityTypes']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ManagedIdentityTypes']]]):
         pulumi.set(self, "type", value)
 
 

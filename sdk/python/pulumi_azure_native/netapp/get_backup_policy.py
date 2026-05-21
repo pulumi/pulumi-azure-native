@@ -270,9 +270,9 @@ def get_backup_policy(account_name: Optional[_builtins.str] = None,
         volume_backups=pulumi.get(__ret__, 'volume_backups'),
         volumes_assigned=pulumi.get(__ret__, 'volumes_assigned'),
         weekly_backups_to_keep=pulumi.get(__ret__, 'weekly_backups_to_keep'))
-def get_backup_policy_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_backup_policy_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBackupPolicyResult]:
     """
     Get a particular backup Policy

@@ -74,9 +74,9 @@ def list_identity_provider_secrets(identity_provider_name: Optional[_builtins.st
 
     return AwaitableListIdentityProviderSecretsResult(
         client_secret=pulumi.get(__ret__, 'client_secret'))
-def list_identity_provider_secrets_output(identity_provider_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_identity_provider_secrets_output(identity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIdentityProviderSecretsResult]:
     """
     Gets the client secret details of the Identity Provider.

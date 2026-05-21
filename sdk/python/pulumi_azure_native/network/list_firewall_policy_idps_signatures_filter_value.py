@@ -74,9 +74,9 @@ def list_firewall_policy_idps_signatures_filter_value(filter_name: Optional[_bui
 
     return AwaitableListFirewallPolicyIdpsSignaturesFilterValueResult(
         filter_values=pulumi.get(__ret__, 'filter_values'))
-def list_firewall_policy_idps_signatures_filter_value_output(filter_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                             firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_firewall_policy_idps_signatures_filter_value_output(filter_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                             firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFirewallPolicyIdpsSignaturesFilterValueResult]:
     """
     Retrieves the current filter values for the signatures overrides

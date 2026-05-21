@@ -361,9 +361,9 @@ def get_vpn_connection(connection_name: Optional[_builtins.str] = None,
         use_policy_based_traffic_selectors=pulumi.get(__ret__, 'use_policy_based_traffic_selectors'),
         vpn_connection_protocol_type=pulumi.get(__ret__, 'vpn_connection_protocol_type'),
         vpn_link_connections=pulumi.get(__ret__, 'vpn_link_connections'))
-def get_vpn_connection_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_vpn_connection_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
     Retrieves the details of a vpn connection.

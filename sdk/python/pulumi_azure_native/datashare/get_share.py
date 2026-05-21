@@ -216,9 +216,9 @@ def get_share(account_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_email=pulumi.get(__ret__, 'user_email'),
         user_name=pulumi.get(__ret__, 'user_name'))
-def get_share_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     share_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_share_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     share_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetShareResult]:
     """
     Get a share

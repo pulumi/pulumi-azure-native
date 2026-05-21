@@ -24,8 +24,8 @@ class BindingArgs:
                  app_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['BindingResourcePropertiesArgs']] = None):
+                 binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['BindingResourcePropertiesArgs']] = None):
         """
         The set of arguments for constructing a Binding resource.
 
@@ -81,26 +81,26 @@ class BindingArgs:
 
     @_builtins.property
     @pulumi.getter(name="bindingName")
-    def binding_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def binding_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Binding resource.
         """
         return pulumi.get(self, "binding_name")
 
     @binding_name.setter
-    def binding_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def binding_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "binding_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['BindingResourcePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['BindingResourcePropertiesArgs']]:
         """
         Properties of the Binding resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['BindingResourcePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['BindingResourcePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -110,11 +110,11 @@ class Binding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BindingResourcePropertiesArgs', 'BindingResourcePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BindingResourcePropertiesArgs', 'BindingResourcePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Binding resource payload
@@ -161,11 +161,11 @@ class Binding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 binding_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BindingResourcePropertiesArgs', 'BindingResourcePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 app_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 binding_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BindingResourcePropertiesArgs', 'BindingResourcePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

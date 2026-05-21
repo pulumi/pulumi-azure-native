@@ -222,11 +222,11 @@ def get_database_principal_assignment(database_name: Optional[_builtins.str] = N
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         tenant_name=pulumi.get(__ret__, 'tenant_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_database_principal_assignment_output(database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             kusto_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             principal_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_principal_assignment_output(database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             kusto_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             principal_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabasePrincipalAssignmentResult]:
     """
     Gets a Kusto pool database principalAssignment.

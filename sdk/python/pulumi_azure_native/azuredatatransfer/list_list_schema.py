@@ -97,16 +97,16 @@ def list_list_schema(connection_id: Optional[_builtins.str] = None,
 
     return AwaitableListListSchemaResult(
         value=pulumi.get(__ret__, 'value'))
-def list_list_schema_output(connection_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            content: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            direction: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SchemaDirection']]]] = None,
-                            id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            schema_type: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SchemaType']]]] = None,
-                            schema_uri: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                            status: Optional[pulumi.Input[Optional[Union[_builtins.str, 'SchemaStatus']]]] = None,
+def list_list_schema_output(connection_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            content: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            direction: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SchemaDirection']]]] = None,
+                            id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            schema_type: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SchemaType']]]] = None,
+                            schema_uri: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            status: pulumi.Input[Optional[Optional[Union[_builtins.str, 'SchemaStatus']]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListSchemaResult]:
     """
     Lists the schemas for the specified connection in a pipeline.

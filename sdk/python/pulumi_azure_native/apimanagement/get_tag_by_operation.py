@@ -132,11 +132,11 @@ def get_tag_by_operation(api_id: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'))
-def get_tag_by_operation_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                operation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_tag_by_operation_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                operation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                tag_id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagByOperationResult]:
     """
     Get tag associated with the Operation.

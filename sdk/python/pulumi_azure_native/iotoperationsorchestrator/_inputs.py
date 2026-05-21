@@ -113,7 +113,7 @@ class ComponentPropertiesArgsDict(TypedDict):
     """
     Component type.
     """
-    dependencies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    dependencies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Component dependencies.
     """
@@ -127,7 +127,7 @@ class ComponentPropertiesArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 dependencies: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 dependencies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  properties: Optional[Any] = None):
         """
         Defines a desired runtime component.
@@ -170,14 +170,14 @@ class ComponentPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def dependencies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def dependencies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Component dependencies.
         """
         return pulumi.get(self, "dependencies")
 
     @dependencies.setter
-    def dependencies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def dependencies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "dependencies", value)
 
     @_builtins.property
@@ -253,7 +253,7 @@ class ReconciliationPolicyArgsDict(TypedDict):
     """
     Policy type
     """
-    interval: NotRequired[pulumi.Input[_builtins.str]]
+    interval: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Policy interval.
     """
@@ -262,7 +262,7 @@ class ReconciliationPolicyArgsDict(TypedDict):
 class ReconciliationPolicyArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ReconciliationPolicies']],
-                 interval: Optional[pulumi.Input[_builtins.str]] = None):
+                 interval: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Reconciliation Policy.
 
@@ -287,14 +287,14 @@ class ReconciliationPolicyArgs:
 
     @_builtins.property
     @pulumi.getter
-    def interval(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def interval(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Policy interval.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def interval(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "interval", value)
 
 
@@ -302,7 +302,7 @@ class TargetSelectorPropertiesArgsDict(TypedDict):
     """
     Properties of the reference target.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the target.
     """
@@ -310,7 +310,7 @@ class TargetSelectorPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TargetSelectorPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of the reference target.
 
@@ -321,14 +321,14 @@ class TargetSelectorPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the target.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -336,7 +336,7 @@ class TopologiesPropertiesArgsDict(TypedDict):
     """
     Defines a desired runtime component.
     """
-    bindings: NotRequired[pulumi.Input[Sequence[pulumi.Input['BindingPropertiesArgsDict']]]]
+    bindings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BindingPropertiesArgsDict']]]]]
     """
     bindings description.
     """
@@ -344,7 +344,7 @@ class TopologiesPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TopologiesPropertiesArgs:
     def __init__(__self__, *,
-                 bindings: Optional[pulumi.Input[Sequence[pulumi.Input['BindingPropertiesArgs']]]] = None):
+                 bindings: pulumi.Input[Optional[Sequence[pulumi.Input['BindingPropertiesArgs']]]] = None):
         """
         Defines a desired runtime component.
 
@@ -355,14 +355,14 @@ class TopologiesPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def bindings(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BindingPropertiesArgs']]]]:
+    def bindings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['BindingPropertiesArgs']]]]:
         """
         bindings description.
         """
         return pulumi.get(self, "bindings")
 
     @bindings.setter
-    def bindings(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BindingPropertiesArgs']]]]):
+    def bindings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['BindingPropertiesArgs']]]]):
         pulumi.set(self, "bindings", value)
 
 

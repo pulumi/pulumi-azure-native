@@ -267,8 +267,8 @@ def get_zone(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         zone_type=pulumi.get(__ret__, 'zone_type'))
-def get_zone_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    zone_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_zone_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZoneResult]:
     """
     Gets a DNS zone. Retrieves the zone properties, but not the record sets within the zone.

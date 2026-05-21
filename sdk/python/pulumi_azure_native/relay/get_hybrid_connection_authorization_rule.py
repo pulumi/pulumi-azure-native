@@ -156,10 +156,10 @@ def get_hybrid_connection_authorization_rule(authorization_rule_name: Optional[_
         rights=pulumi.get(__ret__, 'rights'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_hybrid_connection_authorization_rule_output(authorization_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    hybrid_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hybrid_connection_authorization_rule_output(authorization_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    hybrid_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridConnectionAuthorizationRuleResult]:
     """
     Hybrid connection authorization rule for a hybrid connection by name.

@@ -178,9 +178,9 @@ def get_api_gateway_config_connection(config_connection_name: Optional[_builtins
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         source_id=pulumi.get(__ret__, 'source_id'),
         type=pulumi.get(__ret__, 'type'))
-def get_api_gateway_config_connection_output(config_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_gateway_config_connection_output(config_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiGatewayConfigConnectionResult]:
     """
     Gets an API Management gateway config connection resource description.

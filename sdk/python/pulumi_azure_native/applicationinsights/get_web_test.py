@@ -319,8 +319,8 @@ def get_web_test(resource_group_name: Optional[_builtins.str] = None,
         validation_rules=pulumi.get(__ret__, 'validation_rules'),
         web_test_kind=pulumi.get(__ret__, 'web_test_kind'),
         web_test_name=pulumi.get(__ret__, 'web_test_name'))
-def get_web_test_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        web_test_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_test_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        web_test_name: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebTestResult]:
     """
     Get a specific Application Insights web test definition.

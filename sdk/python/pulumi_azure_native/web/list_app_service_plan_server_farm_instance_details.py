@@ -98,8 +98,8 @@ def list_app_service_plan_server_farm_instance_details(name: Optional[_builtins.
         instance_count=pulumi.get(__ret__, 'instance_count'),
         instances=pulumi.get(__ret__, 'instances'),
         server_farm_name=pulumi.get(__ret__, 'server_farm_name'))
-def list_app_service_plan_server_farm_instance_details_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_app_service_plan_server_farm_instance_details_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAppServicePlanServerFarmInstanceDetailsResult]:
     """
     Description for Get the instance details for an app service plan.

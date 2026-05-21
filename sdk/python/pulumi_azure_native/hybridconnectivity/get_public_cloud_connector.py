@@ -200,8 +200,8 @@ def get_public_cloud_connector(public_cloud_connector: Optional[_builtins.str] =
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_public_cloud_connector_output(public_cloud_connector: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_public_cloud_connector_output(public_cloud_connector: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicCloudConnectorResult]:
     """
     Get a PublicCloudConnector

@@ -88,9 +88,9 @@ def get_products(product_name: Optional[_builtins.str] = None,
     return AwaitableGetProductsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def get_products_output(product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        registration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                        resource_group: Optional[pulumi.Input[_builtins.str]] = None,
+def get_products_output(product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        registration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                        resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductsResult]:
     """
     Returns a list of products.

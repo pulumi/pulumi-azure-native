@@ -22,7 +22,7 @@ class ServerAzureADOnlyAuthenticationArgs:
                  azure_ad_only_authentication: pulumi.Input[_builtins.bool],
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerAzureADOnlyAuthentication resource.
 
@@ -75,14 +75,14 @@ class ServerAzureADOnlyAuthenticationArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationName")
-    def authentication_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of server azure active directory only authentication.
         """
         return pulumi.get(self, "authentication_name")
 
     @authentication_name.setter
-    def authentication_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_name", value)
 
 
@@ -92,10 +92,10 @@ class ServerAzureADOnlyAuthentication(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_ad_only_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_ad_only_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Azure Active Directory only authentication.
@@ -141,10 +141,10 @@ class ServerAzureADOnlyAuthentication(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 azure_ad_only_authentication: Optional[pulumi.Input[_builtins.bool]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_ad_only_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

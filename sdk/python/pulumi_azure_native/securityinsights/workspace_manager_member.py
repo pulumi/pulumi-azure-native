@@ -24,7 +24,7 @@ class WorkspaceManagerMemberArgs:
                  target_workspace_resource_id: pulumi.Input[_builtins.str],
                  target_workspace_tenant_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 workspace_manager_member_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 workspace_manager_member_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceManagerMember resource.
 
@@ -91,14 +91,14 @@ class WorkspaceManagerMemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="workspaceManagerMemberName")
-    def workspace_manager_member_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def workspace_manager_member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the workspace manager member
         """
         return pulumi.get(self, "workspace_manager_member_name")
 
     @workspace_manager_member_name.setter
-    def workspace_manager_member_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def workspace_manager_member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "workspace_manager_member_name", value)
 
 
@@ -108,11 +108,11 @@ class WorkspaceManagerMember(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_workspace_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_manager_member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_workspace_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_manager_member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The workspace manager member
@@ -159,11 +159,11 @@ class WorkspaceManagerMember(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_workspace_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_workspace_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_manager_member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_workspace_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_workspace_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_manager_member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

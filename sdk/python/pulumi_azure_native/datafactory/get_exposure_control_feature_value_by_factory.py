@@ -88,10 +88,10 @@ def get_exposure_control_feature_value_by_factory(factory_name: Optional[_builti
     return AwaitableGetExposureControlFeatureValueByFactoryResult(
         feature_name=pulumi.get(__ret__, 'feature_name'),
         value=pulumi.get(__ret__, 'value'))
-def get_exposure_control_feature_value_by_factory_output(factory_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         feature_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                         feature_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_exposure_control_feature_value_by_factory_output(factory_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         feature_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                         feature_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExposureControlFeatureValueByFactoryResult]:
     """
     Get exposure control feature for specific factory.

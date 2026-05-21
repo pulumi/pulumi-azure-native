@@ -85,8 +85,8 @@ def list_vpn_server_configuration_radius_secrets(resource_group_name: Optional[_
     return AwaitableListVpnServerConfigurationRadiusSecretsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_vpn_server_configuration_radius_secrets_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        vpn_server_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_vpn_server_configuration_radius_secrets_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        vpn_server_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListVpnServerConfigurationRadiusSecretsResult]:
     """
     List all Radius servers with respective radius secrets from VpnServerConfiguration.

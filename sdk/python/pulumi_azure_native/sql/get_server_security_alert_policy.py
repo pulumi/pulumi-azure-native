@@ -231,9 +231,9 @@ def get_server_security_alert_policy(resource_group_name: Optional[_builtins.str
         storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_server_security_alert_policy_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            security_alert_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_server_security_alert_policy_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            security_alert_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerSecurityAlertPolicyResult]:
     """
     Get a server's security alert policy.

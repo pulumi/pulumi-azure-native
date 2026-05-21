@@ -22,10 +22,10 @@ class CacheRuleArgs:
     def __init__(__self__, *,
                  registry_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 cache_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_set_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_repository: Optional[pulumi.Input[_builtins.str]] = None):
+                 cache_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_set_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_repository: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a CacheRule resource.
 
@@ -74,43 +74,43 @@ class CacheRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="cacheRuleName")
-    def cache_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def cache_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the cache rule.
         """
         return pulumi.get(self, "cache_rule_name")
 
     @cache_rule_name.setter
-    def cache_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def cache_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cache_rule_name", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialSetResourceId")
-    def credential_set_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def credential_set_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ARM resource ID of the credential store which is associated with the cache rule.
         """
         return pulumi.get(self, "credential_set_resource_id")
 
     @credential_set_resource_id.setter
-    def credential_set_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def credential_set_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "credential_set_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceRepository")
-    def source_repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source repository pulled from upstream.
         """
         return pulumi.get(self, "source_repository")
 
     @source_repository.setter
-    def source_repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_repository", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRepository")
-    def target_repository(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_repository(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Target repository specified in docker pull command.
         Eg: docker pull myregistry.azurecr.io/{targetRepository}:{tag}
@@ -118,7 +118,7 @@ class CacheRuleArgs:
         return pulumi.get(self, "target_repository")
 
     @target_repository.setter
-    def target_repository(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_repository(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_repository", value)
 
 
@@ -128,12 +128,12 @@ class CacheRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_set_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 cache_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_set_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An object that represents a cache rule for a container registry.
@@ -182,12 +182,12 @@ class CacheRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cache_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 credential_set_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 registry_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_repository: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_repository: Optional[pulumi.Input[_builtins.str]] = None,
+                 cache_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 credential_set_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_repository: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_repository: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -74,9 +74,9 @@ def list_open_id_connect_provider_secrets(opid: Optional[_builtins.str] = None,
 
     return AwaitableListOpenIdConnectProviderSecretsResult(
         client_secret=pulumi.get(__ret__, 'client_secret'))
-def list_open_id_connect_provider_secrets_output(opid: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_open_id_connect_provider_secrets_output(opid: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListOpenIdConnectProviderSecretsResult]:
     """
     Gets the client secret details of the OpenID Connect Provider.

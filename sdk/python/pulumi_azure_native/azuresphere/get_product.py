@@ -151,9 +151,9 @@ def get_product(catalog_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_product_output(catalog_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       product_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_product_output(catalog_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       product_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductResult]:
     """
     Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name.

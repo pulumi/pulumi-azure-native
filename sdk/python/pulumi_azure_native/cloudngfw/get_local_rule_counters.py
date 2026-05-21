@@ -194,10 +194,10 @@ def get_local_rule_counters(firewall_name: Optional[_builtins.str] = None,
         rule_name=pulumi.get(__ret__, 'rule_name'),
         rule_stack_name=pulumi.get(__ret__, 'rule_stack_name'),
         timestamp=pulumi.get(__ret__, 'timestamp'))
-def get_local_rule_counters_output(firewall_name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                   local_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   priority: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_local_rule_counters_output(firewall_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                   local_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   priority: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalRuleCountersResult]:
     """
     Get counters

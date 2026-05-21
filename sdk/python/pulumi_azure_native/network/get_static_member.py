@@ -182,10 +182,10 @@ def get_static_member(network_group_name: Optional[_builtins.str] = None,
         resource_id=pulumi.get(__ret__, 'resource_id'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_static_member_output(network_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             static_member_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_static_member_output(network_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             static_member_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStaticMemberResult]:
     """
     Gets the specified static member.

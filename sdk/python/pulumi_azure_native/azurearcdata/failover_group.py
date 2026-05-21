@@ -25,7 +25,7 @@ class FailoverGroupArgs:
                  properties: pulumi.Input['FailoverGroupPropertiesArgs'],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sql_managed_instance_name: pulumi.Input[_builtins.str],
-                 failover_group_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 failover_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FailoverGroup resource.
 
@@ -78,14 +78,14 @@ class FailoverGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="failoverGroupName")
-    def failover_group_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def failover_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Failover Group
         """
         return pulumi.get(self, "failover_group_name")
 
     @failover_group_name.setter
-    def failover_group_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def failover_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "failover_group_name", value)
 
 
@@ -95,10 +95,10 @@ class FailoverGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failover_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FailoverGroupPropertiesArgs', 'FailoverGroupPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 failover_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FailoverGroupPropertiesArgs', 'FailoverGroupPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A failover group resource.
@@ -144,10 +144,10 @@ class FailoverGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 failover_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['FailoverGroupPropertiesArgs', 'FailoverGroupPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sql_managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 failover_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['FailoverGroupPropertiesArgs', 'FailoverGroupPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sql_managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -204,9 +204,9 @@ def get_template_artifact(artifact_name: Optional[_builtins.str] = None,
         resource_group=pulumi.get(__ret__, 'resource_group'),
         template=pulumi.get(__ret__, 'template'),
         type=pulumi.get(__ret__, 'type'))
-def get_template_artifact_output(artifact_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 blueprint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_template_artifact_output(artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 blueprint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_scope: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateArtifactResult]:
     """
     Get a blueprint artifact.

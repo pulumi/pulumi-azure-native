@@ -22,7 +22,7 @@ class VirtualNetworkRuleArgs:
                  account_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
-                 virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkRule resource.
 
@@ -75,14 +75,14 @@ class VirtualNetworkRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworkRuleName")
-    def virtual_network_rule_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_network_rule_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the virtual network rule to create or update.
         """
         return pulumi.get(self, "virtual_network_rule_name")
 
     @virtual_network_rule_name.setter
-    def virtual_network_rule_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_network_rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_network_rule_name", value)
 
 
@@ -92,10 +92,10 @@ class VirtualNetworkRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Data Lake Store virtual network rule information.
@@ -137,10 +137,10 @@ class VirtualNetworkRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 virtual_network_rule_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 virtual_network_rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

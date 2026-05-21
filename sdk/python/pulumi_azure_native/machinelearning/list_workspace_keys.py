@@ -82,8 +82,8 @@ def list_workspace_keys(resource_group_name: Optional[_builtins.str] = None,
     return AwaitableListWorkspaceKeysResult(
         primary_token=pulumi.get(__ret__, 'primary_token'),
         secondary_token=pulumi.get(__ret__, 'secondary_token'))
-def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workspace_keys_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceKeysResult]:
     """
     List the authorization keys associated with this workspace.

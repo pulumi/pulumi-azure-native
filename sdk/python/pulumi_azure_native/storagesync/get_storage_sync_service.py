@@ -267,8 +267,8 @@ def get_storage_sync_service(resource_group_name: Optional[_builtins.str] = None
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         use_identity=pulumi.get(__ret__, 'use_identity'))
-def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    storage_sync_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_sync_service_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    storage_sync_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageSyncServiceResult]:
     """
     Get a given StorageSyncService.

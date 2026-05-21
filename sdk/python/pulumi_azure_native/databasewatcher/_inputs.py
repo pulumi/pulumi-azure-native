@@ -56,11 +56,11 @@ class DatastoreArgsDict(TypedDict):
     """
     The type of a Kusto offering.
     """
-    adx_cluster_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    adx_cluster_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure resource ID of an Azure Data Explorer cluster.
     """
-    kusto_cluster_display_name: NotRequired[pulumi.Input[_builtins.str]]
+    kusto_cluster_display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Kusto cluster display name.
     """
@@ -73,8 +73,8 @@ class DatastoreArgs:
                  kusto_database_name: pulumi.Input[_builtins.str],
                  kusto_management_url: pulumi.Input[_builtins.str],
                  kusto_offering_type: pulumi.Input[Union[_builtins.str, 'KustoOfferingType']],
-                 adx_cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_cluster_display_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 adx_cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_cluster_display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of a data store.
 
@@ -158,26 +158,26 @@ class DatastoreArgs:
 
     @_builtins.property
     @pulumi.getter(name="adxClusterResourceId")
-    def adx_cluster_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def adx_cluster_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure resource ID of an Azure Data Explorer cluster.
         """
         return pulumi.get(self, "adx_cluster_resource_id")
 
     @adx_cluster_resource_id.setter
-    def adx_cluster_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def adx_cluster_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "adx_cluster_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="kustoClusterDisplayName")
-    def kusto_cluster_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def kusto_cluster_display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Kusto cluster display name.
         """
         return pulumi.get(self, "kusto_cluster_display_name")
 
     @kusto_cluster_display_name.setter
-    def kusto_cluster_display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def kusto_cluster_display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kusto_cluster_display_name", value)
 
 
@@ -189,7 +189,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -198,7 +198,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -223,14 +223,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -259,11 +259,11 @@ class SqlDbElasticPoolTargetPropertiesArgsDict(TypedDict):
     Discriminator property for TargetProperties.
     Expected value is 'SqlEp'.
     """
-    read_intent: NotRequired[pulumi.Input[_builtins.bool]]
+    read_intent: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to true to monitor a high availability replica of specified target, if any.
     """
-    target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
+    target_vault: NotRequired[pulumi.Input[Optional['VaultSecretArgsDict']]]
     """
     To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
     """
@@ -276,8 +276,8 @@ class SqlDbElasticPoolTargetPropertiesArgs:
                  sql_ep_resource_id: pulumi.Input[_builtins.str],
                  target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']],
                  target_type: pulumi.Input[_builtins.str],
-                 read_intent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
+                 read_intent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_vault: pulumi.Input[Optional['VaultSecretArgs']] = None):
         """
         The properties specific to an elastic pool in Azure SQL Database.
 
@@ -365,26 +365,26 @@ class SqlDbElasticPoolTargetPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="readIntent")
-    def read_intent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_intent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to monitor a high availability replica of specified target, if any.
         """
         return pulumi.get(self, "read_intent")
 
     @read_intent.setter
-    def read_intent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_intent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_intent", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVault")
-    def target_vault(self) -> Optional[pulumi.Input['VaultSecretArgs']]:
+    def target_vault(self) -> pulumi.Input[Optional['VaultSecretArgs']]:
         """
         To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
         """
         return pulumi.get(self, "target_vault")
 
     @target_vault.setter
-    def target_vault(self, value: Optional[pulumi.Input['VaultSecretArgs']]):
+    def target_vault(self, value: pulumi.Input[Optional['VaultSecretArgs']]):
         pulumi.set(self, "target_vault", value)
 
 
@@ -409,11 +409,11 @@ class SqlDbSingleDatabaseTargetPropertiesArgsDict(TypedDict):
     Discriminator property for TargetProperties.
     Expected value is 'SqlDb'.
     """
-    read_intent: NotRequired[pulumi.Input[_builtins.bool]]
+    read_intent: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to true to monitor a high availability replica of specified target, if any.
     """
-    target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
+    target_vault: NotRequired[pulumi.Input[Optional['VaultSecretArgsDict']]]
     """
     To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
     """
@@ -425,8 +425,8 @@ class SqlDbSingleDatabaseTargetPropertiesArgs:
                  sql_db_resource_id: pulumi.Input[_builtins.str],
                  target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']],
                  target_type: pulumi.Input[_builtins.str],
-                 read_intent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
+                 read_intent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_vault: pulumi.Input[Optional['VaultSecretArgs']] = None):
         """
         The properties specific to a database in Azure SQL Database.
 
@@ -500,26 +500,26 @@ class SqlDbSingleDatabaseTargetPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="readIntent")
-    def read_intent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_intent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to monitor a high availability replica of specified target, if any.
         """
         return pulumi.get(self, "read_intent")
 
     @read_intent.setter
-    def read_intent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_intent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_intent", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVault")
-    def target_vault(self) -> Optional[pulumi.Input['VaultSecretArgs']]:
+    def target_vault(self) -> pulumi.Input[Optional['VaultSecretArgs']]:
         """
         To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
         """
         return pulumi.get(self, "target_vault")
 
     @target_vault.setter
-    def target_vault(self, value: Optional[pulumi.Input['VaultSecretArgs']]):
+    def target_vault(self, value: pulumi.Input[Optional['VaultSecretArgs']]):
         pulumi.set(self, "target_vault", value)
 
 
@@ -544,15 +544,15 @@ class SqlMiTargetPropertiesArgsDict(TypedDict):
     Discriminator property for TargetProperties.
     Expected value is 'SqlMi'.
     """
-    connection_tcp_port: NotRequired[pulumi.Input[_builtins.int]]
+    connection_tcp_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The TCP port number to optionally use in the connection string when connecting to an Azure SQL Managed Instance target.
     """
-    read_intent: NotRequired[pulumi.Input[_builtins.bool]]
+    read_intent: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Set to true to monitor a high availability replica of specified target, if any.
     """
-    target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
+    target_vault: NotRequired[pulumi.Input[Optional['VaultSecretArgsDict']]]
     """
     To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
     """
@@ -564,9 +564,9 @@ class SqlMiTargetPropertiesArgs:
                  sql_mi_resource_id: pulumi.Input[_builtins.str],
                  target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']],
                  target_type: pulumi.Input[_builtins.str],
-                 connection_tcp_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 read_intent: Optional[pulumi.Input[_builtins.bool]] = None,
-                 target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
+                 connection_tcp_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 read_intent: pulumi.Input[Optional[_builtins.bool]] = None,
+                 target_vault: pulumi.Input[Optional['VaultSecretArgs']] = None):
         """
         The properties specific to Azure SQL Managed Instance targets.
 
@@ -645,38 +645,38 @@ class SqlMiTargetPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionTcpPort")
-    def connection_tcp_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_tcp_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The TCP port number to optionally use in the connection string when connecting to an Azure SQL Managed Instance target.
         """
         return pulumi.get(self, "connection_tcp_port")
 
     @connection_tcp_port.setter
-    def connection_tcp_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_tcp_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_tcp_port", value)
 
     @_builtins.property
     @pulumi.getter(name="readIntent")
-    def read_intent(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def read_intent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Set to true to monitor a high availability replica of specified target, if any.
         """
         return pulumi.get(self, "read_intent")
 
     @read_intent.setter
-    def read_intent(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def read_intent(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "read_intent", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVault")
-    def target_vault(self) -> Optional[pulumi.Input['VaultSecretArgs']]:
+    def target_vault(self) -> pulumi.Input[Optional['VaultSecretArgs']]:
         """
         To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
         """
         return pulumi.get(self, "target_vault")
 
     @target_vault.setter
-    def target_vault(self, value: Optional[pulumi.Input['VaultSecretArgs']]):
+    def target_vault(self, value: pulumi.Input[Optional['VaultSecretArgs']]):
         pulumi.set(self, "target_vault", value)
 
 
@@ -701,15 +701,15 @@ class SqlVmTargetPropertiesArgsDict(TypedDict):
     Discriminator property for TargetProperties.
     Expected value is 'SqlVm'.
     """
-    connection_tcp_port: NotRequired[pulumi.Input[_builtins.int]]
+    connection_tcp_port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The TCP port number to optionally use in the connection string when connecting to an Azure SQL VM target.
     """
-    sql_named_instance_name: NotRequired[pulumi.Input[_builtins.str]]
+    sql_named_instance_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The SQL instance name to optionally use in the connection string when connecting to an Azure SQL VM target.
     """
-    target_vault: NotRequired[pulumi.Input['VaultSecretArgsDict']]
+    target_vault: NotRequired[pulumi.Input[Optional['VaultSecretArgsDict']]]
     """
     To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
     """
@@ -721,9 +721,9 @@ class SqlVmTargetPropertiesArgs:
                  sql_vm_resource_id: pulumi.Input[_builtins.str],
                  target_authentication_type: pulumi.Input[Union[_builtins.str, 'TargetAuthenticationType']],
                  target_type: pulumi.Input[_builtins.str],
-                 connection_tcp_port: Optional[pulumi.Input[_builtins.int]] = None,
-                 sql_named_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_vault: Optional[pulumi.Input['VaultSecretArgs']] = None):
+                 connection_tcp_port: pulumi.Input[Optional[_builtins.int]] = None,
+                 sql_named_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_vault: pulumi.Input[Optional['VaultSecretArgs']] = None):
         """
         The properties specific to Azure SQL VM targets.
 
@@ -800,38 +800,38 @@ class SqlVmTargetPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionTcpPort")
-    def connection_tcp_port(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def connection_tcp_port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The TCP port number to optionally use in the connection string when connecting to an Azure SQL VM target.
         """
         return pulumi.get(self, "connection_tcp_port")
 
     @connection_tcp_port.setter
-    def connection_tcp_port(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def connection_tcp_port(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "connection_tcp_port", value)
 
     @_builtins.property
     @pulumi.getter(name="sqlNamedInstanceName")
-    def sql_named_instance_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sql_named_instance_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The SQL instance name to optionally use in the connection string when connecting to an Azure SQL VM target.
         """
         return pulumi.get(self, "sql_named_instance_name")
 
     @sql_named_instance_name.setter
-    def sql_named_instance_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sql_named_instance_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sql_named_instance_name", value)
 
     @_builtins.property
     @pulumi.getter(name="targetVault")
-    def target_vault(self) -> Optional[pulumi.Input['VaultSecretArgs']]:
+    def target_vault(self) -> pulumi.Input[Optional['VaultSecretArgs']]:
         """
         To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
         """
         return pulumi.get(self, "target_vault")
 
     @target_vault.setter
-    def target_vault(self, value: Optional[pulumi.Input['VaultSecretArgs']]):
+    def target_vault(self, value: pulumi.Input[Optional['VaultSecretArgs']]):
         pulumi.set(self, "target_vault", value)
 
 
@@ -839,15 +839,15 @@ class VaultSecretArgsDict(TypedDict):
     """
     The vault specific details required if using SQL authentication to connect to a target.
     """
-    akv_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    akv_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure resource ID of the Key Vault instance storing database authentication secrets.
     """
-    akv_target_password: NotRequired[pulumi.Input[_builtins.str]]
+    akv_target_password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the Key Vault secret storing the password for authentication to a target.
     """
-    akv_target_user: NotRequired[pulumi.Input[_builtins.str]]
+    akv_target_user: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The path to the Key Vault secret storing the login name (aka user name, aka account name) for authentication to a target.
     """
@@ -855,9 +855,9 @@ class VaultSecretArgsDict(TypedDict):
 @pulumi.input_type
 class VaultSecretArgs:
     def __init__(__self__, *,
-                 akv_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 akv_target_password: Optional[pulumi.Input[_builtins.str]] = None,
-                 akv_target_user: Optional[pulumi.Input[_builtins.str]] = None):
+                 akv_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 akv_target_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 akv_target_user: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The vault specific details required if using SQL authentication to connect to a target.
 
@@ -874,38 +874,38 @@ class VaultSecretArgs:
 
     @_builtins.property
     @pulumi.getter(name="akvResourceId")
-    def akv_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def akv_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure resource ID of the Key Vault instance storing database authentication secrets.
         """
         return pulumi.get(self, "akv_resource_id")
 
     @akv_resource_id.setter
-    def akv_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def akv_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "akv_resource_id", value)
 
     @_builtins.property
     @pulumi.getter(name="akvTargetPassword")
-    def akv_target_password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def akv_target_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the Key Vault secret storing the password for authentication to a target.
         """
         return pulumi.get(self, "akv_target_password")
 
     @akv_target_password.setter
-    def akv_target_password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def akv_target_password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "akv_target_password", value)
 
     @_builtins.property
     @pulumi.getter(name="akvTargetUser")
-    def akv_target_user(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def akv_target_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The path to the Key Vault secret storing the login name (aka user name, aka account name) for authentication to a target.
         """
         return pulumi.get(self, "akv_target_user")
 
     @akv_target_user.setter
-    def akv_target_user(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def akv_target_user(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "akv_target_user", value)
 
 

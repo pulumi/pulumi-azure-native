@@ -139,9 +139,9 @@ def get_notebook_workspace(account_name: Optional[_builtins.str] = None,
         notebook_server_endpoint=pulumi.get(__ret__, 'notebook_server_endpoint'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_notebook_workspace_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  notebook_workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_notebook_workspace_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  notebook_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotebookWorkspaceResult]:
     """
     Gets the notebook workspace for a Cosmos DB account.

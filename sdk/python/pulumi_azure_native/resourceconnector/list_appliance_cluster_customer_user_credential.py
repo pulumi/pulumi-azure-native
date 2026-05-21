@@ -83,8 +83,8 @@ def list_appliance_cluster_customer_user_credential(resource_group_name: Optiona
     return AwaitableListApplianceClusterCustomerUserCredentialResult(
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'),
         ssh_keys=pulumi.get(__ret__, 'ssh_keys'))
-def list_appliance_cluster_customer_user_credential_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                           resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_appliance_cluster_customer_user_credential_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                           resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceClusterCustomerUserCredentialResult]:
     """
     Returns the cluster customer user credentials for the dedicated appliance.

@@ -68,7 +68,7 @@ def get_live_token(resource_uri: Optional[_builtins.str] = None,
 
     return AwaitableGetLiveTokenResult(
         live_token=pulumi.get(__ret__, 'live_token'))
-def get_live_token_output(resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def get_live_token_output(resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLiveTokenResult]:
     """
     **Gets an access token for live metrics stream data.**

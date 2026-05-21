@@ -143,10 +143,10 @@ def get_reachability_analysis_intent(network_manager_name: Optional[_builtins.st
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_reachability_analysis_intent_output(network_manager_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            reachability_analysis_intent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_reachability_analysis_intent_output(network_manager_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            reachability_analysis_intent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReachabilityAnalysisIntentResult]:
     """
     Configuration information or intent on which to do the analysis on.

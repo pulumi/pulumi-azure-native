@@ -317,10 +317,10 @@ def get_database_blob_auditing_policy(blob_auditing_policy_name: Optional[_built
         storage_account_subscription_id=pulumi.get(__ret__, 'storage_account_subscription_id'),
         storage_endpoint=pulumi.get(__ret__, 'storage_endpoint'),
         type=pulumi.get(__ret__, 'type'))
-def get_database_blob_auditing_policy_output(blob_auditing_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_database_blob_auditing_policy_output(blob_auditing_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseBlobAuditingPolicyResult]:
     """
     Gets a database's blob auditing policy.

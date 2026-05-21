@@ -162,9 +162,9 @@ def get_resource_guard_proxy(resource_group_name: Optional[_builtins.str] = None
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_resource_guard_proxy_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_guard_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_resource_guard_proxy_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_guard_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceGuardProxyResult]:
     """
     Returns ResourceGuardProxy under vault and with the name referenced in request

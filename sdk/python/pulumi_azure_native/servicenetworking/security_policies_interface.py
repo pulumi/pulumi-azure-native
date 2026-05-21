@@ -23,10 +23,10 @@ class SecurityPoliciesInterfaceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  traffic_controller_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 waf_policy: Optional[pulumi.Input['WafPolicyArgs']] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 waf_policy: pulumi.Input[Optional['WafPolicyArgs']] = None):
         """
         The set of arguments for constructing a SecurityPoliciesInterface resource.
 
@@ -74,50 +74,50 @@ class SecurityPoliciesInterfaceArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="securityPolicyName")
-    def security_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         SecurityPolicy
         """
         return pulumi.get(self, "security_policy_name")
 
     @security_policy_name.setter
-    def security_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_policy_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="wafPolicy")
-    def waf_policy(self) -> Optional[pulumi.Input['WafPolicyArgs']]:
+    def waf_policy(self) -> pulumi.Input[Optional['WafPolicyArgs']]:
         """
         Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
         """
         return pulumi.get(self, "waf_policy")
 
     @waf_policy.setter
-    def waf_policy(self, value: Optional[pulumi.Input['WafPolicyArgs']]):
+    def waf_policy(self, value: pulumi.Input[Optional['WafPolicyArgs']]):
         pulumi.set(self, "waf_policy", value)
 
 
@@ -127,12 +127,12 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_controller_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 waf_policy: Optional[pulumi.Input[Union['WafPolicyArgs', 'WafPolicyArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 waf_policy: pulumi.Input[Optional[Union['WafPolicyArgs', 'WafPolicyArgsDict']]] = None,
                  __props__=None):
         """
         SecurityPolicy Subresource of Traffic Controller.
@@ -180,12 +180,12 @@ class SecurityPoliciesInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 traffic_controller_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 waf_policy: Optional[pulumi.Input[Union['WafPolicyArgs', 'WafPolicyArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 traffic_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 waf_policy: pulumi.Input[Optional[Union['WafPolicyArgs', 'WafPolicyArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

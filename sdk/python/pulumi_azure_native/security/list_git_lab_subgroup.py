@@ -88,9 +88,9 @@ def list_git_lab_subgroup(group_fq_name: Optional[_builtins.str] = None,
     return AwaitableListGitLabSubgroupResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_git_lab_subgroup_output(group_fq_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 security_connector_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_git_lab_subgroup_output(group_fq_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 security_connector_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGitLabSubgroupResult]:
     """
     List of RP resources which supports pagination.

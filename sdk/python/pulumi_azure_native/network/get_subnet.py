@@ -416,10 +416,10 @@ def get_subnet(expand: Optional[_builtins.str] = None,
         service_endpoints=pulumi.get(__ret__, 'service_endpoints'),
         sharing_scope=pulumi.get(__ret__, 'sharing_scope'),
         type=pulumi.get(__ret__, 'type'))
-def get_subnet_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      subnet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_subnet_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetResult]:
     """
     Gets the specified subnet by virtual network and resource group.

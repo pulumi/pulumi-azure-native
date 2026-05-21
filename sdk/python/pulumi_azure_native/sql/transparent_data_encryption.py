@@ -24,7 +24,7 @@ class TransparentDataEncryptionArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  state: pulumi.Input['TransparentDataEncryptionState'],
-                 tde_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 tde_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a TransparentDataEncryption resource.
 
@@ -91,14 +91,14 @@ class TransparentDataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="tdeName")
-    def tde_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tde_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the transparent data encryption configuration.
         """
         return pulumi.get(self, "tde_name")
 
     @tde_name.setter
-    def tde_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tde_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tde_name", value)
 
 
@@ -108,11 +108,11 @@ class TransparentDataEncryption(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['TransparentDataEncryptionState']] = None,
-                 tde_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['TransparentDataEncryptionState']] = None,
+                 tde_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A logical database transparent data encryption state.
@@ -159,11 +159,11 @@ class TransparentDataEncryption(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['TransparentDataEncryptionState']] = None,
-                 tde_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['TransparentDataEncryptionState']] = None,
+                 tde_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

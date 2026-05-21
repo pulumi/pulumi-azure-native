@@ -135,8 +135,8 @@ def list_workspace_notebook_access_token(resource_group_name: Optional[_builtins
         refresh_token=pulumi.get(__ret__, 'refresh_token'),
         scope=pulumi.get(__ret__, 'scope'),
         token_type=pulumi.get(__ret__, 'token_type'))
-def list_workspace_notebook_access_token_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_workspace_notebook_access_token_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWorkspaceNotebookAccessTokenResult]:
     """
     Get Azure Machine Learning Workspace notebook access token

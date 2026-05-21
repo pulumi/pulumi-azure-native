@@ -86,9 +86,9 @@ def list_effective_connectivity_configuration(resource_group_name: Optional[_bui
     return AwaitableListEffectiveConnectivityConfigurationResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
-def list_effective_connectivity_configuration_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                     skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                                     virtual_network_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_effective_connectivity_configuration_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                     skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                     virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListEffectiveConnectivityConfigurationResult]:
     """
     List all effective connectivity configurations applied on a virtual network.

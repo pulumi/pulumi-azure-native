@@ -274,9 +274,9 @@ def get_topic_event_subscription(event_subscription_name: Optional[_builtins.str
         system_data=pulumi.get(__ret__, 'system_data'),
         topic=pulumi.get(__ret__, 'topic'),
         type=pulumi.get(__ret__, 'type'))
-def get_topic_event_subscription_output(event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_topic_event_subscription_output(event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicEventSubscriptionResult]:
     """
     Get properties of an event subscription of a topic.

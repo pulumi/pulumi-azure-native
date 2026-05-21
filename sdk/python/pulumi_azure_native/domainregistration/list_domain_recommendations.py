@@ -85,8 +85,8 @@ def list_domain_recommendations(keywords: Optional[_builtins.str] = None,
     return AwaitableListDomainRecommendationsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_domain_recommendations_output(keywords: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                       max_domain_recommendations: Optional[pulumi.Input[Optional[_builtins.int]]] = None,
+def list_domain_recommendations_output(keywords: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                       max_domain_recommendations: pulumi.Input[Optional[Optional[_builtins.int]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDomainRecommendationsResult]:
     """
     Description for Get domain name recommendations based on keywords.

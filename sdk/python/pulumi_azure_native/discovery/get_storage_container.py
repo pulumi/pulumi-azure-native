@@ -161,8 +161,8 @@ def get_storage_container(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_storage_container_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 storage_container_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_container_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageContainerResult]:
     """
     Get a StorageContainer

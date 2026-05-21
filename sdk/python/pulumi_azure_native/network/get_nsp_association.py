@@ -205,9 +205,9 @@ def get_nsp_association(association_name: Optional[_builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_nsp_association_output(association_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               network_security_perimeter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_nsp_association_output(association_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               network_security_perimeter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNspAssociationResult]:
     """
     Gets the specified NSP association by name.

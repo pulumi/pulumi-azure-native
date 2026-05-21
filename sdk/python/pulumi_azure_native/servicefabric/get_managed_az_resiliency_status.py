@@ -85,8 +85,8 @@ def get_managed_az_resiliency_status(cluster_name: Optional[_builtins.str] = Non
     return AwaitableGetManagedAzResiliencyStatusResult(
         base_resource_status=pulumi.get(__ret__, 'base_resource_status'),
         is_cluster_zone_resilient=pulumi.get(__ret__, 'is_cluster_zone_resilient'))
-def get_managed_az_resiliency_status_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_az_resiliency_status_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedAzResiliencyStatusResult]:
     """
     Action to get Az Resiliency Status of all the Base resources constituting Service Fabric Managed Clusters.

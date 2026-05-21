@@ -140,9 +140,9 @@ def get_rules_engine(front_door_name: Optional[_builtins.str] = None,
         resource_state=pulumi.get(__ret__, 'resource_state'),
         rules=pulumi.get(__ret__, 'rules'),
         type=pulumi.get(__ret__, 'type'))
-def get_rules_engine_output(front_door_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            rules_engine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rules_engine_output(front_door_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            rules_engine_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRulesEngineResult]:
     """
     Gets a Rules Engine Configuration with the specified name within the specified Front Door.

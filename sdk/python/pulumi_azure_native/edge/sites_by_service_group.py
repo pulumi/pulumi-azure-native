@@ -22,8 +22,8 @@ __all__ = ['SitesByServiceGroupArgs', 'SitesByServiceGroup']
 class SitesByServiceGroupArgs:
     def __init__(__self__, *,
                  servicegroup_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['SitePropertiesArgs']] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['SitePropertiesArgs']] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SitesByServiceGroup resource.
 
@@ -51,26 +51,26 @@ class SitesByServiceGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SitePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['SitePropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SitePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['SitePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="siteName")
-    def site_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Site
         """
         return pulumi.get(self, "site_name")
 
     @site_name.setter
-    def site_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "site_name", value)
 
 
@@ -80,9 +80,9 @@ class SitesByServiceGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['SitePropertiesArgs', 'SitePropertiesArgsDict']]] = None,
-                 servicegroup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SitePropertiesArgs', 'SitePropertiesArgsDict']]] = None,
+                 servicegroup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Site as Extension Resource
@@ -127,9 +127,9 @@ class SitesByServiceGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 properties: Optional[pulumi.Input[Union['SitePropertiesArgs', 'SitePropertiesArgsDict']]] = None,
-                 servicegroup_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 site_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SitePropertiesArgs', 'SitePropertiesArgsDict']]] = None,
+                 servicegroup_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 site_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -217,9 +217,9 @@ def get_firewall_support_info(email: Optional[_builtins.str] = None,
         support_url=pulumi.get(__ret__, 'support_url'),
         user_domain_supported=pulumi.get(__ret__, 'user_domain_supported'),
         user_registered=pulumi.get(__ret__, 'user_registered'))
-def get_firewall_support_info_output(email: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                     firewall_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_support_info_output(email: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                     firewall_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallSupportInfoResult]:
     """
     support info for firewall.

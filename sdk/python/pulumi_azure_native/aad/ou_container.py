@@ -22,10 +22,10 @@ class OuContainerArgs:
     def __init__(__self__, *,
                  domain_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ou_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 spn: Optional[pulumi.Input[_builtins.str]] = None):
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ou_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 spn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OuContainer resource.
 
@@ -73,50 +73,50 @@ class OuContainerArgs:
 
     @_builtins.property
     @pulumi.getter(name="accountName")
-    def account_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account name
         """
         return pulumi.get(self, "account_name")
 
     @account_name.setter
-    def account_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "account_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ouContainerName")
-    def ou_container_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ou_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the OuContainer.
         """
         return pulumi.get(self, "ou_container_name")
 
     @ou_container_name.setter
-    def ou_container_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ou_container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ou_container_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def password(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account password
         """
         return pulumi.get(self, "password")
 
     @password.setter
-    def password(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password", value)
 
     @_builtins.property
     @pulumi.getter
-    def spn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def spn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account spn
         """
         return pulumi.get(self, "spn")
 
     @spn.setter
-    def spn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def spn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "spn", value)
 
 
@@ -126,12 +126,12 @@ class OuContainer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ou_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spn: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ou_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource for OuContainer.
@@ -179,12 +179,12 @@ class OuContainer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 domain_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ou_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 password: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 spn: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ou_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 spn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

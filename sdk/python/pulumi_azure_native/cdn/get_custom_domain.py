@@ -221,10 +221,10 @@ def get_custom_domain(custom_domain_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         validation_data=pulumi.get(__ret__, 'validation_data'))
-def get_custom_domain_output(custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_custom_domain_output(custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomDomainResult]:
     """
     Gets an existing custom domain within an endpoint.

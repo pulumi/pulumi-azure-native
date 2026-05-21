@@ -267,8 +267,8 @@ def get_asset_endpoint_profile(asset_endpoint_profile_name: Optional[_builtins.s
         target_address=pulumi.get(__ret__, 'target_address'),
         type=pulumi.get(__ret__, 'type'),
         uuid=pulumi.get(__ret__, 'uuid'))
-def get_asset_endpoint_profile_output(asset_endpoint_profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_asset_endpoint_profile_output(asset_endpoint_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetEndpointProfileResult]:
     """
     Get a AssetEndpointProfile

@@ -65,11 +65,11 @@ class NetworkRuleSetIpRuleArgsDict(TypedDict):
     """
     An object for an IP range that will be allowed access.
     """
-    filter_name: NotRequired[pulumi.Input[_builtins.str]]
+    filter_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The readable name of the IP rule.
     """
-    ip_mask: NotRequired[pulumi.Input[_builtins.str]]
+    ip_mask: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The CIDR block defining the IP range.
     """
@@ -77,8 +77,8 @@ class NetworkRuleSetIpRuleArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkRuleSetIpRuleArgs:
     def __init__(__self__, *,
-                 filter_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 ip_mask: Optional[pulumi.Input[_builtins.str]] = None):
+                 filter_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ip_mask: pulumi.Input[Optional[_builtins.str]] = None):
         """
         An object for an IP range that will be allowed access.
 
@@ -92,26 +92,26 @@ class NetworkRuleSetIpRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="filterName")
-    def filter_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def filter_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The readable name of the IP rule.
         """
         return pulumi.get(self, "filter_name")
 
     @filter_name.setter
-    def filter_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def filter_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "filter_name", value)
 
     @_builtins.property
     @pulumi.getter(name="ipMask")
-    def ip_mask(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def ip_mask(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The CIDR block defining the IP range.
         """
         return pulumi.get(self, "ip_mask")
 
     @ip_mask.setter
-    def ip_mask(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def ip_mask(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "ip_mask", value)
 
 
@@ -119,19 +119,19 @@ class NetworkRuleSetsArgsDict(TypedDict):
     """
     Network Rule Set Properties of this IoT Central application.
     """
-    apply_to_devices: NotRequired[pulumi.Input[_builtins.bool]]
+    apply_to_devices: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
     """
-    apply_to_io_t_central: NotRequired[pulumi.Input[_builtins.bool]]
+    apply_to_io_t_central: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether these rules apply for connectivity via IoT Central web portal and APIs.
     """
-    default_action: NotRequired[pulumi.Input[Union[_builtins.str, 'NetworkAction']]]
+    default_action: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NetworkAction']]]]
     """
     The default network action to apply.
     """
-    ip_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgsDict']]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgsDict']]]]]
     """
     List of IP rules.
     """
@@ -139,10 +139,10 @@ class NetworkRuleSetsArgsDict(TypedDict):
 @pulumi.input_type
 class NetworkRuleSetsArgs:
     def __init__(__self__, *,
-                 apply_to_devices: Optional[pulumi.Input[_builtins.bool]] = None,
-                 apply_to_io_t_central: Optional[pulumi.Input[_builtins.bool]] = None,
-                 default_action: Optional[pulumi.Input[Union[_builtins.str, 'NetworkAction']]] = None,
-                 ip_rules: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]] = None):
+                 apply_to_devices: pulumi.Input[Optional[_builtins.bool]] = None,
+                 apply_to_io_t_central: pulumi.Input[Optional[_builtins.bool]] = None,
+                 default_action: pulumi.Input[Optional[Union[_builtins.str, 'NetworkAction']]] = None,
+                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]] = None):
         """
         Network Rule Set Properties of this IoT Central application.
 
@@ -166,50 +166,50 @@ class NetworkRuleSetsArgs:
 
     @_builtins.property
     @pulumi.getter(name="applyToDevices")
-    def apply_to_devices(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_to_devices(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether these rules apply for device connectivity to IoT Hub and Device Provisioning service associated with this application.
         """
         return pulumi.get(self, "apply_to_devices")
 
     @apply_to_devices.setter
-    def apply_to_devices(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_to_devices(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_to_devices", value)
 
     @_builtins.property
     @pulumi.getter(name="applyToIoTCentral")
-    def apply_to_io_t_central(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def apply_to_io_t_central(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether these rules apply for connectivity via IoT Central web portal and APIs.
         """
         return pulumi.get(self, "apply_to_io_t_central")
 
     @apply_to_io_t_central.setter
-    def apply_to_io_t_central(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def apply_to_io_t_central(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "apply_to_io_t_central", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultAction")
-    def default_action(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetworkAction']]]:
+    def default_action(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NetworkAction']]]:
         """
         The default network action to apply.
         """
         return pulumi.get(self, "default_action")
 
     @default_action.setter
-    def default_action(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetworkAction']]]):
+    def default_action(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NetworkAction']]]):
         pulumi.set(self, "default_action", value)
 
     @_builtins.property
     @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]]:
+    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]]:
         """
         List of IP rules.
         """
         return pulumi.get(self, "ip_rules")
 
     @ip_rules.setter
-    def ip_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]]):
+    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['NetworkRuleSetIpRuleArgs']]]]):
         pulumi.set(self, "ip_rules", value)
 
 
@@ -217,15 +217,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -233,9 +233,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -252,38 +252,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 

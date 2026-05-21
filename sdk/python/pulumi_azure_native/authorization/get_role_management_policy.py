@@ -228,8 +228,8 @@ def get_role_management_policy(role_management_policy_name: Optional[_builtins.s
         rules=pulumi.get(__ret__, 'rules'),
         scope=pulumi.get(__ret__, 'scope'),
         type=pulumi.get(__ret__, 'type'))
-def get_role_management_policy_output(role_management_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      scope: Optional[pulumi.Input[_builtins.str]] = None,
+def get_role_management_policy_output(role_management_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      scope: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleManagementPolicyResult]:
     """
     Get the specified role management policy for a resource scope

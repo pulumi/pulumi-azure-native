@@ -45,11 +45,11 @@ class AzureKeyVaultSmbCredentialsArgsDict(TypedDict):
     The Credentials type.
     Expected value is 'AzureKeyVaultSmb'.
     """
-    password_uri: NotRequired[pulumi.Input[_builtins.str]]
+    password_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Key Vault secret URI which stores the password. Use empty string to clean-up existing value.
     """
-    username_uri: NotRequired[pulumi.Input[_builtins.str]]
+    username_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The Azure Key Vault secret URI which stores the username. Use empty string to clean-up existing value.
     """
@@ -58,8 +58,8 @@ class AzureKeyVaultSmbCredentialsArgsDict(TypedDict):
 class AzureKeyVaultSmbCredentialsArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[_builtins.str],
-                 password_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 username_uri: Optional[pulumi.Input[_builtins.str]] = None):
+                 password_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_uri: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Azure Key Vault secret URIs which store the credentials.
 
@@ -89,26 +89,26 @@ class AzureKeyVaultSmbCredentialsArgs:
 
     @_builtins.property
     @pulumi.getter(name="passwordUri")
-    def password_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def password_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Key Vault secret URI which stores the password. Use empty string to clean-up existing value.
         """
         return pulumi.get(self, "password_uri")
 
     @password_uri.setter
-    def password_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def password_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "password_uri", value)
 
     @_builtins.property
     @pulumi.getter(name="usernameUri")
-    def username_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def username_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Azure Key Vault secret URI which stores the username. Use empty string to clean-up existing value.
         """
         return pulumi.get(self, "username_uri")
 
     @username_uri.setter
-    def username_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def username_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username_uri", value)
 
 
@@ -129,7 +129,7 @@ class AzureStorageBlobContainerEndpointPropertiesArgsDict(TypedDict):
     """
     The Azure Resource ID of the storage account that is the target destination.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description for the Endpoint.
     """
@@ -140,7 +140,7 @@ class AzureStorageBlobContainerEndpointPropertiesArgs:
                  blob_container_name: pulumi.Input[_builtins.str],
                  endpoint_type: pulumi.Input[_builtins.str],
                  storage_account_resource_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of Azure Storage blob container endpoint.
 
@@ -195,14 +195,14 @@ class AzureStorageBlobContainerEndpointPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -223,7 +223,7 @@ class AzureStorageSmbFileShareEndpointPropertiesArgsDict(TypedDict):
     """
     The Azure Resource ID of the storage account.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description for the Endpoint.
     """
@@ -234,7 +234,7 @@ class AzureStorageSmbFileShareEndpointPropertiesArgs:
                  endpoint_type: pulumi.Input[_builtins.str],
                  file_share_name: pulumi.Input[_builtins.str],
                  storage_account_resource_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of Azure Storage SMB file share endpoint.
 
@@ -289,14 +289,14 @@ class AzureStorageSmbFileShareEndpointPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -308,11 +308,11 @@ class ConnectionPropertiesArgsDict(TypedDict):
     """
     The PrivateLinkServiceId for the connection.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description for the Connection.
     """
-    job_list: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    job_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of job definitions associated with this connection.
     """
@@ -321,8 +321,8 @@ class ConnectionPropertiesArgsDict(TypedDict):
 class ConnectionPropertiesArgs:
     def __init__(__self__, *,
                  private_link_service_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 job_list: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 job_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Properties of the Connection resource.
 
@@ -350,26 +350,26 @@ class ConnectionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="jobList")
-    def job_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def job_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of job definitions associated with this connection.
         """
         return pulumi.get(self, "job_list")
 
     @job_list.setter
-    def job_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def job_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "job_list", value)
 
 
@@ -390,11 +390,11 @@ class NfsMountEndpointPropertiesArgsDict(TypedDict):
     """
     The host name or IP address of the server exporting the file system.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description for the Endpoint.
     """
-    nfs_version: NotRequired[pulumi.Input[Union[_builtins.str, 'NfsVersion']]]
+    nfs_version: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'NfsVersion']]]]
     """
     The NFS protocol version.
     """
@@ -405,8 +405,8 @@ class NfsMountEndpointPropertiesArgs:
                  endpoint_type: pulumi.Input[_builtins.str],
                  export: pulumi.Input[_builtins.str],
                  host: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 nfs_version: Optional[pulumi.Input[Union[_builtins.str, 'NfsVersion']]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfs_version: pulumi.Input[Optional[Union[_builtins.str, 'NfsVersion']]] = None):
         """
         The properties of NFS share endpoint.
 
@@ -464,26 +464,26 @@ class NfsMountEndpointPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="nfsVersion")
-    def nfs_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NfsVersion']]]:
+    def nfs_version(self) -> pulumi.Input[Optional[Union[_builtins.str, 'NfsVersion']]]:
         """
         The NFS protocol version.
         """
         return pulumi.get(self, "nfs_version")
 
     @nfs_version.setter
-    def nfs_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NfsVersion']]]):
+    def nfs_version(self, value: pulumi.Input[Optional[Union[_builtins.str, 'NfsVersion']]]):
         pulumi.set(self, "nfs_version", value)
 
 
@@ -504,11 +504,11 @@ class SmbMountEndpointPropertiesArgsDict(TypedDict):
     """
     The name of the SMB share being exported from the server.
     """
-    credentials: NotRequired[pulumi.Input['AzureKeyVaultSmbCredentialsArgsDict']]
+    credentials: NotRequired[pulumi.Input[Optional['AzureKeyVaultSmbCredentialsArgsDict']]]
     """
     The Azure Key Vault secret URIs which store the required credentials to access the SMB share.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A description for the Endpoint.
     """
@@ -519,8 +519,8 @@ class SmbMountEndpointPropertiesArgs:
                  endpoint_type: pulumi.Input[_builtins.str],
                  host: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
-                 credentials: Optional[pulumi.Input['AzureKeyVaultSmbCredentialsArgs']] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 credentials: pulumi.Input[Optional['AzureKeyVaultSmbCredentialsArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The properties of SMB share endpoint.
 
@@ -578,26 +578,26 @@ class SmbMountEndpointPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[pulumi.Input['AzureKeyVaultSmbCredentialsArgs']]:
+    def credentials(self) -> pulumi.Input[Optional['AzureKeyVaultSmbCredentialsArgs']]:
         """
         The Azure Key Vault secret URIs which store the required credentials to access the SMB share.
         """
         return pulumi.get(self, "credentials")
 
     @credentials.setter
-    def credentials(self, value: Optional[pulumi.Input['AzureKeyVaultSmbCredentialsArgs']]):
+    def credentials(self, value: pulumi.Input[Optional['AzureKeyVaultSmbCredentialsArgs']]):
         pulumi.set(self, "credentials", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A description for the Endpoint.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -609,7 +609,7 @@ class TimeArgsDict(TypedDict):
     """
     The hour element of the time. Allowed values range from 0 (start of the selected day) to 24 (end of the selected day). Hour value 24 cannot be combined with any other minute value but 0.
     """
-    minute: NotRequired[pulumi.Input[_builtins.float]]
+    minute: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
     """
@@ -618,7 +618,7 @@ class TimeArgsDict(TypedDict):
 class TimeArgs:
     def __init__(__self__, *,
                  hour: pulumi.Input[_builtins.int],
-                 minute: Optional[pulumi.Input[_builtins.float]] = None):
+                 minute: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The time of day.
 
@@ -645,14 +645,14 @@ class TimeArgs:
 
     @_builtins.property
     @pulumi.getter
-    def minute(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def minute(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The minute element of the time. Allowed values are 0 and 30. If not specified, its value defaults to 0.
         """
         return pulumi.get(self, "minute")
 
     @minute.setter
-    def minute(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def minute(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "minute", value)
 
 
@@ -660,7 +660,7 @@ class UploadLimitScheduleArgsDict(TypedDict):
     """
     The WAN-link upload limit schedule. Overlapping recurrences are not allowed.
     """
-    weekly_recurrences: NotRequired[pulumi.Input[Sequence[pulumi.Input['UploadLimitWeeklyRecurrenceArgsDict']]]]
+    weekly_recurrences: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['UploadLimitWeeklyRecurrenceArgsDict']]]]]
     """
     The set of weekly repeating recurrences of the WAN-link upload limit schedule.
     """
@@ -668,7 +668,7 @@ class UploadLimitScheduleArgsDict(TypedDict):
 @pulumi.input_type
 class UploadLimitScheduleArgs:
     def __init__(__self__, *,
-                 weekly_recurrences: Optional[pulumi.Input[Sequence[pulumi.Input['UploadLimitWeeklyRecurrenceArgs']]]] = None):
+                 weekly_recurrences: pulumi.Input[Optional[Sequence[pulumi.Input['UploadLimitWeeklyRecurrenceArgs']]]] = None):
         """
         The WAN-link upload limit schedule. Overlapping recurrences are not allowed.
 
@@ -679,14 +679,14 @@ class UploadLimitScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="weeklyRecurrences")
-    def weekly_recurrences(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UploadLimitWeeklyRecurrenceArgs']]]]:
+    def weekly_recurrences(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['UploadLimitWeeklyRecurrenceArgs']]]]:
         """
         The set of weekly repeating recurrences of the WAN-link upload limit schedule.
         """
         return pulumi.get(self, "weekly_recurrences")
 
     @weekly_recurrences.setter
-    def weekly_recurrences(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UploadLimitWeeklyRecurrenceArgs']]]]):
+    def weekly_recurrences(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['UploadLimitWeeklyRecurrenceArgs']]]]):
         pulumi.set(self, "weekly_recurrences", value)
 
 

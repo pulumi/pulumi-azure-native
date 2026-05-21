@@ -152,9 +152,9 @@ def get_web_app_swift_virtual_network_connection_slot(name: Optional[_builtins.s
         subnet_resource_id=pulumi.get(__ret__, 'subnet_resource_id'),
         swift_supported=pulumi.get(__ret__, 'swift_supported'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_swift_virtual_network_connection_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                             slot: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_swift_virtual_network_connection_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                             slot: pulumi.Input[Optional[_builtins.str]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppSwiftVirtualNetworkConnectionSlotResult]:
     """
     Description for Gets a Swift Virtual Network connection.

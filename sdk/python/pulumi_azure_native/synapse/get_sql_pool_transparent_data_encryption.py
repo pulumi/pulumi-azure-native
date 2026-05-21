@@ -142,10 +142,10 @@ def get_sql_pool_transparent_data_encryption(resource_group_name: Optional[_buil
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_sql_pool_transparent_data_encryption_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    sql_pool_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    transparent_data_encryption_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                    workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_sql_pool_transparent_data_encryption_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    sql_pool_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    transparent_data_encryption_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                    workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSqlPoolTransparentDataEncryptionResult]:
     """
     Get a SQL pool's transparent data encryption configuration.

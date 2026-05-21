@@ -174,8 +174,8 @@ def get_report_by_billing_account(billing_account_id: Optional[_builtins.str] = 
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_report_by_billing_account_output(billing_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                         report_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_report_by_billing_account_output(billing_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                         report_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportByBillingAccountResult]:
     """
     Gets the report for a billing account by report name.

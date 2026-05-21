@@ -66,7 +66,7 @@ def get_provider_action_collection_count(type: Optional[_builtins.str] = None,
 
     return AwaitableGetProviderActionCollectionCountResult(
         count=pulumi.get(__ret__, 'count'))
-def get_provider_action_collection_count_output(type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_provider_action_collection_count_output(type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProviderActionCollectionCountResult]:
     """
     Get the count of reports.

@@ -121,7 +121,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
     """
@@ -130,7 +130,7 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Managed service identity (system assigned and/or user assigned identities)
 
@@ -155,14 +155,14 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -174,7 +174,7 @@ class StorageTaskActionArgsDict(TypedDict):
     """
     The if block of storage task operation
     """
-    else_: NotRequired[pulumi.Input['ElseConditionArgsDict']]
+    else_: NotRequired[pulumi.Input[Optional['ElseConditionArgsDict']]]
     """
     The else block of storage task operation
     """
@@ -183,7 +183,7 @@ class StorageTaskActionArgsDict(TypedDict):
 class StorageTaskActionArgs:
     def __init__(__self__, *,
                  if_: pulumi.Input['IfConditionArgs'],
-                 else_: Optional[pulumi.Input['ElseConditionArgs']] = None):
+                 else_: pulumi.Input[Optional['ElseConditionArgs']] = None):
         """
         The storage task action represents conditional statements and operations to be performed on target objects.
 
@@ -208,14 +208,14 @@ class StorageTaskActionArgs:
 
     @_builtins.property
     @pulumi.getter(name="else")
-    def else_(self) -> Optional[pulumi.Input['ElseConditionArgs']]:
+    def else_(self) -> pulumi.Input[Optional['ElseConditionArgs']]:
         """
         The else block of storage task operation
         """
         return pulumi.get(self, "else_")
 
     @else_.setter
-    def else_(self, value: Optional[pulumi.Input['ElseConditionArgs']]):
+    def else_(self, value: pulumi.Input[Optional['ElseConditionArgs']]):
         pulumi.set(self, "else_", value)
 
 
@@ -227,15 +227,15 @@ class StorageTaskOperationArgsDict(TypedDict):
     """
     The operation to be performed on the object.
     """
-    on_failure: NotRequired[pulumi.Input[Union[_builtins.str, 'OnFailure']]]
+    on_failure: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OnFailure']]]]
     """
     Action to be taken when the operation fails for a object.
     """
-    on_success: NotRequired[pulumi.Input[Union[_builtins.str, 'OnSuccess']]]
+    on_success: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OnSuccess']]]]
     """
     Action to be taken when the operation is successful for a object.
     """
-    parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Key-value parameters for the operation.
     """
@@ -244,9 +244,9 @@ class StorageTaskOperationArgsDict(TypedDict):
 class StorageTaskOperationArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Union[_builtins.str, 'StorageTaskOperationName']],
-                 on_failure: Optional[pulumi.Input[Union[_builtins.str, 'OnFailure']]] = None,
-                 on_success: Optional[pulumi.Input[Union[_builtins.str, 'OnSuccess']]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 on_failure: pulumi.Input[Optional[Union[_builtins.str, 'OnFailure']]] = None,
+                 on_success: pulumi.Input[Optional[Union[_builtins.str, 'OnSuccess']]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Represents an operation to be performed on the object
 
@@ -277,38 +277,38 @@ class StorageTaskOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="onFailure")
-    def on_failure(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OnFailure']]]:
+    def on_failure(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OnFailure']]]:
         """
         Action to be taken when the operation fails for a object.
         """
         return pulumi.get(self, "on_failure")
 
     @on_failure.setter
-    def on_failure(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OnFailure']]]):
+    def on_failure(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OnFailure']]]):
         pulumi.set(self, "on_failure", value)
 
     @_builtins.property
     @pulumi.getter(name="onSuccess")
-    def on_success(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OnSuccess']]]:
+    def on_success(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OnSuccess']]]:
         """
         Action to be taken when the operation is successful for a object.
         """
         return pulumi.get(self, "on_success")
 
     @on_success.setter
-    def on_success(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OnSuccess']]]):
+    def on_success(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OnSuccess']]]):
         pulumi.set(self, "on_success", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Key-value parameters for the operation.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "parameters", value)
 
 

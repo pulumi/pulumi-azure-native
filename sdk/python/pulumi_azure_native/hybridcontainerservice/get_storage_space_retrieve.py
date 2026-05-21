@@ -171,8 +171,8 @@ def get_storage_space_retrieve(resource_group_name: Optional[_builtins.str] = No
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_storage_space_retrieve_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      storage_spaces_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_space_retrieve_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      storage_spaces_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageSpaceRetrieveResult]:
     """
     Gets the Hybrid AKS storage space object

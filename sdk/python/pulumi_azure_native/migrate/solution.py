@@ -23,8 +23,8 @@ class SolutionArgs:
     def __init__(__self__, *,
                  migrate_project_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 properties: Optional[pulumi.Input['SolutionPropertiesArgs']] = None,
-                 solution_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 properties: pulumi.Input[Optional['SolutionPropertiesArgs']] = None,
+                 solution_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Solution resource.
 
@@ -66,26 +66,26 @@ class SolutionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['SolutionPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['SolutionPropertiesArgs']]:
         """
         Gets or sets the properties of the solution.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['SolutionPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['SolutionPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter(name="solutionName")
-    def solution_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def solution_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Unique name of a migration solution within a migrate project.
         """
         return pulumi.get(self, "solution_name")
 
     @solution_name.setter
-    def solution_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def solution_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "solution_name", value)
 
 
@@ -95,10 +95,10 @@ class Solution(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['SolutionPropertiesArgs', 'SolutionPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SolutionPropertiesArgs', 'SolutionPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Solution REST Resource.
@@ -140,10 +140,10 @@ class Solution(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 migrate_project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['SolutionPropertiesArgs', 'SolutionPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 solution_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 migrate_project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['SolutionPropertiesArgs', 'SolutionPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 solution_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

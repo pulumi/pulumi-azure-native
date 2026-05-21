@@ -40,15 +40,15 @@ class AssignmentLockSettingsArgsDict(TypedDict):
     """
     Defines how resources deployed by a blueprint assignment are locked.
     """
-    excluded_actions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
     """
-    excluded_principals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    excluded_principals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
     """
-    mode: NotRequired[pulumi.Input[Union[_builtins.str, 'AssignmentLockMode']]]
+    mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'AssignmentLockMode']]]]
     """
     Lock mode.
     """
@@ -56,9 +56,9 @@ class AssignmentLockSettingsArgsDict(TypedDict):
 @pulumi.input_type
 class AssignmentLockSettingsArgs:
     def __init__(__self__, *,
-                 excluded_actions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 excluded_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 mode: Optional[pulumi.Input[Union[_builtins.str, 'AssignmentLockMode']]] = None):
+                 excluded_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 excluded_principals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 mode: pulumi.Input[Optional[Union[_builtins.str, 'AssignmentLockMode']]] = None):
         """
         Defines how resources deployed by a blueprint assignment are locked.
 
@@ -75,38 +75,38 @@ class AssignmentLockSettingsArgs:
 
     @_builtins.property
     @pulumi.getter(name="excludedActions")
-    def excluded_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_actions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of management operations that are excluded from blueprint locks. Up to 200 actions are permitted. If the lock mode is set to 'AllResourcesReadOnly', then the following actions are automatically appended to 'excludedActions': '*/read', 'Microsoft.Network/virtualNetworks/subnets/join/action' and 'Microsoft.Authorization/locks/delete'. If the lock mode is set to 'AllResourcesDoNotDelete', then the following actions are automatically appended to 'excludedActions': 'Microsoft.Authorization/locks/delete'. Duplicate actions will get removed.
         """
         return pulumi.get(self, "excluded_actions")
 
     @excluded_actions.setter
-    def excluded_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_actions", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedPrincipals")
-    def excluded_principals(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_principals(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         List of AAD principals excluded from blueprint locks. Up to 5 principals are permitted.
         """
         return pulumi.get(self, "excluded_principals")
 
     @excluded_principals.setter
-    def excluded_principals(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_principals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_principals", value)
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AssignmentLockMode']]]:
+    def mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'AssignmentLockMode']]]:
         """
         Lock mode.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AssignmentLockMode']]]):
+    def mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'AssignmentLockMode']]]):
         pulumi.set(self, "mode", value)
 
 
@@ -151,15 +151,15 @@ class ManagedServiceIdentityArgsDict(TypedDict):
     """
     Type of the managed identity.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure Active Directory principal ID associated with this Identity.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ID of the Azure Active Directory.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['UserAssignedIdentityArgsDict']]]]]
     """
     The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
     """
@@ -168,9 +168,9 @@ class ManagedServiceIdentityArgsDict(TypedDict):
 class ManagedServiceIdentityArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'ManagedServiceIdentityType']],
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]] = None):
         """
         Managed identity generic object.
 
@@ -201,38 +201,38 @@ class ManagedServiceIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Active Directory principal ID associated with this Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the Azure Active Directory.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]:
         """
         The list of user-assigned managed identities associated with the resource. Key is the Azure resource Id of the managed identity.
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['UserAssignedIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -244,7 +244,7 @@ class ParameterDefinitionArgsDict(TypedDict):
     """
     Allowed data types for Resource Manager template parameters.
     """
-    allowed_values: NotRequired[pulumi.Input[Sequence[Any]]]
+    allowed_values: NotRequired[pulumi.Input[Optional[Sequence[Any]]]]
     """
     Array of allowed values for this parameter.
     """
@@ -252,15 +252,15 @@ class ParameterDefinitionArgsDict(TypedDict):
     """
     Default Value for this parameter.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of this parameter/resourceGroup.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DisplayName of this parameter/resourceGroup.
     """
-    strong_type: NotRequired[pulumi.Input[_builtins.str]]
+    strong_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
     """
@@ -269,11 +269,11 @@ class ParameterDefinitionArgsDict(TypedDict):
 class ParameterDefinitionArgs:
     def __init__(__self__, *,
                  type: pulumi.Input[Union[_builtins.str, 'TemplateParameterType']],
-                 allowed_values: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 allowed_values: pulumi.Input[Optional[Sequence[Any]]] = None,
                  default_value: Optional[Any] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strong_type: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strong_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represent a parameter with constrains and metadata.
 
@@ -310,14 +310,14 @@ class ParameterDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="allowedValues")
-    def allowed_values(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+    def allowed_values(self) -> pulumi.Input[Optional[Sequence[Any]]]:
         """
         Array of allowed values for this parameter.
         """
         return pulumi.get(self, "allowed_values")
 
     @allowed_values.setter
-    def allowed_values(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+    def allowed_values(self, value: pulumi.Input[Optional[Sequence[Any]]]):
         pulumi.set(self, "allowed_values", value)
 
     @_builtins.property
@@ -334,38 +334,38 @@ class ParameterDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of this parameter/resourceGroup.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DisplayName of this parameter/resourceGroup.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="strongType")
-    def strong_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strong_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
         """
         return pulumi.get(self, "strong_type")
 
     @strong_type.setter
-    def strong_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strong_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strong_type", value)
 
 
@@ -373,7 +373,7 @@ class ParameterValueArgsDict(TypedDict):
     """
     Value for the specified parameter. Can be either 'value' or 'reference' but not both.
     """
-    reference: NotRequired[pulumi.Input['SecretValueReferenceArgsDict']]
+    reference: NotRequired[pulumi.Input[Optional['SecretValueReferenceArgsDict']]]
     """
     Parameter value as reference type.
     """
@@ -385,7 +385,7 @@ class ParameterValueArgsDict(TypedDict):
 @pulumi.input_type
 class ParameterValueArgs:
     def __init__(__self__, *,
-                 reference: Optional[pulumi.Input['SecretValueReferenceArgs']] = None,
+                 reference: pulumi.Input[Optional['SecretValueReferenceArgs']] = None,
                  value: Optional[Any] = None):
         """
         Value for the specified parameter. Can be either 'value' or 'reference' but not both.
@@ -400,14 +400,14 @@ class ParameterValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def reference(self) -> Optional[pulumi.Input['SecretValueReferenceArgs']]:
+    def reference(self) -> pulumi.Input[Optional['SecretValueReferenceArgs']]:
         """
         Parameter value as reference type.
         """
         return pulumi.get(self, "reference")
 
     @reference.setter
-    def reference(self, value: Optional[pulumi.Input['SecretValueReferenceArgs']]):
+    def reference(self, value: pulumi.Input[Optional['SecretValueReferenceArgs']]):
         pulumi.set(self, "reference", value)
 
     @_builtins.property
@@ -427,31 +427,31 @@ class ResourceGroupDefinitionArgsDict(TypedDict):
     """
     Represents an Azure resource group in a blueprint definition.
     """
-    depends_on: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    depends_on: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Artifacts which need to be deployed before this resource group.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Description of this parameter/resourceGroup.
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     DisplayName of this parameter/resourceGroup.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
     """
-    strong_type: NotRequired[pulumi.Input[_builtins.str]]
+    strong_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Tags to be assigned to this resource group.
     """
@@ -459,13 +459,13 @@ class ResourceGroupDefinitionArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceGroupDefinitionArgs:
     def __init__(__self__, *,
-                 depends_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 strong_type: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 depends_on: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 strong_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Represents an Azure resource group in a blueprint definition.
 
@@ -494,86 +494,86 @@ class ResourceGroupDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="dependsOn")
-    def depends_on(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def depends_on(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Artifacts which need to be deployed before this resource group.
         """
         return pulumi.get(self, "depends_on")
 
     @depends_on.setter
-    def depends_on(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def depends_on(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "depends_on", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of this parameter/resourceGroup.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         DisplayName of this parameter/resourceGroup.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="strongType")
-    def strong_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def strong_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         StrongType for UI to render rich experience during blueprint assignment. Supported strong types are resourceType, principalId and location.
         """
         return pulumi.get(self, "strong_type")
 
     @strong_type.setter
-    def strong_type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def strong_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "strong_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags to be assigned to this resource group.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -581,11 +581,11 @@ class ResourceGroupValueArgsDict(TypedDict):
     """
     Represents an Azure resource group.
     """
-    location: NotRequired[pulumi.Input[_builtins.str]]
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Location of the resource group.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the resource group.
     """
@@ -593,8 +593,8 @@ class ResourceGroupValueArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceGroupValueArgs:
     def __init__(__self__, *,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Represents an Azure resource group.
 
@@ -608,26 +608,26 @@ class ResourceGroupValueArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Location of the resource group.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the resource group.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -643,7 +643,7 @@ class SecretValueReferenceArgsDict(TypedDict):
     """
     Name of the secret.
     """
-    secret_version: NotRequired[pulumi.Input[_builtins.str]]
+    secret_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the secret to use. If left blank, the latest version of the secret is used.
     """
@@ -653,7 +653,7 @@ class SecretValueReferenceArgs:
     def __init__(__self__, *,
                  key_vault: pulumi.Input['KeyVaultReferenceArgs'],
                  secret_name: pulumi.Input[_builtins.str],
-                 secret_version: Optional[pulumi.Input[_builtins.str]] = None):
+                 secret_version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Reference to a Key Vault secret.
 
@@ -692,14 +692,14 @@ class SecretValueReferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="secretVersion")
-    def secret_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def secret_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the secret to use. If left blank, the latest version of the secret is used.
         """
         return pulumi.get(self, "secret_version")
 
     @secret_version.setter
-    def secret_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def secret_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "secret_version", value)
 
 
@@ -707,11 +707,11 @@ class UserAssignedIdentityArgsDict(TypedDict):
     """
     User-assigned managed identity.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Client App Id associated with this identity.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Azure Active Directory principal ID associated with this Identity.
     """
@@ -719,8 +719,8 @@ class UserAssignedIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class UserAssignedIdentityArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         User-assigned managed identity.
 
@@ -734,26 +734,26 @@ class UserAssignedIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client App Id associated with this identity.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Azure Active Directory principal ID associated with this Identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
 

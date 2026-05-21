@@ -25,12 +25,12 @@ class DataPartitionNamesArgsDict(TypedDict):
     """
     The list of Energy services resource's Data Partition Names.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class DataPartitionNamesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The list of Energy services resource's Data Partition Names.
         """
@@ -39,23 +39,23 @@ class DataPartitionNamesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
 class EnergyServicePropertiesArgsDict(TypedDict):
-    auth_app_id: NotRequired[pulumi.Input[_builtins.str]]
-    data_partition_names: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataPartitionNamesArgsDict']]]]
+    auth_app_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    data_partition_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataPartitionNamesArgsDict']]]]]
 
 @pulumi.input_type
 class EnergyServicePropertiesArgs:
     def __init__(__self__, *,
-                 auth_app_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_partition_names: Optional[pulumi.Input[Sequence[pulumi.Input['DataPartitionNamesArgs']]]] = None):
+                 auth_app_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_partition_names: pulumi.Input[Optional[Sequence[pulumi.Input['DataPartitionNamesArgs']]]] = None):
         if auth_app_id is not None:
             pulumi.set(__self__, "auth_app_id", auth_app_id)
         if data_partition_names is not None:
@@ -63,20 +63,20 @@ class EnergyServicePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="authAppId")
-    def auth_app_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def auth_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "auth_app_id")
 
     @auth_app_id.setter
-    def auth_app_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def auth_app_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "auth_app_id", value)
 
     @_builtins.property
     @pulumi.getter(name="dataPartitionNames")
-    def data_partition_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataPartitionNamesArgs']]]]:
+    def data_partition_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DataPartitionNamesArgs']]]]:
         return pulumi.get(self, "data_partition_names")
 
     @data_partition_names.setter
-    def data_partition_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataPartitionNamesArgs']]]]):
+    def data_partition_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DataPartitionNamesArgs']]]]):
         pulumi.set(self, "data_partition_names", value)
 
 

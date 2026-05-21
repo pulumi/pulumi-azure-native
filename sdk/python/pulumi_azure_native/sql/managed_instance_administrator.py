@@ -25,8 +25,8 @@ class ManagedInstanceAdministratorArgs:
                  managed_instance_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sid: pulumi.Input[_builtins.str],
-                 administrator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 administrator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceAdministrator resource.
 
@@ -109,23 +109,23 @@ class ManagedInstanceAdministratorArgs:
 
     @_builtins.property
     @pulumi.getter(name="administratorName")
-    def administrator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def administrator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "administrator_name")
 
     @administrator_name.setter
-    def administrator_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def administrator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "administrator_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenant ID of the managed instance administrator.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -135,13 +135,13 @@ class ManagedInstanceAdministrator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedInstanceAdministratorType']]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedInstanceAdministratorType']]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An Azure SQL managed instance administrator.
@@ -189,13 +189,13 @@ class ManagedInstanceAdministrator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 administrator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 administrator_type: Optional[pulumi.Input[Union[_builtins.str, 'ManagedInstanceAdministratorType']]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 managed_instance_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sid: Optional[pulumi.Input[_builtins.str]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 administrator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 administrator_type: pulumi.Input[Optional[Union[_builtins.str, 'ManagedInstanceAdministratorType']]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 managed_instance_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sid: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

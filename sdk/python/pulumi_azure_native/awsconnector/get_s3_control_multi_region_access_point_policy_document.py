@@ -161,8 +161,8 @@ def get_s3_control_multi_region_access_point_policy_document(name: Optional[_bui
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_s3_control_multi_region_access_point_policy_document_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_s3_control_multi_region_access_point_policy_document_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetS3ControlMultiRegionAccessPointPolicyDocumentResult]:
     """
     Get a S3ControlMultiRegionAccessPointPolicyDocument

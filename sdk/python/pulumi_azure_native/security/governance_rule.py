@@ -28,14 +28,14 @@ class GovernanceRuleArgs:
                  rule_type: pulumi.Input[Union[_builtins.str, 'GovernanceRuleType']],
                  scope: pulumi.Input[_builtins.str],
                  source_resource_type: pulumi.Input[Union[_builtins.str, 'GovernanceRuleSourceResourceType']],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 governance_email_notification: Optional[pulumi.Input['GovernanceRuleEmailNotificationArgs']] = None,
-                 include_member_scopes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_grace_period: Optional[pulumi.Input[_builtins.bool]] = None,
-                 remediation_timeframe: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 excluded_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 governance_email_notification: pulumi.Input[Optional['GovernanceRuleEmailNotificationArgs']] = None,
+                 include_member_scopes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_grace_period: pulumi.Input[Optional[_builtins.bool]] = None,
+                 remediation_timeframe: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GovernanceRule resource.
 
@@ -151,98 +151,98 @@ class GovernanceRuleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of the governance rule
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="excludedScopes")
-    def excluded_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def excluded_scopes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Excluded scopes, filter out the descendants of the scope (on management scopes)
         """
         return pulumi.get(self, "excluded_scopes")
 
     @excluded_scopes.setter
-    def excluded_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def excluded_scopes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "excluded_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="governanceEmailNotification")
-    def governance_email_notification(self) -> Optional[pulumi.Input['GovernanceRuleEmailNotificationArgs']]:
+    def governance_email_notification(self) -> pulumi.Input[Optional['GovernanceRuleEmailNotificationArgs']]:
         """
         The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
         """
         return pulumi.get(self, "governance_email_notification")
 
     @governance_email_notification.setter
-    def governance_email_notification(self, value: Optional[pulumi.Input['GovernanceRuleEmailNotificationArgs']]):
+    def governance_email_notification(self, value: pulumi.Input[Optional['GovernanceRuleEmailNotificationArgs']]):
         pulumi.set(self, "governance_email_notification", value)
 
     @_builtins.property
     @pulumi.getter(name="includeMemberScopes")
-    def include_member_scopes(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def include_member_scopes(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Defines whether the rule is management scope rule (master connector as a single scope or management scope)
         """
         return pulumi.get(self, "include_member_scopes")
 
     @include_member_scopes.setter
-    def include_member_scopes(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def include_member_scopes(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "include_member_scopes", value)
 
     @_builtins.property
     @pulumi.getter(name="isDisabled")
-    def is_disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Defines whether the rule is active/inactive
         """
         return pulumi.get(self, "is_disabled")
 
     @is_disabled.setter
-    def is_disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="isGracePeriod")
-    def is_grace_period(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_grace_period(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Defines whether there is a grace period on the governance rule
         """
         return pulumi.get(self, "is_grace_period")
 
     @is_grace_period.setter
-    def is_grace_period(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_grace_period(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_grace_period", value)
 
     @_builtins.property
     @pulumi.getter(name="remediationTimeframe")
-    def remediation_timeframe(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def remediation_timeframe(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
         """
         return pulumi.get(self, "remediation_timeframe")
 
     @remediation_timeframe.setter
-    def remediation_timeframe(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def remediation_timeframe(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "remediation_timeframe", value)
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
-    def rule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def rule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The governance rule key - unique key for the standard governance rule (GUID)
         """
         return pulumi.get(self, "rule_id")
 
     @rule_id.setter
-    def rule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def rule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_id", value)
 
 
@@ -252,20 +252,20 @@ class GovernanceRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 governance_email_notification: Optional[pulumi.Input[Union['GovernanceRuleEmailNotificationArgs', 'GovernanceRuleEmailNotificationArgsDict']]] = None,
-                 include_member_scopes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_grace_period: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner_source: Optional[pulumi.Input[Union['GovernanceRuleOwnerSourceArgs', 'GovernanceRuleOwnerSourceArgsDict']]] = None,
-                 remediation_timeframe: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_type: Optional[pulumi.Input[Union[_builtins.str, 'GovernanceRuleType']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_type: Optional[pulumi.Input[Union[_builtins.str, 'GovernanceRuleSourceResourceType']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 excluded_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 governance_email_notification: pulumi.Input[Optional[Union['GovernanceRuleEmailNotificationArgs', 'GovernanceRuleEmailNotificationArgsDict']]] = None,
+                 include_member_scopes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_grace_period: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner_source: pulumi.Input[Optional[Union['GovernanceRuleOwnerSourceArgs', 'GovernanceRuleOwnerSourceArgsDict']]] = None,
+                 remediation_timeframe: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_type: pulumi.Input[Optional[Union[_builtins.str, 'GovernanceRuleType']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_type: pulumi.Input[Optional[Union[_builtins.str, 'GovernanceRuleSourceResourceType']]] = None,
                  __props__=None):
         """
         Governance rule over a given scope
@@ -317,20 +317,20 @@ class GovernanceRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 excluded_scopes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 governance_email_notification: Optional[pulumi.Input[Union['GovernanceRuleEmailNotificationArgs', 'GovernanceRuleEmailNotificationArgsDict']]] = None,
-                 include_member_scopes: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_grace_period: Optional[pulumi.Input[_builtins.bool]] = None,
-                 owner_source: Optional[pulumi.Input[Union['GovernanceRuleOwnerSourceArgs', 'GovernanceRuleOwnerSourceArgsDict']]] = None,
-                 remediation_timeframe: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_priority: Optional[pulumi.Input[_builtins.int]] = None,
-                 rule_type: Optional[pulumi.Input[Union[_builtins.str, 'GovernanceRuleType']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_resource_type: Optional[pulumi.Input[Union[_builtins.str, 'GovernanceRuleSourceResourceType']]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 excluded_scopes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 governance_email_notification: pulumi.Input[Optional[Union['GovernanceRuleEmailNotificationArgs', 'GovernanceRuleEmailNotificationArgsDict']]] = None,
+                 include_member_scopes: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_grace_period: pulumi.Input[Optional[_builtins.bool]] = None,
+                 owner_source: pulumi.Input[Optional[Union['GovernanceRuleOwnerSourceArgs', 'GovernanceRuleOwnerSourceArgsDict']]] = None,
+                 remediation_timeframe: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_priority: pulumi.Input[Optional[_builtins.int]] = None,
+                 rule_type: pulumi.Input[Optional[Union[_builtins.str, 'GovernanceRuleType']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_resource_type: pulumi.Input[Optional[Union[_builtins.str, 'GovernanceRuleSourceResourceType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

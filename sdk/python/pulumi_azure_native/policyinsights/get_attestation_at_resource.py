@@ -267,8 +267,8 @@ def get_attestation_at_resource(attestation_name: Optional[_builtins.str] = None
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_attestation_at_resource_output(attestation_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+def get_attestation_at_resource_output(attestation_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAttestationAtResourceResult]:
     """
     Gets an existing attestation at resource scope.

@@ -179,9 +179,9 @@ def get_experiment_execution_details(execution_id: Optional[_builtins.str] = Non
         status=pulumi.get(__ret__, 'status'),
         stopped_at=pulumi.get(__ret__, 'stopped_at'),
         type=pulumi.get(__ret__, 'type'))
-def get_experiment_execution_details_output(execution_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            experiment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_experiment_execution_details_output(execution_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            experiment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentExecutionDetailsResult]:
     """
     Execution details of an experiment resource.

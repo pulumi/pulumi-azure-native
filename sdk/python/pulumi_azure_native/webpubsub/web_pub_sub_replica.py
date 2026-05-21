@@ -24,12 +24,12 @@ class WebPubSubReplicaArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_endpoint_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_stopped: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input['ResourceSkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_endpoint_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_stopped: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional['ResourceSkuArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a WebPubSubReplica resource.
 
@@ -90,19 +90,19 @@ class WebPubSubReplicaArgs:
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter(name="regionEndpointEnabled")
-    def region_endpoint_enabled(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def region_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Enable or disable the regional endpoint. Default to "Enabled".
         When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
@@ -110,24 +110,24 @@ class WebPubSubReplicaArgs:
         return pulumi.get(self, "region_endpoint_enabled")
 
     @region_endpoint_enabled.setter
-    def region_endpoint_enabled(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def region_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "region_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="replicaName")
-    def replica_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def replica_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the replica.
         """
         return pulumi.get(self, "replica_name")
 
     @replica_name.setter
-    def replica_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def replica_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "replica_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceStopped")
-    def resource_stopped(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_stopped(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Stop or start the resource.  Default to "false".
         When it's true, the data plane of the resource is shutdown.
@@ -136,31 +136,31 @@ class WebPubSubReplicaArgs:
         return pulumi.get(self, "resource_stopped")
 
     @resource_stopped.setter
-    def resource_stopped(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_stopped(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_stopped", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['ResourceSkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['ResourceSkuArgs']]:
         """
         The billing information of the resource.
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['ResourceSkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['ResourceSkuArgs']]):
         pulumi.set(self, "sku", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -170,14 +170,14 @@ class WebPubSubReplica(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_endpoint_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_stopped: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_endpoint_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_stopped: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         A class represent a replica resource.
@@ -230,14 +230,14 @@ class WebPubSubReplica(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 region_endpoint_enabled: Optional[pulumi.Input[_builtins.str]] = None,
-                 replica_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_stopped: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 region_endpoint_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 replica_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_stopped: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['ResourceSkuArgs', 'ResourceSkuArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

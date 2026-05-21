@@ -26,7 +26,7 @@ class IdentityArgsDict(TypedDict):
     """
     Identity of resource
     """
-    type: NotRequired[pulumi.Input[Union[_builtins.str, 'Type']]]
+    type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Type']]]]
     """
     Identity Type
     """
@@ -34,7 +34,7 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'Type']]] = None):
+                 type: pulumi.Input[Optional[Union[_builtins.str, 'Type']]] = None):
         """
         Identity of resource
 
@@ -45,14 +45,14 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Type']]]:
+    def type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Type']]]:
         """
         Identity Type
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Type']]]):
+    def type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Type']]]):
         pulumi.set(self, "type", value)
 
 
@@ -60,27 +60,27 @@ class TableLevelSharingPropertiesArgsDict(TypedDict):
     """
     Table level sharing properties dto for kusto data set properties
     """
-    external_tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    external_tables_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     External tables to be excluded in the data set
     """
-    external_tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    external_tables_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     External tables to be included in the data set
     """
-    materialized_views_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    materialized_views_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Materialized views to be excluded in the data set
     """
-    materialized_views_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    materialized_views_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Materialized views to be included in the data set
     """
-    tables_to_exclude: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tables_to_exclude: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Tables to be excluded in the data set
     """
-    tables_to_include: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    tables_to_include: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Tables to be included in the data set
     """
@@ -88,12 +88,12 @@ class TableLevelSharingPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TableLevelSharingPropertiesArgs:
     def __init__(__self__, *,
-                 external_tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 external_tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 materialized_views_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 materialized_views_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tables_to_exclude: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tables_to_include: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 external_tables_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_tables_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 materialized_views_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 materialized_views_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tables_to_exclude: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tables_to_include: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Table level sharing properties dto for kusto data set properties
 
@@ -119,74 +119,74 @@ class TableLevelSharingPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="externalTablesToExclude")
-    def external_tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_tables_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         External tables to be excluded in the data set
         """
         return pulumi.get(self, "external_tables_to_exclude")
 
     @external_tables_to_exclude.setter
-    def external_tables_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_tables_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_tables_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="externalTablesToInclude")
-    def external_tables_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def external_tables_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         External tables to be included in the data set
         """
         return pulumi.get(self, "external_tables_to_include")
 
     @external_tables_to_include.setter
-    def external_tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def external_tables_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "external_tables_to_include", value)
 
     @_builtins.property
     @pulumi.getter(name="materializedViewsToExclude")
-    def materialized_views_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def materialized_views_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Materialized views to be excluded in the data set
         """
         return pulumi.get(self, "materialized_views_to_exclude")
 
     @materialized_views_to_exclude.setter
-    def materialized_views_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def materialized_views_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "materialized_views_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="materializedViewsToInclude")
-    def materialized_views_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def materialized_views_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Materialized views to be included in the data set
         """
         return pulumi.get(self, "materialized_views_to_include")
 
     @materialized_views_to_include.setter
-    def materialized_views_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def materialized_views_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "materialized_views_to_include", value)
 
     @_builtins.property
     @pulumi.getter(name="tablesToExclude")
-    def tables_to_exclude(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tables_to_exclude(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tables to be excluded in the data set
         """
         return pulumi.get(self, "tables_to_exclude")
 
     @tables_to_exclude.setter
-    def tables_to_exclude(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tables_to_exclude(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tables_to_exclude", value)
 
     @_builtins.property
     @pulumi.getter(name="tablesToInclude")
-    def tables_to_include(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def tables_to_include(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Tables to be included in the data set
         """
         return pulumi.get(self, "tables_to_include")
 
     @tables_to_include.setter
-    def tables_to_include(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def tables_to_include(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tables_to_include", value)
 
 

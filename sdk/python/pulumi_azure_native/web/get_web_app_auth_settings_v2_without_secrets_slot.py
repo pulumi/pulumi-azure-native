@@ -192,9 +192,9 @@ def get_web_app_auth_settings_v2_without_secrets_slot(name: Optional[_builtins.s
         name=pulumi.get(__ret__, 'name'),
         platform=pulumi.get(__ret__, 'platform'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_auth_settings_v2_without_secrets_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                             slot: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_auth_settings_v2_without_secrets_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                             slot: pulumi.Input[Optional[_builtins.str]] = None,
                                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppAuthSettingsV2WithoutSecretsSlotResult]:
     """
     Configuration settings for the Azure App Service Authentication / Authorization V2 feature.

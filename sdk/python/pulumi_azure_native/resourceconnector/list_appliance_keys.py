@@ -101,9 +101,9 @@ def list_appliance_keys(artifact_type: Optional[_builtins.str] = None,
         artifact_profiles=pulumi.get(__ret__, 'artifact_profiles'),
         kubeconfigs=pulumi.get(__ret__, 'kubeconfigs'),
         ssh_keys=pulumi.get(__ret__, 'ssh_keys'))
-def list_appliance_keys_output(artifact_type: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_appliance_keys_output(artifact_type: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListApplianceKeysResult]:
     """
     Returns the cluster customer credentials for the dedicated appliance.

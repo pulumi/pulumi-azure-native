@@ -24,7 +24,7 @@ class FavoriteProcessArgs:
                  package_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  test_base_account_name: pulumi.Input[_builtins.str],
-                 favorite_process_resource_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 favorite_process_resource_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FavoriteProcess resource.
 
@@ -91,14 +91,14 @@ class FavoriteProcessArgs:
 
     @_builtins.property
     @pulumi.getter(name="favoriteProcessResourceName")
-    def favorite_process_resource_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def favorite_process_resource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource name of a favorite process in a package. If the process name contains characters that are not allowed in Azure Resource Name, we use 'actualProcessName' in request body to submit the name.
         """
         return pulumi.get(self, "favorite_process_resource_name")
 
     @favorite_process_resource_name.setter
-    def favorite_process_resource_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def favorite_process_resource_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "favorite_process_resource_name", value)
 
 
@@ -108,11 +108,11 @@ class FavoriteProcess(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actual_process_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 favorite_process_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 actual_process_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 favorite_process_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A favorite process identifier.
@@ -159,11 +159,11 @@ class FavoriteProcess(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actual_process_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 favorite_process_resource_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 package_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 test_base_account_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 actual_process_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 favorite_process_resource_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 package_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 test_base_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

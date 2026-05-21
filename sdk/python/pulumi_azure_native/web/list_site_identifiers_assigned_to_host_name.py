@@ -82,7 +82,7 @@ def list_site_identifiers_assigned_to_host_name(name: Optional[_builtins.str] = 
     return AwaitableListSiteIdentifiersAssignedToHostNameResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_site_identifiers_assigned_to_host_name_output(name: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_site_identifiers_assigned_to_host_name_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSiteIdentifiersAssignedToHostNameResult]:
     """
     Description for List all apps that are assigned to a hostname.

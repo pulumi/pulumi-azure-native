@@ -139,9 +139,9 @@ def get_documentation(documentation_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         title=pulumi.get(__ret__, 'title'),
         type=pulumi.get(__ret__, 'type'))
-def get_documentation_output(documentation_id: Optional[pulumi.Input[_builtins.str]] = None,
-                             resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                             service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_documentation_output(documentation_id: pulumi.Input[Optional[_builtins.str]] = None,
+                             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                             service_name: pulumi.Input[Optional[_builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentationResult]:
     """
     Gets the details of the Documentation specified by its identifier.

@@ -87,9 +87,9 @@ def get_edge_action_version_code(edge_action_name: Optional[_builtins.str] = Non
     return AwaitableGetEdgeActionVersionCodeResult(
         content=pulumi.get(__ret__, 'content'),
         name=pulumi.get(__ret__, 'name'))
-def get_edge_action_version_code_output(edge_action_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                        version: Optional[pulumi.Input[_builtins.str]] = None,
+def get_edge_action_version_code_output(edge_action_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                        version: pulumi.Input[Optional[_builtins.str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEdgeActionVersionCodeResult]:
     """
     Get the version code for the edge action version.

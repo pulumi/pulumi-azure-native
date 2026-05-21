@@ -164,9 +164,9 @@ def get_service_runner(lab_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_service_runner_output(lab_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_service_runner_output(lab_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceRunnerResult]:
     """
     Get service runner.

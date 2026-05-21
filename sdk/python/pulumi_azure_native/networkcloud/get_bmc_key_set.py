@@ -293,9 +293,9 @@ def get_bmc_key_set(bmc_key_set_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         user_list=pulumi.get(__ret__, 'user_list'),
         user_list_status=pulumi.get(__ret__, 'user_list_status'))
-def get_bmc_key_set_output(bmc_key_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_bmc_key_set_output(bmc_key_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBmcKeySetResult]:
     """
     Get baseboard management controller key set of the provided cluster.

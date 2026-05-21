@@ -24,7 +24,7 @@ class GeoBackupPolicyArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  state: pulumi.Input['GeoBackupPolicyState'],
-                 geo_backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 geo_backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a GeoBackupPolicy resource.
 
@@ -91,14 +91,14 @@ class GeoBackupPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="geoBackupPolicyName")
-    def geo_backup_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def geo_backup_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Geo backup policy. This should always be 'Default'.
         """
         return pulumi.get(self, "geo_backup_policy_name")
 
     @geo_backup_policy_name.setter
-    def geo_backup_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def geo_backup_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "geo_backup_policy_name", value)
 
 
@@ -108,11 +108,11 @@ class GeoBackupPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['GeoBackupPolicyState']] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['GeoBackupPolicyState']] = None,
                  __props__=None):
         """
         A Geo backup policy.
@@ -159,11 +159,11 @@ class GeoBackupPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 geo_backup_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 state: Optional[pulumi.Input['GeoBackupPolicyState']] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 geo_backup_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional['GeoBackupPolicyState']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

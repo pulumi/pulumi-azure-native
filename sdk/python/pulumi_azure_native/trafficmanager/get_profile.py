@@ -241,8 +241,8 @@ def get_profile(profile_name: Optional[_builtins.str] = None,
         traffic_routing_method=pulumi.get(__ret__, 'traffic_routing_method'),
         traffic_view_enrollment_status=pulumi.get(__ret__, 'traffic_view_enrollment_status'),
         type=pulumi.get(__ret__, 'type'))
-def get_profile_output(profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_profile_output(profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResult]:
     """
     Gets a Traffic Manager profile.

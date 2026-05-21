@@ -85,8 +85,8 @@ def list_sql_migration_service_monitoring_data(resource_group_name: Optional[_bu
     return AwaitableListSqlMigrationServiceMonitoringDataResult(
         name=pulumi.get(__ret__, 'name'),
         nodes=pulumi.get(__ret__, 'nodes'))
-def list_sql_migration_service_monitoring_data_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      sql_migration_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_sql_migration_service_monitoring_data_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      sql_migration_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListSqlMigrationServiceMonitoringDataResult]:
     """
     Retrieve the registered Integration Runtime nodes and their monitoring data for a given Database Migration Service.

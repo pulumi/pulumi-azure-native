@@ -24,7 +24,7 @@ class ProductWikiArgs:
                  product_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 documents: Optional[pulumi.Input[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]] = None):
+                 documents: pulumi.Input[Optional[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]] = None):
         """
         The set of arguments for constructing a ProductWiki resource.
 
@@ -77,14 +77,14 @@ class ProductWikiArgs:
 
     @_builtins.property
     @pulumi.getter
-    def documents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]]:
+    def documents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]]:
         """
         Collection wiki documents included into this wiki.
         """
         return pulumi.get(self, "documents")
 
     @documents.setter
-    def documents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]]):
+    def documents(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['WikiDocumentationContractArgs']]]]):
         pulumi.set(self, "documents", value)
 
 
@@ -94,10 +94,10 @@ class ProductWiki(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 documents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WikiDocumentationContractArgs', 'WikiDocumentationContractArgsDict']]]]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WikiDocumentationContractArgs', 'WikiDocumentationContractArgsDict']]]]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Wiki properties
@@ -143,10 +143,10 @@ class ProductWiki(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 documents: Optional[pulumi.Input[Sequence[pulumi.Input[Union['WikiDocumentationContractArgs', 'WikiDocumentationContractArgsDict']]]]] = None,
-                 product_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WikiDocumentationContractArgs', 'WikiDocumentationContractArgsDict']]]]] = None,
+                 product_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

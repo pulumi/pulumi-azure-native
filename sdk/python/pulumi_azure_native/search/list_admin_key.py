@@ -84,8 +84,8 @@ def list_admin_key(resource_group_name: Optional[_builtins.str] = None,
     return AwaitableListAdminKeyResult(
         primary_key=pulumi.get(__ret__, 'primary_key'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_admin_key_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          search_service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_admin_key_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          search_service_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAdminKeyResult]:
     """
     Gets the primary and secondary admin API keys for the specified Azure AI Search service.

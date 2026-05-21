@@ -494,10 +494,10 @@ def get_virtual_machine_scale_set_vm(expand: Optional[_builtins.str] = None,
         user_data=pulumi.get(__ret__, 'user_data'),
         vm_id=pulumi.get(__ret__, 'vm_id'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_virtual_machine_scale_set_vm_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                                            instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                            vm_scale_set_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_scale_set_vm_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                            vm_scale_set_name: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineScaleSetVMResult]:
     """
     Gets a virtual machine from a VM scale set.

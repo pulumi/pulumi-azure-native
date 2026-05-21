@@ -72,8 +72,8 @@ def list_linker_configurations(linker_name: Optional[_builtins.str] = None,
 
     return AwaitableListLinkerConfigurationsResult(
         configurations=pulumi.get(__ret__, 'configurations'))
-def list_linker_configurations_output(linker_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_uri: Optional[pulumi.Input[_builtins.str]] = None,
+def list_linker_configurations_output(linker_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_uri: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListLinkerConfigurationsResult]:
     """
     list source configurations for a Linker.

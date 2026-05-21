@@ -21,7 +21,7 @@ class OutboundFirewallRuleArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
-                 outbound_rule_fqdn: Optional[pulumi.Input[_builtins.str]] = None):
+                 outbound_rule_fqdn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a OutboundFirewallRule resource.
 
@@ -59,11 +59,11 @@ class OutboundFirewallRuleArgs:
 
     @_builtins.property
     @pulumi.getter(name="outboundRuleFqdn")
-    def outbound_rule_fqdn(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def outbound_rule_fqdn(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "outbound_rule_fqdn")
 
     @outbound_rule_fqdn.setter
-    def outbound_rule_fqdn(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def outbound_rule_fqdn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "outbound_rule_fqdn", value)
 
 
@@ -73,9 +73,9 @@ class OutboundFirewallRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 outbound_rule_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 outbound_rule_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An Azure SQL DB Server Outbound Firewall Rule.
@@ -119,9 +119,9 @@ class OutboundFirewallRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 outbound_rule_fqdn: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 outbound_rule_fqdn: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

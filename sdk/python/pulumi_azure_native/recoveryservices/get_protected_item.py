@@ -176,12 +176,12 @@ def get_protected_item(container_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_protected_item_output(container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              filter: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                              protected_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_protected_item_output(container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              filter: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                              protected_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectedItemResult]:
     """
     Provides the details of the backed up item. This is an asynchronous operation. To know the status of the operation,

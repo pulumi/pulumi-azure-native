@@ -156,10 +156,10 @@ def get_web_app_discovery_site_data_sources_controller(discovery_site_data_sourc
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_discovery_site_data_sources_controller_output(discovery_site_data_source_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              web_app_site_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_discovery_site_data_sources_controller_output(discovery_site_data_source_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              web_app_site_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppDiscoverySiteDataSourcesControllerResult]:
     """
     Method to get a Web app data source in site.

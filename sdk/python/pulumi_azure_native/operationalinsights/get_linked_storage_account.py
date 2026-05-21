@@ -139,9 +139,9 @@ def get_linked_storage_account(data_source_type: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         storage_account_ids=pulumi.get(__ret__, 'storage_account_ids'),
         type=pulumi.get(__ret__, 'type'))
-def get_linked_storage_account_output(data_source_type: Optional[pulumi.Input[_builtins.str]] = None,
-                                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                      workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_linked_storage_account_output(data_source_type: pulumi.Input[Optional[_builtins.str]] = None,
+                                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                      workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLinkedStorageAccountResult]:
     """
     Gets all linked storage account of a specific data source type associated with the specified workspace.

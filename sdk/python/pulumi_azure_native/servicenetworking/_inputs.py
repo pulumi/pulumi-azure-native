@@ -63,7 +63,7 @@ class SecurityPolicyConfigurationsArgsDict(TypedDict):
     """
     SecurityPolicyConfigurations Subresource of Traffic Controller.
     """
-    waf_security_policy: NotRequired[pulumi.Input['WafSecurityPolicyArgsDict']]
+    waf_security_policy: NotRequired[pulumi.Input[Optional['WafSecurityPolicyArgsDict']]]
     """
     Contains reference to a WAF-type security policy.
     """
@@ -71,7 +71,7 @@ class SecurityPolicyConfigurationsArgsDict(TypedDict):
 @pulumi.input_type
 class SecurityPolicyConfigurationsArgs:
     def __init__(__self__, *,
-                 waf_security_policy: Optional[pulumi.Input['WafSecurityPolicyArgs']] = None):
+                 waf_security_policy: pulumi.Input[Optional['WafSecurityPolicyArgs']] = None):
         """
         SecurityPolicyConfigurations Subresource of Traffic Controller.
 
@@ -82,14 +82,14 @@ class SecurityPolicyConfigurationsArgs:
 
     @_builtins.property
     @pulumi.getter(name="wafSecurityPolicy")
-    def waf_security_policy(self) -> Optional[pulumi.Input['WafSecurityPolicyArgs']]:
+    def waf_security_policy(self) -> pulumi.Input[Optional['WafSecurityPolicyArgs']]:
         """
         Contains reference to a WAF-type security policy.
         """
         return pulumi.get(self, "waf_security_policy")
 
     @waf_security_policy.setter
-    def waf_security_policy(self, value: Optional[pulumi.Input['WafSecurityPolicyArgs']]):
+    def waf_security_policy(self, value: pulumi.Input[Optional['WafSecurityPolicyArgs']]):
         pulumi.set(self, "waf_security_policy", value)
 
 

@@ -24,9 +24,9 @@ class ComputePolicyArgs:
                  object_id: pulumi.Input[_builtins.str],
                  object_type: pulumi.Input[Union[_builtins.str, 'AADObjectType']],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 compute_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_priority_per_job: Optional[pulumi.Input[_builtins.int]] = None):
+                 compute_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_degree_of_parallelism_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_priority_per_job: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The set of arguments for constructing a ComputePolicy resource.
 
@@ -99,38 +99,38 @@ class ComputePolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="computePolicyName")
-    def compute_policy_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def compute_policy_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the compute policy to create or update.
         """
         return pulumi.get(self, "compute_policy_name")
 
     @compute_policy_name.setter
-    def compute_policy_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def compute_policy_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "compute_policy_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_degree_of_parallelism_per_job(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
         """
         return pulumi.get(self, "max_degree_of_parallelism_per_job")
 
     @max_degree_of_parallelism_per_job.setter
-    def max_degree_of_parallelism_per_job(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_degree_of_parallelism_per_job(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_degree_of_parallelism_per_job", value)
 
     @_builtins.property
     @pulumi.getter(name="minPriorityPerJob")
-    def min_priority_per_job(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_priority_per_job(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
         """
         return pulumi.get(self, "min_priority_per_job")
 
     @min_priority_per_job.setter
-    def min_priority_per_job(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_priority_per_job(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_priority_per_job", value)
 
 
@@ -140,13 +140,13 @@ class ComputePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_priority_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_type: Optional[pulumi.Input[Union[_builtins.str, 'AADObjectType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_degree_of_parallelism_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_priority_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_type: pulumi.Input[Optional[Union[_builtins.str, 'AADObjectType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Data Lake Analytics compute policy information.
@@ -191,13 +191,13 @@ class ComputePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 compute_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_priority_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_type: Optional[pulumi.Input[Union[_builtins.str, 'AADObjectType']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_degree_of_parallelism_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_priority_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_type: pulumi.Input[Optional[Union[_builtins.str, 'AADObjectType']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

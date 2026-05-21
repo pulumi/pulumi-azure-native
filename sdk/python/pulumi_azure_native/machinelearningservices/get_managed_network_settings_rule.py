@@ -140,9 +140,9 @@ def get_managed_network_settings_rule(resource_group_name: Optional[_builtins.st
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_managed_network_settings_rule_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                             workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_managed_network_settings_rule_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                             workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedNetworkSettingsRuleResult]:
     """
     Gets an outbound rule from the managed network of a machine learning workspace.

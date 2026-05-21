@@ -177,9 +177,9 @@ def get_private_endpoint_connection_proxy(account_name: Optional[_builtins.str] 
         status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_proxy_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 private_endpoint_connection_proxy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_proxy_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 private_endpoint_connection_proxy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionProxyResult]:
     """
     (INTERNAL - DO NOT USE) Get the specified private endpoint connection proxy associated with the device update account.

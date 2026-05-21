@@ -169,10 +169,10 @@ def get_protection_container(container_name: Optional[_builtins.str] = None,
         properties=pulumi.get(__ret__, 'properties'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_protection_container_output(container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                    vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_protection_container_output(container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                    vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProtectionContainerResult]:
     """
     Gets details of the specific container registered to your Recovery Services Vault.

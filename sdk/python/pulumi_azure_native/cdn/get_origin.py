@@ -312,10 +312,10 @@ def get_origin(endpoint_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         weight=pulumi.get(__ret__, 'weight'))
-def get_origin_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      origin_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                      resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_origin_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      origin_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                      resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginResult]:
     """
     Gets an existing origin within an endpoint.

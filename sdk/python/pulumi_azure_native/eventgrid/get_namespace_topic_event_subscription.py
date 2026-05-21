@@ -195,10 +195,10 @@ def get_namespace_topic_event_subscription(event_subscription_name: Optional[_bu
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_namespace_topic_event_subscription_output(event_subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_namespace_topic_event_subscription_output(event_subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceTopicEventSubscriptionResult]:
     """
     Get properties of an event subscription of a namespace topic.

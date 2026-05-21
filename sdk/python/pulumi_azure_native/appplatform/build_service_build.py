@@ -24,8 +24,8 @@ class BuildServiceBuildArgs:
                  build_service_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['BuildPropertiesArgs']] = None):
+                 build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['BuildPropertiesArgs']] = None):
         """
         The set of arguments for constructing a BuildServiceBuild resource.
 
@@ -81,26 +81,26 @@ class BuildServiceBuildArgs:
 
     @_builtins.property
     @pulumi.getter(name="buildName")
-    def build_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def build_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the build resource.
         """
         return pulumi.get(self, "build_name")
 
     @build_name.setter
-    def build_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def build_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "build_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['BuildPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['BuildPropertiesArgs']]:
         """
         Properties of the build resource
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['BuildPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['BuildPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -110,11 +110,11 @@ class BuildServiceBuild(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BuildPropertiesArgs', 'BuildPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BuildPropertiesArgs', 'BuildPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Build resource payload
@@ -161,11 +161,11 @@ class BuildServiceBuild(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 build_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 build_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['BuildPropertiesArgs', 'BuildPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 build_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['BuildPropertiesArgs', 'BuildPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -25,9 +25,9 @@ class CommunityEndpointArgs:
                  community_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  rule_collection: pulumi.Input[Sequence[pulumi.Input['CommunityEndpointDestinationRuleArgs']]],
-                 community_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 community_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CommunityEndpoint resource.
 
@@ -86,38 +86,38 @@ class CommunityEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="communityEndpointName")
-    def community_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def community_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Community Endpoint Resource
         """
         return pulumi.get(self, "community_endpoint_name")
 
     @community_endpoint_name.setter
-    def community_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def community_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "community_endpoint_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -127,12 +127,12 @@ class CommunityEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 community_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 community_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CommunityEndpointDestinationRuleArgs', 'CommunityEndpointDestinationRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 community_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 community_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CommunityEndpointDestinationRuleArgs', 'CommunityEndpointDestinationRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         CommunityEndpoint Model Resource
@@ -180,12 +180,12 @@ class CommunityEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 community_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 community_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 rule_collection: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CommunityEndpointDestinationRuleArgs', 'CommunityEndpointDestinationRuleArgsDict']]]]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 community_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 community_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rule_collection: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CommunityEndpointDestinationRuleArgs', 'CommunityEndpointDestinationRuleArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

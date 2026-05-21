@@ -23,7 +23,7 @@ class JobPrivateEndpointArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  server_name: pulumi.Input[_builtins.str],
                  target_server_azure_resource_id: pulumi.Input[_builtins.str],
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a JobPrivateEndpoint resource.
 
@@ -90,14 +90,14 @@ class JobPrivateEndpointArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateEndpointName")
-    def private_endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def private_endpoint_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the private endpoint.
         """
         return pulumi.get(self, "private_endpoint_name")
 
     @private_endpoint_name.setter
-    def private_endpoint_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def private_endpoint_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "private_endpoint_name", value)
 
 
@@ -107,11 +107,11 @@ class JobPrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_server_azure_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_server_azure_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A job agent private endpoint.
@@ -158,11 +158,11 @@ class JobPrivateEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 job_agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_server_azure_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 job_agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_server_azure_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

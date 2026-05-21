@@ -27,7 +27,7 @@ class KustoTableDataSetArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  share_name: pulumi.Input[_builtins.str],
                  table_level_sharing_properties: pulumi.Input['TableLevelSharingPropertiesArgs'],
-                 data_set_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a KustoTableDataSet resource.
 
@@ -124,14 +124,14 @@ class KustoTableDataSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="dataSetName")
-    def data_set_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def data_set_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the dataSet.
         """
         return pulumi.get(self, "data_set_name")
 
     @data_set_name.setter
-    def data_set_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def data_set_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "data_set_name", value)
 
 
@@ -141,13 +141,13 @@ class KustoTableDataSet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_database_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_database_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_level_sharing_properties: pulumi.Input[Optional[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
                  __props__=None):
         """
         A kusto table data set.
@@ -193,13 +193,13 @@ class KustoTableDataSet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_set_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 kusto_database_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 share_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 table_level_sharing_properties: Optional[pulumi.Input[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
+                 account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 data_set_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 kusto_database_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 table_level_sharing_properties: pulumi.Input[Optional[Union['TableLevelSharingPropertiesArgs', 'TableLevelSharingPropertiesArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

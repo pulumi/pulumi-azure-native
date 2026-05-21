@@ -74,9 +74,9 @@ def get_flow_destination_endpoints(connection_name: Optional[_builtins.str] = No
 
     return AwaitableGetFlowDestinationEndpointsResult(
         endpoints=pulumi.get(__ret__, 'endpoints'))
-def get_flow_destination_endpoints_output(connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          flow_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_flow_destination_endpoints_output(connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          flow_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowDestinationEndpointsResult]:
     """
     Get the destination endpoints for the specified flow and stream ID.

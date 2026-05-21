@@ -89,10 +89,10 @@ def list_agent_application_agents(account_name: Optional[_builtins.str] = None,
     return AwaitableListAgentApplicationAgentsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_agent_application_agents_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         project_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_agent_application_agents_output(account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         project_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAgentApplicationAgentsResult]:
     """
     A paginated list of Agent Reference entities.

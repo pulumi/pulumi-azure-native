@@ -84,8 +84,8 @@ def get_adoo_auth_info(location: Optional[_builtins.str] = None,
     return AwaitableGetADOOAuthInfoResult(
         auth_url=pulumi.get(__ret__, 'auth_url'),
         token=pulumi.get(__ret__, 'token'))
-def get_adoo_auth_info_output(location: Optional[pulumi.Input[_builtins.str]] = None,
-                              redirect_url: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_adoo_auth_info_output(location: pulumi.Input[Optional[_builtins.str]] = None,
+                              redirect_url: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetADOOAuthInfoResult]:
     """
     Response containing ADO OAuth information

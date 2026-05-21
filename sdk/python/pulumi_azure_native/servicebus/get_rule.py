@@ -198,11 +198,11 @@ def get_rule(namespace_name: Optional[_builtins.str] = None,
         sql_filter=pulumi.get(__ret__, 'sql_filter'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_rule_output(namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    rule_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    subscription_name: Optional[pulumi.Input[_builtins.str]] = None,
-                    topic_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_rule_output(namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    subscription_name: pulumi.Input[Optional[_builtins.str]] = None,
+                    topic_name: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
     Retrieves the description for the specified rule.

@@ -332,8 +332,8 @@ def get_network_fabric_controller(network_fabric_controller_name: Optional[_buil
         workload_express_route_connections=pulumi.get(__ret__, 'workload_express_route_connections'),
         workload_management_network=pulumi.get(__ret__, 'workload_management_network'),
         workload_services=pulumi.get(__ret__, 'workload_services'))
-def get_network_fabric_controller_output(network_fabric_controller_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_network_fabric_controller_output(network_fabric_controller_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkFabricControllerResult]:
     """
     Shows the provisioning status of Network Fabric Controller.

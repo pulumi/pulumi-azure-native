@@ -74,9 +74,9 @@ def get_channel_full_url(channel_name: Optional[_builtins.str] = None,
 
     return AwaitableGetChannelFullUrlResult(
         endpoint_url=pulumi.get(__ret__, 'endpoint_url'))
-def get_channel_full_url_output(channel_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                partner_namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_channel_full_url_output(channel_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                partner_namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelFullUrlResult]:
     """
     Get the full endpoint URL of a partner destination channel.

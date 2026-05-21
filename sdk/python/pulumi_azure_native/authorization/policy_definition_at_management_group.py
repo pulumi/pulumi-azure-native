@@ -23,16 +23,16 @@ __all__ = ['PolicyDefinitionAtManagementGroupArgs', 'PolicyDefinitionAtManagemen
 class PolicyDefinitionAtManagementGroupArgs:
     def __init__(__self__, *,
                  management_group_id: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]] = None,
-                 policy_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]] = None,
+                 policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_rule: Optional[Any] = None,
-                 policy_type: Optional[pulumi.Input[Union[_builtins.str, 'PolicyType']]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 policy_type: pulumi.Input[Optional[Union[_builtins.str, 'PolicyType']]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PolicyDefinitionAtManagementGroup resource.
 
@@ -86,26 +86,26 @@ class PolicyDefinitionAtManagementGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy definition description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The display name of the policy definition.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
@@ -122,38 +122,38 @@ class PolicyDefinitionAtManagementGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
-    def mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]]:
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]]:
         """
         The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]]):
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ParameterDefinitionsValueArgs']]]]):
         pulumi.set(self, "parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="policyDefinitionName")
-    def policy_definition_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def policy_definition_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the policy definition to create.
         """
         return pulumi.get(self, "policy_definition_name")
 
     @policy_definition_name.setter
-    def policy_definition_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def policy_definition_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "policy_definition_name", value)
 
     @_builtins.property
@@ -170,38 +170,38 @@ class PolicyDefinitionAtManagementGroupArgs:
 
     @_builtins.property
     @pulumi.getter(name="policyType")
-    def policy_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyType']]]:
+    def policy_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PolicyType']]]:
         """
         The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
         """
         return pulumi.get(self, "policy_type")
 
     @policy_type.setter
-    def policy_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PolicyType']]]):
+    def policy_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PolicyType']]]):
         pulumi.set(self, "policy_type", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The policy definition version in #.#.# format.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
     @_builtins.property
     @pulumi.getter
-    def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         A list of available versions for this policy definition.
         """
         return pulumi.get(self, "versions")
 
     @versions.setter
-    def versions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "versions", value)
 
 
@@ -211,17 +211,17 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterDefinitionsValueArgs', 'ParameterDefinitionsValueArgsDict']]]]] = None,
-                 policy_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ParameterDefinitionsValueArgs', 'ParameterDefinitionsValueArgsDict']]]]] = None,
+                 policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_rule: Optional[Any] = None,
-                 policy_type: Optional[pulumi.Input[Union[_builtins.str, 'PolicyType']]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_type: pulumi.Input[Optional[Union[_builtins.str, 'PolicyType']]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         The policy definition.
@@ -274,17 +274,17 @@ class PolicyDefinitionAtManagementGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  metadata: Optional[Any] = None,
-                 mode: Optional[pulumi.Input[_builtins.str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ParameterDefinitionsValueArgs', 'ParameterDefinitionsValueArgsDict']]]]] = None,
-                 policy_definition_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ParameterDefinitionsValueArgs', 'ParameterDefinitionsValueArgsDict']]]]] = None,
+                 policy_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_rule: Optional[Any] = None,
-                 policy_type: Optional[pulumi.Input[Union[_builtins.str, 'PolicyType']]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None,
-                 versions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 policy_type: pulumi.Input[Optional[Union[_builtins.str, 'PolicyType']]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
+                 versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

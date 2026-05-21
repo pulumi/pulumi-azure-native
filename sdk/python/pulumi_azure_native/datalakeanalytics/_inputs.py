@@ -34,7 +34,7 @@ class AddDataLakeStoreWithAccountParametersArgsDict(TypedDict):
     """
     The unique name of the Data Lake Store account to add.
     """
-    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    suffix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The optional suffix for the Data Lake Store account.
     """
@@ -43,7 +43,7 @@ class AddDataLakeStoreWithAccountParametersArgsDict(TypedDict):
 class AddDataLakeStoreWithAccountParametersArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 suffix: Optional[pulumi.Input[_builtins.str]] = None):
+                 suffix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The parameters used to add a new Data Lake Store account while creating a new Data Lake Analytics account.
 
@@ -68,14 +68,14 @@ class AddDataLakeStoreWithAccountParametersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional suffix for the Data Lake Store account.
         """
         return pulumi.get(self, "suffix")
 
     @suffix.setter
-    def suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suffix", value)
 
 
@@ -91,7 +91,7 @@ class AddStorageAccountWithAccountParametersArgsDict(TypedDict):
     """
     The unique name of the Azure Storage account to add.
     """
-    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    suffix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The optional suffix for the storage account.
     """
@@ -101,7 +101,7 @@ class AddStorageAccountWithAccountParametersArgs:
     def __init__(__self__, *,
                  access_key: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 suffix: Optional[pulumi.Input[_builtins.str]] = None):
+                 suffix: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The parameters used to add a new Azure Storage account while creating a new Data Lake Analytics account.
 
@@ -142,14 +142,14 @@ class AddStorageAccountWithAccountParametersArgs:
 
     @_builtins.property
     @pulumi.getter
-    def suffix(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def suffix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional suffix for the storage account.
         """
         return pulumi.get(self, "suffix")
 
     @suffix.setter
-    def suffix(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def suffix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "suffix", value)
 
 
@@ -169,11 +169,11 @@ class CreateComputePolicyWithAccountParametersArgsDict(TypedDict):
     """
     The type of AAD object the object identifier refers to.
     """
-    max_degree_of_parallelism_per_job: NotRequired[pulumi.Input[_builtins.int]]
+    max_degree_of_parallelism_per_job: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
     """
-    min_priority_per_job: NotRequired[pulumi.Input[_builtins.int]]
+    min_priority_per_job: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
     """
@@ -184,8 +184,8 @@ class CreateComputePolicyWithAccountParametersArgs:
                  name: pulumi.Input[_builtins.str],
                  object_id: pulumi.Input[_builtins.str],
                  object_type: pulumi.Input[Union[_builtins.str, 'AADObjectType']],
-                 max_degree_of_parallelism_per_job: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_priority_per_job: Optional[pulumi.Input[_builtins.int]] = None):
+                 max_degree_of_parallelism_per_job: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_priority_per_job: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The parameters used to create a new compute policy while creating a new Data Lake Analytics account.
 
@@ -241,26 +241,26 @@ class CreateComputePolicyWithAccountParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxDegreeOfParallelismPerJob")
-    def max_degree_of_parallelism_per_job(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_degree_of_parallelism_per_job(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum degree of parallelism per job this user can use to submit jobs. This property, the min priority per job property, or both must be passed.
         """
         return pulumi.get(self, "max_degree_of_parallelism_per_job")
 
     @max_degree_of_parallelism_per_job.setter
-    def max_degree_of_parallelism_per_job(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_degree_of_parallelism_per_job(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_degree_of_parallelism_per_job", value)
 
     @_builtins.property
     @pulumi.getter(name="minPriorityPerJob")
-    def min_priority_per_job(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_priority_per_job(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum priority per job this user can use to submit jobs. This property, the max degree of parallelism per job property, or both must be passed.
         """
         return pulumi.get(self, "min_priority_per_job")
 
     @min_priority_per_job.setter
-    def min_priority_per_job(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_priority_per_job(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_priority_per_job", value)
 
 

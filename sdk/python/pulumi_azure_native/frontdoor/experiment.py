@@ -24,13 +24,13 @@ class ExperimentArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None,
-                 endpoint_a: Optional[pulumi.Input['EndpointArgs']] = None,
-                 endpoint_b: Optional[pulumi.Input['EndpointArgs']] = None,
-                 experiment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None,
+                 endpoint_a: pulumi.Input[Optional['EndpointArgs']] = None,
+                 endpoint_b: pulumi.Input[Optional['EndpointArgs']] = None,
+                 experiment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Experiment resource.
 
@@ -87,86 +87,86 @@ class ExperimentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The description of the details or intents of the Experiment
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="enabledState")
-    def enabled_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'State']]]:
+    def enabled_state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'State']]]:
         """
         The state of the Experiment
         """
         return pulumi.get(self, "enabled_state")
 
     @enabled_state.setter
-    def enabled_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'State']]]):
+    def enabled_state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'State']]]):
         pulumi.set(self, "enabled_state", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointA")
-    def endpoint_a(self) -> Optional[pulumi.Input['EndpointArgs']]:
+    def endpoint_a(self) -> pulumi.Input[Optional['EndpointArgs']]:
         """
         The endpoint A of an experiment
         """
         return pulumi.get(self, "endpoint_a")
 
     @endpoint_a.setter
-    def endpoint_a(self, value: Optional[pulumi.Input['EndpointArgs']]):
+    def endpoint_a(self, value: pulumi.Input[Optional['EndpointArgs']]):
         pulumi.set(self, "endpoint_a", value)
 
     @_builtins.property
     @pulumi.getter(name="endpointB")
-    def endpoint_b(self) -> Optional[pulumi.Input['EndpointArgs']]:
+    def endpoint_b(self) -> pulumi.Input[Optional['EndpointArgs']]:
         """
         The endpoint B of an experiment
         """
         return pulumi.get(self, "endpoint_b")
 
     @endpoint_b.setter
-    def endpoint_b(self, value: Optional[pulumi.Input['EndpointArgs']]):
+    def endpoint_b(self, value: pulumi.Input[Optional['EndpointArgs']]):
         pulumi.set(self, "endpoint_b", value)
 
     @_builtins.property
     @pulumi.getter(name="experimentName")
-    def experiment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def experiment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Experiment identifier associated with the Experiment
         """
         return pulumi.get(self, "experiment_name")
 
     @experiment_name.setter
-    def experiment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def experiment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "experiment_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource location.
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -176,15 +176,15 @@ class Experiment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None,
-                 endpoint_a: Optional[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]] = None,
-                 endpoint_b: Optional[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]] = None,
-                 experiment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None,
+                 endpoint_a: pulumi.Input[Optional[Union['EndpointArgs', 'EndpointArgsDict']]] = None,
+                 endpoint_b: pulumi.Input[Optional[Union['EndpointArgs', 'EndpointArgsDict']]] = None,
+                 experiment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Defines the properties of an Experiment
@@ -235,15 +235,15 @@ class Experiment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 enabled_state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None,
-                 endpoint_a: Optional[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]] = None,
-                 endpoint_b: Optional[pulumi.Input[Union['EndpointArgs', 'EndpointArgsDict']]] = None,
-                 experiment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 enabled_state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None,
+                 endpoint_a: pulumi.Input[Optional[Union['EndpointArgs', 'EndpointArgsDict']]] = None,
+                 endpoint_b: pulumi.Input[Optional[Union['EndpointArgs', 'EndpointArgsDict']]] = None,
+                 experiment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

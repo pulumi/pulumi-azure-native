@@ -189,8 +189,8 @@ def get_web_app_auth_settings_v2_without_secrets(name: Optional[_builtins.str] =
         name=pulumi.get(__ret__, 'name'),
         platform=pulumi.get(__ret__, 'platform'),
         type=pulumi.get(__ret__, 'type'))
-def get_web_app_auth_settings_v2_without_secrets_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                        resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_web_app_auth_settings_v2_without_secrets_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWebAppAuthSettingsV2WithoutSecretsResult]:
     """
     Description for Gets site's Authentication / Authorization settings for apps via the V2 format

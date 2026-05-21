@@ -75,9 +75,9 @@ def list_connected_environments_dapr_component_secrets(component_name: Optional[
 
     return AwaitableListConnectedEnvironmentsDaprComponentSecretsResult(
         value=pulumi.get(__ret__, 'value'))
-def list_connected_environments_dapr_component_secrets_output(component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              connected_environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_connected_environments_dapr_component_secrets_output(component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              connected_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListConnectedEnvironmentsDaprComponentSecretsResult]:
     """
     Dapr component Secrets Collection for ListSecrets Action.

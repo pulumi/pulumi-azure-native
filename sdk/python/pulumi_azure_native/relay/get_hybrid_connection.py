@@ -205,9 +205,9 @@ def get_hybrid_connection(hybrid_connection_name: Optional[_builtins.str] = None
         type=pulumi.get(__ret__, 'type'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
         user_metadata=pulumi.get(__ret__, 'user_metadata'))
-def get_hybrid_connection_output(hybrid_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_hybrid_connection_output(hybrid_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHybridConnectionResult]:
     """
     Returns the description for the specified hybrid connection.

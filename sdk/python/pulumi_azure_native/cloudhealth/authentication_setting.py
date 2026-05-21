@@ -23,8 +23,8 @@ class AuthenticationSettingArgs:
     def __init__(__self__, *,
                  health_model_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 authentication_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ManagedIdentityAuthenticationSettingPropertiesArgs']] = None):
+                 authentication_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ManagedIdentityAuthenticationSettingPropertiesArgs']] = None):
         """
         The set of arguments for constructing a AuthenticationSetting resource.
 
@@ -66,26 +66,26 @@ class AuthenticationSettingArgs:
 
     @_builtins.property
     @pulumi.getter(name="authenticationSettingName")
-    def authentication_setting_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def authentication_setting_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the authentication setting. Must be unique within a health model.
         """
         return pulumi.get(self, "authentication_setting_name")
 
     @authentication_setting_name.setter
-    def authentication_setting_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def authentication_setting_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_setting_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ManagedIdentityAuthenticationSettingPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ManagedIdentityAuthenticationSettingPropertiesArgs']]:
         """
         The resource-specific properties for this resource.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ManagedIdentityAuthenticationSettingPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ManagedIdentityAuthenticationSettingPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -95,10 +95,10 @@ class AuthenticationSetting(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ManagedIdentityAuthenticationSettingPropertiesArgs', 'ManagedIdentityAuthenticationSettingPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ManagedIdentityAuthenticationSettingPropertiesArgs', 'ManagedIdentityAuthenticationSettingPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An authentication setting in a health model
@@ -144,10 +144,10 @@ class AuthenticationSetting(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication_setting_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 health_model_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ManagedIdentityAuthenticationSettingPropertiesArgs', 'ManagedIdentityAuthenticationSettingPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 authentication_setting_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 health_model_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ManagedIdentityAuthenticationSettingPropertiesArgs', 'ManagedIdentityAuthenticationSettingPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

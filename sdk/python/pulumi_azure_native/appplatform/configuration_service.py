@@ -24,8 +24,8 @@ class ConfigurationServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 configuration_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['ConfigurationServicePropertiesArgs']] = None):
+                 configuration_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['ConfigurationServicePropertiesArgs']] = None):
         """
         The set of arguments for constructing a ConfigurationService resource.
 
@@ -67,26 +67,26 @@ class ConfigurationServiceArgs:
 
     @_builtins.property
     @pulumi.getter(name="configurationServiceName")
-    def configuration_service_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def configuration_service_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of Application Configuration Service.
         """
         return pulumi.get(self, "configuration_service_name")
 
     @configuration_service_name.setter
-    def configuration_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def configuration_service_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "configuration_service_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['ConfigurationServicePropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['ConfigurationServicePropertiesArgs']]:
         """
         Application Configuration Service properties payload
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['ConfigurationServicePropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['ConfigurationServicePropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -96,10 +96,10 @@ class ConfigurationService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConfigurationServicePropertiesArgs', 'ConfigurationServicePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConfigurationServicePropertiesArgs', 'ConfigurationServicePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Application Configuration Service resource
@@ -145,10 +145,10 @@ class ConfigurationService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['ConfigurationServicePropertiesArgs', 'ConfigurationServicePropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 configuration_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['ConfigurationServicePropertiesArgs', 'ConfigurationServicePropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

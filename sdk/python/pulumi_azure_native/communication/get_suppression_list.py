@@ -182,10 +182,10 @@ def get_suppression_list(domain_name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_suppression_list_output(domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                email_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                suppression_list_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_suppression_list_output(domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                email_service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                suppression_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSuppressionListResult]:
     """
     Get a SuppressionList resource.

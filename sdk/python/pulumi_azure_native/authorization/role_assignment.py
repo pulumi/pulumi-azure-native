@@ -23,12 +23,12 @@ class RoleAssignmentArgs:
                  principal_id: pulumi.Input[_builtins.str],
                  role_definition_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_managed_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 role_assignment_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoleAssignment resource.
 
@@ -98,74 +98,74 @@ class RoleAssignmentArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionVersion")
-    def condition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the condition. Currently the only accepted value is '2.0'
         """
         return pulumi.get(self, "condition_version")
 
     @condition_version.setter
-    def condition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_version", value)
 
     @_builtins.property
     @pulumi.getter(name="delegatedManagedIdentityResourceId")
-    def delegated_managed_identity_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def delegated_managed_identity_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Id of the delegated managed identity resource
         """
         return pulumi.get(self, "delegated_managed_identity_resource_id")
 
     @delegated_managed_identity_resource_id.setter
-    def delegated_managed_identity_resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def delegated_managed_identity_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delegated_managed_identity_resource_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Description of role assignment
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]:
+    def principal_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]:
         """
         The principal type of the assigned principal ID.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]):
+    def principal_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="roleAssignmentName")
-    def role_assignment_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def role_assignment_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the role assignment. It can be any valid GUID.
         """
         return pulumi.get(self, "role_assignment_name")
 
     @role_assignment_name.setter
-    def role_assignment_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def role_assignment_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_assignment_name", value)
 
 
@@ -175,15 +175,15 @@ class RoleAssignment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_managed_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 role_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Role Assignments
@@ -234,15 +234,15 @@ class RoleAssignment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 delegated_managed_identity_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 role_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 delegated_managed_identity_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 role_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

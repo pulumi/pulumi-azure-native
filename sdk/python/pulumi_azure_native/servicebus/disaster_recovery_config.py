@@ -22,9 +22,9 @@ class DisasterRecoveryConfigArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 alternate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_namespace: Optional[pulumi.Input[_builtins.str]] = None):
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 alternate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_namespace: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a DisasterRecoveryConfig resource.
 
@@ -69,38 +69,38 @@ class DisasterRecoveryConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Disaster Recovery configuration name
         """
         return pulumi.get(self, "alias")
 
     @alias.setter
-    def alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alias", value)
 
     @_builtins.property
     @pulumi.getter(name="alternateName")
-    def alternate_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def alternate_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         """
         return pulumi.get(self, "alternate_name")
 
     @alternate_name.setter
-    def alternate_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def alternate_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "alternate_name", value)
 
     @_builtins.property
     @pulumi.getter(name="partnerNamespace")
-    def partner_namespace(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def partner_namespace(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
         """
         return pulumi.get(self, "partner_namespace")
 
     @partner_namespace.setter
-    def partner_namespace(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def partner_namespace(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "partner_namespace", value)
 
 
@@ -110,11 +110,11 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 alternate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 alternate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
@@ -161,11 +161,11 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 alternate_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 namespace_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 partner_namespace: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 alternate_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 partner_namespace: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

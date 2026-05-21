@@ -28,10 +28,10 @@ class ScheduledActionByScopeArgs:
                  scope: pulumi.Input[_builtins.str],
                  status: pulumi.Input[Union[_builtins.str, 'ScheduledActionStatus']],
                  view_id: pulumi.Input[_builtins.str],
-                 file_destination: Optional[pulumi.Input['FileDestinationArgs']] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification_email: Optional[pulumi.Input[_builtins.str]] = None):
+                 file_destination: pulumi.Input[Optional['FileDestinationArgs']] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification_email: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ScheduledActionByScope resource.
 
@@ -135,50 +135,50 @@ class ScheduledActionByScopeArgs:
 
     @_builtins.property
     @pulumi.getter(name="fileDestination")
-    def file_destination(self) -> Optional[pulumi.Input['FileDestinationArgs']]:
+    def file_destination(self) -> pulumi.Input[Optional['FileDestinationArgs']]:
         """
         Destination format of the view data. This is optional.
         """
         return pulumi.get(self, "file_destination")
 
     @file_destination.setter
-    def file_destination(self, value: Optional[pulumi.Input['FileDestinationArgs']]):
+    def file_destination(self, value: pulumi.Input[Optional['FileDestinationArgs']]):
         pulumi.set(self, "file_destination", value)
 
     @_builtins.property
     @pulumi.getter
-    def kind(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']]]:
+    def kind(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]]:
         """
         Kind of the scheduled action.
         """
         return pulumi.get(self, "kind")
 
     @kind.setter
-    def kind(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']]]):
+    def kind(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]]):
         pulumi.set(self, "kind", value)
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Scheduled action name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="notificationEmail")
-    def notification_email(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def notification_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Email address of the point of contact that should get the unsubscribe requests and notification emails.
         """
         return pulumi.get(self, "notification_email")
 
     @notification_email.setter
-    def notification_email(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def notification_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "notification_email", value)
 
 
@@ -188,16 +188,16 @@ class ScheduledActionByScope(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_destination: Optional[pulumi.Input[Union['FileDestinationArgs', 'FileDestinationArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification: Optional[pulumi.Input[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']]] = None,
-                 notification_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionStatus']]] = None,
-                 view_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_destination: pulumi.Input[Optional[Union['FileDestinationArgs', 'FileDestinationArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification: pulumi.Input[Optional[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']]] = None,
+                 notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionStatus']]] = None,
+                 view_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Scheduled action definition.
@@ -249,16 +249,16 @@ class ScheduledActionByScope(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 file_destination: Optional[pulumi.Input[Union['FileDestinationArgs', 'FileDestinationArgsDict']]] = None,
-                 kind: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionKind']]] = None,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 notification: Optional[pulumi.Input[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']]] = None,
-                 notification_email: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule: Optional[pulumi.Input[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'ScheduledActionStatus']]] = None,
-                 view_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 file_destination: pulumi.Input[Optional[Union['FileDestinationArgs', 'FileDestinationArgsDict']]] = None,
+                 kind: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionKind']]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 notification: pulumi.Input[Optional[Union['NotificationPropertiesArgs', 'NotificationPropertiesArgsDict']]] = None,
+                 notification_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule: pulumi.Input[Optional[Union['SchedulePropertiesArgs', 'SchedulePropertiesArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'ScheduledActionStatus']]] = None,
+                 view_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

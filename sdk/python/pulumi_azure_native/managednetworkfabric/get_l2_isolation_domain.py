@@ -241,8 +241,8 @@ def get_l2_isolation_domain(l2_isolation_domain_name: Optional[_builtins.str] = 
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         vlan_id=pulumi.get(__ret__, 'vlan_id'))
-def get_l2_isolation_domain_output(l2_isolation_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_l2_isolation_domain_output(l2_isolation_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetL2IsolationDomainResult]:
     """
     Implements L2 Isolation Domain GET method.

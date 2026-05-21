@@ -22,9 +22,9 @@ class WorkloadNetworkPublicIPArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_public_ips: Optional[pulumi.Input[_builtins.float]] = None,
-                 public_ip_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_public_ips: pulumi.Input[Optional[_builtins.float]] = None,
+                 public_ip_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a WorkloadNetworkPublicIP resource.
 
@@ -69,38 +69,38 @@ class WorkloadNetworkPublicIPArgs:
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Display name of the Public IP Block.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="numberOfPublicIPs")
-    def number_of_public_ips(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def number_of_public_ips(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Number of Public IPs requested.
         """
         return pulumi.get(self, "number_of_public_ips")
 
     @number_of_public_ips.setter
-    def number_of_public_ips(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def number_of_public_ips(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "number_of_public_ips", value)
 
     @_builtins.property
     @pulumi.getter(name="publicIPId")
-    def public_ip_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def public_ip_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         ID of the DNS zone.
         """
         return pulumi.get(self, "public_ip_id")
 
     @public_ip_id.setter
-    def public_ip_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def public_ip_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_ip_id", value)
 
 
@@ -110,11 +110,11 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_public_ips: Optional[pulumi.Input[_builtins.float]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_public_ips: pulumi.Input[Optional[_builtins.float]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         NSX Public IP Block
@@ -161,11 +161,11 @@ class WorkloadNetworkPublicIP(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 number_of_public_ips: Optional[pulumi.Input[_builtins.float]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 public_ip_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 number_of_public_ips: pulumi.Input[Optional[_builtins.float]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_ip_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

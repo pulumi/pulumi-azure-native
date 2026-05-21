@@ -81,7 +81,7 @@ def list_global_rulestack_firewalls(global_rulestack_name: Optional[_builtins.st
     return AwaitableListGlobalRulestackFirewallsResult(
         next_link=pulumi.get(__ret__, 'next_link'),
         value=pulumi.get(__ret__, 'value'))
-def list_global_rulestack_firewalls_output(global_rulestack_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_global_rulestack_firewalls_output(global_rulestack_name: pulumi.Input[Optional[_builtins.str]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListGlobalRulestackFirewallsResult]:
     """
     List of Firewalls associated with Rulestack

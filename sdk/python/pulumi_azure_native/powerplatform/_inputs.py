@@ -40,7 +40,7 @@ class EnterprisePolicyIdentityArgsDict(TypedDict):
     """
     The identity of the EnterprisePolicy.
     """
-    type: NotRequired[pulumi.Input['ResourceIdentityType']]
+    type: NotRequired[pulumi.Input[Optional['ResourceIdentityType']]]
     """
     The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
     """
@@ -48,7 +48,7 @@ class EnterprisePolicyIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class EnterprisePolicyIdentityArgs:
     def __init__(__self__, *,
-                 type: Optional[pulumi.Input['ResourceIdentityType']] = None):
+                 type: pulumi.Input[Optional['ResourceIdentityType']] = None):
         """
         The identity of the EnterprisePolicy.
 
@@ -59,14 +59,14 @@ class EnterprisePolicyIdentityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+    def type(self) -> pulumi.Input[Optional['ResourceIdentityType']]:
         """
         The type of identity used for the EnterprisePolicy. Currently, the only supported type is 'SystemAssigned', which implicitly creates an identity.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+    def type(self, value: pulumi.Input[Optional['ResourceIdentityType']]):
         pulumi.set(self, "type", value)
 
 
@@ -74,11 +74,11 @@ class KeyPropertiesArgsDict(TypedDict):
     """
     Url and version of the KeyVault Secret
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The identifier of the key vault key used to encrypt data.
     """
-    version: NotRequired[pulumi.Input[_builtins.str]]
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The version of the identity which will be used to access key vault.
     """
@@ -86,8 +86,8 @@ class KeyPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 version: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Url and version of the KeyVault Secret
 
@@ -101,26 +101,26 @@ class KeyPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The identifier of the key vault key used to encrypt data.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The version of the identity which will be used to access key vault.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "version", value)
 
 
@@ -128,11 +128,11 @@ class KeyVaultPropertiesArgsDict(TypedDict):
     """
     Settings concerning key vault encryption for a configuration store.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Uri of KeyVault
     """
-    key: NotRequired[pulumi.Input['KeyPropertiesArgsDict']]
+    key: NotRequired[pulumi.Input[Optional['KeyPropertiesArgsDict']]]
     """
     Identity of the secret that includes name and version.
     """
@@ -140,8 +140,8 @@ class KeyVaultPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class KeyVaultPropertiesArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 key: Optional[pulumi.Input['KeyPropertiesArgs']] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional['KeyPropertiesArgs']] = None):
         """
         Settings concerning key vault encryption for a configuration store.
 
@@ -155,26 +155,26 @@ class KeyVaultPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Uri of KeyVault
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def key(self) -> Optional[pulumi.Input['KeyPropertiesArgs']]:
+    def key(self) -> pulumi.Input[Optional['KeyPropertiesArgs']]:
         """
         Identity of the secret that includes name and version.
         """
         return pulumi.get(self, "key")
 
     @key.setter
-    def key(self, value: Optional[pulumi.Input['KeyPropertiesArgs']]):
+    def key(self, value: pulumi.Input[Optional['KeyPropertiesArgs']]):
         pulumi.set(self, "key", value)
 
 
@@ -182,15 +182,15 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
     """
     A collection of information about the state of the connection between service consumer and provider.
     """
-    actions_required: NotRequired[pulumi.Input[_builtins.str]]
+    actions_required: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     A message indicating if changes on the service provider require any updates on the consumer.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The reason for approval/rejection of the connection.
     """
-    status: NotRequired[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]
+    status: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]]
     """
     Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
     """
@@ -198,9 +198,9 @@ class PrivateLinkServiceConnectionStateArgsDict(TypedDict):
 @pulumi.input_type
 class PrivateLinkServiceConnectionStateArgs:
     def __init__(__self__, *,
-                 actions_required: Optional[pulumi.Input[_builtins.str]] = None,
-                 description: Optional[pulumi.Input[_builtins.str]] = None,
-                 status: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
+                 actions_required: pulumi.Input[Optional[_builtins.str]] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 status: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]] = None):
         """
         A collection of information about the state of the connection between service consumer and provider.
 
@@ -217,38 +217,38 @@ class PrivateLinkServiceConnectionStateArgs:
 
     @_builtins.property
     @pulumi.getter(name="actionsRequired")
-    def actions_required(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def actions_required(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         A message indicating if changes on the service provider require any updates on the consumer.
         """
         return pulumi.get(self, "actions_required")
 
     @actions_required.setter
-    def actions_required(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def actions_required(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "actions_required", value)
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The reason for approval/rejection of the connection.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
+    def status(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]:
         """
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
+    def status(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
 
 
@@ -256,11 +256,11 @@ class PropertiesEncryptionArgsDict(TypedDict):
     """
     The encryption settings for a configuration store.
     """
-    key_vault: NotRequired[pulumi.Input['KeyVaultPropertiesArgsDict']]
+    key_vault: NotRequired[pulumi.Input[Optional['KeyVaultPropertiesArgsDict']]]
     """
     Key vault properties.
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'State']]]]
     """
     The state of onboarding, which only appears in the response.
     """
@@ -268,8 +268,8 @@ class PropertiesEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class PropertiesEncryptionArgs:
     def __init__(__self__, *,
-                 key_vault: Optional[pulumi.Input['KeyVaultPropertiesArgs']] = None,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None):
+                 key_vault: pulumi.Input[Optional['KeyVaultPropertiesArgs']] = None,
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None):
         """
         The encryption settings for a configuration store.
 
@@ -283,26 +283,26 @@ class PropertiesEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
-    def key_vault(self) -> Optional[pulumi.Input['KeyVaultPropertiesArgs']]:
+    def key_vault(self) -> pulumi.Input[Optional['KeyVaultPropertiesArgs']]:
         """
         Key vault properties.
         """
         return pulumi.get(self, "key_vault")
 
     @key_vault.setter
-    def key_vault(self, value: Optional[pulumi.Input['KeyVaultPropertiesArgs']]):
+    def key_vault(self, value: pulumi.Input[Optional['KeyVaultPropertiesArgs']]):
         pulumi.set(self, "key_vault", value)
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'State']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'State']]]:
         """
         The state of onboarding, which only appears in the response.
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'State']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'State']]]):
         pulumi.set(self, "state", value)
 
 
@@ -310,7 +310,7 @@ class PropertiesLockboxArgsDict(TypedDict):
     """
     Settings concerning lockbox.
     """
-    state: NotRequired[pulumi.Input[Union[_builtins.str, 'State']]]
+    state: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'State']]]]
     """
     lockbox configuration
     """
@@ -318,7 +318,7 @@ class PropertiesLockboxArgsDict(TypedDict):
 @pulumi.input_type
 class PropertiesLockboxArgs:
     def __init__(__self__, *,
-                 state: Optional[pulumi.Input[Union[_builtins.str, 'State']]] = None):
+                 state: pulumi.Input[Optional[Union[_builtins.str, 'State']]] = None):
         """
         Settings concerning lockbox.
 
@@ -329,14 +329,14 @@ class PropertiesLockboxArgs:
 
     @_builtins.property
     @pulumi.getter
-    def state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'State']]]:
+    def state(self) -> pulumi.Input[Optional[Union[_builtins.str, 'State']]]:
         """
         lockbox configuration
         """
         return pulumi.get(self, "state")
 
     @state.setter
-    def state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'State']]]):
+    def state(self, value: pulumi.Input[Optional[Union[_builtins.str, 'State']]]):
         pulumi.set(self, "state", value)
 
 
@@ -344,7 +344,7 @@ class PropertiesNetworkInjectionArgsDict(TypedDict):
     """
     Settings concerning network injection.
     """
-    virtual_networks: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgsDict']]]]
+    virtual_networks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesArgsDict']]]]]
     """
     Network injection configuration
     """
@@ -352,7 +352,7 @@ class PropertiesNetworkInjectionArgsDict(TypedDict):
 @pulumi.input_type
 class PropertiesNetworkInjectionArgs:
     def __init__(__self__, *,
-                 virtual_networks: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]] = None):
+                 virtual_networks: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]] = None):
         """
         Settings concerning network injection.
 
@@ -363,14 +363,14 @@ class PropertiesNetworkInjectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworks")
-    def virtual_networks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]:
+    def virtual_networks(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]:
         """
         Network injection configuration
         """
         return pulumi.get(self, "virtual_networks")
 
     @virtual_networks.setter
-    def virtual_networks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]):
+    def virtual_networks(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkPropertiesArgs']]]]):
         pulumi.set(self, "virtual_networks", value)
 
 
@@ -378,7 +378,7 @@ class SubnetPropertiesArgsDict(TypedDict):
     """
     Properties of a subnet.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Subnet name.
     """
@@ -386,7 +386,7 @@ class SubnetPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class SubnetPropertiesArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of a subnet.
 
@@ -397,14 +397,14 @@ class SubnetPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Subnet name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
 
@@ -412,11 +412,11 @@ class VirtualNetworkPropertiesArgsDict(TypedDict):
     """
     Settings concerning the virtual network.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Uri of the virtual network.
     """
-    subnet: NotRequired[pulumi.Input['SubnetPropertiesArgsDict']]
+    subnet: NotRequired[pulumi.Input[Optional['SubnetPropertiesArgsDict']]]
     """
     Properties of a subnet.
     """
@@ -424,8 +424,8 @@ class VirtualNetworkPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class VirtualNetworkPropertiesArgs:
     def __init__(__self__, *,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet: Optional[pulumi.Input['SubnetPropertiesArgs']] = None):
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet: pulumi.Input[Optional['SubnetPropertiesArgs']] = None):
         """
         Settings concerning the virtual network.
 
@@ -439,26 +439,26 @@ class VirtualNetworkPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Uri of the virtual network.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def subnet(self) -> Optional[pulumi.Input['SubnetPropertiesArgs']]:
+    def subnet(self) -> pulumi.Input[Optional['SubnetPropertiesArgs']]:
         """
         Properties of a subnet.
         """
         return pulumi.get(self, "subnet")
 
     @subnet.setter
-    def subnet(self, value: Optional[pulumi.Input['SubnetPropertiesArgs']]):
+    def subnet(self, value: pulumi.Input[Optional['SubnetPropertiesArgs']]):
         pulumi.set(self, "subnet", value)
 
 

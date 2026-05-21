@@ -32,11 +32,11 @@ class ExecutionParametersArgsDict(TypedDict):
     """
     Extra details needed to run the user's request
     """
-    optimization_preference: NotRequired[pulumi.Input[Union[_builtins.str, 'OptimizationPreference']]]
+    optimization_preference: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'OptimizationPreference']]]]
     """
     Details that could optimize the user's request
     """
-    retry_policy: NotRequired[pulumi.Input['RetryPolicyArgsDict']]
+    retry_policy: NotRequired[pulumi.Input[Optional['RetryPolicyArgsDict']]]
     """
     Retry policy the user can pass
     """
@@ -44,8 +44,8 @@ class ExecutionParametersArgsDict(TypedDict):
 @pulumi.input_type
 class ExecutionParametersArgs:
     def __init__(__self__, *,
-                 optimization_preference: Optional[pulumi.Input[Union[_builtins.str, 'OptimizationPreference']]] = None,
-                 retry_policy: Optional[pulumi.Input['RetryPolicyArgs']] = None):
+                 optimization_preference: pulumi.Input[Optional[Union[_builtins.str, 'OptimizationPreference']]] = None,
+                 retry_policy: pulumi.Input[Optional['RetryPolicyArgs']] = None):
         """
         Extra details needed to run the user's request
 
@@ -59,26 +59,26 @@ class ExecutionParametersArgs:
 
     @_builtins.property
     @pulumi.getter(name="optimizationPreference")
-    def optimization_preference(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OptimizationPreference']]]:
+    def optimization_preference(self) -> pulumi.Input[Optional[Union[_builtins.str, 'OptimizationPreference']]]:
         """
         Details that could optimize the user's request
         """
         return pulumi.get(self, "optimization_preference")
 
     @optimization_preference.setter
-    def optimization_preference(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OptimizationPreference']]]):
+    def optimization_preference(self, value: pulumi.Input[Optional[Union[_builtins.str, 'OptimizationPreference']]]):
         pulumi.set(self, "optimization_preference", value)
 
     @_builtins.property
     @pulumi.getter(name="retryPolicy")
-    def retry_policy(self) -> Optional[pulumi.Input['RetryPolicyArgs']]:
+    def retry_policy(self) -> pulumi.Input[Optional['RetryPolicyArgs']]:
         """
         Retry policy the user can pass
         """
         return pulumi.get(self, "retry_policy")
 
     @retry_policy.setter
-    def retry_policy(self, value: Optional[pulumi.Input['RetryPolicyArgs']]):
+    def retry_policy(self, value: pulumi.Input[Optional['RetryPolicyArgs']]):
         pulumi.set(self, "retry_policy", value)
 
 
@@ -98,7 +98,7 @@ class NotificationPropertiesArgsDict(TypedDict):
     """
     Type of notification to be sent.
     """
-    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Tells if the notification is enabled or not.
     """
@@ -109,7 +109,7 @@ class NotificationPropertiesArgs:
                  destination: pulumi.Input[_builtins.str],
                  language: pulumi.Input[Union[_builtins.str, 'Language']],
                  type: pulumi.Input[Union[_builtins.str, 'NotificationType']],
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The information about notifications to be send to about upcoming operations.
 
@@ -164,14 +164,14 @@ class NotificationPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Tells if the notification is enabled or not.
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
 
@@ -179,11 +179,11 @@ class RetryPolicyArgsDict(TypedDict):
     """
     The retry policy for the user request
     """
-    retry_count: NotRequired[pulumi.Input[_builtins.int]]
+    retry_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Retry count for user request
     """
-    retry_window_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    retry_window_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Retry window in minutes for user request
     """
@@ -191,8 +191,8 @@ class RetryPolicyArgsDict(TypedDict):
 @pulumi.input_type
 class RetryPolicyArgs:
     def __init__(__self__, *,
-                 retry_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 retry_window_in_minutes: Optional[pulumi.Input[_builtins.int]] = None):
+                 retry_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 retry_window_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The retry policy for the user request
 
@@ -206,26 +206,26 @@ class RetryPolicyArgs:
 
     @_builtins.property
     @pulumi.getter(name="retryCount")
-    def retry_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Retry count for user request
         """
         return pulumi.get(self, "retry_count")
 
     @retry_count.setter
-    def retry_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_count", value)
 
     @_builtins.property
     @pulumi.getter(name="retryWindowInMinutes")
-    def retry_window_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def retry_window_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Retry window in minutes for user request
         """
         return pulumi.get(self, "retry_window_in_minutes")
 
     @retry_window_in_minutes.setter
-    def retry_window_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def retry_window_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "retry_window_in_minutes", value)
 
 
@@ -253,11 +253,11 @@ class ScheduledActionPropertiesArgsDict(TypedDict):
     """
     The time which the scheduled action is supposed to start running
     """
-    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Tell if the scheduled action is disabled or not
     """
-    end_time: NotRequired[pulumi.Input[_builtins.str]]
+    end_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The time when the scheduled action is supposed to stop scheduling
     """
@@ -270,8 +270,8 @@ class ScheduledActionPropertiesArgs:
                  resource_type: pulumi.Input[Union[_builtins.str, 'ResourceType']],
                  schedule: pulumi.Input['ScheduledActionsScheduleArgs'],
                  start_time: pulumi.Input[_builtins.str],
-                 disabled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 end_time: Optional[pulumi.Input[_builtins.str]] = None):
+                 disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 end_time: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Scheduled action properties
 
@@ -357,26 +357,26 @@ class ScheduledActionPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def disabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Tell if the scheduled action is disabled or not
         """
         return pulumi.get(self, "disabled")
 
     @disabled.setter
-    def disabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "disabled", value)
 
     @_builtins.property
     @pulumi.getter(name="endTime")
-    def end_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The time when the scheduled action is supposed to stop scheduling
         """
         return pulumi.get(self, "end_time")
 
     @end_time.setter
-    def end_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_time", value)
 
 
@@ -404,11 +404,11 @@ class ScheduledActionsScheduleArgsDict(TypedDict):
     """
     The timezone the scheduled time is specified on
     """
-    deadline_type: NotRequired[pulumi.Input[Union[_builtins.str, 'DeadlineType']]]
+    deadline_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DeadlineType']]]]
     """
     The type of deadline the scheduled action is supposed to follow for the schedule. If no value is passed, it will default to InitiateAt.
     """
-    execution_parameters: NotRequired[pulumi.Input['ExecutionParametersArgsDict']]
+    execution_parameters: NotRequired[pulumi.Input[Optional['ExecutionParametersArgsDict']]]
     """
     The execution parameters the scheduled action is supposed to follow
     """
@@ -421,8 +421,8 @@ class ScheduledActionsScheduleArgs:
                  requested_week_days: pulumi.Input[Sequence[pulumi.Input[Union[_builtins.str, 'WeekDay']]]],
                  scheduled_time: pulumi.Input[_builtins.str],
                  time_zone: pulumi.Input[_builtins.str],
-                 deadline_type: Optional[pulumi.Input[Union[_builtins.str, 'DeadlineType']]] = None,
-                 execution_parameters: Optional[pulumi.Input['ExecutionParametersArgs']] = None):
+                 deadline_type: pulumi.Input[Optional[Union[_builtins.str, 'DeadlineType']]] = None,
+                 execution_parameters: pulumi.Input[Optional['ExecutionParametersArgs']] = None):
         """
         Specify the schedule in which the scheduled action is supposed to follow
 
@@ -506,26 +506,26 @@ class ScheduledActionsScheduleArgs:
 
     @_builtins.property
     @pulumi.getter(name="deadlineType")
-    def deadline_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DeadlineType']]]:
+    def deadline_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DeadlineType']]]:
         """
         The type of deadline the scheduled action is supposed to follow for the schedule. If no value is passed, it will default to InitiateAt.
         """
         return pulumi.get(self, "deadline_type")
 
     @deadline_type.setter
-    def deadline_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DeadlineType']]]):
+    def deadline_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DeadlineType']]]):
         pulumi.set(self, "deadline_type", value)
 
     @_builtins.property
     @pulumi.getter(name="executionParameters")
-    def execution_parameters(self) -> Optional[pulumi.Input['ExecutionParametersArgs']]:
+    def execution_parameters(self) -> pulumi.Input[Optional['ExecutionParametersArgs']]:
         """
         The execution parameters the scheduled action is supposed to follow
         """
         return pulumi.get(self, "execution_parameters")
 
     @execution_parameters.setter
-    def execution_parameters(self, value: Optional[pulumi.Input['ExecutionParametersArgs']]):
+    def execution_parameters(self, value: pulumi.Input[Optional['ExecutionParametersArgs']]):
         pulumi.set(self, "execution_parameters", value)
 
 

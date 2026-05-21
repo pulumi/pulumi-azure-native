@@ -22,7 +22,7 @@ class HcxEnterpriseSiteArgs:
     def __init__(__self__, *,
                  private_cloud_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 hcx_enterprise_site_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 hcx_enterprise_site_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a HcxEnterpriseSite resource.
 
@@ -61,14 +61,14 @@ class HcxEnterpriseSiteArgs:
 
     @_builtins.property
     @pulumi.getter(name="hcxEnterpriseSiteName")
-    def hcx_enterprise_site_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def hcx_enterprise_site_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the HCX Enterprise Site
         """
         return pulumi.get(self, "hcx_enterprise_site_name")
 
     @hcx_enterprise_site_name.setter
-    def hcx_enterprise_site_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def hcx_enterprise_site_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "hcx_enterprise_site_name", value)
 
 
@@ -78,9 +78,9 @@ class HcxEnterpriseSite(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hcx_enterprise_site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 hcx_enterprise_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         An HCX Enterprise Site resource
@@ -125,9 +125,9 @@ class HcxEnterpriseSite(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 hcx_enterprise_site_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 private_cloud_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 hcx_enterprise_site_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_cloud_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

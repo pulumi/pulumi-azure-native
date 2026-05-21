@@ -171,9 +171,9 @@ def get_jit_network_access_policy(asc_location: Optional[_builtins.str] = None,
         requests=pulumi.get(__ret__, 'requests'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machines=pulumi.get(__ret__, 'virtual_machines'))
-def get_jit_network_access_policy_output(asc_location: Optional[pulumi.Input[_builtins.str]] = None,
-                                         jit_network_access_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_jit_network_access_policy_output(asc_location: pulumi.Input[Optional[_builtins.str]] = None,
+                                         jit_network_access_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJitNetworkAccessPolicyResult]:
     """
     Policies for protecting resources using Just-in-Time access control for the subscription, location

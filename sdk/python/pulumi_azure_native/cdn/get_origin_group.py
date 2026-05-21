@@ -208,10 +208,10 @@ def get_origin_group(endpoint_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=pulumi.get(__ret__, 'traffic_restoration_time_to_healed_or_new_endpoints_in_minutes'),
         type=pulumi.get(__ret__, 'type'))
-def get_origin_group_output(endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            origin_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            profile_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_origin_group_output(endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            origin_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            profile_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginGroupResult]:
     """
     Gets an existing origin group within an endpoint.

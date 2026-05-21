@@ -71,8 +71,8 @@ def list_feature_subscription(features: Optional[Sequence[_builtins.str]] = None
 
     return AwaitableListFeatureSubscriptionResult(
         features=pulumi.get(__ret__, 'features'))
-def list_feature_subscription_output(features: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
-                                     locations: Optional[pulumi.Input[_builtins.str]] = None,
+def list_feature_subscription_output(features: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                                     locations: pulumi.Input[Optional[_builtins.str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListFeatureSubscriptionResult]:
     """
     Gets details from a list of feature names.

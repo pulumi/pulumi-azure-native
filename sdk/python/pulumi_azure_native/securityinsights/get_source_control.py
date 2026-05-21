@@ -244,9 +244,9 @@ def get_source_control(resource_group_name: Optional[_builtins.str] = None,
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'),
         version=pulumi.get(__ret__, 'version'))
-def get_source_control_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              source_control_id: Optional[pulumi.Input[_builtins.str]] = None,
-                              workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_source_control_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              source_control_id: pulumi.Input[Optional[_builtins.str]] = None,
+                              workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceControlResult]:
     """
     Gets a source control byt its identifier.

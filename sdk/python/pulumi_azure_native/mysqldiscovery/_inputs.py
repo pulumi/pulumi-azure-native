@@ -26,39 +26,39 @@ class ErrorArgsDict(TypedDict):
     """
     Defines the error.
     """
-    code: NotRequired[pulumi.Input[_builtins.str]]
+    code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The error code.
     """
-    id: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The error ID.
     """
-    message: NotRequired[pulumi.Input[_builtins.str]]
+    message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The detailed error message.
     """
-    possible_cause: NotRequired[pulumi.Input[_builtins.str]]
+    possible_cause: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The error possible cause.
     """
-    recommended_action: NotRequired[pulumi.Input[_builtins.str]]
+    recommended_action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets description of the checkpoint.
     """
-    run_as_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    run_as_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The account ID used to login.
     """
-    severity: NotRequired[pulumi.Input[_builtins.str]]
+    severity: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Gets description of the severity.
     """
-    summary_message: NotRequired[pulumi.Input[_builtins.str]]
+    summary_message: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The summarized error message.
     """
-    updated_time_stamp: NotRequired[pulumi.Input[_builtins.str]]
+    updated_time_stamp: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Time when this error was last updated.
     """
@@ -66,15 +66,15 @@ class ErrorArgsDict(TypedDict):
 @pulumi.input_type
 class ErrorArgs:
     def __init__(__self__, *,
-                 code: Optional[pulumi.Input[_builtins.str]] = None,
-                 id: Optional[pulumi.Input[_builtins.str]] = None,
-                 message: Optional[pulumi.Input[_builtins.str]] = None,
-                 possible_cause: Optional[pulumi.Input[_builtins.str]] = None,
-                 recommended_action: Optional[pulumi.Input[_builtins.str]] = None,
-                 run_as_account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 severity: Optional[pulumi.Input[_builtins.str]] = None,
-                 summary_message: Optional[pulumi.Input[_builtins.str]] = None,
-                 updated_time_stamp: Optional[pulumi.Input[_builtins.str]] = None):
+                 code: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None,
+                 message: pulumi.Input[Optional[_builtins.str]] = None,
+                 possible_cause: pulumi.Input[Optional[_builtins.str]] = None,
+                 recommended_action: pulumi.Input[Optional[_builtins.str]] = None,
+                 run_as_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 severity: pulumi.Input[Optional[_builtins.str]] = None,
+                 summary_message: pulumi.Input[Optional[_builtins.str]] = None,
+                 updated_time_stamp: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Defines the error.
 
@@ -109,110 +109,110 @@ class ErrorArgs:
 
     @_builtins.property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The error code.
         """
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def code(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The error ID.
         """
         return pulumi.get(self, "id")
 
     @id.setter
-    def id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The detailed error message.
         """
         return pulumi.get(self, "message")
 
     @message.setter
-    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "message", value)
 
     @_builtins.property
     @pulumi.getter(name="possibleCause")
-    def possible_cause(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def possible_cause(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The error possible cause.
         """
         return pulumi.get(self, "possible_cause")
 
     @possible_cause.setter
-    def possible_cause(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def possible_cause(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "possible_cause", value)
 
     @_builtins.property
     @pulumi.getter(name="recommendedAction")
-    def recommended_action(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def recommended_action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets description of the checkpoint.
         """
         return pulumi.get(self, "recommended_action")
 
     @recommended_action.setter
-    def recommended_action(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def recommended_action(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recommended_action", value)
 
     @_builtins.property
     @pulumi.getter(name="runAsAccountId")
-    def run_as_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def run_as_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The account ID used to login.
         """
         return pulumi.get(self, "run_as_account_id")
 
     @run_as_account_id.setter
-    def run_as_account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def run_as_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "run_as_account_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def severity(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def severity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Gets description of the severity.
         """
         return pulumi.get(self, "severity")
 
     @severity.setter
-    def severity(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def severity(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "severity", value)
 
     @_builtins.property
     @pulumi.getter(name="summaryMessage")
-    def summary_message(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def summary_message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The summarized error message.
         """
         return pulumi.get(self, "summary_message")
 
     @summary_message.setter
-    def summary_message(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def summary_message(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "summary_message", value)
 
     @_builtins.property
     @pulumi.getter(name="updatedTimeStamp")
-    def updated_time_stamp(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def updated_time_stamp(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Time when this error was last updated.
         """
         return pulumi.get(self, "updated_time_stamp")
 
     @updated_time_stamp.setter
-    def updated_time_stamp(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def updated_time_stamp(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "updated_time_stamp", value)
 
 
@@ -220,11 +220,11 @@ class ExtendedLocationArgsDict(TypedDict):
     """
     The extended location for off-azure resources.
     """
-    name: NotRequired[pulumi.Input[_builtins.str]]
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The extended location name.
     """
-    type: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The extended location type.
     """
@@ -232,8 +232,8 @@ class ExtendedLocationArgsDict(TypedDict):
 @pulumi.input_type
 class ExtendedLocationArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The extended location for off-azure resources.
 
@@ -247,26 +247,26 @@ class ExtendedLocationArgs:
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The extended location name.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The extended location type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
 
 

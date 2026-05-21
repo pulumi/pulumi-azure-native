@@ -25,9 +25,9 @@ class CustomizedAcceleratorArgs:
                  application_accelerator_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 customized_accelerator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['CustomizedAcceleratorPropertiesArgs']] = None,
-                 sku: Optional[pulumi.Input['SkuArgs']] = None):
+                 customized_accelerator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['CustomizedAcceleratorPropertiesArgs']] = None,
+                 sku: pulumi.Input[Optional['SkuArgs']] = None):
         """
         The set of arguments for constructing a CustomizedAccelerator resource.
 
@@ -86,38 +86,38 @@ class CustomizedAcceleratorArgs:
 
     @_builtins.property
     @pulumi.getter(name="customizedAcceleratorName")
-    def customized_accelerator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def customized_accelerator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the customized accelerator.
         """
         return pulumi.get(self, "customized_accelerator_name")
 
     @customized_accelerator_name.setter
-    def customized_accelerator_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def customized_accelerator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "customized_accelerator_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['CustomizedAcceleratorPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['CustomizedAcceleratorPropertiesArgs']]:
         """
         Customized accelerator properties payload
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['CustomizedAcceleratorPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['CustomizedAcceleratorPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
+    def sku(self) -> pulumi.Input[Optional['SkuArgs']]:
         """
         Sku of the customized accelerator resource
         """
         return pulumi.get(self, "sku")
 
     @sku.setter
-    def sku(self, value: Optional[pulumi.Input['SkuArgs']]):
+    def sku(self, value: pulumi.Input[Optional['SkuArgs']]):
         pulumi.set(self, "sku", value)
 
 
@@ -127,12 +127,12 @@ class CustomizedAccelerator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_accelerator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customized_accelerator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['CustomizedAcceleratorPropertiesArgs', 'CustomizedAcceleratorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 application_accelerator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customized_accelerator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['CustomizedAcceleratorPropertiesArgs', 'CustomizedAcceleratorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  __props__=None):
         """
         Customized accelerator resource
@@ -180,12 +180,12 @@ class CustomizedAccelerator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 application_accelerator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 customized_accelerator_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['CustomizedAcceleratorPropertiesArgs', 'CustomizedAcceleratorPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
+                 application_accelerator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 customized_accelerator_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['CustomizedAcceleratorPropertiesArgs', 'CustomizedAcceleratorPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku: pulumi.Input[Optional[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

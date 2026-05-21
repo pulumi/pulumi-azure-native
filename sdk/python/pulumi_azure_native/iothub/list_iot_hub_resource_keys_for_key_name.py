@@ -113,9 +113,9 @@ def list_iot_hub_resource_keys_for_key_name(key_name: Optional[_builtins.str] = 
         primary_key=pulumi.get(__ret__, 'primary_key'),
         rights=pulumi.get(__ret__, 'rights'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
-def list_iot_hub_resource_keys_for_key_name_output(key_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   resource_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_iot_hub_resource_keys_for_key_name_output(key_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   resource_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIotHubResourceKeysForKeyNameResult]:
     """
     Get a shared access policy by name from an IoT hub. For more information, see: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-security.

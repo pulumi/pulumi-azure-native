@@ -126,9 +126,9 @@ def list_web_app_application_settings_slot(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
         type=pulumi.get(__ret__, 'type'))
-def list_web_app_application_settings_slot_output(name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                  slot: Optional[pulumi.Input[_builtins.str]] = None,
+def list_web_app_application_settings_slot_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                  slot: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListWebAppApplicationSettingsSlotResult]:
     """
     Description for Gets the application settings of an app.

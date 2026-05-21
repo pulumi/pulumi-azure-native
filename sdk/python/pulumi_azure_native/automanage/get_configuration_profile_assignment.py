@@ -153,9 +153,9 @@ def get_configuration_profile_assignment(configuration_profile_assignment_name: 
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_configuration_profile_assignment_output(configuration_profile_assignment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                vm_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_configuration_profile_assignment_output(configuration_profile_assignment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileAssignmentResult]:
     """
     Get information about a configuration profile assignment

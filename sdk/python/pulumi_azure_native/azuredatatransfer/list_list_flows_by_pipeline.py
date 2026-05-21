@@ -75,9 +75,9 @@ def list_list_flows_by_pipeline(pipeline_name: Optional[_builtins.str] = None,
 
     return AwaitableListListFlowsByPipelineResult(
         value=pulumi.get(__ret__, 'value'))
-def list_list_flows_by_pipeline_output(pipeline_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       value: Optional[pulumi.Input[Optional[Sequence[_builtins.str]]]] = None,
+def list_list_flows_by_pipeline_output(pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       value: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListListFlowsByPipelineResult]:
     """
     Lists all Flows associated with the specified Pipeline.

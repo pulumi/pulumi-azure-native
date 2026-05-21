@@ -608,9 +608,9 @@ def get_virtual_machine(expand: Optional[_builtins.str] = None,
         virtual_machine_scale_set=pulumi.get(__ret__, 'virtual_machine_scale_set'),
         vm_id=pulumi.get(__ret__, 'vm_id'),
         zones=pulumi.get(__ret__, 'zones'))
-def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                               vm_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_machine_output(expand: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                               vm_name: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualMachineResult]:
     """
     Retrieves information about the model view or the instance view of a virtual machine.

@@ -71,8 +71,8 @@ def list_service_globally_enabled_apms(resource_group_name: Optional[_builtins.s
 
     return AwaitableListServiceGloballyEnabledApmsResult(
         value=pulumi.get(__ret__, 'value'))
-def list_service_globally_enabled_apms_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                              service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_service_globally_enabled_apms_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                              service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListServiceGloballyEnabledApmsResult]:
     """
     List globally enabled APMs for a Service.

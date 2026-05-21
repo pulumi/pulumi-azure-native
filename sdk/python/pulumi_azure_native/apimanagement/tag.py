@@ -22,7 +22,7 @@ class TagArgs:
                  display_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  service_name: pulumi.Input[_builtins.str],
-                 tag_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Tag resource.
 
@@ -75,14 +75,14 @@ class TagArgs:
 
     @_builtins.property
     @pulumi.getter(name="tagId")
-    def tag_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tag_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tag identifier. Must be unique in the current API Management service instance.
         """
         return pulumi.get(self, "tag_id")
 
     @tag_id.setter
-    def tag_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tag_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tag_id", value)
 
 
@@ -92,10 +92,10 @@ class Tag(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Tag Contract details.
@@ -141,10 +141,10 @@ class Tag(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tag_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

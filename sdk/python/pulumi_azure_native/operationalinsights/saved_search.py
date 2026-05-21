@@ -26,11 +26,11 @@ class SavedSearchArgs:
                  query: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 function_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 saved_search_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]] = None,
-                 version: Optional[pulumi.Input[_builtins.float]] = None):
+                 function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 saved_search_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['TagArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.float]] = None):
         """
         The set of arguments for constructing a SavedSearch resource.
 
@@ -123,62 +123,62 @@ class SavedSearchArgs:
 
     @_builtins.property
     @pulumi.getter(name="functionAlias")
-    def function_alias(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_alias(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The function alias if query serves as a function.
         """
         return pulumi.get(self, "function_alias")
 
     @function_alias.setter
-    def function_alias(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_alias(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_alias", value)
 
     @_builtins.property
     @pulumi.getter(name="functionParameters")
-    def function_parameters(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def function_parameters(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
         """
         return pulumi.get(self, "function_parameters")
 
     @function_parameters.setter
-    def function_parameters(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def function_parameters(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "function_parameters", value)
 
     @_builtins.property
     @pulumi.getter(name="savedSearchId")
-    def saved_search_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def saved_search_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The id of the saved search.
         """
         return pulumi.get(self, "saved_search_id")
 
     @saved_search_id.setter
-    def saved_search_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def saved_search_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "saved_search_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]]:
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TagArgs']]]]:
         """
         The tags attached to the saved search.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagArgs']]]]):
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def version(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         The version number of the query language. The current version is 2 and is the default.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def version(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "version", value)
 
 
@@ -188,16 +188,16 @@ class SavedSearch(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saved_search_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagArgs', 'TagArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.float]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saved_search_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagArgs', 'TagArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.float]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Value object for saved search results.
@@ -249,16 +249,16 @@ class SavedSearch(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 category: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_alias: Optional[pulumi.Input[_builtins.str]] = None,
-                 function_parameters: Optional[pulumi.Input[_builtins.str]] = None,
-                 query: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 saved_search_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagArgs', 'TagArgsDict']]]]] = None,
-                 version: Optional[pulumi.Input[_builtins.float]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 category: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_alias: pulumi.Input[Optional[_builtins.str]] = None,
+                 function_parameters: pulumi.Input[Optional[_builtins.str]] = None,
+                 query: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 saved_search_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TagArgs', 'TagArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.float]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

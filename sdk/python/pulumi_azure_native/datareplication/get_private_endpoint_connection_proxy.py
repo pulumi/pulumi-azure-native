@@ -151,9 +151,9 @@ def get_private_endpoint_connection_proxy(private_endpoint_connection_proxy_name
         properties=pulumi.get(__ret__, 'properties'),
         system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
-def get_private_endpoint_connection_proxy_output(private_endpoint_connection_proxy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                 vault_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_private_endpoint_connection_proxy_output(private_endpoint_connection_proxy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                 vault_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivateEndpointConnectionProxyResult]:
     """
     Gets the private endpoint connection proxy details.

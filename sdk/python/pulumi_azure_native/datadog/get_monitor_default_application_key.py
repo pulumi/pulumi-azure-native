@@ -97,8 +97,8 @@ def get_monitor_default_application_key(monitor_name: Optional[_builtins.str] = 
         created_by=pulumi.get(__ret__, 'created_by'),
         key=pulumi.get(__ret__, 'key'),
         name=pulumi.get(__ret__, 'name'))
-def get_monitor_default_application_key_output(monitor_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_monitor_default_application_key_output(monitor_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorDefaultApplicationKeyResult]:
     """
     Get the default application key.

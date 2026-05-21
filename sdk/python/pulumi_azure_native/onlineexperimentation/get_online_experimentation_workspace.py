@@ -189,8 +189,8 @@ def get_online_experimentation_workspace(resource_group_name: Optional[_builtins
         system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_online_experimentation_workspace_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_online_experimentation_workspace_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOnlineExperimentationWorkspaceResult]:
     """
     Gets an online experimentation workspace.

@@ -145,11 +145,11 @@ def get_api_policy(api_id: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         type=pulumi.get(__ret__, 'type'),
         value=pulumi.get(__ret__, 'value'))
-def get_api_policy_output(api_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          format: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                          policy_id: Optional[pulumi.Input[_builtins.str]] = None,
-                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                          service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_api_policy_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          format: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                          policy_id: pulumi.Input[Optional[_builtins.str]] = None,
+                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                          service_name: pulumi.Input[Optional[_builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiPolicyResult]:
     """
     Get the policy configuration at the API level.

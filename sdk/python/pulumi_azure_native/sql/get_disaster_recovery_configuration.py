@@ -215,9 +215,9 @@ def get_disaster_recovery_configuration(disaster_recovery_configuration_name: Op
         role=pulumi.get(__ret__, 'role'),
         status=pulumi.get(__ret__, 'status'),
         type=pulumi.get(__ret__, 'type'))
-def get_disaster_recovery_configuration_output(disaster_recovery_configuration_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                               server_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_disaster_recovery_configuration_output(disaster_recovery_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                               server_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDisasterRecoveryConfigurationResult]:
     """
     Gets a disaster recovery configuration.

@@ -40,15 +40,15 @@ class DatabaseIdentityArgsDict(TypedDict):
     """
     Database Identity properties.
     """
-    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Client Id of the database identity.
     """
-    principal_id: NotRequired[pulumi.Input[_builtins.str]]
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Principal Id of the database identity.
     """
-    resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Resource Id of the database identity.
     """
@@ -56,9 +56,9 @@ class DatabaseIdentityArgsDict(TypedDict):
 @pulumi.input_type
 class DatabaseIdentityArgs:
     def __init__(__self__, *,
-                 client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Database Identity properties.
 
@@ -75,38 +75,38 @@ class DatabaseIdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Client Id of the database identity.
         """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
-    def client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Principal Id of the database identity.
         """
         return pulumi.get(self, "principal_id")
 
     @principal_id.setter
-    def principal_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "principal_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Resource Id of the database identity.
         """
         return pulumi.get(self, "resource_id")
 
     @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "resource_id", value)
 
 
@@ -114,11 +114,11 @@ class FirewallRulePropertiesArgsDict(TypedDict):
     """
     A Firewall rule properties.
     """
-    end_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    end_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     End IP address.
     """
-    start_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    start_ip_address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Start IP address.
     """
@@ -126,8 +126,8 @@ class FirewallRulePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FirewallRulePropertiesArgs:
     def __init__(__self__, *,
-                 end_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
-                 start_ip_address: Optional[pulumi.Input[_builtins.str]] = None):
+                 end_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
+                 start_ip_address: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A Firewall rule properties.
 
@@ -141,26 +141,26 @@ class FirewallRulePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="endIpAddress")
-    def end_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def end_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         End IP address.
         """
         return pulumi.get(self, "end_ip_address")
 
     @end_ip_address.setter
-    def end_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def end_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "end_ip_address", value)
 
     @_builtins.property
     @pulumi.getter(name="startIpAddress")
-    def start_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def start_ip_address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Start IP address.
         """
         return pulumi.get(self, "start_ip_address")
 
     @start_ip_address.setter
-    def start_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def start_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "start_ip_address", value)
 
 
@@ -168,35 +168,35 @@ class FleetDatabasePropertiesArgsDict(TypedDict):
     """
     Fleet database properties.
     """
-    collation: NotRequired[pulumi.Input[_builtins.str]]
+    collation: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Database collation.
     """
-    create_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'DatabaseCreateMode']]]
+    create_mode: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'DatabaseCreateMode']]]]
     """
     Create mode. Available options: Default - Create a database. Copy - Copy the source database (source database name must be specified) PointInTimeRestore - Create a database by restoring source database from a point in time (source database name and restore from time must be specified)
     """
-    identity: NotRequired[pulumi.Input['IdentityArgsDict']]
+    identity: NotRequired[pulumi.Input[Optional['IdentityArgsDict']]]
     """
     Identity property.
     """
-    resource_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    resource_tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Additional database properties to be applied as the underlying database resource tags.
     """
-    restore_from_time: NotRequired[pulumi.Input[_builtins.str]]
+    restore_from_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Restore from time when CreateMode is PointInTimeRestore.
     """
-    source_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    source_database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Source database name used when CreateMode is Copy or PointInTimeRestore.
     """
-    tier_name: NotRequired[pulumi.Input[_builtins.str]]
+    tier_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the tier this database belongs to.
     """
-    transparent_data_encryption: NotRequired[pulumi.Input['TransparentDataEncryptionArgsDict']]
+    transparent_data_encryption: NotRequired[pulumi.Input[Optional['TransparentDataEncryptionArgsDict']]]
     """
     Transparent Data Encryption properties
     """
@@ -204,14 +204,14 @@ class FleetDatabasePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FleetDatabasePropertiesArgs:
     def __init__(__self__, *,
-                 collation: Optional[pulumi.Input[_builtins.str]] = None,
-                 create_mode: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseCreateMode']]] = None,
-                 identity: Optional[pulumi.Input['IdentityArgs']] = None,
-                 resource_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 restore_from_time: Optional[pulumi.Input[_builtins.str]] = None,
-                 source_database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tier_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 transparent_data_encryption: Optional[pulumi.Input['TransparentDataEncryptionArgs']] = None):
+                 collation: pulumi.Input[Optional[_builtins.str]] = None,
+                 create_mode: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseCreateMode']]] = None,
+                 identity: pulumi.Input[Optional['IdentityArgs']] = None,
+                 resource_tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 restore_from_time: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tier_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 transparent_data_encryption: pulumi.Input[Optional['TransparentDataEncryptionArgs']] = None):
         """
         Fleet database properties.
 
@@ -243,98 +243,98 @@ class FleetDatabasePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def collation(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def collation(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Database collation.
         """
         return pulumi.get(self, "collation")
 
     @collation.setter
-    def collation(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def collation(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "collation", value)
 
     @_builtins.property
     @pulumi.getter(name="createMode")
-    def create_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DatabaseCreateMode']]]:
+    def create_mode(self) -> pulumi.Input[Optional[Union[_builtins.str, 'DatabaseCreateMode']]]:
         """
         Create mode. Available options: Default - Create a database. Copy - Copy the source database (source database name must be specified) PointInTimeRestore - Create a database by restoring source database from a point in time (source database name and restore from time must be specified)
         """
         return pulumi.get(self, "create_mode")
 
     @create_mode.setter
-    def create_mode(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DatabaseCreateMode']]]):
+    def create_mode(self, value: pulumi.Input[Optional[Union[_builtins.str, 'DatabaseCreateMode']]]):
         pulumi.set(self, "create_mode", value)
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> Optional[pulumi.Input['IdentityArgs']]:
+    def identity(self) -> pulumi.Input[Optional['IdentityArgs']]:
         """
         Identity property.
         """
         return pulumi.get(self, "identity")
 
     @identity.setter
-    def identity(self, value: Optional[pulumi.Input['IdentityArgs']]):
+    def identity(self, value: pulumi.Input[Optional['IdentityArgs']]):
         pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceTags")
-    def resource_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def resource_tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Additional database properties to be applied as the underlying database resource tags.
         """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
-    def resource_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def resource_tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "resource_tags", value)
 
     @_builtins.property
     @pulumi.getter(name="restoreFromTime")
-    def restore_from_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def restore_from_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Restore from time when CreateMode is PointInTimeRestore.
         """
         return pulumi.get(self, "restore_from_time")
 
     @restore_from_time.setter
-    def restore_from_time(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def restore_from_time(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "restore_from_time", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceDatabaseName")
-    def source_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def source_database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Source database name used when CreateMode is Copy or PointInTimeRestore.
         """
         return pulumi.get(self, "source_database_name")
 
     @source_database_name.setter
-    def source_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def source_database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_database_name", value)
 
     @_builtins.property
     @pulumi.getter(name="tierName")
-    def tier_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tier_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the tier this database belongs to.
         """
         return pulumi.get(self, "tier_name")
 
     @tier_name.setter
-    def tier_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tier_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tier_name", value)
 
     @_builtins.property
     @pulumi.getter(name="transparentDataEncryption")
-    def transparent_data_encryption(self) -> Optional[pulumi.Input['TransparentDataEncryptionArgs']]:
+    def transparent_data_encryption(self) -> pulumi.Input[Optional['TransparentDataEncryptionArgs']]:
         """
         Transparent Data Encryption properties
         """
         return pulumi.get(self, "transparent_data_encryption")
 
     @transparent_data_encryption.setter
-    def transparent_data_encryption(self, value: Optional[pulumi.Input['TransparentDataEncryptionArgs']]):
+    def transparent_data_encryption(self, value: pulumi.Input[Optional['TransparentDataEncryptionArgs']]):
         pulumi.set(self, "transparent_data_encryption", value)
 
 
@@ -342,7 +342,7 @@ class FleetPropertiesArgsDict(TypedDict):
     """
     The Database Fleet properties.
     """
-    description: NotRequired[pulumi.Input[_builtins.str]]
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Fleet description.
     """
@@ -350,7 +350,7 @@ class FleetPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FleetPropertiesArgs:
     def __init__(__self__, *,
-                 description: Optional[pulumi.Input[_builtins.str]] = None):
+                 description: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The Database Fleet properties.
 
@@ -361,14 +361,14 @@ class FleetPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Fleet description.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
 
@@ -376,47 +376,47 @@ class FleetTierPropertiesArgsDict(TypedDict):
     """
     A Fleet tier properties.
     """
-    capacity: NotRequired[pulumi.Input[_builtins.int]]
+    capacity: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Capacity of provisioned resources in the tier, in units matching the specified service tier, for example vCore for GeneralPurpose.
     """
-    database_capacity_max: NotRequired[pulumi.Input[_builtins.float]]
+    database_capacity_max: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Maximum allocated capacity per database, in units matching the specified service tier.
     """
-    database_capacity_min: NotRequired[pulumi.Input[_builtins.float]]
+    database_capacity_min: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
     Minimum allocated capacity per database, in units matching the specified service tier.
     """
-    database_size_gb_max: NotRequired[pulumi.Input[_builtins.int]]
+    database_size_gb_max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum database size in Gb.
     """
-    family: NotRequired[pulumi.Input[_builtins.str]]
+    family: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Family of provisioned resources, for example Gen5.
     """
-    high_availability_replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    high_availability_replica_count: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Number of high availability replicas for databases in this tier.
     """
-    pool_num_of_databases_max: NotRequired[pulumi.Input[_builtins.int]]
+    pool_num_of_databases_max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of databases per pool.
     """
-    pooled: NotRequired[pulumi.Input[_builtins.bool]]
+    pooled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, databases are pooled.
     """
-    serverless: NotRequired[pulumi.Input[_builtins.bool]]
+    serverless: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If true, serverless resources are provisioned in the tier.
     """
-    service_tier: NotRequired[pulumi.Input[_builtins.str]]
+    service_tier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Service tier of provisioned resources. Supported values: GeneralPurpose, Hyperscale.
     """
-    zone_redundancy: NotRequired[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]
+    zone_redundancy: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]]]
     """
     Enable zone redundancy for all databases in this tier.
     """
@@ -424,17 +424,17 @@ class FleetTierPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FleetTierPropertiesArgs:
     def __init__(__self__, *,
-                 capacity: Optional[pulumi.Input[_builtins.int]] = None,
-                 database_capacity_max: Optional[pulumi.Input[_builtins.float]] = None,
-                 database_capacity_min: Optional[pulumi.Input[_builtins.float]] = None,
-                 database_size_gb_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 family: Optional[pulumi.Input[_builtins.str]] = None,
-                 high_availability_replica_count: Optional[pulumi.Input[_builtins.int]] = None,
-                 pool_num_of_databases_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 pooled: Optional[pulumi.Input[_builtins.bool]] = None,
-                 serverless: Optional[pulumi.Input[_builtins.bool]] = None,
-                 service_tier: Optional[pulumi.Input[_builtins.str]] = None,
-                 zone_redundancy: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]] = None):
+                 capacity: pulumi.Input[Optional[_builtins.int]] = None,
+                 database_capacity_max: pulumi.Input[Optional[_builtins.float]] = None,
+                 database_capacity_min: pulumi.Input[Optional[_builtins.float]] = None,
+                 database_size_gb_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 family: pulumi.Input[Optional[_builtins.str]] = None,
+                 high_availability_replica_count: pulumi.Input[Optional[_builtins.int]] = None,
+                 pool_num_of_databases_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 pooled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 serverless: pulumi.Input[Optional[_builtins.bool]] = None,
+                 service_tier: pulumi.Input[Optional[_builtins.str]] = None,
+                 zone_redundancy: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]] = None):
         """
         A Fleet tier properties.
 
@@ -475,134 +475,134 @@ class FleetTierPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter
-    def capacity(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Capacity of provisioned resources in the tier, in units matching the specified service tier, for example vCore for GeneralPurpose.
         """
         return pulumi.get(self, "capacity")
 
     @capacity.setter
-    def capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseCapacityMax")
-    def database_capacity_max(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def database_capacity_max(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Maximum allocated capacity per database, in units matching the specified service tier.
         """
         return pulumi.get(self, "database_capacity_max")
 
     @database_capacity_max.setter
-    def database_capacity_max(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def database_capacity_max(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "database_capacity_max", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseCapacityMin")
-    def database_capacity_min(self) -> Optional[pulumi.Input[_builtins.float]]:
+    def database_capacity_min(self) -> pulumi.Input[Optional[_builtins.float]]:
         """
         Minimum allocated capacity per database, in units matching the specified service tier.
         """
         return pulumi.get(self, "database_capacity_min")
 
     @database_capacity_min.setter
-    def database_capacity_min(self, value: Optional[pulumi.Input[_builtins.float]]):
+    def database_capacity_min(self, value: pulumi.Input[Optional[_builtins.float]]):
         pulumi.set(self, "database_capacity_min", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseSizeGbMax")
-    def database_size_gb_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def database_size_gb_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum database size in Gb.
         """
         return pulumi.get(self, "database_size_gb_max")
 
     @database_size_gb_max.setter
-    def database_size_gb_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def database_size_gb_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "database_size_gb_max", value)
 
     @_builtins.property
     @pulumi.getter
-    def family(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def family(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Family of provisioned resources, for example Gen5.
         """
         return pulumi.get(self, "family")
 
     @family.setter
-    def family(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def family(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "family", value)
 
     @_builtins.property
     @pulumi.getter(name="highAvailabilityReplicaCount")
-    def high_availability_replica_count(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def high_availability_replica_count(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Number of high availability replicas for databases in this tier.
         """
         return pulumi.get(self, "high_availability_replica_count")
 
     @high_availability_replica_count.setter
-    def high_availability_replica_count(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def high_availability_replica_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "high_availability_replica_count", value)
 
     @_builtins.property
     @pulumi.getter(name="poolNumOfDatabasesMax")
-    def pool_num_of_databases_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def pool_num_of_databases_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of databases per pool.
         """
         return pulumi.get(self, "pool_num_of_databases_max")
 
     @pool_num_of_databases_max.setter
-    def pool_num_of_databases_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def pool_num_of_databases_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pool_num_of_databases_max", value)
 
     @_builtins.property
     @pulumi.getter
-    def pooled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def pooled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, databases are pooled.
         """
         return pulumi.get(self, "pooled")
 
     @pooled.setter
-    def pooled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def pooled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "pooled", value)
 
     @_builtins.property
     @pulumi.getter
-    def serverless(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def serverless(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If true, serverless resources are provisioned in the tier.
         """
         return pulumi.get(self, "serverless")
 
     @serverless.setter
-    def serverless(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def serverless(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "serverless", value)
 
     @_builtins.property
     @pulumi.getter(name="serviceTier")
-    def service_tier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def service_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Service tier of provisioned resources. Supported values: GeneralPurpose, Hyperscale.
         """
         return pulumi.get(self, "service_tier")
 
     @service_tier.setter
-    def service_tier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def service_tier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_tier", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancy")
-    def zone_redundancy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]:
+    def zone_redundancy(self) -> pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]]:
         """
         Enable zone redundancy for all databases in this tier.
         """
         return pulumi.get(self, "zone_redundancy")
 
     @zone_redundancy.setter
-    def zone_redundancy(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ZoneRedundancy']]]):
+    def zone_redundancy(self, value: pulumi.Input[Optional[Union[_builtins.str, 'ZoneRedundancy']]]):
         pulumi.set(self, "zone_redundancy", value)
 
 
@@ -610,11 +610,11 @@ class FleetspacePropertiesArgsDict(TypedDict):
     """
     A Fleetspace properties.
     """
-    capacity_max: NotRequired[pulumi.Input[_builtins.int]]
+    capacity_max: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum number of vCores database fleet manager is allowed to provision in the fleetspace.
     """
-    main_principal: NotRequired[pulumi.Input['MainPrincipalArgsDict']]
+    main_principal: NotRequired[pulumi.Input[Optional['MainPrincipalArgsDict']]]
     """
     Main Microsoft Entra ID principal that has admin access to all databases in the fleetspace.
     """
@@ -622,8 +622,8 @@ class FleetspacePropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class FleetspacePropertiesArgs:
     def __init__(__self__, *,
-                 capacity_max: Optional[pulumi.Input[_builtins.int]] = None,
-                 main_principal: Optional[pulumi.Input['MainPrincipalArgs']] = None):
+                 capacity_max: pulumi.Input[Optional[_builtins.int]] = None,
+                 main_principal: pulumi.Input[Optional['MainPrincipalArgs']] = None):
         """
         A Fleetspace properties.
 
@@ -637,26 +637,26 @@ class FleetspacePropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="capacityMax")
-    def capacity_max(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def capacity_max(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum number of vCores database fleet manager is allowed to provision in the fleetspace.
         """
         return pulumi.get(self, "capacity_max")
 
     @capacity_max.setter
-    def capacity_max(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def capacity_max(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "capacity_max", value)
 
     @_builtins.property
     @pulumi.getter(name="mainPrincipal")
-    def main_principal(self) -> Optional[pulumi.Input['MainPrincipalArgs']]:
+    def main_principal(self) -> pulumi.Input[Optional['MainPrincipalArgs']]:
         """
         Main Microsoft Entra ID principal that has admin access to all databases in the fleetspace.
         """
         return pulumi.get(self, "main_principal")
 
     @main_principal.setter
-    def main_principal(self, value: Optional[pulumi.Input['MainPrincipalArgs']]):
+    def main_principal(self, value: pulumi.Input[Optional['MainPrincipalArgs']]):
         pulumi.set(self, "main_principal", value)
 
 
@@ -664,15 +664,15 @@ class IdentityArgsDict(TypedDict):
     """
     Database Identity.
     """
-    federated_client_id: NotRequired[pulumi.Input[_builtins.str]]
+    federated_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The federated client id for the SQL Database. It is used for cross tenant CMK scenario.
     """
-    identity_type: NotRequired[pulumi.Input[Union[_builtins.str, 'IdentityType']]]
+    identity_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]]
     """
     Identity type of the main principal.
     """
-    user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input['DatabaseIdentityArgsDict']]]]
+    user_assigned_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseIdentityArgsDict']]]]]
     """
     User identity ids
     """
@@ -680,9 +680,9 @@ class IdentityArgsDict(TypedDict):
 @pulumi.input_type
 class IdentityArgs:
     def __init__(__self__, *,
-                 federated_client_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 identity_type: Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]] = None,
-                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseIdentityArgs']]]] = None):
+                 federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_type: pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]] = None,
+                 user_assigned_identities: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseIdentityArgs']]]] = None):
         """
         Database Identity.
 
@@ -699,38 +699,38 @@ class IdentityArgs:
 
     @_builtins.property
     @pulumi.getter(name="federatedClientId")
-    def federated_client_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def federated_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The federated client id for the SQL Database. It is used for cross tenant CMK scenario.
         """
         return pulumi.get(self, "federated_client_id")
 
     @federated_client_id.setter
-    def federated_client_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def federated_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "federated_client_id", value)
 
     @_builtins.property
     @pulumi.getter(name="identityType")
-    def identity_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]]:
+    def identity_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]:
         """
         Identity type of the main principal.
         """
         return pulumi.get(self, "identity_type")
 
     @identity_type.setter
-    def identity_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IdentityType']]]):
+    def identity_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'IdentityType']]]):
         pulumi.set(self, "identity_type", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentities")
-    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseIdentityArgs']]]]:
+    def user_assigned_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseIdentityArgs']]]]:
         """
         User identity ids
         """
         return pulumi.get(self, "user_assigned_identities")
 
     @user_assigned_identities.setter
-    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseIdentityArgs']]]]):
+    def user_assigned_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DatabaseIdentityArgs']]]]):
         pulumi.set(self, "user_assigned_identities", value)
 
 
@@ -738,23 +738,23 @@ class MainPrincipalArgsDict(TypedDict):
     """
     A main principal.
     """
-    application_id: NotRequired[pulumi.Input[_builtins.str]]
+    application_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Application Id of the main principal.
     """
-    login: NotRequired[pulumi.Input[_builtins.str]]
+    login: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Login name of the main principal.
     """
-    object_id: NotRequired[pulumi.Input[_builtins.str]]
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Object Id of the main principal.
     """
-    principal_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]
+    principal_type: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]]
     """
     Principal type of the main principal.
     """
-    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tenant Id of the main principal.
     """
@@ -762,11 +762,11 @@ class MainPrincipalArgsDict(TypedDict):
 @pulumi.input_type
 class MainPrincipalArgs:
     def __init__(__self__, *,
-                 application_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 login: Optional[pulumi.Input[_builtins.str]] = None,
-                 object_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_type: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 application_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 login: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_type: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         A main principal.
 
@@ -789,62 +789,62 @@ class MainPrincipalArgs:
 
     @_builtins.property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def application_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Application Id of the main principal.
         """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def application_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def login(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def login(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Login name of the main principal.
         """
         return pulumi.get(self, "login")
 
     @login.setter
-    def login(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def login(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "login", value)
 
     @_builtins.property
     @pulumi.getter(name="objectId")
-    def object_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Object Id of the main principal.
         """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
-    def object_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "object_id", value)
 
     @_builtins.property
     @pulumi.getter(name="principalType")
-    def principal_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]:
+    def principal_type(self) -> pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]:
         """
         Principal type of the main principal.
         """
         return pulumi.get(self, "principal_type")
 
     @principal_type.setter
-    def principal_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PrincipalType']]]):
+    def principal_type(self, value: pulumi.Input[Optional[Union[_builtins.str, 'PrincipalType']]]):
         pulumi.set(self, "principal_type", value)
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenant Id of the main principal.
         """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
 
@@ -852,15 +852,15 @@ class TransparentDataEncryptionArgsDict(TypedDict):
     """
     Transparent Data Encryption properties.
     """
-    enable_auto_rotation: NotRequired[pulumi.Input[_builtins.bool]]
+    enable_auto_rotation: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enable key auto rotation
     """
-    key_uri: NotRequired[pulumi.Input[_builtins.str]]
+    key_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Customer Managed Key (CMK) Uri.
     """
-    keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     Additional Keys
     """
@@ -868,9 +868,9 @@ class TransparentDataEncryptionArgsDict(TypedDict):
 @pulumi.input_type
 class TransparentDataEncryptionArgs:
     def __init__(__self__, *,
-                 enable_auto_rotation: Optional[pulumi.Input[_builtins.bool]] = None,
-                 key_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 enable_auto_rotation: pulumi.Input[Optional[_builtins.bool]] = None,
+                 key_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Transparent Data Encryption properties.
 
@@ -887,38 +887,38 @@ class TransparentDataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="enableAutoRotation")
-    def enable_auto_rotation(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def enable_auto_rotation(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Enable key auto rotation
         """
         return pulumi.get(self, "enable_auto_rotation")
 
     @enable_auto_rotation.setter
-    def enable_auto_rotation(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def enable_auto_rotation(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enable_auto_rotation", value)
 
     @_builtins.property
     @pulumi.getter(name="keyUri")
-    def key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def key_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Customer Managed Key (CMK) Uri.
         """
         return pulumi.get(self, "key_uri")
 
     @key_uri.setter
-    def key_uri(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def key_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_uri", value)
 
     @_builtins.property
     @pulumi.getter
-    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         Additional Keys
         """
         return pulumi.get(self, "keys")
 
     @keys.setter
-    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "keys", value)
 
 

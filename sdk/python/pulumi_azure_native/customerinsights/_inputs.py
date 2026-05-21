@@ -76,7 +76,7 @@ class AssignmentPrincipalArgsDict(TypedDict):
     """
     The Type of the principal ID.
     """
-    principal_metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    principal_metadata: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Other metadata for the principal.
     """
@@ -86,7 +86,7 @@ class AssignmentPrincipalArgs:
     def __init__(__self__, *,
                  principal_id: pulumi.Input[_builtins.str],
                  principal_type: pulumi.Input[_builtins.str],
-                 principal_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 principal_metadata: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The AssignmentPrincipal
 
@@ -125,14 +125,14 @@ class AssignmentPrincipalArgs:
 
     @_builtins.property
     @pulumi.getter(name="principalMetadata")
-    def principal_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def principal_metadata(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Other metadata for the principal.
         """
         return pulumi.get(self, "principal_metadata")
 
     @principal_metadata.setter
-    def principal_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def principal_metadata(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "principal_metadata", value)
 
 
@@ -144,7 +144,7 @@ class ConnectorMappingAvailabilityArgsDict(TypedDict):
     """
     The interval of the given frequency to use.
     """
-    frequency: NotRequired[pulumi.Input['FrequencyTypes']]
+    frequency: NotRequired[pulumi.Input[Optional['FrequencyTypes']]]
     """
     The frequency to update.
     """
@@ -153,7 +153,7 @@ class ConnectorMappingAvailabilityArgsDict(TypedDict):
 class ConnectorMappingAvailabilityArgs:
     def __init__(__self__, *,
                  interval: pulumi.Input[_builtins.int],
-                 frequency: Optional[pulumi.Input['FrequencyTypes']] = None):
+                 frequency: pulumi.Input[Optional['FrequencyTypes']] = None):
         """
         Connector mapping property availability.
 
@@ -178,14 +178,14 @@ class ConnectorMappingAvailabilityArgs:
 
     @_builtins.property
     @pulumi.getter
-    def frequency(self) -> Optional[pulumi.Input['FrequencyTypes']]:
+    def frequency(self) -> pulumi.Input[Optional['FrequencyTypes']]:
         """
         The frequency to update.
         """
         return pulumi.get(self, "frequency")
 
     @frequency.setter
-    def frequency(self, value: Optional[pulumi.Input['FrequencyTypes']]):
+    def frequency(self, value: pulumi.Input[Optional['FrequencyTypes']]):
         pulumi.set(self, "frequency", value)
 
 
@@ -193,11 +193,11 @@ class ConnectorMappingCompleteOperationArgsDict(TypedDict):
     """
     The complete operation.
     """
-    completion_operation_type: NotRequired[pulumi.Input['CompletionOperationTypes']]
+    completion_operation_type: NotRequired[pulumi.Input[Optional['CompletionOperationTypes']]]
     """
     The type of completion operation.
     """
-    destination_folder: NotRequired[pulumi.Input[_builtins.str]]
+    destination_folder: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The destination folder where files will be moved to once the import is done.
     """
@@ -205,8 +205,8 @@ class ConnectorMappingCompleteOperationArgsDict(TypedDict):
 @pulumi.input_type
 class ConnectorMappingCompleteOperationArgs:
     def __init__(__self__, *,
-                 completion_operation_type: Optional[pulumi.Input['CompletionOperationTypes']] = None,
-                 destination_folder: Optional[pulumi.Input[_builtins.str]] = None):
+                 completion_operation_type: pulumi.Input[Optional['CompletionOperationTypes']] = None,
+                 destination_folder: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The complete operation.
 
@@ -220,26 +220,26 @@ class ConnectorMappingCompleteOperationArgs:
 
     @_builtins.property
     @pulumi.getter(name="completionOperationType")
-    def completion_operation_type(self) -> Optional[pulumi.Input['CompletionOperationTypes']]:
+    def completion_operation_type(self) -> pulumi.Input[Optional['CompletionOperationTypes']]:
         """
         The type of completion operation.
         """
         return pulumi.get(self, "completion_operation_type")
 
     @completion_operation_type.setter
-    def completion_operation_type(self, value: Optional[pulumi.Input['CompletionOperationTypes']]):
+    def completion_operation_type(self, value: pulumi.Input[Optional['CompletionOperationTypes']]):
         pulumi.set(self, "completion_operation_type", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationFolder")
-    def destination_folder(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_folder(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination folder where files will be moved to once the import is done.
         """
         return pulumi.get(self, "destination_folder")
 
     @destination_folder.setter
-    def destination_folder(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_folder(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_folder", value)
 
 
@@ -251,7 +251,7 @@ class ConnectorMappingErrorManagementArgsDict(TypedDict):
     """
     The type of error management to use for the mapping.
     """
-    error_limit: NotRequired[pulumi.Input[_builtins.int]]
+    error_limit: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The error limit allowed while importing data.
     """
@@ -260,7 +260,7 @@ class ConnectorMappingErrorManagementArgsDict(TypedDict):
 class ConnectorMappingErrorManagementArgs:
     def __init__(__self__, *,
                  error_management_type: pulumi.Input['ErrorManagementTypes'],
-                 error_limit: Optional[pulumi.Input[_builtins.int]] = None):
+                 error_limit: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The error management.
 
@@ -285,14 +285,14 @@ class ConnectorMappingErrorManagementArgs:
 
     @_builtins.property
     @pulumi.getter(name="errorLimit")
-    def error_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def error_limit(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The error limit allowed while importing data.
         """
         return pulumi.get(self, "error_limit")
 
     @error_limit.setter
-    def error_limit(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def error_limit(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "error_limit", value)
 
 
@@ -304,23 +304,23 @@ class ConnectorMappingFormatArgsDict(TypedDict):
     """
     The type mapping format.
     """
-    accept_language: NotRequired[pulumi.Input[_builtins.str]]
+    accept_language: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The oData language.
     """
-    array_separator: NotRequired[pulumi.Input[_builtins.str]]
+    array_separator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Character separating array elements.
     """
-    column_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    column_delimiter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The character that signifies a break between columns.
     """
-    quote_character: NotRequired[pulumi.Input[_builtins.str]]
+    quote_character: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Quote character, used to indicate enquoted fields.
     """
-    quote_escape_character: NotRequired[pulumi.Input[_builtins.str]]
+    quote_escape_character: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Escape character for quotes, can be the same as the quoteCharacter.
     """
@@ -329,11 +329,11 @@ class ConnectorMappingFormatArgsDict(TypedDict):
 class ConnectorMappingFormatArgs:
     def __init__(__self__, *,
                  format_type: pulumi.Input['FormatTypes'],
-                 accept_language: Optional[pulumi.Input[_builtins.str]] = None,
-                 array_separator: Optional[pulumi.Input[_builtins.str]] = None,
-                 column_delimiter: Optional[pulumi.Input[_builtins.str]] = None,
-                 quote_character: Optional[pulumi.Input[_builtins.str]] = None,
-                 quote_escape_character: Optional[pulumi.Input[_builtins.str]] = None):
+                 accept_language: pulumi.Input[Optional[_builtins.str]] = None,
+                 array_separator: pulumi.Input[Optional[_builtins.str]] = None,
+                 column_delimiter: pulumi.Input[Optional[_builtins.str]] = None,
+                 quote_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 quote_escape_character: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Connector mapping property format.
 
@@ -370,62 +370,62 @@ class ConnectorMappingFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="acceptLanguage")
-    def accept_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def accept_language(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The oData language.
         """
         return pulumi.get(self, "accept_language")
 
     @accept_language.setter
-    def accept_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def accept_language(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "accept_language", value)
 
     @_builtins.property
     @pulumi.getter(name="arraySeparator")
-    def array_separator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def array_separator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Character separating array elements.
         """
         return pulumi.get(self, "array_separator")
 
     @array_separator.setter
-    def array_separator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def array_separator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "array_separator", value)
 
     @_builtins.property
     @pulumi.getter(name="columnDelimiter")
-    def column_delimiter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def column_delimiter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The character that signifies a break between columns.
         """
         return pulumi.get(self, "column_delimiter")
 
     @column_delimiter.setter
-    def column_delimiter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def column_delimiter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "column_delimiter", value)
 
     @_builtins.property
     @pulumi.getter(name="quoteCharacter")
-    def quote_character(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quote_character(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Quote character, used to indicate enquoted fields.
         """
         return pulumi.get(self, "quote_character")
 
     @quote_character.setter
-    def quote_character(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quote_character(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quote_character", value)
 
     @_builtins.property
     @pulumi.getter(name="quoteEscapeCharacter")
-    def quote_escape_character(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def quote_escape_character(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Escape character for quotes, can be the same as the quoteCharacter.
         """
         return pulumi.get(self, "quote_escape_character")
 
     @quote_escape_character.setter
-    def quote_escape_character(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def quote_escape_character(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "quote_escape_character", value)
 
 
@@ -453,15 +453,15 @@ class ConnectorMappingPropertiesArgsDict(TypedDict):
     """
     Ingestion mapping information at property level.
     """
-    file_filter: NotRequired[pulumi.Input[_builtins.str]]
+    file_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The file filter for the mapping.
     """
-    folder_path: NotRequired[pulumi.Input[_builtins.str]]
+    folder_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The folder path for the mapping.
     """
-    has_header: NotRequired[pulumi.Input[_builtins.bool]]
+    has_header: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     If the file contains a header or not.
     """
@@ -474,9 +474,9 @@ class ConnectorMappingPropertiesArgs:
                  error_management: pulumi.Input['ConnectorMappingErrorManagementArgs'],
                  format: pulumi.Input['ConnectorMappingFormatArgs'],
                  structure: pulumi.Input[Sequence[pulumi.Input['ConnectorMappingStructureArgs']]],
-                 file_filter: Optional[pulumi.Input[_builtins.str]] = None,
-                 folder_path: Optional[pulumi.Input[_builtins.str]] = None,
-                 has_header: Optional[pulumi.Input[_builtins.bool]] = None):
+                 file_filter: pulumi.Input[Optional[_builtins.str]] = None,
+                 folder_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 has_header: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The connector mapping properties.
 
@@ -563,38 +563,38 @@ class ConnectorMappingPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="fileFilter")
-    def file_filter(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def file_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The file filter for the mapping.
         """
         return pulumi.get(self, "file_filter")
 
     @file_filter.setter
-    def file_filter(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def file_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "file_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="folderPath")
-    def folder_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def folder_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The folder path for the mapping.
         """
         return pulumi.get(self, "folder_path")
 
     @folder_path.setter
-    def folder_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def folder_path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "folder_path", value)
 
     @_builtins.property
     @pulumi.getter(name="hasHeader")
-    def has_header(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def has_header(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         If the file contains a header or not.
         """
         return pulumi.get(self, "has_header")
 
     @has_header.setter
-    def has_header(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def has_header(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "has_header", value)
 
 
@@ -610,11 +610,11 @@ class ConnectorMappingStructureArgsDict(TypedDict):
     """
     The property name of the mapping entity.
     """
-    custom_format_specifier: NotRequired[pulumi.Input[_builtins.str]]
+    custom_format_specifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom format specifier for input parsing.
     """
-    is_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    is_encrypted: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates if the column is encrypted.
     """
@@ -624,8 +624,8 @@ class ConnectorMappingStructureArgs:
     def __init__(__self__, *,
                  column_name: pulumi.Input[_builtins.str],
                  property_name: pulumi.Input[_builtins.str],
-                 custom_format_specifier: Optional[pulumi.Input[_builtins.str]] = None,
-                 is_encrypted: Optional[pulumi.Input[_builtins.bool]] = None):
+                 custom_format_specifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 is_encrypted: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Connector mapping property structure.
 
@@ -667,26 +667,26 @@ class ConnectorMappingStructureArgs:
 
     @_builtins.property
     @pulumi.getter(name="customFormatSpecifier")
-    def custom_format_specifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def custom_format_specifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Custom format specifier for input parsing.
         """
         return pulumi.get(self, "custom_format_specifier")
 
     @custom_format_specifier.setter
-    def custom_format_specifier(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def custom_format_specifier(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_format_specifier", value)
 
     @_builtins.property
     @pulumi.getter(name="isEncrypted")
-    def is_encrypted(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the column is encrypted.
         """
         return pulumi.get(self, "is_encrypted")
 
     @is_encrypted.setter
-    def is_encrypted(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_encrypted(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_encrypted", value)
 
 
@@ -694,15 +694,15 @@ class HubBillingInfoFormatArgsDict(TypedDict):
     """
     Hub billing info.
     """
-    max_units: NotRequired[pulumi.Input[_builtins.int]]
+    max_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
     """
-    min_units: NotRequired[pulumi.Input[_builtins.int]]
+    min_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
     """
-    sku_name: NotRequired[pulumi.Input[_builtins.str]]
+    sku_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The sku name.
     """
@@ -710,9 +710,9 @@ class HubBillingInfoFormatArgsDict(TypedDict):
 @pulumi.input_type
 class HubBillingInfoFormatArgs:
     def __init__(__self__, *,
-                 max_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_units: Optional[pulumi.Input[_builtins.int]] = None,
-                 sku_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 max_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_units: pulumi.Input[Optional[_builtins.int]] = None,
+                 sku_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Hub billing info.
 
@@ -729,38 +729,38 @@ class HubBillingInfoFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="maxUnits")
-    def max_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The maximum number of units can be used.  One unit is 10,000 Profiles and 100,000 Interactions.
         """
         return pulumi.get(self, "max_units")
 
     @max_units.setter
-    def max_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_units", value)
 
     @_builtins.property
     @pulumi.getter(name="minUnits")
-    def min_units(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_units(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The minimum number of units will be billed. One unit is 10,000 Profiles and 100,000 Interactions.
         """
         return pulumi.get(self, "min_units")
 
     @min_units.setter
-    def min_units(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_units(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_units", value)
 
     @_builtins.property
     @pulumi.getter(name="skuName")
-    def sku_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The sku name.
         """
         return pulumi.get(self, "sku_name")
 
     @sku_name.setter
-    def sku_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def sku_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sku_name", value)
 
 
@@ -1047,15 +1047,15 @@ class PredictionGradesArgsDict(TypedDict):
     """
     The definition of a prediction grade.
     """
-    grade_name: NotRequired[pulumi.Input[_builtins.str]]
+    grade_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Name of the grade.
     """
-    max_score_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    max_score_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Maximum score threshold.
     """
-    min_score_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    min_score_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Minimum score threshold.
     """
@@ -1063,9 +1063,9 @@ class PredictionGradesArgsDict(TypedDict):
 @pulumi.input_type
 class PredictionGradesArgs:
     def __init__(__self__, *,
-                 grade_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 max_score_threshold: Optional[pulumi.Input[_builtins.int]] = None,
-                 min_score_threshold: Optional[pulumi.Input[_builtins.int]] = None):
+                 grade_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 max_score_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_score_threshold: pulumi.Input[Optional[_builtins.int]] = None):
         """
         The definition of a prediction grade.
 
@@ -1082,38 +1082,38 @@ class PredictionGradesArgs:
 
     @_builtins.property
     @pulumi.getter(name="gradeName")
-    def grade_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def grade_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the grade.
         """
         return pulumi.get(self, "grade_name")
 
     @grade_name.setter
-    def grade_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def grade_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "grade_name", value)
 
     @_builtins.property
     @pulumi.getter(name="maxScoreThreshold")
-    def max_score_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_score_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Maximum score threshold.
         """
         return pulumi.get(self, "max_score_threshold")
 
     @max_score_threshold.setter
-    def max_score_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_score_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_score_threshold", value)
 
     @_builtins.property
     @pulumi.getter(name="minScoreThreshold")
-    def min_score_threshold(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def min_score_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Minimum score threshold.
         """
         return pulumi.get(self, "min_score_threshold")
 
     @min_score_threshold.setter
-    def min_score_threshold(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def min_score_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "min_score_threshold", value)
 
 
@@ -1192,11 +1192,11 @@ class ProfileEnumValidValuesFormatArgsDict(TypedDict):
     """
     Valid enum values in case of an enum property.
     """
-    localized_value_names: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    localized_value_names: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Localized names of the enum member.
     """
-    value: NotRequired[pulumi.Input[_builtins.int]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The integer value of the enum member.
     """
@@ -1204,8 +1204,8 @@ class ProfileEnumValidValuesFormatArgsDict(TypedDict):
 @pulumi.input_type
 class ProfileEnumValidValuesFormatArgs:
     def __init__(__self__, *,
-                 localized_value_names: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 value: Optional[pulumi.Input[_builtins.int]] = None):
+                 localized_value_names: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 value: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Valid enum values in case of an enum property.
 
@@ -1219,26 +1219,26 @@ class ProfileEnumValidValuesFormatArgs:
 
     @_builtins.property
     @pulumi.getter(name="localizedValueNames")
-    def localized_value_names(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def localized_value_names(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized names of the enum member.
         """
         return pulumi.get(self, "localized_value_names")
 
     @localized_value_names.setter
-    def localized_value_names(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def localized_value_names(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "localized_value_names", value)
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         The integer value of the enum member.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "value", value)
 
 
@@ -1254,55 +1254,55 @@ class PropertyDefinitionArgsDict(TypedDict):
     """
     Type of the property.
     """
-    array_value_separator: NotRequired[pulumi.Input[_builtins.str]]
+    array_value_separator: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Array value separator for properties with isArray set.
     """
-    enum_valid_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgsDict']]]]
+    enum_valid_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgsDict']]]]]
     """
     Describes valid values for an enum property.
     """
-    is_array: NotRequired[pulumi.Input[_builtins.bool]]
+    is_array: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates if the property is actually an array of the fieldType above on the data api.
     """
-    is_available_in_graph: NotRequired[pulumi.Input[_builtins.bool]]
+    is_available_in_graph: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether property is available in graph or not.
     """
-    is_enum: NotRequired[pulumi.Input[_builtins.bool]]
+    is_enum: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates if the property is an enum.
     """
-    is_flag_enum: NotRequired[pulumi.Input[_builtins.bool]]
+    is_flag_enum: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Indicates if the property is an flag enum.
     """
-    is_image: NotRequired[pulumi.Input[_builtins.bool]]
+    is_image: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the property is an Image.
     """
-    is_localized_string: NotRequired[pulumi.Input[_builtins.bool]]
+    is_localized_string: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the property is a localized string.
     """
-    is_name: NotRequired[pulumi.Input[_builtins.bool]]
+    is_name: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether the property is a name or a part of name.
     """
-    is_required: NotRequired[pulumi.Input[_builtins.bool]]
+    is_required: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
     """
-    max_length: NotRequired[pulumi.Input[_builtins.int]]
+    max_length: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Max length of string. Used only if type is string.
     """
-    property_id: NotRequired[pulumi.Input[_builtins.str]]
+    property_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID associated with the property.
     """
-    schema_item_prop_link: NotRequired[pulumi.Input[_builtins.str]]
+    schema_item_prop_link: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     URL encoded schema.org item prop link for the property.
     """
@@ -1312,19 +1312,19 @@ class PropertyDefinitionArgs:
     def __init__(__self__, *,
                  field_name: pulumi.Input[_builtins.str],
                  field_type: pulumi.Input[_builtins.str],
-                 array_value_separator: Optional[pulumi.Input[_builtins.str]] = None,
-                 enum_valid_values: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]] = None,
-                 is_array: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_available_in_graph: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_enum: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_flag_enum: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_image: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_localized_string: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_name: Optional[pulumi.Input[_builtins.bool]] = None,
-                 is_required: Optional[pulumi.Input[_builtins.bool]] = None,
-                 max_length: Optional[pulumi.Input[_builtins.int]] = None,
-                 property_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schema_item_prop_link: Optional[pulumi.Input[_builtins.str]] = None):
+                 array_value_separator: pulumi.Input[Optional[_builtins.str]] = None,
+                 enum_valid_values: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]] = None,
+                 is_array: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_available_in_graph: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_enum: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_flag_enum: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_image: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_localized_string: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_name: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_required: pulumi.Input[Optional[_builtins.bool]] = None,
+                 max_length: pulumi.Input[Optional[_builtins.int]] = None,
+                 property_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schema_item_prop_link: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Property definition.
 
@@ -1399,158 +1399,158 @@ class PropertyDefinitionArgs:
 
     @_builtins.property
     @pulumi.getter(name="arrayValueSeparator")
-    def array_value_separator(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def array_value_separator(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Array value separator for properties with isArray set.
         """
         return pulumi.get(self, "array_value_separator")
 
     @array_value_separator.setter
-    def array_value_separator(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def array_value_separator(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "array_value_separator", value)
 
     @_builtins.property
     @pulumi.getter(name="enumValidValues")
-    def enum_valid_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]]:
+    def enum_valid_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]]:
         """
         Describes valid values for an enum property.
         """
         return pulumi.get(self, "enum_valid_values")
 
     @enum_valid_values.setter
-    def enum_valid_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]]):
+    def enum_valid_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProfileEnumValidValuesFormatArgs']]]]):
         pulumi.set(self, "enum_valid_values", value)
 
     @_builtins.property
     @pulumi.getter(name="isArray")
-    def is_array(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_array(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the property is actually an array of the fieldType above on the data api.
         """
         return pulumi.get(self, "is_array")
 
     @is_array.setter
-    def is_array(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_array(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_array", value)
 
     @_builtins.property
     @pulumi.getter(name="isAvailableInGraph")
-    def is_available_in_graph(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_available_in_graph(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether property is available in graph or not.
         """
         return pulumi.get(self, "is_available_in_graph")
 
     @is_available_in_graph.setter
-    def is_available_in_graph(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_available_in_graph(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_available_in_graph", value)
 
     @_builtins.property
     @pulumi.getter(name="isEnum")
-    def is_enum(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_enum(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the property is an enum.
         """
         return pulumi.get(self, "is_enum")
 
     @is_enum.setter
-    def is_enum(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_enum(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_enum", value)
 
     @_builtins.property
     @pulumi.getter(name="isFlagEnum")
-    def is_flag_enum(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_flag_enum(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Indicates if the property is an flag enum.
         """
         return pulumi.get(self, "is_flag_enum")
 
     @is_flag_enum.setter
-    def is_flag_enum(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_flag_enum(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_flag_enum", value)
 
     @_builtins.property
     @pulumi.getter(name="isImage")
-    def is_image(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_image(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the property is an Image.
         """
         return pulumi.get(self, "is_image")
 
     @is_image.setter
-    def is_image(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_image(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_image", value)
 
     @_builtins.property
     @pulumi.getter(name="isLocalizedString")
-    def is_localized_string(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_localized_string(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the property is a localized string.
         """
         return pulumi.get(self, "is_localized_string")
 
     @is_localized_string.setter
-    def is_localized_string(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_localized_string(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_localized_string", value)
 
     @_builtins.property
     @pulumi.getter(name="isName")
-    def is_name(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_name(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether the property is a name or a part of name.
         """
         return pulumi.get(self, "is_name")
 
     @is_name.setter
-    def is_name(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_name(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_name", value)
 
     @_builtins.property
     @pulumi.getter(name="isRequired")
-    def is_required(self) -> Optional[pulumi.Input[_builtins.bool]]:
+    def is_required(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Whether property value is required on instances, IsRequired field only for Interaction. Profile Instance will not check for required field.
         """
         return pulumi.get(self, "is_required")
 
     @is_required.setter
-    def is_required(self, value: Optional[pulumi.Input[_builtins.bool]]):
+    def is_required(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "is_required", value)
 
     @_builtins.property
     @pulumi.getter(name="maxLength")
-    def max_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+    def max_length(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
         Max length of string. Used only if type is string.
         """
         return pulumi.get(self, "max_length")
 
     @max_length.setter
-    def max_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+    def max_length(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_length", value)
 
     @_builtins.property
     @pulumi.getter(name="propertyId")
-    def property_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def property_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID associated with the property.
         """
         return pulumi.get(self, "property_id")
 
     @property_id.setter
-    def property_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def property_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "property_id", value)
 
     @_builtins.property
     @pulumi.getter(name="schemaItemPropLink")
-    def schema_item_prop_link(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def schema_item_prop_link(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         URL encoded schema.org item prop link for the property.
         """
         return pulumi.get(self, "schema_item_prop_link")
 
     @schema_item_prop_link.setter
-    def schema_item_prop_link(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def schema_item_prop_link(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "schema_item_prop_link", value)
 
 
@@ -1566,7 +1566,7 @@ class RelationshipLinkFieldMappingArgsDict(TypedDict):
     """
     The field name on the Relationship metadata.
     """
-    link_type: NotRequired[pulumi.Input['LinkTypes']]
+    link_type: NotRequired[pulumi.Input[Optional['LinkTypes']]]
     """
     Link type.
     """
@@ -1576,7 +1576,7 @@ class RelationshipLinkFieldMappingArgs:
     def __init__(__self__, *,
                  interaction_field_name: pulumi.Input[_builtins.str],
                  relationship_field_name: pulumi.Input[_builtins.str],
-                 link_type: Optional[pulumi.Input['LinkTypes']] = None):
+                 link_type: pulumi.Input[Optional['LinkTypes']] = None):
         """
         The fields mapping for Relationships.
 
@@ -1615,14 +1615,14 @@ class RelationshipLinkFieldMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkType")
-    def link_type(self) -> Optional[pulumi.Input['LinkTypes']]:
+    def link_type(self) -> pulumi.Input[Optional['LinkTypes']]:
         """
         Link type.
         """
         return pulumi.get(self, "link_type")
 
     @link_type.setter
-    def link_type(self, value: Optional[pulumi.Input['LinkTypes']]):
+    def link_type(self, value: pulumi.Input[Optional['LinkTypes']]):
         pulumi.set(self, "link_type", value)
 
 
@@ -1715,11 +1715,11 @@ class ResourceSetDescriptionArgsDict(TypedDict):
     """
     The resource set description.
     """
-    elements: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    elements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The elements included in the set.
     """
-    exceptions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    exceptions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     The elements that are not included in the set, in case elements contains '*' indicating 'all'.
     """
@@ -1727,8 +1727,8 @@ class ResourceSetDescriptionArgsDict(TypedDict):
 @pulumi.input_type
 class ResourceSetDescriptionArgs:
     def __init__(__self__, *,
-                 elements: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 exceptions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The resource set description.
 
@@ -1742,26 +1742,26 @@ class ResourceSetDescriptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def elements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def elements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The elements included in the set.
         """
         return pulumi.get(self, "elements")
 
     @elements.setter
-    def elements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def elements(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "elements", value)
 
     @_builtins.property
     @pulumi.getter
-    def exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+    def exceptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
         The elements that are not included in the set, in case elements contains '*' indicating 'all'.
         """
         return pulumi.get(self, "exceptions")
 
     @exceptions.setter
-    def exceptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+    def exceptions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exceptions", value)
 
 
@@ -1777,11 +1777,11 @@ class StrongIdArgsDict(TypedDict):
     """
     The Name identifying the strong ID.
     """
-    description: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    description: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Localized descriptions.
     """
-    display_name: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    display_name: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Localized display name.
     """
@@ -1791,8 +1791,8 @@ class StrongIdArgs:
     def __init__(__self__, *,
                  key_property_names: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  strong_id_name: pulumi.Input[_builtins.str],
-                 description: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 display_name: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 description: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 display_name: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Property/Properties which represent a unique ID.
 
@@ -1834,26 +1834,26 @@ class StrongIdArgs:
 
     @_builtins.property
     @pulumi.getter
-    def description(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def description(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized descriptions.
         """
         return pulumi.get(self, "description")
 
     @description.setter
-    def description(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def description(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "description", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def display_name(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Localized display name.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def display_name(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "display_name", value)
 
 
@@ -1869,7 +1869,7 @@ class TypePropertiesMappingArgsDict(TypedDict):
     """
     Property name on the target Entity Type.
     """
-    link_type: NotRequired[pulumi.Input['LinkTypes']]
+    link_type: NotRequired[pulumi.Input[Optional['LinkTypes']]]
     """
     Link type.
     """
@@ -1879,7 +1879,7 @@ class TypePropertiesMappingArgs:
     def __init__(__self__, *,
                  source_property_name: pulumi.Input[_builtins.str],
                  target_property_name: pulumi.Input[_builtins.str],
-                 link_type: Optional[pulumi.Input['LinkTypes']] = None):
+                 link_type: pulumi.Input[Optional['LinkTypes']] = None):
         """
         Metadata for a Link's property mapping.
 
@@ -1918,14 +1918,14 @@ class TypePropertiesMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="linkType")
-    def link_type(self) -> Optional[pulumi.Input['LinkTypes']]:
+    def link_type(self) -> pulumi.Input[Optional['LinkTypes']]:
         """
         Link type.
         """
         return pulumi.get(self, "link_type")
 
     @link_type.setter
-    def link_type(self, value: Optional[pulumi.Input['LinkTypes']]):
+    def link_type(self, value: pulumi.Input[Optional['LinkTypes']]):
         pulumi.set(self, "link_type", value)
 
 

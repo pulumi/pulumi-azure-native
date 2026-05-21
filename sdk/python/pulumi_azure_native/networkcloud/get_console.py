@@ -280,9 +280,9 @@ def get_console(console_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'),
         virtual_machine_access_id=pulumi.get(__ret__, 'virtual_machine_access_id'))
-def get_console_output(console_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                       virtual_machine_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_console_output(console_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                       virtual_machine_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConsoleResult]:
     """
     Get properties of the provided virtual machine console.

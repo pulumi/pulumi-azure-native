@@ -23,7 +23,7 @@ class AnomaliesArgs:
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
-                 settings_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 settings_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Anomalies resource.
 
@@ -78,14 +78,14 @@ class AnomaliesArgs:
 
     @_builtins.property
     @pulumi.getter(name="settingsName")
-    def settings_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def settings_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
         """
         return pulumi.get(self, "settings_name")
 
     @settings_name.setter
-    def settings_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def settings_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "settings_name", value)
 
 
@@ -95,10 +95,10 @@ class Anomalies(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Settings with single toggle.
@@ -141,10 +141,10 @@ class Anomalies(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 kind: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 settings_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kind: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 settings_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

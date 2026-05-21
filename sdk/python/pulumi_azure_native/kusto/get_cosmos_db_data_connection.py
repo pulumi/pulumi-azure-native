@@ -258,10 +258,10 @@ def get_cosmos_db_data_connection(cluster_name: Optional[_builtins.str] = None,
         retrieval_start_date=pulumi.get(__ret__, 'retrieval_start_date'),
         table_name=pulumi.get(__ret__, 'table_name'),
         type=pulumi.get(__ret__, 'type'))
-def get_cosmos_db_data_connection_output(cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         data_connection_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         database_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_cosmos_db_data_connection_output(cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         data_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCosmosDbDataConnectionResult]:
     """
     Returns a data connection.

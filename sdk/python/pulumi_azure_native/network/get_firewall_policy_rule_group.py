@@ -166,9 +166,9 @@ def get_firewall_policy_rule_group(firewall_policy_name: Optional[_builtins.str]
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         rules=pulumi.get(__ret__, 'rules'),
         type=pulumi.get(__ret__, 'type'))
-def get_firewall_policy_rule_group_output(firewall_policy_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          rule_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_firewall_policy_rule_group_output(firewall_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          rule_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallPolicyRuleGroupResult]:
     """
     Gets the specified FirewallPolicyRuleGroup.

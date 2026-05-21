@@ -88,13 +88,13 @@ def get_sap_disk_configurations(app_location: Optional[_builtins.str] = None,
 
     return AwaitableGetSAPDiskConfigurationsResult(
         volume_configurations=pulumi.get(__ret__, 'volume_configurations'))
-def get_sap_disk_configurations_output(app_location: Optional[pulumi.Input[_builtins.str]] = None,
-                                       database_type: Optional[pulumi.Input[Union[_builtins.str, 'SAPDatabaseType']]] = None,
-                                       db_vm_sku: Optional[pulumi.Input[_builtins.str]] = None,
-                                       deployment_type: Optional[pulumi.Input[Union[_builtins.str, 'SAPDeploymentType']]] = None,
-                                       environment: Optional[pulumi.Input[Union[_builtins.str, 'SAPEnvironmentType']]] = None,
-                                       location: Optional[pulumi.Input[_builtins.str]] = None,
-                                       sap_product: Optional[pulumi.Input[Union[_builtins.str, 'SAPProductType']]] = None,
+def get_sap_disk_configurations_output(app_location: pulumi.Input[Optional[_builtins.str]] = None,
+                                       database_type: pulumi.Input[Optional[Union[_builtins.str, 'SAPDatabaseType']]] = None,
+                                       db_vm_sku: pulumi.Input[Optional[_builtins.str]] = None,
+                                       deployment_type: pulumi.Input[Optional[Union[_builtins.str, 'SAPDeploymentType']]] = None,
+                                       environment: pulumi.Input[Optional[Union[_builtins.str, 'SAPEnvironmentType']]] = None,
+                                       location: pulumi.Input[Optional[_builtins.str]] = None,
+                                       sap_product: pulumi.Input[Optional[Union[_builtins.str, 'SAPProductType']]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSAPDiskConfigurationsResult]:
     """
     Get the SAP Disk Configuration Layout prod/non-prod SAP System.

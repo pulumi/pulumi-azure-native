@@ -27,7 +27,7 @@ class ReplicationMigrationItemArgs:
                  protection_container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 migration_item_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 migration_item_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ReplicationMigrationItem resource.
 
@@ -108,14 +108,14 @@ class ReplicationMigrationItemArgs:
 
     @_builtins.property
     @pulumi.getter(name="migrationItemName")
-    def migration_item_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def migration_item_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Migration item name.
         """
         return pulumi.get(self, "migration_item_name")
 
     @migration_item_name.setter
-    def migration_item_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def migration_item_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "migration_item_name", value)
 
 
@@ -125,12 +125,12 @@ class ReplicationMigrationItem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['EnableMigrationInputPropertiesArgs', 'EnableMigrationInputPropertiesArgsDict']]] = None,
-                 protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['EnableMigrationInputPropertiesArgs', 'EnableMigrationInputPropertiesArgsDict']]] = None,
+                 protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Migration item.
@@ -178,12 +178,12 @@ class ReplicationMigrationItem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 migration_item_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['EnableMigrationInputPropertiesArgs', 'EnableMigrationInputPropertiesArgsDict']]] = None,
-                 protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 migration_item_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['EnableMigrationInputPropertiesArgs', 'EnableMigrationInputPropertiesArgsDict']]] = None,
+                 protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

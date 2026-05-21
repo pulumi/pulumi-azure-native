@@ -239,8 +239,8 @@ def get_storage_task(resource_group_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_version=pulumi.get(__ret__, 'task_version'),
         type=pulumi.get(__ret__, 'type'))
-def get_storage_task_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                            storage_task_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_storage_task_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                            storage_task_name: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageTaskResult]:
     """
     Get the storage task properties

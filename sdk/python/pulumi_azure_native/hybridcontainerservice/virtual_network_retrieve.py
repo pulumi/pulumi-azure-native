@@ -22,11 +22,11 @@ __all__ = ['VirtualNetworkRetrieveArgs', 'VirtualNetworkRetrieve']
 class VirtualNetworkRetrieveArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 extended_location: Optional[pulumi.Input['VirtualNetworksExtendedLocationArgs']] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['VirtualNetworksPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_networks_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 extended_location: pulumi.Input[Optional['VirtualNetworksExtendedLocationArgs']] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['VirtualNetworksPropertiesArgs']] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_networks_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a VirtualNetworkRetrieve resource.
 
@@ -62,59 +62,59 @@ class VirtualNetworkRetrieveArgs:
 
     @_builtins.property
     @pulumi.getter(name="extendedLocation")
-    def extended_location(self) -> Optional[pulumi.Input['VirtualNetworksExtendedLocationArgs']]:
+    def extended_location(self) -> pulumi.Input[Optional['VirtualNetworksExtendedLocationArgs']]:
         return pulumi.get(self, "extended_location")
 
     @extended_location.setter
-    def extended_location(self, value: Optional[pulumi.Input['VirtualNetworksExtendedLocationArgs']]):
+    def extended_location(self, value: pulumi.Input[Optional['VirtualNetworksExtendedLocationArgs']]):
         pulumi.set(self, "extended_location", value)
 
     @_builtins.property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
     @location.setter
-    def location(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['VirtualNetworksPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['VirtualNetworksPropertiesArgs']]:
         """
         HybridAKSNetworkSpec defines the desired state of HybridAKSNetwork
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['VirtualNetworksPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['VirtualNetworksPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Resource tags.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
     @_builtins.property
     @pulumi.getter(name="virtualNetworksName")
-    def virtual_networks_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def virtual_networks_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Parameter for the name of the virtual network
         """
         return pulumi.get(self, "virtual_networks_name")
 
     @virtual_networks_name.setter
-    def virtual_networks_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def virtual_networks_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "virtual_networks_name", value)
 
 
@@ -124,12 +124,12 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['VirtualNetworksExtendedLocationArgs', 'VirtualNetworksExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['VirtualNetworksPropertiesArgs', 'VirtualNetworksPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_networks_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['VirtualNetworksExtendedLocationArgs', 'VirtualNetworksExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['VirtualNetworksPropertiesArgs', 'VirtualNetworksPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_networks_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The virtualNetworks resource definition.
@@ -176,12 +176,12 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 extended_location: Optional[pulumi.Input[Union['VirtualNetworksExtendedLocationArgs', 'VirtualNetworksExtendedLocationArgsDict']]] = None,
-                 location: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['VirtualNetworksPropertiesArgs', 'VirtualNetworksPropertiesArgsDict']]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 virtual_networks_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 extended_location: pulumi.Input[Optional[Union['VirtualNetworksExtendedLocationArgs', 'VirtualNetworksExtendedLocationArgsDict']]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['VirtualNetworksPropertiesArgs', 'VirtualNetworksPropertiesArgsDict']]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 virtual_networks_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

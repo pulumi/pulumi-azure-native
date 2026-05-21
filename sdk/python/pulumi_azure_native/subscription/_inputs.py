@@ -28,19 +28,19 @@ class PutAliasRequestAdditionalPropertiesArgsDict(TypedDict):
     """
     Put subscription additional properties.
     """
-    management_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    management_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Management group Id for the subscription.
     """
-    subscription_owner_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_owner_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Owner Id of the subscription
     """
-    subscription_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Tenant Id of the subscription
     """
-    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
     Tags for the subscription
     """
@@ -48,10 +48,10 @@ class PutAliasRequestAdditionalPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class PutAliasRequestAdditionalPropertiesArgs:
     def __init__(__self__, *,
-                 management_group_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_tenant_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 management_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Put subscription additional properties.
 
@@ -71,50 +71,50 @@ class PutAliasRequestAdditionalPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="managementGroupId")
-    def management_group_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def management_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Management group Id for the subscription.
         """
         return pulumi.get(self, "management_group_id")
 
     @management_group_id.setter
-    def management_group_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def management_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "management_group_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionOwnerId")
-    def subscription_owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Owner Id of the subscription
         """
         return pulumi.get(self, "subscription_owner_id")
 
     @subscription_owner_id.setter
-    def subscription_owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionTenantId")
-    def subscription_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Tenant Id of the subscription
         """
         return pulumi.get(self, "subscription_tenant_id")
 
     @subscription_tenant_id.setter
-    def subscription_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_tenant_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Tags for the subscription
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
-    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
 
@@ -122,30 +122,30 @@ class PutAliasRequestPropertiesArgsDict(TypedDict):
     """
     Put subscription properties.
     """
-    additional_properties: NotRequired[pulumi.Input['PutAliasRequestAdditionalPropertiesArgsDict']]
+    additional_properties: NotRequired[pulumi.Input[Optional['PutAliasRequestAdditionalPropertiesArgsDict']]]
     """
     Put alias request additional properties.
     """
-    billing_scope: NotRequired[pulumi.Input[_builtins.str]]
+    billing_scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Billing scope of the subscription.
     For CustomerLed and FieldLed - /billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}
     For PartnerLed - /billingAccounts/{billingAccountName}/customers/{customerName}
     For Legacy EA - /billingAccounts/{billingAccountName}/enrollmentAccounts/{enrollmentAccountName}
     """
-    display_name: NotRequired[pulumi.Input[_builtins.str]]
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The friendly name of the subscription.
     """
-    reseller_id: NotRequired[pulumi.Input[_builtins.str]]
+    reseller_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Reseller Id
     """
-    subscription_id: NotRequired[pulumi.Input[_builtins.str]]
+    subscription_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     This parameter can be used to create alias for existing subscription Id
     """
-    workload: NotRequired[pulumi.Input[Union[_builtins.str, 'Workload']]]
+    workload: NotRequired[pulumi.Input[Optional[Union[_builtins.str, 'Workload']]]]
     """
     The workload type of the subscription. It can be either Production or DevTest.
     """
@@ -153,12 +153,12 @@ class PutAliasRequestPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class PutAliasRequestPropertiesArgs:
     def __init__(__self__, *,
-                 additional_properties: Optional[pulumi.Input['PutAliasRequestAdditionalPropertiesArgs']] = None,
-                 billing_scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 display_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 reseller_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 workload: Optional[pulumi.Input[Union[_builtins.str, 'Workload']]] = None):
+                 additional_properties: pulumi.Input[Optional['PutAliasRequestAdditionalPropertiesArgs']] = None,
+                 billing_scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 reseller_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 workload: pulumi.Input[Optional[Union[_builtins.str, 'Workload']]] = None):
         """
         Put subscription properties.
 
@@ -187,19 +187,19 @@ class PutAliasRequestPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="additionalProperties")
-    def additional_properties(self) -> Optional[pulumi.Input['PutAliasRequestAdditionalPropertiesArgs']]:
+    def additional_properties(self) -> pulumi.Input[Optional['PutAliasRequestAdditionalPropertiesArgs']]:
         """
         Put alias request additional properties.
         """
         return pulumi.get(self, "additional_properties")
 
     @additional_properties.setter
-    def additional_properties(self, value: Optional[pulumi.Input['PutAliasRequestAdditionalPropertiesArgs']]):
+    def additional_properties(self, value: pulumi.Input[Optional['PutAliasRequestAdditionalPropertiesArgs']]):
         pulumi.set(self, "additional_properties", value)
 
     @_builtins.property
     @pulumi.getter(name="billingScope")
-    def billing_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def billing_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Billing scope of the subscription.
         For CustomerLed and FieldLed - /billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}
@@ -209,55 +209,55 @@ class PutAliasRequestPropertiesArgs:
         return pulumi.get(self, "billing_scope")
 
     @billing_scope.setter
-    def billing_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def billing_scope(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "billing_scope", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The friendly name of the subscription.
         """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
-    def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "display_name", value)
 
     @_builtins.property
     @pulumi.getter(name="resellerId")
-    def reseller_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def reseller_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Reseller Id
         """
         return pulumi.get(self, "reseller_id")
 
     @reseller_id.setter
-    def reseller_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def reseller_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "reseller_id", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def subscription_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         This parameter can be used to create alias for existing subscription Id
         """
         return pulumi.get(self, "subscription_id")
 
     @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def subscription_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subscription_id", value)
 
     @_builtins.property
     @pulumi.getter
-    def workload(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Workload']]]:
+    def workload(self) -> pulumi.Input[Optional[Union[_builtins.str, 'Workload']]]:
         """
         The workload type of the subscription. It can be either Production or DevTest.
         """
         return pulumi.get(self, "workload")
 
     @workload.setter
-    def workload(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Workload']]]):
+    def workload(self, value: pulumi.Input[Optional[Union[_builtins.str, 'Workload']]]):
         pulumi.set(self, "workload", value)
 
 
@@ -265,11 +265,11 @@ class TargetDirectoryRequestPropertiesArgsDict(TypedDict):
     """
     Properties of subscription Request for Changed Target Directory.
     """
-    destination_owner_id: NotRequired[pulumi.Input[_builtins.str]]
+    destination_owner_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The destination OwnerId, can be object id or email address
     """
-    destination_tenant_id: NotRequired[pulumi.Input[_builtins.str]]
+    destination_tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The destination Tenant id where subscription needs to be accepted
     """
@@ -277,8 +277,8 @@ class TargetDirectoryRequestPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class TargetDirectoryRequestPropertiesArgs:
     def __init__(__self__, *,
-                 destination_owner_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 destination_tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 destination_owner_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Properties of subscription Request for Changed Target Directory.
 
@@ -292,26 +292,26 @@ class TargetDirectoryRequestPropertiesArgs:
 
     @_builtins.property
     @pulumi.getter(name="destinationOwnerId")
-    def destination_owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_owner_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination OwnerId, can be object id or email address
         """
         return pulumi.get(self, "destination_owner_id")
 
     @destination_owner_id.setter
-    def destination_owner_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_owner_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_owner_id", value)
 
     @_builtins.property
     @pulumi.getter(name="destinationTenantId")
-    def destination_tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def destination_tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The destination Tenant id where subscription needs to be accepted
         """
         return pulumi.get(self, "destination_tenant_id")
 
     @destination_tenant_id.setter
-    def destination_tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def destination_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_tenant_id", value)
 
 

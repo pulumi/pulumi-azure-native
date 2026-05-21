@@ -23,8 +23,8 @@ class FleetMemberArgs:
                  cluster_resource_id: pulumi.Input[_builtins.str],
                  fleet_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 fleet_member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None):
+                 fleet_member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a FleetMember resource.
 
@@ -80,26 +80,26 @@ class FleetMemberArgs:
 
     @_builtins.property
     @pulumi.getter(name="fleetMemberName")
-    def fleet_member_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def fleet_member_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The name of the Fleet member resource.
         """
         return pulumi.get(self, "fleet_member_name")
 
     @fleet_member_name.setter
-    def fleet_member_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def fleet_member_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "fleet_member_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def group(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def group(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The group this member belongs to for multi-cluster update management.
         """
         return pulumi.get(self, "group")
 
     @group.setter
-    def group(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def group(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "group", value)
 
 
@@ -109,11 +109,11 @@ class FleetMember(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
@@ -160,11 +160,11 @@ class FleetMember(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cluster_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_member_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 fleet_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 group: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 cluster_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_member_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 fleet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 group: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

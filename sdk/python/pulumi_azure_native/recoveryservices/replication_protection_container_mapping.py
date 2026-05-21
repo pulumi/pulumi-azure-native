@@ -26,8 +26,8 @@ class ReplicationProtectionContainerMappingArgs:
                  protection_container_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  resource_name: pulumi.Input[_builtins.str],
-                 mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input['CreateProtectionContainerMappingInputPropertiesArgs']] = None):
+                 mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional['CreateProtectionContainerMappingInputPropertiesArgs']] = None):
         """
         The set of arguments for constructing a ReplicationProtectionContainerMapping resource.
 
@@ -97,26 +97,26 @@ class ReplicationProtectionContainerMappingArgs:
 
     @_builtins.property
     @pulumi.getter(name="mappingName")
-    def mapping_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def mapping_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Protection container mapping name.
         """
         return pulumi.get(self, "mapping_name")
 
     @mapping_name.setter
-    def mapping_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def mapping_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "mapping_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def properties(self) -> Optional[pulumi.Input['CreateProtectionContainerMappingInputPropertiesArgs']]:
+    def properties(self) -> pulumi.Input[Optional['CreateProtectionContainerMappingInputPropertiesArgs']]:
         """
         Configure protection input properties.
         """
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: Optional[pulumi.Input['CreateProtectionContainerMappingInputPropertiesArgs']]):
+    def properties(self, value: pulumi.Input[Optional['CreateProtectionContainerMappingInputPropertiesArgs']]):
         pulumi.set(self, "properties", value)
 
 
@@ -126,12 +126,12 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['CreateProtectionContainerMappingInputPropertiesArgs', 'CreateProtectionContainerMappingInputPropertiesArgsDict']]] = None,
-                 protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['CreateProtectionContainerMappingInputPropertiesArgs', 'CreateProtectionContainerMappingInputPropertiesArgsDict']]] = None,
+                 protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Protection container mapping object.
@@ -179,12 +179,12 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fabric_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 mapping_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 properties: Optional[pulumi.Input[Union['CreateProtectionContainerMappingInputPropertiesArgs', 'CreateProtectionContainerMappingInputPropertiesArgsDict']]] = None,
-                 protection_container_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 resource_name_: Optional[pulumi.Input[_builtins.str]] = None,
+                 fabric_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 mapping_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 properties: pulumi.Input[Optional[Union['CreateProtectionContainerMappingInputPropertiesArgs', 'CreateProtectionContainerMappingInputPropertiesArgsDict']]] = None,
+                 protection_container_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_name_: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

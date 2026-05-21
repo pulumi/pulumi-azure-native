@@ -92,10 +92,10 @@ def list_integration_account_key_vault_keys(integration_account_name: Optional[_
     return AwaitableListIntegrationAccountKeyVaultKeysResult(
         skip_token=pulumi.get(__ret__, 'skip_token'),
         value=pulumi.get(__ret__, 'value'))
-def list_integration_account_key_vault_keys_output(integration_account_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   key_vault: Optional[pulumi.Input[Union['KeyVaultReference', 'KeyVaultReferenceDict']]] = None,
-                                                   resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                   skip_token: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def list_integration_account_key_vault_keys_output(integration_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   key_vault: pulumi.Input[Optional[Union['KeyVaultReference', 'KeyVaultReferenceDict']]] = None,
+                                                   resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                   skip_token: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListIntegrationAccountKeyVaultKeysResult]:
     """
     Gets the integration account's Key Vault keys.

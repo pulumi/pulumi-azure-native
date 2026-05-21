@@ -152,9 +152,9 @@ def get_registered_asn(peering_name: Optional[_builtins.str] = None,
         peering_service_prefix_key=pulumi.get(__ret__, 'peering_service_prefix_key'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_registered_asn_output(peering_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              registered_asn_name: Optional[pulumi.Input[_builtins.str]] = None,
-                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_registered_asn_output(peering_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              registered_asn_name: pulumi.Input[Optional[_builtins.str]] = None,
+                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRegisteredAsnResult]:
     """
     Gets an existing registered ASN with the specified name under the given subscription, resource group and peering.

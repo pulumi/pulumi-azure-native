@@ -191,9 +191,9 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
-def get_app_service_certificate_order_certificate_output(certificate_order_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                         resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_app_service_certificate_order_certificate_output(certificate_order_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                         resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppServiceCertificateOrderCertificateResult]:
     """
     Description for Get the certificate associated with a certificate order.

@@ -93,15 +93,15 @@ def get_log_analytic_export_throttled_requests(blob_container_sas_uri: Optional[
 
     return AwaitableGetLogAnalyticExportThrottledRequestsResult(
         properties=pulumi.get(__ret__, 'properties'))
-def get_log_analytic_export_throttled_requests_output(blob_container_sas_uri: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      from_time: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      group_by_client_application_id: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                      group_by_operation_name: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                      group_by_resource_name: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                      group_by_throttle_policy: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                      group_by_user_agent: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                      location: Optional[pulumi.Input[_builtins.str]] = None,
-                                                      to_time: Optional[pulumi.Input[_builtins.str]] = None,
+def get_log_analytic_export_throttled_requests_output(blob_container_sas_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      from_time: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      group_by_client_application_id: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                      group_by_operation_name: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                      group_by_resource_name: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                      group_by_throttle_policy: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                      group_by_user_agent: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                      location: pulumi.Input[Optional[_builtins.str]] = None,
+                                                      to_time: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAnalyticExportThrottledRequestsResult]:
     """
     Export logs that show total throttled Api requests for this subscription in the given time window.

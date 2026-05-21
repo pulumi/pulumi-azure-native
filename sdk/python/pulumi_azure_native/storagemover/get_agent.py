@@ -306,9 +306,9 @@ def get_agent(agent_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'),
         upload_limit_schedule=pulumi.get(__ret__, 'upload_limit_schedule'),
         uptime_in_seconds=pulumi.get(__ret__, 'uptime_in_seconds'))
-def get_agent_output(agent_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     storage_mover_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_agent_output(agent_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     storage_mover_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentResult]:
     """
     Gets an Agent resource.

@@ -191,9 +191,9 @@ def get_route(resource_group_name: Optional[_builtins.str] = None,
         next_hop_type=pulumi.get(__ret__, 'next_hop_type'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         type=pulumi.get(__ret__, 'type'))
-def get_route_output(resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     route_name: Optional[pulumi.Input[_builtins.str]] = None,
-                     route_table_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_route_output(resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     route_name: pulumi.Input[Optional[_builtins.str]] = None,
+                     route_table_name: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
     """
     Gets the specified route from a route table.

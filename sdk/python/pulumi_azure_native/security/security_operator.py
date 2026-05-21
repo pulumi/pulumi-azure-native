@@ -21,7 +21,7 @@ __all__ = ['SecurityOperatorArgs', 'SecurityOperator']
 class SecurityOperatorArgs:
     def __init__(__self__, *,
                  pricing_name: pulumi.Input[_builtins.str],
-                 security_operator_name: Optional[pulumi.Input[_builtins.str]] = None):
+                 security_operator_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a SecurityOperator resource.
 
@@ -46,14 +46,14 @@ class SecurityOperatorArgs:
 
     @_builtins.property
     @pulumi.getter(name="securityOperatorName")
-    def security_operator_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def security_operator_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         name of the securityOperator
         """
         return pulumi.get(self, "security_operator_name")
 
     @security_operator_name.setter
-    def security_operator_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def security_operator_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "security_operator_name", value)
 
 
@@ -63,8 +63,8 @@ class SecurityOperator(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pricing_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_operator_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pricing_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_operator_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Security operator under a given subscription and pricing
@@ -104,8 +104,8 @@ class SecurityOperator(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 pricing_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 security_operator_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 pricing_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_operator_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

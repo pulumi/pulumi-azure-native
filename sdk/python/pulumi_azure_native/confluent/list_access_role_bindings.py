@@ -101,9 +101,9 @@ def list_access_role_bindings(organization_name: Optional[_builtins.str] = None,
         data=pulumi.get(__ret__, 'data'),
         kind=pulumi.get(__ret__, 'kind'),
         metadata=pulumi.get(__ret__, 'metadata'))
-def list_access_role_bindings_output(organization_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                     search_filters: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
+def list_access_role_bindings_output(organization_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                     search_filters: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAccessRoleBindingsResult]:
     """
     Organization role bindings

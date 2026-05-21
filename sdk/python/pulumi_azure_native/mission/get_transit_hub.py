@@ -205,9 +205,9 @@ def get_transit_hub(community_name: Optional[_builtins.str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         transit_option=pulumi.get(__ret__, 'transit_option'),
         type=pulumi.get(__ret__, 'type'))
-def get_transit_hub_output(community_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                           transit_hub_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_transit_hub_output(community_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                           transit_hub_name: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitHubResult]:
     """
     Get a TransitHubResource

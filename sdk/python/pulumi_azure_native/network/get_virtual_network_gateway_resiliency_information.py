@@ -153,9 +153,9 @@ def get_virtual_network_gateway_resiliency_information(attempt_refresh: Optional
         next_eligible_compute_time=pulumi.get(__ret__, 'next_eligible_compute_time'),
         overall_score=pulumi.get(__ret__, 'overall_score'),
         score_change=pulumi.get(__ret__, 'score_change'))
-def get_virtual_network_gateway_resiliency_information_output(attempt_refresh: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
-                                                              resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                                              virtual_network_gateway_name: Optional[pulumi.Input[_builtins.str]] = None,
+def get_virtual_network_gateway_resiliency_information_output(attempt_refresh: pulumi.Input[Optional[Optional[_builtins.bool]]] = None,
+                                                              resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                                              virtual_network_gateway_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVirtualNetworkGatewayResiliencyInformationResult]:
     """
     This operation retrieves the resiliency information for an Express Route Gateway, including the gateway's current resiliency score and recommendations to further improve the score

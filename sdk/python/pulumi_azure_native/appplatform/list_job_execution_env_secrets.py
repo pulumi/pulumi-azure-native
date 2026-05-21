@@ -76,10 +76,10 @@ def list_job_execution_env_secrets(job_execution_name: Optional[_builtins.str] =
 
     return AwaitableListJobExecutionEnvSecretsResult(
         value=pulumi.get(__ret__, 'value'))
-def list_job_execution_env_secrets_output(job_execution_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          job_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                          service_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_job_execution_env_secrets_output(job_execution_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          job_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                          service_name: pulumi.Input[Optional[_builtins.str]] = None,
                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListJobExecutionEnvSecretsResult]:
     """
     List sensitive environment variables of Job execution.

@@ -25,13 +25,13 @@ class PimRoleEligibilityScheduleArgs:
                  principal_id: pulumi.Input[_builtins.str],
                  role_definition_id: pulumi.Input[_builtins.str],
                  scope: pulumi.Input[_builtins.str],
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_info: Optional[pulumi.Input['RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs']] = None,
-                 target_role_eligibility_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_role_eligibility_schedule_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket_info: Optional[pulumi.Input['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs']] = None):
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_info: pulumi.Input[Optional['RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs']] = None,
+                 target_role_eligibility_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_role_eligibility_schedule_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket_info: pulumi.Input[Optional['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs']] = None):
         """
         The set of arguments for constructing a PimRoleEligibilitySchedule resource.
 
@@ -102,86 +102,86 @@ class PimRoleEligibilityScheduleArgs:
 
     @_builtins.property
     @pulumi.getter
-    def condition(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
         """
         return pulumi.get(self, "condition")
 
     @condition.setter
-    def condition(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition", value)
 
     @_builtins.property
     @pulumi.getter(name="conditionVersion")
-    def condition_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def condition_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Version of the condition. Currently accepted value is '2.0'
         """
         return pulumi.get(self, "condition_version")
 
     @condition_version.setter
-    def condition_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def condition_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "condition_version", value)
 
     @_builtins.property
     @pulumi.getter
-    def justification(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def justification(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Justification for the role eligibility
         """
         return pulumi.get(self, "justification")
 
     @justification.setter
-    def justification(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def justification(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "justification", value)
 
     @_builtins.property
     @pulumi.getter(name="scheduleInfo")
-    def schedule_info(self) -> Optional[pulumi.Input['RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs']]:
+    def schedule_info(self) -> pulumi.Input[Optional['RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs']]:
         """
         Schedule info of the role eligibility schedule
         """
         return pulumi.get(self, "schedule_info")
 
     @schedule_info.setter
-    def schedule_info(self, value: Optional[pulumi.Input['RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs']]):
+    def schedule_info(self, value: pulumi.Input[Optional['RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs']]):
         pulumi.set(self, "schedule_info", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRoleEligibilityScheduleId")
-    def target_role_eligibility_schedule_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_role_eligibility_schedule_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resultant role eligibility schedule id or the role eligibility schedule id being updated
         """
         return pulumi.get(self, "target_role_eligibility_schedule_id")
 
     @target_role_eligibility_schedule_id.setter
-    def target_role_eligibility_schedule_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_role_eligibility_schedule_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_role_eligibility_schedule_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetRoleEligibilityScheduleInstanceId")
-    def target_role_eligibility_schedule_instance_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+    def target_role_eligibility_schedule_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The role eligibility schedule instance id being updated
         """
         return pulumi.get(self, "target_role_eligibility_schedule_instance_id")
 
     @target_role_eligibility_schedule_instance_id.setter
-    def target_role_eligibility_schedule_instance_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+    def target_role_eligibility_schedule_instance_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "target_role_eligibility_schedule_instance_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ticketInfo")
-    def ticket_info(self) -> Optional[pulumi.Input['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs']]:
+    def ticket_info(self) -> pulumi.Input[Optional['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs']]:
         """
         Ticket Info of the role eligibility
         """
         return pulumi.get(self, "ticket_info")
 
     @ticket_info.setter
-    def ticket_info(self, value: Optional[pulumi.Input['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs']]):
+    def ticket_info(self, value: pulumi.Input[Optional['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs']]):
         pulumi.set(self, "ticket_info", value)
 
 
@@ -191,16 +191,16 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_info: Optional[pulumi.Input[Union['RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs', 'RoleEligibilityScheduleRequestPropertiesScheduleInfoArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_role_eligibility_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_role_eligibility_schedule_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket_info: Optional[pulumi.Input[Union['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs', 'RoleEligibilityScheduleRequestPropertiesTicketInfoArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_info: pulumi.Input[Optional[Union['RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs', 'RoleEligibilityScheduleRequestPropertiesScheduleInfoArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_role_eligibility_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_role_eligibility_schedule_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket_info: pulumi.Input[Optional[Union['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs', 'RoleEligibilityScheduleRequestPropertiesTicketInfoArgsDict']]] = None,
                  __props__=None):
         """
         A PIM (Privileged Identity Management) Role Eligibility Schedule.
@@ -268,16 +268,16 @@ class PimRoleEligibilitySchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 condition: Optional[pulumi.Input[_builtins.str]] = None,
-                 condition_version: Optional[pulumi.Input[_builtins.str]] = None,
-                 justification: Optional[pulumi.Input[_builtins.str]] = None,
-                 principal_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 role_definition_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 schedule_info: Optional[pulumi.Input[Union['RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs', 'RoleEligibilityScheduleRequestPropertiesScheduleInfoArgsDict']]] = None,
-                 scope: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_role_eligibility_schedule_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_role_eligibility_schedule_instance_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 ticket_info: Optional[pulumi.Input[Union['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs', 'RoleEligibilityScheduleRequestPropertiesTicketInfoArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[_builtins.str]] = None,
+                 condition_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 justification: pulumi.Input[Optional[_builtins.str]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 role_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 schedule_info: pulumi.Input[Optional[Union['RoleEligibilityScheduleRequestPropertiesScheduleInfoArgs', 'RoleEligibilityScheduleRequestPropertiesScheduleInfoArgsDict']]] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_role_eligibility_schedule_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 target_role_eligibility_schedule_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 ticket_info: pulumi.Input[Optional[Union['RoleEligibilityScheduleRequestPropertiesTicketInfoArgs', 'RoleEligibilityScheduleRequestPropertiesTicketInfoArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

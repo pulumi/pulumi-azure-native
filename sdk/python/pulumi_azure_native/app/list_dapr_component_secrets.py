@@ -75,9 +75,9 @@ def list_dapr_component_secrets(component_name: Optional[_builtins.str] = None,
 
     return AwaitableListDaprComponentSecretsResult(
         value=pulumi.get(__ret__, 'value'))
-def list_dapr_component_secrets_output(component_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       environment_name: Optional[pulumi.Input[_builtins.str]] = None,
-                                       resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
+def list_dapr_component_secrets_output(component_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       environment_name: pulumi.Input[Optional[_builtins.str]] = None,
+                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListDaprComponentSecretsResult]:
     """
     Dapr component Secrets Collection for ListSecrets Action.
