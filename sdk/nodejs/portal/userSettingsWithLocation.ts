@@ -95,5 +95,5 @@ export interface UserSettingsWithLocationArgs {
     /**
      * The name of the user settings
      */
-    userSettingsName?: pulumi.Input<string>;
+    userSettingsName?: pulumi.Input<string | undefined>;
 }

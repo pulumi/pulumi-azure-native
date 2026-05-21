@@ -154,27 +154,27 @@ export interface VolumeGroupArgs {
     /**
      * Type of encryption
      */
-    encryption?: pulumi.Input<string | enums.elasticsan.EncryptionType>;
+    encryption?: pulumi.Input<string | enums.elasticsan.EncryptionType | undefined>;
     /**
      * Encryption Properties describing Key Vault and Identity information
      */
-    encryptionProperties?: pulumi.Input<inputs.elasticsan.EncryptionPropertiesArgs>;
+    encryptionProperties?: pulumi.Input<inputs.elasticsan.EncryptionPropertiesArgs | undefined>;
     /**
      * A boolean indicating whether or not Data Integrity Check is enabled
      */
-    enforceDataIntegrityCheckForIscsi?: pulumi.Input<boolean>;
+    enforceDataIntegrityCheckForIscsi?: pulumi.Input<boolean | undefined>;
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.elasticsan.IdentityArgs>;
+    identity?: pulumi.Input<inputs.elasticsan.IdentityArgs | undefined>;
     /**
      * A collection of rules governing the accessibility from specific network locations.
      */
-    networkAcls?: pulumi.Input<inputs.elasticsan.NetworkRuleSetArgs>;
+    networkAcls?: pulumi.Input<inputs.elasticsan.NetworkRuleSetArgs | undefined>;
     /**
      * Type of storage target
      */
-    protocolType?: pulumi.Input<string | enums.elasticsan.StorageTargetType>;
+    protocolType?: pulumi.Input<string | enums.elasticsan.StorageTargetType | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -182,5 +182,5 @@ export interface VolumeGroupArgs {
     /**
      * The name of the VolumeGroup.
      */
-    volumeGroupName?: pulumi.Input<string>;
+    volumeGroupName?: pulumi.Input<string | undefined>;
 }

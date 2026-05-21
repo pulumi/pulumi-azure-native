@@ -89,11 +89,11 @@ export interface ListShareSubscriptionSynchronizationsOutputArgs {
     /**
      * Filters the results using OData syntax.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * Sorts the results using OData syntax.
      */
-    orderby?: pulumi.Input<string>;
+    orderby?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */
@@ -105,5 +105,5 @@ export interface ListShareSubscriptionSynchronizationsOutputArgs {
     /**
      * Continuation token
      */
-    skipToken?: pulumi.Input<string>;
+    skipToken?: pulumi.Input<string | undefined>;
 }

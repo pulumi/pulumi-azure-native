@@ -166,15 +166,15 @@ export interface CloudEndpointArgs {
     /**
      * Azure file share name
      */
-    azureFileShareName?: pulumi.Input<string>;
+    azureFileShareName?: pulumi.Input<string | undefined>;
     /**
      * Name of Cloud Endpoint object.
      */
-    cloudEndpointName?: pulumi.Input<string>;
+    cloudEndpointName?: pulumi.Input<string | undefined>;
     /**
      * Friendly Name
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -182,11 +182,11 @@ export interface CloudEndpointArgs {
     /**
      * Storage Account Resource Id
      */
-    storageAccountResourceId?: pulumi.Input<string>;
+    storageAccountResourceId?: pulumi.Input<string | undefined>;
     /**
      * Storage Account Tenant Id
      */
-    storageAccountTenantId?: pulumi.Input<string>;
+    storageAccountTenantId?: pulumi.Input<string | undefined>;
     /**
      * Name of Storage Sync Service resource.
      */

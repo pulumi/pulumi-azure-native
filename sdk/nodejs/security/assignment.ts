@@ -174,47 +174,47 @@ export interface AssignmentArgs {
     /**
      * Additional data about the assignment
      */
-    additionalData?: pulumi.Input<inputs.security.AssignmentPropertiesAdditionalDataArgs>;
+    additionalData?: pulumi.Input<inputs.security.AssignmentPropertiesAdditionalDataArgs | undefined>;
     /**
      * Component item with key as applied to this standard assignment over the given scope
      */
-    assignedComponent?: pulumi.Input<inputs.security.AssignedComponentItemArgs>;
+    assignedComponent?: pulumi.Input<inputs.security.AssignedComponentItemArgs | undefined>;
     /**
      * Standard item with key as applied to this standard assignment over the given scope
      */
-    assignedStandard?: pulumi.Input<inputs.security.AssignedStandardItemArgs>;
+    assignedStandard?: pulumi.Input<inputs.security.AssignedStandardItemArgs | undefined>;
     /**
      * The security assignment key - unique key for the standard assignment
      */
-    assignmentId?: pulumi.Input<string>;
+    assignmentId?: pulumi.Input<string | undefined>;
     /**
      * description of the standardAssignment
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * display name of the standardAssignment
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * expected effect of this assignment (Disable/Exempt/etc)
      */
-    effect?: pulumi.Input<string>;
+    effect?: pulumi.Input<string | undefined>;
     /**
      * Expiration date of this assignment as a full ISO date
      */
-    expiresOn?: pulumi.Input<string>;
+    expiresOn?: pulumi.Input<string | undefined>;
     /**
      * Kind of the resource
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Location where the resource is stored
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    metadata?: any;
+    metadata?: any | undefined;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -222,9 +222,9 @@ export interface AssignmentArgs {
     /**
      * Scope to which the standardAssignment applies - can be a subscription path or a resource group under that subscription
      */
-    scope?: pulumi.Input<string>;
+    scope?: pulumi.Input<string | undefined>;
     /**
      * A list of key value pairs that describe the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

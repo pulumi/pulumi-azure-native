@@ -133,7 +133,7 @@ export interface FleetMemberArgs {
     /**
      * The name of the Fleet member resource.
      */
-    fleetMemberName?: pulumi.Input<string>;
+    fleetMemberName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Fleet resource.
      */
@@ -141,7 +141,7 @@ export interface FleetMemberArgs {
     /**
      * The group this member belongs to for multi-cluster update management.
      */
-    group?: pulumi.Input<string>;
+    group?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

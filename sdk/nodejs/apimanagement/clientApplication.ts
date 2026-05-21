@@ -135,11 +135,11 @@ export interface ClientApplicationArgs {
     /**
      * Client Application identifier. Must be unique in the current API Management service instance.
      */
-    clientApplicationId?: pulumi.Input<string>;
+    clientApplicationId?: pulumi.Input<string | undefined>;
     /**
      * Client application description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Client application name.
      */

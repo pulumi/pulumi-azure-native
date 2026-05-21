@@ -112,13 +112,13 @@ export interface SubscriptionNetworkManagerConnectionArgs {
     /**
      * A description of the network manager connection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name for the network manager connection.
      */
-    networkManagerConnectionName?: pulumi.Input<string>;
+    networkManagerConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Network Manager Id.
      */
-    networkManagerId?: pulumi.Input<string>;
+    networkManagerId?: pulumi.Input<string | undefined>;
 }

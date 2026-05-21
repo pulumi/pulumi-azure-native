@@ -76,11 +76,11 @@ export interface ListDatastoreSecretsOutputArgs {
     /**
      * Indicates if the secret is expirable.
      */
-    expirableSecret?: pulumi.Input<boolean>;
+    expirableSecret?: pulumi.Input<boolean | undefined>;
     /**
      * Number of hours after which the secret will expire.
      */
-    expireAfterHours?: pulumi.Input<number>;
+    expireAfterHours?: pulumi.Input<number | undefined>;
     /**
      * Datastore name.
      */

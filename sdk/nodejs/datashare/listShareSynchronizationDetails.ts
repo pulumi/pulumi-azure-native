@@ -143,35 +143,35 @@ export interface ListShareSynchronizationDetailsOutputArgs {
     /**
      * Email of the user who created the synchronization
      */
-    consumerEmail?: pulumi.Input<string>;
+    consumerEmail?: pulumi.Input<string | undefined>;
     /**
      * Name of the user who created the synchronization
      */
-    consumerName?: pulumi.Input<string>;
+    consumerName?: pulumi.Input<string | undefined>;
     /**
      * Tenant name of the consumer who created the synchronization
      */
-    consumerTenantName?: pulumi.Input<string>;
+    consumerTenantName?: pulumi.Input<string | undefined>;
     /**
      * synchronization duration
      */
-    durationMs?: pulumi.Input<number>;
+    durationMs?: pulumi.Input<number | undefined>;
     /**
      * End time of synchronization
      */
-    endTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string | undefined>;
     /**
      * Filters the results using OData syntax.
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * message of synchronization
      */
-    message?: pulumi.Input<string>;
+    message?: pulumi.Input<string | undefined>;
     /**
      * Sorts the results using OData syntax.
      */
-    orderby?: pulumi.Input<string>;
+    orderby?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */
@@ -183,17 +183,17 @@ export interface ListShareSynchronizationDetailsOutputArgs {
     /**
      * Continuation token
      */
-    skipToken?: pulumi.Input<string>;
+    skipToken?: pulumi.Input<string | undefined>;
     /**
      * start time of synchronization
      */
-    startTime?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string | undefined>;
     /**
      * Raw Status
      */
-    status?: pulumi.Input<string>;
+    status?: pulumi.Input<string | undefined>;
     /**
      * Synchronization id
      */
-    synchronizationId?: pulumi.Input<string>;
+    synchronizationId?: pulumi.Input<string | undefined>;
 }

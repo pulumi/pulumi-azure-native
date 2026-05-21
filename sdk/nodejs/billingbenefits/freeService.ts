@@ -198,35 +198,35 @@ export interface FreeServiceArgs {
     /**
      * Expiration date and time of the free services
      */
-    endAt?: pulumi.Input<string>;
+    endAt?: pulumi.Input<string | undefined>;
     /**
      * Name of the free service
      */
-    freeServiceName?: pulumi.Input<string>;
+    freeServiceName?: pulumi.Input<string | undefined>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string | undefined>;
     /**
      * Plan for the resource.
      */
-    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs>;
+    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs | undefined>;
     /**
      * This is the catalog UPN for the product.
      */
-    productCode?: pulumi.Input<string>;
+    productCode?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -234,21 +234,21 @@ export interface FreeServiceArgs {
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs>;
+    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs | undefined>;
     /**
      * Date and time when the free services become active
      */
-    startAt?: pulumi.Input<string>;
+    startAt?: pulumi.Input<string | undefined>;
     /**
      * Current status of the free services
      */
-    status?: pulumi.Input<string | enums.billingbenefits.FreeServicesStatus>;
+    status?: pulumi.Input<string | enums.billingbenefits.FreeServicesStatus | undefined>;
     /**
      * This is the globally unique identifier of the free services which will not change for its lifetime.
      */
-    systemId?: pulumi.Input<string>;
+    systemId?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

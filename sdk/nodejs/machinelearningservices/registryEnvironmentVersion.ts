@@ -86,7 +86,7 @@ export class RegistryEnvironmentVersion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["environmentName"] = args?.environmentName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.machinelearningservices.environmentVersionPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(inputs.machinelearningservices.environmentVersionPropertiesArgsProvideDefaults) : undefined;
             resourceInputs["registryName"] = args?.registryName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["version"] = args?.version;
@@ -131,5 +131,5 @@ export interface RegistryEnvironmentVersionArgs {
     /**
      * Version identifier. This is case-sensitive.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

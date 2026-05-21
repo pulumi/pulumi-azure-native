@@ -134,7 +134,7 @@ export interface ImageDefinitionArgs {
     /**
      * The resource name of the test base image definition.
      */
-    imageDefinitionName?: pulumi.Input<string>;
+    imageDefinitionName?: pulumi.Input<string | undefined>;
     /**
      * Custom image OS state.
      */

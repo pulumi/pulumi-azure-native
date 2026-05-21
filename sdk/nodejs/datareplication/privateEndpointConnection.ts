@@ -106,11 +106,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The private endpoint connection name.
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.datareplication.PrivateEndpointConnectionResponsePropertiesArgs>;
+    properties?: pulumi.Input<inputs.datareplication.PrivateEndpointConnectionResponsePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

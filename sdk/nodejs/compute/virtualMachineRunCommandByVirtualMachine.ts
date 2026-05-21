@@ -198,35 +198,35 @@ export interface VirtualMachineRunCommandByVirtualMachineArgs {
     /**
      * Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
      */
-    asyncExecution?: pulumi.Input<boolean>;
+    asyncExecution?: pulumi.Input<boolean | undefined>;
     /**
      * User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged
      */
-    errorBlobManagedIdentity?: pulumi.Input<inputs.compute.RunCommandManagedIdentityArgs>;
+    errorBlobManagedIdentity?: pulumi.Input<inputs.compute.RunCommandManagedIdentityArgs | undefined>;
     /**
      * Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
      */
-    errorBlobUri?: pulumi.Input<string>;
+    errorBlobUri?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged
      */
-    outputBlobManagedIdentity?: pulumi.Input<inputs.compute.RunCommandManagedIdentityArgs>;
+    outputBlobManagedIdentity?: pulumi.Input<inputs.compute.RunCommandManagedIdentityArgs | undefined>;
     /**
      * Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter.
      */
-    outputBlobUri?: pulumi.Input<string>;
+    outputBlobUri?: pulumi.Input<string | undefined>;
     /**
      * The parameters used by the script.
      */
-    parameters?: pulumi.Input<pulumi.Input<inputs.compute.RunCommandInputParameterArgs>[]>;
+    parameters?: pulumi.Input<pulumi.Input<inputs.compute.RunCommandInputParameterArgs>[] | undefined>;
     /**
      * The parameters used by the script.
      */
-    protectedParameters?: pulumi.Input<pulumi.Input<inputs.compute.RunCommandInputParameterArgs>[]>;
+    protectedParameters?: pulumi.Input<pulumi.Input<inputs.compute.RunCommandInputParameterArgs>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -234,31 +234,31 @@ export interface VirtualMachineRunCommandByVirtualMachineArgs {
     /**
      * Specifies the user account password on the VM when executing the run command.
      */
-    runAsPassword?: pulumi.Input<string>;
+    runAsPassword?: pulumi.Input<string | undefined>;
     /**
      * Specifies the user account on the VM when executing the run command.
      */
-    runAsUser?: pulumi.Input<string>;
+    runAsUser?: pulumi.Input<string | undefined>;
     /**
      * The name of the VirtualMachineRunCommand
      */
-    runCommandName?: pulumi.Input<string>;
+    runCommandName?: pulumi.Input<string | undefined>;
     /**
      * The source of the run command script.
      */
-    source?: pulumi.Input<inputs.compute.VirtualMachineRunCommandScriptSourceArgs>;
+    source?: pulumi.Input<inputs.compute.VirtualMachineRunCommandScriptSourceArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The timeout in seconds to execute the run command.
      */
-    timeoutInSeconds?: pulumi.Input<number>;
+    timeoutInSeconds?: pulumi.Input<number | undefined>;
     /**
      * Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results
      */
-    treatFailureAsDeploymentFailure?: pulumi.Input<boolean>;
+    treatFailureAsDeploymentFailure?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the VirtualMachine
      */

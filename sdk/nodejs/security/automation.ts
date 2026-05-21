@@ -146,27 +146,27 @@ export interface AutomationArgs {
     /**
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.security.AutomationActionEventHubArgs | inputs.security.AutomationActionLogicAppArgs | inputs.security.AutomationActionWorkspaceArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.security.AutomationActionEventHubArgs | inputs.security.AutomationActionLogicAppArgs | inputs.security.AutomationActionWorkspaceArgs>[] | undefined>;
     /**
      * The security automation name.
      */
-    automationName?: pulumi.Input<string>;
+    automationName?: pulumi.Input<string | undefined>;
     /**
      * The security automation description.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Indicates whether the security automation is enabled.
      */
-    isEnabled?: pulumi.Input<boolean>;
+    isEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Kind of the resource
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Location where the resource is stored
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription. The name is case insensitive.
      */
@@ -174,13 +174,13 @@ export interface AutomationArgs {
     /**
      * A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
      */
-    scopes?: pulumi.Input<pulumi.Input<inputs.security.AutomationScopeArgs>[]>;
+    scopes?: pulumi.Input<pulumi.Input<inputs.security.AutomationScopeArgs>[] | undefined>;
     /**
      * A collection of the source event types which evaluate the security automation set of rules.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.security.AutomationSourceArgs>[]>;
+    sources?: pulumi.Input<pulumi.Input<inputs.security.AutomationSourceArgs>[] | undefined>;
     /**
      * A list of key value pairs that describe the resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -84,10 +84,10 @@ export class Gateway extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceName'");
             }
             resourceInputs["gatewayName"] = args?.gatewayName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.gatewayPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.appplatform.gatewayPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
-            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.skuArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["sku"] = args ? pulumi.output(args.sku).apply(v => v === undefined ? undefined : inputs.appplatform.skuArgsProvideDefaults(v)) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -114,11 +114,11 @@ export interface GatewayArgs {
     /**
      * The name of Spring Cloud Gateway.
      */
-    gatewayName?: pulumi.Input<string>;
+    gatewayName?: pulumi.Input<string | undefined>;
     /**
      * Spring Cloud Gateway properties payload
      */
-    properties?: pulumi.Input<inputs.appplatform.GatewayPropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.GatewayPropertiesArgs | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -130,5 +130,5 @@ export interface GatewayArgs {
     /**
      * Sku of the Spring Cloud Gateway resource
      */
-    sku?: pulumi.Input<inputs.appplatform.SkuArgs>;
+    sku?: pulumi.Input<inputs.appplatform.SkuArgs | undefined>;
 }

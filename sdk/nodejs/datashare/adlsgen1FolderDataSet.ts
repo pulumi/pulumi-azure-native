@@ -156,7 +156,7 @@ export interface ADLSGen1FolderDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string | undefined>;
     /**
      * The folder path within the ADLS account.
      */

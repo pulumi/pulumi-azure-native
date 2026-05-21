@@ -132,15 +132,15 @@ export interface NetworkGroupArgs {
     /**
      * A description of the network group.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The type of the group member.
      */
-    memberType?: pulumi.Input<string | enums.network.GroupMemberType>;
+    memberType?: pulumi.Input<string | enums.network.GroupMemberType | undefined>;
     /**
      * The name of the network group.
      */
-    networkGroupName?: pulumi.Input<string>;
+    networkGroupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the network manager.
      */

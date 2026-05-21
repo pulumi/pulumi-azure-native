@@ -110,11 +110,11 @@ export interface DashboardDefinitionArgs {
     /**
      * The name of the Dashboard Definition.
      */
-    definitionName?: pulumi.Input<string>;
+    definitionName?: pulumi.Input<string | undefined>;
     /**
      * Properties specific to the dashboard definition resource.
      */
-    properties?: pulumi.Input<inputs.dashboard.DashboardDefinitionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.dashboard.DashboardDefinitionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

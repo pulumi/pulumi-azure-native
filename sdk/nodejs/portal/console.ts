@@ -83,7 +83,7 @@ export interface ConsoleArgs {
     /**
      * The name of the console
      */
-    consoleName?: pulumi.Input<string>;
+    consoleName?: pulumi.Input<string | undefined>;
     /**
      * Cloud shell properties for creating a console.
      */

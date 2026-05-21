@@ -248,23 +248,23 @@ export interface WatchlistArgs {
     /**
      * The content type of the raw content. Example : text/csv or text/tsv
      */
-    contentType?: pulumi.Input<string>;
+    contentType?: pulumi.Input<string | undefined>;
     /**
      * The time the watchlist was created
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * Describes a user that created the watchlist
      */
-    createdBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs>;
+    createdBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs | undefined>;
     /**
      * The default duration of a watchlist (in ISO 8601 duration format)
      */
-    defaultDuration?: pulumi.Input<string>;
+    defaultDuration?: pulumi.Input<string | undefined>;
     /**
      * A description of the watchlist
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the watchlist
      */
@@ -272,7 +272,7 @@ export interface WatchlistArgs {
     /**
      * A flag that indicates if the watchlist is deleted or not
      */
-    isDeleted?: pulumi.Input<boolean>;
+    isDeleted?: pulumi.Input<boolean | undefined>;
     /**
      * The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
      */
@@ -280,11 +280,11 @@ export interface WatchlistArgs {
     /**
      * List of labels relevant to this watchlist
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The number of lines in a csv/tsv content to skip before the header
      */
-    numberOfLinesToSkip?: pulumi.Input<number>;
+    numberOfLinesToSkip?: pulumi.Input<number | undefined>;
     /**
      * The provider of the watchlist
      */
@@ -292,7 +292,7 @@ export interface WatchlistArgs {
     /**
      * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
      */
-    rawContent?: pulumi.Input<string>;
+    rawContent?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -300,39 +300,39 @@ export interface WatchlistArgs {
     /**
      * The filename of the watchlist, called 'source'
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * The sourceType of the watchlist
      */
-    sourceType?: pulumi.Input<string | enums.securityinsights.SourceType>;
+    sourceType?: pulumi.Input<string | enums.securityinsights.SourceType | undefined>;
     /**
      * The tenantId where the watchlist belongs to
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
     /**
      * The last time the watchlist was updated
      */
-    updated?: pulumi.Input<string>;
+    updated?: pulumi.Input<string | undefined>;
     /**
      * Describes a user that updated the watchlist
      */
-    updatedBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs>;
+    updatedBy?: pulumi.Input<inputs.securityinsights.WatchlistUserInfoArgs | undefined>;
     /**
      * The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
      */
-    uploadStatus?: pulumi.Input<string>;
+    uploadStatus?: pulumi.Input<string | undefined>;
     /**
      * The alias of the watchlist
      */
-    watchlistAlias?: pulumi.Input<string>;
+    watchlistAlias?: pulumi.Input<string | undefined>;
     /**
      * The id (a Guid) of the watchlist
      */
-    watchlistId?: pulumi.Input<string>;
+    watchlistId?: pulumi.Input<string | undefined>;
     /**
      * The type of the watchlist
      */
-    watchlistType?: pulumi.Input<string>;
+    watchlistType?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

@@ -145,15 +145,15 @@ export interface ManagementLockAtResourceLevelArgs {
     /**
      * The name of lock. The lock name can be a maximum of 260 characters. It cannot contain <, > %, &, :, \, ?, /, or any control characters.
      */
-    lockName?: pulumi.Input<string>;
+    lockName?: pulumi.Input<string | undefined>;
     /**
      * Notes about the lock. Maximum of 512 characters.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * The owners of the lock.
      */
-    owners?: pulumi.Input<pulumi.Input<inputs.authorization.ManagementLockOwnerArgs>[]>;
+    owners?: pulumi.Input<pulumi.Input<inputs.authorization.ManagementLockOwnerArgs>[] | undefined>;
     /**
      * The parent resource identity.
      */

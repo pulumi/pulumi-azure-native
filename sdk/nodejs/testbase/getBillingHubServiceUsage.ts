@@ -65,8 +65,8 @@ export function getBillingHubServiceUsageOutput(args: GetBillingHubServiceUsageO
 
 export interface GetBillingHubServiceUsageOutputArgs {
     endTimeStamp: pulumi.Input<string>;
-    pageIndex?: pulumi.Input<number>;
-    pageSize?: pulumi.Input<number>;
+    pageIndex?: pulumi.Input<number | undefined>;
+    pageSize?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

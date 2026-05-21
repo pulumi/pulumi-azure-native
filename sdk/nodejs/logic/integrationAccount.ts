@@ -122,15 +122,15 @@ export interface IntegrationAccountArgs {
     /**
      * The integration account name.
      */
-    integrationAccountName?: pulumi.Input<string>;
+    integrationAccountName?: pulumi.Input<string | undefined>;
     /**
      * The integration service environment.
      */
-    integrationServiceEnvironment?: pulumi.Input<inputs.logic.ResourceReferenceArgs>;
+    integrationServiceEnvironment?: pulumi.Input<inputs.logic.ResourceReferenceArgs | undefined>;
     /**
      * The resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource group name.
      */
@@ -138,13 +138,13 @@ export interface IntegrationAccountArgs {
     /**
      * The sku.
      */
-    sku?: pulumi.Input<inputs.logic.IntegrationAccountSkuArgs>;
+    sku?: pulumi.Input<inputs.logic.IntegrationAccountSkuArgs | undefined>;
     /**
      * The workflow state.
      */
-    state?: pulumi.Input<string | enums.logic.WorkflowState>;
+    state?: pulumi.Input<string | enums.logic.WorkflowState | undefined>;
     /**
      * The resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

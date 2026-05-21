@@ -103,15 +103,15 @@ export interface SingleServerDatabaseArgs {
     /**
      * The charset of the database.
      */
-    charset?: pulumi.Input<string>;
+    charset?: pulumi.Input<string | undefined>;
     /**
      * The collation of the database.
      */
-    collation?: pulumi.Input<string>;
+    collation?: pulumi.Input<string | undefined>;
     /**
      * The name of the database.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

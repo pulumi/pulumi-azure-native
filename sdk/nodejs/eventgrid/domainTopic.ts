@@ -112,7 +112,7 @@ export interface DomainTopicArgs {
     /**
      * Name of the domain topic.
      */
-    domainTopicName?: pulumi.Input<string>;
+    domainTopicName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */

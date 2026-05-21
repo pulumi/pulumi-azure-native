@@ -114,15 +114,15 @@ export interface IssueArgs {
     /**
      * The name of the IssueResource
      */
-    issueName?: pulumi.Input<string>;
+    issueName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.monitor.IssuePropertiesArgs>;
+    properties?: pulumi.Input<inputs.monitor.IssuePropertiesArgs | undefined>;
     /**
      * Related resource or alert that is to be added to the issue (default: empty - the issue will be created without any related resources or alerts)
      */
-    related?: pulumi.Input<string>;
+    related?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -130,5 +130,5 @@ export interface IssueArgs {
     /**
      * Whether to automatically start an investigation once the issue is created (default: false)
      */
-    startInvestigation?: pulumi.Input<boolean>;
+    startInvestigation?: pulumi.Input<boolean | undefined>;
 }

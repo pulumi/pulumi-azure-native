@@ -145,19 +145,19 @@ export interface WebAppVnetConnectionArgs {
      * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
      * Point-To-Site VPN connection.
      */
-    certBlob?: pulumi.Input<string>;
+    certBlob?: pulumi.Input<string | undefined>;
     /**
      * DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
      */
-    dnsServers?: pulumi.Input<string>;
+    dnsServers?: pulumi.Input<string | undefined>;
     /**
      * Flag that is used to denote if this is VNET injection
      */
-    isSwift?: pulumi.Input<boolean>;
+    isSwift?: pulumi.Input<boolean | undefined>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
@@ -169,9 +169,9 @@ export interface WebAppVnetConnectionArgs {
     /**
      * Name of an existing Virtual Network.
      */
-    vnetName?: pulumi.Input<string>;
+    vnetName?: pulumi.Input<string | undefined>;
     /**
      * The Virtual Network's resource ID.
      */
-    vnetResourceId?: pulumi.Input<string>;
+    vnetResourceId?: pulumi.Input<string | undefined>;
 }

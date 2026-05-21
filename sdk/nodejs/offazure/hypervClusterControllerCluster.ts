@@ -156,19 +156,19 @@ export interface HypervClusterControllerClusterArgs {
     /**
      *  Cluster ARM name
      */
-    clusterName?: pulumi.Input<string>;
+    clusterName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the FQDN/IPAddress of the Hyper-V cluster.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets list of hosts (FQDN) currently being tracked by the cluster.
      */
-    hostFqdnList?: pulumi.Input<pulumi.Input<string>[]>;
+    hostFqdnList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.offazure.ProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.offazure.ProvisioningState | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,7 +176,7 @@ export interface HypervClusterControllerClusterArgs {
     /**
      * Gets or sets Run as account ID of the Hyper-V cluster.
      */
-    runAsAccountId?: pulumi.Input<string>;
+    runAsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Site name
      */

@@ -216,11 +216,11 @@ export interface UpdateArgs {
     /**
      * Extensible KV pairs serialized as a string. This is currently used to report the stamp OEM family and hardware model information when an update is flagged as Invalid for the stamp based on OEM type.
      */
-    additionalProperties?: pulumi.Input<string>;
+    additionalProperties?: pulumi.Input<string | undefined>;
     /**
      * Indicates the way the update content can be downloaded.
      */
-    availabilityType?: pulumi.Input<string | enums.azurestackhci.AvailabilityType>;
+    availabilityType?: pulumi.Input<string | enums.azurestackhci.AvailabilityType | undefined>;
     /**
      * The name of the cluster.
      */
@@ -228,59 +228,59 @@ export interface UpdateArgs {
     /**
      * Description of the update.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Display name of the Update
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Last time the package-specific checks were run.
      */
-    healthCheckDate?: pulumi.Input<string>;
+    healthCheckDate?: pulumi.Input<string | undefined>;
     /**
      * Date that the update was installed.
      */
-    installedDate?: pulumi.Input<string>;
+    installedDate?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Minimum Sbe Version of the update.
      */
-    minSbeVersionRequired?: pulumi.Input<string>;
+    minSbeVersionRequired?: pulumi.Input<string | undefined>;
     /**
      * Brief message with instructions for updates of AvailabilityType Notify.
      */
-    notifyMessage?: pulumi.Input<string>;
+    notifyMessage?: pulumi.Input<string | undefined>;
     /**
      * Path where the update package is available.
      */
-    packagePath?: pulumi.Input<string>;
+    packagePath?: pulumi.Input<string | undefined>;
     /**
      * Size of the package. This value is a combination of the size from update metadata and size of the payload that results from the live scan operation for OS update content.
      */
-    packageSizeInMb?: pulumi.Input<number>;
+    packageSizeInMb?: pulumi.Input<number | undefined>;
     /**
      * Customer-visible type of the update.
      */
-    packageType?: pulumi.Input<string>;
+    packageType?: pulumi.Input<string | undefined>;
     /**
      * If update State is HasPrerequisite, this property contains an array of objects describing prerequisite updates before installing this update. Otherwise, it is empty.
      */
-    prerequisites?: pulumi.Input<pulumi.Input<inputs.azurestackhci.UpdatePrerequisiteArgs>[]>;
+    prerequisites?: pulumi.Input<pulumi.Input<inputs.azurestackhci.UpdatePrerequisiteArgs>[] | undefined>;
     /**
      * Progress percentage of ongoing operation. Currently this property is only valid when the update is in the Downloading state, where it maps to how much of the update content has been downloaded.
      */
-    progressPercentage?: pulumi.Input<number>;
+    progressPercentage?: pulumi.Input<number | undefined>;
     /**
      * Publisher of the update package.
      */
-    publisher?: pulumi.Input<string>;
+    publisher?: pulumi.Input<string | undefined>;
     /**
      * Link to release notes for the update.
      */
-    releaseLink?: pulumi.Input<string>;
+    releaseLink?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -288,13 +288,13 @@ export interface UpdateArgs {
     /**
      * State of the update as it relates to this stamp.
      */
-    state?: pulumi.Input<string | enums.azurestackhci.State>;
+    state?: pulumi.Input<string | enums.azurestackhci.State | undefined>;
     /**
      * The name of the Update
      */
-    updateName?: pulumi.Input<string>;
+    updateName?: pulumi.Input<string | undefined>;
     /**
      * Version of the update.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

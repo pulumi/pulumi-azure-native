@@ -126,7 +126,7 @@ export interface DedicatedCloudServiceArgs {
     /**
      * dedicated cloud Service name
      */
-    dedicatedCloudServiceName?: pulumi.Input<string>;
+    dedicatedCloudServiceName?: pulumi.Input<string | undefined>;
     /**
      * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
      */
@@ -134,7 +134,7 @@ export interface DedicatedCloudServiceArgs {
     /**
      * Azure region
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group
      */
@@ -142,5 +142,5 @@ export interface DedicatedCloudServiceArgs {
     /**
      * The list of tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

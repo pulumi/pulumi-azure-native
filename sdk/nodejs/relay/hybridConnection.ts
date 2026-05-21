@@ -138,7 +138,7 @@ export interface HybridConnectionArgs {
     /**
      * The hybrid connection name.
      */
-    hybridConnectionName?: pulumi.Input<string>;
+    hybridConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The namespace name
      */
@@ -146,7 +146,7 @@ export interface HybridConnectionArgs {
     /**
      * Returns true if client authorization is needed for this hybrid connection; otherwise, false.
      */
-    requiresClientAuthorization?: pulumi.Input<boolean>;
+    requiresClientAuthorization?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -154,5 +154,5 @@ export interface HybridConnectionArgs {
     /**
      * The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
      */
-    userMetadata?: pulumi.Input<string>;
+    userMetadata?: pulumi.Input<string | undefined>;
 }

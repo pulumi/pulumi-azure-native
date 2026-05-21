@@ -164,19 +164,19 @@ export interface RoutePolicyArgs {
     /**
      * AddressFamilyType. This parameter decides whether the given ipv4 or ipv6 route policy.
      */
-    addressFamilyType?: pulumi.Input<string | enums.managednetworkfabric.AddressFamilyType>;
+    addressFamilyType?: pulumi.Input<string | enums.managednetworkfabric.AddressFamilyType | undefined>;
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string>;
+    annotation?: pulumi.Input<string | undefined>;
     /**
      * Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
      */
-    defaultAction?: pulumi.Input<string | enums.managednetworkfabric.CommunityActionTypes>;
+    defaultAction?: pulumi.Input<string | enums.managednetworkfabric.CommunityActionTypes | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Arm Resource ID of Network Fabric.
      */
@@ -188,7 +188,7 @@ export interface RoutePolicyArgs {
     /**
      * Name of the Route Policy.
      */
-    routePolicyName?: pulumi.Input<string>;
+    routePolicyName?: pulumi.Input<string | undefined>;
     /**
      * Route Policy statements.
      */
@@ -196,5 +196,5 @@ export interface RoutePolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

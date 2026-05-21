@@ -120,11 +120,11 @@ export interface ReplicationProtectionContainerMappingArgs {
     /**
      * Protection container mapping name.
      */
-    mappingName?: pulumi.Input<string>;
+    mappingName?: pulumi.Input<string | undefined>;
     /**
      * Configure protection input properties.
      */
-    properties?: pulumi.Input<inputs.recoveryservices.CreateProtectionContainerMappingInputPropertiesArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.CreateProtectionContainerMappingInputPropertiesArgs | undefined>;
     /**
      * Protection container name.
      */

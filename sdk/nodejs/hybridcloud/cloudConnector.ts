@@ -132,19 +132,19 @@ export interface CloudConnectorArgs {
     /**
      * Account identifier of the remote cloud.
      */
-    accountId?: pulumi.Input<string>;
+    accountId?: pulumi.Input<string | undefined>;
     /**
      * The name of the cloud connector resource
      */
-    cloudConnectorName?: pulumi.Input<string>;
+    cloudConnectorName?: pulumi.Input<string | undefined>;
     /**
      * The cloud connector type.
      */
-    cloudType?: pulumi.Input<string | enums.hybridcloud.CloudType>;
+    cloudType?: pulumi.Input<string | enums.hybridcloud.CloudType | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -152,5 +152,5 @@ export interface CloudConnectorArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -136,23 +136,23 @@ export interface MongoDBResourceMongoUserDefinitionArgs {
     /**
      * A custom definition for the USer Definition.
      */
-    customData?: pulumi.Input<string>;
+    customData?: pulumi.Input<string | undefined>;
     /**
      * The database name for which access is being granted for this User Definition.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The Mongo Auth mechanism. For now, we only support auth mechanism SCRAM-SHA-256.
      */
-    mechanisms?: pulumi.Input<string>;
+    mechanisms?: pulumi.Input<string | undefined>;
     /**
      * The ID for the User Definition {dbName.userName}.
      */
-    mongoUserDefinitionId?: pulumi.Input<string>;
+    mongoUserDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The password for User Definition. Response does not contain user password.
      */
-    password?: pulumi.Input<string>;
+    password?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,9 +160,9 @@ export interface MongoDBResourceMongoUserDefinitionArgs {
     /**
      * The set of roles inherited by the User Definition.
      */
-    roles?: pulumi.Input<pulumi.Input<inputs.cosmosdb.RoleArgs>[]>;
+    roles?: pulumi.Input<pulumi.Input<inputs.cosmosdb.RoleArgs>[] | undefined>;
     /**
      * The user name for User Definition.
      */
-    userName?: pulumi.Input<string>;
+    userName?: pulumi.Input<string | undefined>;
 }

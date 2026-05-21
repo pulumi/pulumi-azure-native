@@ -479,34 +479,34 @@ export interface CapacityPoolVolumeArgs {
     /**
      * Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose
      */
-    avsDataStore?: pulumi.Input<string | enums.netapp.AvsDataStore>;
+    avsDataStore?: pulumi.Input<string | enums.netapp.AvsDataStore | undefined>;
     /**
      * Resource identifier used to identify the Backup.
      */
-    backupId?: pulumi.Input<string>;
+    backupId?: pulumi.Input<string | undefined>;
     /**
      * Pool Resource Id used in case of creating a volume through volume group
      */
-    capacityPoolResourceId?: pulumi.Input<string>;
+    capacityPoolResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether Cool Access(tiering) is enabled for the volume.
      */
-    coolAccess?: pulumi.Input<boolean>;
+    coolAccess?: pulumi.Input<boolean | undefined>;
     /**
      * coolAccessRetrievalPolicy determines the data retrieval behavior from the cool tier to standard storage based on the read pattern for cool access enabled volumes. The possible values for this field are: 
      *  Default - Data will be pulled from cool tier to standard storage on random reads. This policy is the default.
      *  OnRead - All client-driven data read is pulled from cool tier to standard storage on both sequential and random reads.
      *  Never - No client-driven data is pulled from cool tier to standard storage.
      */
-    coolAccessRetrievalPolicy?: pulumi.Input<string | enums.netapp.CoolAccessRetrievalPolicy>;
+    coolAccessRetrievalPolicy?: pulumi.Input<string | enums.netapp.CoolAccessRetrievalPolicy | undefined>;
     /**
      * coolAccessTieringPolicy determines which cold data blocks are moved to cool tier. The possible values for this field are: Auto - Moves cold user data blocks in both the Snapshot copies and the active file system to the cool tier tier. This policy is the default. SnapshotOnly - Moves user data blocks of the Volume Snapshot copies that are not associated with the active file system to the cool tier.
      */
-    coolAccessTieringPolicy?: pulumi.Input<string | enums.netapp.CoolAccessTieringPolicy>;
+    coolAccessTieringPolicy?: pulumi.Input<string | enums.netapp.CoolAccessTieringPolicy | undefined>;
     /**
      * Specifies the number of days after which data that is not accessed by clients will be tiered.
      */
-    coolnessPeriod?: pulumi.Input<number>;
+    coolnessPeriod?: pulumi.Input<number | undefined>;
     /**
      * A unique file path for the volume. Used when creating mount targets
      */
@@ -514,67 +514,67 @@ export interface CapacityPoolVolumeArgs {
     /**
      * DataProtection type volumes include an object containing details of the replication
      */
-    dataProtection?: pulumi.Input<inputs.netapp.VolumePropertiesDataProtectionArgs>;
+    dataProtection?: pulumi.Input<inputs.netapp.VolumePropertiesDataProtectionArgs | undefined>;
     /**
      * Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies.
      */
-    defaultGroupQuotaInKiBs?: pulumi.Input<number>;
+    defaultGroupQuotaInKiBs?: pulumi.Input<number | undefined>;
     /**
      * Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies .
      */
-    defaultUserQuotaInKiBs?: pulumi.Input<number>;
+    defaultUserQuotaInKiBs?: pulumi.Input<number | undefined>;
     /**
      * If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false
      */
-    deleteBaseSnapshot?: pulumi.Input<boolean>;
+    deleteBaseSnapshot?: pulumi.Input<boolean | undefined>;
     /**
      * Flag indicating whether subvolume operations are enabled on the volume
      */
-    enableSubvolumes?: pulumi.Input<string | enums.netapp.EnableSubvolumes>;
+    enableSubvolumes?: pulumi.Input<string | enums.netapp.EnableSubvolumes | undefined>;
     /**
      * Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'
      */
-    encryptionKeySource?: pulumi.Input<string | enums.netapp.EncryptionKeySource>;
+    encryptionKeySource?: pulumi.Input<string | enums.netapp.EncryptionKeySource | undefined>;
     /**
      * Set of export policy rules
      */
-    exportPolicy?: pulumi.Input<inputs.netapp.VolumePropertiesExportPolicyArgs>;
+    exportPolicy?: pulumi.Input<inputs.netapp.VolumePropertiesExportPolicyArgs | undefined>;
     /**
      * Specifies if default quota is enabled for the volume.
      */
-    isDefaultQuotaEnabled?: pulumi.Input<boolean>;
+    isDefaultQuotaEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies whether volume is a Large Volume or Regular Volume.
      */
-    isLargeVolume?: pulumi.Input<boolean>;
+    isLargeVolume?: pulumi.Input<boolean | undefined>;
     /**
      * Restoring
      */
-    isRestoring?: pulumi.Input<boolean>;
+    isRestoring?: pulumi.Input<boolean | undefined>;
     /**
      * Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later
      */
-    kerberosEnabled?: pulumi.Input<boolean>;
+    kerberosEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'.
      */
-    keyVaultPrivateEndpointResourceId?: pulumi.Input<string>;
+    keyVaultPrivateEndpointResourceId?: pulumi.Input<string | undefined>;
     /**
      * Specifies whether LDAP is enabled or not for a given NFS volume.
      */
-    ldapEnabled?: pulumi.Input<boolean>;
+    ldapEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The original value of the network features type available to the volume at the time it was created.
      */
-    networkFeatures?: pulumi.Input<string | enums.netapp.NetworkFeatures>;
+    networkFeatures?: pulumi.Input<string | enums.netapp.NetworkFeatures | undefined>;
     /**
      * Application specific placement rules for the particular volume
      */
-    placementRules?: pulumi.Input<pulumi.Input<inputs.netapp.PlacementKeyValuePairsArgs>[]>;
+    placementRules?: pulumi.Input<pulumi.Input<inputs.netapp.PlacementKeyValuePairsArgs>[] | undefined>;
     /**
      * The name of the capacity pool
      */
@@ -582,11 +582,11 @@ export interface CapacityPoolVolumeArgs {
     /**
      * Set of protocol types, default NFSv3, CIFS for SMB protocol
      */
-    protocolTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    protocolTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Proximity placement group associated with the volume
      */
-    proximityPlacementGroup?: pulumi.Input<string>;
+    proximityPlacementGroup?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -594,35 +594,35 @@ export interface CapacityPoolVolumeArgs {
     /**
      * The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol
      */
-    securityStyle?: pulumi.Input<string | enums.netapp.SecurityStyle>;
+    securityStyle?: pulumi.Input<string | enums.netapp.SecurityStyle | undefined>;
     /**
      * The service level of the file system
      */
-    serviceLevel?: pulumi.Input<string | enums.netapp.ServiceLevel>;
+    serviceLevel?: pulumi.Input<string | enums.netapp.ServiceLevel | undefined>;
     /**
      * Enables access-based enumeration share property for SMB Shares. Only applicable for SMB/DualProtocol volume
      */
-    smbAccessBasedEnumeration?: pulumi.Input<string | enums.netapp.SmbAccessBasedEnumeration>;
+    smbAccessBasedEnumeration?: pulumi.Input<string | enums.netapp.SmbAccessBasedEnumeration | undefined>;
     /**
      * Enables continuously available share property for smb volume. Only applicable for SMB volume
      */
-    smbContinuouslyAvailable?: pulumi.Input<boolean>;
+    smbContinuouslyAvailable?: pulumi.Input<boolean | undefined>;
     /**
      * Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later
      */
-    smbEncryption?: pulumi.Input<boolean>;
+    smbEncryption?: pulumi.Input<boolean | undefined>;
     /**
      * Enables non-browsable property for SMB Shares. Only applicable for SMB/DualProtocol volume
      */
-    smbNonBrowsable?: pulumi.Input<string | enums.netapp.SmbNonBrowsable>;
+    smbNonBrowsable?: pulumi.Input<string | enums.netapp.SmbNonBrowsable | undefined>;
     /**
      * If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true).
      */
-    snapshotDirectoryVisible?: pulumi.Input<boolean>;
+    snapshotDirectoryVisible?: pulumi.Input<boolean | undefined>;
     /**
      * Resource identifier used to identify the Snapshot.
      */
-    snapshotId?: pulumi.Input<string>;
+    snapshotId?: pulumi.Input<string | undefined>;
     /**
      * The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
      */
@@ -630,12 +630,12 @@ export interface CapacityPoolVolumeArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    throughputMibps?: pulumi.Input<number>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    throughputMibps?: pulumi.Input<number | undefined>;
     /**
      * UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
      */
-    unixPermissions?: pulumi.Input<string>;
+    unixPermissions?: pulumi.Input<string | undefined>;
     /**
      * Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. For regular volumes, valid values are in the range 50GiB to 100TiB. For large volumes, valid values are in the range 100TiB to 500TiB, and on an exceptional basis, from to 2400GiB to 2400TiB. Values expressed in bytes as multiples of 1 GiB.
      */
@@ -643,17 +643,17 @@ export interface CapacityPoolVolumeArgs {
     /**
      * The name of the volume
      */
-    volumeName?: pulumi.Input<string>;
+    volumeName?: pulumi.Input<string | undefined>;
     /**
      * Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log
      */
-    volumeSpecName?: pulumi.Input<string>;
+    volumeSpecName?: pulumi.Input<string | undefined>;
     /**
      * What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection
      */
-    volumeType?: pulumi.Input<string>;
+    volumeType?: pulumi.Input<string | undefined>;
     /**
      * Availability Zone
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

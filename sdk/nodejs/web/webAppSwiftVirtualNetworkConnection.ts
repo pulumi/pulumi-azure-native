@@ -109,7 +109,7 @@ export interface WebAppSwiftVirtualNetworkConnectionArgs {
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
@@ -121,9 +121,9 @@ export interface WebAppSwiftVirtualNetworkConnectionArgs {
     /**
      * The Virtual Network subnet's resource ID. This is the subnet that this Web App will join. This subnet must have a delegation to Microsoft.Web/serverFarms defined first.
      */
-    subnetResourceId?: pulumi.Input<string>;
+    subnetResourceId?: pulumi.Input<string | undefined>;
     /**
      * A flag that specifies if the scale unit this Web App is on supports Swift integration.
      */
-    swiftSupported?: pulumi.Input<boolean>;
+    swiftSupported?: pulumi.Input<boolean | undefined>;
 }

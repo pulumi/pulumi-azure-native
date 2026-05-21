@@ -130,19 +130,19 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The Private Endpoint resource for this Connection.
      */
-    privateEndpoint?: pulumi.Input<inputs.servicebus.PrivateEndpointArgs>;
+    privateEndpoint?: pulumi.Input<inputs.servicebus.PrivateEndpointArgs | undefined>;
     /**
      * The PrivateEndpointConnection name
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Details about the state of the connection.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.servicebus.ConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.servicebus.ConnectionStateArgs | undefined>;
     /**
      * Provisioning state of the Private Endpoint Connection.
      */
-    provisioningState?: pulumi.Input<string | enums.servicebus.EndPointProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.servicebus.EndPointProvisioningState | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

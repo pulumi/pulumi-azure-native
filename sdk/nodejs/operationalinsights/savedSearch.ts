@@ -161,11 +161,11 @@ export interface SavedSearchArgs {
     /**
      * The function alias if query serves as a function.
      */
-    functionAlias?: pulumi.Input<string>;
+    functionAlias?: pulumi.Input<string | undefined>;
     /**
      * The optional function parameters if query serves as a function. Value should be in the following format: 'param-name1:type1 = default_value1, param-name2:type2 = default_value2'. For more examples and proper syntax please refer to https://docs.microsoft.com/en-us/azure/kusto/query/functions/user-defined-functions.
      */
-    functionParameters?: pulumi.Input<string>;
+    functionParameters?: pulumi.Input<string | undefined>;
     /**
      * The query expression for the saved search.
      */
@@ -177,15 +177,15 @@ export interface SavedSearchArgs {
     /**
      * The id of the saved search.
      */
-    savedSearchId?: pulumi.Input<string>;
+    savedSearchId?: pulumi.Input<string | undefined>;
     /**
      * The tags attached to the saved search.
      */
-    tags?: pulumi.Input<pulumi.Input<inputs.operationalinsights.TagArgs>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.operationalinsights.TagArgs>[] | undefined>;
     /**
      * The version number of the query language. The current version is 2 and is the default.
      */
-    version?: pulumi.Input<number>;
+    version?: pulumi.Input<number | undefined>;
     /**
      * The name of the workspace.
      */

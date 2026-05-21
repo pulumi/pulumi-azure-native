@@ -188,7 +188,7 @@ export interface FleetArgs {
     /**
      * Represents the configuration for additional locations where Fleet resources may be deployed.
      */
-    additionalLocationsProfile?: pulumi.Input<inputs.azurefleet.AdditionalLocationsProfileArgs>;
+    additionalLocationsProfile?: pulumi.Input<inputs.azurefleet.AdditionalLocationsProfileArgs | undefined>;
     /**
      * Compute Profile to use for running user's workloads.
      */
@@ -196,23 +196,23 @@ export interface FleetArgs {
     /**
      * The name of the Compute Fleet
      */
-    fleetName?: pulumi.Input<string>;
+    fleetName?: pulumi.Input<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    identity?: pulumi.Input<inputs.azurefleet.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.azurefleet.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Details of the resource plan.
      */
-    plan?: pulumi.Input<inputs.azurefleet.PlanArgs>;
+    plan?: pulumi.Input<inputs.azurefleet.PlanArgs | undefined>;
     /**
      * Configuration Options for Regular instances in Compute Fleet.
      */
-    regularPriorityProfile?: pulumi.Input<inputs.azurefleet.RegularPriorityProfileArgs>;
+    regularPriorityProfile?: pulumi.Input<inputs.azurefleet.RegularPriorityProfileArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -220,15 +220,15 @@ export interface FleetArgs {
     /**
      * Configuration Options for Spot instances in Compute Fleet.
      */
-    spotPriorityProfile?: pulumi.Input<inputs.azurefleet.SpotPriorityProfileArgs>;
+    spotPriorityProfile?: pulumi.Input<inputs.azurefleet.SpotPriorityProfileArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Attribute based Fleet.
      */
-    vmAttributes?: pulumi.Input<inputs.azurefleet.VMAttributesArgs>;
+    vmAttributes?: pulumi.Input<inputs.azurefleet.VMAttributesArgs | undefined>;
     /**
      * List of VM sizes supported for Compute Fleet
      */
@@ -236,5 +236,5 @@ export interface FleetArgs {
     /**
      * Zones in which the Compute Fleet is available
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -174,7 +174,7 @@ export interface MetricsConfigurationArgs {
     /**
      * The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics.
      */
-    enabledMetrics?: pulumi.Input<pulumi.Input<string>[]>;
+    enabledMetrics?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The extended location of the cluster associated with the resource.
      */
@@ -182,11 +182,11 @@ export interface MetricsConfigurationArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the metrics configuration for the cluster.
      */
-    metricsConfigurationName?: pulumi.Input<string>;
+    metricsConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -194,5 +194,5 @@ export interface MetricsConfigurationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

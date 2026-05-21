@@ -144,15 +144,15 @@ export interface HypervHostControllerArgs {
     /**
      * Gets or sets the FQDN/IPAddress of the Hyper-V host.
      */
-    fqdn?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<string | undefined>;
     /**
      *  Host name
      */
-    hostName?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string | undefined>;
     /**
      * The status of the last operation.
      */
-    provisioningState?: pulumi.Input<string | enums.offazure.ProvisioningState>;
+    provisioningState?: pulumi.Input<string | enums.offazure.ProvisioningState | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -160,7 +160,7 @@ export interface HypervHostControllerArgs {
     /**
      * Gets or sets the run as account ID of the Hyper-V host.
      */
-    runAsAccountId?: pulumi.Input<string>;
+    runAsAccountId?: pulumi.Input<string | undefined>;
     /**
      * Site name
      */

@@ -74,7 +74,7 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs {
     /**
      * The sas-url to download the P2S Vpn connection health detail.
      */
-    outputBlobSasUrl?: pulumi.Input<string>;
+    outputBlobSasUrl?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -82,5 +82,5 @@ export interface GetP2sVpnGatewayP2sVpnConnectionHealthDetailedOutputArgs {
     /**
      * The list of p2s vpn user names whose p2s vpn connection detailed health to retrieve for.
      */
-    vpnUserNamesFilter?: pulumi.Input<pulumi.Input<string>[]>;
+    vpnUserNamesFilter?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

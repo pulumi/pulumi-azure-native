@@ -130,11 +130,11 @@ export interface ACSSBackupConnectionArgs {
     /**
      * Information about the recovery services vault and backup policy used for backup.
      */
-    backupData?: pulumi.Input<inputs.workloads.HanaBackupDataArgs | inputs.workloads.SqlBackupDataArgs | inputs.workloads.VMBackupDataArgs>;
+    backupData?: pulumi.Input<inputs.workloads.HanaBackupDataArgs | inputs.workloads.SqlBackupDataArgs | inputs.workloads.VMBackupDataArgs | undefined>;
     /**
      * The name of the backup connection resource of virtual instance for SAP.
      */
-    backupName?: pulumi.Input<string>;
+    backupName?: pulumi.Input<string | undefined>;
     /**
      * The name of the connector resource
      */
@@ -142,7 +142,7 @@ export interface ACSSBackupConnectionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -150,5 +150,5 @@ export interface ACSSBackupConnectionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

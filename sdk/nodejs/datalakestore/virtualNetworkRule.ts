@@ -112,5 +112,5 @@ export interface VirtualNetworkRuleArgs {
     /**
      * The name of the virtual network rule to create or update.
      */
-    virtualNetworkRuleName?: pulumi.Input<string>;
+    virtualNetworkRuleName?: pulumi.Input<string | undefined>;
 }

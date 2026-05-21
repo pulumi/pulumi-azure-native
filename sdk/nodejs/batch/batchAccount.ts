@@ -154,7 +154,7 @@ export class BatchAccount extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["allowedAuthenticationModes"] = args?.allowedAuthenticationModes;
-            resourceInputs["autoStorage"] = args ? (args.autoStorage ? pulumi.output(args.autoStorage).apply(inputs.batch.autoStorageBasePropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["autoStorage"] = args ? pulumi.output(args.autoStorage).apply(v => v === undefined ? undefined : inputs.batch.autoStorageBasePropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["encryption"] = args?.encryption;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["keyVaultReference"] = args?.keyVaultReference;
@@ -218,43 +218,43 @@ export interface BatchAccountArgs {
     /**
      * A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
      */
-    accountName?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string | undefined>;
     /**
      * List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
      */
-    allowedAuthenticationModes?: pulumi.Input<pulumi.Input<enums.batch.AuthenticationMode>[]>;
+    allowedAuthenticationModes?: pulumi.Input<pulumi.Input<enums.batch.AuthenticationMode>[] | undefined>;
     /**
      * The properties related to the auto-storage account.
      */
-    autoStorage?: pulumi.Input<inputs.batch.AutoStorageBasePropertiesArgs>;
+    autoStorage?: pulumi.Input<inputs.batch.AutoStorageBasePropertiesArgs | undefined>;
     /**
      * Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
      */
-    encryption?: pulumi.Input<inputs.batch.EncryptionPropertiesArgs>;
+    encryption?: pulumi.Input<inputs.batch.EncryptionPropertiesArgs | undefined>;
     /**
      * The identity of the Batch account.
      */
-    identity?: pulumi.Input<inputs.batch.BatchAccountIdentityArgs>;
+    identity?: pulumi.Input<inputs.batch.BatchAccountIdentityArgs | undefined>;
     /**
      * A reference to the Azure key vault associated with the Batch account.
      */
-    keyVaultReference?: pulumi.Input<inputs.batch.KeyVaultReferenceArgs>;
+    keyVaultReference?: pulumi.Input<inputs.batch.KeyVaultReferenceArgs | undefined>;
     /**
      * The region in which to create the account.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The network profile only takes effect when publicNetworkAccess is enabled.
      */
-    networkProfile?: pulumi.Input<inputs.batch.NetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.batch.NetworkProfileArgs | undefined>;
     /**
      * The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
      */
-    poolAllocationMode?: pulumi.Input<enums.batch.PoolAllocationMode>;
+    poolAllocationMode?: pulumi.Input<enums.batch.PoolAllocationMode | undefined>;
     /**
      * The network access type for operating on the resources in the Batch account.
      */
-    publicNetworkAccess?: pulumi.Input<enums.batch.PublicNetworkAccessType>;
+    publicNetworkAccess?: pulumi.Input<enums.batch.PublicNetworkAccessType | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -262,5 +262,5 @@ export interface BatchAccountArgs {
     /**
      * The user-specified tags associated with the account.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

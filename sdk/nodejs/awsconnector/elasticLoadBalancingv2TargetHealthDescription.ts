@@ -113,15 +113,15 @@ export interface ElasticLoadBalancingv2TargetHealthDescriptionArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of ElasticLoadBalancingv2TargetHealthDescription
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.awsconnector.ElasticLoadBalancingv2TargetHealthDescriptionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.awsconnector.ElasticLoadBalancingv2TargetHealthDescriptionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -129,5 +129,5 @@ export interface ElasticLoadBalancingv2TargetHealthDescriptionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

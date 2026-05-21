@@ -182,7 +182,7 @@ export class WebPubSub extends pulumi.CustomResource {
             resourceInputs["disableLocalAuth"] = (args?.disableLocalAuth) ?? false;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["kind"] = args?.kind;
-            resourceInputs["liveTraceConfiguration"] = args ? (args.liveTraceConfiguration ? pulumi.output(args.liveTraceConfiguration).apply(inputs.webpubsub.liveTraceConfigurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["liveTraceConfiguration"] = args ? pulumi.output(args.liveTraceConfiguration).apply(v => v === undefined ? undefined : inputs.webpubsub.liveTraceConfigurationArgsProvideDefaults(v)) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["networkACLs"] = args?.networkACLs;
             resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
@@ -194,7 +194,7 @@ export class WebPubSub extends pulumi.CustomResource {
             resourceInputs["sku"] = args?.sku;
             resourceInputs["socketIO"] = args?.socketIO;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.webpubsub.webPubSubTlsSettingsArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["tls"] = args ? pulumi.output(args.tls).apply(v => v === undefined ? undefined : inputs.webpubsub.webPubSubTlsSettingsArgsProvideDefaults(v)) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["externalIP"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
@@ -254,45 +254,45 @@ export interface WebPubSubArgs {
      * Enable or disable aad auth
      * When set as true, connection with AuthType=aad won't work.
      */
-    disableAadAuth?: pulumi.Input<boolean>;
+    disableAadAuth?: pulumi.Input<boolean | undefined>;
     /**
      * DisableLocalAuth
      * Enable or disable local auth with AccessKey
      * When set as true, connection with AccessKey=xxx won't work.
      */
-    disableLocalAuth?: pulumi.Input<boolean>;
+    disableLocalAuth?: pulumi.Input<boolean | undefined>;
     /**
      * A class represent managed identities used for request and response
      */
-    identity?: pulumi.Input<inputs.webpubsub.ManagedIdentityArgs>;
+    identity?: pulumi.Input<inputs.webpubsub.ManagedIdentityArgs | undefined>;
     /**
      * The kind of the service
      */
-    kind?: pulumi.Input<string | enums.webpubsub.ServiceKind>;
+    kind?: pulumi.Input<string | enums.webpubsub.ServiceKind | undefined>;
     /**
      * Live trace configuration of a Microsoft.SignalRService resource.
      */
-    liveTraceConfiguration?: pulumi.Input<inputs.webpubsub.LiveTraceConfigurationArgs>;
+    liveTraceConfiguration?: pulumi.Input<inputs.webpubsub.LiveTraceConfigurationArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Network ACLs for the resource
      */
-    networkACLs?: pulumi.Input<inputs.webpubsub.WebPubSubNetworkACLsArgs>;
+    networkACLs?: pulumi.Input<inputs.webpubsub.WebPubSubNetworkACLsArgs | undefined>;
     /**
      * Enable or disable public network access. Default to "Enabled".
      * When it's Enabled, network ACLs still apply.
      * When it's Disabled, public network access is always disabled no matter what you set in network ACLs.
      */
-    publicNetworkAccess?: pulumi.Input<string>;
+    publicNetworkAccess?: pulumi.Input<string | undefined>;
     /**
      * Enable or disable the regional endpoint. Default to "Enabled".
      * When it's Disabled, new connections will not be routed to this endpoint, however existing connections will not be affected.
      * This property is replica specific. Disable the regional endpoint without replica is not allowed.
      */
-    regionEndpointEnabled?: pulumi.Input<string>;
+    regionEndpointEnabled?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -300,31 +300,31 @@ export interface WebPubSubArgs {
     /**
      * Resource log configuration of a Microsoft.SignalRService resource.
      */
-    resourceLogConfiguration?: pulumi.Input<inputs.webpubsub.ResourceLogConfigurationArgs>;
+    resourceLogConfiguration?: pulumi.Input<inputs.webpubsub.ResourceLogConfigurationArgs | undefined>;
     /**
      * The name of the resource.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Stop or start the resource.  Default to "False".
      * When it's true, the data plane of the resource is shutdown.
      * When it's false, the data plane of the resource is started.
      */
-    resourceStopped?: pulumi.Input<string>;
+    resourceStopped?: pulumi.Input<string | undefined>;
     /**
      * The billing information of the resource.
      */
-    sku?: pulumi.Input<inputs.webpubsub.ResourceSkuArgs>;
+    sku?: pulumi.Input<inputs.webpubsub.ResourceSkuArgs | undefined>;
     /**
      * SocketIO settings for the resource
      */
-    socketIO?: pulumi.Input<inputs.webpubsub.WebPubSubSocketIOSettingsArgs>;
+    socketIO?: pulumi.Input<inputs.webpubsub.WebPubSubSocketIOSettingsArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * TLS settings for the resource
      */
-    tls?: pulumi.Input<inputs.webpubsub.WebPubSubTlsSettingsArgs>;
+    tls?: pulumi.Input<inputs.webpubsub.WebPubSubTlsSettingsArgs | undefined>;
 }

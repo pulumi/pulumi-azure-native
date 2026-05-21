@@ -282,43 +282,43 @@ export interface NamespaceDiscoveredAssetArgs {
     /**
      * URIs or type definition IDs.
      */
-    assetTypeRefs?: pulumi.Input<pulumi.Input<string>[]>;
+    assetTypeRefs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * A set of key-value pairs that contain custom attributes.
      */
-    attributes?: any;
+    attributes?: any | undefined;
     /**
      * Array of datasets that are part of the asset. Each dataset spec describes the data points that make up the set.
      */
-    datasets?: pulumi.Input<pulumi.Input<inputs.deviceregistry.NamespaceDiscoveredDatasetArgs>[]>;
+    datasets?: pulumi.Input<pulumi.Input<inputs.deviceregistry.NamespaceDiscoveredDatasetArgs>[] | undefined>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
      */
-    defaultDatasetsConfiguration?: pulumi.Input<string>;
+    defaultDatasetsConfiguration?: pulumi.Input<string | undefined>;
     /**
      * Default destinations for a dataset.
      */
-    defaultDatasetsDestinations?: pulumi.Input<pulumi.Input<inputs.deviceregistry.DatasetBrokerStateStoreDestinationArgs | inputs.deviceregistry.DatasetMqttDestinationArgs | inputs.deviceregistry.DatasetStorageDestinationArgs>[]>;
+    defaultDatasetsDestinations?: pulumi.Input<pulumi.Input<inputs.deviceregistry.DatasetBrokerStateStoreDestinationArgs | inputs.deviceregistry.DatasetMqttDestinationArgs | inputs.deviceregistry.DatasetStorageDestinationArgs>[] | undefined>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
      */
-    defaultEventsConfiguration?: pulumi.Input<string>;
+    defaultEventsConfiguration?: pulumi.Input<string | undefined>;
     /**
      * Default destinations for an event.
      */
-    defaultEventsDestinations?: pulumi.Input<pulumi.Input<inputs.deviceregistry.EventMqttDestinationArgs | inputs.deviceregistry.EventStorageDestinationArgs>[]>;
+    defaultEventsDestinations?: pulumi.Input<pulumi.Input<inputs.deviceregistry.EventMqttDestinationArgs | inputs.deviceregistry.EventStorageDestinationArgs>[] | undefined>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all management groups. Each management group can have its own configuration that overrides the default settings here.
      */
-    defaultManagementGroupsConfiguration?: pulumi.Input<string>;
+    defaultManagementGroupsConfiguration?: pulumi.Input<string | undefined>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all streams. Each stream can have its own configuration that overrides the default settings here.
      */
-    defaultStreamsConfiguration?: pulumi.Input<string>;
+    defaultStreamsConfiguration?: pulumi.Input<string | undefined>;
     /**
      * Default destinations for a stream.
      */
-    defaultStreamsDestinations?: pulumi.Input<pulumi.Input<inputs.deviceregistry.StreamMqttDestinationArgs | inputs.deviceregistry.StreamStorageDestinationArgs>[]>;
+    defaultStreamsDestinations?: pulumi.Input<pulumi.Input<inputs.deviceregistry.StreamMqttDestinationArgs | inputs.deviceregistry.StreamStorageDestinationArgs>[] | undefined>;
     /**
      * Reference to the device that provides data for this asset. Must provide device name & endpoint on the device to use.
      */
@@ -326,7 +326,7 @@ export interface NamespaceDiscoveredAssetArgs {
     /**
      * The name of the discovered asset.
      */
-    discoveredAssetName?: pulumi.Input<string>;
+    discoveredAssetName?: pulumi.Input<string | undefined>;
     /**
      * Identifier used to detect changes in the asset.
      */
@@ -334,11 +334,11 @@ export interface NamespaceDiscoveredAssetArgs {
     /**
      * Asset documentation reference.
      */
-    documentationUri?: pulumi.Input<string>;
+    documentationUri?: pulumi.Input<string | undefined>;
     /**
      * Array of events that are part of the asset. Each event can have per-event configuration.
      */
-    events?: pulumi.Input<pulumi.Input<inputs.deviceregistry.NamespaceDiscoveredEventArgs>[]>;
+    events?: pulumi.Input<pulumi.Input<inputs.deviceregistry.NamespaceDiscoveredEventArgs>[] | undefined>;
     /**
      * The extended location.
      */
@@ -346,27 +346,27 @@ export interface NamespaceDiscoveredAssetArgs {
     /**
      * Asset hardware revision number.
      */
-    hardwareRevision?: pulumi.Input<string>;
+    hardwareRevision?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Array of management groups that are part of the asset. Each management group can have a per-group configuration.
      */
-    managementGroups?: pulumi.Input<pulumi.Input<inputs.deviceregistry.NamespaceDiscoveredManagementGroupArgs>[]>;
+    managementGroups?: pulumi.Input<pulumi.Input<inputs.deviceregistry.NamespaceDiscoveredManagementGroupArgs>[] | undefined>;
     /**
      * Asset manufacturer.
      */
-    manufacturer?: pulumi.Input<string>;
+    manufacturer?: pulumi.Input<string | undefined>;
     /**
      * Asset manufacturer URI.
      */
-    manufacturerUri?: pulumi.Input<string>;
+    manufacturerUri?: pulumi.Input<string | undefined>;
     /**
      * Asset model.
      */
-    model?: pulumi.Input<string>;
+    model?: pulumi.Input<string | undefined>;
     /**
      * The name of the namespace.
      */
@@ -374,7 +374,7 @@ export interface NamespaceDiscoveredAssetArgs {
     /**
      * Asset product code.
      */
-    productCode?: pulumi.Input<string>;
+    productCode?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -382,19 +382,19 @@ export interface NamespaceDiscoveredAssetArgs {
     /**
      * Asset serial number.
      */
-    serialNumber?: pulumi.Input<string>;
+    serialNumber?: pulumi.Input<string | undefined>;
     /**
      * Asset software revision number.
      */
-    softwareRevision?: pulumi.Input<string>;
+    softwareRevision?: pulumi.Input<string | undefined>;
     /**
      * Array of streams that are part of the asset. Each stream can have a per-stream configuration.
      */
-    streams?: pulumi.Input<pulumi.Input<inputs.deviceregistry.NamespaceDiscoveredStreamArgs>[]>;
+    streams?: pulumi.Input<pulumi.Input<inputs.deviceregistry.NamespaceDiscoveredStreamArgs>[] | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * An integer that is incremented each time the resource is modified.
      */

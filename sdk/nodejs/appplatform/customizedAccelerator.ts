@@ -91,7 +91,7 @@ export class CustomizedAccelerator extends pulumi.CustomResource {
             resourceInputs["properties"] = args?.properties;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["serviceName"] = args?.serviceName;
-            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.skuArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["sku"] = args ? pulumi.output(args.sku).apply(v => v === undefined ? undefined : inputs.appplatform.skuArgsProvideDefaults(v)) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -122,11 +122,11 @@ export interface CustomizedAcceleratorArgs {
     /**
      * The name of the customized accelerator.
      */
-    customizedAcceleratorName?: pulumi.Input<string>;
+    customizedAcceleratorName?: pulumi.Input<string | undefined>;
     /**
      * Customized accelerator properties payload
      */
-    properties?: pulumi.Input<inputs.appplatform.CustomizedAcceleratorPropertiesArgs>;
+    properties?: pulumi.Input<inputs.appplatform.CustomizedAcceleratorPropertiesArgs | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -138,5 +138,5 @@ export interface CustomizedAcceleratorArgs {
     /**
      * Sku of the customized accelerator resource
      */
-    sku?: pulumi.Input<inputs.appplatform.SkuArgs>;
+    sku?: pulumi.Input<inputs.appplatform.SkuArgs | undefined>;
 }

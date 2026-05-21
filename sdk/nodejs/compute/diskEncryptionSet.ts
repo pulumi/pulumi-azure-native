@@ -164,27 +164,27 @@ export interface DiskEncryptionSetArgs {
     /**
      * The key vault key which is currently used by this disk encryption set.
      */
-    activeKey?: pulumi.Input<inputs.compute.KeyForDiskEncryptionSetArgs>;
+    activeKey?: pulumi.Input<inputs.compute.KeyForDiskEncryptionSetArgs | undefined>;
     /**
      * The name of the disk encryption set that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
      */
-    diskEncryptionSetName?: pulumi.Input<string>;
+    diskEncryptionSetName?: pulumi.Input<string | undefined>;
     /**
      * The type of key used to encrypt the data of the disk.
      */
-    encryptionType?: pulumi.Input<string | enums.compute.DiskEncryptionSetType>;
+    encryptionType?: pulumi.Input<string | enums.compute.DiskEncryptionSetType | undefined>;
     /**
      * Multi-tenant application client id to access key vault in a different tenant. Setting the value to 'None' will clear the property.
      */
-    federatedClientId?: pulumi.Input<string>;
+    federatedClientId?: pulumi.Input<string | undefined>;
     /**
      * The managed identity for the disk encryption set. It should be given permission on the key vault before it can be used to encrypt disks.
      */
-    identity?: pulumi.Input<inputs.compute.EncryptionSetIdentityArgs>;
+    identity?: pulumi.Input<inputs.compute.EncryptionSetIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -192,9 +192,9 @@ export interface DiskEncryptionSetArgs {
     /**
      * Set this flag to true to enable auto-updating of this disk encryption set to the latest key version.
      */
-    rotationToLatestKeyVersionEnabled?: pulumi.Input<boolean>;
+    rotationToLatestKeyVersionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

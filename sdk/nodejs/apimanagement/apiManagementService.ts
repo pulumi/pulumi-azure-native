@@ -240,7 +240,7 @@ export class ApiManagementService extends pulumi.CustomResource {
             resourceInputs["additionalLocations"] = args?.additionalLocations;
             resourceInputs["apiVersionConstraint"] = args?.apiVersionConstraint;
             resourceInputs["certificates"] = args?.certificates;
-            resourceInputs["configurationApi"] = args ? (args.configurationApi ? pulumi.output(args.configurationApi).apply(inputs.apimanagement.configurationApiArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["configurationApi"] = args ? pulumi.output(args.configurationApi).apply(v => v === undefined ? undefined : inputs.apimanagement.configurationApiArgsProvideDefaults(v)) : undefined;
             resourceInputs["customProperties"] = args?.customProperties;
             resourceInputs["developerPortalStatus"] = (args?.developerPortalStatus) ?? "Enabled";
             resourceInputs["disableGateway"] = (args?.disableGateway) ?? false;
@@ -341,71 +341,71 @@ export interface ApiManagementServiceArgs {
     /**
      * Additional datacenter locations of the API Management service.
      */
-    additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.AdditionalLocationArgs>[]>;
+    additionalLocations?: pulumi.Input<pulumi.Input<inputs.apimanagement.AdditionalLocationArgs>[] | undefined>;
     /**
      * Control Plane Apis version constraint for the API Management service.
      */
-    apiVersionConstraint?: pulumi.Input<inputs.apimanagement.ApiVersionConstraintArgs>;
+    apiVersionConstraint?: pulumi.Input<inputs.apimanagement.ApiVersionConstraintArgs | undefined>;
     /**
      * List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
      */
-    certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.CertificateConfigurationArgs>[]>;
+    certificates?: pulumi.Input<pulumi.Input<inputs.apimanagement.CertificateConfigurationArgs>[] | undefined>;
     /**
      * Configuration API configuration of the API Management service.
      */
-    configurationApi?: pulumi.Input<inputs.apimanagement.ConfigurationApiArgs>;
+    configurationApi?: pulumi.Input<inputs.apimanagement.ConfigurationApiArgs | undefined>;
     /**
      * Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
      */
-    customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customProperties?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Status of developer portal in this API Management service.
      */
-    developerPortalStatus?: pulumi.Input<string | enums.apimanagement.DeveloperPortalStatus>;
+    developerPortalStatus?: pulumi.Input<string | enums.apimanagement.DeveloperPortalStatus | undefined>;
     /**
      * Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
      */
-    disableGateway?: pulumi.Input<boolean>;
+    disableGateway?: pulumi.Input<boolean | undefined>;
     /**
      * Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
      */
-    enableClientCertificate?: pulumi.Input<boolean>;
+    enableClientCertificate?: pulumi.Input<boolean | undefined>;
     /**
      * Custom hostname configuration of the API Management service.
      */
-    hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.HostnameConfigurationArgs>[]>;
+    hostnameConfigurations?: pulumi.Input<pulumi.Input<inputs.apimanagement.HostnameConfigurationArgs>[] | undefined>;
     /**
      * Managed service identity of the Api Management service.
      */
-    identity?: pulumi.Input<inputs.apimanagement.ApiManagementServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.apimanagement.ApiManagementServiceIdentityArgs | undefined>;
     /**
      * Status of legacy portal in the API Management service.
      */
-    legacyPortalStatus?: pulumi.Input<string | enums.apimanagement.LegacyPortalStatus>;
+    legacyPortalStatus?: pulumi.Input<string | enums.apimanagement.LegacyPortalStatus | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Property can be used to enable NAT Gateway for this API Management service.
      */
-    natGatewayState?: pulumi.Input<string | enums.apimanagement.NatGatewayState>;
+    natGatewayState?: pulumi.Input<string | enums.apimanagement.NatGatewayState | undefined>;
     /**
      * Email address from which the notification will be sent.
      */
-    notificationSenderEmail?: pulumi.Input<string>;
+    notificationSenderEmail?: pulumi.Input<string | undefined>;
     /**
      * List of Private Endpoint Connections of this service.
      */
-    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.apimanagement.RemotePrivateEndpointConnectionWrapperArgs>[]>;
+    privateEndpointConnections?: pulumi.Input<pulumi.Input<inputs.apimanagement.RemotePrivateEndpointConnectionWrapperArgs>[] | undefined>;
     /**
      * Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
      */
-    publicIpAddressId?: pulumi.Input<string>;
+    publicIpAddressId?: pulumi.Input<string | undefined>;
     /**
      * Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.apimanagement.PublicNetworkAccess>;
+    publicNetworkAccess?: pulumi.Input<string | enums.apimanagement.PublicNetworkAccess | undefined>;
     /**
      * Publisher email.
      */
@@ -421,11 +421,11 @@ export interface ApiManagementServiceArgs {
     /**
      * Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
      */
-    restore?: pulumi.Input<boolean>;
+    restore?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the API Management service.
      */
-    serviceName?: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string | undefined>;
     /**
      * SKU properties of the API Management service.
      */
@@ -433,17 +433,17 @@ export interface ApiManagementServiceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Virtual network configuration of the API Management service.
      */
-    virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.VirtualNetworkConfigurationArgs>;
+    virtualNetworkConfiguration?: pulumi.Input<inputs.apimanagement.VirtualNetworkConfigurationArgs | undefined>;
     /**
      * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
      */
-    virtualNetworkType?: pulumi.Input<string | enums.apimanagement.VirtualNetworkType>;
+    virtualNetworkType?: pulumi.Input<string | enums.apimanagement.VirtualNetworkType | undefined>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

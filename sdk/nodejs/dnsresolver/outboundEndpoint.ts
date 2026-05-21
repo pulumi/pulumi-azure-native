@@ -145,11 +145,11 @@ export interface OutboundEndpointArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the outbound endpoint for the DNS resolver.
      */
-    outboundEndpointName?: pulumi.Input<string>;
+    outboundEndpointName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -161,5 +161,5 @@ export interface OutboundEndpointArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -111,7 +111,7 @@ export interface DatastoreArgs {
     /**
      * Datastore name.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * [Required] Additional attributes of the entity.
      */
@@ -123,7 +123,7 @@ export interface DatastoreArgs {
     /**
      * Flag to skip validation.
      */
-    skipValidation?: pulumi.Input<boolean>;
+    skipValidation?: pulumi.Input<boolean | undefined>;
     /**
      * Azure Machine Learning Workspace Name
      */

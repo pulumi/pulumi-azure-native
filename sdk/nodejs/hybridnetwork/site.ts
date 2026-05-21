@@ -116,11 +116,11 @@ export interface SiteArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Site properties.
      */
-    properties?: pulumi.Input<inputs.hybridnetwork.SitePropertiesFormatArgs>;
+    properties?: pulumi.Input<inputs.hybridnetwork.SitePropertiesFormatArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -128,9 +128,9 @@ export interface SiteArgs {
     /**
      * The name of the network service site.
      */
-    siteName?: pulumi.Input<string>;
+    siteName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

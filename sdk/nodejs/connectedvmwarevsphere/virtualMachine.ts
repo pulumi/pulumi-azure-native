@@ -267,51 +267,51 @@ export interface VirtualMachineArgs {
     /**
      * Gets or sets the extended location.
      */
-    extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.connectedvmwarevsphere.ExtendedLocationArgs | undefined>;
     /**
      * Firmware type
      */
-    firmwareType?: pulumi.Input<string | enums.connectedvmwarevsphere.FirmwareType>;
+    firmwareType?: pulumi.Input<string | enums.connectedvmwarevsphere.FirmwareType | undefined>;
     /**
      * Guest agent status properties.
      */
-    guestAgentProfile?: pulumi.Input<inputs.connectedvmwarevsphere.GuestAgentProfileArgs>;
+    guestAgentProfile?: pulumi.Input<inputs.connectedvmwarevsphere.GuestAgentProfileArgs | undefined>;
     /**
      * Hardware properties.
      */
-    hardwareProfile?: pulumi.Input<inputs.connectedvmwarevsphere.HardwareProfileArgs>;
+    hardwareProfile?: pulumi.Input<inputs.connectedvmwarevsphere.HardwareProfileArgs | undefined>;
     /**
      * The identity of the resource.
      */
-    identity?: pulumi.Input<inputs.connectedvmwarevsphere.IdentityArgs>;
+    identity?: pulumi.Input<inputs.connectedvmwarevsphere.IdentityArgs | undefined>;
     /**
      * Gets or sets the inventory Item ID for the virtual machine.
      */
-    inventoryItemId?: pulumi.Input<string>;
+    inventoryItemId?: pulumi.Input<string | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the virtual machine.
      */
-    moRefId?: pulumi.Input<string>;
+    moRefId?: pulumi.Input<string | undefined>;
     /**
      * Network properties.
      */
-    networkProfile?: pulumi.Input<inputs.connectedvmwarevsphere.NetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.connectedvmwarevsphere.NetworkProfileArgs | undefined>;
     /**
      * OS properties.
      */
-    osProfile?: pulumi.Input<inputs.connectedvmwarevsphere.OsProfileArgs>;
+    osProfile?: pulumi.Input<inputs.connectedvmwarevsphere.OsProfileArgs | undefined>;
     /**
      * Placement properties.
      */
-    placementProfile?: pulumi.Input<inputs.connectedvmwarevsphere.PlacementProfileArgs>;
+    placementProfile?: pulumi.Input<inputs.connectedvmwarevsphere.PlacementProfileArgs | undefined>;
     /**
      * The Resource Group Name.
      */
@@ -320,33 +320,33 @@ export interface VirtualMachineArgs {
      * Gets or sets the ARM Id of the resourcePool resource on which this virtual machine will
      * deploy.
      */
-    resourcePoolId?: pulumi.Input<string>;
+    resourcePoolId?: pulumi.Input<string | undefined>;
     /**
      * Gets the security profile.
      */
-    securityProfile?: pulumi.Input<inputs.connectedvmwarevsphere.SecurityProfileArgs>;
+    securityProfile?: pulumi.Input<inputs.connectedvmwarevsphere.SecurityProfileArgs | undefined>;
     /**
      * Gets or sets the SMBIOS UUID of the vm.
      */
-    smbiosUuid?: pulumi.Input<string>;
+    smbiosUuid?: pulumi.Input<string | undefined>;
     /**
      * Storage properties.
      */
-    storageProfile?: pulumi.Input<inputs.connectedvmwarevsphere.StorageProfileArgs>;
+    storageProfile?: pulumi.Input<inputs.connectedvmwarevsphere.StorageProfileArgs | undefined>;
     /**
      * Gets or sets the Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Gets or sets the ARM Id of the template resource to deploy the virtual machine.
      */
-    templateId?: pulumi.Input<string>;
+    templateId?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the ARM Id of the vCenter resource in which this resource pool resides.
      */
-    vCenterId?: pulumi.Input<string>;
+    vCenterId?: pulumi.Input<string | undefined>;
     /**
      * Name of the virtual machine resource.
      */
-    virtualMachineName?: pulumi.Input<string>;
+    virtualMachineName?: pulumi.Input<string | undefined>;
 }

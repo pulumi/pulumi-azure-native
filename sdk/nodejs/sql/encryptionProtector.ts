@@ -147,11 +147,11 @@ export interface EncryptionProtectorArgs {
     /**
      * Key auto rotation opt-in flag. Either true or false.
      */
-    autoRotationEnabled?: pulumi.Input<boolean>;
+    autoRotationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the encryption protector to be updated.
      */
-    encryptionProtectorName?: pulumi.Input<string>;
+    encryptionProtectorName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -159,7 +159,7 @@ export interface EncryptionProtectorArgs {
     /**
      * The name of the server key.
      */
-    serverKeyName?: pulumi.Input<string>;
+    serverKeyName?: pulumi.Input<string | undefined>;
     /**
      * The encryption protector type like 'ServiceManaged', 'AzureKeyVault'.
      */

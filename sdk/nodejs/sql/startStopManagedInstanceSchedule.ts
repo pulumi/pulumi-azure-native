@@ -135,7 +135,7 @@ export interface StartStopManagedInstanceScheduleArgs {
     /**
      * The description of the schedule.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the managed instance.
      */
@@ -151,9 +151,9 @@ export interface StartStopManagedInstanceScheduleArgs {
     /**
      * Name of the managed instance Start/Stop schedule.
      */
-    startStopScheduleName?: pulumi.Input<string>;
+    startStopScheduleName?: pulumi.Input<string | undefined>;
     /**
      * The time zone of the schedule.
      */
-    timeZoneId?: pulumi.Input<string>;
+    timeZoneId?: pulumi.Input<string | undefined>;
 }

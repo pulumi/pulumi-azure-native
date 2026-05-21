@@ -122,7 +122,7 @@ export interface UebaArgs {
     /**
      * The relevant data sources that enriched by ueba
      */
-    dataSources?: pulumi.Input<pulumi.Input<string | enums.securityinsights.UebaDataSources>[]>;
+    dataSources?: pulumi.Input<pulumi.Input<string | enums.securityinsights.UebaDataSources>[] | undefined>;
     /**
      * The kind of the setting
      * Expected value is 'Ueba'.
@@ -135,7 +135,7 @@ export interface UebaArgs {
     /**
      * The setting name. Supports - Anomalies, EyesOn, EntityAnalytics, Ueba
      */
-    settingsName?: pulumi.Input<string>;
+    settingsName?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

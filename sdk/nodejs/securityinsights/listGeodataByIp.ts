@@ -138,7 +138,7 @@ export interface ListGeodataByIpOutputArgs {
     /**
      * The dotted-decimal or colon-separated string representation of the IP address
      */
-    ipAddress?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

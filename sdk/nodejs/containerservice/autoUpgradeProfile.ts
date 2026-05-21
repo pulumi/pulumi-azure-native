@@ -144,7 +144,7 @@ export interface AutoUpgradeProfileArgs {
     /**
      * The name of the AutoUpgradeProfile resource.
      */
-    autoUpgradeProfileName?: pulumi.Input<string>;
+    autoUpgradeProfileName?: pulumi.Input<string | undefined>;
     /**
      * Configures how auto-upgrade will be run.
      */
@@ -155,7 +155,7 @@ export interface AutoUpgradeProfileArgs {
      * This is a boolean and not an enum because enabled/disabled are all available states of the auto upgrade profile.
      * By default, this is set to False.
      */
-    disabled?: pulumi.Input<boolean>;
+    disabled?: pulumi.Input<boolean | undefined>;
     /**
      * The name of the Fleet resource.
      */
@@ -163,7 +163,7 @@ export interface AutoUpgradeProfileArgs {
     /**
      * The node image upgrade to be applied to the target clusters in auto upgrade.
      */
-    nodeImageSelection?: pulumi.Input<inputs.containerservice.AutoUpgradeNodeImageSelectionArgs>;
+    nodeImageSelection?: pulumi.Input<inputs.containerservice.AutoUpgradeNodeImageSelectionArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -171,5 +171,5 @@ export interface AutoUpgradeProfileArgs {
     /**
      * The resource id of the UpdateStrategy resource to reference. If not specified, the auto upgrade will run on all clusters which are members of the fleet.
      */
-    updateStrategyId?: pulumi.Input<string>;
+    updateStrategyId?: pulumi.Input<string | undefined>;
 }

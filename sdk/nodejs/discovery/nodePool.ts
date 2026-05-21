@@ -87,7 +87,7 @@ export class NodePool extends pulumi.CustomResource {
             }
             resourceInputs["location"] = args?.location;
             resourceInputs["nodePoolName"] = args?.nodePoolName;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.discovery.nodePoolPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.discovery.nodePoolPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["supercomputerName"] = args?.supercomputerName;
             resourceInputs["tags"] = args?.tags;
@@ -118,15 +118,15 @@ export interface NodePoolArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the NodePool
      */
-    nodePoolName?: pulumi.Input<string>;
+    nodePoolName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.discovery.NodePoolPropertiesArgs>;
+    properties?: pulumi.Input<inputs.discovery.NodePoolPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,5 +138,5 @@ export interface NodePoolArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -101,7 +101,7 @@ export interface EksClusterArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.awsconnector.EksClusterPropertiesArgs>;
+    properties?: pulumi.Input<inputs.awsconnector.EksClusterPropertiesArgs | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the resource.
      */

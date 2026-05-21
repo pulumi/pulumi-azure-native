@@ -109,7 +109,7 @@ export interface GetPrivateLinkServicePrivateEndpointConnectionOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the private end point connection.
      */

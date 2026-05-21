@@ -133,11 +133,11 @@ export interface CacheRuleArgs {
     /**
      * The name of the cache rule.
      */
-    cacheRuleName?: pulumi.Input<string>;
+    cacheRuleName?: pulumi.Input<string | undefined>;
     /**
      * The ARM resource ID of the credential store which is associated with the cache rule.
      */
-    credentialSetResourceId?: pulumi.Input<string>;
+    credentialSetResourceId?: pulumi.Input<string | undefined>;
     /**
      * The name of the container registry.
      */
@@ -149,10 +149,10 @@ export interface CacheRuleArgs {
     /**
      * Source repository pulled from upstream.
      */
-    sourceRepository?: pulumi.Input<string>;
+    sourceRepository?: pulumi.Input<string | undefined>;
     /**
      * Target repository specified in docker pull command.
      * Eg: docker pull myregistry.azurecr.io/{targetRepository}:{tag}
      */
-    targetRepository?: pulumi.Input<string>;
+    targetRepository?: pulumi.Input<string | undefined>;
 }

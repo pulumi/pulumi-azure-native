@@ -134,19 +134,19 @@ export interface FleetArgs {
     /**
      * The name of the Fleet resource.
      */
-    fleetName?: pulumi.Input<string>;
+    fleetName?: pulumi.Input<string | undefined>;
     /**
      * The FleetHubProfile configures the Fleet's hub.
      */
-    hubProfile?: pulumi.Input<inputs.containerservice.FleetHubProfileArgs>;
+    hubProfile?: pulumi.Input<inputs.containerservice.FleetHubProfileArgs | undefined>;
     /**
      * Managed identity.
      */
-    identity?: pulumi.Input<inputs.containerservice.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.containerservice.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -154,5 +154,5 @@ export interface FleetArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -137,7 +137,7 @@ export interface GetArtifactSourceOutputArgs {
     /**
      * Specify the $expand query. Example: 'properties($select=displayName)'
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the lab.
      */

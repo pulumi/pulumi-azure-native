@@ -132,15 +132,15 @@ export interface ConnectorArgs {
     /**
      * Connector Info Base
      */
-    connectorBasicInfo?: pulumi.Input<inputs.confluent.ConnectorInfoBaseArgs>;
+    connectorBasicInfo?: pulumi.Input<inputs.confluent.ConnectorInfoBaseArgs | undefined>;
     /**
      * Confluent connector name
      */
-    connectorName?: pulumi.Input<string>;
+    connectorName?: pulumi.Input<string | undefined>;
     /**
      * Connector Service type info base properties.
      */
-    connectorServiceTypeInfo?: pulumi.Input<inputs.confluent.AzureBlobStorageSinkConnectorServiceInfoArgs | inputs.confluent.AzureBlobStorageSourceConnectorServiceInfoArgs | inputs.confluent.AzureCosmosDBSinkConnectorServiceInfoArgs | inputs.confluent.AzureCosmosDBSourceConnectorServiceInfoArgs | inputs.confluent.AzureSynapseAnalyticsSinkConnectorServiceInfoArgs>;
+    connectorServiceTypeInfo?: pulumi.Input<inputs.confluent.AzureBlobStorageSinkConnectorServiceInfoArgs | inputs.confluent.AzureBlobStorageSourceConnectorServiceInfoArgs | inputs.confluent.AzureCosmosDBSinkConnectorServiceInfoArgs | inputs.confluent.AzureCosmosDBSourceConnectorServiceInfoArgs | inputs.confluent.AzureSynapseAnalyticsSinkConnectorServiceInfoArgs | undefined>;
     /**
      * Confluent environment id
      */
@@ -152,7 +152,7 @@ export interface ConnectorArgs {
     /**
      * The connection information consumed by applications.
      */
-    partnerConnectorInfo?: pulumi.Input<inputs.confluent.KafkaAzureBlobStorageSinkConnectorInfoArgs | inputs.confluent.KafkaAzureBlobStorageSourceConnectorInfoArgs | inputs.confluent.KafkaAzureCosmosDBSinkConnectorInfoArgs | inputs.confluent.KafkaAzureCosmosDBSourceConnectorInfoArgs | inputs.confluent.KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs>;
+    partnerConnectorInfo?: pulumi.Input<inputs.confluent.KafkaAzureBlobStorageSinkConnectorInfoArgs | inputs.confluent.KafkaAzureBlobStorageSourceConnectorInfoArgs | inputs.confluent.KafkaAzureCosmosDBSinkConnectorInfoArgs | inputs.confluent.KafkaAzureCosmosDBSourceConnectorInfoArgs | inputs.confluent.KafkaAzureSynapseAnalyticsSinkConnectorInfoArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

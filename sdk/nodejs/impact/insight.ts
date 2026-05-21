@@ -102,11 +102,11 @@ export interface InsightArgs {
     /**
      * Name of the insight
      */
-    insightName?: pulumi.Input<string>;
+    insightName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.impact.InsightPropertiesArgs>;
+    properties?: pulumi.Input<inputs.impact.InsightPropertiesArgs | undefined>;
     /**
      * workloadImpact resource 
      */

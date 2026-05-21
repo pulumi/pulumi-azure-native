@@ -175,7 +175,7 @@ export interface JitRequestArgs {
     /**
      * The name of the JIT request.
      */
-    jitRequestName?: pulumi.Input<string>;
+    jitRequestName?: pulumi.Input<string | undefined>;
     /**
      * The JIT request properties.
      */
@@ -183,7 +183,7 @@ export interface JitRequestArgs {
     /**
      * Resource location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -191,5 +191,5 @@ export interface JitRequestArgs {
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

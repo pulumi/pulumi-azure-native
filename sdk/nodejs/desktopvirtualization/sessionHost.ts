@@ -232,15 +232,15 @@ export interface SessionHostArgs {
     /**
      * Allow a new session.
      */
-    allowNewSession?: pulumi.Input<boolean>;
+    allowNewSession?: pulumi.Input<boolean | undefined>;
     /**
      * User assigned to SessionHost.
      */
-    assignedUser?: pulumi.Input<string>;
+    assignedUser?: pulumi.Input<string | undefined>;
     /**
      * Friendly name of SessionHost
      */
-    friendlyName?: pulumi.Input<string>;
+    friendlyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the host pool within the specified resource group
      */
@@ -252,5 +252,5 @@ export interface SessionHostArgs {
     /**
      * The name of the session host within the specified host pool
      */
-    sessionHostName?: pulumi.Input<string>;
+    sessionHostName?: pulumi.Input<string | undefined>;
 }

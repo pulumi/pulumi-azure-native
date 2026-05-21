@@ -112,7 +112,7 @@ export interface SignalDefinitionArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.cloudhealth.LogAnalyticsQuerySignalDefinitionPropertiesArgs | inputs.cloudhealth.PrometheusMetricsSignalDefinitionPropertiesArgs | inputs.cloudhealth.ResourceMetricSignalDefinitionPropertiesArgs>;
+    properties?: pulumi.Input<inputs.cloudhealth.LogAnalyticsQuerySignalDefinitionPropertiesArgs | inputs.cloudhealth.PrometheusMetricsSignalDefinitionPropertiesArgs | inputs.cloudhealth.ResourceMetricSignalDefinitionPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -120,5 +120,5 @@ export interface SignalDefinitionArgs {
     /**
      * Name of the signal definition. Must be unique within a health model.
      */
-    signalDefinitionName?: pulumi.Input<string>;
+    signalDefinitionName?: pulumi.Input<string | undefined>;
 }

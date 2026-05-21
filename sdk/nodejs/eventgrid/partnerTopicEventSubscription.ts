@@ -130,11 +130,11 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["eventDeliverySchema"] = (args?.eventDeliverySchema) ?? "EventGridSchema";
             resourceInputs["eventSubscriptionName"] = args?.eventSubscriptionName;
             resourceInputs["expirationTimeUtc"] = args?.expirationTimeUtc;
-            resourceInputs["filter"] = args ? (args.filter ? pulumi.output(args.filter).apply(inputs.eventgrid.eventSubscriptionFilterArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["filter"] = args ? pulumi.output(args.filter).apply(v => v === undefined ? undefined : inputs.eventgrid.eventSubscriptionFilterArgsProvideDefaults(v)) : undefined;
             resourceInputs["labels"] = args?.labels;
             resourceInputs["partnerTopicName"] = args?.partnerTopicName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
-            resourceInputs["retryPolicy"] = args ? (args.retryPolicy ? pulumi.output(args.retryPolicy).apply(inputs.eventgrid.retryPolicyArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["retryPolicy"] = args ? pulumi.output(args.retryPolicy).apply(v => v === undefined ? undefined : inputs.eventgrid.retryPolicyArgsProvideDefaults(v)) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -173,42 +173,42 @@ export interface PartnerTopicEventSubscriptionArgs {
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    deadLetterDestination?: pulumi.Input<inputs.eventgrid.StorageBlobDeadLetterDestinationArgs>;
+    deadLetterDestination?: pulumi.Input<inputs.eventgrid.StorageBlobDeadLetterDestinationArgs | undefined>;
     /**
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeadLetterWithResourceIdentityArgs>;
+    deadLetterWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeadLetterWithResourceIdentityArgs | undefined>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeliveryWithResourceIdentityArgs>;
+    deliveryWithResourceIdentity?: pulumi.Input<inputs.eventgrid.DeliveryWithResourceIdentityArgs | undefined>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    destination?: pulumi.Input<inputs.eventgrid.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.MonitorAlertEventSubscriptionDestinationArgs | inputs.eventgrid.NamespaceTopicEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.WebHookEventSubscriptionDestinationArgs>;
+    destination?: pulumi.Input<inputs.eventgrid.AzureFunctionEventSubscriptionDestinationArgs | inputs.eventgrid.EventHubEventSubscriptionDestinationArgs | inputs.eventgrid.HybridConnectionEventSubscriptionDestinationArgs | inputs.eventgrid.MonitorAlertEventSubscriptionDestinationArgs | inputs.eventgrid.NamespaceTopicEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationArgs | inputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationArgs | inputs.eventgrid.StorageQueueEventSubscriptionDestinationArgs | inputs.eventgrid.WebHookEventSubscriptionDestinationArgs | undefined>;
     /**
      * The event delivery schema for the event subscription.
      */
-    eventDeliverySchema?: pulumi.Input<string | enums.eventgrid.EventDeliverySchema>;
+    eventDeliverySchema?: pulumi.Input<string | enums.eventgrid.EventDeliverySchema | undefined>;
     /**
      * Name of the event subscription to be created. Event subscription names must be between 3 and 64 characters in length and use alphanumeric letters only.
      */
-    eventSubscriptionName?: pulumi.Input<string>;
+    eventSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * Expiration time of the event subscription.
      */
-    expirationTimeUtc?: pulumi.Input<string>;
+    expirationTimeUtc?: pulumi.Input<string | undefined>;
     /**
      * Information about the filter for the event subscription.
      */
-    filter?: pulumi.Input<inputs.eventgrid.EventSubscriptionFilterArgs>;
+    filter?: pulumi.Input<inputs.eventgrid.EventSubscriptionFilterArgs | undefined>;
     /**
      * List of user defined labels.
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Name of the partner topic.
      */
@@ -220,5 +220,5 @@ export interface PartnerTopicEventSubscriptionArgs {
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    retryPolicy?: pulumi.Input<inputs.eventgrid.RetryPolicyArgs>;
+    retryPolicy?: pulumi.Input<inputs.eventgrid.RetryPolicyArgs | undefined>;
 }

@@ -107,7 +107,7 @@ export interface GetIpGroupOutputArgs {
     /**
      * Expands resourceIds (of Firewalls/Network Security Groups etc.) back referenced by the IpGroups resource.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of the ipGroups.
      */

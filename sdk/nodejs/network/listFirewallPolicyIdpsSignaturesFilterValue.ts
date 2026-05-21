@@ -64,7 +64,7 @@ export interface ListFirewallPolicyIdpsSignaturesFilterValueOutputArgs {
     /**
      * Describes the name of the column which values will be returned
      */
-    filterName?: pulumi.Input<string>;
+    filterName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Firewall Policy.
      */

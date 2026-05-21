@@ -137,11 +137,11 @@ export interface NamespaceNetworkRuleSetArgs {
     /**
      * Default Action for Network Rule Set
      */
-    defaultAction?: pulumi.Input<string | enums.servicebus.DefaultAction>;
+    defaultAction?: pulumi.Input<string | enums.servicebus.DefaultAction | undefined>;
     /**
      * List of IpRules
      */
-    ipRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NWRuleSetIpRulesArgs>[]>;
+    ipRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NWRuleSetIpRulesArgs>[] | undefined>;
     /**
      * The namespace name
      */
@@ -149,7 +149,7 @@ export interface NamespaceNetworkRuleSetArgs {
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      */
-    publicNetworkAccess?: pulumi.Input<string | enums.servicebus.PublicNetworkAccessFlag>;
+    publicNetworkAccess?: pulumi.Input<string | enums.servicebus.PublicNetworkAccessFlag | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -157,9 +157,9 @@ export interface NamespaceNetworkRuleSetArgs {
     /**
      * Value that indicates whether Trusted Service Access is Enabled or not.
      */
-    trustedServiceAccessEnabled?: pulumi.Input<boolean>;
+    trustedServiceAccessEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * List VirtualNetwork Rules
      */
-    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NWRuleSetVirtualNetworkRulesArgs>[]>;
+    virtualNetworkRules?: pulumi.Input<pulumi.Input<inputs.servicebus.NWRuleSetVirtualNetworkRulesArgs>[] | undefined>;
 }

@@ -121,19 +121,19 @@ export interface SqlServerArgs {
     /**
      * Cores of the Sql Server.
      */
-    cores?: pulumi.Input<number>;
+    cores?: pulumi.Input<number | undefined>;
     /**
      * Sql Server Edition.
      */
-    edition?: pulumi.Input<string>;
+    edition?: pulumi.Input<string | undefined>;
     /**
      * Sql Server Json Property Bag.
      */
-    propertyBag?: pulumi.Input<string>;
+    propertyBag?: pulumi.Input<string | undefined>;
     /**
      * ID for Parent Sql Server Registration.
      */
-    registrationID?: pulumi.Input<string>;
+    registrationID?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
      */
@@ -141,7 +141,7 @@ export interface SqlServerArgs {
     /**
      * Name of the SQL Server.
      */
-    sqlServerName?: pulumi.Input<string>;
+    sqlServerName?: pulumi.Input<string | undefined>;
     /**
      * Name of the SQL Server registration.
      */
@@ -149,5 +149,5 @@ export interface SqlServerArgs {
     /**
      * Version of the Sql Server.
      */
-    version?: pulumi.Input<string>;
+    version?: pulumi.Input<string | undefined>;
 }

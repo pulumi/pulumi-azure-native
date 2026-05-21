@@ -270,31 +270,31 @@ export interface ComponentArgs {
     /**
      * Disable IP masking.
      */
-    disableIpMasking?: pulumi.Input<boolean>;
+    disableIpMasking?: pulumi.Input<boolean | undefined>;
     /**
      * Disable Non-AAD based Auth.
      */
-    disableLocalAuth?: pulumi.Input<boolean>;
+    disableLocalAuth?: pulumi.Input<boolean | undefined>;
     /**
      * Used by the Application Insights system to determine what kind of flow this component was created by. This is to be set to 'Bluefield' when creating/updating a component via the REST API.
      */
-    flowType?: pulumi.Input<string | enums.applicationinsights.FlowType>;
+    flowType?: pulumi.Input<string | enums.applicationinsights.FlowType | undefined>;
     /**
      * Force users to create their own storage account for profiler and debugger.
      */
-    forceCustomerStorageForProfiler?: pulumi.Input<boolean>;
+    forceCustomerStorageForProfiler?: pulumi.Input<boolean | undefined>;
     /**
      * The unique application ID created when a new application is added to HockeyApp, used for communications with HockeyApp.
      */
-    hockeyAppId?: pulumi.Input<string>;
+    hockeyAppId?: pulumi.Input<string | undefined>;
     /**
      * Purge data immediately after 30 days.
      */
-    immediatePurgeDataOn30Days?: pulumi.Input<boolean>;
+    immediatePurgeDataOn30Days?: pulumi.Input<boolean | undefined>;
     /**
      * Indicates the flow of the ingestion.
      */
-    ingestionMode?: pulumi.Input<string | enums.applicationinsights.IngestionMode>;
+    ingestionMode?: pulumi.Input<string | enums.applicationinsights.IngestionMode | undefined>;
     /**
      * The kind of application that this component refers to, used to customize UI. This value is a freeform string, values should typically be one of the following: web, ios, other, store, java, phone.
      */
@@ -302,19 +302,19 @@ export interface ComponentArgs {
     /**
      * Resource location
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The network access type for accessing Application Insights ingestion.
      */
-    publicNetworkAccessForIngestion?: pulumi.Input<string | enums.applicationinsights.PublicNetworkAccessType>;
+    publicNetworkAccessForIngestion?: pulumi.Input<string | enums.applicationinsights.PublicNetworkAccessType | undefined>;
     /**
      * The network access type for accessing Application Insights query.
      */
-    publicNetworkAccessForQuery?: pulumi.Input<string | enums.applicationinsights.PublicNetworkAccessType>;
+    publicNetworkAccessForQuery?: pulumi.Input<string | enums.applicationinsights.PublicNetworkAccessType | undefined>;
     /**
      * Describes what tool created this Application Insights component. Customers using this API should set this to the default 'rest'.
      */
-    requestSource?: pulumi.Input<string | enums.applicationinsights.RequestSource>;
+    requestSource?: pulumi.Input<string | enums.applicationinsights.RequestSource | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -322,21 +322,21 @@ export interface ComponentArgs {
     /**
      * The name of the Application Insights component resource.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Retention period in days.
      */
-    retentionInDays?: pulumi.Input<number>;
+    retentionInDays?: pulumi.Input<number | undefined>;
     /**
      * Percentage of the data produced by the application being monitored that is being sampled for Application Insights telemetry.
      */
-    samplingPercentage?: pulumi.Input<number>;
+    samplingPercentage?: pulumi.Input<number | undefined>;
     /**
      * Resource tags
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Resource Id of the log analytics workspace which the data will be ingested to. This property is required to create an application with this API version. Applications from older versions will not have this property.
      */
-    workspaceResourceId?: pulumi.Input<string>;
+    workspaceResourceId?: pulumi.Input<string | undefined>;
 }

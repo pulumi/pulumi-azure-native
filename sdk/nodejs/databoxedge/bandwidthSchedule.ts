@@ -145,7 +145,7 @@ export interface BandwidthScheduleArgs {
     /**
      * The bandwidth schedule name which needs to be added/updated.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The bandwidth rate in Mbps.
      */

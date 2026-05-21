@@ -112,11 +112,11 @@ export interface ClusterJobArgs {
     /**
      * Name of ClusterJob
      */
-    jobsName?: pulumi.Input<string>;
+    jobsName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.azurestackhci.HciConfigureCvmJobPropertiesArgs | inputs.azurestackhci.HciConfigureSdnIntegrationJobPropertiesArgs>;
+    properties?: pulumi.Input<inputs.azurestackhci.HciConfigureCvmJobPropertiesArgs | inputs.azurestackhci.HciConfigureSdnIntegrationJobPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

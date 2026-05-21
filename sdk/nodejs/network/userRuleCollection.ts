@@ -141,7 +141,7 @@ export interface UserRuleCollectionArgs {
     /**
      * A description of the user rule collection.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The name of the network manager.
      */
@@ -153,5 +153,5 @@ export interface UserRuleCollectionArgs {
     /**
      * The name of the network manager security Configuration rule collection.
      */
-    ruleCollectionName?: pulumi.Input<string>;
+    ruleCollectionName?: pulumi.Input<string | undefined>;
 }

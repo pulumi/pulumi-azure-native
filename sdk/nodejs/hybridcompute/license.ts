@@ -134,19 +134,19 @@ export interface LicenseArgs {
     /**
      * Describes the properties of a License.
      */
-    licenseDetails?: pulumi.Input<inputs.hybridcompute.LicenseDetailsArgs>;
+    licenseDetails?: pulumi.Input<inputs.hybridcompute.LicenseDetailsArgs | undefined>;
     /**
      * The name of the license.
      */
-    licenseName?: pulumi.Input<string>;
+    licenseName?: pulumi.Input<string | undefined>;
     /**
      * The type of the license resource.
      */
-    licenseType?: pulumi.Input<string | enums.hybridcompute.LicenseType>;
+    licenseType?: pulumi.Input<string | enums.hybridcompute.LicenseType | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -154,9 +154,9 @@ export interface LicenseArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Describes the tenant id.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

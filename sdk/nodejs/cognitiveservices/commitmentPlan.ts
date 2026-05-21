@@ -142,19 +142,19 @@ export interface CommitmentPlanArgs {
     /**
      * The name of the commitmentPlan associated with the Cognitive Services Account
      */
-    commitmentPlanName?: pulumi.Input<string>;
+    commitmentPlanName?: pulumi.Input<string | undefined>;
     /**
      * The Kind of the resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Properties of Cognitive Services account commitment plan.
      */
-    properties?: pulumi.Input<inputs.cognitiveservices.CommitmentPlanPropertiesArgs>;
+    properties?: pulumi.Input<inputs.cognitiveservices.CommitmentPlanPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -162,9 +162,9 @@ export interface CommitmentPlanArgs {
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.cognitiveservices.SkuArgs>;
+    sku?: pulumi.Input<inputs.cognitiveservices.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -128,19 +128,19 @@ export interface NetworkFunctionArgs {
     /**
      * The managed identity of the network function.
      */
-    identity?: pulumi.Input<inputs.hybridnetwork.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.hybridnetwork.ManagedServiceIdentityArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Resource name for the network function resource.
      */
-    networkFunctionName?: pulumi.Input<string>;
+    networkFunctionName?: pulumi.Input<string | undefined>;
     /**
      * Network function properties.
      */
-    properties?: pulumi.Input<inputs.hybridnetwork.NetworkFunctionValueWithSecretsArgs | inputs.hybridnetwork.NetworkFunctionValueWithoutSecretsArgs>;
+    properties?: pulumi.Input<inputs.hybridnetwork.NetworkFunctionValueWithSecretsArgs | inputs.hybridnetwork.NetworkFunctionValueWithoutSecretsArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -148,5 +148,5 @@ export interface NetworkFunctionArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -171,7 +171,7 @@ export interface GetNetworkVirtualApplianceOutputArgs {
     /**
      * Expands referenced resources.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * The name of Network Virtual Appliance.
      */

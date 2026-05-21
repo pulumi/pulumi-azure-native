@@ -102,7 +102,7 @@ export class Bot extends pulumi.CustomResource {
             }
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.botservice.botPropertiesArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["properties"] = args ? pulumi.output(args.properties).apply(v => v === undefined ? undefined : inputs.botservice.botPropertiesArgsProvideDefaults(v)) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["sku"] = args?.sku;
@@ -140,15 +140,15 @@ export interface BotArgs {
     /**
      * Required. Gets or sets the Kind of the resource.
      */
-    kind?: pulumi.Input<string | enums.botservice.Kind>;
+    kind?: pulumi.Input<string | enums.botservice.Kind | undefined>;
     /**
      * Specifies the location of the resource.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The set of properties specific to bot resource
      */
-    properties?: pulumi.Input<inputs.botservice.BotPropertiesArgs>;
+    properties?: pulumi.Input<inputs.botservice.BotPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -156,13 +156,13 @@ export interface BotArgs {
     /**
      * The name of the Bot resource.
      */
-    resourceName?: pulumi.Input<string>;
+    resourceName?: pulumi.Input<string | undefined>;
     /**
      * Gets or sets the SKU of the resource.
      */
-    sku?: pulumi.Input<inputs.botservice.SkuArgs>;
+    sku?: pulumi.Input<inputs.botservice.SkuArgs | undefined>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

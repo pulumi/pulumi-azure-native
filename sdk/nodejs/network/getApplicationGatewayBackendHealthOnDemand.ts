@@ -123,35 +123,35 @@ export interface GetApplicationGatewayBackendHealthOnDemandOutputArgs {
     /**
      * Reference to backend pool of application gateway to which probe request will be sent.
      */
-    backendAddressPool?: pulumi.Input<inputs.network.SubResourceArgs>;
+    backendAddressPool?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * Reference to backend http setting of application gateway to be used for test probe.
      */
-    backendHttpSettings?: pulumi.Input<inputs.network.SubResourceArgs>;
+    backendHttpSettings?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * Expands BackendAddressPool and BackendHttpSettings referenced in backend health.
      */
-    expand?: pulumi.Input<string>;
+    expand?: pulumi.Input<string | undefined>;
     /**
      * Host name to send the probe to.
      */
-    host?: pulumi.Input<string>;
+    host?: pulumi.Input<string | undefined>;
     /**
      * Criterion for classifying a healthy probe response.
      */
-    match?: pulumi.Input<inputs.network.ApplicationGatewayProbeHealthResponseMatchArgs>;
+    match?: pulumi.Input<inputs.network.ApplicationGatewayProbeHealthResponseMatchArgs | undefined>;
     /**
      * Relative path of probe. Valid path starts from '/'. Probe is sent to <Protocol>://<host>:<port><path>.
      */
-    path?: pulumi.Input<string>;
+    path?: pulumi.Input<string | undefined>;
     /**
      * Whether the host header should be picked from the backend http settings. Default value is false.
      */
-    pickHostNameFromBackendHttpSettings?: pulumi.Input<boolean>;
+    pickHostNameFromBackendHttpSettings?: pulumi.Input<boolean | undefined>;
     /**
      * The protocol used for the probe.
      */
-    protocol?: pulumi.Input<string | enums.network.ApplicationGatewayProtocol>;
+    protocol?: pulumi.Input<string | enums.network.ApplicationGatewayProtocol | undefined>;
     /**
      * The name of the resource group.
      */
@@ -159,5 +159,5 @@ export interface GetApplicationGatewayBackendHealthOnDemandOutputArgs {
     /**
      * The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds.
      */
-    timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number | undefined>;
 }

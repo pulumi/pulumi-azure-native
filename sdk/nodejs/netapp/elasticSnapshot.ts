@@ -128,7 +128,7 @@ export interface ElasticSnapshotArgs {
     /**
      * The name of the ElasticSnapshot
      */
-    snapshotName?: pulumi.Input<string>;
+    snapshotName?: pulumi.Input<string | undefined>;
     /**
      * The name of the ElasticVolume
      */

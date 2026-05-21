@@ -156,15 +156,15 @@ export interface ContactProfileArgs {
     /**
      * Auto-tracking configuration.
      */
-    autoTrackingConfiguration?: pulumi.Input<enums.orbital.AutoTrackingConfiguration>;
+    autoTrackingConfiguration?: pulumi.Input<enums.orbital.AutoTrackingConfiguration | undefined>;
     /**
      * Contact Profile name.
      */
-    contactProfileName?: pulumi.Input<string>;
+    contactProfileName?: pulumi.Input<string | undefined>;
     /**
      * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
-    eventHubUri?: pulumi.Input<string>;
+    eventHubUri?: pulumi.Input<string | undefined>;
     /**
      * Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
      */
@@ -172,15 +172,15 @@ export interface ContactProfileArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
      */
-    minimumElevationDegrees?: pulumi.Input<number>;
+    minimumElevationDegrees?: pulumi.Input<number | undefined>;
     /**
      * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      */
-    minimumViableContactDuration?: pulumi.Input<string>;
+    minimumViableContactDuration?: pulumi.Input<string | undefined>;
     /**
      * Network configuration of customer virtual network.
      */
@@ -192,9 +192,9 @@ export interface ContactProfileArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Third-party mission configuration of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
      */
-    thirdPartyConfigurations?: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileThirdPartyConfigurationArgs>[]>;
+    thirdPartyConfigurations?: pulumi.Input<pulumi.Input<inputs.orbital.ContactProfileThirdPartyConfigurationArgs>[] | undefined>;
 }

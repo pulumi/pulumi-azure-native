@@ -219,35 +219,35 @@ export interface GalleryImageArgs {
     /**
      * Optional. Must be set to true if the gallery image features are being updated.
      */
-    allowUpdateImage?: pulumi.Input<boolean>;
+    allowUpdateImage?: pulumi.Input<boolean | undefined>;
     /**
      * The architecture of the image. Applicable to OS disks only.
      */
-    architecture?: pulumi.Input<string | enums.compute.Architecture>;
+    architecture?: pulumi.Input<string | enums.compute.Architecture | undefined>;
     /**
      * The description of this gallery image definition resource. This property is updatable.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Describes the disallowed disk types.
      */
-    disallowed?: pulumi.Input<inputs.compute.DisallowedArgs>;
+    disallowed?: pulumi.Input<inputs.compute.DisallowedArgs | undefined>;
     /**
      * The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
      */
-    endOfLifeDate?: pulumi.Input<string>;
+    endOfLifeDate?: pulumi.Input<string | undefined>;
     /**
      * The Eula agreement for the gallery image definition.
      */
-    eula?: pulumi.Input<string>;
+    eula?: pulumi.Input<string | undefined>;
     /**
      * A list of gallery image features.
      */
-    features?: pulumi.Input<pulumi.Input<inputs.compute.GalleryImageFeatureArgs>[]>;
+    features?: pulumi.Input<pulumi.Input<inputs.compute.GalleryImageFeatureArgs>[] | undefined>;
     /**
      * The name of the gallery image definition to be retrieved.
      */
-    galleryImageName?: pulumi.Input<string>;
+    galleryImageName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Shared Image Gallery.
      */
@@ -255,7 +255,7 @@ export interface GalleryImageArgs {
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    hyperVGeneration?: pulumi.Input<string | enums.compute.HyperVGeneration>;
+    hyperVGeneration?: pulumi.Input<string | enums.compute.HyperVGeneration | undefined>;
     /**
      * This is the gallery image definition identifier.
      */
@@ -263,7 +263,7 @@ export interface GalleryImageArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
@@ -275,19 +275,19 @@ export interface GalleryImageArgs {
     /**
      * The privacy statement uri.
      */
-    privacyStatementUri?: pulumi.Input<string>;
+    privacyStatementUri?: pulumi.Input<string | undefined>;
     /**
      * Describes the gallery image definition purchase plan. This is used by marketplace images.
      */
-    purchasePlan?: pulumi.Input<inputs.compute.ImagePurchasePlanArgs>;
+    purchasePlan?: pulumi.Input<inputs.compute.ImagePurchasePlanArgs | undefined>;
     /**
      * The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
      */
-    recommended?: pulumi.Input<inputs.compute.RecommendedMachineConfigurationArgs>;
+    recommended?: pulumi.Input<inputs.compute.RecommendedMachineConfigurationArgs | undefined>;
     /**
      * The release note uri.
      */
-    releaseNoteUri?: pulumi.Input<string>;
+    releaseNoteUri?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -295,5 +295,5 @@ export interface GalleryImageArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

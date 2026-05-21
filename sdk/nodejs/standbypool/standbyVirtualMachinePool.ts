@@ -137,15 +137,15 @@ export interface StandbyVirtualMachinePoolArgs {
     /**
      * Specifies the fully qualified resource ID of a virtual machine scale set the pool is attached to.
      */
-    attachedVirtualMachineScaleSetId?: pulumi.Input<string>;
+    attachedVirtualMachineScaleSetId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the elasticity profile of the standby virtual machine pools.
      */
-    elasticityProfile?: pulumi.Input<inputs.standbypool.StandbyVirtualMachinePoolElasticityProfileArgs>;
+    elasticityProfile?: pulumi.Input<inputs.standbypool.StandbyVirtualMachinePoolElasticityProfileArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -153,11 +153,11 @@ export interface StandbyVirtualMachinePoolArgs {
     /**
      * Name of the standby virtual machine pool
      */
-    standbyVirtualMachinePoolName?: pulumi.Input<string>;
+    standbyVirtualMachinePoolName?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Specifies the desired state of virtual machines in the pool.
      */

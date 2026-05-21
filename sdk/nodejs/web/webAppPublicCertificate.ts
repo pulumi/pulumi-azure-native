@@ -119,11 +119,11 @@ export interface WebAppPublicCertificateArgs {
     /**
      * Public Certificate byte array
      */
-    blob?: pulumi.Input<string>;
+    blob?: pulumi.Input<string | undefined>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the app.
      */
@@ -131,11 +131,11 @@ export interface WebAppPublicCertificateArgs {
     /**
      * Public Certificate Location
      */
-    publicCertificateLocation?: pulumi.Input<enums.web.PublicCertificateLocation>;
+    publicCertificateLocation?: pulumi.Input<enums.web.PublicCertificateLocation | undefined>;
     /**
      * Public certificate name.
      */
-    publicCertificateName?: pulumi.Input<string>;
+    publicCertificateName?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */

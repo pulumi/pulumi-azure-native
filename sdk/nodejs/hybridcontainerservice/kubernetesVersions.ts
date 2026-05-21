@@ -110,5 +110,5 @@ export interface KubernetesVersionsArgs {
     /**
      * Extended location pointing to the underlying infrastructure
      */
-    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.hybridcontainerservice.ExtendedLocationArgs | undefined>;
 }

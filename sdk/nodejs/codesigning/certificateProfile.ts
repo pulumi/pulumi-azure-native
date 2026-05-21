@@ -176,27 +176,27 @@ export interface CertificateProfileArgs {
     /**
      * Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
      */
-    includeCity?: pulumi.Input<boolean>;
+    includeCity?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to include C in the certificate subject name. Applicable only for private trust, private trust ci profile types
      */
-    includeCountry?: pulumi.Input<boolean>;
+    includeCountry?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to include PC in the certificate subject name.
      */
-    includePostalCode?: pulumi.Input<boolean>;
+    includePostalCode?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to include S in the certificate subject name. Applicable only for private trust, private trust ci profile types
      */
-    includeState?: pulumi.Input<boolean>;
+    includeState?: pulumi.Input<boolean | undefined>;
     /**
      * Whether to include STREET in the certificate subject name.
      */
-    includeStreetAddress?: pulumi.Input<boolean>;
+    includeStreetAddress?: pulumi.Input<boolean | undefined>;
     /**
      * Certificate profile name.
      */
-    profileName?: pulumi.Input<string>;
+    profileName?: pulumi.Input<string | undefined>;
     /**
      * Profile type of the certificate.
      */

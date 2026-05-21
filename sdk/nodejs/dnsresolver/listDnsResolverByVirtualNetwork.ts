@@ -75,7 +75,7 @@ export interface ListDnsResolverByVirtualNetworkOutputArgs {
     /**
      * The maximum number of results to return. If not specified, returns up to 100 results.
      */
-    top?: pulumi.Input<number>;
+    top?: pulumi.Input<number | undefined>;
     /**
      * The name of the virtual network.
      */

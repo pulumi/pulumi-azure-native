@@ -123,7 +123,7 @@ export interface ReachabilityAnalysisIntentArgs {
     /**
      * Reachability Analysis Intent name.
      */
-    reachabilityAnalysisIntentName?: pulumi.Input<string>;
+    reachabilityAnalysisIntentName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

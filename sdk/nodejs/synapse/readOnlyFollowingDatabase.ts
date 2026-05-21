@@ -162,11 +162,11 @@ export interface ReadOnlyFollowingDatabaseArgs {
     /**
      * The name of the database in the Kusto pool.
      */
-    databaseName?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string | undefined>;
     /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
-    hotCachePeriod?: pulumi.Input<string>;
+    hotCachePeriod?: pulumi.Input<string | undefined>;
     /**
      * Kind of the database
      * Expected value is 'ReadOnlyFollowing'.
@@ -179,7 +179,7 @@ export interface ReadOnlyFollowingDatabaseArgs {
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

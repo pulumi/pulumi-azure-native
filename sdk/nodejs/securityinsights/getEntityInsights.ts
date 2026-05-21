@@ -95,7 +95,7 @@ export interface GetEntityInsightsOutputArgs {
     /**
      * Indicates if query time range should be extended with default time range of the query. Default value is false
      */
-    addDefaultExtendedTimeRange?: pulumi.Input<boolean>;
+    addDefaultExtendedTimeRange?: pulumi.Input<boolean | undefined>;
     /**
      * The end timeline date, so the results returned are before this date.
      */
@@ -107,7 +107,7 @@ export interface GetEntityInsightsOutputArgs {
     /**
      * List of Insights Query Id. If empty, default value is all insights of this entity
      */
-    insightQueryIds?: pulumi.Input<pulumi.Input<string>[]>;
+    insightQueryIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

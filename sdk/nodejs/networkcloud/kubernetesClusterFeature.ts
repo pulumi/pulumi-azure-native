@@ -160,7 +160,7 @@ export interface KubernetesClusterFeatureArgs {
     /**
      * The name of the feature.
      */
-    featureName?: pulumi.Input<string>;
+    featureName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kubernetes cluster.
      */
@@ -168,11 +168,11 @@ export interface KubernetesClusterFeatureArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The configured options for the feature.
      */
-    options?: pulumi.Input<pulumi.Input<inputs.networkcloud.StringKeyValuePairArgs>[]>;
+    options?: pulumi.Input<pulumi.Input<inputs.networkcloud.StringKeyValuePairArgs>[] | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -180,5 +180,5 @@ export interface KubernetesClusterFeatureArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -129,7 +129,7 @@ export interface SandboxCustomImageArgs {
     /**
      * The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
      */
-    baseImageName?: pulumi.Input<string>;
+    baseImageName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Kusto cluster.
      */
@@ -141,11 +141,11 @@ export interface SandboxCustomImageArgs {
     /**
      * The version of the language. Either this property or baseImageName should be specified.
      */
-    languageVersion?: pulumi.Input<string>;
+    languageVersion?: pulumi.Input<string | undefined>;
     /**
      * The requirements file content.
      */
-    requirementsFileContent?: pulumi.Input<string>;
+    requirementsFileContent?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -153,5 +153,5 @@ export interface SandboxCustomImageArgs {
     /**
      * The name of the sandbox custom image.
      */
-    sandboxCustomImageName?: pulumi.Input<string>;
+    sandboxCustomImageName?: pulumi.Input<string | undefined>;
 }

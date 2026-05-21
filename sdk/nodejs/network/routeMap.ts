@@ -127,15 +127,15 @@ export interface RouteMapArgs {
     /**
      * List of connections which have this RoutMap associated for inbound traffic.
      */
-    associatedInboundConnections?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedInboundConnections?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * List of connections which have this RoutMap associated for outbound traffic.
      */
-    associatedOutboundConnections?: pulumi.Input<pulumi.Input<string>[]>;
+    associatedOutboundConnections?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The resource group name of the RouteMap's resource group.
      */
@@ -143,11 +143,11 @@ export interface RouteMapArgs {
     /**
      * The name of the RouteMap.
      */
-    routeMapName?: pulumi.Input<string>;
+    routeMapName?: pulumi.Input<string | undefined>;
     /**
      * List of RouteMap rules to be applied.
      */
-    rules?: pulumi.Input<pulumi.Input<inputs.network.RouteMapRuleArgs>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.network.RouteMapRuleArgs>[] | undefined>;
     /**
      * The name of the VirtualHub containing the RouteMap.
      */

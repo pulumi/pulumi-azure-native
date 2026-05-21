@@ -121,7 +121,7 @@ export interface GalleryArgs {
     /**
      * The name of the gallery.
      */
-    galleryName?: pulumi.Input<string>;
+    galleryName?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the backing Azure Compute Gallery.
      */

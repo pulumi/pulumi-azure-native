@@ -136,7 +136,7 @@ export interface DatabaseAccountMongoDBCollectionArgs {
     /**
      * Cosmos DB collection name.
      */
-    collectionName?: pulumi.Input<string>;
+    collectionName?: pulumi.Input<string | undefined>;
     /**
      * Cosmos DB database name.
      */

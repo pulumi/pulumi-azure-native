@@ -172,11 +172,11 @@ export interface LinkedSubscriptionArgs {
     /**
      * Name of the Linked Subscription resource.
      */
-    linkedSubscriptionName?: pulumi.Input<string>;
+    linkedSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * Location of the resource.
      */
-    location?: pulumi.Input<string | enums.azurestack.Location>;
+    location?: pulumi.Input<string | enums.azurestack.Location | undefined>;
     /**
      * The identifier associated with the device registration.
      */

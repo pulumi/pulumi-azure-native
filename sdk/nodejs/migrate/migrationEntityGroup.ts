@@ -114,7 +114,7 @@ export interface MigrationEntityGroupArgs {
     /**
      * Migration Entity Group ARM name
      */
-    migrationEntityGroupName?: pulumi.Input<string>;
+    migrationEntityGroupName?: pulumi.Input<string | undefined>;
     /**
      * Migrate Project Name
      */
@@ -122,7 +122,7 @@ export interface MigrationEntityGroupArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.migrate.MigrationEntityGroupPropertiesArgs>;
+    properties?: pulumi.Input<inputs.migrate.MigrationEntityGroupPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

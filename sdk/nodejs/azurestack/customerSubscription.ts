@@ -105,7 +105,7 @@ export interface CustomerSubscriptionArgs {
     /**
      * Name of the product.
      */
-    customerSubscriptionName?: pulumi.Input<string>;
+    customerSubscriptionName?: pulumi.Input<string | undefined>;
     /**
      * Name of the Azure Stack registration.
      */
@@ -117,5 +117,5 @@ export interface CustomerSubscriptionArgs {
     /**
      * Tenant Id.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId?: pulumi.Input<string | undefined>;
 }

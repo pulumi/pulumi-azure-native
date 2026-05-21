@@ -153,11 +153,11 @@ export interface OrganizationArgs {
     /**
      * Link an existing Confluent organization
      */
-    linkOrganization?: pulumi.Input<inputs.confluent.LinkOrganizationArgs>;
+    linkOrganization?: pulumi.Input<inputs.confluent.LinkOrganizationArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Confluent offer detail
      */
@@ -165,7 +165,7 @@ export interface OrganizationArgs {
     /**
      * Organization resource name
      */
-    organizationName?: pulumi.Input<string>;
+    organizationName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -173,7 +173,7 @@ export interface OrganizationArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Subscriber detail
      */

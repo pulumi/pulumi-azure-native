@@ -345,7 +345,7 @@ export interface BareMetalMachineArgs {
     /**
      * The name of the bare metal machine.
      */
-    bareMetalMachineName?: pulumi.Input<string>;
+    bareMetalMachineName?: pulumi.Input<string | undefined>;
     /**
      * The connection string for the baseboard management controller including IP address and protocol.
      */
@@ -369,11 +369,11 @@ export interface BareMetalMachineArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The cluster version that has been applied to this machine during deployment or a version update.
      */
-    machineClusterVersion?: pulumi.Input<string>;
+    machineClusterVersion?: pulumi.Input<string | undefined>;
     /**
      * The custom details provided by the customer.
      */
@@ -405,5 +405,5 @@ export interface BareMetalMachineArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

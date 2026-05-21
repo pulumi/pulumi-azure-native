@@ -142,7 +142,7 @@ export interface TransitHubArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -150,17 +150,17 @@ export interface TransitHubArgs {
     /**
      * The state of the transitHub.
      */
-    state?: pulumi.Input<string | enums.mission.TransitHubState>;
+    state?: pulumi.Input<string | enums.mission.TransitHubState | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the TransitHub Resource
      */
-    transitHubName?: pulumi.Input<string>;
+    transitHubName?: pulumi.Input<string | undefined>;
     /**
      * The TransitOption of the transitHub.
      */
-    transitOption?: pulumi.Input<inputs.mission.TransitOptionArgs>;
+    transitOption?: pulumi.Input<inputs.mission.TransitOptionArgs | undefined>;
 }

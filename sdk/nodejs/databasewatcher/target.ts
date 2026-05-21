@@ -108,7 +108,7 @@ export interface TargetArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.databasewatcher.SqlDbElasticPoolTargetPropertiesArgs | inputs.databasewatcher.SqlDbSingleDatabaseTargetPropertiesArgs | inputs.databasewatcher.SqlMiTargetPropertiesArgs | inputs.databasewatcher.SqlVmTargetPropertiesArgs>;
+    properties?: pulumi.Input<inputs.databasewatcher.SqlDbElasticPoolTargetPropertiesArgs | inputs.databasewatcher.SqlDbSingleDatabaseTargetPropertiesArgs | inputs.databasewatcher.SqlMiTargetPropertiesArgs | inputs.databasewatcher.SqlVmTargetPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -116,7 +116,7 @@ export interface TargetArgs {
     /**
      * The target resource name.
      */
-    targetName?: pulumi.Input<string>;
+    targetName?: pulumi.Input<string | undefined>;
     /**
      * The database watcher name.
      */

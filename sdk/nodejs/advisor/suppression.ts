@@ -119,7 +119,7 @@ export interface SuppressionArgs {
     /**
      * The name of the suppression.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The recommendation ID.
      */
@@ -131,9 +131,9 @@ export interface SuppressionArgs {
     /**
      * The GUID of the suppression.
      */
-    suppressionId?: pulumi.Input<string>;
+    suppressionId?: pulumi.Input<string | undefined>;
     /**
      * The duration for which the suppression is valid.
      */
-    ttl?: pulumi.Input<string>;
+    ttl?: pulumi.Input<string | undefined>;
 }

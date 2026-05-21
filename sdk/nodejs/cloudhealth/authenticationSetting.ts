@@ -108,7 +108,7 @@ export interface AuthenticationSettingArgs {
     /**
      * Name of the authentication setting. Must be unique within a health model.
      */
-    authenticationSettingName?: pulumi.Input<string>;
+    authenticationSettingName?: pulumi.Input<string | undefined>;
     /**
      * Name of health model resource
      */
@@ -116,7 +116,7 @@ export interface AuthenticationSettingArgs {
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.cloudhealth.ManagedIdentityAuthenticationSettingPropertiesArgs>;
+    properties?: pulumi.Input<inputs.cloudhealth.ManagedIdentityAuthenticationSettingPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

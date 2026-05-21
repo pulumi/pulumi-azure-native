@@ -110,11 +110,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The private endpoint connection name.
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Core resource properties
      */
-    properties?: pulumi.Input<inputs.datafactory.PrivateLinkConnectionApprovalRequestArgs>;
+    properties?: pulumi.Input<inputs.datafactory.PrivateLinkConnectionApprovalRequestArgs | undefined>;
     /**
      * The resource group name.
      */

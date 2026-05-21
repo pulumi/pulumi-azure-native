@@ -131,11 +131,11 @@ export interface AADDataConnectorArgs {
     /**
      * Connector ID
      */
-    dataConnectorId?: pulumi.Input<string>;
+    dataConnectorId?: pulumi.Input<string | undefined>;
     /**
      * The available data types for the connector.
      */
-    dataTypes?: pulumi.Input<inputs.securityinsights.AlertsDataTypeOfDataConnectorArgs>;
+    dataTypes?: pulumi.Input<inputs.securityinsights.AlertsDataTypeOfDataConnectorArgs | undefined>;
     /**
      * The kind of the data connector
      * Expected value is 'AzureActiveDirectory'.

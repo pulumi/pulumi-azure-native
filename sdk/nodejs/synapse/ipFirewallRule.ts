@@ -111,7 +111,7 @@ export interface IpFirewallRuleArgs {
     /**
      * The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress
      */
-    endIpAddress?: pulumi.Input<string>;
+    endIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -119,11 +119,11 @@ export interface IpFirewallRuleArgs {
     /**
      * The IP firewall rule name
      */
-    ruleName?: pulumi.Input<string>;
+    ruleName?: pulumi.Input<string | undefined>;
     /**
      * The start IP address of the firewall rule. Must be IPv4 format
      */
-    startIpAddress?: pulumi.Input<string>;
+    startIpAddress?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

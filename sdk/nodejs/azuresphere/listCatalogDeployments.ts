@@ -89,11 +89,11 @@ export interface ListCatalogDeploymentsOutputArgs {
     /**
      * Filter the result list using the given expression
      */
-    filter?: pulumi.Input<string>;
+    filter?: pulumi.Input<string | undefined>;
     /**
      * The maximum number of result items per page.
      */
-    maxpagesize?: pulumi.Input<number>;
+    maxpagesize?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -101,9 +101,9 @@ export interface ListCatalogDeploymentsOutputArgs {
     /**
      * The number of result items to skip.
      */
-    skip?: pulumi.Input<number>;
+    skip?: pulumi.Input<number | undefined>;
     /**
      * The number of result items to return.
      */
-    top?: pulumi.Input<number>;
+    top?: pulumi.Input<number | undefined>;
 }

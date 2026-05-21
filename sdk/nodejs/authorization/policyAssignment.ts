@@ -205,63 +205,63 @@ export interface PolicyAssignmentArgs {
     /**
      * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
      */
-    assignmentType?: pulumi.Input<string | enums.authorization.AssignmentType>;
+    assignmentType?: pulumi.Input<string | enums.authorization.AssignmentType | undefined>;
     /**
      * The version of the policy definition to use.
      */
-    definitionVersion?: pulumi.Input<string>;
+    definitionVersion?: pulumi.Input<string | undefined>;
     /**
      * This message will be part of response in case of policy violation.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The display name of the policy assignment.
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * The policy assignment enforcement mode. Possible values are Default, DoNotEnforce, and Enroll
      */
-    enforcementMode?: pulumi.Input<string | enums.authorization.EnforcementMode>;
+    enforcementMode?: pulumi.Input<string | enums.authorization.EnforcementMode | undefined>;
     /**
      * The managed identity associated with the policy assignment.
      */
-    identity?: pulumi.Input<inputs.authorization.IdentityArgs>;
+    identity?: pulumi.Input<inputs.authorization.IdentityArgs | undefined>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    metadata?: any;
+    metadata?: any | undefined;
     /**
      * The messages that describe why a resource is non-compliant with the policy.
      */
-    nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.authorization.NonComplianceMessageArgs>[]>;
+    nonComplianceMessages?: pulumi.Input<pulumi.Input<inputs.authorization.NonComplianceMessageArgs>[] | undefined>;
     /**
      * The policy's excluded scopes.
      */
-    notScopes?: pulumi.Input<pulumi.Input<string>[]>;
+    notScopes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * The policy property value override.
      */
-    overrides?: pulumi.Input<pulumi.Input<inputs.authorization.OverrideArgs>[]>;
+    overrides?: pulumi.Input<pulumi.Input<inputs.authorization.OverrideArgs>[] | undefined>;
     /**
      * The parameter values for the assigned policy rule. The keys are the parameter names.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterValuesValueArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.authorization.ParameterValuesValueArgs>} | undefined>;
     /**
      * The name of the policy assignment.
      */
-    policyAssignmentName?: pulumi.Input<string>;
+    policyAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * The ID of the policy definition or policy set definition being assigned.
      */
-    policyDefinitionId?: pulumi.Input<string>;
+    policyDefinitionId?: pulumi.Input<string | undefined>;
     /**
      * The resource selector list to filter policies by resource properties.
      */
-    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.authorization.ResourceSelectorArgs>[]>;
+    resourceSelectors?: pulumi.Input<pulumi.Input<inputs.authorization.ResourceSelectorArgs>[] | undefined>;
     /**
      * The scope of the policy assignment. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroup}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}', or resource (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]{resourceType}/{resourceName}'
      */

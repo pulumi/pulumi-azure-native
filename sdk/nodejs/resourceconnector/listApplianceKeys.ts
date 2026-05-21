@@ -75,7 +75,7 @@ export interface ListApplianceKeysOutputArgs {
     /**
      * This sets the type of artifact being returned, when empty no artifact endpoint is returned.
      */
-    artifactType?: pulumi.Input<string>;
+    artifactType?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

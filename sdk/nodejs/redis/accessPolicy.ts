@@ -117,7 +117,7 @@ export interface AccessPolicyArgs {
     /**
      * The name of the access policy that is being added to the Redis cache.
      */
-    accessPolicyName?: pulumi.Input<string>;
+    accessPolicyName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Redis cache.
      */

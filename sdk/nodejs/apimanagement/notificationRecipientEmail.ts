@@ -102,7 +102,7 @@ export interface NotificationRecipientEmailArgs {
     /**
      * Email identifier.
      */
-    email?: pulumi.Input<string>;
+    email?: pulumi.Input<string | undefined>;
     /**
      * Notification Name Identifier.
      */

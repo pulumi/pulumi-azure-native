@@ -145,11 +145,11 @@ export interface ControllerArgs {
     /**
      * Region where the Azure resource is located.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Resource group to which the resource belongs.
      */
@@ -161,7 +161,7 @@ export interface ControllerArgs {
     /**
      * Tags for the Azure resource.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Credentials of the target container host (base64).
      */

@@ -88,7 +88,7 @@ export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
             resourceInputs["networkInterfaceName"] = args?.networkInterfaceName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tapConfigurationName"] = args?.tapConfigurationName;
-            resourceInputs["virtualNetworkTap"] = args ? (args.virtualNetworkTap ? pulumi.output(args.virtualNetworkTap).apply(inputs.network.virtualNetworkTapArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["virtualNetworkTap"] = args ? pulumi.output(args.virtualNetworkTap).apply(v => v === undefined ? undefined : inputs.network.virtualNetworkTapArgsProvideDefaults(v)) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
@@ -115,11 +115,11 @@ export interface NetworkInterfaceTapConfigurationArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The name of the network interface.
      */
@@ -131,9 +131,9 @@ export interface NetworkInterfaceTapConfigurationArgs {
     /**
      * The name of the tap configuration.
      */
-    tapConfigurationName?: pulumi.Input<string>;
+    tapConfigurationName?: pulumi.Input<string | undefined>;
     /**
      * The reference to the Virtual Network Tap resource.
      */
-    virtualNetworkTap?: pulumi.Input<inputs.network.VirtualNetworkTapArgs>;
+    virtualNetworkTap?: pulumi.Input<inputs.network.VirtualNetworkTapArgs | undefined>;
 }

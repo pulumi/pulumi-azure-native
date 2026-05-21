@@ -116,7 +116,7 @@ export interface GetApiIssueOutputArgs {
     /**
      * Expand the comment attachments. 
      */
-    expandCommentsAttachments?: pulumi.Input<boolean>;
+    expandCommentsAttachments?: pulumi.Input<boolean | undefined>;
     /**
      * Issue identifier. Must be unique in the current API Management service instance.
      */

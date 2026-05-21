@@ -122,15 +122,15 @@ export interface FirewallPolicyRuleCollectionGroupDraftArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Priority of the Firewall Policy Rule Collection Group resource.
      */
-    priority?: pulumi.Input<number>;
+    priority?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group.
      */
@@ -142,5 +142,5 @@ export interface FirewallPolicyRuleCollectionGroupDraftArgs {
     /**
      * Group of Firewall Policy rule collections.
      */
-    ruleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyFilterRuleCollectionArgs | inputs.network.FirewallPolicyNatRuleCollectionArgs>[]>;
+    ruleCollections?: pulumi.Input<pulumi.Input<inputs.network.FirewallPolicyFilterRuleCollectionArgs | inputs.network.FirewallPolicyNatRuleCollectionArgs>[] | undefined>;
 }

@@ -124,7 +124,7 @@ export interface ProtectionIntentArgs {
     /**
      * Optional ETag.
      */
-    eTag?: pulumi.Input<string>;
+    eTag?: pulumi.Input<string | undefined>;
     /**
      * Fabric name associated with the backup item.
      */
@@ -132,15 +132,15 @@ export interface ProtectionIntentArgs {
     /**
      * Intent object name.
      */
-    intentObjectName?: pulumi.Input<string>;
+    intentObjectName?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * ProtectionIntentResource properties
      */
-    properties?: pulumi.Input<inputs.recoveryservices.AzureRecoveryServiceVaultProtectionIntentArgs | inputs.recoveryservices.AzureResourceProtectionIntentArgs | inputs.recoveryservices.AzureWorkloadAutoProtectionIntentArgs | inputs.recoveryservices.AzureWorkloadContainerAutoProtectionIntentArgs | inputs.recoveryservices.AzureWorkloadSQLAutoProtectionIntentArgs>;
+    properties?: pulumi.Input<inputs.recoveryservices.AzureRecoveryServiceVaultProtectionIntentArgs | inputs.recoveryservices.AzureResourceProtectionIntentArgs | inputs.recoveryservices.AzureWorkloadAutoProtectionIntentArgs | inputs.recoveryservices.AzureWorkloadContainerAutoProtectionIntentArgs | inputs.recoveryservices.AzureWorkloadSQLAutoProtectionIntentArgs | undefined>;
     /**
      * The name of the resource group where the recovery services vault is present.
      */
@@ -148,7 +148,7 @@ export interface ProtectionIntentArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The name of the recovery services vault.
      */

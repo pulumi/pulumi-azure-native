@@ -135,11 +135,11 @@ export interface PermissionBindingArgs {
      * The name of the client group resource that the permission is bound to.
      * The client group needs to be a resource under the same namespace the permission binding is a part of.
      */
-    clientGroupName?: pulumi.Input<string>;
+    clientGroupName?: pulumi.Input<string | undefined>;
     /**
      * Description for the Permission Binding resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace.
      */
@@ -147,11 +147,11 @@ export interface PermissionBindingArgs {
     /**
      * The allowed permission.
      */
-    permission?: pulumi.Input<string | enums.eventgrid.PermissionType>;
+    permission?: pulumi.Input<string | enums.eventgrid.PermissionType | undefined>;
     /**
      * The permission binding name.
      */
-    permissionBindingName?: pulumi.Input<string>;
+    permissionBindingName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group within the user's subscription.
      */
@@ -160,5 +160,5 @@ export interface PermissionBindingArgs {
      * The name of the Topic Space resource that the permission is bound to.
      * The Topic space needs to be a resource under the same namespace the permission binding is a part of.
      */
-    topicSpaceName?: pulumi.Input<string>;
+    topicSpaceName?: pulumi.Input<string | undefined>;
 }

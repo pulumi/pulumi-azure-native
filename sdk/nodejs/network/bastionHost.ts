@@ -157,7 +157,7 @@ export class BastionHost extends pulumi.CustomResource {
             resourceInputs["networkAcls"] = args?.networkAcls;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["scaleUnits"] = args?.scaleUnits;
-            resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.network.skuArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["sku"] = args ? pulumi.output(args.sku).apply(v => v === undefined ? undefined : inputs.network.skuArgsProvideDefaults(v)) : undefined;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["virtualNetwork"] = args?.virtualNetwork;
             resourceInputs["zones"] = args?.zones;
@@ -204,56 +204,56 @@ export interface BastionHostArgs {
     /**
      * The name of the Bastion Host.
      */
-    bastionHostName?: pulumi.Input<string>;
+    bastionHostName?: pulumi.Input<string | undefined>;
     /**
      * Enable/Disable Copy/Paste feature of the Bastion Host resource.
      */
-    disableCopyPaste?: pulumi.Input<boolean>;
+    disableCopyPaste?: pulumi.Input<boolean | undefined>;
     /**
      * FQDN for the endpoint on which bastion host is accessible.
      */
-    dnsName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string | undefined>;
     /**
      * Enable/Disable File Copy feature of the Bastion Host resource.
      */
-    enableFileCopy?: pulumi.Input<boolean>;
+    enableFileCopy?: pulumi.Input<boolean | undefined>;
     /**
      * Enable/Disable IP Connect feature of the Bastion Host resource.
      */
-    enableIpConnect?: pulumi.Input<boolean>;
+    enableIpConnect?: pulumi.Input<boolean | undefined>;
     /**
      * Enable/Disable Kerberos feature of the Bastion Host resource.
      */
-    enableKerberos?: pulumi.Input<boolean>;
+    enableKerberos?: pulumi.Input<boolean | undefined>;
     /**
      * Enable/Disable Private Only feature of the Bastion Host resource.
      */
-    enablePrivateOnlyBastion?: pulumi.Input<boolean>;
+    enablePrivateOnlyBastion?: pulumi.Input<boolean | undefined>;
     /**
      * Enable/Disable Session Recording feature of the Bastion Host resource.
      */
-    enableSessionRecording?: pulumi.Input<boolean>;
+    enableSessionRecording?: pulumi.Input<boolean | undefined>;
     /**
      * Enable/Disable Shareable Link of the Bastion Host resource.
      */
-    enableShareableLink?: pulumi.Input<boolean>;
+    enableShareableLink?: pulumi.Input<boolean | undefined>;
     /**
      * Enable/Disable Tunneling feature of the Bastion Host resource.
      */
-    enableTunneling?: pulumi.Input<boolean>;
+    enableTunneling?: pulumi.Input<boolean | undefined>;
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * IP configuration of the Bastion Host resource.
      */
-    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.BastionHostIPConfigurationArgs>[]>;
+    ipConfigurations?: pulumi.Input<pulumi.Input<inputs.network.BastionHostIPConfigurationArgs>[] | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
-    networkAcls?: pulumi.Input<inputs.network.BastionHostPropertiesFormatNetworkAclsArgs>;
+    location?: pulumi.Input<string | undefined>;
+    networkAcls?: pulumi.Input<inputs.network.BastionHostPropertiesFormatNetworkAclsArgs | undefined>;
     /**
      * The name of the resource group.
      */
@@ -261,21 +261,21 @@ export interface BastionHostArgs {
     /**
      * The scale units for the Bastion Host resource.
      */
-    scaleUnits?: pulumi.Input<number>;
+    scaleUnits?: pulumi.Input<number | undefined>;
     /**
      * The sku of this Bastion Host.
      */
-    sku?: pulumi.Input<inputs.network.SkuArgs>;
+    sku?: pulumi.Input<inputs.network.SkuArgs | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Reference to an existing virtual network required for Developer Bastion Host only.
      */
-    virtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs>;
+    virtualNetwork?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */
-    zones?: pulumi.Input<pulumi.Input<string>[]>;
+    zones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

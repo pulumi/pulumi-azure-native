@@ -148,11 +148,11 @@ export interface OpenIdConnectProviderArgs {
     /**
      * Client Secret of developer console which is the client application.
      */
-    clientSecret?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string | undefined>;
     /**
      * User-friendly description of OpenID Connect Provider.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * User-friendly OpenID Connect Provider name.
      */
@@ -164,7 +164,7 @@ export interface OpenIdConnectProviderArgs {
     /**
      * Identifier of the OpenID Connect Provider.
      */
-    opid?: pulumi.Input<string>;
+    opid?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -176,9 +176,9 @@ export interface OpenIdConnectProviderArgs {
     /**
      * If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
      */
-    useInApiDocumentation?: pulumi.Input<boolean>;
+    useInApiDocumentation?: pulumi.Input<boolean | undefined>;
     /**
      * If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
      */
-    useInTestConsole?: pulumi.Input<boolean>;
+    useInTestConsole?: pulumi.Input<boolean | undefined>;
 }

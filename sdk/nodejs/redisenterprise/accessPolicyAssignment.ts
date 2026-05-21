@@ -124,7 +124,7 @@ export interface AccessPolicyAssignmentArgs {
     /**
      * The name of the Redis Enterprise database access policy assignment.
      */
-    accessPolicyAssignmentName?: pulumi.Input<string>;
+    accessPolicyAssignmentName?: pulumi.Input<string | undefined>;
     /**
      * Name of access policy under specific access policy assignment. Only "default" policy is supported for now.
      */

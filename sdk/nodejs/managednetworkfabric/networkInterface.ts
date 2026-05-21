@@ -150,7 +150,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string>;
+    annotation?: pulumi.Input<string | undefined>;
     /**
      * Name of the Network Device.
      */
@@ -158,7 +158,7 @@ export interface NetworkInterfaceArgs {
     /**
      * Name of the Network Interface.
      */
-    networkInterfaceName?: pulumi.Input<string>;
+    networkInterfaceName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

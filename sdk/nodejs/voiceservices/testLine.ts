@@ -142,7 +142,7 @@ export interface TestLineArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The phone number
      */
@@ -158,9 +158,9 @@ export interface TestLineArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Unique identifier for this test line
      */
-    testLineName?: pulumi.Input<string>;
+    testLineName?: pulumi.Input<string | undefined>;
 }

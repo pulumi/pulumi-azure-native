@@ -122,20 +122,20 @@ export interface AppServiceEnvironmentPrivateEndpointConnectionArgs {
     /**
      * Private IPAddresses mapped to the remote private endpoint
      */
-    ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    ipAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Kind of resource.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Name of the App Service Environment.
      */
     name: pulumi.Input<string>;
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * The state of a private link connection
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.web.PrivateLinkConnectionStateArgs | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */

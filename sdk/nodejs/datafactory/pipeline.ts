@@ -154,19 +154,19 @@ export interface PipelineArgs {
     /**
      * List of activities in pipeline.
      */
-    activities?: pulumi.Input<pulumi.Input<inputs.datafactory.AppendVariableActivityArgs | inputs.datafactory.AzureDataExplorerCommandActivityArgs | inputs.datafactory.AzureFunctionActivityArgs | inputs.datafactory.AzureMLBatchExecutionActivityArgs | inputs.datafactory.AzureMLExecutePipelineActivityArgs | inputs.datafactory.AzureMLUpdateResourceActivityArgs | inputs.datafactory.ControlActivityArgs | inputs.datafactory.CopyActivityArgs | inputs.datafactory.CustomActivityArgs | inputs.datafactory.DataLakeAnalyticsUSQLActivityArgs | inputs.datafactory.DatabricksJobActivityArgs | inputs.datafactory.DatabricksNotebookActivityArgs | inputs.datafactory.DatabricksSparkJarActivityArgs | inputs.datafactory.DatabricksSparkPythonActivityArgs | inputs.datafactory.DeleteActivityArgs | inputs.datafactory.ExecuteDataFlowActivityArgs | inputs.datafactory.ExecutePipelineActivityArgs | inputs.datafactory.ExecuteSSISPackageActivityArgs | inputs.datafactory.ExecuteWranglingDataflowActivityArgs | inputs.datafactory.ExecutionActivityArgs | inputs.datafactory.FailActivityArgs | inputs.datafactory.FilterActivityArgs | inputs.datafactory.ForEachActivityArgs | inputs.datafactory.GetMetadataActivityArgs | inputs.datafactory.HDInsightHiveActivityArgs | inputs.datafactory.HDInsightMapReduceActivityArgs | inputs.datafactory.HDInsightPigActivityArgs | inputs.datafactory.HDInsightSparkActivityArgs | inputs.datafactory.HDInsightStreamingActivityArgs | inputs.datafactory.IfConditionActivityArgs | inputs.datafactory.LookupActivityArgs | inputs.datafactory.ScriptActivityArgs | inputs.datafactory.SetVariableActivityArgs | inputs.datafactory.SqlServerStoredProcedureActivityArgs | inputs.datafactory.SwitchActivityArgs | inputs.datafactory.SynapseNotebookActivityArgs | inputs.datafactory.SynapseSparkJobDefinitionActivityArgs | inputs.datafactory.UntilActivityArgs | inputs.datafactory.ValidationActivityArgs | inputs.datafactory.WaitActivityArgs | inputs.datafactory.WebActivityArgs | inputs.datafactory.WebHookActivityArgs>[]>;
+    activities?: pulumi.Input<pulumi.Input<inputs.datafactory.AppendVariableActivityArgs | inputs.datafactory.AzureDataExplorerCommandActivityArgs | inputs.datafactory.AzureFunctionActivityArgs | inputs.datafactory.AzureMLBatchExecutionActivityArgs | inputs.datafactory.AzureMLExecutePipelineActivityArgs | inputs.datafactory.AzureMLUpdateResourceActivityArgs | inputs.datafactory.ControlActivityArgs | inputs.datafactory.CopyActivityArgs | inputs.datafactory.CustomActivityArgs | inputs.datafactory.DataLakeAnalyticsUSQLActivityArgs | inputs.datafactory.DatabricksJobActivityArgs | inputs.datafactory.DatabricksNotebookActivityArgs | inputs.datafactory.DatabricksSparkJarActivityArgs | inputs.datafactory.DatabricksSparkPythonActivityArgs | inputs.datafactory.DeleteActivityArgs | inputs.datafactory.ExecuteDataFlowActivityArgs | inputs.datafactory.ExecutePipelineActivityArgs | inputs.datafactory.ExecuteSSISPackageActivityArgs | inputs.datafactory.ExecuteWranglingDataflowActivityArgs | inputs.datafactory.ExecutionActivityArgs | inputs.datafactory.FailActivityArgs | inputs.datafactory.FilterActivityArgs | inputs.datafactory.ForEachActivityArgs | inputs.datafactory.GetMetadataActivityArgs | inputs.datafactory.HDInsightHiveActivityArgs | inputs.datafactory.HDInsightMapReduceActivityArgs | inputs.datafactory.HDInsightPigActivityArgs | inputs.datafactory.HDInsightSparkActivityArgs | inputs.datafactory.HDInsightStreamingActivityArgs | inputs.datafactory.IfConditionActivityArgs | inputs.datafactory.LookupActivityArgs | inputs.datafactory.ScriptActivityArgs | inputs.datafactory.SetVariableActivityArgs | inputs.datafactory.SqlServerStoredProcedureActivityArgs | inputs.datafactory.SwitchActivityArgs | inputs.datafactory.SynapseNotebookActivityArgs | inputs.datafactory.SynapseSparkJobDefinitionActivityArgs | inputs.datafactory.UntilActivityArgs | inputs.datafactory.ValidationActivityArgs | inputs.datafactory.WaitActivityArgs | inputs.datafactory.WebActivityArgs | inputs.datafactory.WebHookActivityArgs>[] | undefined>;
     /**
      * List of tags that can be used for describing the Pipeline.
      */
-    annotations?: pulumi.Input<any[]>;
+    annotations?: pulumi.Input<any[] | undefined>;
     /**
      * The max number of concurrent runs for the pipeline.
      */
-    concurrency?: pulumi.Input<number>;
+    concurrency?: pulumi.Input<number | undefined>;
     /**
      * The description of the pipeline.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * The factory name.
      */
@@ -174,19 +174,19 @@ export interface PipelineArgs {
     /**
      * The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
      */
-    folder?: pulumi.Input<inputs.datafactory.PipelineFolderArgs>;
+    folder?: pulumi.Input<inputs.datafactory.PipelineFolderArgs | undefined>;
     /**
      * List of parameters for pipeline.
      */
-    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.ParameterSpecificationArgs>}>;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.ParameterSpecificationArgs>} | undefined>;
     /**
      * The pipeline name.
      */
-    pipelineName?: pulumi.Input<string>;
+    pipelineName?: pulumi.Input<string | undefined>;
     /**
      * Pipeline Policy.
      */
-    policy?: pulumi.Input<inputs.datafactory.PipelinePolicyArgs>;
+    policy?: pulumi.Input<inputs.datafactory.PipelinePolicyArgs | undefined>;
     /**
      * The resource group name.
      */
@@ -194,9 +194,9 @@ export interface PipelineArgs {
     /**
      * Dimensions emitted by Pipeline.
      */
-    runDimensions?: pulumi.Input<{[key: string]: any}>;
+    runDimensions?: pulumi.Input<{[key: string]: any} | undefined>;
     /**
      * List of variables for pipeline.
      */
-    variables?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.VariableSpecificationArgs>}>;
+    variables?: pulumi.Input<{[key: string]: pulumi.Input<inputs.datafactory.VariableSpecificationArgs>} | undefined>;
 }

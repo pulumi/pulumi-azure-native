@@ -143,11 +143,11 @@ export interface IpCommunityArgs {
     /**
      * Switch configuration description.
      */
-    annotation?: pulumi.Input<string>;
+    annotation?: pulumi.Input<string | undefined>;
     /**
      * Name of the IP Community.
      */
-    ipCommunityName?: pulumi.Input<string>;
+    ipCommunityName?: pulumi.Input<string | undefined>;
     /**
      * List of IP Community Rules.
      */
@@ -155,7 +155,7 @@ export interface IpCommunityArgs {
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -163,5 +163,5 @@ export interface IpCommunityArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

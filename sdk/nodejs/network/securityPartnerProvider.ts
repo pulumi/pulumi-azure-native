@@ -135,11 +135,11 @@ export interface SecurityPartnerProviderArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * Resource location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */
@@ -147,17 +147,17 @@ export interface SecurityPartnerProviderArgs {
     /**
      * The name of the Security Partner Provider.
      */
-    securityPartnerProviderName?: pulumi.Input<string>;
+    securityPartnerProviderName?: pulumi.Input<string | undefined>;
     /**
      * The security provider name.
      */
-    securityProviderName?: pulumi.Input<string | enums.network.SecurityProviderName>;
+    securityProviderName?: pulumi.Input<string | enums.network.SecurityProviderName | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The virtualHub to which the Security Partner Provider belongs.
      */
-    virtualHub?: pulumi.Input<inputs.network.SubResourceArgs>;
+    virtualHub?: pulumi.Input<inputs.network.SubResourceArgs | undefined>;
 }

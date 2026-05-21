@@ -116,11 +116,11 @@ export interface DashboardArgs {
     /**
      * The name of the Azure Managed Dashboard.
      */
-    dashboardName?: pulumi.Input<string>;
+    dashboardName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -128,5 +128,5 @@ export interface DashboardArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

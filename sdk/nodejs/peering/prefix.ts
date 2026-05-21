@@ -142,15 +142,15 @@ export interface PrefixArgs {
     /**
      * The peering service prefix key
      */
-    peeringServicePrefixKey?: pulumi.Input<string>;
+    peeringServicePrefixKey?: pulumi.Input<string | undefined>;
     /**
      * The prefix from which your traffic originates.
      */
-    prefix?: pulumi.Input<string>;
+    prefix?: pulumi.Input<string | undefined>;
     /**
      * The name of the prefix.
      */
-    prefixName?: pulumi.Input<string>;
+    prefixName?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group.
      */

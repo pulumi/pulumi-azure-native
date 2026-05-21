@@ -122,7 +122,7 @@ export interface SecurityPolicyArgs {
     /**
      * object which contains security policy parameters
      */
-    parameters?: pulumi.Input<inputs.cdn.SecurityPolicyWebApplicationFirewallParametersArgs>;
+    parameters?: pulumi.Input<inputs.cdn.SecurityPolicyWebApplicationFirewallParametersArgs | undefined>;
     /**
      * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
@@ -134,5 +134,5 @@ export interface SecurityPolicyArgs {
     /**
      * Name of the security policy under the profile.
      */
-    securityPolicyName?: pulumi.Input<string>;
+    securityPolicyName?: pulumi.Input<string | undefined>;
 }

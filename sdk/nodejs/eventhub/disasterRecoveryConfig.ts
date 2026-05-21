@@ -138,11 +138,11 @@ export interface DisasterRecoveryConfigArgs {
     /**
      * The Disaster Recovery configuration name
      */
-    alias?: pulumi.Input<string>;
+    alias?: pulumi.Input<string | undefined>;
     /**
      * Alternate name specified when alias and namespace names are same.
      */
-    alternateName?: pulumi.Input<string>;
+    alternateName?: pulumi.Input<string | undefined>;
     /**
      * The Namespace name
      */
@@ -150,7 +150,7 @@ export interface DisasterRecoveryConfigArgs {
     /**
      * ARM Id of the Primary/Secondary eventhub namespace name, which is part of GEO DR pairing
      */
-    partnerNamespace?: pulumi.Input<string>;
+    partnerNamespace?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group within the azure subscription.
      */

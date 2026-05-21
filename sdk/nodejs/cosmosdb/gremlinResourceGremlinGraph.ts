@@ -92,7 +92,7 @@ export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
             resourceInputs["graphName"] = args?.graphName;
             resourceInputs["location"] = args?.location;
             resourceInputs["options"] = args?.options;
-            resourceInputs["resource"] = args ? (args.resource ? pulumi.output(args.resource).apply(inputs.cosmosdb.gremlinGraphResourceArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["resource"] = args ? pulumi.output(args.resource).apply(inputs.cosmosdb.gremlinGraphResourceArgsProvideDefaults) : undefined;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -129,15 +129,15 @@ export interface GremlinResourceGremlinGraphArgs {
     /**
      * Cosmos DB graph name.
      */
-    graphName?: pulumi.Input<string>;
+    graphName?: pulumi.Input<string | undefined>;
     /**
      * The location of the resource group to which the resource belongs.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * A key-value pair of options to be applied for the request. This corresponds to the headers sent with the request.
      */
-    options?: pulumi.Input<inputs.cosmosdb.CreateUpdateOptionsArgs>;
+    options?: pulumi.Input<inputs.cosmosdb.CreateUpdateOptionsArgs | undefined>;
     /**
      * The standard JSON format of a Gremlin graph
      */
@@ -149,5 +149,5 @@ export interface GremlinResourceGremlinGraphArgs {
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

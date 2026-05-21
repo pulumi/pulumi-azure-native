@@ -173,47 +173,47 @@ export class KubeEnvironment extends pulumi.CustomResource {
  * The set of arguments for constructing a KubeEnvironment resource.
  */
 export interface KubeEnvironmentArgs {
-    aksResourceID?: pulumi.Input<string>;
+    aksResourceID?: pulumi.Input<string | undefined>;
     /**
      * Cluster configuration which enables the log daemon to export
      * app logs to a destination. Currently only "log-analytics" is
      * supported
      */
-    appLogsConfiguration?: pulumi.Input<inputs.web.AppLogsConfigurationArgs>;
+    appLogsConfiguration?: pulumi.Input<inputs.web.AppLogsConfigurationArgs | undefined>;
     /**
      * Cluster configuration which determines the ARC cluster
      * components types. Eg: Choosing between BuildService kind,
      * FrontEnd Service ArtifactsStorageType etc.
      */
-    arcConfiguration?: pulumi.Input<inputs.web.ArcConfigurationArgs>;
+    arcConfiguration?: pulumi.Input<inputs.web.ArcConfigurationArgs | undefined>;
     /**
      * Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
      */
-    containerAppsConfiguration?: pulumi.Input<inputs.web.ContainerAppsConfigurationArgs>;
+    containerAppsConfiguration?: pulumi.Input<inputs.web.ContainerAppsConfigurationArgs | undefined>;
     /**
      * Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
      */
-    environmentType?: pulumi.Input<string>;
+    environmentType?: pulumi.Input<string | undefined>;
     /**
      * Extended Location.
      */
-    extendedLocation?: pulumi.Input<inputs.web.ExtendedLocationArgs>;
+    extendedLocation?: pulumi.Input<inputs.web.ExtendedLocationArgs | undefined>;
     /**
      * Only visible within Vnet/Subnet
      */
-    internalLoadBalancerEnabled?: pulumi.Input<boolean>;
+    internalLoadBalancerEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * Resource Location.
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Name of the Kubernetes Environment.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Name of the resource group to which the resource belongs.
      */
@@ -221,9 +221,9 @@ export interface KubeEnvironmentArgs {
     /**
      * Static IP of the KubeEnvironment
      */
-    staticIp?: pulumi.Input<string>;
+    staticIp?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

@@ -141,7 +141,7 @@ export class DataLakeConnector extends pulumi.CustomResource {
             resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["image"] = args?.image;
             resourceInputs["instances"] = args?.instances;
-            resourceInputs["localBrokerConnection"] = args ? (args.localBrokerConnection ? pulumi.output(args.localBrokerConnection).apply(inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["localBrokerConnection"] = args ? pulumi.output(args.localBrokerConnection).apply(v => v === undefined ? undefined : inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults(v)) : undefined;
             resourceInputs["location"] = args?.location;
             resourceInputs["logLevel"] = args?.logLevel;
             resourceInputs["mqName"] = args?.mqName;
@@ -187,7 +187,7 @@ export interface DataLakeConnectorArgs {
     /**
      * Name of MQ dataLakeConnector resource
      */
-    dataLakeConnectorName?: pulumi.Input<string>;
+    dataLakeConnectorName?: pulumi.Input<string | undefined>;
     /**
      * DataLake database format to use.
      */
@@ -203,19 +203,19 @@ export interface DataLakeConnectorArgs {
     /**
      * The number of DataLakeConnector pods to spin up.
      */
-    instances?: pulumi.Input<number>;
+    instances?: pulumi.Input<number | undefined>;
     /**
      * The details for connecting with Local Broker.
      */
-    localBrokerConnection?: pulumi.Input<inputs.iotoperationsmq.LocalBrokerConnectionSpecArgs>;
+    localBrokerConnection?: pulumi.Input<inputs.iotoperationsmq.LocalBrokerConnectionSpecArgs | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The log level of the DataLake Connector instances.
      */
-    logLevel?: pulumi.Input<string>;
+    logLevel?: pulumi.Input<string | undefined>;
     /**
      * Name of MQ resource
      */
@@ -223,7 +223,7 @@ export interface DataLakeConnectorArgs {
     /**
      * The Node Tolerations for the DataLake Connector pods.
      */
-    nodeTolerations?: pulumi.Input<inputs.iotoperationsmq.NodeTolerationsArgs>;
+    nodeTolerations?: pulumi.Input<inputs.iotoperationsmq.NodeTolerationsArgs | undefined>;
     /**
      * The protocol to use for connecting with Brokers.
      */
@@ -235,7 +235,7 @@ export interface DataLakeConnectorArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * The protocol to use for connecting with Brokers. NOTE - Enum only storage is supported at at time.
      */

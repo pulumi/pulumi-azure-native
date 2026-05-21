@@ -114,11 +114,11 @@ export interface PrivateEndpointConnectionArgs {
     /**
      * The name of the private endpoint connection.
      */
-    privateEndpointConnectionName?: pulumi.Input<string>;
+    privateEndpointConnectionName?: pulumi.Input<string | undefined>;
     /**
      * Connection state of the private endpoint connection.
      */
-    privateLinkServiceConnectionState?: pulumi.Input<inputs.synapse.PrivateLinkServiceConnectionStateArgs>;
+    privateLinkServiceConnectionState?: pulumi.Input<inputs.synapse.PrivateLinkServiceConnectionStateArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

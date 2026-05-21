@@ -112,11 +112,11 @@ export interface PrivateEndpointConnectionProxyArgs {
     /**
      * The private endpoint connection proxy name.
      */
-    privateEndpointConnectionProxyName?: pulumi.Input<string>;
+    privateEndpointConnectionProxyName?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.datareplication.PrivateEndpointConnectionProxyPropertiesArgs>;
+    properties?: pulumi.Input<inputs.datareplication.PrivateEndpointConnectionProxyPropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

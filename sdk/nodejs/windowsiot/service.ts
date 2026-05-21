@@ -135,27 +135,27 @@ export interface ServiceArgs {
     /**
      * Windows IoT Device Service OEM AAD domain
      */
-    adminDomainName?: pulumi.Input<string>;
+    adminDomainName?: pulumi.Input<string | undefined>;
     /**
      * Windows IoT Device Service ODM AAD domain
      */
-    billingDomainName?: pulumi.Input<string>;
+    billingDomainName?: pulumi.Input<string | undefined>;
     /**
      * The name of the Windows IoT Device Service.
      */
-    deviceName?: pulumi.Input<string>;
+    deviceName?: pulumi.Input<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Windows IoT Device Service notes.
      */
-    notes?: pulumi.Input<string>;
+    notes?: pulumi.Input<string | undefined>;
     /**
      * Windows IoT Device Service device allocation,
      */
-    quantity?: pulumi.Input<number>;
+    quantity?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group that contains the Windows IoT Device Service.
      */
@@ -163,5 +163,5 @@ export interface ServiceArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

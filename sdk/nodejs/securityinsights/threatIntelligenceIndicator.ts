@@ -144,55 +144,55 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * Confidence of threat intelligence entity
      */
-    confidence?: pulumi.Input<number>;
+    confidence?: pulumi.Input<number | undefined>;
     /**
      * Created by
      */
-    created?: pulumi.Input<string>;
+    created?: pulumi.Input<string | undefined>;
     /**
      * Created by reference of threat intelligence entity
      */
-    createdByRef?: pulumi.Input<string>;
+    createdByRef?: pulumi.Input<string | undefined>;
     /**
      * Is threat intelligence entity defanged
      */
-    defanged?: pulumi.Input<boolean>;
+    defanged?: pulumi.Input<boolean | undefined>;
     /**
      * Description of a threat intelligence entity
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Display name of a threat intelligence entity
      */
-    displayName?: pulumi.Input<string>;
+    displayName?: pulumi.Input<string | undefined>;
     /**
      * Extensions map
      */
-    extensions?: any;
+    extensions?: any | undefined;
     /**
      * External ID of threat intelligence entity
      */
-    externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string | undefined>;
     /**
      * External last updated time in UTC
      */
-    externalLastUpdatedTimeUtc?: pulumi.Input<string>;
+    externalLastUpdatedTimeUtc?: pulumi.Input<string | undefined>;
     /**
      * External References
      */
-    externalReferences?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceExternalReferenceArgs>[]>;
+    externalReferences?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceExternalReferenceArgs>[] | undefined>;
     /**
      * Granular Markings
      */
-    granularMarkings?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceGranularMarkingModelArgs>[]>;
+    granularMarkings?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceGranularMarkingModelArgs>[] | undefined>;
     /**
      * Indicator types of threat intelligence entities
      */
-    indicatorTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    indicatorTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Kill chain phases
      */
-    killChainPhases?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceKillChainPhaseArgs>[]>;
+    killChainPhases?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceKillChainPhaseArgs>[] | undefined>;
     /**
      * The kind of the threat intelligence entity
      * Expected value is 'indicator'.
@@ -201,43 +201,43 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * Labels  of threat intelligence entity
      */
-    labels?: pulumi.Input<pulumi.Input<string>[]>;
+    labels?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Language of threat intelligence entity
      */
-    language?: pulumi.Input<string>;
+    language?: pulumi.Input<string | undefined>;
     /**
      * Last updated time in UTC
      */
-    lastUpdatedTimeUtc?: pulumi.Input<string>;
+    lastUpdatedTimeUtc?: pulumi.Input<string | undefined>;
     /**
      * Modified by
      */
-    modified?: pulumi.Input<string>;
+    modified?: pulumi.Input<string | undefined>;
     /**
      * Threat intelligence indicator name field.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * Threat intelligence entity object marking references
      */
-    objectMarkingRefs?: pulumi.Input<pulumi.Input<string>[]>;
+    objectMarkingRefs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Parsed patterns
      */
-    parsedPattern?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceParsedPatternArgs>[]>;
+    parsedPattern?: pulumi.Input<pulumi.Input<inputs.securityinsights.ThreatIntelligenceParsedPatternArgs>[] | undefined>;
     /**
      * Pattern of a threat intelligence entity
      */
-    pattern?: pulumi.Input<string>;
+    pattern?: pulumi.Input<string | undefined>;
     /**
      * Pattern type of a threat intelligence entity
      */
-    patternType?: pulumi.Input<string>;
+    patternType?: pulumi.Input<string | undefined>;
     /**
      * Pattern version of a threat intelligence entity
      */
-    patternVersion?: pulumi.Input<string>;
+    patternVersion?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -245,27 +245,27 @@ export interface ThreatIntelligenceIndicatorArgs {
     /**
      * Is threat intelligence entity revoked
      */
-    revoked?: pulumi.Input<boolean>;
+    revoked?: pulumi.Input<boolean | undefined>;
     /**
      * Source of a threat intelligence entity
      */
-    source?: pulumi.Input<string>;
+    source?: pulumi.Input<string | undefined>;
     /**
      * List of tags
      */
-    threatIntelligenceTags?: pulumi.Input<pulumi.Input<string>[]>;
+    threatIntelligenceTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Threat types
      */
-    threatTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    threatTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Valid from
      */
-    validFrom?: pulumi.Input<string>;
+    validFrom?: pulumi.Input<string | undefined>;
     /**
      * Valid until
      */
-    validUntil?: pulumi.Input<string>;
+    validUntil?: pulumi.Input<string | undefined>;
     /**
      * The name of the workspace.
      */

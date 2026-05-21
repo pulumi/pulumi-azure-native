@@ -172,23 +172,23 @@ export interface BackupPolicyArgs {
     /**
      * Backup policy Name which uniquely identify backup policy.
      */
-    backupPolicyName?: pulumi.Input<string>;
+    backupPolicyName?: pulumi.Input<string | undefined>;
     /**
      * Daily backups count to keep
      */
-    dailyBackupsToKeep?: pulumi.Input<number>;
+    dailyBackupsToKeep?: pulumi.Input<number | undefined>;
     /**
      * The property to decide policy is enabled or not
      */
-    enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * Monthly backups count to keep
      */
-    monthlyBackupsToKeep?: pulumi.Input<number>;
+    monthlyBackupsToKeep?: pulumi.Input<number | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -196,9 +196,9 @@ export interface BackupPolicyArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Weekly backups count to keep
      */
-    weeklyBackupsToKeep?: pulumi.Input<number>;
+    weeklyBackupsToKeep?: pulumi.Input<number | undefined>;
 }

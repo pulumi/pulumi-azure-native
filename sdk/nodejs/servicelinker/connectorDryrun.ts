@@ -127,7 +127,7 @@ export interface ConnectorDryrunArgs {
     /**
      * The name of dryrun.
      */
-    dryrunName?: pulumi.Input<string>;
+    dryrunName?: pulumi.Input<string | undefined>;
     /**
      * The name of Azure region.
      */
@@ -135,7 +135,7 @@ export interface ConnectorDryrunArgs {
     /**
      * The parameters of the dryrun
      */
-    parameters?: pulumi.Input<inputs.servicelinker.CreateOrUpdateDryrunParametersArgs>;
+    parameters?: pulumi.Input<inputs.servicelinker.CreateOrUpdateDryrunParametersArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -143,5 +143,5 @@ export interface ConnectorDryrunArgs {
     /**
      * The ID of the target subscription.
      */
-    subscriptionId?: pulumi.Input<string>;
+    subscriptionId?: pulumi.Input<string | undefined>;
 }

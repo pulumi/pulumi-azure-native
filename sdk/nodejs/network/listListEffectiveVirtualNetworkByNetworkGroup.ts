@@ -89,5 +89,5 @@ export interface ListListEffectiveVirtualNetworkByNetworkGroupOutputArgs {
     /**
      * When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data.
      */
-    skipToken?: pulumi.Input<string>;
+    skipToken?: pulumi.Input<string | undefined>;
 }

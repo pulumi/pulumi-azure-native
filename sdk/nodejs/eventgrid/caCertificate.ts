@@ -132,15 +132,15 @@ export interface CaCertificateArgs {
     /**
      * The CA certificate name.
      */
-    caCertificateName?: pulumi.Input<string>;
+    caCertificateName?: pulumi.Input<string | undefined>;
     /**
      * Description for the CA Certificate resource.
      */
-    description?: pulumi.Input<string>;
+    description?: pulumi.Input<string | undefined>;
     /**
      * Base64 encoded PEM (Privacy Enhanced Mail) format certificate data.
      */
-    encodedCertificate?: pulumi.Input<string>;
+    encodedCertificate?: pulumi.Input<string | undefined>;
     /**
      * Name of the namespace.
      */

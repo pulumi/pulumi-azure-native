@@ -115,11 +115,11 @@ export interface RoutingIntentArgs {
     /**
      * Resource ID.
      */
-    id?: pulumi.Input<string>;
+    id?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    name?: pulumi.Input<string>;
+    name?: pulumi.Input<string | undefined>;
     /**
      * The resource group name of the RoutingIntent.
      */
@@ -127,11 +127,11 @@ export interface RoutingIntentArgs {
     /**
      * The name of the per VirtualHub singleton Routing Intent resource.
      */
-    routingIntentName?: pulumi.Input<string>;
+    routingIntentName?: pulumi.Input<string | undefined>;
     /**
      * List of routing policies.
      */
-    routingPolicies?: pulumi.Input<pulumi.Input<inputs.network.RoutingPolicyArgs>[]>;
+    routingPolicies?: pulumi.Input<pulumi.Input<inputs.network.RoutingPolicyArgs>[] | undefined>;
     /**
      * The name of the VirtualHub.
      */

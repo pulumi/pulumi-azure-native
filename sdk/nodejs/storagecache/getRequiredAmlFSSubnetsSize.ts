@@ -63,9 +63,9 @@ export interface GetRequiredAmlFSSubnetsSizeOutputArgs {
     /**
      * SKU for the resource.
      */
-    sku?: pulumi.Input<inputs.storagecache.SkuNameArgs>;
+    sku?: pulumi.Input<inputs.storagecache.SkuNameArgs | undefined>;
     /**
      * The size of the AML file system, in TiB.
      */
-    storageCapacityTiB?: pulumi.Input<number>;
+    storageCapacityTiB?: pulumi.Input<number | undefined>;
 }

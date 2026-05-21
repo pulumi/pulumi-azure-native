@@ -169,7 +169,7 @@ export interface ADLSGen2FolderDataSetArgs {
     /**
      * The name of the dataSet.
      */
-    dataSetName?: pulumi.Input<string>;
+    dataSetName?: pulumi.Input<string | undefined>;
     /**
      * File system to which the folder belongs.
      */

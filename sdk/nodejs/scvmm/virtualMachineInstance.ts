@@ -154,7 +154,7 @@ export interface VirtualMachineInstanceArgs {
     /**
      * Availability Sets in vm.
      */
-    availabilitySets?: pulumi.Input<pulumi.Input<inputs.scvmm.VirtualMachineInstancePropertiesAvailabilitySetsArgs>[]>;
+    availabilitySets?: pulumi.Input<pulumi.Input<inputs.scvmm.VirtualMachineInstancePropertiesAvailabilitySetsArgs>[] | undefined>;
     /**
      * Gets or sets the extended location.
      */
@@ -162,19 +162,19 @@ export interface VirtualMachineInstanceArgs {
     /**
      * Hardware properties.
      */
-    hardwareProfile?: pulumi.Input<inputs.scvmm.HardwareProfileArgs>;
+    hardwareProfile?: pulumi.Input<inputs.scvmm.HardwareProfileArgs | undefined>;
     /**
      * Gets the infrastructure profile.
      */
-    infrastructureProfile?: pulumi.Input<inputs.scvmm.InfrastructureProfileArgs>;
+    infrastructureProfile?: pulumi.Input<inputs.scvmm.InfrastructureProfileArgs | undefined>;
     /**
      * Network properties.
      */
-    networkProfile?: pulumi.Input<inputs.scvmm.NetworkProfileArgs>;
+    networkProfile?: pulumi.Input<inputs.scvmm.NetworkProfileArgs | undefined>;
     /**
      * OS properties.
      */
-    osProfile?: pulumi.Input<inputs.scvmm.OsProfileForVMInstanceArgs>;
+    osProfile?: pulumi.Input<inputs.scvmm.OsProfileForVMInstanceArgs | undefined>;
     /**
      * The fully qualified Azure Resource manager identifier of the Hybrid Compute machine resource to be extended.
      */
@@ -182,5 +182,5 @@ export interface VirtualMachineInstanceArgs {
     /**
      * Storage properties.
      */
-    storageProfile?: pulumi.Input<inputs.scvmm.StorageProfileArgs>;
+    storageProfile?: pulumi.Input<inputs.scvmm.StorageProfileArgs | undefined>;
 }

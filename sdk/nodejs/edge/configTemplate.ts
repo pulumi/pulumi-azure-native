@@ -122,15 +122,15 @@ export interface ConfigTemplateArgs {
     /**
      * The name of the ConfigTemplate
      */
-    configTemplateName?: pulumi.Input<string>;
+    configTemplateName?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The resource-specific properties for this resource.
      */
-    properties?: pulumi.Input<inputs.edge.ConfigTemplatePropertiesArgs>;
+    properties?: pulumi.Input<inputs.edge.ConfigTemplatePropertiesArgs | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -138,5 +138,5 @@ export interface ConfigTemplateArgs {
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

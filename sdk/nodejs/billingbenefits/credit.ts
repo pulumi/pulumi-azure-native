@@ -230,51 +230,51 @@ export interface CreditArgs {
     /**
      * Fully-qualified identifier of the billing account where the benefit is applied. Present only for Enterprise Agreement customers.
      */
-    billingAccountResourceId?: pulumi.Input<string>;
+    billingAccountResourceId?: pulumi.Input<string | undefined>;
     /**
      * Credit line-items/milestones/no-charge services breakdown
      */
-    breakdown?: pulumi.Input<pulumi.Input<inputs.billingbenefits.CreditBreakdownItemArgs>[]>;
+    breakdown?: pulumi.Input<pulumi.Input<inputs.billingbenefits.CreditBreakdownItemArgs>[] | undefined>;
     /**
      * The entire investment amount for the credit contract, including currency and amount
      */
-    credit?: pulumi.Input<inputs.billingbenefits.CommitmentArgs>;
+    credit?: pulumi.Input<inputs.billingbenefits.CommitmentArgs | undefined>;
     /**
      * Name of the credit
      */
-    creditName?: pulumi.Input<string>;
+    creditName?: pulumi.Input<string | undefined>;
     /**
      * End DateTime in UTC.
      */
-    endAt?: pulumi.Input<string>;
+    endAt?: pulumi.Input<string | undefined>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs>;
+    identity?: pulumi.Input<inputs.billingbenefits.ManagedServiceIdentityArgs | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    kind?: pulumi.Input<string>;
+    kind?: pulumi.Input<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    location?: pulumi.Input<string>;
+    location?: pulumi.Input<string | undefined>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    managedBy?: pulumi.Input<string>;
+    managedBy?: pulumi.Input<string | undefined>;
     /**
      * Plan for the resource.
      */
-    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs>;
+    plan?: pulumi.Input<inputs.billingbenefits.PlanArgs | undefined>;
     /**
      * Credit breakdown item representing a milestone, line-item, or no-charge service
      */
-    policies?: pulumi.Input<inputs.billingbenefits.CreditPoliciesArgs>;
+    policies?: pulumi.Input<inputs.billingbenefits.CreditPoliciesArgs | undefined>;
     /**
      * Product UPN for the credit type
      */
-    productCode?: pulumi.Input<string>;
+    productCode?: pulumi.Input<string | undefined>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -282,25 +282,25 @@ export interface CreditArgs {
     /**
      * Fully-qualified resource identifier of the resource. Format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BillingBenefits/{benefitType}/{benefitName}.
      */
-    resourceId?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string | undefined>;
     /**
      * The resource model definition representing SKU
      */
-    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs>;
+    sku?: pulumi.Input<inputs.billingbenefits.SkuArgs | undefined>;
     /**
      * Start DateTime.
      */
-    startAt?: pulumi.Input<string>;
+    startAt?: pulumi.Input<string | undefined>;
     /**
      * Status of the credit
      */
-    status?: pulumi.Input<string | enums.billingbenefits.CreditStatus>;
+    status?: pulumi.Input<string | enums.billingbenefits.CreditStatus | undefined>;
     /**
      * System identifier
      */
-    systemId?: pulumi.Input<string>;
+    systemId?: pulumi.Input<string | undefined>;
     /**
      * Resource tags.
      */
-    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
