@@ -57,6 +57,9 @@ func IsNotFound(err error) bool {
 		"EntityNotFound":         true,
 		"SubscriptionNotFound":   true,
 		"RoleAssignmentNotFound": true,
+		// For resources of type azure-native:sql:DatabaseVulnerabilityAssessmentRuleBaseline
+		// See pulumi/pulumi-azure-native#4721 for more details
+		"VulnerabilityAssessmentBaselineDoesNotExists": true,
 	}
 
 	if responseError, ok := err.(*azcore.ResponseError); ok {

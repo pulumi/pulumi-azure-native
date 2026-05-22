@@ -48,3 +48,4 @@ p-examples/
 .mono
 go.work*
 *.sln
+*.lscache
