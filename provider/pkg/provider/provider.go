@@ -23,6 +23,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
@@ -280,7 +281,15 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	logging.V(9).Infof("Azure cloud: %+v", k.cloud)
 	logging.V(9).Infof("Azure subscription ID: %s", k.subscriptionID)
 
-	k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud.Configuration, nil)
+	// AuxiliaryTenants tells the ARM pipeline to attach the `x-ms-authorization-auxiliary`
+	// header for cross-tenant requests.
+	var armOpts *arm.ClientOptions
+	if len(authConfig.auxTenants) > 0 {
+		armOpts = &arm.ClientOptions{
+			AuxiliaryTenants: authConfig.auxTenants,
+		}
+	}
+	k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud.Configuration, armOpts)
 	if err != nil {
 		return nil, err
 	}

@@ -47,14 +47,13 @@ type azCoreClient struct {
 
 func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *arm.ClientOptions {
 	if opts == nil {
-		opts = &arm.ClientOptions{
-			ClientOptions: policy.ClientOptions{
-				Cloud: azureCloud,
-				Telemetry: policy.TelemetryOptions{
-					ApplicationID: fmt.Sprintf("pulumi-azure-native/%s", version.Version),
-				},
-			},
-		}
+		opts = &arm.ClientOptions{}
+	}
+	if opts.Cloud.ActiveDirectoryAuthorityHost == "" {
+		opts.Cloud = azureCloud
+	}
+	if opts.Telemetry.ApplicationID == "" {
+		opts.Telemetry.ApplicationID = fmt.Sprintf("pulumi-azure-native/%s", version.Version)
 	}
 
 	// azcore logging will only happen at log level 9.
