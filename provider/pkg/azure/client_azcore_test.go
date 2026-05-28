@@ -94,6 +94,14 @@ func TestInitPipelineOpts(t *testing.T) {
 		opts := initPipelineOpts(cloud.AzurePublic, nil)
 		assert.True(t, opts.Retry.ShouldRetry(&http.Response{StatusCode: http.StatusGatewayTimeout}, nil))
 	})
+
+	t.Run("preserves caller-supplied AuxiliaryTenants", func(t *testing.T) {
+		auxTenants := []string{"tenant-a", "tenant-b"}
+		opts := initPipelineOpts(cloud.AzurePublic, &arm.ClientOptions{AuxiliaryTenants: auxTenants})
+		assert.Equal(t, auxTenants, opts.AuxiliaryTenants)
+		assert.Equal(t, cloud.AzurePublic, opts.ClientOptions.Cloud)
+		assert.Equal(t, fmt.Sprintf("pulumi-azure-native/%s", version.Version), opts.Telemetry.ApplicationID)
+	})
 }
 
 func TestNormalizeLocationHeader(t *testing.T) {
