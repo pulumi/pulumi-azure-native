@@ -81,7 +81,7 @@ jobs:
           compare_to: ${{  github.base_ref }}
 
       - name: Check worktree clean
-        uses: pulumi/git-status-check-action@v1
+        uses: pulumi/git-status-check-action@0d90c81496aa8d6a31d9c6a0d6297feea2f54057 # v2
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
@@ -134,7 +134,7 @@ jobs:
         run: make build_${{ matrix.language }}
 
       - name: Check worktree clean
-        uses: pulumi/git-status-check-action@v1
+        uses: pulumi/git-status-check-action@0d90c81496aa8d6a31d9c6a0d6297feea2f54057 # v2
         with:
           allowed-changes: |
             sdk/**/pulumi-plugin.json
