@@ -492,10 +492,6 @@
     "Detail": "expected no additions but found some"
   },
   {
-    "ModuleName": "RedisEnterprise",
-    "Detail": "expected tracking stable but found preview"
-  },
-  {
     "ModuleName": "Relationships",
     "Detail": "expected tracking stable but found preview"
   },

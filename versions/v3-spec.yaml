@@ -1546,7 +1546,7 @@ Redis:
         RedisFirewallRule: "2016-04-01"
         RedisLinkedServer: "2017-02-01"
 RedisEnterprise:
-    tracking: 2025-05-01-preview
+    tracking: "2025-07-01"
 Relationships:
     tracking: 2023-09-01-preview
 Relay:
