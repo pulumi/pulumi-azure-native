@@ -17,6 +17,7 @@ __all__ = [
     'ManagedServiceIdentityType',
     'PrivateEndpointServiceConnectionStatus',
     'Protocol',
+    'PublicNetworkAccess',
     'RdbFrequency',
     'SkuName',
     'TlsVersion',
@@ -130,6 +131,15 @@ class Protocol(_builtins.str, Enum):
     """
     ENCRYPTED = "Encrypted"
     PLAINTEXT = "Plaintext"
+
+
+@pulumi.type_token("azure-native:redisenterprise:PublicNetworkAccess")
+class PublicNetworkAccess(_builtins.str, Enum):
+    """
+    Whether or not public network traffic can access the Redis cluster. Only 'Enabled' or 'Disabled' can be set. null is returned only for clusters created using an old API version which do not have this property and cannot be set.
+    """
+    ENABLED = "Enabled"
+    DISABLED = "Disabled"
 
 
 @pulumi.type_token("azure-native:redisenterprise:RdbFrequency")
