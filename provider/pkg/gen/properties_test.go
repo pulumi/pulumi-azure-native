@@ -103,6 +103,63 @@ func TestForceNew(t *testing.T) {
 	})
 }
 
+func TestIsReadableOutput(t *testing.T) {
+	webApp := moduleGenerator{moduleName: "Web", resourceName: "WebApp"}
+	webAppSlot := moduleGenerator{moduleName: "Web", resourceName: "WebAppSlot"}
+	plan := moduleGenerator{moduleName: "Web", resourceName: "AppServicePlan"}
+	otherModule := moduleGenerator{moduleName: "Storage", resourceName: "StorageAccount"}
+
+	assert.True(t, webApp.isReadableOutput("siteConfig"))
+	assert.True(t, webAppSlot.isReadableOutput("siteConfig"))
+	assert.False(t, webApp.isReadableOutput("someOtherProperty"))
+	assert.False(t, plan.isReadableOutput("siteConfig"))
+	assert.False(t, otherModule.isReadableOutput("siteConfig"))
+}
+
+func TestWriteOnlyOutputRetained(t *testing.T) {
+	// siteConfig as Azure models it on Microsoft.Web/sites since api-version 2024-11-01:
+	// settable on create/update, but not returned by a GET of the parent resource.
+	writeOnlySiteConfig := func() *openapi.Schema {
+		return &openapi.Schema{
+			Schema: &spec.Schema{
+				SchemaProps: spec.SchemaProps{
+					Type: []string{"object"},
+					Properties: map[string]spec.Schema{
+						"siteConfig": {
+							SchemaProps: spec.SchemaProps{Type: []string{"string"}},
+							VendorExtensible: spec.VendorExtensible{
+								Extensions: spec.Extensions{
+									extensionMutability: []interface{}{
+										extensionMutabilityCreate,
+										extensionMutabilityUpdate,
+									},
+								},
+							},
+						},
+					},
+				},
+			},
+		}
+	}
+	variant := genPropertiesVariant{isOutput: true}
+
+	t.Run("stripped as write-only by default", func(t *testing.T) {
+		m := moduleGenerator{moduleName: "Web", resourceName: "AppServicePlan"}
+		props, err := m.genProperties(writeOnlySiteConfig(), variant)
+		require.NoError(t, err)
+		assert.NotContains(t, props.specs, "siteConfig")
+		assert.NotContains(t, props.properties, "siteConfig")
+	})
+
+	t.Run("retained for Web/WebApp via readableOutputs override", func(t *testing.T) {
+		m := moduleGenerator{moduleName: "Web", resourceName: "WebApp"}
+		props, err := m.genProperties(writeOnlySiteConfig(), variant)
+		require.NoError(t, err)
+		assert.Contains(t, props.specs, "siteConfig")
+		assert.Contains(t, props.properties, "siteConfig")
+	})
+}
+
 func TestNonObjectInvokeResponses(t *testing.T) {
 	m := moduleGenerator{
 		moduleName: "foo",
