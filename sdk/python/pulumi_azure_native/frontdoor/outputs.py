@@ -1682,7 +1682,8 @@ class ManagedRuleOverrideResponse(dict):
                  rule_id: _builtins.str,
                  action: Optional[_builtins.str] = None,
                  enabled_state: Optional[_builtins.str] = None,
-                 exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None):
+                 exclusions: Optional[Sequence['outputs.ManagedRuleExclusionResponse']] = None,
+                 sensitivity: Optional[_builtins.str] = None):
         """
         Defines a managed rule group override setting.
 
@@ -1690,6 +1691,7 @@ class ManagedRuleOverrideResponse(dict):
         :param _builtins.str action: Describes the override action to be applied when rule matches.
         :param _builtins.str enabled_state: Describes if the managed rule is in enabled or disabled state. Defaults to Disabled if not specified.
         :param Sequence['ManagedRuleExclusionResponse'] exclusions: Describes the exclusions that are applied to this specific rule.
+        :param _builtins.str sensitivity: Describes the override sensitivity to be applied when rule matches.
         """
         pulumi.set(__self__, "rule_id", rule_id)
         if action is not None:
@@ -1698,6 +1700,8 @@ class ManagedRuleOverrideResponse(dict):
             pulumi.set(__self__, "enabled_state", enabled_state)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
+        if sensitivity is not None:
+            pulumi.set(__self__, "sensitivity", sensitivity)
 
     @_builtins.property
     @pulumi.getter(name="ruleId")
@@ -1730,6 +1734,14 @@ class ManagedRuleOverrideResponse(dict):
         Describes the exclusions that are applied to this specific rule.
         """
         return pulumi.get(self, "exclusions")
+
+    @_builtins.property
+    @pulumi.getter
+    def sensitivity(self) -> Optional[_builtins.str]:
+        """
+        Describes the override sensitivity to be applied when rule matches.
+        """
+        return pulumi.get(self, "sensitivity")
 
 
 @pulumi.output_type
@@ -1976,7 +1988,9 @@ class PolicySettingsResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "customBlockResponseBody":
+        if key == "captchaExpirationInMinutes":
+            suggest = "captcha_expiration_in_minutes"
+        elif key == "customBlockResponseBody":
             suggest = "custom_block_response_body"
         elif key == "customBlockResponseStatusCode":
             suggest = "custom_block_response_status_code"
@@ -2003,6 +2017,7 @@ class PolicySettingsResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 captcha_expiration_in_minutes: Optional[_builtins.int] = None,
                  custom_block_response_body: Optional[_builtins.str] = None,
                  custom_block_response_status_code: Optional[_builtins.int] = None,
                  enabled_state: Optional[_builtins.str] = None,
@@ -2015,6 +2030,7 @@ class PolicySettingsResponse(dict):
         """
         Defines top-level WebApplicationFirewallPolicy configuration settings.
 
+        :param _builtins.int captcha_expiration_in_minutes: Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
         :param _builtins.str custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         :param _builtins.int custom_block_response_status_code: If the action type is block, customer can override the response status code.
         :param _builtins.str enabled_state: Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified.
@@ -2025,6 +2041,8 @@ class PolicySettingsResponse(dict):
         :param Sequence['WebApplicationFirewallScrubbingRulesResponse'] scrubbing_rules: List of log scrubbing rules applied to the Web Application Firewall logs.
         :param _builtins.str state: State of the log scrubbing config. Default value is Enabled.
         """
+        if captcha_expiration_in_minutes is not None:
+            pulumi.set(__self__, "captcha_expiration_in_minutes", captcha_expiration_in_minutes)
         if custom_block_response_body is not None:
             pulumi.set(__self__, "custom_block_response_body", custom_block_response_body)
         if custom_block_response_status_code is not None:
@@ -2043,6 +2061,14 @@ class PolicySettingsResponse(dict):
             pulumi.set(__self__, "scrubbing_rules", scrubbing_rules)
         if state is not None:
             pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="captchaExpirationInMinutes")
+    def captcha_expiration_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
+        """
+        return pulumi.get(self, "captcha_expiration_in_minutes")
 
     @_builtins.property
     @pulumi.getter(name="customBlockResponseBody")

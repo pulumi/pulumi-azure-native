@@ -890,11 +890,12 @@ FluidRelay:
     additions:
         FluidRelayPrivateEndpointConnection: 2025-06-20-preview
 FrontDoor:
-    tracking: "2024-02-01"
+    tracking: "2025-11-01"
     additions:
         Experiment: "2019-11-01"
         FrontDoor: "2021-06-01"
         NetworkExperimentProfile: "2019-11-01"
+        Policy: "2025-10-01"
         RulesEngine: "2021-06-01"
 GraphServices:
     tracking: "2023-04-13"

@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.FrontDoor
     /// <summary>
     /// Defines web application firewall policy.
     /// 
-    /// Uses Azure REST API version 2024-02-01.
+    /// Uses Azure REST API version 2025-10-01.
     /// 
-    /// Other available API versions: 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2025-03-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2019-03-01, 2019-10-01, 2020-04-01, 2020-11-01, 2021-06-01, 2022-05-01, 2024-02-01, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:frontdoor:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
@@ -73,6 +73,9 @@ namespace Pulumi.AzureNative.FrontDoor
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
+        /// <summary>
+        /// Resource status of the policy.
+        /// </summary>
         [Output("resourceState")]
         public Output<string> ResourceState { get; private set; } = null!;
 
@@ -198,7 +201,7 @@ namespace Pulumi.AzureNative.FrontDoor
         public Input<Inputs.PolicySettingsArgs>? PolicySettings { get; set; }
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

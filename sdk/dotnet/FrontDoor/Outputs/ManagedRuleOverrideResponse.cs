@@ -32,6 +32,10 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
         /// Identifier for the managed rule.
         /// </summary>
         public readonly string RuleId;
+        /// <summary>
+        /// Describes the override sensitivity to be applied when rule matches.
+        /// </summary>
+        public readonly string? Sensitivity;
 
         [OutputConstructor]
         private ManagedRuleOverrideResponse(
@@ -41,12 +45,15 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
 
             ImmutableArray<Outputs.ManagedRuleExclusionResponse> exclusions,
 
-            string ruleId)
+            string ruleId,
+
+            string? sensitivity)
         {
             Action = action;
             EnabledState = enabledState;
             Exclusions = exclusions;
             RuleId = ruleId;
+            Sensitivity = sensitivity;
         }
     }
 }

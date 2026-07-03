@@ -6949,8 +6949,8 @@ FrontDoor:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/NetworkExperimentProfiles/{profileName}
         RpNamespace: Microsoft.Network
     Policy:
-        ApiVersion: "2024-02-01"
-        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/stable/2024-02-01/webapplicationfirewall.json
+        ApiVersion: "2025-10-01"
+        SpecFilePath: specification/frontdoor/resource-manager/Microsoft.Network/stable/2025-10-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/FrontDoorWebApplicationFirewallPolicies/{policyName}
         RpNamespace: Microsoft.Network
     RulesEngine:

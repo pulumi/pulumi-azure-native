@@ -140693,6 +140693,10 @@ export namespace frontdoor {
          * Identifier for the managed rule.
          */
         ruleId: string;
+        /**
+         * Describes the override sensitivity to be applied when rule matches.
+         */
+        sensitivity?: string;
     }
 
     /**
@@ -140765,6 +140769,10 @@ export namespace frontdoor {
      * Defines top-level WebApplicationFirewallPolicy configuration settings.
      */
     export interface PolicySettingsResponse {
+        /**
+         * Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
+         */
+        captchaExpirationInMinutes?: number;
         /**
          * If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
          */

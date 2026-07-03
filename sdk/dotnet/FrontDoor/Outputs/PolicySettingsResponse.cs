@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
     public sealed class PolicySettingsResponse
     {
         /// <summary>
+        /// Defines the Captcha cookie validity lifetime in minutes. This setting is only applicable to Premium_AzureFrontDoor. Value must be an integer between 5 and 1440 with the default value being 30.
+        /// </summary>
+        public readonly int? CaptchaExpirationInMinutes;
+        /// <summary>
         /// If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         /// </summary>
         public readonly string? CustomBlockResponseBody;
@@ -55,6 +59,8 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
 
         [OutputConstructor]
         private PolicySettingsResponse(
+            int? captchaExpirationInMinutes,
+
             string? customBlockResponseBody,
 
             int? customBlockResponseStatusCode,
@@ -73,6 +79,7 @@ namespace Pulumi.AzureNative.FrontDoor.Outputs
 
             string? state)
         {
+            CaptchaExpirationInMinutes = captchaExpirationInMinutes;
             CustomBlockResponseBody = customBlockResponseBody;
             CustomBlockResponseStatusCode = customBlockResponseStatusCode;
             EnabledState = enabledState;
